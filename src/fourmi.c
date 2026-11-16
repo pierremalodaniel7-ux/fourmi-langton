@@ -7,7 +7,7 @@
 //   hexa (axiales) 0=E(1,0) 1=SE(0,1) 2=SO(-1,1) 3=O(-1,0) 4=NO(0,-1) 5=NE(1,-1).
 // Situation = "REGLE|x,y,D;x,y,D|x,y;x,y,c"  (D = H D B G ou chiffre ; c = couleur, 1 par défaut).
 //
-// Usage : ./fourmi [-T pas] "RL|0,0,H;40,0,G|"      une situation
+// Usage : ./fourmi [-T pas] [-img f.pgm] "RL|0,0,H;40,0,G|"   une situation (+ image de la fin)
 //         ./fourmi [-T pas] -lot < situations.txt     une situation par ligne
 // Sortie (une ligne) : situation|ISSUE|SIGNATURE|t|détails
 //   ISSUE : CYCLE (exact : l'état complet revient à l'état de départ, preuve par réversibilité)
@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-#define MAXA 32
+#define MAXA 128
 #define PMAX 20000
 
 typedef struct { uint64_t *k; uint8_t *cur, *ini; uint64_t cap, n; } Grid;
@@ -50,6 +50,19 @@ static int n, ax[MAXA], ay[MAXA], ad[MAXA], x0[MAXA], y0_[MAXA], d0[MAXA];
 static uint8_t *hist[MAXA]; static long T = 1L << 21, histcap = 0;
 static long P[MAXA], deb[MAXA]; static int ddx[MAXA], ddy[MAXA];
 static long bx0, bx1, by0, by1;
+static const char *img = NULL;                     // -img fichier.pgm : image de la grille à la fin
+static void image(void){                           // gris clair = case visitée blanche, noir = couleur ≠ 0, gris = fourmi
+  long w = bx1 - bx0 + 3, h = by1 - by0 + 3, sc = 1; while (w / sc > 1000 || h / sc > 1000) sc++;
+  long W = w / sc + 1, H = h / sc + 1; uint8_t *px = malloc(W * H); memset(px, 255, W * H);
+  for (uint64_t i = 0; i < g.cap; i++) if (g.k[i]) {
+    long x = (long)(g.k[i] >> 32) - 0x40000000, y = (long)(uint32_t)g.k[i] - 0x40000000;
+    long X = (x - bx0 + 1) / sc, Y = (y - by0 + 1) / sc; if (X < 0 || Y < 0 || X >= W || Y >= H) continue;
+    uint8_t v = g.cur[i] ? (uint8_t)(80 - 80 * g.cur[i] / q) : 225; if (v < px[Y * W + X]) px[Y * W + X] = v; }
+  for (int i = 0; i < n; i++) { long X = (ax[i] - bx0 + 1) / sc, Y = (ay[i] - by0 + 1) / sc;
+    if (X >= 0 && Y >= 0 && X < W && Y < H) px[Y * W + X] = 140; }
+  FILE *f = fopen(img, "wb"); if (f) { fprintf(f, "P5\n%ld %ld\n255\n", W, H); fwrite(px, 1, W * H, f); fclose(f); }
+  free(px);
+}
 
 static int parse_rule(const char *r){
   q = 0;
@@ -83,14 +96,14 @@ static void detect(long t, int i){                  // cherche une autoroute con
 }
 
 static void run(char *line){
-  char buf[4096]; strncpy(buf, line, sizeof buf - 1); buf[sizeof buf - 1] = 0;
+  char buf[16384]; strncpy(buf, line, sizeof buf - 1); buf[sizeof buf - 1] = 0;
   char *nl = strpbrk(buf, "\r\n"); if (nl) *nl = 0;
   if (!buf[0] || buf[0] == '#') return;
   char *f1 = strchr(buf, '|'); if (!f1) { printf("%s|ERREUR|format|0|\n", buf); return; }
   *f1++ = 0; char *f2 = strchr(f1, '|'); if (f2) *f2++ = 0; else f2 = "";
   if (!parse_rule(buf)) { printf("%s|ERREUR|regle|0|\n", buf); return; }
   g_init(1 << 16); diff = 0; n = 0;
-  char tmp[4096]; strcpy(tmp, f1);
+  char tmp[16384]; strcpy(tmp, f1);
   for (char *s = strtok(tmp, ";"); s && n < MAXA; s = strtok(NULL, ";")) {
     while (*s == ' ') s++; if (!*s) continue;
     char *c1 = strchr(s, ','), *c2 = c1 ? strchr(c1 + 1, ',') : 0; if (!c2) continue;
@@ -131,6 +144,7 @@ static void run(char *line){
   }
   if (t > T) t = T;
   printf("%s|%s|%s|", buf, f1, f2);
+  if (img) image();
   if (cyc) { printf("CYCLE|C%ld|%ld|boite %ldx%ld\n", t, t, bx1 - bx0 + 1, by1 - by0 + 1); g_free(); return; }
   // groupes : même P, même déplacement, à moins de 64 cases
   int grp[MAXA], ng = 0, nc = 0; for (int i = 0; i < n; i++) grp[i] = -1;
@@ -159,10 +173,11 @@ int main(int argc, char **argv){
   int lot = 0; char *one = NULL;
   for (int i = 1; i < argc; i++) {
     if (!strcmp(argv[i], "-T") && i + 1 < argc) T = atol(argv[++i]);
+    else if (!strcmp(argv[i], "-img") && i + 1 < argc) img = argv[++i];
     else if (!strcmp(argv[i], "-lot")) lot = 1; else one = argv[i]; }
   setvbuf(stdout, NULL, _IOLBF, 0);
   if (one) run(one);
-  if (lot) { static char line[4096]; while (fgets(line, sizeof line, stdin)) run(line); }
+  if (lot) { static char line[16384]; while (fgets(line, sizeof line, stdin)) run(line); }
   if (!one && !lot) { fprintf(stderr, "usage : ./fourmi [-T pas] \"RL|0,0,H|\"  ou  ./fourmi -lot < fichier\n"); return 1; }
   return 0;
 }
