@@ -23,3 +23,15 @@ RL|A48(4,0)x4   # R-13
 RL|A96(2,0)x2   # R-13 (2c/96 connu ConwayLife)
 LLRL|A384(4,4)x1   # R-11
 LLLR|A52(2,2)x1    # R-10
+RL|C2904    # R-36 rosace 8 fourmis
+RL|C3316    # R-36
+RL|C5960    # R-36
+RL|C9048    # R-36
+RL|C9712    # R-36
+RL|C253760  # R-36 quadruple navette 8 fourmis
+RL|C1012    # R-36 (8 fourmis + 48 cases)
+RL|C12696   # R-36 (8 fourmis + 16 cases)
+RL|C15824   # R-36 (8 fourmis + 44 cases)
+RL|C33200   # R-36 (8 fourmis + 44 cases)
+RL|C36932   # R-36 (8 fourmis + 4 cases)
+RL|C110896  # R-36 (12 fourmis + 8 cases)

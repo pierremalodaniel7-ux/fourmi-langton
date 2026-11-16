@@ -7,7 +7,8 @@
 
 ## Vérifié par calcul exact
 Cycles à 2 fourmis (R-02, R-13, record 309 752), à 4 fourmis, composé (1 030 792) ; navettes R-19 / R-21
-(portée = 19 797 + 52m) ; nids R-26 ; Rouage 8 (R-29) ; cycles de groupe R-31 (Double Navette sans case).
+(portée = 19 797 + 52m) ; nids R-26 ; Rouage 8 (R-29) ; cycles de groupe R-31 (Double Navette sans case) ; 12 cycles symétriques
+à 8-12 fourmis, dont quadruple navette 253 760 (R-36).
 
 ## Observé (simulations finies)
 Losanges (R-06) ; autoroutes de groupe 12, 16, 24, 48, 52, 96, 102 ; passagers 100, 108, 12, 10, 388, 688,
@@ -16,7 +17,7 @@ Lambine (R-33) ; 95 directions d'autoroutes (R-35).
 
 ## Ouvert
 R-04 (≤ 2 états blancs par cycle) ; R-14/R-27 conjecture des phases (0 contre-exemple sur ≈ 2,7 M) ;
-RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? ; portée arbitraire des navettes.
+RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? ; 13 à 100 fourmis : aucun cycle ni autoroute nouvelle (R-36, 3 069 situations) ; portée arbitraire des navettes.
 
 ## À revérifier
 Rail 0,0,H ; 2,6,H ; 8,6,D (R-13 vs R-18) ; LLRRRL autoroute 896 (bord de grille ?).
