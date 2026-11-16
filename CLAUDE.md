@@ -18,6 +18,9 @@ Une simulation finie ne prouve jamais un comportement infini.
 - Journal : AJOUTER à la fin de `journal.md` (ID, énoncé, statut, commande, source). Ne pas réécrire.
 - `etat.md` : mettre à jour seulement les lignes qui changent.
 - Littérature : consulter `deja_connu.md` AVANT toute recherche web ; y ajouter ce qu'on a cherché.
+- Nouveauté (choix de Pierre-Malo, 16/11) : ne pas monter de campagne sur un thème déjà connu. Vérifier le thème
+  dans `deja_connu.md` (puis 1 ou 2 recherches courtes si absent) AVANT de lancer. Une trouvaille déjà connue :
+  l'expliquer brièvement pour comprendre, la noter avec sa source, et passer à autre chose.
 - Gros fichiers de résultats (CSV > 1 Mo) : dans `data/` (ignoré par git) ; ne garder que les résumés.
 - Commit court en français après chaque étape utile, puis push.
 
