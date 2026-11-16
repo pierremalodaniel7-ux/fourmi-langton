@@ -8,6 +8,21 @@ Quand il demande de faire quelque chose (explorer, chercher, construire…), pos
 courtes (AskUserQuestion) pour être sûr de ce qu'il veut : objectif, périmètre (règles, nb de fourmis, cases),
 durée / budget, forme du résultat. Puis reformuler en une ligne et lancer. Exception : mots-clés simples (point, vérifie).
 
+## Après CHAQUE recherche : 3 documents, tous dans le Drive (demande de Pierre-Malo, 16/11)
+Sans qu'il ait à le redemander, à la fin de toute recherche (explore, campagne…) :
+1. **Bestiaire** (PDF, une fiche par trouvaille vérifiée : image, situation, signature, statut, commande).
+   Ajouter les bêtes à `catalogue.json` (nouveau numéro de bestiaire) et générer avec `mkbestiaires.py`.
+2. **Germes** (`germes_<date>.json`, format {dossier, nom, regle, fourmis, points, note}).
+3. **Rapport de travail** : ce que j'ai fait, heures (début/fin de chaque tranche), nombre de situations,
+   répartition des issues, ce qui a raté, temps de calcul ; jamais de chiffre inventé (pas de compteur de tokens).
+Les déposer dans le Drive « Fourmi de Langton — recherche (Pierre-Malo) » :
+- Bestiaire PDF + catalogue.json → dossier Bestiaires (id 1IJ-gddNy7VFsgFypqqBNnTxM_H6U-Z46)
+- Germes → 02_Resultats (id 1ojVWJxKVWJHsud4Vfig3tmWD2OniqgtR)
+- Rapport → 05_Methode (id 1TdFVPN0VJi8-PtDTSbK87yE8YhjQkUpr), en Google Doc (markdown converti)
+- Ancienne version d'un fichier remplacé → 99_Archives (id 1KydgWyrPh3nC5_yFb-sL-dBU-bgYM5Ft) ; jamais de doublon.
+Aussi dans le dépôt : `resultats/` + journal.md + etat.md + connus.txt, puis commit et push. S'il n'y a aucune
+trouvaille, faire quand même le rapport (et le dire) ; bestiaire et germes vides ne sont pas déposés.
+
 ## Démarrage d'une session (dans cet ordre, rien de plus)
 1. Lire `etat.md` (une page). Ne lire `journal.md` que par recherche ciblée : `grep -n "R-14" journal.md`.
 2. `make -C src` puis `make -C src test` (oracle : 18 tests, quelques secondes) avant toute campagne.
