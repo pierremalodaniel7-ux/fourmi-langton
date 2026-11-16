@@ -19,5 +19,6 @@ SYNCHRONES et, dans Golly, les fourmis qui se rencontrent meurent. Chez nous : l
 | Conjecture des phases (R-14) | Pas trouvé | — | 15/11 |
 | Autoroute 102 à 2 fourmis, rail, suiveuse, tandem, passagers, navettes, relais, convertisseur, nids, catalogue de collisions | Pas trouvé | articles + ConwayLife partiel | 15-16/11 |
 | Catalogue des directions d'autoroutes | Pas trouvé (langtonsant.es inaccessible depuis Claude) | — | 16/11 |
+| Calcul de circuits booléens par la fourmi (P-difficile, universalité) | Déjà connu (principe) ; additionneur multi-fourmis à retenue par autoroute : pas trouvé | Gajardo, Moreira, Goles 2002 (Discrete Appl. Math. 117) | 16/11 |
 
 À lire un jour (bloquant pour dire « nouveau ») : fil ConwayLife « Langton's Ant Society » en entier ; langtonsant.es.

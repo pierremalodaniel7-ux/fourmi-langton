@@ -9,3 +9,5 @@ src/*
 !src/Makefile
 !src/README.md
 !src/oracle.txt
+recherche/ordinateur/libmoteur.so
+recherche/ordinateur/__pycache__/
