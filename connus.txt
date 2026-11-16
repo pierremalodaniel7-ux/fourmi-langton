@@ -1,0 +1,25 @@
+# Morceaux de comportement déjà vus ou publiés (clé = REGLE|morceau de signature de ./fourmi).
+# tri.py ne détaille pas ceux-ci. Ajouter une ligne quand un morceau est vérifié et rangé dans le journal.
+# Cycles (C<P>) : une ligne par période seulement si on veut les masquer ; sinon ils sortent tous.
+RL|A104(2,2)x1  # autoroute classique
+RL|A104(2,2)x2  # tandem (R-05)
+RL|A104(2,2)x3  # 3 fourmis sur la même autoroute
+RL|A102(3,5)x2  # autoroute à deux (R-07)
+RL|A100(2,2)x1  # passager rapide (R-18)
+RL|A108(2,2)x1  # suiveuse (R-13)
+RL|A12(2,2)x1   # rail (R-13, R-22)
+RL|A10(1,1)x1   # convertisseur à reculons (R-22)
+RL|A388(6,10)x1 # passager lent trace 102 (R-18)
+RL|A688(6,10)x1 # passager trace 102 (R-22)
+RL|A142(3,5)x1  # passager à reculons trace 102 (R-22)
+RL|A2620(12,20)x1 # passager trace 102 (R-32)
+RL|A20(2,0)x1   # passager sur la trace de la Flèche (R-32)
+RL|A16(4,0)x4   # la Flèche, vitesse 0,25 (R-13)
+RL|A12(2,0)x4   # carré 2×2, connu (Belgacem-Fatès 2012)
+RL|A52(2,0)x4   # R-13
+RL|A24(2,0)x4   # R-13
+RL|A16(2,0)x4   # R-13
+RL|A48(4,0)x4   # R-13
+RL|A96(2,0)x2   # R-13 (2c/96 connu ConwayLife)
+LLRL|A384(4,4)x1   # R-11
+LLLR|A52(2,2)x1    # R-10

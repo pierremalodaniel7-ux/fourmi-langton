@@ -8,3 +8,4 @@ src/*
 !src/*.py
 !src/Makefile
 !src/README.md
+!src/oracle.txt

@@ -1,0 +1,14 @@
+# situation => ISSUE|SIGNATURE attendue (vérifiés le 16/11 contre bestiaire2, cyc, run et le journal)
+RL|0,0,H| => AUTOROUTES|A104(2,2)x1
+RL|0,0,H;40,0,G| => CYCLE|C42716
+RL|0,0,H;-1,0,B| => CYCLE|C16
+RL|0,0,H;16,17,H| => CYCLE|C309752
+RL|0,0,H;-10,-9,D| => AUTOROUTES|A102(3,5)x2
+LLRL|0,0,H| => AUTOROUTES|A384(4,4)x1
+RL|0,0,H;-1,-2,H;1,-2,D;-1,1,D| => AUTOROUTES|A16(4,0)x4
+RL|-1,-1,D;1,2,G;2,-1,G;-2,2,D| => CYCLE|C57924
+RL|-1,-1,H;0,0,D|0,0 => CYCLE|C4
+RL|0,0,H;0,1,H| => INDECIS|N2
+H:L1L2NUL2L1R2|0,0,0| => INDECIS|N1
+LLLR|0,0,H| => AUTOROUTES|A52(2,2)x1
+RL|2,1,B;3,-5,H;5,2,B| => MIXTE|A104(2,2)x1+N2

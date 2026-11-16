@@ -3,6 +3,7 @@
 | Fichier | Rôle | Résultats |
 |---|---|---|
 | ant.h | moteur commun : fourmis RL, grille infinie (table de hachage) | — |
+| **fourmi.c** | **moteur unique pour les campagnes (voir CLAUDE.md)** ; oracle.txt = résultats attendus | tous |
 | bestiaire2.c | analyse d'une situation, toutes règles carrées / hexa (grille 4096², attention au bord) | bestiaire |
 | run.c, cyc.c, tr.c, gen.c | rejouer ; cycle exact ; suivre 2 fourmis ; fabriquer un germe | R-19 à R-25 |
 | tipmin.c | bout d'autoroute minimal | R-20 |
