@@ -1,0 +1,1163 @@
+Bestiaire — procédure d'ajout d'une espèce
+Page publiée : https://claude.ai/artifact/7tUCoMZ7zsS85PhDV6ZiaA (slug 37c68768-c208-4559-8129-6ae1c0027717). Les espèces sont dans le tableau JavaScript ESPECES de la page (un objet par espèce). Les théorèmes connus sont dans THEOREMES, les sources dans REFS.
+Classement (depuis le 14/11)
+* Groupe (groupe) : 1c = 1 fourmi carré, 1h = 1 fourmi hexagone, 2c = 2 fourmis carré RL (ajouter un groupe dans GROUPES si besoin, ex. 3c).
+* Règne : B bornés (cycle exact), V voyageurs (autoroute), C constructeurs (figure régulière qui grandit), S symétriques (règles en paires LL/RR, théorème de Truchet), X chaotiques (aucune autoroute connue depuis le blanc).
+* Origine : "lit" (déjà publié, mettre la clé de REFS dans ref) ou "pro" (trouvé ici).
+* Statut : PROUVÉ / OBSERVÉ / AFFIRMÉ / À REVÉRIFIER.
+* Avant de mettre "pro" : suivre la section « Avant de dire nouveau » ci-dessous, et remplir DEJA.
+* Rappel R-09 : deux fourmis RL de même classe de parité (x+y+[cap vertical] mod 2) ne font jamais de cycle.
+Avant de dire « nouveau » : où chercher (obligatoire, ajouté le 15/11)
+Pierre-Malo ne veut ni montrer, ni trouver, ni prouver ce qui existe déjà. Chercher dans TOUTES ces sources, avec LES DEUX vocabulaires :
+
+
+* Vocabulaire des chercheurs : highway, multiple ants, multi-turmite, generalised ant, cycle, periodic orbit, collaboration.
+* Vocabulaire des amateurs d'automates : spaceship, ship, glider, oscillator, puffer, agar, vitesses notées 2c/12, c/8…
+1. Articles : arXiv, Google Scholar, HAL. Références de base multi-fourmis : Chopard & Droz 1998 ; Beuret & Tomassini 1997 ; Chevrier & Fatès 2008 ; Fatès & Chevrier 2010 (AAMAS) ; Belgacem & Fatès 2012 (Complex Systems) ; Gajardo-Lutfalla-Rao 2025 et Lutfalla 2025 (une fourmi).
+2. Forum ConwayLife (conwaylife.com, miroir conwaylife.njohnston.ca) : fil « Langton's Ant Society », fil « 2c12 Spaceship in langtons ant », fil « Thread in a Different Geometry » (tores) ; LifeWiki (Rule:Langtons-Ant). Recherche : site:conwaylife.com + mots-clés.
+3. Motifs fournis avec Golly ; langtonsant.es (catalogue de 875 000 types d'autoroutes à 1 fourmi) ; lutfalla.fr/ant.
+4. Wikipédia (et sa page de discussion), MathWorld, blogs (healeycodes…), Hacker News, YouTube (vidéo « colony » de Langton 1991), GitHub.
+5. ATTENTION aux conventions : ConwayLife (règle Golly Langtons-Ant) et Fatès & Chevrier sont SYNCHRONES, et dans Golly les fourmis qui entrent dans la même case disparaissent. Notre modèle = une fourmi après l'autre. Identiques tant que deux fourmis ne partagent jamais une case (ex. vaisseaux), différents sinon (cycles avec croisements, collisions, « horloges » 16N−4 de Belgacem-Fatès : seulement N = 2 chez nous).
+6. Dans le bestiaire, champ DEJA : « Déjà connu » / « Probablement connu » / « Phénomène connu » (l'idée existe, pas cet exemple) / « Pas trouvé ailleurs ». « Pas trouvé » ne veut jamais dire « nouveau ».
+Procédure (à suivre par Claude à chaque nouvelle situation)
+1. Recréer bestiaire2.c (code ci-dessous) dans le dossier de travail, compiler : gcc -O2 -o bestiaire2 bestiaire2.c.
+2. Lancer : ./bestiaire2 RL 3000000 x1 y1 d1 x2 y2 d2 ... (caps : 0=H 1=D 2=B 3=G ; y vers le bas ; fourmi 1 joue d'abord). Règle à q couleurs : lettres L R N U (ex. LLRL). Hexagone : préfixe H: et jetons N R1 R2 U L2 L1 (ex. H:L2NNL1L2L1), caps 0=E 1=SE 2=SO 3=O 4=NO 5=NE. Pour un constructeur, relancer avec 2097152 pas pour mesurer la croissance.
+3. Lire le JSON et classer :
+   * "etat":"cycle" → règne B (PROUVÉ). Période = "pas". Symétrie = "symetries_visitees".
+   * "sortie" avec une période P > 0 tenue sur des milliers de pas et une boîte qui double quand t double → règne V (OBSERVÉ). Même période + même déplacement + fourmis proches (< 30 cases) → tandem ou autoroute à deux. Sinon autoroutes séparées. Pas clé = plus grand "debut".
+   * Boîte multipliée par √2 ≈ 1,41 quand t double, figure régulière → règne C. Pour un losange : mesurer 2t/cases_visitees (pas par case). ATTENTION : une période 2, 4 ou 10 détectée chez un constructeur, c'est la fourmi qui longe le bord, pas une autoroute.
+   * Règle en paires LL/RR (lue en boucle) → règne S. Croissance désordonnée sans autoroute → règne X.
+4. Vérifier si c'est une espèce déjà présente : même cycle (l'un des placements apparaît comme état blanc dans le cycle de l'autre, à rotation près — outil ants.c du journal R-02), ou mêmes période, déplacement et vitesse, ou règle miroir (L↔R). Si oui : variante dans « particularité », pas de doublon.
+5. Ajouter l'objet à ESPECES (code, nom, groupe, regne, famille, regle, fourmis, comportement, particularite, pasCle, origine, ref, statut, decouvreur, anim:{pas, vitesse}), republier la page sur le même slug, et ajouter une ligne au journal des résultats.
+6. Vérifier la page dans le code : extraire le bloc MOTEUR de la page et le lancer sous node (test.js) ; la simulation JS doit redonner la même période / le même début que le C.
+Code bestiaire2.c (remplace bestiaire.c, même sortie JSON)
+// bestiaire2.c — analyseur généralisé (grille carrée M=4 ou hexagonale M=6, q couleurs, plusieurs fourmis).
+// Carré : directions 0=H(0,-1) 1=D(1,0) 2=B(0,1) 3=G(-1,0), y vers le bas ; lettres R=+1 L=-1 N=0 U=2.
+// Hexa (préfixe "H:") : coordonnées axiales, directions 0=E(1,0) 1=SE(0,1) 2=SO(-1,1) 3=O(-1,0) 4=NO(0,-1) 5=NE(1,-1)
+//   (sens horaire à l'écran) ; jetons N R1 R2 U L2 L1 (= 0 +1 +2 3 -2 -1).
+// Fourmis mises à jour l'une après l'autre ; grille blanche (couleur 0) au départ.
+// Usage : ./bestiaire2 REGLE MAXPAS x1 y1 d1 [x2 y2 d2 ...]     ex. ./bestiaire2 RL 3000000 0 0 0
+//         ./bestiaire2 H:L2NNL1L2L1 3000000 0 0 0
+// Sortie : une ligne JSON (même format que bestiaire.c).
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define W 4096
+#define OFF 2048
+#define LIM 1900
+static unsigned char G[W*W], seen[W*W];
+static int touched[W*W/2]; static long nt;
+static int M=4, dx[6], dy[6];
+static const int sqx[4]={0,1,0,-1}, sqy[4]={-1,0,1,0};
+static const int hxx[6]={1,0,-1,-1,0,1}, hxy[6]={0,1,1,0,-1,-1};
+static int bx0,bx1,by0,by1;
+static int sym(int which,int mode){ // symétries du carré seulement
+  long cx=bx0+bx1, cy=by0+by1;
+  for(long i=0;i<nt;i++){ long k=touched[i]; int X=k%W-OFF, Y=k/W-OFF;
+    if(mode==0 && G[k]==0) continue;
+    long u=2*X-cx, v=2*Y-cy, a,b;
+    switch(which){case 0:a=-u;b=v;break; case 1:a=u;b=-v;break; case 2:a=v;b=u;break;
+      case 3:a=-v;b=-u;break; case 4:a=-u;b=-v;break; default:a=-v;b=u;}
+    if((a+cx)%2||(b+cy)%2) return 0;
+    long X2=(a+cx)/2, Y2=(b+cy)/2;
+    if(X2+OFF<0||Y2+OFF<0||X2+OFF>=W||Y2+OFF>=W) return 0;
+    long k2=(Y2+OFF)*W+(X2+OFF);
+    if(mode==0 ? G[k2]==0 : !seen[k2]) return 0; }
+  return 1;
+}
+int main(int argc,char**argv){
+  const char*rule=argv[1]; int q=0, turn[64];
+  if(!strncmp(rule,"H:",2)){ M=6; const char*p=rule+2;
+    while(*p){ if(*p=='N'){turn[q++]=0;p++;} else if(*p=='U'){turn[q++]=3;p++;}
+      else if(*p=='R'){turn[q++]=p[1]-'0';p+=2;} else if(*p=='L'){turn[q++]=6-(p[1]-'0');p+=2;} else {fprintf(stderr,"regle?\n");return 1;} }
+    memcpy(dx,hxx,sizeof hxx); memcpy(dy,hxy,sizeof hxy);
+  } else { q=strlen(rule); for(int i=0;i<q;i++) turn[i]=rule[i]=='R'?1:rule[i]=='L'?3:rule[i]=='U'?2:0;
+    memcpy(dx,sqx,sizeof sqx); memcpy(dy,sqy,sizeof sqy); }
+  long maxs=atol(argv[2]);
+  int n=(argc-3)/3, x[16],y[16],d[16],x0[16],y0[16],d0[16];
+  for(int i=0;i<n;i++){x0[i]=x[i]=atoi(argv[3+3*i]);y0[i]=y[i]=atoi(argv[4+3*i]);d0[i]=d[i]=atoi(argv[5+3*i]);}
+  unsigned char*hist[16]; for(int i=0;i<n;i++) hist[i]=malloc(maxs+1);
+  bx0=bx1=x[0]; by0=by1=y[0];
+  long nonwhite=0,t,boxlog[64]; int nb=0; long nxt=256; const char*etat="inconnu";
+  for(t=1;t<=maxs;t++){
+    for(int i=0;i<n;i++){
+      long k=(long)(y[i]+OFF)*W+(x[i]+OFF); int c=G[k];
+      if(!seen[k]){seen[k]=1;touched[nt++]=k;}
+      d[i]=(d[i]+turn[c])%M; int nc=(c+1==q)?0:c+1;
+      if(c==0) nonwhite++; if(nc==0) nonwhite--;
+      G[k]=nc; x[i]+=dx[d[i]]; y[i]+=dy[d[i]]; hist[i][t]=d[i];
+      if(x[i]<bx0)bx0=x[i]; if(x[i]>bx1)bx1=x[i]; if(y[i]<by0)by0=y[i]; if(y[i]>by1)by1=y[i];
+    }
+    if(t==nxt){boxlog[nb++]=(bx1-bx0>by1-by0?bx1-bx0:by1-by0)+1; nxt*=2;}
+    if(nonwhite==0){int ok=1;for(int i=0;i<n;i++) if(x[i]!=x0[i]||y[i]!=y0[i]||d[i]!=d0[i]) ok=0;
+      if(ok){etat="cycle";break;}}
+    if(bx1-bx0>2*LIM||by1-by0>2*LIM||bx0<-LIM||bx1>LIM||by0<-LIM||by1>LIM){etat="sortie";break;}
+  }
+  if(t>maxs) t=maxs;
+  printf("{\"etat\":\"%s\",\"pas\":%ld,\"cases_visitees\":%ld,\"cases_noires\":%ld,\"boite\":[%d,%d,%d,%d]",etat,t,nt,nonwhite,bx0,bx1,by0,by1);
+  printf(",\"taille_boite_2puiss\":["); for(int i=0;i<nb;i++) printf("%s%ld",i?",":"",boxlog[i]); printf("]");
+  const char*nom[6]={"miroir_vertical","miroir_horizontal","diagonale","antidiagonale","demi_tour","quart_de_tour"};
+  if(M==4){
+  printf(",\"symetries_noires\":["); int f=0; for(int s=0;s<6;s++) if(nonwhite&&sym(s,0)){printf("%s\"%s\"",f?",":"",nom[s]);f=1;} printf("]");
+  printf(",\"symetries_visitees\":["); f=0; for(int s=0;s<6;s++) if(sym(s,1)){printf("%s\"%s\"",f?",":"",nom[s]);f=1;} printf("]");}
+  printf(",\"fourmis\":[");
+  for(int i=0;i<n;i++){ long P=0;
+    if(strcmp(etat,"cycle")) for(long p=1;p<=20000&&4*p<t;p++){ long j; for(j=t;j>t-3*p;j--) if(hist[i][j]!=hist[i][j-p]) break; if(j==t-3*p){P=p;break;} }
+    long debut=-1; int ddx=0,ddy=0;
+    if(P){ long j=t; while(j-P>=1 && hist[i][j]==hist[i][j-P]) j--; debut=j-P+1>0?j-P+1:0;
+      for(long k=t-P+1;k<=t;k++){ddx+=dx[hist[i][k]];ddy+=dy[hist[i][k]];} }
+    printf("%s{\"periode\":%ld,\"deplacement\":[%d,%d],\"debut\":%ld,\"fin\":[%d,%d,%d]}",i?",":"",P,ddx,ddy,debut,x[i],y[i],d[i]);
+  }
+  printf("]}\n"); return 0;
+}
+
+Bestiaire des collisions — autoroute RL + 1 case noire
+Page : https://claude.ai/artifact/LuKuHjhorSKVvZj8UX17dm (slug a12bf584-eda5-40e3-a8b1-f5a5843c1dac). Résultat : journal R-13.
+Reproduire
+gcc -O2 -o auto2 auto2.c && ./auto2 3000000 > res.jsonl   (une ligne JSON par case, < 1 s) Champs : n, (dx,dy) case relative à la fourmi au début de la période, pas_impact, famille, debut_autoroute, duree_chaos, dir, retard (même ligne), decalage = Δ(x+y) (négatif = vers la droite), boite (zone du chaos), suivi (pas suivis après), cassure (-1 = jamais). La page embarque sa propre graine (état 5 périodes avant, cases noires avec u = -x+y ≥ -1200) et un moteur JS ; test node : 22/22 identiques au C.
+auto2.c
+// auto2.c — autoroute RL synthétique (trace longue) + 1 case noire sur l'une des 22 cases neuves.
+// Sortie : une ligne JSON par case. Directions 0=H 1=D 2=B 3=G, y vers le bas.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define W 8192
+#define OFF 4096
+#define P 104
+#define RUN (P*200)
+#define TRAIL 3000
+static unsigned char S[W*W], G[W*W], R0[W*W], V[W*W], B0[W*W];
+static const int dx[4]={0,1,0,-1}, dy[4]={-1,0,1,0};
+typedef struct {int x,y,d;} Ant;
+#define K(x,y) ((long)((y)+OFF)*W+((x)+OFF))
+static int step(unsigned char*g, Ant*a){ long k=K(a->x,a->y); int c=g[k];
+  a->d=(a->d+(c?3:1))&3; g[k]^=1; a->x+=dx[a->d]; a->y+=dy[a->d]; return c; }
+static int out(Ant*a){return a->x<-OFF+3||a->x>OFF-4||a->y<-OFF+3||a->y>OFF-4;}
+int main(int argc,char**argv){
+  long LONG=argc>1?atol(argv[1]):3000000;
+  // graine : bande u in [-300,4] de l'état T=40000, recentrée ; puis prolongée par périodicité
+  Ant a={0,0,0}; for(long t=0;t<40000;t++) step(G,&a);
+  for(int y=-400;y<=400;y++) for(int x=-400;x<=400;x++){ int X=a.x+x,Y=a.y+y; if(!G[K(X,Y)]) continue;
+    int u=-x+y; if(u>=-300&&u<=4) S[K(x,y)]=1; }
+  for(int y=-TRAIL-100;y<=100;y++) for(int x=-100;x<=TRAIL+100;x++){ int u=-x+y; if(u>=-200||u<-2*TRAIL) continue;
+    int k=(-200-u)/4+1; int X=x-2*k, Y=y+2*k; if(S[K(X,Y)]) S[K(x,y)]=1; }
+  Ant s0={0,0,a.d};
+  memset(G,0,sizeof G); memcpy(G,S,sizeof S); Ant b=s0; long bad=-1; static unsigned char cs[1<<20];
+  for(long t=0;t<200000;t++){cs[t&((1<<20)-1)]=step(G,&b); if(t>=P&&cs[t]!=cs[t-P]&&bad<0) bad=t;}
+  fprintf(stderr,"validation 200000 pas : %s\n",bad<0?"autoroute parfaite":"CASSEE");
+  memcpy(R0,S,sizeof S); Ant r=s0; for(int y=-TRAIL-100;y<=100;y++) for(int x=-100;x<=TRAIL+100;x++) if(S[K(x,y)]) V[K(x,y)]=1;
+  for(int i=0;i<20*P;i++){V[K(r.x,r.y)]=1; step(R0,&r);}
+  Ant w0=r; memcpy(B0,R0,sizeof R0);
+  int rx[P],ry[P],rc[P],cx[P],cy[P],ct[P],nc=0;
+  for(int i=0;i<P;i++){ long k=K(r.x,r.y); rx[i]=r.x; ry[i]=r.y; if(!V[k]){cx[nc]=r.x;cy[nc]=r.y;ct[nc]=i;nc++;} V[k]=1; rc[i]=step(R0,&r);}
+  fprintf(stderr,"%d cases neuves ; fourmi en debut de fenetre (%d,%d) cap %d\n",nc,w0.x,w0.y,w0.d);
+  for(int j=0;j<nc;j++){
+    memcpy(G,B0,sizeof G); Ant e=w0; G[K(cx[j],cy[j])]=1;
+    long t,run=0,hs=-1; int bx0,bx1,by0,by1;
+    for(t=0;t<20000000;t++){ cs[t&((1<<20)-1)]=step(G,&e); if(out(&e)) break;
+      if(t>=P&&cs[t&((1<<20)-1)]==cs[(t-P)&((1<<20)-1)]) run++; else run=0;
+      if(run>=RUN){hs=t-run-P+1; t++; break;} }
+    memcpy(G,B0,sizeof G); Ant f=w0; G[K(cx[j],cy[j])]=1; bx0=by0=1<<30; bx1=by1=-(1<<30);
+    for(long u=0;u<t;u++){ if(u>=ct[j]&&u<=hs){ if(f.x<bx0)bx0=f.x; if(f.x>bx1)bx1=f.x; if(f.y<by0)by0=f.y; if(f.y>by1)by1=f.y; } step(G,&f);}
+    Ant e2=e; static unsigned char T2[W*W]; memcpy(T2,G,sizeof G); int cc[P];
+    for(int i=0;i<P;i++) cc[i]=step(T2,&e2);
+    int Dx=e2.x-e.x, Dy=e2.y-e.y; long retard=0; int lat=0, phase=-1;
+    if(Dx==-2&&Dy==2) for(int dl=0;dl<P;dl++){int ok=1; for(int i=0;i<P;i++) if(cc[i]!=rc[(i+dl)%P]){ok=0;break;}
+      if(ok){phase=dl; int vx=e.x-rx[dl], vy=e.y-ry[dl]; lat=(vx+vy);
+        long n=(-vx+vy)/4; retard=t-(dl+n*P); break;}}
+    long tl, brk=-1;
+    for(tl=0;tl<LONG;tl++){ cs[(t+tl)&((1<<20)-1)]=step(G,&e); if(out(&e)) break;
+      if(cs[(t+tl)&((1<<20)-1)]!=cs[(t+tl-P)&((1<<20)-1)]){brk=t+tl;break;} }
+    const char*fam = hs<0?"non_tranche": (Dx==-2&&Dy==2)?(lat==0?"meme_ligne":"ligne_decalee"):
+                     (Dx==2&&Dy==2)?"virage_gauche":(Dx==-2&&Dy==-2)?"virage_droite":"demi_tour";
+    printf("{\"n\":%d,\"dx\":%d,\"dy\":%d,\"pas_impact\":%d,\"famille\":\"%s\",\"debut_autoroute\":%ld,\"duree_chaos\":%ld,"
+           "\"dir\":[%d,%d],\"retard\":%ld,\"decalage\":%d,\"boite\":[%d,%d],\"suivi\":%ld,\"cassure\":%ld}\n",
+      j+1,cx[j]-w0.x,cy[j]-w0.y,ct[j],fam,hs,hs-ct[j],Dx,Dy,(phase>=0&&lat==0)?retard:0,lat,bx1-bx0+1,by1-by0+1,tl,brk);
+    fflush(stdout);
+  }
+  return 0;
+}
+
+=================== explore.c ===================
+// explore.c — recherche massive de situations de départ (règle RL, fourmis l'une après l'autre).
+// Conventions du projet : caps 0=H(0,-1) 1=D(+1,0) 2=B(0,+1) 3=G(-1,0), y vers le bas ; case blanche -> droite.
+// Usage : ./explore FAMILLE ESSAIS GRAINE T [params...]
+//   A n R          : n fourmis au hasard dans [-R,R]², grille blanche
+//   B n k R        : n fourmis + k cases noires au hasard dans [-R,R]²
+//   F n forme a b  : n fourmis près d'une forme (0 segment H, 1 segment diag, 2 rectangle plein, 3 rectangle creux,
+//                    4 damier, 5 croix, 6 anneau diag) de dimensions a,b (a,b tirés dans [1,a]x[1,b])
+//   S m k ordre R  : m fourmis + k cases, recopiées par rotation (ordre 2 ou 4) autour d'un centre au hasard
+// Sortie : une ligne par essai :  FAM|SIGNATURE|fourmis|cases|infos
+// Cycle EXACT : la dynamique est réversible, donc un cycle repasse par l'état de départ ; on le détecte
+// exactement avec un compteur de cases différentes de la grille initiale (aucun hachage).
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#define W 2048
+#define OFF 1024
+#define RESC 950
+#define HW 16384
+#define NMAX 12
+static const int DX[4]={0,1,0,-1}, DY[4]={-1,0,1,0};
+static uint8_t G[W*W];           // bit0 couleur actuelle, bit1 couleur initiale, bit2 visitée
+static int touched[W*W]; static long nt;
+typedef struct { int x,y,d,alive; long t; uint8_t h[HW]; } Ant;
+static Ant A[NMAX]; static int n;
+static int X0[NMAX],Y0[NMAX],D0[NMAX];
+static int PX[1<<20],PY[1<<20],np;
+static uint64_t rs;
+static inline uint64_t rnd(void){ rs^=rs<<13; rs^=rs>>7; rs^=rs<<17; return rs; }
+static inline int ri(int a,int b){ return a+(int)(rnd()%(uint64_t)(b-a+1)); }
+static long ndiff; static int RX[NMAX],RY[NMAX],RD[NMAX];
+static void reset(void){ for(long i=0;i<nt;i++) G[touched[i]]=0; nt=0; ndiff=0; }
+static inline void touch(long k){ if(!(G[k]&4)){ G[k]|=4; touched[nt++]=k; } }
+static int addcell(int x,int y){ if(abs(x)>940||abs(y)>940) return 0; long k=(long)(y+OFF)*W+x+OFF; if(G[k]&1) return 1; touch(k); G[k]|=3; PX[np]=x; PY[np]=y; np++; return 1; }
+static int DUPOK=0; static int addant(int x,int y,int d){ if(!DUPOK) for(int i=0;i<n;i++) if(X0[i]==x&&Y0[i]==y) return 0; X0[n]=x;Y0[n]=y;D0[n]=d&3; n++; return 1; }
+static int period(Ant*a,int pmax,int rep,int*dx,int*dy){
+  long L=a->t<HW?a->t:HW;
+  for(int p=1;p<=pmax;p++){ if((long)p*(rep+1)>L) break; int ok=1;
+    for(long i=0;i<(long)p*rep;i++) if(a->h[(a->t-1-i)%HW]!=a->h[(a->t-1-i-p)%HW]){ok=0;break;}
+    if(ok){ int X=0,Y=0; for(int i=0;i<p;i++){int d=a->h[(a->t-1-i)%HW]; X+=DX[d]; Y+=DY[d];} *dx=X;*dy=Y; return p; } }
+  return 0; }
+static void canon(int*dx,int*dy){ for(int r=0;r<4;r++){ if((*dx>0&&*dy>=0)||(*dx==0&&*dy==0)) return; int t=*dx; *dx=-*dy; *dy=t; } }
+typedef struct { int p,dx,dy,x,y; long te; int g,id; } Esc;
+static Esc E[NMAX]; static int ne;
+static char sig[1024], info[512];
+static int cmpstr(const void*a,const void*b){ return strcmp(*(char**)a,*(char**)b); }
+static int ANALYZE; static void analyze(long P);
+static void run(long T){
+  for(int i=0;i<n;i++){ A[i].x=X0[i]; A[i].y=Y0[i]; A[i].d=D0[i]; A[i].alive=1; A[i].t=0; }
+  ne=0; int alive=n; long tcyc=0; int anyesc=0; long tfin=T; int mx2=0; int resnap=0; long tref=0;
+  for(int i=0;i<n;i++){RX[i]=X0[i];RY[i]=Y0[i];RD[i]=D0[i];}
+  for(long t=1;t<=T;t++){
+    for(int i=0;i<n;i++){ Ant*a=&A[i]; if(!a->alive) continue;
+      long k=(long)(a->y+OFF)*W+a->x+OFF; uint8_t c=G[k]; touch(k);
+      int col=c&1; a->d=(a->d+(col?3:1))&3;
+      if(((c>>1)&1)==col) ndiff++; else ndiff--;
+      G[k]^=1; a->x+=DX[a->d]; a->y+=DY[a->d]; a->h[a->t%HW]=a->d; a->t++;
+      if(abs(a->x)>RESC||abs(a->y)>RESC){ int ax=a->x,ay=a->y;
+        for(int j=0;j<n;j++){ Ant*b=&A[j]; if(!b->alive||abs(b->x-ax)+abs(b->y-ay)>120) continue;
+          int dx=0,dy=0,p=period(b,3000,4,&dx,&dy);
+          E[ne].p=p;E[ne].dx=dx;E[ne].dy=dy;E[ne].x=b->x;E[ne].y=b->y;E[ne].te=t;E[ne].g=-1;E[ne].id=j;ne++; b->alive=0; alive--; } anyesc=1; resnap=1; } }
+    if(resnap){ resnap=0; tref=t; for(long q=0;q<nt;q++){ long k=touched[q]; G[k]=(G[k]&~2)|((G[k]&1)<<1); } ndiff=0;
+      for(int i=0;i<n;i++){RX[i]=A[i].x;RY[i]=A[i].y;RD[i]=A[i].d;} }
+    if(ndiff==0 && alive>0 && t>tref){ int ok=1; for(int i=0;i<n;i++) if(A[i].alive&&(A[i].x!=RX[i]||A[i].y!=RY[i]||A[i].d!=RD[i])){ok=0;break;}
+      if(ok){ tcyc=t-tref; if(ANALYZE) analyze(tcyc); break; } }
+    if(alive==0){ tfin=t; break; }
+    if(t==T/2){ for(int i=0;i<n;i++) if(A[i].alive){ int m=abs(A[i].x)>abs(A[i].y)?abs(A[i].x):abs(A[i].y); if(m>mx2) mx2=m; } }
+  }
+  if(tcyc&&!anyesc){ sprintf(sig,"CYC%d P=%ld",n,tcyc); sprintf(info,"cases_touchees=%ld",nt); return; }
+  // groupes parmi les évadées
+  int ng=0; for(int i=0;i<ne;i++) if(E[i].g<0){ E[i].g=ng;
+      for(int j=i+1;j<ne;j++) if(E[j].g<0&&E[j].p&&E[i].p&&(long)E[j].dx*E[i].p==(long)E[i].dx*E[j].p&&(long)E[j].dy*E[i].p==(long)E[i].dy*E[j].p&&abs(E[j].x-E[i].x)+abs(E[j].y-E[i].y)<120) E[j].g=ng;
+      ng++; }
+  char *tok[64]; int nk=0; static char buf[64][48];
+  for(int g=0;g<ng;g++){ int k=0,p=0,dx=0,dy=0; for(int i=0;i<ne;i++) if(E[i].g==g){k++; if(!p){p=E[i].p;dx=E[i].dx;dy=E[i].dy;} else if(E[i].p){ long a=p,b=E[i].p; while(b){long t=a%b;a=b;b=t;} long l=(long)p/a*E[i].p; dx=(int)(dx*(l/p)); dy=(int)(dy*(l/p)); p=(int)l; } }
+    canon(&dx,&dy); sprintf(buf[nk],"%s%dp%d(%d,%d)",k>1?"G":"",k,p,dx,dy); tok[nk]=buf[nk]; nk++; }
+  int mx=0;
+  if(tcyc){ sprintf(buf[nk],"NID%d:P=%ld",n-ne,tcyc); tok[nk]=buf[nk]; nk++; }
+  else for(int i=0;i<n;i++) if(A[i].alive){ int dx=0,dy=0,p=period(&A[i],3000,4,&dx,&dy);
+      int m=abs(A[i].x)>abs(A[i].y)?abs(A[i].x):abs(A[i].y); if(m>mx) mx=m;
+      if(p&&(dx||dy)){ canon(&dx,&dy); sprintf(buf[nk],"s:h%d(%d,%d)",p,dx,dy); }
+      else if(p) sprintf(buf[nk],"s:loc%d",p);
+      else sprintf(buf[nk],"s:?");
+      tok[nk]=buf[nk]; nk++; }
+  qsort(tok,nk,sizeof(char*),cmpstr); sig[0]=0; for(int i=0;i<nk;i++){ strcat(sig,tok[i]); strcat(sig," "); }
+  if(n-ne>0&&!tcyc){ strcat(sig, mx<=mx2+3? "[borne]":"[grandit]"); }
+  sprintf(info,"tfin=%ld tref=%ld r=%d/%d esc=",tfin,tref,mx2,mx); for(int i=0;i<ne;i++){ char s[32]; sprintf(s,"%ld,",E[i].te); strcat(info,s);} strcat(info," ids="); for(int i=0;i<ne;i++){ char s[16]; sprintf(s,"%d,",E[i].id+1); strcat(info,s);} }
+
+static int ANALYZE=0;
+static void stepall(void){ for(int i=0;i<n;i++){ Ant*a=&A[i]; if(!a->alive) continue; long k=(long)(a->y+OFF)*W+a->x+OFF; touch(k);
+    int col=G[k]&1; a->d=(a->d+(col?3:1))&3; G[k]^=1; a->x+=DX[a->d]; a->y+=DY[a->d]; } }
+static void analyze(long P){ // état courant = début du cycle. Passe 1 : marque (bit3) les cases touchées pendant le cycle.
+  for(long t=0;t<P;t++){ for(int i=0;i<n;i++){ Ant*a=&A[i]; if(!a->alive) continue; long k=(long)(a->y+OFF)*W+a->x+OFF; touch(k); G[k]|=8; } stepall(); }
+  long nb=0,nm=0; for(long q=0;q<nt;q++){ long k=touched[q]; if(G[k]&8){ nm++; if(G[k]&1) nb++; } }
+  long mn=nb,tm=0,mxb=nb,gmn=nb; int okd=1; { for(int i=0;i<n&&okd;i++) for(int j=i+1;j<n;j++) if(A[i].alive&&A[j].alive&&A[i].x==A[j].x&&A[i].y==A[j].y){okd=0;break;} } int bx[NMAX],by[NMAX],bd[NMAX]; for(int i=0;i<n;i++){bx[i]=A[i].x;by[i]=A[i].y;bd[i]=A[i].d;}
+  for(long t=1;t<=P;t++){ for(int i=0;i<n;i++){ Ant*a=&A[i]; if(!a->alive) continue; long k=(long)(a->y+OFF)*W+a->x+OFF;
+      int col=G[k]&1; a->d=(a->d+(col?3:1))&3; if(G[k]&8){ if(col) nb--; else nb++; } G[k]^=1; a->x+=DX[a->d]; a->y+=DY[a->d]; }
+    int dist=1; for(int i=0;i<n&&dist;i++) for(int j=i+1;j<n;j++) if(A[i].alive&&A[j].alive&&A[i].x==A[j].x&&A[i].y==A[j].y){dist=0;break;}
+    if(nb<gmn) gmn=nb;
+    if(dist&&(nb<mn||!okd)){ okd=1; mn=nb; tm=t; for(int i=0;i<n;i++){bx[i]=A[i].x;by[i]=A[i].y;bd[i]=A[i].d;} } if(nb>mxb) mxb=nb; }
+  int mnx=1<<30,mny=1<<30,Mx=-(1<<30),My=-(1<<30); for(long q=0;q<nt;q++){ long k=touched[q]; if(G[k]&8){ int x=k%W-OFF,y=k/W-OFF; if(x<mnx)mnx=x; if(y<mny)mny=y; if(x>Mx)Mx=x; if(y>My)My=y; } }
+  // composantes connexes (8-voisinage) des cases du cycle, et fourmis par composante
+  static int stk[W*W/2]; int ncomp=0; char comps[256]=""; 
+  for(long q=0;q<nt;q++){ long k0=touched[q]; if(!(G[k0]&8)||(G[k0]&16)) continue; ncomp++; int sp=0; stk[sp++]=k0; G[k0]|=16; long sz=0; int na=0;
+    while(sp){ long k=stk[--sp]; sz++; for(int i=0;i<n;i++) if(A[i].alive&&(long)(A[i].y+OFF)*W+A[i].x+OFF==k) na++;
+      for(int a=-1;a<=1;a++) for(int b=-1;b<=1;b++){ long k2=k+a+(long)b*W; if((G[k2]&8)&&!(G[k2]&16)){ G[k2]|=16; stk[sp++]=k2; } } }
+    if(strlen(comps)<200){ char t[32]; sprintf(t,"%ldc/%df,",sz,na); strcat(comps,t);} }
+  printf("ANALYSE composantes=%d [%s] ",ncomp,comps);
+  printf("P=%ld cases_du_cycle=%ld boite=%dx%d noires_min=%ld noires_max=%ld instant_min=%ld fourmis_a_cet_instant=",P,nm,Mx-mnx+1,My-mny+1,gmn,mxb,tm);
+  for(int i=0;i<n;i++) if(A[i].alive) printf("%d,%d,%c ; ",bx[i],by[i],"HDBG"[bd[i]]);
+  if(1){ printf(" noires_a_cet_instant="); // rejouer jusqu'à tm pour lister
+    for(long t=0;t<tm;t++) stepall(); for(long q=0;q<nt;q++){ long k=touched[q]; if((G[k]&8)&&(G[k]&1)) printf("%ld,%ld;",k%W-OFF,k/W-OFF); } }
+  printf("\n"); }
+static const char CAP[]="HDBG";
+static void out(const char*fam){ printf("%s|%s|",fam,sig); for(int i=0;i<n;i++) printf("%s%d,%d,%c",i?" ; ":"",X0[i],Y0[i],CAP[D0[i]]);
+  printf("|"); for(int i=0;i<np;i++) printf("%s%d,%d",i?" ; ":"",PX[i],PY[i]); printf("|%s\n",info); }
+// formes
+static void shape(int s,int a,int b,int ox,int oy){
+  switch(s){
+  case 0: for(int i=0;i<a;i++) addcell(ox+i,oy); break;
+  case 1: for(int i=0;i<a;i++) addcell(ox+i,oy+i); break;
+  case 2: for(int i=0;i<a;i++) for(int j=0;j<b;j++) addcell(ox+i,oy+j); break;
+  case 3: for(int i=0;i<a;i++) for(int j=0;j<b;j++) if(i==0||j==0||i==a-1||j==b-1) addcell(ox+i,oy+j); break;
+  case 4: for(int i=0;i<a;i++) for(int j=0;j<b;j++) if((i+j)%2==0) addcell(ox+i,oy+j); break;
+  case 5: for(int i=-a;i<=a;i++) addcell(ox+i,oy); for(int j=-b;j<=b;j++) if(j) addcell(ox,oy+j); break;
+  case 6: for(int i=0;i<=a;i++){ addcell(ox+i,oy-a+i); addcell(ox+a-i,oy+i); addcell(ox-i,oy+a-i); addcell(ox-a+i,oy-i);} break; } }
+int main(int c,char**v){
+  char fam=v[1][0]; long E_=atol(v[2]); rs=atol(v[3])*0x9E3779B97F4A7C15ULL+12345; long T=atol(v[4]);
+  for(int i=0;i<20;i++) rnd();
+  char tag[64];
+  for(long e=0;e<E_;e++){ reset(); n=0; np=0; int ok=1;
+    if(fam=='A'){ int nn=atoi(v[5]),R=atoi(v[6]); while(n<nn) addant(ri(-R,R),ri(-R,R),ri(0,3)); sprintf(tag,"A%d.%d",nn,R); }
+    else if(fam=='B'){ int nn=atoi(v[5]),k=atoi(v[6]),R=atoi(v[7]); int kk=ri(1,k); while(n<nn) addant(ri(-R,R),ri(-R,R),ri(0,3));
+      for(int j=0;j<kk;j++) addcell(ri(-R,R),ri(-R,R)); sprintf(tag,"B%d.%d.%d",nn,k,R); }
+    else if(fam=='F'){ int nn=atoi(v[5]),s=atoi(v[6]); if(s<0) s=ri(0,6); int a=ri(1,atoi(v[7])),b=ri(1,atoi(v[8]));
+      shape(s,a,b,0,0); int bx=(s==5||s==6)?a+3:a+3, by=(s==5||s==6)?b+3:b+3;
+      while(n<nn) addant(ri(-3-(s>=5?a:0),bx),ri(-3-(s>=5?b:0),by),ri(0,3)); sprintf(tag,"F%d.s%d.%dx%d",nn,s,a,b); }
+    else if(fam=='S'){ int m=atoi(v[5]),k=atoi(v[6]),ord=atoi(v[7]),R=atoi(v[8]);
+      int cx2=ri(0,1),cy2=ri(0,1); if(ord==4) cy2=cx2; // centre (en demi-cases) : case, sommet, (milieu d'arête si ordre 2)
+      int bx[8],by[8],bd[8],cxs[64],cys[64]; int kk=ri(0,k);
+      for(int i=0;i<m;i++){bx[i]=ri(-R,R);by[i]=ri(-R,R);bd[i]=ri(0,3);} for(int j=0;j<kk;j++){cxs[j]=ri(-R,R);cys[j]=ri(-R,R);}
+      for(int r=0;r<ord&&ok;r++){ int st=ord==2?2*r:r; // nombre de quarts de tour
+        for(int i=0;i<m&&ok;i++){ int u=2*bx[i]-cx2,w=2*by[i]-cy2; for(int q=0;q<st;q++){int t=u;u=-w;w=t;} if(!addant((u+cx2)/2,(w+cy2)/2,bd[i]+st)) ok=0; }
+        for(int j=0;j<kk;j++){ int u=2*cxs[j]-cx2,w=2*cys[j]-cy2; for(int q=0;q<st;q++){int t=u;u=-w;w=t;} addcell((u+cx2)/2,(w+cy2)/2); } }
+      sprintf(tag,"S%d.%d.o%d.c%d%d",m,k,ord,cx2,cy2); }
+    else if(fam=='X'||fam=='Y'){ ANALYZE=(fam=='Y'); DUPOK=1; char*p=strdup(v[5]),*tk; for(tk=strtok(p,";");tk;tk=strtok(NULL,";")){int x,y; char d[4]; if(sscanf(tk," %d,%d,%1s",&x,&y,d)==3) addant(x,y,d[0]=='H'?0:d[0]=='D'?1:d[0]=='B'?2:3);}
+      if(c>6){ p=strdup(v[6]); for(tk=strtok(p,";");tk;tk=strtok(NULL,";")){int x,y; if(sscanf(tk," %d,%d",&x,&y)==2) addcell(x,y);} } sprintf(tag,"X"); }
+    if(!ok||n==0) continue;
+    run(T); out(tag); }
+  return 0; }
+
+=================== full.c ===================
+// full.c — système COMPLET (aucune fourmi retirée), grille infinie par table de hachage, positions entières.
+// ./full T DT "fourmis" "cases" [NIDS]
+//   Affiche tous les DT pas : position, période et déplacement de chaque fourmi (historique des caps).
+//   NIDS = liste "i,j,...:T1:P" : vérifie que les fourmis i,j,... (1-based) ET les cases de leur zone
+//   sont dans le même état aux instants T1 et T1+P et T1+2P (comparaison exacte case par case dans la boîte de la zone).
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+static const int DX[4]={0,1,0,-1}, DY[4]={-1,0,1,0};
+typedef struct { uint64_t *k; uint8_t *v; uint64_t cap,n; } Grid;
+static inline uint64_t KEY(int x,int y){ return ((uint64_t)(uint32_t)(x+0x40000000)<<32)|(uint32_t)(y+0x40000000); }
+static inline uint64_t H64(uint64_t a){ a^=a>>33; a*=0xff51afd7ed558ccdULL; a^=a>>33; a*=0xc4ceb9fe1a85ec53ULL; a^=a>>33; return a; }
+static void g_init(Grid*g,uint64_t c){ g->cap=c; g->n=0; g->k=calloc(c,8); g->v=calloc(c,1); }
+static uint8_t* g_slot(Grid*g,uint64_t key);
+static void g_grow(Grid*g){ Grid h; g_init(&h,g->cap*2); for(uint64_t i=0;i<g->cap;i++) if(g->k[i]) *g_slot(&h,g->k[i])=g->v[i]; free(g->k); free(g->v); *g=h; }
+static uint8_t* g_slot(Grid*g,uint64_t key){ if(g->n*2>g->cap) g_grow(g); uint64_t m=g->cap-1,i=H64(key)&m;
+  while(g->k[i]&&g->k[i]!=key) i=(i+1)&m; if(!g->k[i]){g->k[i]=key; g->n++; g->v[i]=0;} return &g->v[i]; }
+static inline int g_get(Grid*g,int x,int y){ uint64_t key=KEY(x,y),m=g->cap-1,i=H64(key)&m; while(g->k[i]){ if(g->k[i]==key) return g->v[i]&1; i=(i+1)&m; } return 0; }
+#define HW 16384
+typedef struct { int x,y,d; long t; uint8_t h[HW]; } Ant;
+static Ant A[16]; static int n;
+static int per(Ant*a,int*dx,int*dy){ long L=a->t<HW?a->t:HW; for(int p=1;p<=3000;p++){ if((long)p*5>L) break; int ok=1;
+    for(long i=0;i<(long)p*4;i++) if(a->h[(a->t-1-i)%HW]!=a->h[(a->t-1-i-p)%HW]){ok=0;break;}
+    if(ok){ int X=0,Y=0; for(int i=0;i<p;i++){int d=a->h[(a->t-1-i)%HW]; X+=DX[d];Y+=DY[d];} *dx=X;*dy=Y; return p; } } return 0; }
+int main(int c,char**v){ long T=atol(v[1]),DT=atol(v[2]); Grid g; g_init(&g,1<<20);
+  char*s=strdup(v[3]),*tk; for(tk=strtok(s,";");tk;tk=strtok(NULL,";")){ int x,y; char d[4]; if(sscanf(tk," %d,%d,%1s",&x,&y,d)==3){ memset(&A[n],0,sizeof(Ant)); A[n].x=x;A[n].y=y;A[n].d=d[0]=='H'?0:d[0]=='D'?1:d[0]=='B'?2:3; n++; } }
+  if(c>4){ s=strdup(v[4]); for(tk=strtok(s,";");tk;tk=strtok(NULL,";")){int x,y; if(sscanf(tk," %d,%d",&x,&y)==2) *g_slot(&g,KEY(x,y))=1;} }
+  int nid[16],nn=0; long T1=-1,P=0; if(c>5){ char*q=strdup(v[5]); char*a=strtok(q,":"); char*b=strtok(NULL,":"); char*cc=strtok(NULL,":"); T1=atol(b); P=atol(cc);
+    for(char*z=strtok(a,",");z;z=strtok(NULL,",")) nid[nn++]=atoi(z)-1; }
+  // zone du nid : boîte des positions des fourmis du nid pendant [T1, T1+P)
+  int bx0=1<<30,bx1=-(1<<30),by0=1<<30,by1=-(1<<30); int S1x[16],S1y[16],S1d[16]; uint8_t*snap=NULL; long W=0,H=0;
+  for(long t=1;t<=T;t++){
+    for(int i=0;i<n;i++){ Ant*a=&A[i]; uint8_t*sl=g_slot(&g,KEY(a->x,a->y)); int col=*sl&1; a->d=(a->d+(col?3:1))&3; *sl^=1; a->x+=DX[a->d]; a->y+=DY[a->d]; a->h[a->t%HW]=a->d; a->t++; }
+    if(nn&&t>=T1&&t<T1+P) for(int k=0;k<nn;k++){ Ant*a=&A[nid[k]]; if(a->x<bx0)bx0=a->x; if(a->x>bx1)bx1=a->x; if(a->y<by0)by0=a->y; if(a->y>by1)by1=a->y; }
+    if(nn&&(t==T1+P||t==T1+2*P||t==T1+3*P)){
+      if(t==T1+P){ W=bx1-bx0+3; H=by1-by0+3; snap=malloc(W*H); for(long y=0;y<H;y++) for(long x=0;x<W;x++) snap[y*W+x]=g_get(&g,bx0-1+x,by0-1+y);
+        for(int k=0;k<nn;k++){S1x[k]=A[nid[k]].x;S1y[k]=A[nid[k]].y;S1d[k]=A[nid[k]].d;} printf("nid : boite %ldx%ld relevee a T1+P=%ld\n",W,H,t); }
+      else { long diff=0; for(long y=0;y<H;y++) for(long x=0;x<W;x++) if(snap[y*W+x]!=g_get(&g,bx0-1+x,by0-1+y)) diff++;
+        int same=1; for(int k=0;k<nn;k++) if(S1x[k]!=A[nid[k]].x||S1y[k]!=A[nid[k]].y||S1d[k]!=A[nid[k]].d) same=0;
+        printf("nid a t=%ld : fourmis %s, cases differentes dans la boite : %ld -> %s\n",t,same?"identiques":"DIFFERENTES",diff,(same&&!diff)?"OK":"ECHEC"); } }
+    if(DT&&t%DT==0){ printf("t=%ld",t); for(int i=0;i<n;i++){ int dx=0,dy=0,p=per(&A[i],&dx,&dy); printf(" | %d:(%d,%d) p%d(%d,%d)",i+1,A[i].x,A[i].y,p,dx,dy);} printf("\n"); } }
+  return 0; }
+
+=================== onset.c ===================
+// onset.c — début exact (au sens de bestiaire2) de l'autoroute de chaque fourmi : ./onset T "fourmis" "cases"
+// Joue T pas (système complet, table de hachage), puis pour chaque fourmi : plus petite période p<=3000 répétée 3 fois à la fin,
+// et premier pas à partir duquel la suite des caps est p-périodique jusqu'à T.
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+static const int DX[4]={0,1,0,-1}, DY[4]={-1,0,1,0};
+typedef struct { uint64_t *k; uint8_t *v; uint64_t cap,n; } Grid;
+static inline uint64_t KEY(int x,int y){ return ((uint64_t)(uint32_t)(x+0x40000000)<<32)|(uint32_t)(y+0x40000000); }
+static inline uint64_t H64(uint64_t a){ a^=a>>33; a*=0xff51afd7ed558ccdULL; a^=a>>33; a*=0xc4ceb9fe1a85ec53ULL; a^=a>>33; return a; }
+static void g_init(Grid*g,uint64_t c){ g->cap=c; g->n=0; g->k=calloc(c,8); g->v=calloc(c,1); }
+static uint8_t* g_slot(Grid*g,uint64_t key);
+static void g_grow(Grid*g){ Grid h; g_init(&h,g->cap*2); for(uint64_t i=0;i<g->cap;i++) if(g->k[i]) *g_slot(&h,g->k[i])=g->v[i]; free(g->k); free(g->v); *g=h; }
+static uint8_t* g_slot(Grid*g,uint64_t key){ if(g->n*2>g->cap) g_grow(g); uint64_t m=g->cap-1,i=H64(key)&m;
+  while(g->k[i]&&g->k[i]!=key) i=(i+1)&m; if(!g->k[i]){g->k[i]=key; g->n++; g->v[i]=0;} return &g->v[i]; }
+int main(int c,char**v){ long T=atol(v[1]); int n=0,X[16],Y[16],D[16]; Grid g; g_init(&g,1<<20);
+  char*s=strdup(v[2]),*tk; for(tk=strtok(s,";");tk;tk=strtok(NULL,";")){ char d[4]; if(sscanf(tk," %d,%d,%1s",&X[n],&Y[n],d)==3){ D[n]=d[0]=='H'?0:d[0]=='D'?1:d[0]=='B'?2:3; n++; } }
+  if(c>3){ s=strdup(v[3]); for(tk=strtok(s,";");tk;tk=strtok(NULL,";")){int x,y; if(sscanf(tk," %d,%d",&x,&y)==2) *g_slot(&g,KEY(x,y))=1;} }
+  uint8_t*h[16]; for(int i=0;i<n;i++) h[i]=malloc(T+1);
+  for(long t=1;t<=T;t++) for(int i=0;i<n;i++){ uint8_t*sl=g_slot(&g,KEY(X[i],Y[i])); int col=*sl&1; D[i]=(D[i]+(col?3:1))&3; *sl^=1; X[i]+=DX[D[i]]; Y[i]+=DY[D[i]]; h[i][t]=D[i]; }
+  for(int i=0;i<n;i++){ long P=0; for(long p=1;p<=3000&&4*p<T;p++){ long j; for(j=T;j>T-3*p;j--) if(h[i][j]!=h[i][j-p]) break; if(j==T-3*p){P=p;break;} }
+    long deb=-1; int dx=0,dy=0; if(P){ long j=T; while(j-P>=1&&h[i][j]==h[i][j-P]) j--; deb=j-P+1>0?j-P+1:0; for(long k=T-P+1;k<=T;k++){dx+=DX[h[i][k]];dy+=DY[h[i][k]];} }
+    printf("fourmi %d : periode %ld deplacement (%d,%d) debut %ld fin (%d,%d)\n",i+1,P,dx,dy,deb,X[i],Y[i]); }
+  printf("cases noires %ld (cases touchees %ld)\n",0L,(long)g.n); }
+
+=================== lam.c ===================
+// lam.c — « la Lambine » : 1 fourmi RL en 0,0,H + k cases noires dans [-R,R]², recherche locale qui MAXIMISE
+// le temps avant l'autoroute (mesuré par le temps de sortie du disque de rayon 950, moins 49 400 ≈ trajet sur l'autoroute).
+// ./lam K R ITER GRAINE
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#define W 2048
+#define OFF 1024
+static uint8_t G[W*W]; static int tl[1<<22]; static long nt;
+static const int DX[4]={0,1,0,-1}, DY[4]={-1,0,1,0};
+static uint64_t rs; static inline uint64_t rnd(void){ rs^=rs<<13; rs^=rs>>7; rs^=rs<<17; return rs; }
+static long ev(int k,int*cx,int*cy){ for(long i=0;i<nt;i++) G[tl[i]]=0; nt=0;
+  for(int i=0;i<k;i++){ long q=(long)(cy[i]+OFF)*W+cx[i]+OFF; if(!G[q]){tl[nt++]=q;} G[q]=1|2; }
+  int x=0,y=0,d=0; for(long t=1;t<=3000000;t++){ long q=(long)(y+OFF)*W+x+OFF; if(!(G[q]&2)){G[q]|=2; tl[nt++]=q;}
+    int c=G[q]&1; d=(d+(c?3:1))&3; G[q]^=1; x+=DX[d]; y+=DY[d]; if(abs(x)>950||abs(y)>950) return t; }
+  return 3000000; }
+int main(int c,char**v){ int K=atoi(v[1]),R=atoi(v[2]); long IT=atol(v[3]); rs=atol(v[4])*0x9E3779B97F4A7C15ULL+7;
+  int cx[64],cy[64],bx[64],by[64]; long best=0;
+  if(IT==0){ long N=0; int S=2*R+1; long M=1; for(int i=0;i<K;i++) M*=S*S;
+    for(long code=0;code<M;code++){ long c2=code; int ok=1; for(int i=0;i<K;i++){ int q=c2%(S*S); c2/=S*S; cx[i]=q%S-R; cy[i]=q/S-R; if(cx[i]==0&&cy[i]==0) ok=0; if(i&&(long)(cy[i]*S+cx[i])<=(long)(cy[i-1]*S+cx[i-1])) ok=0; }
+      if(!ok) continue; N++; long t=ev(K,cx,cy); if(t>best){best=t; memcpy(bx,cx,sizeof cx); memcpy(by,cy,sizeof cy);} }
+    printf("EXHAUSTIF %ld essais ; ",N); IT=-1; }
+  if(IT<0) goto fin;
+  for(int i=0;i<K;i++){cx[i]=(int)(rnd()%(2*R+1))-R; cy[i]=(int)(rnd()%(2*R+1))-R;} long cur=ev(K,cx,cy);
+  for(long it=0;it<IT;it++){ int j=rnd()%K, ox=cx[j],oy=cy[j];
+    if(rnd()%2){cx[j]=(int)(rnd()%(2*R+1))-R; cy[j]=(int)(rnd()%(2*R+1))-R;} else {cx[j]+=(int)(rnd()%3)-1; cy[j]+=(int)(rnd()%3)-1; if(abs(cx[j])>R||abs(cy[j])>R){cx[j]=ox;cy[j]=oy;}}
+    if(cx[j]==0&&cy[j]==0){cx[j]=ox;cy[j]=oy;}
+    long t=ev(K,cx,cy); if(t>=cur){ cur=t; if(t>best){best=t; memcpy(bx,cx,sizeof cx); memcpy(by,cy,sizeof cy);} } else {cx[j]=ox;cy[j]=oy;} }
+  fin: printf("K=%d R=%d sortie=%ld (debut autoroute ~%ld) cases ",K,R,best,best-49400); for(int i=0;i<K;i++) printf("%s%d,%d",i?" ; ":"",bx[i],by[i]); printf("\n"); }
+
+=================== ana.py ===================
+# ana.py — tri des sorties d'explore : classes de signatures, rares et « hors liste connue ».
+# Usage : python3 ana.py runs/*.txt
+import sys, re, collections
+CONNU = {'1p104(2,2)', 'G2p104(2,2)', 'G3p104(2,2)', 'G4p104(2,2)', 'G2p102(3,5)', '1p108(2,2)', '1p100(2,2)', '1p388(6,10)',
+         'G4p12(2,0)', 'G4p52(2,0)', 'G4p24(2,0)', 'G2p96(2,0)', 'G4p16(4,0)', 'G4p48(4,0)'}
+ARTEFACT = re.compile(r'^(G?\d+)?p(0|2|10|12)\((0,0|1,1|2,2)\)$')   # bords de losange / sorties non périodiques
+def toks(sig): return [t for t in sig.split() if t and not t.startswith('[')]
+stats = collections.Counter(); ex = {}
+for fn in sys.argv[1:]:
+    for L in open(fn):
+        p = L.rstrip('\n').split('|')
+        if len(p) < 5: continue
+        fam, sig, f, c, info = p
+        s2 = re.sub(r'P=\d+', 'P=*', sig)
+        if sig.startswith('CYC'):
+            k=sig.split()[0]; stats[k]+=1
+            if k not in ex: ex[k]=(fam,sig,f,c,info)
+            continue
+        for t in toks(sig):
+            if t.startswith('s:'): continue
+            if t.startswith('NID') or t.startswith('CYC'): k = t.split(':')[0].split(' ')[0]
+            else: k = t
+            stats[k] += 1
+            if k not in ex: ex[k] = (fam, sig, f, c, info)
+        if sig.startswith('CYC'):
+            n = int(sig[3:].split()[0])
+            stats['CYC%d' % n] += 0
+print('== tokens ==')
+for k, v in stats.most_common():
+    tag = 'connu' if k in CONNU else ('artefact' if ARTEFACT.match(k) else ('cycle/nid' if k.startswith(('CYC', 'NID')) else 'NOUVEAU?'))
+    print(f'{v:8d}  {k:22s} {tag:10s} ex: {ex[k][0]} | {ex[k][2]} | {ex[k][3][:60]}')
+
+=================== cycpipe.py ===================
+# cycpipe.py — pour chaque type de cycle (CYCn P / NIDk P) trouvé, analyse 1 à 2 représentants avec exploreY
+# et regroupe par « orbite » (invariants : P, cases du cycle, noires min/max, composantes).
+# Usage : python3 cycpipe.py SORTIE.json fichiers...
+import sys, subprocess, collections, json, re
+out = sys.argv[1]; filt = sys.argv[2]; files = sys.argv[3:]
+reps = collections.defaultdict(list)
+for fn in files:
+    for L in open(fn):
+        p = L.rstrip('\n').split('|')
+        if len(p) < 5: continue
+        fam, sig, f, c, info = p
+        m = re.search(r'(CYC\d+|NID\d+)(?: |:)P=(\d+)', sig)
+        if not m: continue
+        key = (m.group(1), int(m.group(2)))
+        if not key[0].startswith(filt): continue
+        if len(reps[key]) < 2: reps[key].append((fam, sig, f, c))
+        else: reps[key].append(None) if False else None
+cnt = collections.Counter()
+for fn in files:
+    for L in open(fn):
+        m = re.search(r'(CYC\d+|NID\d+)(?: |:)P=(\d+)', L)
+        if m: cnt[(m.group(1), int(m.group(2)))] += 1
+res = []
+import random
+random.seed(1)
+keys = list(reps)
+sel = set(sorted(keys, key=lambda k: -k[1])[:25]) | set(sorted(keys, key=lambda k: -cnt[k])[:25]) | set(random.sample(keys, min(120, len(keys))))
+for key in sorted(sel):
+    lst = reps[key][:1]
+    for fam, sig, f, c in lst:
+        T = str(max(400000, key[1] * 3 + 200000))
+        r = subprocess.run(['./exploreY', 'Y', '1', '1', T, f.replace(' ', ''), c.replace(' ', '')], capture_output=True, text=True, timeout=600).stdout
+        a = [l for l in r.splitlines() if l.startswith('ANALYSE')]
+        if not a: continue
+        d = dict(kv.split('=', 1) for kv in re.findall(r'(\w+=\S+)', a[0]))
+        comps = re.search(r'\[(.*?)\]', a[0]).group(1)
+        res.append({'type': key[0], 'P': key[1], 'freq': cnt[key], 'fam': fam, 'sig': sig, 'fourmis': f, 'cases': c,
+                    'cases_cycle': int(d['cases_du_cycle']), 'boite': d['boite'], 'nmin': int(d['noires_min']), 'nmax': int(d['noires_max']),
+                    'composantes': int(d['composantes']), 'comps': comps, 'brut': a[0]})
+json.dump(res, open(out, 'w'), ensure_ascii=False, indent=0)
+print(len(reps), 'types,', len(res), 'analyses')
+
+=================== build.py ===================
+# build.py — bêtes de la nuit du 16/11 : vérifie chaque situation avec les programmes C, fabrique les germes,
+# puis écrit catalogue_nuit.json (bestiaire 5), germes_nuit.json (simulateur) et resultats_nuit.csv (tableau trié).
+import subprocess, json, re, csv
+def sh(*a, t=900): return subprocess.run(list(a), capture_output=True, text=True, timeout=t).stdout
+def F(n): return format(n, ',').replace(',', ' ')
+def norm(s): return ' ; '.join(x.strip() for x in s.replace(' ', '').split(';') if x.strip())
+def analyse(f, c, T=2000000):
+    out = sh('./exploreY', 'Y', '1', '1', str(T), f.replace(' ', ''), c.replace(' ', ''))
+    a = [l for l in out.splitlines() if l.startswith('ANALYSE')][0]
+    d = dict(re.findall(r'(\w+)=([^ \[]+)', a))
+    fa = re.search(r'fourmis_a_cet_instant=(.*?)  noires', a).group(1).strip().rstrip(';').strip()
+    na = re.search(r'noires_a_cet_instant=(\S*)', a); na = na.group(1).rstrip(';') if na else ''
+    sig = [l for l in out.splitlines() if l.startswith('X|')][0].split('|')[1]
+    return {'P': int(d['P']), 'cases': int(d['cases_du_cycle']), 'boite': d['boite'], 'nmin': int(d['noires_min']), 'nmax': int(d['noires_max']),
+            'comp': int(d['composantes']), 'germe_f': norm(fa), 'germe_p': norm(na.replace(';', ' ; ')), 'sig': sig}
+def cyc_exact(f, c, T=2000000):
+    sig = sh('./explore3', 'X', '1', '1', str(T), f.replace(' ', ''), c.replace(' ', '')).split('|')[1]
+    m = re.match(r'CYC(\d+) P=(\d+)', sig); return int(m.group(2)) if m else None
+B = []; GERMES = []; ROWS = []
+def add(**k): B.append(k)
+def germe(dossier, nom, f, p, note): GERMES.append({'dossier': 'Nuit du 16-11/' + dossier, 'nom': nom, 'regle': 'RL', 'fourmis': norm(f), 'points': norm(p), 'note': note})
+def row(n, k, quoi, P, f, p, statut): ROWS.append([n, k, quoi, P, norm(f), norm(p), statut])
+
+# ---------- 1. Plus petits cycles ----------
+CL1 = 'Plus petits cycles (grille préparée)'
+f, p = '-1,-1,H ; 0,0,D', '0,0'; a = analyse(f, p); assert a['P'] == 4
+o = sh('./explore3', 'X', '1', '1', '200000', '-1,-1,D;2,0,B;-1,0,H').split('|')[1]
+add(id='Z-4', classe=CL1, nom='Le Tourniquet', fourmis=f, points=p, img=[4, 'cycle'],
+    situation="Deux fourmis dans un carré 2×2 et une seule case noire.",
+    deroulement="Les deux fourmis tournent autour du carré en se croisant (elles partagent parfois la même case) et tout revient à l'identique au bout de 4 pas. Il apparaît aussi tout seul : avec 3 fourmis sur grille blanche (-1,-1,D ; 2,0,B ; -1,0,H), une fourmi part en autoroute 104 et les deux autres se figent en Tourniquet vers le pas 49 700.",
+    mesures="Cycle exact de période 4 ; 4 cases ; 1 case noire en permanence.",
+    interet="Plus petit cycle possible : toutes les périodes sont des multiples de 4 (R-03) et une fourmi seule ne revient jamais (Cohen-Kong). Sur grille blanche, le plus petit cycle à 2 fourmis fait 16 pas.",
+    statut='PROUVÉ (cycle exact ; minimalité par R-03)', deja='Pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-28)')
+germe('Plus petits cycles', 'Tourniquet (période 4)', f, p, 'Cycle exact 4 pas, 2 fourmis + 1 case. Minimum possible (R-03).')
+germe('Plus petits cycles', 'Tourniquet spontané (3 fourmis)', '-1,-1,D ; 2,0,B ; -1,0,H', '', 'Une fourmi part (104), les deux autres forment un Tourniquet (nid de période 4) vers le pas 49 700.')
+row(2, 1, 'cycle minimal (Tourniquet)', 4, f, p, 'PROUVÉ'); row(3, 0, 'nid de période 4 (Tourniquet spontané)', 4, '-1,-1,D ; 2,0,B ; -1,0,H', '', 'VÉRIFIÉ')
+
+f, p = '2,-2,H ; 1,-1,D ; 0,-1,B ; 0,-2,H', '1,0 ; 1,-2 ; 1,-1 ; 2,-2 ; 0,0 ; 0,-3 ; 1,-3'; a = analyse(f, p); assert a['P'] == 8
+add(id='Z-8', classe=CL1, nom='Le Rouage', fourmis=f, points=p, img=[8, 'cycle'],
+    situation="Quatre fourmis serrées dans un carré 4×4 avec 7 cases noires.",
+    deroulement="Les quatre fourmis s'engrènent comme des dents de roue (jusqu'à trois sur la même case) et reviennent à l'état de départ tous les 8 pas. Il naît aussi tout seul : 5 fourmis sur grille blanche (1,0,D ; 1,-2,H ; 1,-1,G ; -2,0,B ; -1,2,G) ; la fourmi 4 part en autoroute 104 et les quatre autres sont figées en Rouage.",
+    mesures=f"Cycle exact de période 8 ; {a['cases']} cases ; entre {a['nmin']} et {a['nmax']} cases noires.",
+    interet="Plus petit cycle à 4 fourmis trouvé ; d'une seule pièce (on ne peut pas le couper en deux cycles de 2 fourmis).",
+    statut='VÉRIFIÉ (cycle exact)', deja='Pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-29)')
+germe('Plus petits cycles', 'Rouage (période 8)', f, p, 'Cycle exact 8 pas, 4 fourmis + 7 cases.')
+germe('Nids', 'Rouage spontané (5 fourmis)', '1,0,D ; 1,-2,H ; 1,-1,G ; -2,0,B ; -1,2,G', '', 'La fourmi 4 part (104) ; les 4 autres forment le Rouage (période 8) — vérifié sans retirer de fourmi.')
+row(4, 7, 'cycle 8 (Rouage)', 8, f, p, 'VÉRIFIÉ'); row(5, 0, 'nid à 4 fourmis de période 8 (Rouage spontané)', 8, '1,0,D ; 1,-2,H ; 1,-1,G ; -2,0,B ; -1,2,G', '', 'VÉRIFIÉ')
+
+for (i, nom, f, p) in [('Z-8b', 'Le Petit Grain', '-1,-2,D ; -2,-1,H', '-2,-2'), ('Z-79552', 'Le Grand Grain', '0,-3,B ; 1,2,G', '-1,0')]:
+    a = analyse(f, p); P = a['P']
+    add(id=i, classe=CL1, nom=nom, fourmis=f, points=p, img=[P, 'cycle'],
+        situation="Deux fourmis et une seule case noire.",
+        deroulement=f"Les deux fourmis construisent puis défont une figure et reviennent exactement au départ, case noire comprise, au bout de {F(P)} pas. Pendant tout le cycle il reste au moins {a['nmin']} case(s) noire(s) : ce cycle ne passe jamais par une grille blanche, il n'existe donc pas sans la case.",
+        mesures=f"Cycle exact de période {F(P)} ; {F(a['cases'])} cases ; boîte {a['boite']} ; de {a['nmin']} à {F(a['nmax'])} cases noires.",
+        interet=("Deuxième plus petit cycle à 2 fourmis + 1 case (après le Tourniquet) ; boîte 3×3." if P == 8 else "Record de nos tirages pour 2 fourmis + 1 case : un seul grain de sable suffit à fermer un cycle de près de 80 000 pas.") + " Avec 2 fourmis + 1 seule case, nos tirages ont donné 1 479 périodes de cycle différentes.",
+        statut='VÉRIFIÉ (cycle exact)', deja='Pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-30)')
+    germe('Cycles 2 fourmis + 1 case', f'{nom} (période {P})', f, p, f'Cycle exact {P} pas ; ne passe jamais par une grille blanche.')
+    row(2, 1, f'cycle à 1 case ({nom})', P, f, p, 'VÉRIFIÉ')
+
+# ---------- 2. Nids ----------
+CL2 = 'Nids : cycles laissés derrière une autoroute'
+for (i, nom, orig, nf, T1, txt) in [
+    ('N2-272580', 'Le Grand Nid', '1,0,G ; -1,2,H ; 0,-2,G', 2, 105322, "3 fourmis serrées sur grille blanche. La fourmi 3 part en autoroute 104 au bout d'environ 55 000 pas ; les fourmis 1 et 2 restent et tournent dans les débris."),
+    ('N4-332792', 'Le Nid à quatre', '1,-1,G ; 2,2,D ; 0,-1,G ; 0,-2,H ; -2,-2,B', 4, 66918, "5 fourmis sur grille blanche. La fourmi 3 part en autoroute 104 ; les quatre autres restent ensemble."),
+    ('N8-15792', 'Le Nid à huit', '-3,1,H ; 3,0,G ; -1,-2,H ; -1,-3,D ; 0,3,H ; 2,-1,D ; 3,-1,B ; -3,0,D ; 1,2,B ; 1,3,G ; 0,-3,B ; -2,1,G', 8, 52108, "12 fourmis placées avec une symétrie d'ordre 4 (rotation d'un quart de tour). Quatre fourmis partent ensemble dans les quatre directions ; les huit autres restent.")]:
+    a = analyse(orig, '')
+    assert cyc_exact(a['germe_f'], a['germe_p'], 3*a['P']+10) == a['P'], ('germe', i)
+    add(id=i, classe=CL2, nom=nom, fourmis=a['germe_f'], points=a['germe_p'], img=[a['P'], 'cycle'],
+        situation=txt + f" La situation affichée est un instant du nid ({nf} fourmis + {F(a['nmin'])} cases noires), qui rejoue le cycle dès le pas 0.",
+        deroulement=f"Après le départ, les {nf} fourmis restantes reviennent exactement au même état tous les {F(a['P'])} pas. Il reste toujours au moins {F(a['nmin'])} cases noires : le nid a besoin des débris laissés au début, il n'existe pas sur grille blanche.",
+        mesures=f"Nid de période {F(a['P'])} ; {F(a['cases'])} cases ; boîte {a['boite']} ; {F(a['nmin'])} à {F(a['nmax'])} cases noires.",
+        interet=("Record de nos 400 000 tirages à 3 fourmis. " if nf == 2 else "") + "Les nids sont la règle, pas l'exception : 51 % des situations à 3 fourmis finissent ainsi (R-26). Un nid a toujours autant de fourmis de chaque classe de parité, comme les cycles (R-14) : jamais de nid à 3, 5 ou 7 fourmis.",
+        statut='VÉRIFIÉ (retour exact, et revérifié sans retirer la fourmi partie)', deja='Pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-26)')
+    germe('Nids', f'{nom} — départ ({len(orig.split(";"))} fourmis)', orig, '', f'Nid de {nf} fourmis, période {a["P"]}.')
+    germe('Nids', f'{nom} — le nid seul', a['germe_f'], a['germe_p'], f'Cycle exact {a["P"]} pas dès le pas 0.')
+    row(len(orig.split(';')), 0, f'nid de {nf} fourmis ({nom})', a['P'], orig, '', 'VÉRIFIÉ')
+
+# ---------- 3. Cycles de groupe, grille blanche ----------
+CL3 = 'Cycles de groupe sur grille blanche'
+for (i, nom, f, sit, inter) in [
+    ('C4-56296', 'Le Métronome', '-1,-3,D ; 5,3,G ; -1,5,H ; 2,-5,G', "4 fourmis dispersées dans un carré 11×11.", "Cycle très « serré » : plus de 240 pas par case touchée (le Grand Quatuor, 68 000 pas, s'étale bien plus)."),
+    ('C4-57924', 'La Double Navette', '-1,-1,D ; 1,2,G ; 2,-1,G ; -2,2,D', "4 fourmis disposées symétriquement (demi-tour autour du centre).", "Navette SANS case noire (question ouverte R-23) : deux paires partent en sens opposés sur une autoroute 104 jusqu'à ~450 cases, la seconde paire les rattrape à grande vitesse sur la trace, et tout revient au centre. Famille : portées de ~150 à ~650 cases trouvées (symétrie de demi-tour)."),
+    ('C4-88828', 'La Grande Double Navette', '5,-1,G ; 0,1,D ; -5,2,D ; 0,0,G', "4 fourmis symétriques par demi-tour, plus écartées.", "Plus grande double navette trouvée : la figure s'étend sur ~1 300 cases avant de revenir."),
+    ('C6-1848', 'Le Sextuor', '0,1,D ; -1,2,H ; -3,-2,D ; 3,-1,B ; -1,-3,D ; 3,1,G', "6 fourmis au hasard dans un carré 7×7.", "Premier cycle à 6 fourmis d'une seule pièce trouvé par tirage au hasard (13 types sur 55 000 tirages)."),
+    ('C8-16', 'La Petite Rosace', '-2,-3,H ; 1,1,H ; 3,-2,D ; -1,1,D ; 2,3,B ; -1,-1,B ; -3,2,G ; 1,-1,G', "8 fourmis avec une symétrie d'ordre 4.", "Cycle à 8 fourmis le plus fréquent (743 tirages) : 16 pas seulement."),
+    ('C8-6504', 'La Rosace à huit', '-2,3,D ; -2,2,B ; -3,-2,B ; -2,-2,G ; 2,-3,G ; 2,-2,H ; 3,2,H ; 2,2,D', "8 fourmis avec une symétrie d'ordre 4.", "La symétrie de rotation est conservée tout le long du cycle."),
+    ('C12-2112', 'La Rosace à douze', '0,-2,B ; 1,-3,D ; -2,-1,G ; 2,0,G ; 3,1,B ; 1,-2,H ; 0,2,H ; -1,3,G ; 2,1,D ; -2,0,D ; -3,-1,H ; -1,2,B', "12 fourmis avec une symétrie d'ordre 4.", "Plus grand nombre de fourmis dans un cycle exact chez nous.")]:
+    P = cyc_exact(f, ''); a = analyse(f, '')
+    assert P == a['P'] and a['comp'] == 1, (i, P, a)
+    n = len(f.split(';'))
+    add(id=i, classe=CL3, nom=nom, fourmis=f, points='', img=[P, 'cycle'], situation=sit,
+        deroulement=f"Les {n} fourmis interagissent puis reviennent toutes, en même temps, à leur position et à leur cap de départ sur une grille redevenue blanche, au bout de {F(P)} pas.",
+        mesures=f"Cycle exact de période {F(P)} ; {F(a['cases'])} cases ; boîte {a['boite']} ; jusqu'à {F(a['nmax'])} cases noires.",
+        interet=inter, statut='VÉRIFIÉ (cycle exact)', deja='Pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-31)')
+    germe('Cycles de groupe', f'{nom} (période {P})', f, '', f'Cycle exact {P} pas, {n} fourmis, grille blanche.')
+    row(n, 0, f'cycle ({nom})', P, f, '', 'VÉRIFIÉ')
+
+# ---------- 4. Cycles symétriques avec cases ----------
+CL4 = 'Cycles symétriques avec cases noires'
+for (i, nom, f, p) in [('S4-265776', 'Le Moulin', '0,4,G ; -4,0,H ; 0,-4,D ; 4,0,B', '-1,2 ; 2,2 ; -2,-1 ; -2,2 ; 1,-2 ; -2,-2 ; 2,1 ; 2,-2'),
+                       ('S8-287536', 'La Grande Rosace', '0,2,B ; -3,-2,D ; -2,0,G ; 2,-3,B ; 0,-2,H ; 3,2,G ; 2,0,D ; -2,3,H', '1,3 ; -3,1 ; -1,-3 ; 3,-1')]:
+    P = cyc_exact(f, p); a = analyse(f, p); n = len(f.split(';'))
+    add(id=i, classe=CL4, nom=nom, fourmis=f, points=p, img=[P, 'cycle'],
+        situation=f"{n} fourmis et {len(p.split(';'))} cases noires, le tout invariant par quart de tour.",
+        deroulement=f"La figure grandit en gardant sa symétrie, puis se défait, et tout revient au départ au bout de {F(P)} pas. Il reste toujours au moins {a['nmin']} cases noires.",
+        mesures=f"Cycle exact de période {F(P)} ; {F(a['cases'])} cases ; boîte {a['boite']}.",
+        interet="Record de période de nos tirages symétriques " + ("à 4 fourmis." if n == 4 else "à 8 fourmis : la figure couvre 144 000 cases."),
+        statut='VÉRIFIÉ (cycle exact)', deja='Pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-31)')
+    germe('Cycles symétriques', f'{nom} (période {P})', f, p, f'Cycle exact {P} pas, symétrie d\'ordre 4.')
+    row(n, len(p.split(';')), f'cycle symétrique ({nom})', P, f, p, 'VÉRIFIÉ')
+
+# ---------- 5. Passagers ----------
+CL5 = 'Passagers sur de nouvelles traces'
+f = '1,-1,B ; 1,0,D ; 0,1,H ; -2,0,B ; -1,-1,G'
+add(id='P-20', classe=CL5, nom='Le Passager de la Flèche', fourmis=f, points='', img=[4000, ''],
+    situation="5 fourmis serrées sur grille blanche.",
+    deroulement="Quatre fourmis forment tout de suite la Flèche (vaisseau de période 16, vitesse 1/4). La fourmi 2 reste sur la trace de la Flèche et la suit à la vitesse 1/10 (période 20, déplacement de 2 cases), sans jamais la rattraper.",
+    mesures="Passager de période 20, déplacement (+2,0) ; la Flèche : période 16, (+4,0). Tenue sur 400 000 pas (système complet).",
+    interet="Premier passager trouvé sur la trace d'un vaisseau de groupe (jusqu'ici : traces 104 et 102 seulement).",
+    statut='OBSERVÉ (400 000 pas)', deja='Phénomène connu chez nous (passagers, R-18) ; pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-32)')
+germe('Passagers', 'Passager 20 sur la Flèche', f, '', 'La fourmi 2 suit la trace de la Flèche à vitesse 1/10.')
+row(5, 0, 'passager 20 sur la trace de la Flèche', 20, f, '', 'OBSERVÉ')
+f = '-2,3,H ; -1,0,G ; -2,-2,D ; 1,-1,H ; 3,-2,B ; 2,1,D ; 3,3,G ; 0,2,B'
+add(id='P-2620', classe=CL5, nom='Le Paresseux', fourmis=f, points='', img=[300000, ''],
+    situation="8 fourmis placées avec une symétrie d'ordre 4.",
+    deroulement="Les fourmis 2 et 4 partent en autoroute 102 à deux ; sur leur trace roulent un passager lent de période 388 (fourmi 8) et, encore plus lent, la fourmi 1 : période 2 620 pour 12 cases en x et 20 en y. Les 4 autres fourmis partent en autoroutes 104.",
+    mesures="Passager de période 2 620, déplacement (12,20), installé dès le pas 99 651 ; tenu jusqu'à 2 000 000 de pas (≈ 730 périodes).",
+    interet="Le plus lent des passagers connus chez nous (vitesse ≈ 0,009 case par pas, 6 fois moins que l'autoroute 102) ; trois vitesses différentes sur la même trace.",
+    statut='OBSERVÉ (2 000 000 de pas, système complet)', deja='Phénomène connu chez nous (passagers 388, 688 : R-22) ; période 2 620 pas trouvée ailleurs', source='Claude, nuit du 16/11 (R-32)')
+germe('Passagers', 'Paresseux 2620 sur la trace 102', f, '', 'Fourmi 1 : passager de période 2 620 sur la trace de l\'autoroute 102 (fourmis 2-4) ; fourmi 8 : passager 388.')
+row(8, 0, 'passager 2620 sur la trace 102', 2620, f, '', 'OBSERVÉ')
+
+# ---------- 6. Une fourmi ----------
+CL6 = 'Une fourmi et une case : record de lenteur'
+o = sh('./onset', '400000', '0,0,H', '7,-7'); deb = int(re.search(r'debut (\d+)', o).group(1))
+add(id='L-106258', classe=CL6, nom='La Lambine', fourmis='0,0,H', points='7,-7', img=[deb + 3000, ''],
+    situation="La fourmi classique et une seule case noire en (7,-7).",
+    deroulement=f"La case noire relance le chaos : l'autoroute 104 ne démarre qu'au pas {F(deb)}, plus de 10 fois plus tard que sur grille blanche (9 977).",
+    mesures=f"Autoroute 104, déplacement (+2,+2), début au pas {F(deb)}. Pire case des 1 680 positions de [-20,20]² (recherche exhaustive). Avec 2 cases dans [-5,5]² : au pire 87 485.",
+    interet="Pendant inverse des germes rapides (G-80 à G-310) : une seule case peut multiplier par 10 la durée du chaos.",
+    statut='OBSERVÉ (début mesuré par simulation finie ; exhaustif sur [-20,20]²)', deja='Pas trouvé ailleurs', source='Claude, nuit du 16/11 (R-33)')
+germe('Une fourmi', 'Lambine (1 case, début 106 258)', '0,0,H', '7,-7', f'Autoroute 104 seulement au pas {deb}.')
+row(1, 1, 'record de lenteur (Lambine)', deb, '0,0,H', '7,-7', 'OBSERVÉ')
+
+for b in B: b.update(b=5, regle='RL', fourmis=norm(b['fourmis']), points=norm(b['points']))
+json.dump(B, open('catalogue_nuit.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(GERMES, open('germes_nuit.json', 'w'), ensure_ascii=False, indent=1)
+ROWS.sort(key=lambda r: (r[0], r[1], r[3]))
+with open('resultats_nuit.csv', 'w', newline='') as fh:
+    w = csv.writer(fh, delimiter=';'); w.writerow(['n_fourmis', 'n_cases', 'quoi', 'periode_ou_debut', 'fourmis', 'cases', 'statut']); w.writerows(ROWS)
+print(len(B), 'bêtes,', len(GERMES), 'germes,', len(ROWS), 'lignes')
+
+
+=================== hw.c ===================
+// hw.c — recherche d'autoroutes et de leur DIRECTION. Règle généralisée : grille carrée (lettres R L N U, q = longueur)
+// ou hexagonale (préfixe H: puis jetons N R1 R2 U L2 L1). Plusieurs fourmis jouées l'une après l'autre. Cases de départ
+// de couleur au hasard dans 1..q-1. Une fourmi (ou un groupe) qui sort du carré de rayon 950 est mesurée puis retirée.
+// Usage : ./hw REGLE ESSAIS GRAINE T n R k Rc
+//   REGLE : mot (ex. RL, LLRR), H:... (hexagonale), ou "rand4:q" / "rand6:q" = règle tirée au hasard à chaque essai (q couleurs).
+//   n fourmis au hasard dans [-R,R]² ; k cases (nombre tiré dans 0..k) au hasard dans [-Rc,Rc]².
+// Sortie : une ligne par groupe sorti :  E|regle|k_fourmis|periode|dx|dy|t_sortie|fourmis|cases
+//   (dx,dy) = déplacement par période (coordonnées de la grille ; hexagonale : axiales q,r).
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#define W 2048
+#define OFF 1024
+#define RESC 950
+#define HW 65536
+#define NMAX 16
+static int M=4,q=2,turn[32],DX[6],DY[6];
+static const int sqx[4]={0,1,0,-1}, sqy[4]={-1,0,1,0}, hxx[6]={1,0,-1,-1,0,1}, hxy[6]={0,1,1,0,-1,-1};
+static uint8_t G[W*W]; static int *tl; static long nt;
+typedef struct { int x,y,d,alive; long t; uint8_t h[HW]; } Ant;
+static Ant A[NMAX]; static int n,X0[NMAX],Y0[NMAX],D0[NMAX]; static int PX[4096],PY[4096],PC[4096],np;
+static uint64_t rs; static inline uint64_t rnd(void){ rs^=rs<<13; rs^=rs>>7; rs^=rs<<17; return rs; }
+static inline int ri(int a,int b){ return a+(int)(rnd()%(uint64_t)(b-a+1)); }
+static char rule[64];
+static void setrule(const char*r){ strcpy(rule,r);
+  if(!strncmp(r,"H:",2)){ M=6; q=0; const char*p=r+2; while(*p){ if(*p=='N'){turn[q++]=0;p++;} else if(*p=='U'){turn[q++]=3;p++;}
+      else if(*p=='R'){turn[q++]=p[1]-'0';p+=2;} else {turn[q++]=6-(p[1]-'0');p+=2;} } memcpy(DX,hxx,sizeof hxx); memcpy(DY,hxy,sizeof hxy); }
+  else { M=4; q=strlen(r); for(int i=0;i<q;i++) turn[i]=r[i]=='R'?1:r[i]=='L'?3:r[i]=='U'?2:0; memcpy(DX,sqx,sizeof sqx); memcpy(DY,sqy,sizeof sqy); } }
+static int LRONLY=0; static void randrule(int m,int qq){ char r[64]; int ok;
+  do { ok=0; if(m==4){ for(int i=0;i<qq;i++){ int u=LRONLY?rnd()%8:rnd()%10; r[i]=u<4?'L':u<8?'R':u<9?'N':'U'; } r[qq]=0; for(int i=0;i<qq;i++) if(r[i]=='L'||r[i]=='R') ok=1; }
+       else { const char*tk[6]={"N","R1","R2","U","L2","L1"}; r[0]='H'; r[1]=':'; r[2]=0; for(int i=0;i<qq;i++){ int u=rnd()%6; strcat(r,tk[u]); if(u&&u!=3) ok=1; } } } while(!ok);
+  setrule(r); }
+static int period(Ant*a,int pmax,int rep,int*dx,int*dy){ long L=a->t<HW?a->t:HW;
+  for(int p=1;p<=pmax;p++){ if((long)p*(rep+1)>L) break; int ok=1;
+    for(long i=0;i<(long)p*rep;i++) if(a->h[(a->t-1-i)%HW]!=a->h[(a->t-1-i-p)%HW]){ok=0;break;}
+    if(ok){ int X=0,Y=0; for(int i=0;i<p;i++){int d=a->h[(a->t-1-i)%HW]; X+=DX[d]; Y+=DY[d];} *dx=X;*dy=Y; return p; } }
+  return 0; }
+static const char *C4="HDBG", *C6[6]={"E","SE","SO","O","NO","NE"};
+int main(int c,char**v){ long E_=atol(v[2]); rs=atol(v[3])*0x9E3779B97F4A7C15ULL+99; long T=atol(v[4]); int nn=atoi(v[5]),R=atoi(v[6]),K=atoi(v[7]),Rc=atoi(v[8]);
+  tl=malloc(sizeof(int)*W*W); for(int i=0;i<20;i++) rnd();
+  int rr=0,rm=4,rq=2; if(!strncmp(v[1],"randLR",6)){ rr=1; rm=4; rq=atoi(v[1]+7); LRONLY=1; } else if(!strncmp(v[1],"rand",4)){ rr=1; rm=v[1][4]-'0'; rq=atoi(v[1]+6); } else setrule(v[1]);
+  for(long e=0;e<E_;e++){ for(long i=0;i<nt;i++) G[tl[i]]=0; nt=0; n=0; np=0; if(rr) randrule(rm,rq);
+    if(R<0){ int u,w; do{u=ri(R,-R);w=ri(R,-R);}while(!u&&!w); int pl=ri(1,2),pd[2]={ri(0,M-1),ri(0,M-1)}; for(int i=0;i<nn;i++){X0[i]=i*u;Y0[i]=i*w;D0[i]=pd[i%pl];} n=nn; }
+    while(n<nn){ int x=ri(-R,R),y=ri(-R,R),d=ri(0,M-1),dup=0; for(int i=0;i<n;i++) if(X0[i]==x&&Y0[i]==y) dup=1; if(dup) continue; X0[n]=x;Y0[n]=y;D0[n]=d; n++; }
+    int kk=K?ri(0,K):0; for(int j=0;j<kk;j++){ int x=ri(-Rc,Rc),y=ri(-Rc,Rc); long k=(long)(y+OFF)*W+x+OFF; if(G[k]) continue; G[k]=ri(1,q-1); tl[nt++]=k; PX[np]=x;PY[np]=y;PC[np]=G[k];np++; }
+    for(int i=0;i<n;i++){ A[i].x=X0[i];A[i].y=Y0[i];A[i].d=D0[i];A[i].alive=1;A[i].t=0; } int alive=n;
+    for(long t=1;t<=T&&alive;t++){
+      for(int i=0;i<n;i++){ Ant*a=&A[i]; if(!a->alive) continue; long k=(long)(a->y+OFF)*W+a->x+OFF; uint8_t cc=G[k];
+        if(!(cc&0x80)){ if(!cc) tl[nt++]=k; } int col=cc&0x7f; a->d=(a->d+turn[col])%M; int nc=col+1; if(nc==q) nc=0; G[k]=nc|0x80;
+        a->x+=DX[a->d]; a->y+=DY[a->d]; a->h[a->t%HW]=a->d; a->t++;
+        if(abs(a->x)>RESC||abs(a->y)>RESC){ int ax=a->x,ay=a->y; int gp[NMAX],gdx[NMAX],gdy[NMAX],gi[NMAX],ng=0;
+          for(int j=0;j<n;j++){ Ant*b=&A[j]; if(!b->alive||abs(b->x-ax)+abs(b->y-ay)>150) continue; int dx=0,dy=0,p=period(b,16000,3,&dx,&dy); gp[ng]=p;gdx[ng]=dx;gdy[ng]=dy;gi[ng]=j;ng++; b->alive=0; alive--; }
+          // une ligne : la fourmi qui sort ; les autres du groupe sont comptées si même vitesse
+          int k2=0; for(int j=0;j<ng;j++) if(gp[j]&&gp[0]&&(long)gdx[j]*gp[0]==(long)gdx[0]*gp[j]&&(long)gdy[j]*gp[0]==(long)gdy[0]*gp[j]) k2++;
+          for(int j=0;j<ng;j++){ if(!gp[j]) continue; int same=0; for(int u=0;u<j;u++) if(gp[u]&&(long)gdx[j]*gp[u]==(long)gdx[u]*gp[j]&&(long)gdy[j]*gp[u]==(long)gdy[u]*gp[j]) same=1; if(same) continue;
+            int kg=0; for(int u=0;u<ng;u++) if(gp[u]&&(long)gdx[j]*gp[u]==(long)gdx[u]*gp[j]&&(long)gdy[j]*gp[u]==(long)gdy[u]*gp[j]) kg++;
+            printf("E|%s|%d|%d|%d|%d|%ld|",rule,kg,gp[j],gdx[j],gdy[j],t);
+            for(int u=0;u<n;u++) printf("%s%d,%d,%s",u?" ; ":"",X0[u],Y0[u],M==4?(char[]){C4[D0[u]],0}:C6[D0[u]]);
+            printf("|"); for(int u=0;u<np;u++) printf("%s%d,%d%s",u?" ; ":"",PX[u],PY[u],q>2?(char[]){':',(char)('0'+PC[u]),0}:""); printf("\n"); }
+          (void)k2; } } } }
+  return 0; }
+
+=================== hwv.c ===================
+// onset.c — début exact (au sens de bestiaire2) de l'autoroute de chaque fourmi : ./onset T "fourmis" "cases"
+// Joue T pas (système complet, table de hachage), puis pour chaque fourmi : plus petite période p<=3000 répétée 3 fois à la fin,
+// et premier pas à partir duquel la suite des caps est p-périodique jusqu'à T.
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+static int M=4,q=2,turn[32],DX[6],DY[6];
+static const int sqx[4]={0,1,0,-1}, sqy[4]={-1,0,1,0}, hxx[6]={1,0,-1,-1,0,1}, hxy[6]={0,1,1,0,-1,-1};
+static void setrule(const char*r){ if(!strncmp(r,"H:",2)){ M=6; q=0; const char*p=r+2; while(*p){ if(*p=='N'){turn[q++]=0;p++;} else if(*p=='U'){turn[q++]=3;p++;}
+      else if(*p=='R'){turn[q++]=p[1]-'0';p+=2;} else {turn[q++]=6-(p[1]-'0');p+=2;} } memcpy(DX,hxx,sizeof hxx); memcpy(DY,hxy,sizeof hxy); }
+  else { M=4; q=strlen(r); for(int i=0;i<q;i++) turn[i]=r[i]=='R'?1:r[i]=='L'?3:r[i]=='U'?2:0; memcpy(DX,sqx,sizeof sqx); memcpy(DY,sqy,sizeof sqy); } }
+typedef struct { uint64_t *k; uint8_t *v; uint64_t cap,n; } Grid;
+static inline uint64_t KEY(int x,int y){ return ((uint64_t)(uint32_t)(x+0x40000000)<<32)|(uint32_t)(y+0x40000000); }
+static inline uint64_t H64(uint64_t a){ a^=a>>33; a*=0xff51afd7ed558ccdULL; a^=a>>33; a*=0xc4ceb9fe1a85ec53ULL; a^=a>>33; return a; }
+static void g_init(Grid*g,uint64_t c){ g->cap=c; g->n=0; g->k=calloc(c,8); g->v=calloc(c,1); }
+static uint8_t* g_slot(Grid*g,uint64_t key);
+static void g_grow(Grid*g){ Grid h; g_init(&h,g->cap*2); for(uint64_t i=0;i<g->cap;i++) if(g->k[i]) *g_slot(&h,g->k[i])=g->v[i]; free(g->k); free(g->v); *g=h; }
+static uint8_t* g_slot(Grid*g,uint64_t key){ if(g->n*2>g->cap) g_grow(g); uint64_t m=g->cap-1,i=H64(key)&m;
+  while(g->k[i]&&g->k[i]!=key) i=(i+1)&m; if(!g->k[i]){g->k[i]=key; g->n++; g->v[i]=0;} return &g->v[i]; }
+int main(int c,char**v){ setrule(v[1]); v++; c--; long T=atol(v[1]); int n=0,X[16],Y[16],D[16]; Grid g; g_init(&g,1<<20);
+  char*s=strdup(v[2]),*tk; for(tk=strtok(s,";");tk;tk=strtok(NULL,";")){ char d[4]; if(sscanf(tk," %d,%d,%3[A-Z]",&X[n],&Y[n],d)==3){ const char*n6[6]={"E","SE","SO","O","NO","NE"}; if(M==4) D[n]=d[0]=='H'?0:d[0]=='D'?1:d[0]=='B'?2:3; else for(int k=0;k<6;k++) if(!strcmp(d,n6[k])) D[n]=k; n++; } }
+  if(c>3){ s=strdup(v[3]); for(tk=strtok(s,";");tk;tk=strtok(NULL,";")){int x,y,cc=1; if(sscanf(tk," %d,%d:%d",&x,&y,&cc)>=2) *g_slot(&g,KEY(x,y))=cc;} }
+  uint8_t*h[16]; for(int i=0;i<n;i++) h[i]=malloc(T+1);
+  for(long t=1;t<=T;t++) for(int i=0;i<n;i++){ uint8_t*sl=g_slot(&g,KEY(X[i],Y[i])); int col=*sl; D[i]=(D[i]+turn[col])%M; *sl=(col+1)%q; X[i]+=DX[D[i]]; Y[i]+=DY[D[i]]; h[i][t]=D[i]; }
+  for(int i=0;i<n;i++){ long P=0; for(long p=1;p<=40000&&4*p<T;p++){ long j; for(j=T;j>T-3*p;j--) if(h[i][j]!=h[i][j-p]) break; if(j==T-3*p){P=p;break;} }
+    long deb=-1; int dx=0,dy=0; if(P){ long j=T; while(j-P>=1&&h[i][j]==h[i][j-P]) j--; deb=j-P+1>0?j-P+1:0; for(long k=T-P+1;k<=T;k++){dx+=DX[h[i][k]];dy+=DY[h[i][k]];} }
+    printf("fourmi %d : periode %ld deplacement (%d,%d) debut %ld fin (%d,%d)\n",i+1,P,dx,dy,deb,X[i],Y[i]); }
+  printf("cases noires %ld (cases touchees %ld)\n",0L,(long)g.n); }
+
+=================== dirs.py ===================
+# dirs.py — regroupe les autoroutes (lignes E| de hw) par DIRECTION.
+# Carré : on tourne (dx,dy) d'un quart de tour jusqu'à dx>0, dy>=0 ; pente a = dy/dx (fraction exacte ; y vers le bas).
+# Hexagonal (coordonnées axiales q,r ; écran x = q + r/2, y = r·√3/2) : on tourne de 60° jusqu'à q>0, r>=0 ;
+#   pente a = √3·r/(2q+r).
+# Usage : python3 dirs.py fichiers...   -> écrit dirs.json (une entrée par (grille, direction), meilleurs exemples)
+import sys, json, math
+from fractions import Fraction
+def canon4(dx, dy):
+    for _ in range(4):
+        if (dx > 0 and dy >= 0): return dx, dy
+        dx, dy = -dy, dx
+    return dx, dy
+def canon6(a, b):
+    for _ in range(6):
+        if a > 0 and b >= 0: return a, b
+        a, b = -b, a + b
+    return a, b
+D = {}
+for fn in sys.argv[1:]:
+    for L in open(fn):
+        p = L.rstrip('\n').split('|')
+        if len(p) < 9 or p[0] != 'E': continue
+        _, rule, k, P, dx, dy, t, f, c = p
+        k, P, dx, dy, t = int(k), int(P), int(dx), int(dy), int(t)
+        if P == 0 or (dx == 0 and dy == 0): continue
+        hexa = rule.startswith('H:')
+        if hexa:
+            a, b = canon6(dx, dy); g = math.gcd(a, b); key = ('hex', a // g, b // g)
+            ang = math.degrees(math.atan2(b * math.sqrt(3) / 2, a + b / 2)); pente = f"√3·{b//g}/{2*(a//g)+b//g}"
+        else:
+            a, b = canon4(dx, dy); g = math.gcd(a, b); key = ('carre', a // g, b // g)
+            ang = math.degrees(math.atan2(b, a)); pente = str(Fraction(b, a))
+        nf = len(f.split(';')); nc = len([x for x in c.split(';') if x.strip()])
+        e = {'regle': rule, 'groupe': k, 'periode': P, 'dep': [dx, dy], 'dep_canon': [a, b], 'n_fourmis': nf, 'n_cases': nc, 'fourmis': f, 'cases': c, 'fichier': fn.split('/')[-1], 't_sortie': t}
+        kk = str(key)
+        if kk not in D: D[kk] = {'grille': key[0], 'dir': [key[1], key[2]], 'angle': round(ang, 3), 'pente': pente, 'n': 0, 'regles': {}, 'ex': []}
+        d = D[kk]; d['n'] += 1; d['regles'][rule] = d['regles'].get(rule, 0) + 1
+        d['ex'].append(e); d['ex'] = sorted(d['ex'], key=lambda e: (len(e['regle']), e['n_fourmis'] + e['n_cases'], e['periode']))[:5]
+json.dump(sorted(D.values(), key=lambda d: (d['grille'], d['angle'])), open('dirs.json', 'w'), ensure_ascii=False, indent=0)
+for d in sorted(D.values(), key=lambda d: (d['grille'], d['angle'])):
+    e = d['ex'][0]
+    print(f"{d['grille']:5s} dir {str(d['dir']):10s} angle {d['angle']:7.2f}° pente {d['pente']:10s} n={d['n']:6d} règles={len(d['regles']):4d} | ex: {e['regle']} {e['groupe']}f P={e['periode']} dep={e['dep']} | {e['fourmis'][:40]} | {e['cases'][:30]}")
+
+=================== sel.py ===================
+# sel.py — pour chaque direction de dirs.json : écarte les artefacts, revérifie le meilleur exemple dans le SYSTÈME COMPLET
+# (hwv : rien n'est retiré, table de hachage) et garde la 1re situation qui redonne la même direction.
+import json, subprocess, re, math, sys
+from fractions import Fraction
+T = sys.argv[1] if len(sys.argv) > 1 else '6000000'
+D = json.load(open('dirs.json'))
+def canon4(dx, dy):
+    for _ in range(4):
+        if dx > 0 and dy >= 0: return dx, dy
+        dx, dy = -dy, dx
+def canon6(a, b):
+    for _ in range(6):
+        if a > 0 and b >= 0: return a, b
+        a, b = -b, a + b
+out = []
+for d in D:
+    cands = [e for e in d['ex'] if e['periode'] > 2 and not (e['regle'] in ('RL', 'LR') and e['periode'] in (2, 4, 10, 12))]
+    ok = None
+    for e in cands:
+        pts = e['cases']
+        r = subprocess.run(['./hwv', e['regle'], T, e['fourmis'].replace(' ', ''), pts.replace(' ', '')], capture_output=True, text=True, timeout=900).stdout
+        for m in re.finditer(r'fourmi (\d+) : periode (\d+) deplacement \((-?\d+),(-?\d+)\) debut (-?\d+)', r):
+            i, P, dx, dy, deb = map(int, m.groups())
+            if P == 0 or (dx == 0 and dy == 0) or int(T) - deb < max(50 * P, 1000000): continue
+            c = canon6(dx, dy) if d['grille'] == 'hex' else canon4(dx, dy)
+            g = math.gcd(*c)
+            if [c[0] // g, c[1] // g] == d['dir']:
+                ok = dict(e, verif_periode=P, verif_dep=[dx, dy], verif_debut=deb, verif_fourmi=i, verif_T=int(T)); break
+        if ok: break
+    d['verifie'] = ok
+    out.append(d)
+    print(d['grille'], d['dir'], d['pente'], 'OK' if ok else 'NON CONFIRMÉ', (ok['regle'], ok['verif_periode'], ok['verif_dep'], ok['verif_debut']) if ok else '', flush=True)
+json.dump(out, open('dirs_verif.json', 'w'), ensure_ascii=False, indent=0)
+
+=================== build6.py ===================
+# build6.py — bestiaire 6 « autoroutes dans toutes les directions » + germes + tableau, depuis dirs_verif.json.
+import json, csv, math
+from fractions import Fraction
+D = json.load(open('dirs_verif.json'))
+def F(n): return format(n, ',').replace(',', ' ')
+def nice_hex(a, b):  # pente écran = √3·b/(2a+b)
+    fr = Fraction(b, 2 * a + b)
+    return '0' if b == 0 else f"√3·{fr.numerator}/{fr.denominator}" if fr.denominator != 1 else f"√3·{fr.numerator}"
+B, G, R = [], [], []
+C6 = ['E', 'SE', 'SO', 'O', 'NO', 'NE']
+for d in D:
+    e = d.get('verifie')
+    if not e: continue
+    hexa = d['grille'] == 'hex'; a, b = d['dir']
+    pente = nice_hex(a, b) if hexa else str(Fraction(b, a))
+    ang = d['angle']; reg = e['regle']
+    lr = (not hexa) and set(reg) <= set('LR')
+    rl_multi = reg in ('RL', 'LR')
+    if rl_multi: classe = 'Grille carrée, règle RL (plusieurs fourmis)'
+    elif hexa: classe = 'Grille hexagonale (règles généralisées)'
+    else: classe = 'Grille carrée, règles généralisées (L, R, N, U)'
+    P, (dx, dy), deb = e['verif_periode'], e['verif_dep'], e['verif_debut']
+    v = math.hypot(dx + dy / 2, dy * math.sqrt(3) / 2) / P if hexa else math.hypot(dx, dy) / P
+    idd = ('H' if hexa else 'A') + f"-{a}-{b}"
+    nomdir = f"pente {pente}" + (f" ({ang:.1f}°)".replace('.', ',') if ang not in (0, 45) else '')
+    deja = ("Probablement connu (catalogue d'autoroutes de Lutfalla-Rao, règles L/R)" if lr and not rl_multi else
+            "Connu (autoroute 104 / 102, voir bestiaires 1-2)" if rl_multi and [a, b] in ([1, 1], [3, 5]) else
+            "Pas trouvé ailleurs (les autoroutes non diagonales existent : Lutfalla 2025 ; pas de catalogue des directions trouvé)")
+    pts = e['cases']
+    B.append({'id': idd, 'b': 6, 'classe': classe, 'nom': f"Autoroute de {nomdir}", 'regle': reg, 'fourmis': e['fourmis'], 'points': pts,
+              'img': [min(deb + 40 * P, e['verif_T']), ''],
+              'situation': (f"{e['n_fourmis']} fourmi(s)" + (f" et {e['n_cases']} case(s) colorée(s)" if e['n_cases'] else ", grille vide") + f", règle {reg[2:] + ' (hexagonale)' if hexa else reg}."),
+              'deroulement': f"Après {F(deb)} pas, la fourmi {e['verif_fourmi']} part en autoroute : elle répète le même trajet de {F(P)} pas, décalé à chaque fois de ({dx},{dy})" + (" en coordonnées axiales (q,r)" if hexa else "") + ".",
+              'mesures': f"Direction {a}:{b} (forme réduite), pente y = {pente}·x, angle {ang:.2f}° ; période {F(P)} ; vitesse {v:.4f} case/pas ; début {F(deb)}. Direction vue {d['n']} fois avec {len(d['regles'])} règle(s).".replace('.', ',', 0),
+              'interet': "Direction rare" if d['n'] < 5 else "Direction fréquente",
+              'statut': f"OBSERVÉ (revérifié sans retirer de fourmi jusqu'au pas {F(e['verif_T'])} ; une simulation finie ne prouve pas que l'autoroute dure toujours)",
+              'deja': deja, 'source': 'Claude, 16/11 matin (R-35)'})
+    G.append({'dossier': 'Autoroutes par direction/' + ('Hexagonale' if hexa else 'Carrée'), 'nom': f"{nomdir} — {reg}", 'regle': reg,
+              'grille': 'hexagonale' if hexa else 'carrée', 'fourmis': e['fourmis'], 'points': pts,
+              'note': f"Autoroute période {P}, déplacement ({dx},{dy}){' axial' if hexa else ''}, début {deb}. Cases notées x,y:couleur si la règle a plus de 2 couleurs."})
+    R.append(['hexagonale' if hexa else 'carrée', f"{a}:{b}", pente, round(ang, 3), reg, e['n_fourmis'], e['n_cases'], P, f"({dx},{dy})", deb, round(v, 5), d['n'], len(d['regles']), e['fourmis'], pts])
+B.sort(key=lambda x: (x['classe'], x['id'])); R.sort(key=lambda r: (r[0], r[3]))
+json.dump(B, open('catalogue_autoroutes.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(G, open('germes_autoroutes.json', 'w'), ensure_ascii=False, indent=1)
+with open('autoroutes_par_direction.csv', 'w', newline='') as fh:
+    w = csv.writer(fh, delimiter=';'); w.writerow(['grille', 'direction', 'pente', 'angle_deg', 'regle', 'n_fourmis', 'n_cases', 'periode', 'deplacement', 'debut', 'vitesse', 'vue_n_fois', 'n_regles', 'fourmis', 'cases']); w.writerows(R)
+print(len(B), 'bêtes')
+
+=================== enum.py ===================
+# enum.py — toutes les règles L/R de longueur q (à rotation et miroir près NON réduites : on garde tout, c'est simple)
+import itertools, subprocess, sys
+qmin, qmax, T = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3]
+out = open(sys.argv[4], 'w')
+for q in range(qmin, qmax + 1):
+    for w in itertools.product('LR', repeat=q):
+        r = ''.join(w)
+        if 'L' not in r or 'R' not in r: continue
+        if r != min(r[i:] + r[:i] for i in range(q)): pass  # (rotations = règles différentes, on garde)
+        o = subprocess.run(['./hw2', r, '1', '1', T, '1', '0', '0', '0'], capture_output=True, text=True).stdout
+        out.write(o if o else f'N|{r}\n'); out.flush()
+
+
+R-20 à R-25 — code C (15-11)
+Compiler : gcc -O2 -o X X.c -lm (tous incluent ant.h). Commandes dans le journal.
+ant.h
+// ant.h — fourmis RL multiples, grille par table de hachage, positions entières.
+// Convention du projet : 0=H(0,-1) 1=D(+1,0) 2=B(0,+1) (y vers le bas, comme engine.js) 3=G(-1,0), R=+1.
+// Pas d'une fourmi : c=couleur(x) ; d+=tour[c] ; couleur^=1 ; x+=dir(d). Fourmis 1,2,… l'une après l'autre.
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#include <math.h>
+static const int DX[4]={0,1,0,-1}, DY[4]={-1,0,1,0};
+typedef struct { uint64_t *k; uint8_t *v; uint64_t cap, n; } Grid;
+static inline uint64_t KEY(int x,int y){ return ((uint64_t)(uint32_t)(x+0x40000000)<<32)|(uint32_t)(y+0x40000000); }
+static inline uint64_t H64(uint64_t a){ a^=a>>33; a*=0xff51afd7ed558ccdULL; a^=a>>33; a*=0xc4ceb9fe1a85ec53ULL; a^=a>>33; return a; }
+static void g_init(Grid*g,uint64_t cap){ g->cap=cap; g->n=0; g->k=calloc(cap,8); g->v=calloc(cap,1); }
+static void g_free(Grid*g){ free(g->k); free(g->v); }
+static void g_clear(Grid*g){ memset(g->k,0,g->cap*8); memset(g->v,0,g->cap); g->n=0; }
+static uint8_t* g_slot(Grid*g,uint64_t key);
+static void g_grow(Grid*g){ Grid h; g_init(&h,g->cap*2); for(uint64_t i=0;i<g->cap;i++) if(g->k[i]) *g_slot(&h,g->k[i])=g->v[i]; g_free(g); *g=h; }
+static uint8_t* g_slot(Grid*g,uint64_t key){
+  if(g->n*2>g->cap) g_grow(g);
+  uint64_t m=g->cap-1, i=H64(key)&m;
+  while(g->k[i] && g->k[i]!=key) i=(i+1)&m;
+  if(!g->k[i]){ g->k[i]=key; g->n++; }
+  return &g->v[i];
+}
+static inline uint8_t g_get(Grid*g,int x,int y){ uint64_t key=KEY(x,y),m=g->cap-1,i=H64(key)&m; while(g->k[i]){ if(g->k[i]==key) return g->v[i]; i=(i+1)&m;} return 0; }
+static inline void g_set(Grid*g,int x,int y,uint8_t c){ *g_slot(g,KEY(x,y))=c; }
+static int g_black(Grid*g){ int n=0; for(uint64_t i=0;i<g->cap;i++) if(g->k[i]&&g->v[i]) n++; return n; }
+
+
+// détection d'autoroute par fourmi : historique des caps
+#define W 16384
+typedef struct { int x,y,d; uint8_t hist[W]; long t; int frozen; } Ant;
+static int TURN[2]={1,3}; // RL
+static inline void a_step(Grid*g,Ant*a){
+  uint8_t *s=g_slot(g,KEY(a->x,a->y)); uint8_t c=*s;
+  a->d=(a->d+TURN[c])&3; *s=c^1; a->x+=DX[a->d]; a->y+=DY[a->d];
+  a->hist[a->t%W]=a->d; a->t++;
+}
+// plus petite période p (2..pmax) répétée K fois, avec déplacement non nul ; 0 sinon
+static int a_period(Ant*a,int pmax,int K,int*dx,int*dy){
+  if(a->t<W) return 0;
+  for(int p=2;p<=pmax;p++){ if((long)p*(K+1)>W) break; int ok=1;
+    for(int i=0;i<p*K&&ok;i++) if(a->hist[(a->t-1-i)%W]!=a->hist[(a->t-1-i-p)%W]) ok=0;
+    if(ok){ int X=0,Y=0; for(int i=0;i<p;i++){int d=a->hist[(a->t-1-i)%W]; X+=DX[d]; Y+=DY[d];}
+      *dx=X;*dy=Y; return p; } }
+  return 0;
+}
+static int pdir(const char*s){ return s[0]=='H'?0:s[0]=='D'?1:s[0]=='B'?2:3; }
+run.c
+// run.c — rejouer une configuration.  ./run PAS "x,y,D;..." ["x,y;..."]
+// Affiche, pour chaque fourmi, la première détection d'autoroute (période, déplacement) et l'état final.
+#include "ant.h"
+int main(int c,char**v){
+  long T=atol(v[1]); Ant A[64]; int n=0; char *s=strdup(v[2]),*tok;
+  for(tok=strtok(s,";");tok;tok=strtok(NULL,";")){ char d[4]; memset(&A[n],0,sizeof(Ant)); sscanf(tok," %d,%d,%1s",&A[n].x,&A[n].y,d); A[n].d=pdir(d); n++; }
+  Grid g; g_init(&g,1<<20);
+  if(c>3){ char*p=strdup(v[3]); for(tok=strtok(p,";");tok;tok=strtok(NULL,";")){int x,y; if(sscanf(tok," %d,%d",&x,&y)==2) g_set(&g,x,y,1);} }
+  int seen[64]={0};
+  for(long t=1;t<=T;t++){ for(int i=0;i<n;i++) a_step(&g,&A[i]);
+    if(t%4096==0) for(int i=0;i<n;i++){ int dx,dy,p=a_period(&A[i],700,20,&dx,&dy);
+      if(p!=seen[i]){ printf("t=%ld fourmi %d : periode %d dep (%d,%d) pos (%d,%d)\n",t,i+1,p,dx,dy,A[i].x,A[i].y); seen[i]=p; } } }
+  for(int i=0;i<n;i++) printf("fin fourmi %d : (%d,%d) cap %d\n",i+1,A[i].x,A[i].y,A[i].d);
+  printf("cases noires %d\n",g_black(&g));
+}
+cyc.c
+// cyc.c — cycle exact d'une configuration (toutes les fourmis).  ./cyc PASMAX "fourmis" ["cases"]
+// Empreinte de Zobrist (grille + fourmis), points distingués (empreinte & 0x3FF == 0) ;
+// une empreinte qui revient donne P candidat, puis vérification EXACTE : 2 copies, comparaison case par case.
+#include "ant.h"
+typedef struct { Ant A[16]; int n; Grid g; } St;
+static uint64_t hz(St*s){ uint64_t h=0; for(uint64_t i=0;i<s->g.cap;i++) if(s->g.k[i]&&s->g.v[i]) h^=H64(s->g.k[i]);
+  for(int i=0;i<s->n;i++) h^=H64((KEY(s->A[i].x,s->A[i].y)<<2|s->A[i].d)+0x9e37ULL*(i+1)); return h; }
+static void parse(St*s,int c,char**v){ char*p=strdup(v[2]),*tok; s->n=0; g_init(&s->g,1<<20);
+  for(tok=strtok(p,";");tok;tok=strtok(NULL,";")){ char d[4]; Ant*a=&s->A[s->n++]; memset(a,0,sizeof(Ant)); sscanf(tok," %d,%d,%1s",&a->x,&a->y,d); a->d=pdir(d);}
+  if(c>3){ p=strdup(v[3]); for(tok=strtok(p,";");tok;tok=strtok(NULL,";")){int x,y; if(sscanf(tok," %d,%d",&x,&y)==2) g_set(&s->g,x,y,1);} } }
+static void step(St*s,uint64_t*h){ for(int i=0;i<s->n;i++){ Ant*a=&s->A[i];
+  *h^=H64((KEY(a->x,a->y)<<2|a->d)+0x9e37ULL*(i+1)); *h^=H64(KEY(a->x,a->y)); a_step(&s->g,a);
+  *h^=H64((KEY(a->x,a->y)<<2|a->d)+0x9e37ULL*(i+1)); } }
+static int same(St*a,St*b){ for(int i=0;i<a->n;i++) if(a->A[i].x!=b->A[i].x||a->A[i].y!=b->A[i].y||a->A[i].d!=b->A[i].d) return 0;
+  int na=0,nb=0; for(uint64_t i=0;i<a->g.cap;i++) if(a->g.k[i]&&a->g.v[i]){ na++; int x=(int)(a->g.k[i]>>32)-0x40000000,y=(int)(uint32_t)a->g.k[i]-0x40000000; if(!g_get(&b->g,x,y)) return 0; }
+  nb=g_black(&b->g); return na==nb; }
+#define NS (1<<22)
+int main(int c,char**v){ long T=atol(v[1]); St s; parse(&s,c,v); uint64_t h=hz(&s);
+  static uint64_t HK[NS]; static long HT[NS]; int nd=0; long P=0,t0=0;
+  HK[nd]=h; HT[nd++]=0; // l'état initial est toujours enregistré
+  for(long t=1;t<=T;t++){ step(&s,&h);
+    if((h&0x3FF)==0||t==0){ for(int j=nd-1;j>=0;j--) if(HK[j]==h){ P=t-HT[j]; t0=HT[j]; break; }
+      if(P) break; if(nd<NS){HK[nd]=h;HT[nd++]=t;} }
+    if(h==HK[0]){ P=t; t0=0; break; } }
+  if(!P){ printf("pas de cycle avant %ld pas\n",T); return 0; }
+  // vérification exacte : état à t0 et à t0+P
+  St a,b; parse(&a,c,v); parse(&b,c,v); uint64_t x=0;
+  for(long t=0;t<t0;t++){ step(&a,&x); step(&b,&x);} for(long t=0;t<P;t++) step(&b,&x);
+  int ok=same(&a,&b); printf("candidat : periode %ld des le pas %ld  -> verification exacte : %s (%d cases noires)\n",P,t0,ok?"OUI":"NON",g_black(&a.g));
+}
+tipmin.c
+// tipmin.c — bout d'autoroute minimal EXACT. ./tipmin [HORIZON_PERIODES=60]
+// Pour chaque phase s : B_s = cases noires à T+s que la fourmi touchera après T+s. Tout germe qui donne
+// l'autoroute dès le pas 0 (même trajectoire) contient B_s (la couleur lue fixe le virage) et B_s suffit.
+#include "ant.h"
+static const char CAP[]="HDBG";
+int main(int c,char**v){ int NP=c>1?atoi(v[1]):60; long T=200000; Grid g; g_init(&g,1<<20); Ant a; memset(&a,0,sizeof a);
+  for(long t=0;t<T;t++) a_step(&g,&a);
+  int L=104*(NP+1); int *X=malloc(L*4),*Y=malloc(L*4),*D=malloc(L*4); uint8_t *G0=malloc(L);
+  for(int i=0;i<L;i++){ X[i]=a.x; Y[i]=a.y; D[i]=a.d; G0[i]=g_get(&g,a.x,a.y); a_step(&g,&a); }
+  // G0[i] = couleur au pas i de la case visitée au pas i (avant lecture)
+  int best=1<<30,bs=-1;
+  for(int s=0;s<104;s++){ Grid seen; g_init(&seen,1<<16); int n=0;
+    for(int i=s;i<L;i++){ uint8_t *f=g_slot(&seen,KEY(X[i],Y[i])); if(*f) continue; *f=1; if(G0[i]) n++; }
+    // première visite après s : la couleur lue au pas i est celle de T+s (personne d'autre ne l'a touchée entre-temps)
+    if(n<best){best=n;bs=s;} if(c>2) printf("phase %d : %d cases\n",s,n); g_free(&seen); }
+  printf("minimum = %d cases (phase %d). Germe : fourmi 0,0,%c ; cases :",best,bs,CAP[D[bs]]);
+  Grid seen; g_init(&seen,1<<16); for(int i=bs;i<L;i++){ uint8_t *f=g_slot(&seen,KEY(X[i],Y[i])); if(*f) continue; *f=1; if(G0[i]) printf(" %d,%d ;",X[i]-X[bs],Y[i]-Y[bs]); } printf("\n");
+}
+nav.c
+// nav.c — navette de portée réglable. ./nav "fourmis" "cases" T0 RETIRE AVANCE F PASMAX
+// Joue la config jusqu'à T0 ; retire la fourmi RETIRE (1-based, 0 = aucune) ; fait marcher la fourmi AVANCE seule F pas ;
+// puis cherche un cycle exact (empreinte de Zobrist + vérification case par case sur 2 copies).
+#include "ant.h"
+typedef struct { Ant A[8]; int n; Grid g; } St;
+static char *AS,*PS; static long T0,F; static int RET,AV;
+static void setup(St*s){ char*p=strdup(AS),*tok; s->n=0; g_init(&s->g,1<<22);
+  for(tok=strtok(p,";");tok;tok=strtok(NULL,";")){ char d[4]; Ant*a=&s->A[s->n++]; memset(a,0,sizeof(Ant)); sscanf(tok," %d,%d,%1s",&a->x,&a->y,d); a->d=pdir(d);}
+  p=strdup(PS); for(tok=strtok(p,";");tok;tok=strtok(NULL,";")){int x,y; if(sscanf(tok," %d,%d",&x,&y)==2) g_set(&s->g,x,y,1);}
+  for(long t=0;t<T0;t++) for(int i=0;i<s->n;i++) a_step(&s->g,&s->A[i]);
+  if(RET){ for(int i=RET-1;i<s->n-1;i++) s->A[i]=s->A[i+1]; s->n--; if(AV>RET) AV--; }
+  for(long t=0;t<F;t++) a_step(&s->g,&s->A[AV-1]); }
+static uint64_t ah(Ant*a,int i){ return H64((KEY(a->x,a->y)<<2|a->d)+0x9e37ULL*(i+1)); }
+static uint64_t hz(St*s){ uint64_t h=0; for(uint64_t i=0;i<s->g.cap;i++) if(s->g.k[i]&&s->g.v[i]) h^=H64(s->g.k[i]); for(int i=0;i<s->n;i++) h^=ah(&s->A[i],i); return h; }
+static void step(St*s,uint64_t*h){ for(int i=0;i<s->n;i++){ Ant*a=&s->A[i]; *h^=ah(a,i)^H64(KEY(a->x,a->y)); a_step(&s->g,a); *h^=ah(a,i);} }
+static int same(St*a,St*b){ for(int i=0;i<a->n;i++) if(a->A[i].x!=b->A[i].x||a->A[i].y!=b->A[i].y||a->A[i].d!=b->A[i].d) return 0;
+  int na=0; for(uint64_t i=0;i<a->g.cap;i++) if(a->g.k[i]&&a->g.v[i]){ na++; int x=(int)(a->g.k[i]>>32)-0x40000000,y=(int)(uint32_t)a->g.k[i]-0x40000000; if(!g_get(&b->g,x,y)) return 0; }
+  return na==g_black(&b->g); }
+#define NS (1<<22)
+int main(int c,char**v){ AS=v[1]; PS=v[2]; T0=atol(v[3]); RET=atoi(v[4]); AV=atoi(v[5]); F=atol(v[6]); long T=atol(v[7]);
+  St s; setup(&s); uint64_t h=hz(&s); static uint64_t HK[NS]; static long HT[NS]; int nd=0; long P=0,t0=0; long far=0;
+  for(long t=1;t<=T;t++){ step(&s,&h); for(int i=0;i<s.n;i++){ long r=labs(s.A[i].x)>labs(s.A[i].y)?labs(s.A[i].x):labs(s.A[i].y); if(r>far) far=r; }
+    if(getenv("DBG")&&t%(1<<21)==0){ for(int i=0;i<s.n;i++){int dx,dy,p=a_period(&s.A[i],700,20,&dx,&dy); printf(" [%d: %d,%d p%d (%d,%d)]",i+1,s.A[i].x,s.A[i].y,p,dx,dy);} printf(" t=%ld\n",t);}
+    if((h&0x3FF)==0){ for(int j=nd-1;j>=0;j--) if(HK[j]==h){P=t-HT[j];t0=HT[j];break;} if(P) break; if(nd<NS){HK[nd]=h;HT[nd++]=t;} } }
+  if(!P){ printf("F=%ld : pas de cycle avant %ld pas (portee max %ld)\n",F,T,far); return 0; }
+  St a,b; setup(&a); setup(&b); uint64_t x=0; for(long t=0;t<t0;t++){step(&a,&x);step(&b,&x);} for(long t=0;t<P;t++) step(&b,&x);
+  printf("F=%ld : periode %ld des le pas %ld (apres T0+F) ; portee max %ld ; exact : %s\n",F,P,t0,far,same(&a,&b)?"OUI":"NON");
+}
+drop.c
+// drop.c — passagers sur une trace. ./drop TB "fourmis" "cases" PER [S=60000]
+// 1) les fourmis construisent pendant TB pas ; constructeurs = fourmis de période PER ; on les fige.
+// 2) fenêtre = cases touchées par les constructeurs pendant [TB/2, TB/2+PER) ; candidats = ces cases et voisines (rayon 2) × 4 caps.
+// 3) chaque candidat roule seul S pas ; « passager » = périodique, déplacement parallèle à la trace, reste à < 40 de la ligne.
+#include "ant.h"
+static const char CAP[]="HDBG";
+int main(int c,char**v){ long TB=atol(v[1]); int PER=atoi(v[4]); long S=c>5?atol(v[5]):60000;
+  Ant A[16]; int n=0; char*s=strdup(v[2]),*tok; for(tok=strtok(s,";");tok;tok=strtok(NULL,";")){char d[4]; memset(&A[n],0,sizeof(Ant)); sscanf(tok," %d,%d,%1s",&A[n].x,&A[n].y,d); A[n].d=pdir(d); n++;}
+  Grid g; g_init(&g,1<<23); s=strdup(v[3]); for(tok=strtok(s,";");tok;tok=strtok(NULL,";")){int x,y; if(sscanf(tok," %d,%d",&x,&y)==2) g_set(&g,x,y,1);}
+  int ncand=0; static int CX[200000],CY[200000]; Grid mark; g_init(&mark,1<<16); Grid tr; g_init(&tr,1<<20); int cons[16]={0},ux=0,uy=0,ox=0,oy=0;
+  for(long t=1;t<=TB;t++){ for(int i=0;i<n;i++){ if(t>TB/2&&t<=TB/2+PER&&cons[i]) for(int a=-2;a<=2;a++)for(int b=-2;b<=2;b++){ uint8_t*f=g_slot(&mark,KEY(A[i].x+a,A[i].y+b)); if(!*f){*f=1; CX[ncand]=A[i].x+a; CY[ncand++]=A[i].y+b;} }
+      if(cons[i]||t<=TB/2) g_set(&tr,A[i].x,A[i].y,1); a_step(&g,&A[i]); }
+    if(t==TB/2){ for(int i=0;i<n;i++){int dx,dy,p=a_period(&A[i],700,20,&dx,&dy); cons[i]=(p==PER); if(cons[i]){ux=dx;uy=dy;ox=A[i].x;oy=A[i].y;} printf("fourmi %d periode %d (%d,%d)%s\n",i+1,p,dx,dy,cons[i]?" constructeur":"");} } }
+  printf("trace : direction (%d,%d) ; %d candidats x 4 caps\n",ux,uy,ncand);
+  static int LX[2000000],LY[2000000]; int hist[2000][3]={0}; // [période][sens +/-] ; compte
+  for(int k=0;k<ncand;k++) for(int d=0;d<4;d++){ Ant a; memset(&a,0,sizeof a); a.x=CX[k]; a.y=CY[k]; a.d=d; int ok=0,p=0,dx=0,dy=0;
+    for(long t=0;t<S;t++){ LX[t]=a.x; LY[t]=a.y; a_step(&g,&a); }
+    p=a_period(&a,700,20,&dx,&dy); long cr=(long)(a.x-ox)*uy-(long)(a.y-oy)*ux; double dist=fabs((double)cr)/sqrt(ux*ux+uy*uy);
+    int inter=0; for(long t=S-2*p;t<S&&p;t++) if(g_get(&tr,LX[t],LY[t])) inter++;
+    if(p&&(dx||dy)&&(long)dx*uy==(long)dy*ux&&dist<40&&inter) ok=1;
+    if(ok){ int sens=(dx*ux+dy*uy)>0; if(p<2000){ if(!hist[p][sens]) printf("  passager periode %d dep (%d,%d) %s : fourmi %d,%d,%c\n",p,dx,dy,sens?"meme sens":"sens inverse",CX[k],CY[k],CAP[d]); hist[p][sens]++; } }
+    for(long t=S-1;t>=0;t--){ uint8_t*f=g_slot(&g,KEY(LX[t],LY[t])); *f^=1; } }
+  for(int p=0;p<2000;p++) for(int s2=0;s2<2;s2++) if(hist[p][s2]) printf("periode %d %s : %d candidats\n",p,s2?"meme sens":"sens inverse",hist[p][s2]);
+}
+pass.c
+// pass.c — recherche au hasard de « passagers » : 2 fourmis dans la même direction, périodes différentes, proches.
+// ./pass NFOURMIS NCASESMAX ESSAIS GRAINE [R=6] [PAS=400000]
+#include "ant.h"
+static uint64_t rs; static inline uint32_t rnd(){ rs^=rs<<13; rs^=rs>>7; rs^=rs<<17; return (uint32_t)rs; }
+static const char CAP[]="HDBG";
+int main(int c,char**v){ int na=atoi(v[1]),nc=atoi(v[2]); long E=atol(v[3]); rs=atol(v[4])*2654435761ULL+1;
+  int R=c>5?atoi(v[5]):6; long T=c>6?atol(v[6]):400000; Grid g; g_init(&g,1<<20);
+  Ant A[8]; int x0[8],y0[8],d0[8],px[8],py[8];
+  for(long e=0;e<E;e++){ g_clear(&g); int k=rnd()%(nc+1);
+    for(int i=0;i<na;i++){ memset(&A[i],0,sizeof(Ant)); A[i].x=x0[i]=rnd()%(2*R+1)-R; A[i].y=y0[i]=rnd()%(2*R+1)-R; A[i].d=d0[i]=rnd()%4; }
+    for(int j=0;j<k;j++){ px[j]=rnd()%(2*R+1)-R; py[j]=rnd()%(2*R+1)-R; g_set(&g,px[j],py[j],1); }
+    int found=0;
+    for(long t=1;t<=T&&!found;t++){ for(int i=0;i<na;i++) a_step(&g,&A[i]);
+      if(t%8192) continue;
+      int p[8],dx[8],dy[8]; for(int i=0;i<na;i++) p[i]=a_period(&A[i],700,20,&dx[i],&dy[i]);
+      for(int i=0;i<na&&!found;i++) for(int j=0;j<na&&!found;j++)
+        if(i!=j&&p[i]&&p[j]&&p[i]<p[j]&&(dx[i]||dy[i])&&(long)dx[i]*dy[j]==(long)dy[i]*dx[j]&&dx[i]*dx[j]>=0&&dy[i]*dy[j]>=0
+           &&abs(A[i].x-A[j].x)+abs(A[i].y-A[j].y)<300){
+          found=1; printf("t=%ld rapide %d(%d,%d) lent %d(%d,%d) | fourmis \"",t,p[i],dx[i],dy[i],p[j],dx[j],dy[j]);
+          for(int q=0;q<na;q++) printf("%s%d,%d,%c",q?";":"",x0[q],y0[q],CAP[d0[q]]);
+          printf("\" points \""); for(int q=0;q<k;q++) printf("%s%d,%d",q?";":"",px[q],py[q]); printf("\"\n"); fflush(stdout); } } }
+  return 0; }
+two.c
+// two.c — autoroute (germe 11 cases, autoroute dès le pas 0) + 1 ou 2 cases noires sur les cases neuves.
+// ./two 1        : les 22 cas à 1 case (contrôle R-16)
+// ./two 2 DMAX   : paires (case i bloc J, case j bloc J+δ), δ=0..DMAX (δ=0 : i<j)
+// Issue = (période, déplacement) final + pas de récupération (première détection stable après le choc).
+#include "ant.h"
+static int TIP[11][2]={{0,1},{1,2},{2,3},{2,2},{2,1},{2,0},{3,0},{3,-1},{2,-2},{1,-2},{-2,-1}};
+static int NX[22],NY[22];
+static Grid g;
+static void run(int k,int*cx,int*cy,char*out){ g_clear(&g); for(int i=0;i<11;i++) g_set(&g,TIP[i][0],TIP[i][1],1);
+  for(int i=0;i<k;i++) g_set(&g,cx[i],cy[i],1);
+  Ant a; memset(&a,0,sizeof a); a.d=2; long tc=100*104; int lp=-1,ldx=0,ldy=0; long since=0;
+  for(long t=1;t<=6000000;t++){ a_step(&g,&a);
+    if(t>tc&&t%4096==0){ int dx,dy,p=a_period(&a,700,20,&dx,&dy);
+      if(p&&p==lp&&dx==ldx&&dy==ldy){ if(t-since>60000){ sprintf(out,"%d (%d,%d) voie %d recup %ld",p,dx,dy,(a.x*dy-a.y*dx)/2,since-tc); return; } }
+      else { lp=p; ldx=dx; ldy=dy; since=t; } } }
+  sprintf(out,"indecis (%d)",lp); }
+int main(int c,char**v){ g_init(&g,1<<22); int mode=atoi(v[1]);
+  // cases neuves du bloc 30 (pas 3120..3223) : jamais visitées avant
+  { g_clear(&g); for(int i=0;i<11;i++) g_set(&g,TIP[i][0],TIP[i][1],1); Grid vis; g_init(&vis,1<<16); Ant a; memset(&a,0,sizeof a); a.d=2; int n=0;
+    for(long t=0;t<31*104;t++){ uint8_t*f=g_slot(&vis,KEY(a.x,a.y)); if(!*f&&t>=30*104){ NX[n]=a.x+2*(-70); NY[n]=a.y-2*(-70); n++; } *f=1; a_step(&g,&a); }
+    if(n!=22){ printf("erreur : %d cases neuves\n",n); return 1; } } // décalées de 70 blocs : bloc 100, choc vers le pas 10 400
+  char out[200];
+  if(mode==1){ for(int i=0;i<22;i++){ int x[1]={NX[i]},y[1]={NY[i]}; run(1,x,y,out); printf("case %2d (%d,%d) : %s\n",i+1,NX[i],NY[i],out);} return 0; }
+  int DM=atoi(v[2]);
+  for(int d=0;d<=DM;d++) for(int i=0;i<22;i++) for(int j=(d?0:i+1);j<22;j++){ int x[2]={NX[i],NX[j]-2*d},y[2]={NY[i],NY[j]+2*d}; run(2,x,y,out);
+    printf("d=%d i=%d j=%d : %s | points \"%d,%d;%d,%d\"\n",d,i+1,j+1,out,x[0],y[0],x[1],y[1]); fflush(stdout); }
+}
+col.c
+// col.c — collision de 2 autoroutes 104 nées dès le pas 0 (germe de 11 cases, B = A tourné de ROT×90°).
+// ./col ROT CX CY L I0 I1 : A en 0,0 ; B posé en (CX,CY)+L·(-u_B)+(i,j), i,j ∈ [I0,I1] (u_B = direction de B par pas de 52)
+// Issue = liste des (période, déplacement) des 2 fourmis à la fin (0 = pas d'autoroute : bornée/losange/chaos).
+#include "ant.h"
+static int TIP[11][2]={{0,1},{1,2},{2,3},{2,2},{2,1},{2,0},{3,0},{3,-1},{2,-2},{1,-2},{-2,-1}};
+static const char CAP[]="HDBG";
+static void rot(int k,int*x,int*y){ for(int r=0;r<k;r++){ int t=*x; *x=-*y; *y=t; } }
+int main(int c,char**v){ int R=atoi(v[1]),CX=atoi(v[2]),CY=atoi(v[3]),L=atoi(v[4]),I0=atoi(v[5]),I1=atoi(v[6]);
+  int ux=-1,uy=1; rot(R,&ux,&uy); // direction de B (unité diagonale)
+  Grid g; g_init(&g,1<<22);
+  for(int i=I0;i<=I1;i++) for(int j=I0;j<=I1;j++){ g_clear(&g); Ant A[2]; memset(A,0,sizeof A);
+    for(int k=0;k<11;k++) g_set(&g,TIP[k][0],TIP[k][1],1); A[0].d=2;
+    int bx=CX-L*ux+i, by=CY-L*uy+j; for(int k=0;k<11;k++){ int x=TIP[k][0],y=TIP[k][1]; rot(R,&x,&y); g_set(&g,bx+x,by+y,1);} A[1].x=bx; A[1].y=by; A[1].d=(2+R)&3;
+    int lp[2]={-1,-1},st=0; long T=0; char res[200];
+    for(long t=1;t<=8000000;t++){ a_step(&g,&A[0]); a_step(&g,&A[1]);
+      if(t%65536==0&&t>(long)L*104){ int s=0,q[2],dx[2],dy[2]; for(int a=0;a<2;a++){ q[a]=a_period(&A[a],700,20,&dx[a],&dy[a]); }
+        sprintf(res,"%d(%d,%d) %d(%d,%d)",q[0],dx[0],dy[0],q[1],dx[1],dy[1]); if(getenv("DBG")) printf("  t=%ld A %d,%d %s | B %d,%d\n",t,A[0].x,A[0].y,res,A[1].x,A[1].y);
+        if(q[0]==lp[0]&&q[1]==lp[1]&&q[0]&&q[1]){ if(++st>=4){T=t;break;} } else st=0; lp[0]=q[0]; lp[1]=q[1]; } }
+    int cl=((A[0].x+A[0].y+(A[0].d&1?0:1))&1)!=((A[1].x+A[1].y+(A[1].d&1?0:1))&1);
+    printf("i=%d j=%d : %s%s classes %s | fourmis \"0,0,B;%d,%d,%c\"\n",i,j,res,T?"":" (non stable)",cl?"diff":"egales",bx,by,CAP[(2+R)&3]); fflush(stdout); }
+}
+tr.c
+// tr.c — suivre 2 fourmis : ./tr PAS DT "fourmis" "cases"
+#include "ant.h"
+int main(int c,char**v){ long T=atol(v[1]),DT=atol(v[2]); Ant A[8]; int n=0; char*s=strdup(v[3]),*tok; for(tok=strtok(s,";");tok;tok=strtok(NULL,";")){char d[4]; memset(&A[n],0,sizeof(Ant)); sscanf(tok," %d,%d,%1s",&A[n].x,&A[n].y,d); A[n].d=pdir(d); n++;}
+  Grid g; g_init(&g,1<<22); if(c>4){ s=strdup(v[4]); for(tok=strtok(s,";");tok;tok=strtok(NULL,";")){int x,y; if(sscanf(tok," %d,%d",&x,&y)==2) g_set(&g,x,y,1);} }
+  for(long t=1;t<=T;t++){ for(int i=0;i<n;i++) a_step(&g,&A[i]); if(t%DT==0){ printf("t=%ld",t); for(int i=0;i<n;i++){int dx,dy,p=a_period(&A[i],700,20,&dx,&dy); printf(" | %d: %d,%d p%d(%d,%d)",i+1,A[i].x,A[i].y,p,dx,dy);} printf("\n"); } } }
+gen.c
+// gen.c — fabrique un germe : joue "fourmis" "cases" pendant TB pas, ajoute la fourmi X,Y,D, écrit fourmis / points.
+// ./gen TB "fourmis" "cases" "X,Y,D"
+#include "ant.h"
+static const char CAP[]="HDBG";
+int main(int c,char**v){ long TB=atol(v[1]); Ant A[16]; int n=0; char*s=strdup(v[2]),*tok; for(tok=strtok(s,";");tok;tok=strtok(NULL,";")){char d[4]; memset(&A[n],0,sizeof(Ant)); sscanf(tok," %d,%d,%1s",&A[n].x,&A[n].y,d); A[n].d=pdir(d); n++;}
+  Grid g; g_init(&g,1<<20); s=strdup(v[3]); for(tok=strtok(s,";");tok;tok=strtok(NULL,";")){int x,y; if(sscanf(tok," %d,%d",&x,&y)==2) g_set(&g,x,y,1);}
+  for(long t=0;t<TB;t++) for(int i=0;i<n;i++) a_step(&g,&A[i]);
+  printf("FOURMIS="); for(int i=0;i<n;i++) printf("%d,%d,%c ; ",A[i].x,A[i].y,CAP[A[i].d]); printf("%s\nPOINTS=",v[4]);
+  int f=1; for(uint64_t i=0;i<g.cap;i++) if(g.k[i]&&g.v[i]){ printf("%s%d,%d",f?"":" ; ",(int)(g.k[i]>>32)-0x40000000,(int)(uint32_t)g.k[i]-0x40000000); f=0; } printf("\n"); }
