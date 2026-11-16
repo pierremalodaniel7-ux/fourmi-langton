@@ -1,0 +1,10 @@
+data/
+*.o
+*.out
+__pycache__/
+src/*
+!src/*.c
+!src/*.h
+!src/*.py
+!src/Makefile
+!src/README.md
