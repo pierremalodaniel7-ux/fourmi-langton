@@ -62,5 +62,13 @@
   "fourmis": "-141,-40,G",
   "points": "",
   "note": "R-55, VÉRIFIÉ 4/4 (2 moteurs, 30 000 pas). Germe = P seule (entrées à 0). Pour mettre a à 1 : AJOUTER la fourmi 0,0,H ; b à 1 : AJOUTER 32,32,H (les mettre AVANT P dans la liste). Sortie : P part ↘ (voie x−y = −100) ssi a = b = 0 ; sinon P tourne ↙. En LLR une trace est un miroir (R-54)."
+ },
+ {
+  "dossier": "ordinateur/R-56 OU LLR",
+  "nom": "OU à 2 étages en LLR : 4 fourmis, 0 case",
+  "regle": "LLR",
+  "fourmis": "-141,-40,G ; -250,450,B",
+  "points": "",
+  "note": "R-56, VÉRIFIÉ 4/4 (2 moteurs, 40 000 pas). Germe = entrées à 0. Pour a = 1 : AJOUTER 0,0,H ; b = 1 : AJOUTER 32,32,H (en tête de liste). Étage 1 : −141,−40,G = NOR. Étage 2 : −250,450,B part ↗ ; il continue ↗ ssi a OU b, sinon il tourne ↘. Les 64 placements de l'étage 2 testés (voies 200…231) marchent tous."
  }
 ]

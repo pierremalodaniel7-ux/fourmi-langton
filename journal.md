@@ -248,3 +248,7 @@ Additivité : 0/103. ⇒ en LLR, logique « par déviation » : NOR immédiat, p
 ## R-55 Porte NOR LLR en 3 fourmis, 0 case — VÉRIFIÉ 4/4 (2 moteurs, 30 000 pas)
 A = 0,0,H (entrée a), B = 32,32,H (entrée b), P = −141,−40,G. P sort ↘ (voie x−y = −100) ssi a = b = 0 ; sinon P tourne ↙.
 Une entrée = UNE fourmi (pas de germe de 11 cases en LLR). Enchaîner : la sortie ↘ doit être tournée ↙ (mur vertical, R-40) — à faire.
+## R-56 OU LLR à 2 étages = NON(NOR) : 4 fourmis, 0 case — VÉRIFIÉ (C : 64/64 placements de P2 donnent 4/4 ; Python 4/4) (llr_ou.py)
+P1 = −141,−40,G (NOR) ; P2 = −250,450,B part ↗ sur la voie x+y = 200 et croise la ligne de P1 plus loin : P2 continue ↗ ssi a OU b ;
+si P1 est passée (a=b=0), P2 tourne ↘. TOUTES les voies L2 = 200…231 et 2 phases testées marchent (64/64) : en LLR l'enchaînement
+est ROBUSTE (contraste avec RL : voies exactes). NOR seul : 103/128 placements propres. ⇒ piste prioritaire : ordinateur LLR.
