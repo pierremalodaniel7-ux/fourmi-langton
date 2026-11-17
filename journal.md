@@ -244,4 +244,7 @@ LLR, A = 0,0,H (autoroute 18 ↙), B = 32,32,H (↙, voie x+y ≈ 65), P = cap G
 P qui traverse une trace TOURNE ↙ (−90°) et repart parallèle à l'entrée ; la 1re trace rencontrée décide : (1,0) et (1,1) donnent la même
 sortie, (0,1) une autre ; P continue ↘ seulement si a = b = 0. Même issue pour les 4 phases de P (103 cas propres, 25 sales).
 Additivité : 0/103. ⇒ en LLR, logique « par déviation » : NOR immédiat, priorité ; pas de compteur. À explorer.
-## Point final (15:33) : pistes 1, 5, 2, 3 faites ; piste 4 : contradiction expliquée, LLR mesuré, mémoire non trouvée.
+## Point final (15:31) : pistes 1, 5, 2, 3 faites ; piste 4 : contradiction expliquée, LLR mesuré, mémoire non trouvée.
+## R-55 Porte NOR LLR en 3 fourmis, 0 case — VÉRIFIÉ 4/4 (2 moteurs, 30 000 pas)
+A = 0,0,H (entrée a), B = 32,32,H (entrée b), P = −141,−40,G. P sort ↘ (voie x−y = −100) ssi a = b = 0 ; sinon P tourne ↙.
+Une entrée = UNE fourmi (pas de germe de 11 cases en LLR). Enchaîner : la sortie ↘ doit être tournée ↙ (mur vertical, R-40) — à faire.
