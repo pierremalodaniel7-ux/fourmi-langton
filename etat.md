@@ -22,6 +22,9 @@ Autoroute la plus câblable en RL : la 104 à 1 fourmi (les autoroutes à plusie
 Porte « compteur » par traversée de traces : NOR, ET, NON, COPIE, CROISEMENT, OU à 2 étages, demi-additionneur, écran — VÉRIFIÉ (2 moteurs, temps fini). Puits définitif impossible (R-44). Germes : ordinateur/.
 17/11 après-midi (R-45 à R-50) : ADDITIONNEUR 2 BITS EN UN GERME + écran, 16/16 (2 moteurs) ; additionneur complet à 1 puissance ; réservoir ruban 15/15 ; 88 pièges exacts, 0 « tout coincé » ; règles de déplacement. Taille encore exponentielle en n bits.
 
+## Simulateur v7 (17/11 soir)
+docs/ (GitHub Pages après fusion de la PR n°1) : bibliothèque fusionnée (747 éléments), 37 circuits avec interrupteurs, pas complet de la petite fourmi VÉRIFIÉ 256/256 (R-68, moteur JS + Python).
+
 ## Ouvert
 R-04 (≤ 2 états blancs par cycle) ; R-14/R-27 conjecture des phases (0 contre-exemple sur ≈ 2,7 M) ;
 RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? ; ordinateur : mémoire / horloge (R-39) ; 13 à 100 fourmis : aucun cycle ni autoroute nouvelle (R-36, 3 069 situations) ; portée arbitraire des navettes.
