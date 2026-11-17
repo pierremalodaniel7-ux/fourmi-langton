@@ -331,3 +331,5 @@ trace de la 1re (elles ne roulent pas dessus) ; la trace (1 300 cases non blanch
 35 portes niv. 1 + 7 niv. 2 (h0' lu au niveau 1), ≤ 110 fourmis, T = 238 940 pas ; les 8 sorties justes pour les 16 états testés.
 Trop grand pour la grille du moteur C (32 768) ⇒ 1 seul moteur ; ≈ 22 s par état en Python. Échantillons supplémentaires en cours.
 Avec R-63 (chaque module VÉRIFIÉ 256/256, 2 moteurs), c'est le 1er « pas de fourmi calculé par des fourmis ».
+Suite R-67 (16:22) : 2e tirage 16/16, 3e tirage arrêté (mémoire) après 1 état juste ⇒ 33/33 états distincts justes (Python). Les 8 sorties chaque fois.
+## Point final 16:22. Bestiaire 10 complet (7,5 Mo, avec le germe unique) NON envoyé au Drive (limite 4,2 Mo) : la version de 16:11 (sans le germe unique) y est.

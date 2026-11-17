@@ -4,3 +4,16 @@ portes : {'NON': 3, 'ET': 8, 'OU': 3, 'XOR': 8} total 22 ; copies (sorties utili
 42 8 sorties justes 52 s
 8 8 sorties justes 74 s
 157 8 sorties justes 97 s
+216 8 sorties justes 118 s
+194 8 sorties justes 138 s
+183 8 sorties justes 160 s
+66 8 sorties justes 181 s
+98 8 sorties justes 202 s
+136 8 sorties justes 223 s
+227 8 sorties justes 245 s
+7 8 sorties justes 269 s
+113 8 sorties justes 291 s
+232 8 sorties justes 315 s
+12 8 sorties justes 336 s
+54 8 sorties justes 359 s
+GERME UNIQUE (Python) : 16 / 16 états tirés au hasard ; T = 238940
