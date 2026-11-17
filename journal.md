@@ -261,3 +261,7 @@ NON b = 161,461,D (↖ sur x−y = −300 : croise B, pas de trace de A à cet e
 Astuce : on choisit OÙ commence chaque entrée le long de son axe pour qu'une puissance ne voie que sa trace. Fragile (5 % des placements).
 ## Point final (15:35) : avec NOR (R-55), OU (R-56), ET (R-58) et l'enchaînement (R-57), le LLR a un jeu de portes complet sans case ;
 manquent COPIE et croisement en LLR. Suite proposée : demi-additionneur LLR, puis ordinateur LLR.
+## R-59 COPIE LLR (2 fourmis, 0 case) — VÉRIFIÉ 2/2 (2 moteurs) ; croisement LLR OUVERT
+A = 0,0,H ; P = −141,−40,G : a = 1 ⇒ A ↙ (voie 1) ET P tourne ↙ (voie 7) = 2 copies ; a = 0 ⇒ P continue ↘ (= NON a).
+Croisement en LLR : impossible directement (une trace dévie toujours celle qui passe après) ⇒ il faudra 3 XOR (OUVERT).
+Fin de session 15:36. Bilan : RL = additionneurs 2 et 3 bits en un germe ; LLR = NOR, OU, ET, NON, COPIE sans case, enchaînables.
