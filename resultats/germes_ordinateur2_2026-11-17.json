@@ -70,5 +70,13 @@
   "fourmis": "-141,-40,G ; -250,450,B",
   "points": "",
   "note": "R-56, VÉRIFIÉ 4/4 (2 moteurs, 40 000 pas). Germe = entrées à 0. Pour a = 1 : AJOUTER 0,0,H ; b = 1 : AJOUTER 32,32,H (en tête de liste). Étage 1 : −141,−40,G = NOR. Étage 2 : −250,450,B part ↗ ; il continue ↗ ssi a OU b, sinon il tourne ↘. Les 64 placements de l'étage 2 testés (voies 200…231) marchent tous."
+ },
+ {
+  "dossier": "ordinateur/R-58 ET LLR",
+  "nom": "Porte ET en LLR : 5 fourmis, 0 case",
+  "regle": "LLR",
+  "fourmis": "-822,378,G ; 161,461,D ; -840,862,B",
+  "points": "",
+  "note": "R-58, VÉRIFIÉ 4/4 (2 moteurs, 60 000 pas). Germe = entrées à 0. a = 1 : AJOUTER -500,500,H ; b = 1 : AJOUTER 32,32,H (en tête). La dernière fourmi (Q) continue ↗ ssi a ET b. ET = NOR(NON a, NON b). Fragile : 12 placements sur 224."
  }
 ]

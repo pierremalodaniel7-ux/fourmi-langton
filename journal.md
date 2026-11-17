@@ -255,3 +255,9 @@ est ROBUSTE (contraste avec RL : voies exactes). NOR seul : 103/128 placements p
 ## R-57 3 étages LLR (NOR → OU → NOR), 5 fourmis, 0 case — VÉRIFIÉ pour P3 = 540,560,D (C + Python 4/4) ; OBSERVÉ 38/64 placements (llr_3.py)
 P3 part ↖ (voie x−y = w3, départ x+y ≈ 1 100) et lit la sortie ↗ de P2 : continue ↖ ssi a = b = 0. 38 des 64 placements testés (w3 = −20…11) : 4/4.
 Robustesse du 3e étage moindre que du 2e (64/64), mais pas de réglage fin.
+## R-58 ET LLR = NOR(NON a, NON b), 5 fourmis, 0 case — VÉRIFIÉ 4/4 (2 moteurs, 60 000 pas) ; OBSERVÉ 12/224 placements (llr_et.py)
+A = −500,500,H (part de x−y = −1 000) ; B = 32,32,H ; NON a = −822,378,G (↘ sur x−y = −1 200, croise A, passe la ligne de B AVANT B) ;
+NON b = 161,461,D (↖ sur x−y = −300 : croise B, pas de trace de A à cet endroit) ; Q = −840,862,B (↗ sur x+y ≈ 22) continue ↗ ssi a ET b.
+Astuce : on choisit OÙ commence chaque entrée le long de son axe pour qu'une puissance ne voie que sa trace. Fragile (5 % des placements).
+## Point final (15:35) : avec NOR (R-55), OU (R-56), ET (R-58) et l'enchaînement (R-57), le LLR a un jeu de portes complet sans case ;
+manquent COPIE et croisement en LLR. Suite proposée : demi-additionneur LLR, puis ordinateur LLR.
