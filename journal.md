@@ -269,3 +269,55 @@ Fin de session 15:36. Bilan : RL = additionneurs 2 et 3 bits en un germe ; LLR =
 A glissée le long de son axe k·(−1,1), k = −10…10 : 21/21 ; A décalée de k·(1,1) : 11/11 ; de k·(1,0) : 11/11 ;
 P glissée le long de son axe k·(−1,−1), k = 0…20 : 21/21 ; P décalée sur le côté k·(1,−1), k = −10…10 : 21/21 ; tout translaté (k,3k) : 11/11.
 Contraste avec RL (R-50 : (1,0) ⇒ 8/16). En LLR, pas de classe mod 4 : la porte se pose où l'on veut. ⇒ ordinateur LLR = prochaine étape.
+
+## R-61 Circuit d'UN pas de la fourmi RL sur le tore 2×2 — VÉRIFIÉ 256/256 (ordinateur/v3/pas.py, schema.py) — 17/11 15:44–
+État 8 bits : cases c00 c10 c01 c11, position x y, cap h1 h0 (0=H…3=G). Pas : lire, tourner (R si blanc), inverser, avancer mod 2.
+Équations : h0' = ¬h0 ; h1' = h1 ⊕ h0 ⊕ c ; x' = x ⊕ ¬h0 ; y' = y ⊕ h0 ; cᵢⱼ' = cᵢⱼ ⊕ [x=i ∧ y=j] ; c = case lue (multiplexeur).
+Seul h1' lit la couleur ; la position ne dépend que du cap. Circuit : 3 NON + 8 ET + 3 OU + 8 XOR = 22 portes + 19 copies.
+Placement en couches (6 couches) : 188 croisements → 33 après minimisation (barycentres + échanges). Minimal ? OUVERT.
+
+## R-62 Compilateur LLR (prototype) : fonctions booléennes → UN germe sans case — VÉRIFIÉ (2 moteurs) (ordinateur/v3/compilateur.py)
+Principe : en LLR une puissance continue ssi elle ne croise aucune trace (NOR de tout ce qu'elle croise, R-55). Entrées en double voie
+(une fourmi ↙ par littéral vrai et par usage). Niveau 1 : une puissance ↘ par clause (continue ssi la clause est fausse) ;
+niveau 2 : une puissance ↙ croise un INTERVALLE de portes de niveau 1 (continue ssi toutes les clauses sont vraies) ⇒ forme CNF.
+Pas de croisement parasite : chaque rayon ne commence qu'à hauteur de sa porte (escalier : voies w décroissantes, bandes λ croissantes).
+CNF par Quine-McCluskey + couverture gloutonne. Lecture = direction ET voie (une fourmi déviée peut revenir ↙ sur une autre voie !).
+Erreurs corrigées en route : rayon et puissance arrivaient au même pas au croisement (collision) ; sortie de niveau 1 inversée.
+Demi-additionneur (S = XOR, C = ET) : 3 portes niv. 1 + 1 niv. 2, 4/4 C et Python. Module cap ± 1 (h1' = h1⊕h0⊕c, h0' = ¬h0) :
+5 + 1 portes, 8/8 C et Python. ⇒ XOR LLR obtenu par le compilateur (étape 2, en partie).
+## Point 15:56 : étapes 1 et 3 faites (prototype). Suite : pas complet compilé, croisement, étape 4.
+
+## R-63 Le pas complet compilé en LLR, module par module — VÉRIFIÉ 7/8 modules à 256/256 (moteur C) (ordinateur/v3/pas_modules.py)
+Une sortie = un module (germe à part, recentré par translation). c00' c10' c01' c11' : 3 + 1 portes, ≤ 8 fourmis, 256/256 chacun ;
+x', y' : 2 + 1 portes, ≤ 5 fourmis, 256/256 ; h0' : 1 porte, 2 fourmis, 256/256 ; h1' (h1⊕h0⊕case lue, 18 clauses) : 18 + 1 portes,
+≤ 67 fourmis : 197/256 (paramètres serrés, grille 16 384 : 29 sorties de grille + 30 erreurs) ; 156/256 avec la grille 32 768 ⇒ erreurs RÉELLES
+avec les paramètres serrés (DA = 60, SP = 30). Paramètres larges : en cours.
+Germe unique pour les 8 sorties : compilé (35 + 7 portes, 127 littéraux, T ≈ 148 000) mais trop grand pour vérifier ici (OUVERT).
+Bugs de mes outils corrigés : translation de recentrage non reportée dans la lecture des voies.
+
+## R-64 Croisement en LLR — OBSERVÉ
+Direct : dans les 128 placements de R-54, une trace dévie TOUJOURS l'autoroute qui passe après (0 traversée transparente) ⇒ pas de croisement direct.
+Contournement : dans le compilateur, chaque littéral est une fourmi neuve qui ne commence qu'à hauteur de sa porte ⇒ aucun croisement
+n'est nécessaire en logique à 2 niveaux. Pour enchaîner des pas (sorties → entrées), il faudra des croisements : 3 XOR (OUVERT).
+Mur LLR (x = −60) : dévie une 1re autoroute ↙ en ↘ (voie −124) ; une 2e sur la même voie est aussi déviée ↘ mais sur la voie −8
+(elle roule sur la trace de la 1re). OBSERVÉ.
+
+## R-65 Étape 4 : une boucle infinie (horloge + mémoire) est-elle possible ? — argument (AFFIRMÉ, à relire) + 1 test
+POUR (rien ne l'interdit) : le pas de la petite fourmi est une BIJECTION des 256 états (la fourmi RL est réversible), donc son orbite
+est périodique. Un système borné de fourmis est périodique (R-44) : cela n'empêche pas de simuler une bijection, au contraire —
+une orbite périodique du grand système peut contenir l'orbite de la petite fourmi. R-44 n'est donc PAS un obstacle de principe.
+Les navettes (R-19, R-21) montrent qu'un signal peut revenir ET effacer sa trace (portée réglable) : retour + effacement existent.
+CONTRE (notre architecture actuelle) : chaque porte consomme une puissance qui part à l'infini et laisse une trace définitive ;
+avec N fourmis on ne fait qu'un nombre fini de pas. Pour boucler il faut : (1) des signaux qui reviennent (navettes = horloge,
+VÉRIFIÉ R-19) ; (2) des miroirs réutilisables — mur LLR : la 2e autoroute est encore déviée mais sur une autre voie (R-64),
+miroir-cycle RL réutilisable (R-51 corrigé) ; (3) des portes SANS déchet ni perte : c'est exactement le modèle des boules de billard
+(Fredkin-Toffoli 1982, réversible et conservatif, universel) ; nos déviations LLR ressemblent à sa « porte d'interaction »
+(un signal continue, l'autre est dévié) ; (4) des traces effaçables : en LLR une case revient blanche après 3 passages, en RL après 2.
+À TROUVER : une porte d'interaction LLR « propre » (les deux sorties réutilisables, pas de trace qui bloque la suite) et un miroir
+qui ne garde aucune mémoire du passage (case(s) revenues à leur état). Sans cela, l'ordinateur reste « à usage unique ».
+
+## R-63 (suite, 16:06) — le pas complet en 8 modules : VÉRIFIÉ 2 048/2 048 (moteur C) ; Python : 7 modules 1 792/1 792 + h1' 29/29 (échantillon)
+Les erreurs de h1' venaient d'un BUG de mon outil trapL (64 fourmis max ; h1' en a 67) — même bug qu'en R-46. Corrigé (128, puis 256).
+Paramètres larges (DA = 200, SP = 40, POFF = 200). Tailles : c..' 3+1 portes / 8 fourmis ; x', y' 2+1 / 5 ; h0' 1 / 2 ; h1' 18+1 / 67.
+Germe UNIQUE du pas (35 + 7 portes, ≤ 110 fourmis, T ≈ 239 000) : trop grand pour la grille C ; test Python sur 16 états en cours.
+## Point 16:06 : étapes 1, 3 faites ; 2 (XOR via compilateur ; croisement direct impossible) ; 4 argument écrit.

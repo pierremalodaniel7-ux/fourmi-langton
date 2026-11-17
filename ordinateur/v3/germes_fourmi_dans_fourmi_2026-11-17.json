@@ -1,0 +1,26 @@
+[
+ {
+  "dossier": "ordinateur/R-62 compilateur LLR",
+  "nom": "Demi-additionneur LLR compilé (S = XOR, C = ET)",
+  "regle": "LLR",
+  "fourmis": "-760,760,G ; -705,1015,G ; -650,1270,G ; 140,440,H",
+  "points": "",
+  "note": "R-62, VÉRIFIÉ 4/4 (2 moteurs), 22580 pas. Germe = puissances seules ; entrées en DOUBLE VOIE : pour chaque variable, ajouter les fourmis de sa valeur (mettre ces fourmis AVANT les puissances dans la liste). a=1 : ajouter -657,857,H | a=0 : ajouter -602,1112,H ; -547,1367,H | b=1 : ajouter -637,877,H | b=0 : ajouter -582,1132,H ; -527,1387,H. Lecture : S = 1 ssi la fourmi de sortie part ↙ sur la voie x+y = 580 ; C = 1 ssi la fourmi de sortie part ↘ sur la voie x−y = -1920."
+ },
+ {
+  "dossier": "ordinateur/R-62 compilateur LLR",
+  "nom": "Module « cap ± 1 » compilé (h1', h0')",
+  "regle": "LLR",
+  "fourmis": "-1150,1150,G ; -1075,1425,G ; -1000,1700,G ; -925,1975,G ; -850,2250,G ; 530,830,H",
+  "points": "",
+  "note": "R-62, VÉRIFIÉ 8/8 (2 moteurs), 33200 pas. Germe = puissances seules ; entrées en DOUBLE VOIE : pour chaque variable, ajouter les fourmis de sa valeur (mettre ces fourmis AVANT les puissances dans la liste). h0=1 : ajouter -1047,1247,H ; -822,2072,H ; -747,2347,H | h0=0 : ajouter -972,1522,H ; -897,1797,H | h1=1 : ajouter -952,1542,H ; -802,2092,H | h1=0 : ajouter -1027,1267,H ; -877,1817,H | c=1 : ajouter -857,1837,H ; -782,2112,H | c=0 : ajouter -1007,1287,H ; -932,1562,H. Lecture : h1' = 1 ssi la fourmi de sortie part ↙ sur la voie x+y = 1360 ; h0' = 1 ssi la fourmi de sortie part ↘ sur la voie x−y = -3100."
+ },
+ {
+  "dossier": "ordinateur/R-63 pas de la petite fourmi",
+  "nom": "Pas de la petite fourmi : module c00' (mise à jour d'une case)",
+  "regle": "LLR",
+  "fourmis": "-720,-687,G ; -665,-572,G ; -610,-457,G ; 102,-1005,H",
+  "points": "",
+  "note": "R-63, VÉRIFIÉ 256/256 (moteur C), 19340 pas. c00' = c00 ⊕ [x=0 ∧ y=0]. Variables c00 c10 c01 c11 x y h1 h0 en double voie. c00=1 : ajouter -677,-650,H ; -622,-535,H | c00=0 : ajouter -567,-420,H | x=1 : ajouter -552,-405,H | x=0 : ajouter -662,-635,H | y=1 : ajouter -537,-390,H | y=0 : ajouter -607,-520,H. Lecture : c00' = 1 ssi la fourmi de sortie part ↙ sur la voie x+y = -902. Les modules c10', c01', c11', x', y', h0' sont produits par le même compilateur (pas_modules.py), 256/256 chacun."
+ }
+]
