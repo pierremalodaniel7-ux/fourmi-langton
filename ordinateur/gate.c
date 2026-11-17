@@ -11,14 +11,14 @@ static unsigned char G[W*W];
 static int DX[4]={0,1,0,-1},DY[4]={-1,0,1,0};
 int main(){
   static char line[1<<20];
-  int *px=malloc(sizeof(int)*8*2000001), *py=malloc(sizeof(int)*8*2000001);
+  int *px=malloc(sizeof(int)*16*2000001), *py=malloc(sizeof(int)*16*2000001);
   while(fgets(line,sizeof line,stdin)){
-    int ax[8],ay[8],ad[8],n=0; long T=0; char *bar=strchr(line,'|'); if(!bar) continue; *bar=0;
+    int ax[64],ay[64],ad[64],n=0; long T=0; char *bar=strchr(line,'|'); if(!bar) continue; *bar=0;
     char *rest=bar+1; char *sp=strrchr(rest,' '); T=atol(sp+1); *sp=0;
     for(char *t=strtok(line,";");t;t=strtok(NULL,";")){char c; if(sscanf(t," %d,%d,%c",&ax[n],&ay[n],&c)==3){ad[n]=c=='H'?0:c=='D'?1:c=='B'?2:3;n++;}}
     memset(G,0,sizeof G);
     for(char *t=strtok(rest,";");t;t=strtok(NULL,";")){int x,y; if(sscanf(t," %d,%d",&x,&y)==2) G[(y+O)*W+x+O]^=1;}
-    if(T>2000000)T=2000000; int bord=0; long t;
+    if((long)T*n>32000000)T=32000000/n; int bord=0; long t;
     for(t=0;t<T&&!bord;t++) for(int i=0;i<n;i++){
       int k=(ay[i]+O)*W+ax[i]+O; ad[i]=(ad[i]+(G[k]?3:1))&3; G[k]^=1; ax[i]+=DX[ad[i]]; ay[i]+=DY[ad[i]];
       if(ax[i]<-O+2||ax[i]>O-3||ay[i]<-O+2||ay[i]>O-3) bord=1;

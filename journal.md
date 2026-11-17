@@ -159,3 +159,29 @@ Si, à partir d'un instant t0, toutes les fourmis restent dans une zone bornée,
 donc il devient périodique ; la dynamique étant réversible (R-01), l'orbite ENTIÈRE est périodique : l'état de départ revient,
 donc l'autoroute est ré-émise (c'est une navette, R-19). Toute règle L/R, tout nombre de fourmis. Un signal ne peut donc pas être
 « absorbé » pour toujours : on peut seulement l'envoyer à l'infini (décharge) ou le renvoyer (navette = horloge, VÉRIFIÉ R-19/R-21).
+
+## R-45 Convois 104×N (piste 1, 17/11 15:00–) — OBSERVÉ (ordinateur/v2/convoi.py, lacher.py, cascade.py)
+Construction gloutonne depuis le Tandem (0,0,H ; −2,0,B) : 104×3 = 1 seul placement (−2,2,D, autoroute dès 17 131) ; 104×4 : 0 sur 664 (R=6).
+Lâcher : Tandem + 1 bloc (1 ou 2 cases, toutes phases) : 172/252 lâchent UNE fourmi 104, l'autre continue ; 104×3 : 153/402.
+Mais ces « convois » ne sont PAS groupés : ce sont des 104 parallèles (Tandem : 14 voies d'écart ; 104×3 : 48 voies, 60 cases).
+Cascade 3→2→1 : 0/40 (bug de ma part : le chemin du 2e étage était pris AVANT le 1er lâcher ; à refaire si le temps).
+## R-46 Réservoir « ruban » : N germes 104 parallèles (voies x+y espacées de 20), lâchés un par un vers ↘ par la case virage (R-43),
+de la voie extérieure vers l'intérieure, 40 périodes plus loin à chaque fois — OBSERVÉ (moteur C) : N = 2, 3, 5, 8 : N/N lâchers propres ↘,
+voies x−y = −56 − 160k. N ≥ 9 : « casse » = BUG de mon outil gate.c (8 fourmis max) ; corrigé (64) ⇒ N = 10, 12, 15 : N/N. VÉRIFIÉ (2 moteurs, N = 8 et 15).
+## Point 15:06 : piste 1 en cours (ruban jusqu'à 8). Ensuite : diagnostic N≥9, puis piste 5 (pièges).
+Conséquence : un convoi groupé de N > 3 n'a pas été trouvé ; le réservoir utile = ruban de 104 parallèles. Mais il ne fait
+rien de plus que N germes posés : seul gain, les puissances partent d'un même bord et leur instant de lâcher se règle par la case.
+Voies des lâchées x−y = −56 − 160k (≡ 0 mod 4) ; pour servir de P (classe 3) il faut placer les entrées en conséquence (piste 3).
+Commande : cd ordinateur/v2 && python3 ruban.py && python3 verif_ruban.py
+
+## R-47 Pièges à autoroute (piste 5) — VÉRIFIÉ (cycles exacts, 2 moteurs) / OBSERVÉ (stats) (ordinateur/v2/trap.c, pieges*.py)
+Source 104 ↙ (0,0,D + 11 cases), piège = Tourniquet 4, Petit Grain 8, Rouage 8, Petite Rosace 16 × 4 rotations, origine
+(−160+p+s, 160+p−s), p = −8…8, s = 0…3 : 1 088 essais, 200 000 pas. trap.c : cycle EXACT des fourmis bornées (état + boîte ≤ 400, ≤ 150 000 pas).
+Issues : pas de contact 576 ; capture (cycle exact + UNE 104 éjectée) 88 (source éjectée 42, fourmi du piège éjectée 46) ;
+bornées sans cycle trouvé 43 ; 2 à 9 autoroutes 399 ; TOUT COINCÉ : 0 (R-44 tient).
+Cycles finaux : périodes 148 à > 16 000 (jamais 4 ni 8). Plus courts : Tourniquet r1 p2 s1 → 148, éjection ↗ ; Petit Grain r0 p2 s1 → 220, éjection ↘.
+Revérifié Python (retour exact de l'état piégé + boîte) : 9/9.
+CORRECTION du test du chat : Petit Grain p=−1 s=3 = cycle de période 840 (boîte 163×164), pas 4 ; p=1 s=0 = PAS une capture
+(2 autoroutes ↘ + 1 fourmi rapide sur une trace). Le « cycle 4 » venait d'une boîte trop petite. Mon 1er banc (boîte 64) avait le même défaut.
+Piège universel : NON (au mieux 16 positions capturées sur 68 pour Tourniquet r1 ; directions d'éjection variées). OBSERVÉ.
+## Point 15:10 : pistes 1 et 5 faites (sauf 5c réutilisable, 5d LLR). Suite : piste 2 (additionneur 2 bits + écran).
