@@ -7,7 +7,7 @@ let ok = 0, ko = 0; const echecs = [];
 for (const c of C) {
   if (seul && !c.id.includes(seul)) continue;
   const t0 = Date.now(); let lignes = c.table;
-  const lourd = c.table.length * c.sorties[0].pas > 6e6 && (c.id.includes('R67') || c.id.includes('R53') || c.id.includes('R39'));
+  const lourd = process.argv[2] !== 'tout' && c.table.length * c.sorties[0].pas > 6e6 && (c.id.includes('R67') || c.id.includes('R53') || c.id.includes('R39'));
   if (rapide || lourd) { const pas = Math.max(1, Math.floor(c.table.length / (rapide ? 4 : 8))); lignes = c.table.filter((_, i) => i % pas === 0); }
   let bon = 0;
   for (const l of lignes) {

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mode d'emploi v7</title>
+<style>
+  :root { --fond: #fbfaf7; --texte: #1f2328; --trait: #ddd8cc; --accent: #c2410c; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fond: #15171a; --texte: #e6e3dc; --trait: #3a3f45; --accent: #fb923c; } }
+  body { background: var(--fond); color: var(--texte); font: 15px/1.5 system-ui, sans-serif; margin: 0 auto; max-width: 980px; padding: 16px; }
+  h1 { font-size: 22px; margin: 0 0 4px; } h2 { font-size: 16px; color: var(--accent); margin: 18px 0 4px; }
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  figure { margin: 0; } img { width: 100%; border: 1px solid var(--trait); border-radius: 6px; } figcaption { font-size: 13px; }
+  @media (max-width: 700px) { .grille { grid-template-columns: 1fr; } }
+  @media print { body { max-width: none; font-size: 11px; } h2 { margin-top: 8px; } .grille { gap: 6px; } }
+  .p { display: inline-block; width: 11px; height: 11px; border-radius: 50%; vertical-align: middle; }
+</style>
+</head>
+<body>
+<h1>Simulateur fourmi de Langton — v7 : mode d'emploi</h1>
+<p>Ouvre <b>index.html</b> (ou le lien GitHub Pages). Marche sur ordinateur et sur téléphone.</p>
+
+<h2>1. Choisir un germe</h2>
+<p>Colonne de gauche, « Germes » : les dossiers se déplient (Une fourmi, Autoroutes, Collisions, Navettes et horloges, Cycles et groupes,
+Passagers, R-20 à R-25, <b>Ordinateur</b>, Archives). Le champ « Filtrer » cherche dans les noms, les autres noms, les règles et les R-xx.
+Chaque germe a une <b>pastille</b> : <span class="p" style="background:#16a34a"></span> à nous (pas trouvé ailleurs),
+<span class="p" style="background:#dc2626"></span> déjà connu (la source s'affiche), <span class="p" style="background:#9ca3af"></span> pas encore cherché.
+Toucher la pastille montre la source. La fiche sous l'arbre donne le statut (VÉRIFIÉ, OBSERVÉ…), la source et l'avancement.
+⚡ = circuit avec interrupteurs. ↪ = le même germe, rangé aussi dans un autre dossier. Rien n'a été effacé : les doublons et les germes détaillés sont dans « Archives ».</p>
+
+<h2>2. Faire calculer un circuit</h2>
+<p>Choisis un germe ⚡ (dossier Ordinateur). Coche les interrupteurs pour mettre une entrée à 1 : leurs fourmis et cases s'ajoutent.
+<b>Calculer</b> simule jusqu'au pas de lecture et affiche la sortie (direction ↙ ↘ ↗ ↖ et voie) avec ✔ ou ✘ ; pour les additionneurs, le résultat en clair
+(« 3 + 2 = 5 »). <b>Toute la table</b> teste toutes les entrées. Couleurs : orange = entrées, violet = porte et puissances, vert = lecture, jaune = bande écran.</p>
+
+<h2>3. Se déplacer</h2>
+<p>Glisser pour déplacer ; molette ou <b>deux doigts</b> pour zoomer. « Aller au pas » saute directement à un pas (240 000 pas en quelques secondes).
+Grille : <b>tournée de 45°</b> pour voir droites les autoroutes diagonales.</p>
+
+<h2>4. Construire</h2>
+<p>Colonne de droite, « Construire » : choisis une porte, <b>Poser</b>, puis touche la grille. L'aimant respecte nos règles (RL : réseau R-50 ;
+LLR : tout est permis, R-60) et un avertissement s'affiche si un placement casse une règle. <b>Brancher</b> (LLR) ajoute une puissance qui lit la
+dernière sortie. <b>Enregistrer comme germe</b> l'ajoute à « Mes germes » (jamais à la place d'un autre) et le télécharge.</p>
+
+<div class="grille">
+  <figure><img src="captures_v7/1_menu_dossiers.png" alt="Menu en dossiers"><figcaption>Le menu en dossiers et les pastilles.</figcaption></figure>
+  <figure><img src="captures_v7/2_circuit_nor.png" alt="Circuit NOR"><figcaption>Porte NOR : interrupteur a coché, Calculer → ↘ ✔.</figcaption></figure>
+  <figure><img src="captures_v7/3_toute_la_table.png" alt="Toute la table"><figcaption>Additionneur 2 bits : « Toute la table », 16/16.</figcaption></figure>
+  <figure><img src="captures_v7/4_vue_tournee_45.png" alt="Vue tournée"><figcaption>Grille tournée de 45° : les autoroutes diagonales deviennent droites.</figcaption></figure>
+  <figure><img src="captures_v7/5_atelier.png" alt="Atelier"><figcaption>Atelier : une porte NOR LLR posée, puis branchée.</figcaption></figure>
+  <figure><img src="captures_v7/7_telephone.png" alt="Téléphone"><figcaption>Sur téléphone : la grille en premier, gros boutons.</figcaption></figure>
+</div>
+
+<h2>Pour l'équipe (fichiers)</h2>
+<p><b>bibliotheque.json</b> = toutes les données (germes, dossiers, circuits, avancement, historique des versions), séparées du code.
+On la reconstruit avec <code>python3 outils/construire_bibliotheque.py</code> : elle est <b>fusionnée</b>, jamais écrasée.
+Tests : <code>node test.js</code> (44 tests v6), <code>node test_v7.js</code> (bibliothèque), <code>node test_circuits.js</code> (37 circuits).</p>
+</body>
+</html>

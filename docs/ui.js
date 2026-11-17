@@ -924,10 +924,13 @@ function ajusterTailleCanvas() {
 // 8. Souris et clavier
 // ----------------------------------------------------------------------------
 // Case située sous le pointeur de la souris.
+// v7 : conversion d'un écart mesuré à l'écran en écart dans le repère du canvas (la vue tournée de 45° la remplace).
+function ecranVersLocal(dx, dy) { return [dx, dy]; }
 function caseSousPointeur(evenement) {
   const r = canvas.getBoundingClientRect();
-  const X = vue.cx + (evenement.clientX - r.left - r.width / 2) / vue.echelle;
-  const Y = vue.cy + (evenement.clientY - r.top - r.height / 2) / vue.echelle;
+  const [u, v] = ecranVersLocal(evenement.clientX - r.left - r.width / 2, evenement.clientY - r.top - r.height / 2);
+  const X = vue.cx + u / vue.echelle;
+  const Y = vue.cy + v / vue.echelle;
   const [x, y] = Langton.caseSousPoint(sim.M, X, Y);
   return { x: sim.replier(x), y: sim.replier(y) };
 }
@@ -956,8 +959,7 @@ canvas.addEventListener('pointerdown', (ev) => {
 
 canvas.addEventListener('pointermove', (ev) => {
   if (glisse) {
-    const dx = ev.clientX - glisse.x;
-    const dy = ev.clientY - glisse.y;
+    const [dx, dy] = ecranVersLocal(ev.clientX - glisse.x, ev.clientY - glisse.y);
     // On ne considère que c'est un « glisser » qu'au-delà de 4 pixels :
     // en dessous, c'est un clic un peu tremblant.
     if (Math.abs(dx) + Math.abs(dy) > 4) glisse.bouge = true;
@@ -999,7 +1001,8 @@ canvas.addEventListener('wheel', (ev) => {
   // Firefox compte souvent la molette en lignes (deltaMode 1, environ 3 par cran)
   // ou en pages (deltaMode 2), Chrome en pixels (environ 100 par cran) : on ramène tout en pixels.
   const pixelsDefiles = ev.deltaY * (ev.deltaMode === 1 ? 33 : ev.deltaMode === 2 ? r.height : 1);
-  zoomer(Math.exp(-pixelsDefiles * 0.0015), ev.clientX - r.left - r.width / 2, ev.clientY - r.top - r.height / 2);
+  const [px, py] = ecranVersLocal(ev.clientX - r.left - r.width / 2, ev.clientY - r.top - r.height / 2);
+  zoomer(Math.exp(-pixelsDefiles * 0.0015), px, py);
 }, { passive: false });
 
 // Outil « placer les fourmis » : on modifie les positions de DÉPART.

@@ -257,7 +257,8 @@ function normaliserConfig(c) {
     y: coordonnee(f && f.y),
     d: lireDirection(f && f.d, regle.M),
   }));
-  if (fourmis.length === 0) fourmis = defaut.fourmis;
+  // v7 : zéro fourmi permis seulement si on le demande (ex. croisement avec les deux fils à 0) ; sinon comme la v6.
+  if (fourmis.length === 0 && !c.zeroFourmi) fourmis = defaut.fourmis;
 
   const dessin = (Array.isArray(c.dessin) ? c.dessin : [])
     .filter((t) => Array.isArray(t) && t.length >= 3)
@@ -275,6 +276,7 @@ function normaliserConfig(c) {
       graine: entier(ini.graine, defaut.initial.graine),
     },
     dessin,
+    zeroFourmi: fourmis.length === 0, // v7 : garde l'absence voulue de fourmi quand on re-normalise
   };
 }
 

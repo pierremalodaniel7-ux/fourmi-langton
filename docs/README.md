@@ -1,3 +1,15 @@
+# Simulateur fourmi de Langton — v7
+
+**En ligne** : https://pierremalodaniel7-ux.github.io/fourmi-langton/ (dossier `docs/` de la branche main, GitHub Pages).
+Sans connexion : ouvrir `index.html` (double-clic) ; les calculs de circuits se font alors dans la page au lieu d'un Web Worker.
+
+- Mode d'emploi : `mode_emploi.html` ; nouveautés : `CHANGEMENTS_v7.md`.
+- Données (séparées du code) : `bibliotheque.json` (+ `bibliotheque.js` pour le double-clic), reconstruite par
+  `python3 outils/construire_bibliotheque.py` (fusion, jamais d'écrasement ; sources dans `sources/`) ; circuits : `python3 outils/circuits.py`.
+- Tests : `node test.js` (v6), `node test_v7.js` (bibliothèque), `node test_circuits.js rapide|tout` (circuits).
+
+---
+
 # Fourmi de Langton — simulateur à bidouiller
 
 ## Lancer
