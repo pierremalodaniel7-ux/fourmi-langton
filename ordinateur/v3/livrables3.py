@@ -29,12 +29,16 @@ for nom,n,noms,S,stat in [('Demi-additionneur LLR compilé (S = XOR, C = ET)',2,
     G.append(dict(dossier='ordinateur/R-62 compilateur LLR',nom=nom,regle='LLR',fourmis=base(p),points='',
       note=f"R-62, {stat}, {T} pas. Germe = puissances seules ; entrées en DOUBLE VOIE : pour chaque variable, ajouter les fourmis de sa valeur (mettre ces fourmis AVANT les puissances dans la liste). {note_entrees(p)}. Lecture : {lecture(p)}."))
     FIG.append((nom+' — entrées toutes à 1',C.germe(p,2**n-1)[0],T))
-C.PAR.update(POFF=80,SP=30,DA=60)
-nom,f=PL.S[0]; p=C.compile_([(nom,f)],8,PL.NOMS); T=C.T_of(p)
-ymin=min(g['ls']-g['a'] for g in p['gates'])//2; ymax=max(g['rays'][-1]-g['a'] for g in p['gates'])//2; C.PAR['OY']=-(ymax+ymin)//2 - T//36
-G.append(dict(dossier='ordinateur/R-63 pas de la petite fourmi',nom="Pas de la petite fourmi : module c00' (mise à jour d'une case)",regle='LLR',fourmis=base(p),points='',
-  note=f"R-63, VÉRIFIÉ 256/256 (moteur C), {T} pas. c00' = c00 ⊕ [x=0 ∧ y=0]. Variables c00 c10 c01 c11 x y h1 h0 en double voie. {note_entrees(p)}. Lecture : {lecture(p)}. Les modules c10', c01', c11', x', y', h0' sont produits par le même compilateur (pas_modules.py), 256/256 chacun."))
-FIG.append(("Module c00' — état 0x13",C.germe(p,0x13)[0],T))
+C.PAR.update(POFF=200,SP=40,DA=200,OY=0)
+nom,f=PL.S[6]; p=C.compile_([(nom,f)],8,PL.NOMS); T=C.T_of(p)
+G.append(dict(dossier='ordinateur/R-63 pas de la petite fourmi',nom="Pas de la petite fourmi : module h1' (nouveau cap, lit la case sous la fourmi)",regle='LLR',fourmis=base(p),points='',
+  note=f"R-63, VÉRIFIÉ 256/256 (moteur C) + 29/29 (Python, échantillon), {T} pas. h1' = h1 ⊕ h0 ⊕ (case sous la fourmi) : 18 clauses + 1 sortie, ≤ 67 fourmis. Variables c00 c10 c01 c11 x y h1 h0 en double voie. {note_entrees(p)}. Lecture : {lecture(p)}. Les modules c10', c01', c11', x', y', h0' sont produits par le même compilateur (pas_modules.py), 256/256 chacun."))
+FIG.append(("Module h1' du pas (18 clauses) — état 0x5A",C.germe(p,0x5A)[0],T))
+C.PAR.update(POFF=200,SP=40,DA=200,OY=0)
+pu=C.compile_(PL.S,8,PL.NOMS); Tu=C.T_of(pu)
+G.insert(0,dict(dossier='ordinateur/R-67 pas complet',nom='Le pas complet de la petite fourmi (tore 2×2) en UN germe LLR',regle='LLR',fourmis=base(pu),points='',
+  note=f"R-67, OBSERVÉ 16/16 états tirés au hasard (Python, {Tu} pas ; trop grand pour le moteur C) ; chaque sortie VÉRIFIÉE séparément 256/256 (R-63). Entrées c00 c10 c01 c11 x y h1 h0 en double voie. {note_entrees(pu)}. Lecture : {lecture(pu)}."))
+FIG.insert(0,('Le pas complet en un germe — état c00..c11=1,0,1,1 x=0 y=1 h=D',C.germe(pu,0b10101101)[0],Tu))
 json.dump(G,open('germes_fourmi_dans_fourmi_2026-11-17.json','w'),ensure_ascii=False,indent=1)
 with PdfPages('bestiaire_10_fourmi_dans_fourmi.pdf') as pdf:
     f=plt.figure(figsize=(8.27,11.69)); f.text(0.07,0.93,'Bestiaire 10 — Fourmi dans fourmi : les fondations (R-61 à R-65)',size=14,weight='bold')

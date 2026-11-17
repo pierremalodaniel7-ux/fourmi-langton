@@ -321,3 +321,13 @@ Les erreurs de h1' venaient d'un BUG de mon outil trapL (64 fourmis max ; h1' en
 Paramètres larges (DA = 200, SP = 40, POFF = 200). Tailles : c..' 3+1 portes / 8 fourmis ; x', y' 2+1 / 5 ; h0' 1 / 2 ; h1' 18+1 / 67.
 Germe UNIQUE du pas (35 + 7 portes, ≤ 110 fourmis, T ≈ 239 000) : trop grand pour la grille C ; test Python sur 16 états en cours.
 ## Point 16:06 : étapes 1, 3 faites ; 2 (XOR via compilateur ; croisement direct impossible) ; 4 argument écrit.
+
+## R-66 Effacement par passages répétés en LLR — OBSERVÉ (négatif)
+1, 2 ou 3 fourmis LLR sur la même voie (la 2e et la 3e partent derrière, écart 40 ou 100) : la 2e et la 3e TOURNENT ↘ en touchant la
+trace de la 1re (elles ne roulent pas dessus) ; la trace (1 300 cases non blanches sur le tronçon témoin) reste identique.
+⇒ « une case revient blanche après 3 passages » ne s'obtient pas en envoyant 3 autoroutes sur la même voie. OUVERT : autre géométrie.
+
+## R-67 Le pas COMPLET de la petite fourmi en UN SEUL germe LLR (sans case) — OBSERVÉ 16/16 états tirés au hasard (Python) (pas_unique_py.py)
+35 portes niv. 1 + 7 niv. 2 (h0' lu au niveau 1), ≤ 110 fourmis, T = 238 940 pas ; les 8 sorties justes pour les 16 états testés.
+Trop grand pour la grille du moteur C (32 768) ⇒ 1 seul moteur ; ≈ 22 s par état en Python. Échantillons supplémentaires en cours.
+Avec R-63 (chaque module VÉRIFIÉ 256/256, 2 moteurs), c'est le 1er « pas de fourmi calculé par des fourmis ».
