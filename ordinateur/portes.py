@@ -18,7 +18,7 @@ def situ(germes,extra=()):
     return ';'.join(f'{x},{y},{d}' for x,y,d in ants)+'|'+';'.join(f'{x},{y}' for x,y in sorted(cells))
 def run(situs,T):
     inp=''.join(f'{s} {T}\n' for s in situs)
-    p=subprocess.run(['./gate'],input=inp,capture_output=True,text=True)
+    p=subprocess.run([__import__('os').path.join(__import__('os').path.dirname(__file__),'gate')],input=inp,capture_output=True,text=True)
     out=[]
     for l in p.stdout.strip().split('\n'):
         if l.startswith('BORD'): out.append('BORD'); continue

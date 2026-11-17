@@ -185,3 +185,18 @@ CORRECTION du test du chat : Petit Grain p=−1 s=3 = cycle de période 840 (bo�
 (2 autoroutes ↘ + 1 fourmi rapide sur une trace). Le « cycle 4 » venait d'une boîte trop petite. Mon 1er banc (boîte 64) avait le même défaut.
 Piège universel : NON (au mieux 16 positions capturées sur 68 pour Tourniquet r1 ; directions d'éjection variées). OBSERVÉ.
 ## Point 15:10 : pistes 1 et 5 faites (sauf 5c réutilisable, 5d LLR). Suite : piste 2 (additionneur 2 bits + écran).
+
+## R-48 Additionneur complet à 1 puissance — VÉRIFIÉ (2 moteurs, temps fini) (ordinateur/v2/fa*.py)
+Entrées a, b, c = germes ↙ (voies x+y = 0, 128, 256), P ↘ voie x−y = −121 : voie de P = L − 4k, k = a+b+c, 8/8 (2 voies de P testées).
+Les décalages s'additionnent sur 3 traces. Cases (130,254) + (231,369) : k=0 → ↘ voie −126 ; k=1 → ↙ 337 ; k=2 → ↙ 369 ; k=3 → ↙ 597.
+Écran y = 900 : S = pixel k1 ou k3, C = pixel k2 ou k3 : 8/8 (Python) ; sorties 8/8 (C).
+Échec instructif : une case qui ne touche QUE la voie du milieu (k=1) n'existe pas (0/1 766) ; on lit par la voie de SORTIE, pas par une case par voie.
+
+## R-49 ORDINATEUR EN UN GERME : additionneur 2 bits (a1a0 + b1b0) + écran — VÉRIFIÉ (2 moteurs, 16/16) (ordinateur/v2/add2*.py)
+Idée : poids 2 = 2 germes parallèles (a1 → voies 256 et 384 ; b1 → 512 et 640) ; a0 → 0 ; b0 → 128. UNE puissance P ↘ (voie −121)
+traverse toutes les traces : voie = L − 4v, v = a0 + b0 + 2a1 + 2b1, 16/16 (6 traces s'additionnent).
+« Épluchage » : 6 cases, une par valeur, du bord vers l'intérieur : (341,460) + v·(78,82), v = 0…5 ; la valeur v sort ↙ sur la voie 781 + 160v ; v = 6 reste ↘.
+Écran : bande y = 1 100, un pixel par valeur (x = −319 + 160v ; v = 6 en x = 950) ; binaire lu par la position. 16/16 Python, 16/16 C.
+Taille : 1 puissance + 6 germes d'entrée au plus + 6 cases. MAIS pour n bits : 2^i copies du bit i et 2^(n+1) − 2 cases ⇒ EXPONENTIEL
+(comme R-36) ; le linéaire demande l'enchaînement par retenue (R-39) — pas fait ici.
+## Point 15:21 : pistes 1, 5, 2 faites. Suite : piste 3 (règles de déplacement), puis livrables.
