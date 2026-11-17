@@ -10,3 +10,5 @@ src/*
 !src/README.md
 !src/oracle.txt
 ordinateur/gate
+recherche/ordinateur/libmoteur.so
+recherche/ordinateur/__pycache__/

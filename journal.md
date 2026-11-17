@@ -113,6 +113,15 @@ Même famille que les Rosaces de R-31 ; record de période pour 8 fourmis sans c
 Avec 13 fourmis ou plus : aucun cycle, aucune autoroute nouvelle. ATTENTION : 11 cycles ont 8 fourmis (< 10) à cause d'un arrondi de gen.py (--sym 4 avec n = 10 ou 11 donnait 8 fourmis) ; corrigé (arrondi au-dessus).
 Germes : resultats/germes_2026-11-16.json ; fiches : resultats/bestiaire_2026-11-16.pdf. Commande : src/fourmi -T 4000000 "<situation>".
 
+## R-39 Additionneur par modules enchaînés (ordinateur à fourmis) — VÉRIFIÉ (temps fini, toutes entrées) — 16/11 soir
+Module = additionneur complet à 2 lecteurs (S somme ↘/↙, K retenue ↘/↗) ; retenue = autoroute ↗ sur voie exacte,
+qui décale de 8 voies le lecteur suivant ; 2 cases d'aiguillage par feuille ramènent les 3 cas « retenue 1 » sur
+la même autoroute, donc module recopiable (décalage (1311,−1091), retard 950 périodes). 2, 3, 4, 5 bits : 16/16,
+64/64, 256/256, 1024/1024 justes au pas de lecture ; 4 bits recalculé en JavaScript (256/256). Lecture à la fin
+fausse dans 120/256 cas (sorties ↙ heurtées plus tard). Principe connu : Gajardo-Moreira-Goles 2002.
+Commande : cd recherche/ordinateur && python3 chaine.py 4 436400 95000 ; node verif_independante.js tout.
+Source : recherche/ordinateur/COMPTE_RENDU.md, fiche.md, germe_ordinateur.json.
+
 ## R-40 Banc « câblabilité » des autoroutes (17/11, 13:49–13:54) — OBSERVÉ (ordinateur/banc1.py, score1.py)
 Remarque : le Drive a déjà R-36 à R-39 « ordinateur » (R-39 = additionneur 4 bits par modules). Numérotation reprise à R-40.
 Chaque autoroute contre 1 case noire posée sur chacune des cases de son chemin sur 1 période (toutes les phases), et contre
