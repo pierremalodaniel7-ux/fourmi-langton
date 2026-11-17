@@ -18,6 +18,7 @@ Lambine (R-33) ; 95 directions d'autoroutes (R-35).
 ## Ordinateur (17/11, R-40 à R-44)
 Autoroute la plus câblable en RL : la 104 à 1 fourmi (les autoroutes à plusieurs fourmis éclatent) ; hors RL : LLR / LⁿR (murs = miroirs, 6 pas de chaos).
 Porte « compteur » par traversée de traces : NOR, ET, NON, COPIE, CROISEMENT, OU à 2 étages, demi-additionneur, écran — VÉRIFIÉ (2 moteurs, temps fini). Puits définitif impossible (R-44). Germes : ordinateur/.
+17/11 après-midi (R-45 à R-50) : ADDITIONNEUR 2 BITS EN UN GERME + écran, 16/16 (2 moteurs) ; additionneur complet à 1 puissance ; réservoir ruban 15/15 ; 88 pièges exacts, 0 « tout coincé » ; règles de déplacement. Taille encore exponentielle en n bits.
 
 ## Ouvert
 R-04 (≤ 2 états blancs par cycle) ; R-14/R-27 conjecture des phases (0 contre-exemple sur ≈ 2,7 M) ;

@@ -200,3 +200,26 @@ traverse toutes les traces : voie = L − 4v, v = a0 + b0 + 2a1 + 2b1, 16/16 (6 
 Taille : 1 puissance + 6 germes d'entrée au plus + 6 cases. MAIS pour n bits : 2^i copies du bit i et 2^(n+1) − 2 cases ⇒ EXPONENTIEL
 (comme R-36) ; le linéaire demande l'enchaînement par retenue (R-39) — pas fait ici.
 ## Point 15:21 : pistes 1, 5, 2 faites. Suite : piste 3 (règles de déplacement), puis livrables.
+
+## R-50 Règles de déplacement des portes (piste 3) — VÉRIFIÉ moteur C (ordinateur/v2/regles.py)
+Additionneur 2 bits, 16 entrées par test : translation d'ensemble (37,−11) et (−100,64) 16/16 ; une entrée glissée le long de son axe
+de ±5, ±20 × (2,−2) 16/16 ; puissance reculée de 5 ou 40 × (−2,−2) 16/16 ; entrée décalée sur le côté de (2,2) ou (8,8) 16/16,
+de (1,1) 14/16, de (1,0) 8/16 ; cases glissées de 3 × (2,2) le long de P 16/16 (sortie décalée de 12 voies).
+Règle : on peut glisser une entrée le long de son axe, reculer une puissance, translater le tout ; sur le côté, seulement par
+multiples de (2,2) (voie x+y ≡ mod 4) ; une case d'aiguillage se glisse par (2,2)·m le long de P (sortie +4m).
+Contradiction « R-35 bis » : le test e2 (R-41) montre que l'addition n'a lieu qu'en classe x−y ≡ 3 mod 4 (24/24).
+En classe 1 : une seule trace donne soit un demi-tour (6/12), soit −8 (6/12), et deux traces donnent un demi-tour ou un mélange
+⇒ « ne s'additionnent pas » était vrai dans les autres classes. Le sens de traversée compte aussi (↖ : +2 ou −6 selon la phase, R-41 E1).
+OUVERT : piège réutilisable (5c), pièges LLR (5d), portes LLR, mémoire réinscriptible.
+
+## R-51 Piège réutilisable (piste 5c) — OBSERVÉ (stats) / VÉRIFIÉ (4 cycles, 2 moteurs) (ordinateur/v2/reuse.py)
+Les 12 captures aux cycles les plus courts × 2e source 104 venant des 4 directions × 7 voies (336 essais, 200 000 pas) :
+2e source sans contact 247 ; contact suivi d'un cycle exact + 2 autoroutes au total : 89 (2e source PIÉGÉE, une fourmi du piège part
+à sa place : 31 ; 2e source déviée, cycle changé : 58). Dans plusieurs cas le piège REVIENT à un cycle de période 4 (Tourniquet)
+ou 8 (Petit Grain) : remise à zéro. Ex. Tourniquet r0 p1 s2 + 2e source r0 off 3 → cycle 4. Revérifié Python 4/4.
+⇒ un piège = « miroir à usage multiple » ou fusible réarmable (à étudier).
+
+## R-52 Pas de cycle court en LLR / LLLR (piste 5d) — OBSERVÉ (src/fourmi, CYCLE exact)
+LLR : 2 fourmis (+ 0 ou 1 case) dans [−3,3]² : 19 968 essais ; 3 fourmis dans [−2,2]² : 17 664 ; 4 fourmis en symétrie d'ordre 4
+(± cases symétriques) : 24 200 ; LLLR symétrique : 24 200. 0 cycle exact (100 000 pas). L'autoroute LⁿR part trop vite (≈ 40 pas)
+pour qu'un cycle se forme ⇒ pas de piège LLR à base de cycles (le « cycle » vu dans le chat = boîte trop petite, comme en RL).

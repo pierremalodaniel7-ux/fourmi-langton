@@ -22,3 +22,4 @@ SYNCHRONES et, dans Golly, les fourmis qui se rencontrent meurent. Chez nous : l
 
 À lire un jour (bloquant pour dire « nouveau ») : fil ConwayLife « Langton's Ant Society » en entier ; langtonsant.es.
 | Portes logiques par traversée de traces (plusieurs fourmis RL, NOR/ET/COPIE/croisement) | Pas trouvé (le principe « la fourmi calcule » est connu : Gajardo-Moreira-Goles 2002, 1 fourmi) | 2 recherches web (arXiv nlin/0306022, fil ConwayLife Langton's Ant Society = synthèse de vaisseaux) | 17/11 |
+| Additionneur à une puissance par comptage de traces (poids = germes doublés), pièges à autoroute réutilisables | Pas trouvé (même recherche que la ligne précédente ; Gajardo-Moreira-Goles = 1 fourmi) | 17/11 |
