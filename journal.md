@@ -142,3 +142,20 @@ et sa case d'aiguillage est placée entre les deux. 16/16 placements de P2 essay
 Règle de conception qui en sort : une puissance ne doit croiser, avant sa case de lecture, QUE les traces qu'elle doit lire.
 
 ## Point mi-parcours (14:00) : objectif 1 fait (R-40), NOR/ET/NON/OU + enchaînement (R-41, R-42). Reste : COPIE, croisement, affichage, vérif Python, livrables.
+
+## R-43 COPIE, CROISEMENT, demi-additionneur, écran — VÉRIFIÉ (2 moteurs, temps fini) (ordinateur/e6…e8, ecran.py, verif.py)
+COPIE : case (135,265) ⇒ P tourne ↙ ssi a=1 ; A continue ↙ : 1 entrée, 2 sorties (13 cases conviennent).
+Collecteur : 1 case n'existe pas ; 63 paires de cases renvoient les voies L et L−4 sur la MÊME sortie ↙ (voie 397).
+CROISEMENT : X (↙) passe d'abord, Y (↘) traverse sa trace puis le collecteur (137,264)+(148,267) ⇒ trace de sortie de Y
+identique case par case pour x=0 et x=1 (5 paires sur 63). Y ne garde aucune trace de x.
+Demi-additionneur à UNE puissance : cases (130,254)+(133,267) : S ⇒ ↙ voie 337, C ⇒ ↙ voie 369, (0,0) ⇒ reste ↘ (14 cases XOR conviennent).
+Écran (objectif 3) : bande y = 900, pixels S (x=−563) et C (x=−531) = case noire dans un carré 13×11 : 4/4 juste.
+Vérification indépendante (verif.py, moteur Python) : 9 portes, 28 cas, 28 justes. Germes : ordinateur/germes_ordinateur_2026-11-17.json.
+Déjà connu ? Gajardo-Moreira-Goles 2002 (1 fourmi, cases préparées) ; rien trouvé sur des portes par traversée de traces à plusieurs fourmis
+(2 recherches web + deja_connu.md) ⇒ « pas trouvé », pas « nouveau ».
+
+## R-44 Pas de puits définitif — PROUVÉ (argument court, À RELIRE)
+Si, à partir d'un instant t0, toutes les fourmis restent dans une zone bornée, l'état (zone + fourmis) ne prend qu'un nombre fini de valeurs,
+donc il devient périodique ; la dynamique étant réversible (R-01), l'orbite ENTIÈRE est périodique : l'état de départ revient,
+donc l'autoroute est ré-émise (c'est une navette, R-19). Toute règle L/R, tout nombre de fourmis. Un signal ne peut donc pas être
+« absorbé » pour toujours : on peut seulement l'envoyer à l'infini (décharge) ou le renvoyer (navette = horloge, VÉRIFIÉ R-19/R-21).

@@ -21,3 +21,4 @@ SYNCHRONES et, dans Golly, les fourmis qui se rencontrent meurent. Chez nous : l
 | Catalogue des directions d'autoroutes | Pas trouvé (langtonsant.es inaccessible depuis Claude) | — | 16/11 |
 
 À lire un jour (bloquant pour dire « nouveau ») : fil ConwayLife « Langton's Ant Society » en entier ; langtonsant.es.
+| Portes logiques par traversée de traces (plusieurs fourmis RL, NOR/ET/COPIE/croisement) | Pas trouvé (le principe « la fourmi calcule » est connu : Gajardo-Moreira-Goles 2002, 1 fourmi) | 2 recherches web (arXiv nlin/0306022, fil ConwayLife Langton's Ant Society = synthèse de vaisseaux) | 17/11 |
