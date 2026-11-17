@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fourmi de Langton — simulateur</title>
+<style>
+  /* ---------- couleurs de la page (thème clair, puis thème sombre) ---------- */
+  :root {
+    --fond: #f3f1ec; --panneau: #ffffff; --texte: #1f2328; --discret: #626a73;
+    --trait: #d9d5cc; --accent: #c2410c; --accent-texte: #ffffff; --champ: #ffffff;
+    --alerte-fond: #fff4d6; --alerte-trait: #e0b84a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fond: #15171a; --panneau: #1e2125; --texte: #e6e3dc; --discret: #9aa1a9;
+      --trait: #353a40; --accent: #f08a4b; --accent-texte: #1a1206; --champ: #15171a;
+      --alerte-fond: #3a3016; --alerte-trait: #7d6520;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--fond); color: var(--texte);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex; flex-direction: column;
+  }
+  header { padding: 8px 16px; border-bottom: 1px solid var(--trait); background: var(--panneau); }
+  header h1 { font-size: 17px; margin: 0; display: inline; }
+  header span { color: var(--discret); margin-left: 10px; }
+
+  /* ---------- trois colonnes : paramètres | vue | mesures ---------- */
+  .app { flex: 1; min-height: 0; display: grid; grid-template-columns: 320px minmax(0, 1fr) 300px; }
+  aside { overflow-y: auto; background: var(--panneau); padding: 4px 14px 20px; }
+  #params { border-right: 1px solid var(--trait); }
+  #mesures { border-left: 1px solid var(--trait); }
+  main { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+
+  h2 {
+    font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--discret);
+    margin: 16px 0 6px; padding-top: 10px; border-top: 1px solid var(--trait);
+  }
+  aside h2:first-child { border-top: 0; padding-top: 0; }
+  label { display: block; margin: 6px 0; }
+  label.ligne { display: flex; align-items: center; gap: 8px; }
+  label.ligne > span:first-child { flex: 0 0 96px; color: var(--discret); }
+  label.coche { display: flex; align-items: flex-start; gap: 6px; }
+  input[type=text], input[type=number], select {
+    flex: 1; min-width: 0; width: 100%; padding: 5px 7px; font: inherit; color: var(--texte);
+    background: var(--champ); border: 1px solid var(--trait); border-radius: 5px;
+  }
+  textarea {
+    width: 100%; margin-top: 4px; padding: 5px 7px; font: 12.5px/1.4 ui-monospace, Menlo, Consolas, monospace;
+    color: var(--texte); background: var(--champ); border: 1px solid var(--trait); border-radius: 5px; resize: vertical;
+  }
+  .erreur { color: #b91c1c; }
+  input[type=text].mono { font-family: ui-monospace, Menlo, Consolas, monospace; }
+  input:focus-visible, select:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  button {
+    font: inherit; color: var(--texte); background: var(--panneau); border: 1px solid var(--trait);
+    border-radius: 5px; padding: 5px 10px; cursor: pointer; white-space: nowrap;
+  }
+  button:hover { border-color: var(--accent); }
+  button.principal { background: var(--accent); border-color: var(--accent); color: var(--accent-texte); font-weight: 600; min-width: 96px; }
+  small, .aide { color: var(--discret); font-size: 12.5px; }
+  .aide { margin: 4px 0 0; }
+  /* --- arbre des germes : dossiers qui s'ouvrent et se ferment --- */
+  #filtreGermes { width: 100%; box-sizing: border-box; margin-bottom: 6px; }
+  .arbre { max-height: 46vh; overflow-y: auto; border: 1px solid #ccc; border-radius: 4px; padding: 4px; font-size: 13px; }
+  .arbre details { margin-left: 10px; }
+  .arbre > details { margin-left: 0; }
+  .arbre summary { cursor: pointer; padding: 2px 0; font-weight: 600; }
+  .arbre summary .nb { font-weight: normal; color: var(--discret); }
+  .arbre button.germe { display: block; width: 100%; text-align: left; margin: 1px 0 1px 12px; padding: 2px 6px;
+    border: none; background: none; cursor: pointer; font: inherit; border-radius: 3px; width: calc(100% - 12px); }
+  .arbre button.germe:hover { background: #eef; }
+  .arbre button.germe.choisi { background: #dde; font-weight: 600; }
+  .boutons { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+  [hidden] { display: none !important; }
+  /* bandeau d'erreur (voir le script en bas de page) */
+  #erreurs { background: #b91c1c; color: #fff; padding: 10px 16px; font-size: 14px; }
+  #erreurs p { margin: 4px 0; }
+
+  /* légende de la règle : une pastille par couleur */
+  #legendeRegle { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+  .pastille {
+    display: inline-flex; align-items: center; gap: 4px; padding: 1px 6px 1px 2px;
+    border: 1px solid var(--trait); border-radius: 10px; font-size: 12px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+  }
+  .pastille i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--trait); display: inline-block; }
+
+  /* ---------- barre de commande et vue ---------- */
+  .barre {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; padding: 8px 12px;
+    background: var(--panneau); border-bottom: 1px solid var(--trait);
+  }
+  .barre .separateur { width: 1px; align-self: stretch; background: var(--trait); margin: 0 4px; }
+  .barre .vitesse { display: flex; align-items: center; gap: 8px; flex: 1 1 190px; min-width: 190px; margin: 0; }
+  .barre .vitesse input { flex: 1; min-width: 80px; accent-color: var(--accent); }
+  #texteVitesse { min-width: 112px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  #cadre { flex: 1; min-height: 280px; position: relative; background: #f4f2ec; }
+  #vue { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+  #infoCase {
+    padding: 5px 12px; background: var(--panneau); border-top: 1px solid var(--trait);
+    color: var(--discret); font-size: 12.5px; min-height: 28px; font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- mesures ---------- */
+  dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; }
+  dt { color: var(--discret); }
+  dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  .fourmi { border: 1px solid var(--trait); border-radius: 6px; padding: 6px 8px; margin: 6px 0; }
+  .fourmi b { font-variant-numeric: tabular-nums; }
+  .fourmi .detecte { color: var(--accent); font-weight: 600; }
+  .avertissement {
+    background: var(--alerte-fond); border: 1px solid var(--alerte-trait); border-radius: 6px;
+    padding: 7px 9px; font-size: 12.5px; margin: 8px 0;
+  }
+  #graphe { width: 100%; height: 150px; display: block; }
+  #echelleVisites .degrade {
+    height: 12px; border-radius: 3px; border: 1px solid var(--trait);
+    background: linear-gradient(to right, #ffe9a8, #f59e42, #d1345b, #5b1a6e, #1b0b3a);
+  }
+  #echelleVisites .bornes { display: flex; justify-content: space-between; font-size: 12px; color: var(--discret); }
+
+  /* ---------- petits écrans : tout en une colonne ---------- */
+  @media (max-width: 980px) {
+    html, body { height: auto; }
+    .app { display: block; }
+    #cadre { height: 62vh; flex: none; }
+    #params, #mesures { border: 0; border-top: 1px solid var(--trait); padding: 4px 16px 20px; }
+  }
+</style>
+</head>
+<body>
+<div id="erreurs" hidden></div>
+<noscript><div style="background:#b91c1c;color:#fff;padding:10px 16px">JavaScript est désactivé :
+  le simulateur ne peut pas fonctionner. Réactive-le dans les réglages du navigateur.</div></noscript>
+<header>
+  <h1>Fourmi de Langton</h1>
+  <span>simulateur à bidouiller</span>
+</header>
+
+<div class="app">
+
+  <!-- ====================== colonne de gauche : paramètres ====================== -->
+  <aside id="params">
+    <h2>Expériences toutes prêtes</h2>
+    <select id="experience" aria-label="Charger une expérience">
+      <option value="">— choisir une expérience —</option>
+    </select>
+
+    <h2>Germes</h2>
+    <input id="filtreGermes" type="search" placeholder="Filtrer (nom, règle, dossier)…" aria-label="Filtrer les germes">
+    <div id="arbreGermes" class="arbre" role="tree" aria-label="Germes rangés par dossiers"></div>
+    <p class="aide" id="noteGerme"></p>
+
+    <h2>Règle</h2>
+    <label class="ligne"><span>Mot</span>
+      <input id="regle" class="mono" type="text" spellcheck="false" autocomplete="off" maxlength="160">
+    </label>
+    <label class="ligne"><span>Exemples</span>
+      <select id="exemplesRegle">
+        <option value="">—</option>
+        <optgroup label="Grille carrée">
+          <option>RL</option><option>LLRR</option><option>RLR</option>
+          <option>LRRRRRLLR</option><option>RRLLLRLLLRRR</option><option>RNL</option><option>RUL</option>
+        </optgroup>
+        <optgroup label="Grille hexagonale">
+          <option>H:L2NNL1L2L1</option><option>H:L1L2NUL2L1R2</option><option>H:R1L1</option>
+          <option>H:L1R1R1L1</option><option>H:R2L2</option>
+        </optgroup>
+      </select>
+    </label>
+    <div id="legendeRegle"></div>
+    <p class="aide">Une lettre par couleur. Grille carrée : <b>R</b> droite, <b>L</b> gauche, <b>N</b> tout droit,
+      <b>U</b> demi-tour. Grille hexagonale : préfixe <b>H:</b> puis <b>N</b>, <b>R1</b>, <b>R2</b>, <b>U</b>,
+      <b>L2</b>, <b>L1</b> = virages de 0, +1, +2, 3, −2, −1 sixièmes de tour (ex. H:L2NNL1L2L1).
+      La couleur d'une case est N mod q (q = nombre de lettres).</p>
+
+    <h2>Grille</h2>
+    <label class="ligne"><span>Forme</span>
+      <select id="geometrie">
+        <option value="4">Carrée (4 directions)</option>
+        <option value="6">Hexagonale (6 directions)</option>
+      </select>
+    </label>
+    <label class="coche"><input id="tore" type="checkbox"> <span>Tore (bords recollés) au lieu de la grille infinie</span></label>
+    <label class="ligne" id="ligneTailleTore"><span>Taille L</span>
+      <input id="tailleTore" type="number" min="2" max="1000" value="64">
+    </label>
+    <p class="aide">Changer de forme convertit la règle au plus près (R ↔ R1, L ↔ L1 ; R2 et L2 deviennent R et L).
+      En hexagonal, le tore est un parallélogramme L × L en coordonnées axiales.</p>
+
+    <h2>Situation initiale</h2>
+    <label class="ligne"><span>Motif</span>
+      <select id="motif">
+        <option value="vide">Vide</option>
+        <option value="damier">Damier</option>
+        <option value="rayures">Rayures</option>
+        <option value="aleatoire">Aléatoire</option>
+        <option value="carre">Carré plein</option>
+      </select>
+    </label>
+    <label class="ligne" id="ligneTaille"><span id="nomTaille">Taille</span>
+      <input id="taille" type="number" min="1" max="1000">
+    </label>
+    <label class="ligne" id="ligneDensite"><span>Densité</span>
+      <input id="densite" type="number" min="0" max="1" step="0.05">
+    </label>
+    <label class="ligne" id="ligneGraine"><span>Graine</span>
+      <input id="graine" type="number" step="1">
+    </label>
+    <div class="boutons"><button id="effacerDessin" type="button">Effacer le dessin à la main</button></div>
+
+    <h2>Cases noires</h2>
+    <label>Coordonnées : « x,y » (couleur 1) ou « x,y,c », séparées par ; ou espace ou retour à la ligne
+      (lignes en # ignorées)
+      <textarea id="textePoints" class="mono" rows="5" spellcheck="false"></textarea>
+    </label>
+    <label class="coche"><input id="pointsRelatifs" type="checkbox">
+      <span>Relatif à la fourmi 1 (x,y comptés depuis sa case de départ)</span></label>
+    <div class="boutons">
+      <button id="ajouterPoints" type="button" title="Ajoute ces cases à la situation de départ">Ajouter</button>
+      <button id="remplacerPoints" type="button" title="Remplace tout le dessin de départ par ces cases">Remplacer</button>
+      <button id="exporterPoints" type="button" title="Écrit les cases non blanches de l'instant présent">Exporter</button>
+      <button id="exporterDepart" type="button" title="Écrit les cases dessinées de la situation de départ">Exporter le départ</button>
+      <button id="copierPoints" type="button">Copier</button>
+    </div>
+    <p class="aide" id="messagePoints"></p>
+
+    <h2>Fourmis</h2>
+    <label class="ligne"><span>Nombre</span>
+      <input id="nbFourmis" type="number" min="1" max="100">
+    </label>
+    <label>Positions et directions (x,y,direction ; …)
+      <input id="texteFourmis" class="mono" type="text" spellcheck="false" autocomplete="off">
+    </label>
+    <p class="aide" id="aideFourmis">Direction : H haut, D droite, B bas, G gauche. L'axe y pointe vers le bas, comme à l'écran.</p>
+
+    <h2>Clic sur la grille</h2>
+    <label class="coche"><input type="radio" name="outil" value="dessin" checked>
+      <span><b>Dessiner</b> : un clic fait passer la case à la couleur suivante</span></label>
+    <label class="coche"><input type="radio" name="outil" value="fourmi">
+      <span><b>Placer les fourmis</b> : clic sur une case = nouvelle fourmi ; clic sur une fourmi = la tourner ;
+        clic droit (ou Maj + clic) = l'enlever</span></label>
+    <p class="aide">Glisser déplace la vue, la molette zoome. Changer la règle, la grille, le motif ou les fourmis
+      remet la simulation au départ ; dessiner, non.</p>
+
+    <h2>Affichage</h2>
+    <label class="ligne"><span>Mode</span>
+      <select id="mode">
+        <option value="couleurs">Couleurs des cases</option>
+        <option value="visites">Carte des visites (échelle log)</option>
+      </select>
+    </label>
+    <label class="coche"><input id="quadrillage" type="checkbox" checked> <span>Quadrillage (quand on zoome)</span></label>
+    <label class="coche"><input id="suiviForme" type="checkbox" checked>
+      <span><b>Suivi de la forme</b> : le cadrage s'ajuste tout seul</span></label>
+    <label class="ligne"><span>Cadrer</span>
+      <select id="cadrage">
+        <option value="tout">toute la zone visitée</option>
+        <option value="centre">le centre (sans les autoroutes)</option>
+      </select>
+    </label>
+    <p class="aide">« Le centre » : une fourmi partie sur une autoroute ne compte que pour la zone qu'elle
+      occupait quand l'autoroute a été reconnue ; on voit la forme centrale, pas la longue diagonale.</p>
+    <label class="coche"><input id="suivre" type="checkbox"> <span>Suivre la fourmi n°1</span></label>
+
+    <h2>Partage</h2>
+    <div class="boutons">
+      <button id="copierLien" type="button">Lien de partage</button>
+      <button id="exporter" type="button">Exporter JSON</button>
+      <button id="importer" type="button">Importer JSON</button>
+      <input id="fichier" type="file" accept=".json,application/json" hidden>
+    </div>
+    <input id="lien" class="mono" type="text" readonly hidden aria-label="Lien de partage">
+    <p class="aide" id="messagePartage"></p>
+  </aside>
+
+  <!-- ====================== centre : commandes + grille ====================== -->
+  <main>
+    <div class="barre">
+      <button id="retour" type="button" title="Retour au départ (pas 0)">⏮ Départ</button>
+      <button id="reculer" type="button" title="Reculer d'un pas (flèche gauche)">◀ −1 pas</button>
+      <button id="lecture" type="button" class="principal" title="Lecture / pause (barre d'espace)">▶ Lecture</button>
+      <button id="avancer" type="button" title="Avancer d'un pas (flèche droite)">+1 pas ▶</button>
+      <span class="separateur"></span>
+      <label class="vitesse" title="Vitesse">
+        <input id="vitesse" type="range" min="0" step="1" aria-label="Vitesse">
+        <span id="texteVitesse"></span>
+      </label>
+      <span class="separateur"></span>
+      <button id="zoomMoins" type="button" title="Dézoomer" aria-label="Dézoomer">−</button>
+      <button id="zoomPlus" type="button" title="Zoomer" aria-label="Zoomer">+</button>
+      <button id="toutVoir" type="button" title="Cadrer toutes les cases visitées">Tout voir</button>
+      <button id="centre" type="button" title="Cadrer la forme centrale, sans les autoroutes">Centre</button>
+    </div>
+    <div id="cadre"><canvas id="vue"></canvas></div>
+    <div id="infoCase">Survole une case pour voir son compteur.</div>
+  </main>
+
+  <!-- ====================== colonne de droite : mesures ====================== -->
+  <aside id="mesures">
+    <h2>Mesures</h2>
+    <dl>
+      <dt>Pas</dt><dd id="mPas">0</dd>
+      <dt>Cases visitées</dt><dd id="mCases">0</dd>
+      <dt>Boîte englobante</dt><dd id="mBoite">—</dd>
+      <dt>Cycle exact</dt><dd id="mCycle">—</dd>
+      <dt>Images par seconde</dt><dd id="mImages">—</dd>
+    </dl>
+    <p class="aide">Cycle exact : toutes les couleurs et toutes les fourmis (position et cap) sont
+      revenues à l'état initial. Contrairement au détecteur d'autoroute, c'est une preuve : la dynamique
+      étant réversible, tout se répétera à l'identique.</p>
+
+    <h2>Fourmis et détecteur d'autoroute</h2>
+    <div id="mFourmis"></div>
+    <div class="avertissement">
+      <b>C'est une détection, pas une preuve.</b> Le détecteur constate seulement que, pour une fourmi,
+      la suite des couleurs lues et des déplacements s'est répétée à l'identique sur au moins
+      3 périodes (et 100 pas). Rien ne garantit que cela continuera : un obstacle plus loin peut
+      tout casser, et l'affichage disparaît alors.
+    </div>
+
+    <h2>Cases visitées en fonction du temps</h2>
+    <canvas id="graphe"></canvas>
+
+    <div id="echelleVisites" hidden>
+      <h2>Échelle de la carte des visites</h2>
+      <div class="degrade"></div>
+      <div class="bornes"><span>1 visite</span><span>échelle log</span><span id="maxVisites">—</span></div>
+    </div>
+  </aside>
+</div>
+
+<script>
+  // Affiche en haut de la page toute erreur JavaScript, pour savoir ce qui coince
+  // sans avoir à ouvrir la console du navigateur.
+  function signalerErreur(texte) {
+    var bandeau = document.getElementById('erreurs');
+    var ligne = document.createElement('p');
+    ligne.textContent = texte;
+    bandeau.appendChild(ligne);
+    bandeau.hidden = false;
+  }
+  window.addEventListener('error', function (ev) {
+    if (ev.message) {
+      signalerErreur('Erreur : ' + ev.message + (ev.filename ? ' (' + ev.filename.split('/').pop() + ', ligne ' + ev.lineno + ')' : ''));
+    } else if (ev.target && ev.target.src) {
+      signalerErreur('Impossible de charger ' + ev.target.src.split('/').pop());
+    }
+  }, true);
+</script>
+<script src="engine.js"></script>
+<script>
+  if (typeof Langton === 'undefined') {
+    signalerErreur('Le fichier engine.js est introuvable à côté de index.html. As-tu bien EXTRAIT tout le zip ' +
+      '(clic droit → « Extraire tout ») avant d\'ouvrir index.html ? Ouvrir index.html directement depuis ' +
+      'l\'intérieur du zip ne marche pas : le navigateur ne voit alors que ce fichier-là.');
+  }
+</script>
+<script src="germes.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
