@@ -229,3 +229,12 @@ Poids 1, 2, 4 = 1, 2, 4 germes parallèles (emplacements (64i,64i), i = 0…13).
 additivité tenue jusqu'à 14. Les 14 cases = cases de R-49 glissées de 256 × (2,2) le long de P (règle R-50), (853+78v, 972+82v), AUCUNE recherche.
 Valeur v sort ↙ voie 1805 + 160v ; v = 14 reste ↘ (voie −182). 300 000 pas, 78 s en Python.
 Taille n bits : 1 puissance + 2(2^n − 1) germes d'entrée + 2^(n+1) − 2 cases ⇒ exponentiel (mais construit sans recherche).
+
+## R-51 CORRIGÉ (15:30) — l'essai R-51 était FAUX dans son interprétation
+Dans reuse.py la 2e source partait à ≈ 62 cases du piège, la 1re à ≈ 226 : la « 2e » arrivait AVANT. Les « remises à zéro (cycle 4) » = FAUX.
+Refait (reuse2.py) avec la 2e source à ≈ 600 cases (arrive après la capture), 336 essais, 200 000 pas : contact suivi d'un cycle exact
++ 2 autoroutes : 121 cas ; dont 86 « 2e source déviée, cycle de même période », 17 « cycle changé », 5 « 2e source piégée ».
+Témoin SANS le piège : 46 des 86 déviations viennent des traces de la 1re source ; 40 viennent du CYCLE.
+Pour ces 40 : MIROIR-CYCLE RÉUTILISABLE — le cycle (ex. Tourniquet r1 p2 s1, période 148) dévie une 2e autoroute et garde EXACTEMENT
+la même orbite (positions des fourmis piégées identiques au pas 200 000 avec ou sans 2e autoroute : 6/6, Python). VÉRIFIÉ (2 moteurs, fini).
+Mémoire réinscriptible : pas trouvée (OUVERT).
