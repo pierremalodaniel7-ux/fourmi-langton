@@ -1,0 +1,857 @@
+[
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 1/5 (11,3°) — LLLRR",
+  "regle": "LLLRR",
+  "grille": "carrée",
+  "fourmis": "-1,-3,H ; 3,-3,B",
+  "points": "",
+  "note": "Autoroute période 496, déplacement (-2,10), début 1904873. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 3/13 (13,0°) — LULLUUL",
+  "regle": "LULLUUL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute période 5694, déplacement (13,3), début 17412. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 1/4 (14,0°) — LLUUR",
+  "regle": "LLUUR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute période 123, déplacement (4,1), début 6005. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 2/7 (15,9°) — LLLLLUL",
+  "regle": "LLLLLUL",
+  "grille": "carrée",
+  "fourmis": "0,0,G",
+  "points": "",
+  "note": "Autoroute période 1841, déplacement (-7,-2), début 131894. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 1/3 (18,4°) — URNU",
+  "regle": "URNU",
+  "grille": "carrée",
+  "fourmis": "-1,0,H ; -2,-1,D",
+  "points": "",
+  "note": "Autoroute période 166, déplacement (-3,-1), début 1636951. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 4/11 (20,0°) — LRLUUU",
+  "regle": "LRLUUU",
+  "grille": "carrée",
+  "fourmis": "0,0,G",
+  "points": "",
+  "note": "Autoroute période 1371, déplacement (-11,-4), début 14349. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 3/8 (20,6°) — LNLL",
+  "regle": "LNLL",
+  "grille": "carrée",
+  "fourmis": "2,1,B ; -2,-2,D",
+  "points": "",
+  "note": "Autoroute période 1303, déplacement (-3,8), début 2891. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 2/5 (21,8°) — ULRL",
+  "regle": "ULRL",
+  "grille": "carrée",
+  "fourmis": "2,2,G ; 1,-2,H",
+  "points": "",
+  "note": "Autoroute période 87, déplacement (5,2), début 267457. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 12/25 (25,6°) — LLLRULL",
+  "regle": "LLLRULL",
+  "grille": "carrée",
+  "fourmis": "0,0,G",
+  "points": "",
+  "note": "Autoroute période 4391, déplacement (25,12), début 19645. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 1/2 (26,6°) — LRLUN",
+  "regle": "LRLUN",
+  "grille": "carrée",
+  "fourmis": "0,0,G",
+  "points": "",
+  "note": "Autoroute période 29, déplacement (1,-2), début 2. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 3/5 (31,0°) — LRRUUR",
+  "regle": "LRRUUR",
+  "grille": "carrée",
+  "fourmis": "0,0,B",
+  "points": "",
+  "note": "Autoroute période 530, déplacement (3,-5), début 16194. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 2/3 (33,7°) — LRLLNL",
+  "regle": "LRLLNL",
+  "grille": "carrée",
+  "fourmis": "0,0,G",
+  "points": "",
+  "note": "Autoroute période 147, déplacement (-3,-2), début 66222. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 11/15 (36,3°) — RRLLR",
+  "regle": "RRLLR",
+  "grille": "carrée",
+  "fourmis": "3,1,D ; -1,-2,H",
+  "points": "",
+  "note": "Autoroute période 6204, déplacement (-30,-22), début 1716540. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 3/4 (36,9°) — RLRLNNL",
+  "regle": "RLRLNNL",
+  "grille": "carrée",
+  "fourmis": "0,0,D",
+  "points": "",
+  "note": "Autoroute période 135, déplacement (-3,4), début 2493. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 7/9 (37,9°) — LLRLUU",
+  "regle": "LLRLUU",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute période 7062, déplacement (-14,18), début 27234. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 34/35 (44,2°) — RNLRRUR",
+  "regle": "RNLRRUR",
+  "grille": "carrée",
+  "fourmis": "0,0,B",
+  "points": "",
+  "note": "Autoroute période 10213, déplacement (-35,-34), début 132. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 1 — LR",
+  "regle": "LR",
+  "grille": "carrée",
+  "fourmis": "0,0,B",
+  "points": "",
+  "note": "Autoroute période 104, déplacement (-2,-2), début 9977. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 4/3 (53,1°) — LRLRNNR",
+  "regle": "LRLRNNR",
+  "grille": "carrée",
+  "fourmis": "0,0,G",
+  "points": "",
+  "note": "Autoroute période 135, déplacement (3,4), début 2493. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 15/11 (53,7°) — LLRRL",
+  "regle": "LLRRL",
+  "grille": "carrée",
+  "fourmis": "0,-2,H ; 3,3,H",
+  "points": "",
+  "note": "Autoroute période 6204, déplacement (22,30), début 271892. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 3/2 (56,3°) — RLRRNR",
+  "regle": "RLRRNR",
+  "grille": "carrée",
+  "fourmis": "0,0,B",
+  "points": "",
+  "note": "Autoroute période 147, déplacement (2,3), début 66222. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 5/3 (59,0°) — RL",
+  "regle": "RL",
+  "grille": "carrée",
+  "fourmis": "0,0,G ; 1,0,D ; 2,0,G",
+  "points": "",
+  "note": "Autoroute période 102, déplacement (5,-3), début 2840. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 2 (63,4°) — RLRUN",
+  "regle": "RLRUN",
+  "grille": "carrée",
+  "fourmis": "0,0,B",
+  "points": "",
+  "note": "Autoroute période 29, déplacement (2,-1), début 2. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 25/12 (64,4°) — RRRLURR",
+  "regle": "RRRLURR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute période 4391, déplacement (12,25), début 19645. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 5/2 (68,2°) — URLR",
+  "regle": "URLR",
+  "grille": "carrée",
+  "fourmis": "-2,-3,H ; 0,3,H",
+  "points": "",
+  "note": "Autoroute période 87, déplacement (-2,-5), début 60710. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 8/3 (69,4°) — RNRR",
+  "regle": "RNRR",
+  "grille": "carrée",
+  "fourmis": "0,1,B ; -3,3,D",
+  "points": "",
+  "note": "Autoroute période 1303, déplacement (-3,-8), début 866631. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 3 (71,6°) — ULNU",
+  "regle": "ULNU",
+  "grille": "carrée",
+  "fourmis": "-3,1,G ; 1,-3,B",
+  "points": "",
+  "note": "Autoroute période 166, déplacement (3,-1), début 208424. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 7/2 (74,1°) — RRRRRUR",
+  "regle": "RRRRRUR",
+  "grille": "carrée",
+  "fourmis": "0,0,B",
+  "points": "",
+  "note": "Autoroute période 1841, déplacement (2,7), début 131894. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 4 (76,0°) — RRUUL",
+  "regle": "RRUUL",
+  "grille": "carrée",
+  "fourmis": "0,0,B",
+  "points": "",
+  "note": "Autoroute période 123, déplacement (4,-1), début 6005. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 13/3 (77,0°) — ULUULR",
+  "regle": "ULUULR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute période 5778, déplacement (-3,-13), début 1042061. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 5 (78,7°) — RRRLL",
+  "regle": "RRRLL",
+  "grille": "carrée",
+  "fourmis": "3,-2,B ; -2,-3,B",
+  "points": "",
+  "note": "Autoroute période 496, déplacement (2,10), début 1899169. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 9 (83,7°) — LLNU",
+  "regle": "LLNU",
+  "grille": "carrée",
+  "fourmis": "-1,0,H ; 3,3,G",
+  "points": "",
+  "note": "Autoroute période 1204, déplacement (-9,1), début 583123. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Carrée",
+  "nom": "pente 12 (85,2°) — RRUURU",
+  "regle": "RRUURU",
+  "grille": "carrée",
+  "fourmis": "0,0,D",
+  "points": "",
+  "note": "Autoroute période 2551, déplacement (-12,1), début 68486. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/81 (1,2°) — H:L1L2R1NUL1",
+  "regle": "H:L1L2R1NUL1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 5727, déplacement (-40,-1) axial, début 30545. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/35 (2,8°) — H:L1L2NUL1L1",
+  "regle": "H:L1L2NUL1L1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 2246, déplacement (1,-18) axial, début 396099. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/27 (3,7°) — H:L1R2L1UUN",
+  "regle": "H:L1R2L1UUN",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 917, déplacement (-14,13) axial, début 2741490. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/21 (4,7°) — H:R2UR1R2NN",
+  "regle": "H:R2UR1R2NN",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 879, déplacement (10,1) axial, début 1582481. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/17 (5,8°) — H:R1R1R1R2",
+  "regle": "H:R1R1R1R2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 1327, déplacement (8,1) axial, début 25. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/15 (6,6°) — H:L2L2NUL2",
+  "regle": "H:L2L2NUL2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 1080, déplacement (8,-7) axial, début 105817. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/13 (7,6°) — H:R1UR2R1",
+  "regle": "H:R1UR2R1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 424, déplacement (7,-6) axial, début 10630. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/37 (8,0°) — H:R1L1R2R2R2L2",
+  "regle": "H:R1L1R2R2R2L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 1713, déplacement (17,3) axial, début 739403. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/11 (8,9°) — H:R2R2R1",
+  "regle": "H:R2R2R1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 1940, déplacement (5,1) axial, début 366241. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·7/65 (10,6°) — H:UL1UL1L2",
+  "regle": "H:UL1UL1L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 6397, déplacement (29,7) axial, début 2292. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/9 (10,9°) — H:R2UR2L1",
+  "regle": "H:R2UR2L1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 247, déplacement (5,-4) axial, début 20350. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/25 (11,7°) — H:L1L2R1UL2",
+  "regle": "H:L1L2R1UL2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 699, déplacement (-3,14) axial, début 171855. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·5/41 (11,9°) — H:R2UR2UR1L1",
+  "regle": "H:R2UR2UR1L1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 12555, déplacement (18,5) axial, début 41540. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/8 (12,2°) — H:R1NL2R1U",
+  "regle": "H:R1NL2R1U",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 296, déplacement (2,-9) axial, début 4337. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/23 (12,7°) — H:L2R1L2R2U",
+  "regle": "H:L2R1L2R2U",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 9739, déplacement (-30,-9) axial, début 1299434. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/7 (13,9°) — H:UL1UNU",
+  "regle": "H:UL1UNU",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 123, déplacement (4,-3) axial, début 2717. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·2/13 (14,9°) — H:R2UL1",
+  "regle": "H:R2UL1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 1863, déplacement (15,-11) axial, début 24344. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/19 (15,3°) — H:L2R2UR2UR1",
+  "regle": "H:L2R2UR2UR1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 2047, déplacement (-8,-3) axial, début 149385. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/6 (16,1°) — H:R2UR1N",
+  "regle": "H:R2UR1N",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 429, déplacement (-5,-2) axial, début 57554. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/17 (17,0°) — H:R2NUR1N",
+  "regle": "H:R2NUR1N",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 315, déplacement (-10,7) axial, début 8064. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·5/27 (17,8°) — H:L2R2L2L1L1U",
+  "regle": "H:L2R2L2L1L1U",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 1186, déplacement (-16,11) axial, début 800. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/5 (19,1°) — H:L1NNL1",
+  "regle": "H:L1NNL1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 30, déplacement (3,-2) axial, début 44. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/14 (20,4°) — H:L2R2R2R2R2U",
+  "regle": "H:L2R2R2R2R2U",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 2188, déplacement (11,6) axial, début 390138. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·7/31 (21,4°) — H:R2UR2R2NL2",
+  "regle": "H:R2UR2R2NL2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 1538, déplacement (7,-19) axial, début 56339. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/4 (23,4°) — H:L1NL2R1",
+  "regle": "H:L1NL2R1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 57, déplacement (2,-5) axial, début 318. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/11 (25,3°) — H:L1NL1R2",
+  "regle": "H:L1NL1R2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 113, déplacement (-3,7) axial, début 16. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·11/39 (26,0°) — H:L2L1L2UL1R1",
+  "regle": "H:L2L1L2UL1R1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 11577, déplacement (-28,-22) axial, début 21547. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·2/7 (26,3°) — H:L1L2NUL2",
+  "regle": "H:L1L2NUL2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 241, déplacement (9,-5) axial, début 17. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·7/23 (27,8°) — H:R2L2UL2R2",
+  "regle": "H:R2L2UL2R2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 10150, déplacement (30,-16) axial, début 17989. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·11/35 (28,6°) — H:L1L2NR1L2",
+  "regle": "H:L1L2NR1L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 975, déplacement (-12,-11) axial, début 672020. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/3 (30,0°) — H:L2NL1",
+  "regle": "H:L2NL1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 54, déplacement (-1,2) axial, début 672364. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·6/17 (31,4°) — H:R1R2NL1R2",
+  "regle": "H:R1R2NL1R2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 975, déplacement (11,12) axial, début 672020. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·27/73 (32,6°) — H:R1R2L2R1NL2",
+  "regle": "H:R1R2L2R1NL2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 10202, déplacement (23,27) axial, début 4610. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/8 (33,0°) — H:R1R2L2L1R2",
+  "regle": "H:R1R2L2L1R2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 541, déplacement (-6,11) axial, début 1857. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·11/29 (33,3°) — H:L1L2L2L2L1",
+  "regle": "H:L1L2L2L2L1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 5209, déplacement (9,11) axial, début 195. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·5/13 (33,7°) — H:R1R2NUR2",
+  "regle": "H:R1R2NUR2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 241, déplacement (-5,9) axial, début 17. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·9/23 (34,1°) — H:L1R2NL2L2",
+  "regle": "H:L1R2NL2L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 523, déplacement (-7,-9) axial, début 1916. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·2/5 (34,7°) — H:R1NR1L2",
+  "regle": "H:R1NR1L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 113, déplacement (4,-7) axial, début 16. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·7/17 (35,5°) — H:R1R2NUR2R2",
+  "regle": "H:R1R2NUR2R2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 388, déplacement (7,-12) axial, début 157. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·5/12 (35,8°) — H:R2L1R2NU",
+  "regle": "H:R2L1R2NU",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 567, déplacement (-17,7) axial, début 21568. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/7 (36,6°) — H:R1NR2L1",
+  "regle": "H:R1NR2L1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 57, déplacement (-3,5) axial, début 318. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·11/23 (39,6°) — H:R2L2L2L2L2U",
+  "regle": "H:R2L2L2L2L2U",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 2188, déplacement (11,-17) axial, début 390138. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·1/2 (40,9°) — H:R1UNNN",
+  "regle": "H:R1UNNN",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SO",
+  "points": "",
+  "note": "Autoroute période 22, déplacement (-3,1) axial, début 5. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·19/37 (41,7°) — H:UR1UR1N",
+  "regle": "H:UR1UR1N",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 2035, déplacement (-28,9) axial, début 3492. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·13/25 (42,0°) — H:L1NL2L2L2",
+  "regle": "H:L1NL2L2L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 1086, déplacement (6,13) axial, début 80429. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·7/13 (43,0°) — H:L2NUL1N",
+  "regle": "H:L2NUL1N",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 315, déplacement (-3,-7) axial, début 8064. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·5/9 (43,9°) — H:L2UL1N",
+  "regle": "H:L2UL1N",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 429, déplacement (-2,-5) axial, début 57554. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·41/73 (44,2°) — H:L2R2R1L2L1L2",
+  "regle": "H:L2R2R1L2L1L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 15469, déplacement (-57,16) axial, début 7942. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·11/19 (45,1°) — H:L2UR1",
+  "regle": "H:L2UR1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 1863, déplacement (15,-4) axial, début 24344. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/5 (46,1°) — H:UR1UNU",
+  "regle": "H:UR1UNU",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 123, déplacement (3,-4) axial, début 2717. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·13/21 (47,0°) — H:R2NNUUU",
+  "regle": "H:R2NNUUU",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 5085, déplacement (-17,4) axial, début 116746. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·5/8 (47,3°) — H:R2L1R2L2U",
+  "regle": "H:R2L1R2L2U",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 9739, déplacement (39,-9) axial, début 1299434. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·7/11 (47,8°) — H:L1NR2L1U",
+  "regle": "H:L1NR2L1U",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 296, déplacement (-9,2) axial, début 4337. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·9/14 (48,1°) — H:L2UL2UL1R1",
+  "regle": "H:L2UL2UL1R1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,E",
+  "points": "",
+  "note": "Autoroute période 12555, déplacement (5,18) axial, début 41540. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·11/17 (48,3°) — H:R2R1R2",
+  "regle": "H:R2R1R2",
+  "grille": "hexagonale",
+  "fourmis": "-1,0,NO ; 2,-2,NO",
+  "points": "",
+  "note": "Autoroute période 7618, déplacement (3,11) axial, début 589566. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·37/57 (48,3°) — H:L2R2R2L2UR1",
+  "regle": "H:L2R2R2L2UR1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 8724, déplacement (-47,10) axial, début 8097. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·2/3 (49,1°) — H:UR1U",
+  "regle": "H:UR1U",
+  "grille": "hexagonale",
+  "fourmis": "3,0,O ; 2,-1,O",
+  "points": "",
+  "note": "Autoroute période 2058, déplacement (8,-10) axial, début 217226. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·29/43 (49,4°) — H:UR1UR1R2",
+  "regle": "H:UR1UR1R2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NO",
+  "points": "",
+  "note": "Autoroute période 6397, déplacement (-36,7) axial, début 2292. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·5/7 (51,1°) — H:L2L2L1",
+  "regle": "H:L2L2L1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,SE",
+  "points": "",
+  "note": "Autoroute période 1940, déplacement (1,5) axial, début 366241. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·3/4 (52,4°) — H:L1UL2L1",
+  "regle": "H:L1UL2L1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,NE",
+  "points": "",
+  "note": "Autoroute période 424, déplacement (6,-7) axial, début 10630. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·7/9 (53,4°) — H:R2UL2L1R2R1",
+  "regle": "H:R2UL2L1R2R1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 520, déplacement (-7,8) axial, début 5770. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·4/5 (54,2°) — H:L1L1L1L2",
+  "regle": "H:L1L1L1L2",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 1327, déplacement (-9,1) axial, début 25. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ },
+ {
+  "dossier": "Autoroutes par direction/Hexagonale",
+  "nom": "pente √3·17/19 (57,2°) — H:R1R2NUR1R1",
+  "regle": "H:R1R2NUR1R1",
+  "grille": "hexagonale",
+  "fourmis": "0,0,O",
+  "points": "",
+  "note": "Autoroute période 2246, déplacement (18,-1) axial, début 396099. Cases notées x,y:couleur si la règle a plus de 2 couleurs."
+ }
+]

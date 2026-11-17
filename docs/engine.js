@@ -95,6 +95,7 @@ const TOURS = GEOMETRIES[4].virages;
 // 2. Constantes du détecteur d'autoroute et de la grille
 // ----------------------------------------------------------------------------
 const TAILLE_HISTO = 65536;        // mémoire par fourmi (puissance de 2)
+const FOURMIS_MAX = 1000;          // v7 : 1000 fourmis au plus (v6 : 100) ; 128 Ko d’historique par fourmi
 const MASQUE_HISTO = TAILLE_HISTO - 1;
 const PERIODE_MAX = 20000;         // plus grande période cherchée
 const INTERVALLE_RECHERCHE = 4096; // on cherche au moins tous les 4096 pas
@@ -250,7 +251,7 @@ function normaliserConfig(c) {
   tore = tore >= 2 ? borner(tore, 2, 1000) : 0;
 
   const coordonnee = (v) => borner(entier(v, 0), -COORD_MAX, COORD_MAX);
-  let fourmis = Array.isArray(c.fourmis) ? c.fourmis.slice(0, 100) : [];
+  let fourmis = Array.isArray(c.fourmis) ? c.fourmis.slice(0, FOURMIS_MAX) : [];
   fourmis = fourmis.map((f) => ({
     x: coordonnee(f && f.x),
     y: coordonnee(f && f.y),

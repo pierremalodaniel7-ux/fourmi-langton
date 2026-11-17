@@ -1,0 +1,98 @@
+[
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C9712 (8 fourmis, 0 cases)",
+  "regle": "RL",
+  "fourmis": "-4,13,B ; -10,-2,D ; -13,-4,G ; 2,-10,B ; 4,-13,H ; 10,2,G ; 13,4,D ; -2,10,H",
+  "points": "",
+  "note": "C9712 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4b)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C5960 (8 fourmis, 0 cases)",
+  "regle": "RL",
+  "fourmis": "20,-1,H ; 13,9,G ; 1,20,D ; -9,13,H ; -20,1,B ; -13,-9,D ; -1,-20,G ; 9,-13,B",
+  "points": "",
+  "note": "C5960 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4b)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C253760 (8 fourmis, 0 cases)",
+  "regle": "RL",
+  "fourmis": "15,-27,G ; 11,26,G ; 27,15,H ; -26,11,H ; -15,27,D ; -11,-26,D ; -27,-15,B ; 26,-11,B",
+  "points": "",
+  "note": "C253760 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4b)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C3316 (8 fourmis, 0 cases)",
+  "regle": "RL",
+  "fourmis": "5,-9,H ; -9,0,D ; 9,5,D ; 0,-9,B ; -5,9,B ; 9,0,G ; -9,-5,G ; 0,9,H",
+  "points": "",
+  "note": "C3316 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4b)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C9048 (8 fourmis, 0 cases)",
+  "regle": "RL",
+  "fourmis": "-2,-12,G ; -5,-6,B ; 12,-2,H ; 6,-5,G ; 2,12,D ; 5,6,H ; -12,2,B ; -6,5,D",
+  "points": "",
+  "note": "C9048 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4b)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C12696 (8 fourmis, 16 cases)",
+  "regle": "RL",
+  "fourmis": "-28,19,D ; -22,29,B ; -19,-28,B ; -29,-22,G ; 28,-19,G ; 22,-29,H ; 19,28,H ; 29,22,D",
+  "points": "-14,5 ; -12,4 ; -11,-3 ; -7,0 ; -5,-14 ; -4,-12 ; -3,11 ; 0,-7 ; 0,7 ; 3,-11 ; 4,12 ; 5,14 ; 7,0 ; 11,3 ; 12,-4 ; 14,-5",
+  "note": "C12696 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C36932 (8 fourmis, 4 cases)",
+  "regle": "RL",
+  "fourmis": "25,22,G ; -7,9,G ; -22,25,H ; -9,-7,H ; -25,-22,D ; 7,-9,D ; 22,-25,B ; 9,7,B",
+  "points": "-6,-4 ; -4,6 ; 4,-6 ; 6,4",
+  "note": "C36932 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C1012 (8 fourmis, 48 cases)",
+  "regle": "RL",
+  "fourmis": "9,1,B ; -4,-1,G ; -1,9,G ; 1,-4,H ; -9,-1,H ; 4,1,D ; 1,-9,D ; -1,4,B",
+  "points": "-15,-12 ; -15,-5 ; -14,-10 ; -14,-5 ; -14,5 ; -14,9 ; -13,5 ; -12,-1 ; -12,11 ; -12,15 ; -11,-12 ; -10,-3 ; -10,14 ; -9,-14 ; -9,-4 ; -7,-3 ; -5,-14 ; -5,-13 ; -5,14 ; -5,15 ; -4,9 ; -3,7 ; -3,10 ; -1,12 ; 1,-12 ; 3,-10 ; 3,-7 ; 4,-9 ; 5,-15 ; 5,-14 ; 5,13 ; 5,14 ; 7,3 ; 9,4 ; 9,14 ; 10,-14 ; 10,3 ; 11,12 ; 12,-15 ; 12,-11 ; 12,1 ; 13,-5 ; 14,-9 ; 14,-5 ; 14,5 ; 14,10 ; 15,5 ; 15,12",
+  "note": "C1012 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C33200 (8 fourmis, 44 cases)",
+  "regle": "RL",
+  "fourmis": "15,-7,B ; -14,14,D ; 7,15,G ; -14,-14,B ; -15,7,H ; 14,-14,G ; -7,-15,D ; 14,14,H",
+  "points": "-7,-7 ; -7,-3 ; -7,7 ; -6,-2 ; -6,4 ; -5,-5 ; -5,0 ; -5,4 ; -5,5 ; -4,-6 ; -4,-5 ; -4,-3 ; -4,3 ; -3,-4 ; -3,-3 ; -3,-1 ; -3,3 ; -3,4 ; -3,7 ; -2,6 ; -1,3 ; 0,-5 ; 0,5 ; 1,-3 ; 2,-6 ; 3,-7 ; 3,-4 ; 3,-3 ; 3,1 ; 3,3 ; 3,4 ; 4,-3 ; 4,3 ; 4,5 ; 4,6 ; 5,-5 ; 5,-4 ; 5,0 ; 5,5 ; 6,-4 ; 6,2 ; 7,-7 ; 7,3 ; 7,7",
+  "note": "C33200 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C110896 (12 fourmis, 8 cases)",
+  "regle": "RL",
+  "fourmis": "-2,-2,D ; -22,-10,D ; -7,20,H ; 2,-2,B ; 10,-22,B ; -20,-7,D ; 2,2,G ; 22,10,G ; 7,-20,B ; -2,2,H ; -10,22,H ; 20,7,G",
+  "points": "-23,-14 ; -23,-1 ; -14,23 ; -1,23 ; 1,-23 ; 14,-23 ; 23,1 ; 23,14",
+  "note": "C110896 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C15824 (8 fourmis, 44 cases)",
+  "regle": "RL",
+  "fourmis": "-14,6,H ; 11,13,D ; -6,-14,D ; -13,11,B ; 14,-6,B ; -11,-13,G ; 6,14,G ; 13,-11,H",
+  "points": "-21,-8 ; -20,-5 ; -19,-14 ; -19,3 ; -14,19 ; -13,6 ; -12,-12 ; -12,12 ; -11,-10 ; -11,3 ; -11,6 ; -10,2 ; -10,11 ; -8,21 ; -6,-13 ; -6,-11 ; -5,20 ; -4,2 ; -3,-19 ; -3,-11 ; -2,-10 ; -2,-4 ; 2,4 ; 2,10 ; 3,11 ; 3,19 ; 4,-2 ; 5,-20 ; 6,11 ; 6,13 ; 8,-21 ; 10,-11 ; 10,-2 ; 11,-6 ; 11,-3 ; 11,10 ; 12,-12 ; 12,12 ; 13,-6 ; 14,-19 ; 19,-3 ; 19,14 ; 20,5 ; 21,8",
+  "note": "C15824 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4)."
+ },
+ {
+  "dossier": "Recherche 2026-11-16/10-100 fourmis",
+  "nom": "C2904 (8 fourmis, 0 cases)",
+  "regle": "RL",
+  "fourmis": "6,8,D ; 0,3,B ; -8,6,B ; -3,0,G ; -6,-8,G ; 0,-3,H ; 8,-6,H ; 3,0,D",
+  "points": "",
+  "note": "C2904 — VÉRIFIÉ (cycle exact). Vu 1 fois (sym4)."
+ }
+]
