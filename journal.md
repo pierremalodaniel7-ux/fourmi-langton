@@ -265,3 +265,7 @@ manquent COPIE et croisement en LLR. Suite proposée : demi-additionneur LLR, pu
 A = 0,0,H ; P = −141,−40,G : a = 1 ⇒ A ↙ (voie 1) ET P tourne ↙ (voie 7) = 2 copies ; a = 0 ⇒ P continue ↘ (= NON a).
 Croisement en LLR : impossible directement (une trace dévie toujours celle qui passe après) ⇒ il faudra 3 XOR (OUVERT).
 Fin de session 15:36. Bilan : RL = additionneurs 2 et 3 bits en un germe ; LLR = NOR, OU, ET, NON, COPIE sans case, enchaînables.
+## R-60 Porte NOR LLR « à poser n'importe où » — OBSERVÉ (moteur C, 96/96)
+A glissée le long de son axe k·(−1,1), k = −10…10 : 21/21 ; A décalée de k·(1,1) : 11/11 ; de k·(1,0) : 11/11 ;
+P glissée le long de son axe k·(−1,−1), k = 0…20 : 21/21 ; P décalée sur le côté k·(1,−1), k = −10…10 : 21/21 ; tout translaté (k,3k) : 11/11.
+Contraste avec RL (R-50 : (1,0) ⇒ 8/16). En LLR, pas de classe mod 4 : la porte se pose où l'on veut. ⇒ ordinateur LLR = prochaine étape.
