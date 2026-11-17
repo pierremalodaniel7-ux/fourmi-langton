@@ -112,3 +112,33 @@ Autoroutes « inconnues » à 400 000 pas (232, 316, 756, 820, 3 112) : TOUTES d
 Même famille que les Rosaces de R-31 ; record de période pour 8 fourmis sans case : 253 760.
 Avec 13 fourmis ou plus : aucun cycle, aucune autoroute nouvelle. ATTENTION : 11 cycles ont 8 fourmis (< 10) à cause d'un arrondi de gen.py (--sym 4 avec n = 10 ou 11 donnait 8 fourmis) ; corrigé (arrondi au-dessus).
 Germes : resultats/germes_2026-11-16.json ; fiches : resultats/bestiaire_2026-11-16.pdf. Commande : src/fourmi -T 4000000 "<situation>".
+
+## R-40 Banc « câblabilité » des autoroutes (17/11, 13:49–13:54) — OBSERVÉ (ordinateur/banc1.py, score1.py)
+Remarque : le Drive a déjà R-36 à R-39 « ordinateur » (R-39 = additionneur 4 bits par modules). Numérotation reprise à R-40.
+Chaque autoroute contre 1 case noire posée sur chacune des cases de son chemin sur 1 période (toutes les phases), et contre
+8 murs (4 directions × plein/pointillé) décalés de 0 à 7 cases. Classement par fourmi (moteur C) ; contact mesuré par sim.py (2e moteur).
+Classement (case seule : % propre / % virage ±90 / chaos médian / % parasites) :
+LLR A18 100/87/28/0 ; LLLR A52 100/78/68/0 ; LLLLR A68 100/78/86/0 ; RL A104 100/62/5 988/0 ;
+puis toutes les autoroutes RL à plusieurs fourmis (102, 96, 52, 16, 108) : 0 à 16 % propres, 83 à 100 % parasites
+(elles éclatent en plusieurs 104). => pour câbler en RL : la 104 à UNE fourmi, rien d'autre.
+Murs (8 décalages, même issue partout) : LLR mur vertical −90° en 6 pas de chaos, mur horizontal demi-tour (1 235 pas),
+mur diagonal perpendiculaire TRAVERSÉ sans effet (3 pas). RL 104 : le mur dépend du décalage sauf la ligne posée dans l'axe (−90°, ~3 250 pas).
+Piège : fourmi s'arrête à 4 096 pas si l'autoroute est déjà confirmée ⇒ obstacle placé trop loin = jamais touché (corrigé : obstacle à 8 périodes).
+
+## R-41 Porte « compteur » par traversée de traces : NOR, ET, NON — OBSERVÉ (ordinateur/e1…e4, gate.c)
+Germe 104 (11 cases) tourné ; A, B = autoroutes ↙ (entrées, présente = 1) ; P = « puissance » ↘ lancée plus loin (arrive après).
+E1 : P traverse la trace de A : 8 classes (voie c = x−y de P mod 4 × demi-phase de P). Classe c ≡ 3 (mod 4) : décalage −4, propre, 4/4 phases.
+Classes paires : P fait demi-tour, rattrape A, tout se mélange (à éviter).
+E2 : P traverse A puis B : voie finale = L − 4·(a+b), 24/24 (4 phases × 2 voies × 3 positions de B). Les décalages S'ADDITIONNENT.
+E3 : 1 case d'aiguillage touchée par une seule voie : (141,260) ⇒ P tourne ↙ ssi a=b=0 (NOR) ; (133,267) ⇒ ↙ ssi a=b=1 (ET).
+Sorties ↙ = même sens que les entrées ⇒ enchaînables. NON = NOR sans B.
+E4 robustesse (A, B ou P décalé de ±1 case / ±1 demi-période) : NOR 4/8, 3/8, 1/8 justes ; ET 2/8, 1/8, 2/8 ⇒ voies EXACTES nécessaires (comme R-39).
+Commande : cd ordinateur && gcc -O2 -o gate gate.c && python3 e2_nor.py && python3 e3_demux.py && python3 e4_robuste.py
+
+## R-42 Deux étages enchaînés : OU = NON(NOR(a,b)) — OBSERVÉ, table 4/4 (ordinateur/e5_chaine.py)
+Piège : A et B continuent ↙ pour toujours ; une 2e puissance ↘ recroise leurs traces et compte a+b+O1 (voies −306/−310).
+Solution : la 2e puissance P2 arrive de l'autre côté (↖, départ x+y ≈ 1 900) : elle lit la trace de O1 AVANT de croiser A et B,
+et sa case d'aiguillage est placée entre les deux. 16/16 placements de P2 essayés ont des cases qui donnent OU juste (4/4).
+Règle de conception qui en sort : une puissance ne doit croiser, avant sa case de lecture, QUE les traces qu'elle doit lire.
+
+## Point mi-parcours (14:00) : objectif 1 fait (R-40), NOR/ET/NON/OU + enchaînement (R-41, R-42). Reste : COPIE, croisement, affichage, vérif Python, livrables.
