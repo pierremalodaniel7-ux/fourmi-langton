@@ -252,3 +252,6 @@ Une entrée = UNE fourmi (pas de germe de 11 cases en LLR). Enchaîner : la sort
 P1 = −141,−40,G (NOR) ; P2 = −250,450,B part ↗ sur la voie x+y = 200 et croise la ligne de P1 plus loin : P2 continue ↗ ssi a OU b ;
 si P1 est passée (a=b=0), P2 tourne ↘. TOUTES les voies L2 = 200…231 et 2 phases testées marchent (64/64) : en LLR l'enchaînement
 est ROBUSTE (contraste avec RL : voies exactes). NOR seul : 103/128 placements propres. ⇒ piste prioritaire : ordinateur LLR.
+## R-57 3 étages LLR (NOR → OU → NOR), 5 fourmis, 0 case — VÉRIFIÉ pour P3 = 540,560,D (C + Python 4/4) ; OBSERVÉ 38/64 placements (llr_3.py)
+P3 part ↖ (voie x−y = w3, départ x+y ≈ 1 100) et lit la sortie ↗ de P2 : continue ↖ ssi a = b = 0. 38 des 64 placements testés (w3 = −20…11) : 4/4.
+Robustesse du 3e étage moindre que du 2e (64/64), mais pas de réglage fin.
