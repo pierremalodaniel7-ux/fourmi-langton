@@ -238,3 +238,10 @@ Témoin SANS le piège : 46 des 86 déviations viennent des traces de la 1re sou
 Pour ces 40 : MIROIR-CYCLE RÉUTILISABLE — le cycle (ex. Tourniquet r1 p2 s1, période 148) dévie une 2e autoroute et garde EXACTEMENT
 la même orbite (positions des fourmis piégées identiques au pas 200 000 avec ou sans 2e autoroute : 6/6, Python). VÉRIFIÉ (2 moteurs, fini).
 Mémoire réinscriptible : pas trouvée (OUVERT).
+
+## R-54 LLR : une trace est un MIROIR, pas un décaleur (piste 4) — OBSERVÉ (ordinateur/v2/llr_croise.py, trapL)
+LLR, A = 0,0,H (autoroute 18 ↙), B = 32,32,H (↙, voie x+y ≈ 65), P = cap G (↘) sur 32 voies × 4 phases, 30 000 pas (128 situations × 4 entrées).
+P qui traverse une trace TOURNE ↙ (−90°) et repart parallèle à l'entrée ; la 1re trace rencontrée décide : (1,0) et (1,1) donnent la même
+sortie, (0,1) une autre ; P continue ↘ seulement si a = b = 0. Même issue pour les 4 phases de P (103 cas propres, 25 sales).
+Additivité : 0/103. ⇒ en LLR, logique « par déviation » : NOR immédiat, priorité ; pas de compteur. À explorer.
+## Point final (15:33) : pistes 1, 5, 2, 3 faites ; piste 4 : contradiction expliquée, LLR mesuré, mémoire non trouvée.
