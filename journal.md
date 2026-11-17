@@ -223,3 +223,9 @@ ou 8 (Petit Grain) : remise à zéro. Ex. Tourniquet r0 p1 s2 + 2e source r0 off
 LLR : 2 fourmis (+ 0 ou 1 case) dans [−3,3]² : 19 968 essais ; 3 fourmis dans [−2,2]² : 17 664 ; 4 fourmis en symétrie d'ordre 4
 (± cases symétriques) : 24 200 ; LLLR symétrique : 24 200. 0 cycle exact (100 000 pas). L'autoroute LⁿR part trop vite (≈ 40 pas)
 pour qu'un cycle se forme ⇒ pas de piège LLR à base de cycles (le « cycle » vu dans le chat = boîte trop petite, comme en RL).
+
+## R-53 Additionneur 3 bits en un germe, cases PRÉDITES — VÉRIFIÉ 64/64 (2 moteurs : Python, C grille 16 384²) (ordinateur/v2/add3.py)
+Poids 1, 2, 4 = 1, 2, 4 germes parallèles (emplacements (64i,64i), i = 0…13). Une puissance P ↘ (voie −121) traverse jusqu'à 14 traces :
+additivité tenue jusqu'à 14. Les 14 cases = cases de R-49 glissées de 256 × (2,2) le long de P (règle R-50), (853+78v, 972+82v), AUCUNE recherche.
+Valeur v sort ↙ voie 1805 + 160v ; v = 14 reste ↘ (voie −182). 300 000 pas, 78 s en Python.
+Taille n bits : 1 puissance + 2(2^n − 1) germes d'entrée + 2^(n+1) − 2 cases ⇒ exponentiel (mais construit sans recherche).
