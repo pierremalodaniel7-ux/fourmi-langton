@@ -1,0 +1,738 @@
+[
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=0 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -248,-101 ; -64,-100 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=2 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -248,-101 ; -64,-100 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=0 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -248,-101 ; -64,-100 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=2 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -248,-101 ; -64,-100 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 3. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=0 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -247,247 ; -250,63 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=2 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -247,247 ; -250,63 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=0 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -247,247 ; -250,63 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 3. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=2 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -247,247 ; -250,63 ; -54,437 ; -448,-299 ; -346,162 ; 28,-194",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=1 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -248,-101 ; -64,-100 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=3 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -248,-101 ; -64,-100 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 3. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=1 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -248,-101 ; -64,-100 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=3 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -248,-101 ; -64,-100 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=1 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -247,247 ; -250,63 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 3. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=3 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -247,247 ; -250,63 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=1 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -247,247 ; -250,63 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2lo",
+  "nom": "add2lo a=3 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -247,247 ; -250,63 ; -347,345 ; -24,-304 ; -414,-103 ; 71,56",
+  "note": "R-37 programme add2lo = (a+b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=0 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -247,247 ; -96,258 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=0 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; -247,247 ; -96,258 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=1 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -166,165 ; 6,175 ; -247,247 ; -96,258 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=1 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; -166,165 ; 6,175 ; -247,247 ; -96,258 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=0 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; 88,257 ; -78,255 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=0 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; 88,257 ; -78,255 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=1 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -166,165 ; 6,175 ; 88,257 ; -78,255 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=1 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; -166,165 ; 6,175 ; 88,257 ; -78,255 ; -328,327 ; -14,340 ; -180,338",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=2 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -247,247 ; -96,258 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=2 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; -247,247 ; -96,258 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=3 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -166,165 ; 6,175 ; -247,247 ; -96,258 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=3 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; -166,165 ; 6,175 ; -247,247 ; -96,258 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=2 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; 88,257 ; -78,255 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=2 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; 88,257 ; -78,255 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=3 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -166,165 ; 6,175 ; 88,257 ; -78,255 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 add2hi",
+  "nom": "add2hi a=3 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,85 ; -166,165 ; 6,175 ; 88,257 ; -78,255 ; -5,348",
+  "note": "R-37 programme add2hi = retenue (a+b>=4). Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=0 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -126,-19 ; -45,-85 ; -188,-81 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=2 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -126,-19 ; -45,-85 ; -188,-81 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=0 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -127,125 ; -45,-85 ; -188,-81 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=2 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -127,125 ; -45,-85 ; -188,-81 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=0 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -126,-19 ; -186,190 ; -190,43 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=2 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -126,-19 ; -186,190 ; -190,43 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=0 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -127,125 ; -186,190 ; -190,43 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=2 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -127,125 ; -186,190 ; -190,43 ; -274,-42 ; 40,30 ; 101,-231 ; -350,-243",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=1 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -126,-19 ; -45,-85 ; -188,-81 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=3 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -126,-19 ; -45,-85 ; -188,-81 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=1 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -127,125 ; -45,-85 ; -188,-81 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=3 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -127,125 ; -45,-85 ; -188,-81 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 3. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=1 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -126,-19 ; -186,190 ; -190,43 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=3 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -126,-19 ; -186,190 ; -190,43 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=1 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -127,125 ; -186,190 ; -190,43 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 3. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2lo",
+  "nom": "mul2lo a=3 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -65,63 ; -127,125 ; -186,190 ; -190,43 ; -88,-160 ; -314,170",
+  "note": "R-37 programme mul2lo = (a*b) mod 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=0 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -248,-99 ; -250,63 ; -65,-105 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=0 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -248,-99 ; -250,63 ; -65,-105 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=1 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -248,-99 ; -250,63 ; -65,-105 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=1 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -248,-99 ; -250,63 ; -65,-105 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=0 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -249,247 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=0 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -249,247 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=1 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -249,247 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=1 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -249,247 ; -332,145 ; -328,-180 ; -330,-18 ; 17,-187",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=2 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -248,-99 ; -250,63 ; -65,-105",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=2 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -248,-99 ; -250,63 ; -65,-105",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=3 b=0",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -248,-99 ; -250,63 ; -65,-105",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=3 b=1",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -248,-99 ; -250,63 ; -65,-105",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=2 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -249,247",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=2 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -249,247",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=3 b=2",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -249,247",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 mul2hi",
+  "nom": "mul2hi a=3 b=3",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -249,247",
+  "note": "R-37 programme mul2hi = (a*b) div 4. Valeur attendue 2. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 000",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 010",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 001",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -168,-19",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 011",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -168,-19",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 100",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -249,247 ; -248,-100 ; -250,63 ; -258,72",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 110",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -249,247 ; -248,-100 ; -250,63 ; -258,72",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 101",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -168,-19 ; -249,247 ; -248,-100 ; -250,63 ; -258,72",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 xor3",
+  "nom": "xor3 111",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -168,-19 ; -249,247 ; -248,-100 ; -250,63 ; -258,72",
+  "note": "R-37 programme xor3 = XOR des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 000",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -168,-19 ; -250,63",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 010",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -168,-19 ; -250,63",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 001",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -250,63",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 011",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -250,63",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 100",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -168,-19 ; -258,72",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 0. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 110",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -168,-19 ; -258,72",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 101",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -258,72",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-37 maj3",
+  "nom": "maj3 111",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -258,72",
+  "note": "R-37 programme maj3 = majorite des 3 bits. Valeur attendue 1. La fourmi part en autoroute vers bas-gauche ; sa direction finale code la valeur (quarts de tour, sens bas-gauche -> haut-gauche -> haut-droite -> bas-droite, a un decalage fixe pres pour tout le programme). Ici : haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 000 (somme 0)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 0 -> direction finale bas-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 100 (somme 1)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 1 -> direction finale haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 010 (somme 1)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 1 -> direction finale haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 110 (somme 2)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 2 -> direction finale haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 001 (somme 1)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -335,333 ; -340,-193 ; -362,-51 ; 46,-210",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 1 -> direction finale haut-gauche."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 101 (somme 2)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -335,333 ; -340,-193 ; -362,-51 ; 46,-210",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 2 -> direction finale haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 011 (somme 2)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -167,165 ; -166,-19 ; -335,333 ; -340,-193 ; -362,-51 ; 46,-210",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 2 -> direction finale haut-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-36 additionneur 3 bits",
+  "nom": "additionneur 111 (somme 3)",
+  "regle": "RL",
+  "fourmis": "0,0,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; -85,83 ; -167,165 ; -166,-19 ; -335,333 ; -340,-193 ; -362,-51 ; 46,-210",
+  "note": "R-36. Chaque bit a 1 = cases noires qui font tourner l'autoroute de +90 deg. Somme 3 -> direction finale bas-droite."
+ },
+ {
+  "dossier": "Ordinateur/R-38 enchainement XOR",
+  "nom": "enchainement a=0 b=0 (XOR 0)",
+  "regle": "RL",
+  "fourmis": "0,0,D ; 400,-1600,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; 398,-1602 ; 399,-1602 ; 400,-1601 ; 401,-1600 ; 398,-1599 ; 401,-1599 ; 398,-1598 ; 400,-1598 ; 399,-1597 ; 400,-1597 ; 400,-1596 ; -841,-365",
+  "note": "R-38. Fourmi 1 = additionneur 2 bits ; fourmi 2 croise sa trace seulement si a+b=1, puis la case P(-841,-365) la fait tourner. Sortie de la fourmi 2 : bas-gauche (XOR=0). Laisser tourner ~210 000 pas."
+ },
+ {
+  "dossier": "Ordinateur/R-38 enchainement XOR",
+  "nom": "enchainement a=1 b=0 (XOR 1)",
+  "regle": "RL",
+  "fourmis": "0,0,D ; 400,-1600,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; 398,-1602 ; 399,-1602 ; 400,-1601 ; 401,-1600 ; 398,-1599 ; 401,-1599 ; 398,-1598 ; 400,-1598 ; 399,-1597 ; 400,-1597 ; 400,-1596 ; -841,-365 ; -65,63",
+  "note": "R-38. Fourmi 1 = additionneur 2 bits ; fourmi 2 croise sa trace seulement si a+b=1, puis la case P(-841,-365) la fait tourner. Sortie de la fourmi 2 : haut-gauche (XOR=1). Laisser tourner ~210 000 pas."
+ },
+ {
+  "dossier": "Ordinateur/R-38 enchainement XOR",
+  "nom": "enchainement a=0 b=1 (XOR 1)",
+  "regle": "RL",
+  "fourmis": "0,0,D ; 400,-1600,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; 398,-1602 ; 399,-1602 ; 400,-1601 ; 401,-1600 ; 398,-1599 ; 401,-1599 ; 398,-1598 ; 400,-1598 ; 399,-1597 ; 400,-1597 ; 400,-1596 ; -841,-365 ; -127,125 ; -126,-19",
+  "note": "R-38. Fourmi 1 = additionneur 2 bits ; fourmi 2 croise sa trace seulement si a+b=1, puis la case P(-841,-365) la fait tourner. Sortie de la fourmi 2 : haut-gauche (XOR=1). Laisser tourner ~210 000 pas."
+ },
+ {
+  "dossier": "Ordinateur/R-38 enchainement XOR",
+  "nom": "enchainement a=1 b=1 (XOR 0)",
+  "regle": "RL",
+  "fourmis": "0,0,D ; 400,-1600,D",
+  "points": "-2,-2 ; -1,-2 ; 0,-1 ; 1,0 ; -2,1 ; 1,1 ; -2,2 ; 0,2 ; -1,3 ; 0,3 ; 0,4 ; 398,-1602 ; 399,-1602 ; 400,-1601 ; 401,-1600 ; 398,-1599 ; 401,-1599 ; 398,-1598 ; 400,-1598 ; 399,-1597 ; 400,-1597 ; 400,-1596 ; -841,-365 ; -65,63 ; -127,125 ; -126,-19",
+  "note": "R-38. Fourmi 1 = additionneur 2 bits ; fourmi 2 croise sa trace seulement si a+b=1, puis la case P(-841,-365) la fait tourner. Sortie de la fourmi 2 : bas-gauche (XOR=0). Laisser tourner ~210 000 pas."
+ }
+]

@@ -1,0 +1,1678 @@
+{
+"A104 (1 fourmi)": {
+"base": "A104(2,2)x1",
+"P": 104,
+"u": [
+-2,
+2
+],
+"t0": 1,
+"nfresh": 40,
+"rows": [
+{
+"kind": "case",
+"ph": "(-74, 69)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3665,
+"chaos": 12484,
+"angles": [
+90
+],
+"box": "414x353"
+},
+{
+"kind": "case",
+"ph": "(-74, 70)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3664,
+"chaos": 6308,
+"angles": [
+0
+],
+"box": "205x205"
+},
+{
+"kind": "case",
+"ph": "(-74, 73)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3693,
+"chaos": 565,
+"angles": [
+-90
+],
+"box": "89x159"
+},
+{
+"kind": "case",
+"ph": "(-74, 74)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3692,
+"chaos": 7403,
+"angles": [
+90
+],
+"box": "198x135"
+},
+{
+"kind": "case",
+"ph": "(-73, 68)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3651,
+"chaos": 3645,
+"angles": [
+-90
+],
+"box": "203x270"
+},
+{
+"kind": "case",
+"ph": "(-73, 69)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3650,
+"chaos": 203,
+"angles": [
+0
+],
+"box": "160x162"
+},
+{
+"kind": "case",
+"ph": "(-73, 70)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3663,
+"chaos": 311,
+"angles": [
+0
+],
+"box": "160x161"
+},
+{
+"kind": "case",
+"ph": "(-73, 71)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3674,
+"chaos": 5688,
+"angles": [
+90
+],
+"box": "211x186"
+},
+{
+"kind": "case",
+"ph": "(-73, 72)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3683,
+"chaos": 615,
+"angles": [
+-90
+],
+"box": "90x159"
+},
+{
+"kind": "case",
+"ph": "(-73, 73)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3682,
+"chaos": 572,
+"angles": [
+-90
+],
+"box": "92x159"
+},
+{
+"kind": "case",
+"ph": "(-73, 74)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3691,
+"chaos": 6367,
+"angles": [
+90
+],
+"box": "189x167"
+},
+{
+"kind": "case",
+"ph": "(-73, 75)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3698,
+"chaos": 7261,
+"angles": [
+90
+],
+"box": "188x133"
+},
+{
+"kind": "case",
+"ph": "(-72, 68)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3560,
+"chaos": 6308,
+"angles": [
+0
+],
+"box": "205x205"
+},
+{
+"kind": "case",
+"ph": "(-72, 69)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3649,
+"chaos": 37,
+"angles": [
+0
+],
+"box": "162x164"
+},
+{
+"kind": "case",
+"ph": "(-72, 70)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3668,
+"chaos": 8218,
+"angles": [
+90
+],
+"box": "181x128"
+},
+{
+"kind": "case",
+"ph": "(-72, 71)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3589,
+"chaos": 565,
+"angles": [
+-90
+],
+"box": "91x159"
+},
+{
+"kind": "case",
+"ph": "(-72, 72)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3588,
+"chaos": 7403,
+"angles": [
+90
+],
+"box": "198x137"
+},
+{
+"kind": "case",
+"ph": "(-72, 73)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3681,
+"chaos": 1900,
+"angles": [
+-90
+],
+"box": "79x130"
+},
+{
+"kind": "case",
+"ph": "(-72, 74)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3696,
+"chaos": 2297,
+"angles": [
+0
+],
+"box": "127x116"
+},
+{
+"kind": "case",
+"ph": "(-72, 75)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3697,
+"chaos": 32397,
+"angles": [
+0
+],
+"box": "677x628"
+},
+{
+"kind": "case",
+"ph": "(-72, 76)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, -2)": 1
+},
+"nonc": 0,
+"tc": 3708,
+"chaos": 51046,
+"angles": [
+-180
+],
+"box": "1550x1486"
+},
+{
+"kind": "case",
+"ph": "(-71, 68)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3559,
+"chaos": 311,
+"angles": [
+0
+],
+"box": "160x161"
+},
+{
+"kind": "case",
+"ph": "(-71, 69)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3570,
+"chaos": 5688,
+"angles": [
+90
+],
+"box": "211x188"
+},
+{
+"kind": "case",
+"ph": "(-71, 70)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3579,
+"chaos": 615,
+"angles": [
+-90
+],
+"box": "92x159"
+},
+{
+"kind": "case",
+"ph": "(-71, 71)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3578,
+"chaos": 572,
+"angles": [
+-90
+],
+"box": "94x159"
+},
+{
+"kind": "case",
+"ph": "(-71, 72)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3587,
+"chaos": 6367,
+"angles": [
+90
+],
+"box": "189x169"
+},
+{
+"kind": "case",
+"ph": "(-71, 73)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3594,
+"chaos": 7261,
+"angles": [
+90
+],
+"box": "188x135"
+},
+{
+"kind": "case",
+"ph": "(-71, 74)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3711,
+"chaos": 3556,
+"angles": [
+0
+],
+"box": "264x262"
+},
+{
+"kind": "case",
+"ph": "(-71, 75)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3706,
+"chaos": 8349,
+"angles": [
+0
+],
+"box": "184x169"
+},
+{
+"kind": "case",
+"ph": "(-71, 76)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3707,
+"chaos": 15578,
+"angles": [
+90
+],
+"box": "342x301"
+},
+{
+"kind": "case",
+"ph": "(-70, 68)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3564,
+"chaos": 8218,
+"angles": [
+90
+],
+"box": "181x130"
+},
+{
+"kind": "case",
+"ph": "(-70, 69)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3485,
+"chaos": 565,
+"angles": [
+-90
+],
+"box": "93x159"
+},
+{
+"kind": "case",
+"ph": "(-70, 70)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3484,
+"chaos": 7403,
+"angles": [
+90
+],
+"box": "198x139"
+},
+{
+"kind": "case",
+"ph": "(-70, 71)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3577,
+"chaos": 1900,
+"angles": [
+-90
+],
+"box": "77x130"
+},
+{
+"kind": "case",
+"ph": "(-70, 72)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3592,
+"chaos": 2297,
+"angles": [
+0
+],
+"box": "127x116"
+},
+{
+"kind": "case",
+"ph": "(-70, 73)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3593,
+"chaos": 32397,
+"angles": [
+0
+],
+"box": "677x628"
+},
+{
+"kind": "case",
+"ph": "(-70, 74)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, -2)": 1
+},
+"nonc": 0,
+"tc": 3604,
+"chaos": 51046,
+"angles": [
+-180
+],
+"box": "1552x1488"
+},
+{
+"kind": "case",
+"ph": "(-70, 75)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3725,
+"chaos": 36,
+"angles": [
+0
+],
+"box": "162x163"
+},
+{
+"kind": "case",
+"ph": "(-69, 70)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3483,
+"chaos": 6367,
+"angles": [
+90
+],
+"box": "189x171"
+},
+{
+"kind": "case",
+"ph": "(-69, 71)",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3490,
+"chaos": 7261,
+"angles": [
+90
+],
+"box": "188x137"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3489,
+"chaos": 8029,
+"angles": [
+-90
+],
+"box": "410x177"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3499,
+"chaos": 27201,
+"angles": [
+-90
+],
+"box": "1089x764"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3593,
+"chaos": 8029,
+"angles": [
+-90
+],
+"box": "410x177"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3603,
+"chaos": 27201,
+"angles": [
+-90
+],
+"box": "1087x764"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3697,
+"chaos": 8029,
+"angles": [
+-90
+],
+"box": "410x177"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3707,
+"chaos": 27201,
+"angles": [
+-90
+],
+"box": "1085x764"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3801,
+"chaos": 8029,
+"angles": [
+-90
+],
+"box": "410x177"
+},
+{
+"kind": "mur(1, 0)plein",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3811,
+"chaos": 27201,
+"angles": [
+-90
+],
+"box": "1083x764"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3490,
+"chaos": 229,
+"angles": [
+-90
+],
+"box": "98x165"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3500,
+"chaos": 1150,
+"angles": [
+0
+],
+"box": "143x150"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3594,
+"chaos": 229,
+"angles": [
+-90
+],
+"box": "96x165"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3604,
+"chaos": 1150,
+"angles": [
+0
+],
+"box": "143x150"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3698,
+"chaos": 229,
+"angles": [
+-90
+],
+"box": "94x165"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3708,
+"chaos": 1150,
+"angles": [
+0
+],
+"box": "143x150"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3802,
+"chaos": 229,
+"angles": [
+-90
+],
+"box": "92x165"
+},
+{
+"kind": "mur(1, 0)pointill\u00e9",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3812,
+"chaos": 1150,
+"angles": [
+0
+],
+"box": "143x150"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3546,
+"chaos": 11541,
+"angles": [
+0
+],
+"box": "420x542"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3560,
+"chaos": 13174,
+"angles": [
+90
+],
+"box": "397x730"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3650,
+"chaos": 11541,
+"angles": [
+0
+],
+"box": "420x540"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3664,
+"chaos": 13174,
+"angles": [
+90
+],
+"box": "397x728"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3754,
+"chaos": 11541,
+"angles": [
+0
+],
+"box": "420x538"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": 3768,
+"chaos": 13174,
+"angles": [
+90
+],
+"box": "397x726"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+0
+],
+"box": "420x536"
+},
+{
+"kind": "mur(0, 1)plein",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, -2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+90
+],
+"box": "397x724"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3546,
+"chaos": 22559,
+"angles": [
+-90
+],
+"box": "794x830"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, -2)": 1
+},
+"nonc": 0,
+"tc": 3560,
+"chaos": 38919,
+"angles": [
+-180
+],
+"box": "473x859"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3650,
+"chaos": 22559,
+"angles": [
+-90
+],
+"box": "792x830"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, -2)": 1
+},
+"nonc": 0,
+"tc": 3664,
+"chaos": 38919,
+"angles": [
+-180
+],
+"box": "471x857"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3754,
+"chaos": 22559,
+"angles": [
+-90
+],
+"box": "790x830"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, -2)": 1
+},
+"nonc": 0,
+"tc": 3768,
+"chaos": 38919,
+"angles": [
+-180
+],
+"box": "469x855"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+-90
+],
+"box": "788x830"
+},
+{
+"kind": "mur(0, 1)pointill\u00e9",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, -2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+-180
+],
+"box": "467x853"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3578,
+"chaos": 14815,
+"angles": [
+-90
+],
+"box": "325x340"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3588,
+"chaos": 3017,
+"angles": [
+-90
+],
+"box": "220x258"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3682,
+"chaos": 14815,
+"angles": [
+-90
+],
+"box": "323x340"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3692,
+"chaos": 3017,
+"angles": [
+-90
+],
+"box": "218x258"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3786,
+"chaos": 14815,
+"angles": [
+-90
+],
+"box": "321x340"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3796,
+"chaos": 3017,
+"angles": [
+-90
+],
+"box": "216x258"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+-90
+],
+"box": "319x340"
+},
+{
+"kind": "mur(1, 1)plein",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+-90
+],
+"box": "214x258"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3578,
+"chaos": 2037,
+"angles": [
+0
+],
+"box": "130x137"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3588,
+"chaos": 15535,
+"angles": [
+-90
+],
+"box": "320x354"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3682,
+"chaos": 2037,
+"angles": [
+0
+],
+"box": "130x137"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3692,
+"chaos": 15535,
+"angles": [
+-90
+],
+"box": "318x354"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": 3786,
+"chaos": 2037,
+"angles": [
+0
+],
+"box": "130x137"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 3796,
+"chaos": 15535,
+"angles": [
+-90
+],
+"box": "316x354"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(-2, 2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+0
+],
+"box": "130x137"
+},
+{
+"kind": "mur(1, 1)pointill\u00e9",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": null,
+"chaos": null,
+"angles": [
+-90
+],
+"box": "314x354"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3329,
+"angles": [
+-90
+],
+"box": "289x383"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3331,
+"angles": [
+-90
+],
+"box": "290x384"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3333,
+"angles": [
+-90
+],
+"box": "291x385"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3335,
+"angles": [
+-90
+],
+"box": "292x386"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3337,
+"angles": [
+-90
+],
+"box": "293x387"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3339,
+"angles": [
+-90
+],
+"box": "294x388"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3341,
+"angles": [
+-90
+],
+"box": "295x389"
+},
+{
+"kind": "mur(1, -1)plein",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 3343,
+"angles": [
+-90
+],
+"box": "296x390"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "0",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 1236,
+"angles": [
+-90
+],
+"box": "75x75"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "1",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 4,
+"chaos": 4480,
+"angles": [
+-90
+],
+"box": "94x113"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "2",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 1236,
+"angles": [
+-90
+],
+"box": "75x75"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "3",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 4,
+"chaos": 4480,
+"angles": [
+-90
+],
+"box": "94x113"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "4",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 1236,
+"angles": [
+-90
+],
+"box": "75x75"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "5",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 4,
+"chaos": 4480,
+"angles": [
+-90
+],
+"box": "94x113"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "6",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 2,
+"chaos": 1236,
+"angles": [
+-90
+],
+"box": "75x75"
+},
+{
+"kind": "mur(1, -1)pointill\u00e9",
+"ph": "7",
+"issue": "AUTOROUTES",
+"sig": "A104(2,2)x1",
+"dirs": {
+"(2, 2)": 1
+},
+"nonc": 0,
+"tc": 4,
+"chaos": 4480,
+"angles": [
+-90
+],
+"box": "94x113"
+}
+]
+}
+}

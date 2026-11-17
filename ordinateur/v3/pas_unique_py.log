@@ -1,0 +1,19 @@
+circuit d'un pas : 256 / 256 états justes
+portes : {'NON': 3, 'ET': 8, 'OU': 3, 'XOR': 8} total 22 ; copies (sorties utilisées plusieurs fois) : 19 {'x': 4, 'y': 4, 'h0': 3, 'nx': 2, 'ny': 2, 'c00': 2, 's00': 2, 'c10': 2, 's10': 2, 'c01': 2, 's01': 2, 'c11': 2, 's11': 2, 'nh0': 2}
+165 8 sorties justes 27 s
+77 8 sorties justes 51 s
+202 8 sorties justes 70 s
+24 8 sorties justes 91 s
+37 8 sorties justes 111 s
+48 8 sorties justes 135 s
+187 8 sorties justes 155 s
+29 8 sorties justes 176 s
+109 8 sorties justes 199 s
+19 8 sorties justes 222 s
+44 8 sorties justes 243 s
+222 8 sorties justes 266 s
+214 8 sorties justes 292 s
+35 8 sorties justes 315 s
+123 8 sorties justes 337 s
+46 8 sorties justes 362 s
+GERME UNIQUE (Python) : 16 / 16 états tirés au hasard ; T = 238940
