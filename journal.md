@@ -342,3 +342,8 @@ Trop grand pour la grille du moteur C (32 768) ⇒ 1 seul moteur ; ≈ 22 s par 
 Avec R-63 (chaque module VÉRIFIÉ 256/256, 2 moteurs), c'est le 1er « pas de fourmi calculé par des fourmis ».
 Suite R-67 (16:22) : 2e tirage 16/16, 3e tirage arrêté (mémoire) après 1 état juste ⇒ 33/33 états distincts justes (Python). Les 8 sorties chaque fois.
 ## Point final 16:22. Bestiaire 10 complet (7,5 Mo, avec le germe unique) NON envoyé au Drive (limite 4,2 Mo) : la version de 16:11 (sans le germe unique) y est.
+
+## R-68 Le pas complet de la petite fourmi en un germe — VÉRIFIÉ 256/256 (moteur JavaScript du simulateur v7, indépendant) — 17/11 soir
+docs/test_circuits.js tout R67 : les 8 sorties justes pour les 256 états (254 s). Avec le moteur Python (33/33 états tirés au hasard, R-67),
+deux moteurs indépendants. Aussi, avec le moteur JS : R-39 additionneur 4 bits 256/256, R-53 64/64, les 8 modules R-63 256/256 chacun,
+et les 37 circuits de la bibliothèque v7 justes. Vérification finie (temps fini), comme toujours.

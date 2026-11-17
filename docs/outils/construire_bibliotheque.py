@@ -206,7 +206,7 @@ for e in G:
 AV=[('Circuit logique d\'un pas (8 bits → 8 bits)','fait','VÉRIFIÉ 256/256','R-61'),('Portes LLR : NOR, OU, ET, NON, COPIE','fait','VÉRIFIÉ (2 moteurs)','R-55 à R-59'),
     ('XOR LLR','fait (par le compilateur)','VÉRIFIÉ 4/4','R-62'),('Croisement LLR','à faire','croisement direct impossible (OBSERVÉ) ; 3 XOR à construire','R-64'),
     ('Compilateur fonctions → germe LLR','fait (prototype)','VÉRIFIÉ','R-62'),('Les 8 modules du pas','fait','VÉRIFIÉ 2 048/2 048 (C) ; Python 1 792 + 29','R-63'),
-    ('Le pas complet en un germe','fait','OBSERVÉ 33/33 états (Python)','R-67'),('Vérifier le pas complet sur 256 états, 2 moteurs','en cours','table complète dans le simulateur v7','R-67'),
+    ('Le pas complet en un germe','fait','VÉRIFIÉ 256/256 (JS) ; 33/33 (Python)','R-67, R-68'),('Vérifier le pas complet sur 256 états, 2 moteurs','fait','VÉRIFIÉ 256/256 (moteur JS v7) + 33/33 (Python)','R-68'),
     ('Enchaîner deux pas (sorties → entrées)','à faire','besoin du croisement','—'),('Boucle infinie (horloge + mémoire)','en cours','argument écrit (AFFIRMÉ) ; effacement par 3 passages : négatif','R-65, R-66'),
     ('Porte d\'interaction « propre » (billard)','à faire','—','R-65'),('Mémoire réinscriptible','à faire','pas trouvée','R-51, R-60')]
 # ---- fusion avec une bibliothèque existante ----

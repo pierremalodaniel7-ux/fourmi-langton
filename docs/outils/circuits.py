@@ -148,7 +148,7 @@ for k,(nom_,f) in enumerate(PL.S):
     compile_circuit('C-R63-module-'+re.sub(r"[^a-z0-9]","",nom_.lower())+('p' if "'" in nom_ else ''),"Pas de la petite fourmi : module "+nom_,[(nom_,f)],8,PL.NOMS,'R-63',
         'VÉRIFIÉ (moteur C 256/256'+(' ; Python 29/29 échantillon)' if nom_=="h1'" else ' ; Python 256/256)'),
         "Une sortie du pas de la fourmi RL sur le tore 2×2, compilée seule. Entrées c00 c10 c01 c11 x y h1 h0 en double voie.",'Ordinateur/Fourmi dans fourmi/Modules',P0)
-compile_circuit('C-R67-pas-complet','Le pas complet de la petite fourmi en UN germe',PL.S,8,PL.NOMS,'R-67','OBSERVÉ (33/33 états tirés au hasard, Python)',
+compile_circuit('C-R67-pas-complet','Le pas complet de la petite fourmi en UN germe',PL.S,8,PL.NOMS,'R-67','VÉRIFIÉ (256/256 moteur JavaScript v7, R-68 ; 33/33 Python)',
     "Les 8 sorties du pas (cases, position, cap) dans un seul germe LLR sans case : 35 + 7 portes, ≤ 110 fourmis, 238 940 pas.",'Ordinateur/Fourmi dans fourmi',P0)
 # ---------- E. R-39 additionneur 4 bits par modules ----------
 e=json.load(open(os.path.join(R,'recherche','ordinateur','entrees.json')))
@@ -209,5 +209,27 @@ for dos,gs in grp.items():
            sorties=[dict(nom='sortie',fourmi=lec_ant,type='dir',pas=pas)],table=tab,dossier='Ordinateur/RL/Additionneurs à une fourmi (R-36 à R-38)',
            source=titre.split(' ')[0],date='2026-11-16',statut='VÉRIFIÉ (rapport R-36 à R-38)',avancement='fait',
            note=gs[0]['note'].split('. Valeur attendue')[0].split(' Sortie')[0][:300])
+
+# ---------- G. programmes R-37 non décomposables : une variante complète par combinaison d'entrées ----------
+have={c['id'] for c in C}
+def _pf(s_): return [[int(t.split(',')[0]),int(t.split(',')[1]),t.split(',')[2].strip()] for t in s_.split(';') if t.strip()]
+def _pp(s_): return [[int(t.split(',')[0]),int(t.split(',')[1]),1] for t in s_.split(';') if t.strip()]
+for dos,gs in grp.items():
+    titre=dos.split('/',1)[1]; cid='C-'+re.sub(r'[^a-z0-9]+','-',titre.lower()).strip('-')
+    if cid in have: continue
+    var={}; tab=[]; noms=None
+    for g in gs:
+        m=re.search(r'a=(\d+) b=(\d+)',g['nom'])
+        if m: e={'a1':int(m.group(1))>>1&1,'a0':int(m.group(1))&1,'b1':int(m.group(2))>>1&1,'b0':int(m.group(2))&1}
+        else:
+            m=re.search(r' ([01]{3})',g['nom']); e={'x1':int(m.group(1)[0]),'x2':int(m.group(1)[1]),'x3':int(m.group(1)[2])}
+        noms=list(e); key=','.join(f'{k}={v}' for k,v in sorted(e.items()))
+        var[key]=dict(fourmis=_pf(g['fourmis']),points=_pp(g['points']))
+        mm=re.search(r'Ici ?: ?(bas-gauche|haut-gauche|haut-droite|bas-droite)',g['note'])
+        tab.append(dict(e=e,a={'sortie':FL[mm.group(1)]}))
+    ajoute(id=cid,nom='Programme '+titre,regle='RL',variantes=var,entrees=[dict(nom=n) for n in noms],
+        sorties=[dict(nom='sortie',fourmi='base:0',type='dir',pas=300000)],table=tab,dossier='Ordinateur/RL/Additionneurs à une fourmi (R-36 à R-38)',
+        source='R-37',date='2026-11-16',statut='VÉRIFIÉ (rapport R-37)',avancement='fait',
+        note=gs[0]['note'].split('. Valeur attendue')[0][:300]+" Chaque combinaison d'entrées a son propre jeu de cases (taille exponentielle) : les interrupteurs choisissent la variante.")
 json.dump(C,open(os.path.join(R,'docs','sources','circuits.json'),'w'),ensure_ascii=False)
 print(len(C),'circuits :',[c['id'] for c in C])

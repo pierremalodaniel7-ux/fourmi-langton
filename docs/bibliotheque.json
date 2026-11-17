@@ -6,6 +6,12 @@
 "date": "2026-11-17",
 "total": 747,
 "note": "Fusion des 12 sources (v6, Drive 02_Resultats, catalogue, circuits)."
+},
+{
+"version": "7.0",
+"date": "2026-11-17",
+"total": 747,
+"note": "Fusion des 12 sources (v6, Drive 02_Resultats, catalogue, circuits)."
 }
 ],
 "ordre": [
@@ -60,14 +66,14 @@
 {
 "etape": "Le pas complet en un germe",
 "etat": "fait",
-"statut": "OBSERVÉ 33/33 états (Python)",
-"ref": "R-67"
+"statut": "VÉRIFIÉ 256/256 (JS) ; 33/33 (Python)",
+"ref": "R-67, R-68"
 },
 {
 "etape": "Vérifier le pas complet sur 256 états, 2 moteurs",
-"etat": "en cours",
-"statut": "table complète dans le simulateur v7",
-"ref": "R-67"
+"etat": "fait",
+"statut": "VÉRIFIÉ 256/256 (moteur JS v7) + 33/33 (Python)",
+"ref": "R-68"
 },
 {
 "etape": "Enchaîner deux pas (sorties → entrées)",
@@ -22907,8 +22913,8 @@
 },
 "date": "2026-11-17",
 "circuit": "C-R67-pas-complet",
-"statut": "OBSERVÉ",
-"statut_detail": "OBSERVÉ (33/33 états tirés au hasard, Python)",
+"statut": "VÉRIFIÉ",
+"statut_detail": "VÉRIFIÉ (256/256 moteur JavaScript v7, R-68 ; 33/33 Python)",
 "avancement": "fait",
 "mis_en_avant": true,
 "refs": [
@@ -68419,7 +68425,7 @@
 "dossier": "Ordinateur/Fourmi dans fourmi",
 "source": "R-67",
 "date": "2026-11-17",
-"statut": "OBSERVÉ (33/33 états tirés au hasard, Python)",
+"statut": "VÉRIFIÉ (256/256 moteur JavaScript v7, R-68 ; 33/33 Python)",
 "avancement": "fait",
 "note": "Les 8 sorties du pas (cases, position, cap) dans un seul germe LLR sans case : 35 + 7 portes, ≤ 110 fourmis, 238 940 pas.",
 "tolerance_voie": 4
