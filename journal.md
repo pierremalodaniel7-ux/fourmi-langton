@@ -516,3 +516,6 @@ demi-tour, dont la 2e bande part du germe). Contrôle : 300/300 paires aléatoir
 Pour les 2 paires restantes, c'est la vérification de la récurrence en m (a), sans la règle « un pas », qu'on transporte le
 long de k₁ par les repères de (b), prouvée à m₀ seulement. Détails : E2b_couplage.md. Contrôle : 6/6 prédictions exactes.
 D'où R-95/96/98 : 484/484 paires de classes, et T6 : |c₁|, |c₂| ≥ 417, |c₁ − c₂| ≥ 545 ⇒ autoroute pour toujours.
+(R-98, vérifications de chronologie) G2 (c₁ = (−127,100)) : changement de repère de (a) à t = 101 288, avant celui de (b)
+(106 488 ; 2e à 115 872). G1 (c₁ = (−119,100), c₂ = (−401,−409)) : (b) passe en repère identité à 68 836, avant le 1er
+contact avec c₂ (99 410). Les deux hypothèses du transport dual sont donc vérifiées.
