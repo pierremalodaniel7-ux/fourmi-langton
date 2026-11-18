@@ -1,0 +1,2 @@
+1 case : 120 / 120 ; lemme atteint au plus tard au pas 47000
+2 cases (échantillon) : 100 / 100 ; max 64000

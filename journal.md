@@ -347,3 +347,50 @@ Suite R-67 (16:22) : 2e tirage 16/16, 3e tirage arrêté (mémoire) après 1 ét
 docs/test_circuits.js tout R67 : les 8 sorties justes pour les 256 états (254 s). Avec le moteur Python (33/33 états tirés au hasard, R-67),
 deux moteurs indépendants. Aussi, avec le moteur JS : R-39 additionneur 4 bits 256/256, R-53 64/64, les 8 modules R-63 256/256 chacun,
 et les 37 circuits de la bibliothèque v7 justes. Vérification finie (temps fini), comme toujours.
+
+## R-69 Moteur à GRILLE CREUSE (C, table de hachage) + le pas complet (germe unique R-67) — VÉRIFIÉ 256/256 (moteur creux) — 18/11 10:13–
+ordinateur/v4/creux.c : ne stocke que les cases touchées (7,3 M cases pour le germe du pas), 1,4 s par état (Python : 22 s).
+Contrôle : = sim.py (Python) sur 7/7 situations (RL, LLR, RLR, LLRR, 1 à 3 fourmis, avec cases) : mêmes cases noires, mêmes
+déplacements (cmp_sim.py). 1er essai FAUX : la case (−1,−1) avait la clé « vide » de la table (bug corrigé, clé décalée).
+Germe unique du pas (110 fourmis max, T = 238 940) : les 8 sorties justes pour les 256 états (pas256_creux.py, 4 cœurs, < 1 min).
+Avec le moteur JS (R-68, 256/256) : 2 moteurs indépendants sur les 256 états. Vérification en temps fini (lecture au pas T).
+## Point 10:20 — piste 1 : moteur creux fait et contrôlé, 256/256 ; Python complet (léger) en cours ; 2 pas composés en cours.
+
+## R-71 Lemme de l'autoroute 104 dans le blanc — VÉRIFIÉ (preuve + calcul fini) ; lemme CONNU (implicite chez Gajardo-Moreira-Goles 2002) — 18/11 10:18
+Énoncé. Fixons une phase de l'autoroute 104 (RL, une fourmi). Pendant les 104 pas suivants la fourmi lit une fenêtre W de 43 cases,
+comprise dans 11 diagonales consécutives (x+y ∈ [s−4, s+6] pour la direction (−2,+2), s = x+y de la fourmi) et 12 rangs le long de
+l'autoroute. Si au temps t (1) la fourmi a le cap et lit sur W exactement le motif de référence, (2) toutes les cases du tube devant
+∪_{k≥1}(W+k·v) hors de W sont blanches, (3) aucune autre fourmi n'entre jamais dans ce tube, alors elle reste en autoroute 104
+POUR TOUJOURS. Preuve : pendant une période la fourmi ne lit que W, donc fait les mêmes 104 pas que la référence ; à la fin, sur
+W+v, les cases de W∩(W+v) ont les couleurs de la référence (mêmes mises à jour) et les 22 cases neuves (W+v)\W n'ont pas été
+touchées, donc blanches — et elles sont blanches dans la référence (calcul) ; la référence est périodique (motif sur W identique
+à t et t+104, calcul) ⇒ (1)(2)(3) vrais à t+104 ; récurrence. Largeur EXACTE de la bande lue : 11 diagonales (cf. R-20 : bout minimal = 11 cases).
+Plusieurs fourmis : si toutes sont en motif 104 et que leurs demi-bandes (11 diagonales, vers l'avant) sont deux à deux disjointes et
+blanches, chacune n'écrit que dans sa bande ⇒ toutes en autoroute pour toujours (récurrence simultanée, fourmis jouées dans l'ordre).
+Outil : ordinateur/v4/lemme104.py (4 orientations × 104 phases, tube, disjonction des demi-bandes). fen104.py : W, 43 cases, 22 neuves.
+Application immédiate (lemme_r17.py) : R-17 « 1 case noire dans [−5,5]² » : 120/120 cas en autoroute 104 POUR TOUJOURS (lemme atteint
+au plus tard au pas 47 000) ⇒ R-17 (1 case) passe de OBSERVÉ à VÉRIFIÉ. 2 cases : échantillon de 100 paires, 100/100 VÉRIFIÉS (max 64 000).
+Ce qui passe à VÉRIFIÉ avec le lemme, et la condition à tester pour chacun (un test fini suffit, avec lemme104.verifie) :
+- R-16 (1 case sur l'autoroute nue, 22 issues), R-17 (1, 2, 3 cases), R-24 (2 cases, 1 683 paires) : UNE fourmi ⇒ condition = motif 104
+  + tube devant blanc (aucune case noire résiduelle devant). Fait pour R-17 1 case ; R-16/R-24 : à relancer (germes dans auto2.c/two.c).
+- R-25 (2 autoroutes 104 qui se croisent, 370 cas) : les 2 fourmis en motif + demi-bandes disjointes (directions différentes ⇒
+  intersection bornée, à tester derrière les deux fourmis).
+- R-36 à R-38 / campagnes « AUTOROUTES » (toutes les fourmis parties) : idem, k demi-bandes disjointes. Les MIXTE (N<k, nids) : NON couverts
+  (il faut aussi prouver que le reste est borné : cycle exact + aucune fourmi du nid n'atteint une bande).
+- R-39 / R-45 / R-68 (ordinateurs, lecture en temps fini) : le lemme 104 ne s'applique pas (LLR) ; un lemme analogue LLR (période 18)
+  rendrait « la sortie part pour toujours » VÉRIFIÉ — à faire (même méthode, fenêtre de la 18).
+
+## R-72 Famille LⁿR : autoroute de période 16n+4, déplacement (−2,+2), dès le pas 24n+7, POUR TOUT n ≥ 3 — VÉRIFIÉ (preuve assistée par ordinateur) — 18/11 10:20
+Structure (lnr.py) : lectures pas à pas, B = 0⁴1⁴…(n−1)⁴R (la fourmi tourne n fois autour d'un carré 2×2 blanc puis R),
+C = 1000 2111 3222 … (n−1)(n−2)³, D = 2010 3121 … (k)(k−2)(k−1)(k−2) … ; transitoire = B³·RRR0R·B²·C·R (24n+7 lectures),
+période = RR(n−1)R·B·(n−1)000·RRR1R·B·C·R·D (16n+4 lectures). Tout ce qui dépend de n est fait de « tours de carré ».
+Preuve (lnr_sym.py) : simulation SYMBOLIQUE, couleurs a·n+b mod n+1, nombre de pas A·n+B ; un tour de carré (4 L qui ramènent la fourmi
+à sa case et à son cap) est répété m = min(n − cᵢ) fois d'un coup. Chaque test « couleur = n ? » est tranché pour tous les n ≥ N0 ;
+la borne obtenue est N0 = 3 (la couleur 2 lue dans D doit être < n : c'est pourquoi n = 2 est différent, période 18).
+Résultat : au pas 24n+7 et 40n+11, même cap, décalage (−2,+2), motif identique sur la fenêtre lue (15 cases), 10 cases neuves blanches,
+aucune case non blanche devant ⇒ lemme d'autoroute (même récurrence que R-71) ⇒ pour toujours. Contre-vérif : l'état symbolique instancié
+= simulation concrète pour n = 3…12. Période minimale (« RRR » n'apparaît qu'une fois par période) ; départ au plus tôt : la lecture
+au pas 24n+6 est R alors que la période finit par n−3. Les périodes 16n+4 sont CONNUES (Gajardo-Lutfalla-Rao) ; la formule du
+départ 24n+7 et cette preuve uniforme : à chercher dans la littérature avant de dire « nouveau ».
+
+## Point 10:22 — piste 2 faite (R-71, R-72) ; piste 1 : Python 256 en cours (~85/256, 0 faux) ; 2 pas composés : 248/256 puis correctif.
