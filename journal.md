@@ -524,3 +524,7 @@ contact avec c₂ (99 410). Les deux hypothèses du transport dual sont donc vé
 `outils/t1relatif.py "BASE" CAP [K2]` fait (A) + (C) pour une base déjà pivotée (dérive (−2,+2)). Base {(−29,11),(−29,12)}
 pivotée (cases (−11,−29),(−12,−29), cap D), T0 = 117 736 : (C) 22/22 classes (toutes de pente 52) + 22/22 couplages exacts ;
 (A) 20 793/20 793 certifiées (plus lent 298 348) ; (B) direct. Brique pour « trois cases éparses ».
+
+## R-100 Trois cases éparses (|cᵢ| ≥ 417, écarts ≥ 545) : 300/300 triplets aléatoires certifiés — OBSERVÉ — 18/11 S5
+Tirage : chaque case sur la bande de départ (k ∈ [417, 1 500]) avec probabilité 0,4, sinon uniforme dans [−3 000, 3 000]².
+Le plus lent : 216 750. Indice pour un théorème T7 « trois cases éparses » (même assemblage que T6, bases à deux cases).

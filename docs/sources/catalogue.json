@@ -5018,5 +5018,45 @@
   "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
   "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
   "source": "S4 autoroute 18/11, fourmi -cert ; ant multi (BASE, H0)"
+ },
+ {
+  "id": "A-T6",
+  "b": 16,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases éparses",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-889,870;1766,-1747",
+  "img": [
+   165000,
+   ""
+  ],
+  "situation": "Départ blanc + deux cases noires loin de l'origine (≥ 417) et loin l'une de l'autre (≥ 545).",
+  "deroulement": "Théorème T6 : toute paire de cases ainsi éparpillée mène à l'autoroute. Celle-ci est la plus lente d'un tirage de 300 paires : l'autoroute heurte la 1re case, repart, puis passe loin de la 2e.",
+  "mesures": "Certifiée dès 159 758.",
+  "statut": "DÉMONTRÉ (R-97, R-98, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S5 autoroute 18/11, fourmi -cert ; ant multi, outils/transport.py"
+ },
+ {
+  "id": "A-DUAL",
+  "b": 16,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "La dernière paire : demi-tour puis 2e case",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-119,100;-401,-409",
+  "img": [
+   200000,
+   ""
+  ],
+  "situation": "Départ blanc + la case du demi-tour (−119,100) + une 2e case sur l'autoroute qui repart du germe.",
+  "deroulement": "L'autoroute fait demi-tour sur la 1re case, revient au germe, repart à 90° et heurte la 2e case. C'est l'une des 2 paires qui ont demandé le « transport dual » (R-98).",
+  "mesures": "Certifiée dès 193 256.",
+  "statut": "DÉMONTRÉ (R-98, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S5 autoroute 18/11, fourmi -cert ; ant multi, outils/transport.py"
  }
 ]
