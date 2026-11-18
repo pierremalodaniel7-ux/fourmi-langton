@@ -274,18 +274,20 @@ int main(int argc,char**argv){
     #define PKm(kk) ((int)(-( ((kk)%W) - C ) - ( ((kk)/W) - C )))
     #define DGm(kk) ((int)((((kk)%W)-C) - (((kk)/W)-C) + W))
     /* appartenance à l'ensemble d'accord du changement i (récursif sur i, chaînes) */
+    long nacc[5]={0,0,0,0,0}; int lastwhy=0;   /* 1 fenêtre, 2 hors Δ, 3 base p, 4 règle */
     auto int agree(int i,long c);
     int touchedphase(int i,long c){ return i>=1 && TP[i][c]; }
     int A(int j,long c){ return agree(j,c)||touchedphase(j,c); }
     int agree(int i,long c){
       for(int it=0;it<200000;it++){
         int pc=PKm(c);
-        if(WM[i][c]||!DGs[i][DGm(c)]) return 1;
-        if(i%2){ if(pc<LV[i] && (i==1 || A(i-2,c))) return 1;
+        if(WM[i][c]){ if(!lastwhy) lastwhy=it?4:1; return 1; }
+        if(!DGs[i][DGm(c)]){ if(!lastwhy) lastwhy=it?4:2; return 1; }
+        if(i%2){ if(pc<LV[i] && (i==1 || A(i-2,c))){ if(!lastwhy) lastwhy=it?4:3; return 1; }
                  if(pc<=MPD) return 0; long n=c-DD; if(TO[i][n]) return 0; if(SN[i][n]!=SN[i][c]) return 0;
                  if(i>1){ if(!A(i-1,n)) return 0; if(!A(i-1,c)) return 0; }
                  c=n; }
-        else { if(pc>HV[i] && (i==2 ? PKm(c+DD)>MPD : A(i-2,c))) return 1;
+        else { if(pc>HV[i] && (i==2 ? PKm(c+DD)>MPD : A(i-2,c))){ if(!lastwhy) lastwhy=it?4:3; return 1; }
                long n=c+DD; if(TO[i][n]) return 0; if(SN[i][n]!=SN[i][c]) return 0;
                if(!A(i-1,n)) return 0; if(!A(i-1,c)) return 0;
                c=n; }
@@ -315,7 +317,7 @@ int main(int argc,char**argv){
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]+P && !RD[i][k]){
         long lim = (i<NS) ? (sT[i+1]>=0 ? sT[i+1]+2*P : -2) : CE+P; if(lim!=-2 && t>lim) continue;
         if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; }
-        if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } }
+        lastwhy=0; if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } else nacc[lastwhy]++; }
       if(t==CE){ zx0=x; zy0=y; } if(t==CE+P){ zx1=x; zy1=y; }
       if(t>=CE){ int pc=PKm(k); if(NS==0){ if(!(pc>MPD-4)) zhigh=0; } else if(NS%2){ if(!(pc<LV[NS] && (NS==1 || pc<LV[NS-2]))) zlow=0; } else { if(!(pc>HV[NS] && (NS==2 || pc>HV[NS-2]))) zhigh=0; } if(NS>0 && DGs[NS][DGm(k)]) zd=0; if(DGD[DGm(k)]) zd0=0; { int q=DGm(k)-W; if(q<zq0)zq0=q; if(q>zq1)zq1=q; } }
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]){ RD[i][k]=1; long fin=(i<NS)?sT[i+1]:-1; if(fin<0 || t<=fin) TP[i][k]=1; }
@@ -331,7 +333,7 @@ int main(int argc,char**argv){
     for(int i=1;i<=NS;i++){ int c3 = (i%2)? 1 : 1; all = all && okR[i]==1 && okC[i];
       printf(" | s%d=%ld %s R %s lect %s(%ld)",i,sT[i],(i%2)?"L":"H",okR[i]==1?"OK":"ECHEC",okC[i]?"OK":"ECHEC",bC[i]); (void)c3; }
     { int d0=1<<30,d1=-(1<<30); for(int q=0;q<2*W;q++) if(DGD[q]){ if(q-W<d0)d0=q-W; if(q-W>d1)d1=q-W; }
-      printf(" | L1=%d L3=%d | dir=(%d,%d) diagZ=[%d,%d] diagD=[%d,%d] | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, fx,fy, zq0,zq1,d0,d1, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC"); }
+      printf(" | acc fen=%ld horsD=%ld p=%ld regle=%ld",nacc[1],nacc[2],nacc[3],nacc[4]); printf(" | L1=%d L3=%d | dir=(%d,%d) diagZ=[%d,%d] diagD=[%d,%d] | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, fx,fy, zq0,zq1,d0,d1, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC"); }
   } else if(!strcmp(argv[1],"deux")){
     /* deux J K CE NS s1..sNS [EX EY ...] : contrôle DIRECT des couplages de `multi` entre X_k et X_{k+2}.
        Phase i (s_i <= t < s_{i+1}, s_0 = 9977) : X_{k+2} au temps t + 104(i+1) doit avoir la fourmi en a_k(t) + (i pair ? d : 0),

@@ -85,3 +85,13 @@ pas, donc il suffit qu'elles soient déjà du côté où elles s'éloignent de D
 pour tout k₁ ≥ k₀ (même parité) et tout m ≥ m₀, X(k₁, m) construit l'autoroute pour toujours.
 *Preuve.* Par récurrence sur m (lemme), (b) vaut à (k₀, m) pour tout m ≥ m₀ ; puis, à m fixé, la récurrence (b) donne tout k₁. ∎
 Contrôle indépendant : cert(k₀+40, m₀+10) prédit par les deux pentes, calculé directement : 40/40 exacts.
+
+### Extension (R-96) : récurrence (b) avec changement de repère, sans la règle « un pas »
+Si la vérification (b) passe avec NS ≥ 1 en n'acceptant les lectures que par p, par la fenêtre ou « hors Δ » (jamais par la
+règle « un pas », dont les couleurs pourraient changer avec m), elle se transporte aussi de m à m+1 :
+- G1 (c₁ = demi-tour, d₂ ⟂ d, c₂ fixe quand k₁ varie : base blanc + c₂) : avant s₁ rien ne dépend de m ; après, les lectures
+  près de c₂ sont translatées de d₂ (p inchangé ; leurs diagonales, vers −800, sont sous celles de Δ₁ et s'en éloignent de
+  4 par pas) ; les autres sont identiques. Z : même règle, mêmes conclusions.
+- G2 (d₂ = d, la fourmi revient du 2e site au 1er puis au germe) : les lectures près de c₂ n'ont lieu qu'en phase 0 (p croît
+  de 4 par pas : C1 tient) ; après le changement de repère de (a), les positions sont identiques ; L ne diminue pas ; Δ₁ est
+  inchangé (d conserve les diagonales).

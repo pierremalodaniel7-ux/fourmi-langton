@@ -496,3 +496,9 @@ de la récurrence en m (R-93), quand d₂ = d ou d₂ ⟂ d (p ne diminue pas). 
 c₂), toute position k₁ ≥ k₀, m ≥ m₀ mène à l'autoroute pour toujours. Restent 30 paires : 25 + 1 dont la récurrence en k₁
 change de repère (NS = 1, 2), 4 à « c₂ fixe » (c₁ = demi-tour). Contrôle : 40/40 prédictions exactes à (k₀+40, m₀+10).
 Outil : `outils/transport.py` ; résultats : resultats/relatif/transport.txt.
+
+## R-96 Deux cases loin : 28 paires de plus (récurrence en k₁ avec changement de repère) — 482/484 DÉMONTRÉES (sous réserve de relecture) — 18/11 S5
+`ant multi` compte maintenant par quel critère chaque lecture est acceptée (fenêtre, hors Δ, p, règle « un pas »). Sans la
+règle, la vérification se transporte en m (E2b_couplage.md, S5). G1 (c₁ = demi-tour, c₂ fixe en base) : 21/22 sans la règle ;
+G2 (d₂ = d) : 7/8. Avec R-95 : 454 + 28 = 482 paires sur 484. Restent OBSERVÉES : c₁ = (−119,100) avec c₂ = (−401,−409)
+(règle utilisée 50 fois) et c₁ = (−127,100) en NS = 2 (règle 72 fois).
