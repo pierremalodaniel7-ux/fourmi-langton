@@ -20,10 +20,16 @@ dynamique est une bijection sur les états (position, cap), donc l'orbite est un
    suite 758 pas ; hors autoroute, 22 pas au plus.
 5. Après le début de l'autoroute finale, L se cale définitivement sur la suite nue entre **−4 et +623 pas** (même campagne).
 
-## Conjecture C-L (OBSERVÉE, 4 612 configurations + records)
+6. **Configurations diverses** (`BASE=… ./ant imite 1 0 CERT`) : 300 cases uniques (T1), 150 paires de cases loin, 100 cases
+   lointaines dans la bande, 150 îlots 3×3 — dont 302 avec une autoroute **temporaire** avant un choc : imitation hors plages
+   d'autoroute ≤ **83 pas** ; le pire (îlot {(−28,9),(−26,10),(−28,11)}) : L continue d'imiter 83 pas **après** la cassure de
+   l'autoroute (t = 10 670) — la boucle, locale, ne voit pas tout de suite le choc.
+
+## Conjecture C-L (OBSERVÉE, 4 612 + 700 configurations + records)
 Si la longueur de la boucle gelée suit exactement la suite de l'autoroute nue pendant **104 pas consécutifs**, alors la fourmi
 est en train de construire une autoroute 104 (la trace des couleurs lues est périodique de période 104 à ce moment) — éventuellement
-temporaire (elle peut se briser sur des débris plus loin). Marge observée : 49 < 104.
+temporaire (elle peut se briser sur des débris plus loin), ou vient de la construire il y a moins de 104 pas.
+Marge observée : 49 (boîtes) et 83 (après un choc) < 104 — mince ; variante plus sûre : **208 pas** (deux périodes).
 Réciproque (lemme, esquisse) : sur une autoroute certifiée, dès que la fourmi est à plus de 11 cases de toute case non blanche qui
 n'a pas été écrite par l'autoroute, L(t) est exactement la suite nue (la boucle ne lit que des cases à ≤ 11 de la fourmi, et elles
 sont alors celles de l'autoroute nue). D'où le calage observé de −4 à +623 pas.

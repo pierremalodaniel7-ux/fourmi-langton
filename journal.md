@@ -544,3 +544,6 @@ sur L ne sépare chaos et autoroute (chaos : L de 4 à 1 388). Commande : `./ant
 Hors des plages d'autoroute (trace périodique ≥ 104 pas), imitation ≤ 49 pas ; autoroute temporaire de 1 054 pas trouvée dans le
 record 5×5 (imitation 758 pas, pendant la plage) ; calage final de −4 à +623 pas après le début. Commande : `./ant imite N MASQUE DEBUT`.
 Détails : recherche/autoroute/E5_observables.md ; données : resultats/imite_campagne.txt.
+(R-103, complément) 700 configurations diverses (T1, deux cases loin, îlots 3×3 ; 302 avec autoroute temporaire) : imitation
+hors autoroute ≤ 83 pas ; le max est atteint juste APRÈS la cassure d'une autoroute temporaire (la boucle locale ne voit pas
+encore le choc). C-L tient (83 < 104) mais la marge est mince ; variante à 208 pas proposée. Données : resultats/imite_divers.txt.

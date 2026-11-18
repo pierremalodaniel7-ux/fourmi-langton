@@ -396,6 +396,7 @@ int main(int argc,char**argv){
         BARE[t-20000]=L; } unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; } clear_box(1500); }
     int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long ON=atol(argv[4]), TF=ON+3000;
     for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
+    place_base();   /* configuration quelconque via BASE="x,y;..." (y vers le bas) */
     static long run[P]; for(int k=0;k<P;k++) run[k]=0; long bestC=0, tbest=-1, settle=-1, rtr=0, horsA=0, thors=-1; int x=0,y=0,h=0;
     static unsigned char trc[1<<22]; static int rm[1<<22]; static unsigned char inseg[1<<22];
     for(long t=0;t<=TF;t++){
