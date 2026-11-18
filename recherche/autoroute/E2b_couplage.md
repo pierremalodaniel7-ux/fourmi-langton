@@ -30,7 +30,9 @@ Supposons le couplage du repère i−1 (décalage τ_{i−1} = 104·i, translati
 Alors avec τ_i = τ_{i−1} + 104 et v_i = v_{i−1} + u (v₀ = d ; donc v alterne : 0, d, 0, …), les fourmis sont couplées au repère i
 aux instants s_i (X_k) et s_i + τ_i (X_{k+2}), et les configurations coïncident (à v_i près) sur l'ensemble S_i suivant :
 1. la fenêtre a_k(s_i)+W_i ;
-2. les cases hors des diagonales Δ_i (x+y des positions de X_k sur [9 977, s_i+104] et de l'îlot) : blanches partout ;
+2. les cases hors des diagonales Δ_i (x+y des positions de X_k sur [9 977, s_i+104] et de l'îlot) : jamais touchées après 9 977
+   dans aucun des deux mondes. Repère identité (i impair) : elles valent donc la même chose (même germe). Repère translation
+   (i pair) : il faut en plus qu'elles évitent D, d'où Δ_i ⊇ diagonales de D pour i pair (correctif S4, R-92) ;
 3. (i impair) p < L_i, et accord de la phase i−2 (pour i ≥ 3) : ces cases n'ont été touchées dans aucun des deux mondes
    pendant la phase i−1 (L_i ≤ min p sur [s_{i−1}, s_i) et ≤ min p sur [s_i, s_i+104] + 4) ;
    (i pair) p > H_i (max p sur [s_{i−1}, s_i+104]), et c+d ∉ D pour i = 2, accord de la phase i−2 sinon ;

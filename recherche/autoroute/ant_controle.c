@@ -53,14 +53,14 @@ static void clear_box(int r){ for(int y=-r;y<=r;y++) memset(&g[(y+C)*W+(C-r)],0,
 
 /* Configuration de base (S3) : BASE="x,y;x,y" (y vers le BAS) et T0 = instant où son autoroute (dérive (-2,+2) en y vers
    le bas) est certifiée. Par défaut : départ blanc, T0 = 9977. MPD = borne de p sur D (écart de translation de la base). */
-static int NB=0, BXs[4096], BYs[4096]; static long T0=9977; static int MPD=25; static unsigned char DGD[2*W]; /* diagonales x-y(haut) de D */
+static int NB=0, BXs[4096], BYs[4096]; static long T0=9977; static int MPD=25; static unsigned char DGD[2*W]; /* diagonales x-y(haut) de D */ static int H0=0; /* cap initial (0 H,1 D,2 B,3 G) */
 static void place_base(void){ for(int i=0;i<NB;i++) g[(long)(BYs[i]+C)*W+(BXs[i]+C)]=1; }
 static void setup_base(void){
-  char *b=getenv("BASE"), *t=getenv("T0"); if(b&&*b&&t) T0=atol(t);
+  char *b=getenv("BASE"), *t=getenv("T0"), *hh=getenv("H0"); if(b&&*b&&t) T0=atol(t); if(hh) H0=atoi(hh)&3;
   if(b&&*b){ char buf[65536]; strncpy(buf,b,sizeof buf-1); buf[sizeof buf-1]=0;
     for(char *q=strtok(buf,";"); q&&NB<4096; q=strtok(NULL,";")){ char *c=strchr(q,','); if(!c) continue; BXs[NB]=atoi(q); BYs[NB]=-atoi(c+1); NB++; } }
   int mx=-(1<<30); for(int i=0;i<NB;i++){ int p=-BXs[i]-BYs[i]; if(p+4>mx) mx=p+4; DGD[BXs[i]-BYs[i]+W]=1; }
-  place_base(); int x=0,y=0,h=0;
+  place_base(); int x=0,y=0,h=H0;
   for(long u=0;u<T0+104;u++){ int p=-x-y; if(u<T0&&p+4>mx) mx=p+4; if(p>mx) mx=p; DGD[x-y+W]=1;
     unsigned char *c=&g[(long)(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
   clear_box(2000); MPD=mx; if(NB) fprintf(stderr,"base : %d cases, T0=%ld, borne p sur D = %d\n",NB,T0,MPD);
@@ -266,11 +266,11 @@ int main(int argc,char**argv){
     int ne=0, EXs[16], EYs[16]; int ox=J-K, oy=-K; place_base(); g[(oy+C)*W+(ox+C)]=1;
     for(int a=6+NS;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); g[(oy-EYs[ne]+C)*W+(ox+EXs[ne]+C)]=1; ne++; }
     unsigned char *SN[8],*TO[8],*TP[8],*WM[8],*RD[8],*DGs[8]; static int ws[8][P]; static unsigned char wc[8][P]; int nw[8]={0};
-    for(int i=1;i<=NS;i++){ SN[i]=calloc(W*W,1); TO[i]=calloc(W*W,1); TP[i]=calloc(W*W,1); WM[i]=calloc(W*W,1); RD[i]=calloc(W*W,1); DGs[i]=calloc(2*W,1);
+    for(int i=1;i<=NS;i++){ SN[i]=calloc(W*W,1); TO[i]=calloc(W*W,1); TP[i]=calloc(W*W,1); WM[i]=calloc(W*W,1); RD[i]=calloc(W*W,1); DGs[i]=calloc(2*W,1); if(i%2==0) memcpy(DGs[i],DGD,2*W);   /* repère translation (i pair) : Δ_i contient aussi les diagonales de D (germe/base) */
       DGs[i][ox-oy+W]=1; for(int e=0;e<ne;e++) DGs[i][ox+EXs[e]-(oy-EYs[e])+W]=1; }
     long DD=-2L*W-2; long sT[8]; int sx[8],sy[8],sh[8],LV[8],HV[8],minS[8],okR[8],okC[8]; long bC[8];
     for(int i=0;i<8;i++){ sT[i]=-1; LV[i]=1<<30; HV[i]=-(1<<30); minS[i]=1<<30; okR[i]=-1; okC[i]=1; bC[i]=-1; }
-    int x=0,y=0,h=0,minC1=1<<30,reachG=0,reachS=0,cur=0; long imp=-1; int zx0=0,zy0=0,zx1=0,zy1=0,zlow=1,zhigh=1,zd=1,zd0=1;
+    int x=0,y=0,h=H0,minC1=1<<30,reachG=0,reachS=0,cur=0; long imp=-1; int zx0=0,zy0=0,zx1=0,zy1=0,zlow=1,zhigh=1,zd=1,zd0=1;
     #define PKm(kk) ((int)(-( ((kk)%W) - C ) - ( ((kk)/W) - C )))
     #define DGm(kk) ((int)((((kk)%W)-C) - (((kk)/W)-C) + W))
     /* appartenance à l'ensemble d'accord du changement i (récursif sur i, chaînes) */
@@ -341,7 +341,7 @@ int main(int argc,char**argv){
     long TB = CE + P + 104L*(NS+1) + 1; int *bx=malloc(TB*sizeof(int)), *by=malloc(TB*sizeof(int)); unsigned char *bh=malloc(TB), *bc=malloc(TB);
     for(int w=0; w<2; w++){
       int ox=J-K-(w?0:2), oy=-K-(w?0:2); place_base(); g[(oy+C)*W+(ox+C)]=1; for(int e=0;e<ne;e++) g[(oy-EYs[e]+C)*W+(ox+EXs[e]+C)]=1;
-      int x=0,y=0,h=0; long bad=-1, nchk=0;
+      int x=0,y=0,h=H0; long bad=-1, nchk=0;
       long TT = w==0 ? TB : CE+P+1;
       for(long t=0;t<TT;t++){
         unsigned char *c=&g[(long)(y+C)*W+(x+C)]; int col=*c;

@@ -465,3 +465,10 @@ Pour les 9 positions de c₁ (k = 100/101) dont l'autoroute repart en (−2,+2) 
 trouve 22 classes par base (21 translations, 1 demi-tour qui revient au 1er site) : 198/198 preuves `multi` OK (seuils p*
 au-dessus de la zone D de la base, ≥ 300 pour le demi-tour), 198/198 couplages exacts (`deux`). Zone proche (A) des 9 bases
 (264 470 cas) : lancée en fin de S3, résultat en S4. Résultats : resultats/relatif/.
+
+## R-92 Faille du point 2 du lemme 3 (cases hors Δ) corrigée ; T1–T4 revérifiés — DÉMONTRÉ (sous réserve de relecture) — 18/11 S4
+« Hors des diagonales Δ_i : blanches partout » est faux pour les cases du germe (touchées avant T0, sur d'autres
+diagonales). Correct : repère identité (i impair) → ces cases valent la même chose dans les deux mondes (même germe, jamais
+retouchées) : Δ_i d'origine suffit ; repère translation (i pair) → il faut aussi exclure les diagonales de D (germe, base).
+`ant multi` corrigé (Δ_i ⊇ diagonales de D pour i pair). Revérification complète : 439/439 demi-tours (T1–T4, p* recherché,
+`outils/preuves_demitours_S4.txt`), 42/42 triples, 3/3 quadruples, 10 690 translations (NS = 0, déjà avec D en S3) : tout OK.
