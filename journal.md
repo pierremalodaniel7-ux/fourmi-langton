@@ -511,3 +511,8 @@ de c₂. Bilan inchangé : 482/484.
 Assemblage de T1 (c₁ seule), de l'argument (B) relatif à la base blanc + c₁, et de R-95/96 (deux cases loin). R et D
 calculés sur les 22 classes (`outils/epars_RD.py` : D = 544 atteint pour c₁ = (−128,100) ; R = 417 pour la classe du
 demi-tour, dont la 2e bande part du germe). Contrôle : 300/300 paires aléatoires du domaine certifiées. Détails : E2_epars.md.
+
+## R-98 Transport dual : les 2 dernières paires → 484/484 ; T6 (deux cases éparses) SANS exception — DÉMONTRÉ (sous réserve de relecture) — 18/11 S5
+Pour les 2 paires restantes, c'est la vérification de la récurrence en m (a), sans la règle « un pas », qu'on transporte le
+long de k₁ par les repères de (b), prouvée à m₀ seulement. Détails : E2b_couplage.md. Contrôle : 6/6 prédictions exactes.
+D'où R-95/96/98 : 484/484 paires de classes, et T6 : |c₁|, |c₂| ≥ 417, |c₁ − c₂| ≥ 545 ⇒ autoroute pour toujours.

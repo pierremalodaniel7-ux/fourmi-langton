@@ -26,7 +26,7 @@ Implémenté dans `src/fourmi -cert`. Exemple : le départ blanc est démontré 
 | T3 | + **un îlot de 3 cases en L ou en ligne** n'importe où | 246 072 + 228 classes | R-78 |
 | T4 | + **tout îlot contenu dans un carré 3×3** (400 formes) n'importe où | 1 813 428 + 76 000 + 15 200 classes | R-80, R-81, R-92 |
 | T5 | Une configuration C₀ déjà certifiée + une case noire n'importe où (exemple traité : l'îlot 3×3 le plus lent) | 39 429 + 22 classes | R-90 |
-| T6 | **Deux cases noires éparses** : \|c₁\|, \|c₂\| ≥ 417 et \|c₁ − c₂\| ≥ 545 ⇒ autoroute, **sauf 2 paires de classes** (observées, non démontrées) | 683 080 cas proches, 484 paires de classes lointaines | R-93 à R-97 |
+| T6 | **Deux cases noires éparses** : \|c₁\|, \|c₂\| ≥ 417 et \|c₁ − c₂\| ≥ 545 ⇒ autoroute pour toujours | 683 080 cas proches, 484/484 paires de classes lointaines | R-93 à R-98 |
 
 Partiel : boîtes 5×5, les 4 000 000 premières configurations (sur 33,5 M) sont certifiées, transitoire max 188 466.
 
@@ -42,7 +42,7 @@ Un îlot posé loin dans la bande de l'autoroute, à la distance k, a pour tout 
   « un pas de translation » fermée par chaînes.
 - **Récurrence** : toutes les conditions se vérifient sur X(k₀) seul et se transmettent de k à k+2.
 - **Deux cases** : récurrence en la 2e distance (base = blanc + c₁), puis en la 1re distance, puis un **lemme de transport**
-  qui relie les deux (R-95, R-96).
+  qui relie les deux (R-95, R-96), et son « dual » pour les 2 paires où la récurrence en k₁ utilise la règle (R-98).
 
 Écrit en détail : `recherche/autoroute/E2b_couplage.md`. Vérificateurs : `ant multi` (conditions), `ant deux` (simule
 X(k) et X(k+2) et compare pas à pas : 768 + 484 cas, tous exacts).
@@ -52,7 +52,7 @@ X(k) et X(k+2) et compare pas à pas : 768 + 484 cas, tous exacts).
 1. Lemme 3 de `E2b_couplage.md` (changement de repère), surtout le point 2 corrigé en S4 (R-92) : les cases hors des diagonales
    touchées valent la même chose dans un repère identité, mais pas dans un repère translation.
 2. La fermeture des ensembles d'accord dans le passage k₀+2 → k₀+4 (argumentée, pas écrite case par case).
-3. Le lemme de transport (R-95/96) et l'assemblage de T6 (énumération des cas).
+3. Le lemme de transport et son dual (R-95, R-96, R-98) et l'assemblage de T6 (énumération des cas).
 4. Le code de `ant multi` (`recherche/autoroute/ant_controle.c`) : 4 failles trouvées et corrigées en relisant (R-89, R-92,
    test Z pour NS impair, HV[−2]). Aucune n'a changé un résultat, mais c'est un signe qu'il faut une relecture extérieure.
 
@@ -65,5 +65,5 @@ pour toujours) est sans doute connue de façon informelle.
 
 ## 6. Prochaines étapes
 
-Les 2 paires de T6 encore ouvertes ; trois cases éparses (même schéma, base = blanc + c₁ + c₂) ; terminer le 5×5 ; une
+Trois cases éparses (même schéma, base = blanc + c₁ + c₂) ; terminer le 5×5 ; une
 relecture humaine des preuves avant toute diffusion.

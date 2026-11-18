@@ -249,7 +249,7 @@ Reste pour « deux cases loin » en général : faire varier aussi k₁ (double 
   en k₁ (p augmente de 4 sur les segments « translation », inchangé sur les segments « identité », diagonales conservées),
   et montrer que chaque inégalité est préservée. Point délicat : la borne MPD de la base (blanc + c₁) augmente avec k₁.
 
-## Théorème T6 (S5) : deux cases noires éparses — DÉMONTRÉ sous réserve de relecture, sauf 2 paires de classes
+## Théorème T6 (S5) : deux cases noires éparses — DÉMONTRÉ sous réserve de relecture (les 2 paires d'abord exclues sont traitées par R-98)
 Départ blanc + deux cases noires c₁, c₂ avec |c₁|, |c₂| ≥ **R = 417** et |c₁ − c₂| ≥ **D = 545** (norme max(|x|,|y|)).
 Alors la fourmi construit l'autoroute 104 pour toujours — sauf peut-être si (c₁, c₂), après échange éventuel, est dans l'une
 des 2 paires de classes non démontrées de R-96 (OBSERVÉES) : c₁ dans la classe du demi-tour (j = −19, k pair) avec c₂ dans la

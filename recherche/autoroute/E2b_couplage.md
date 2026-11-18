@@ -111,3 +111,15 @@ règle « un pas », dont les couleurs pourraient changer avec m), elle se trans
 - G2 (d₂ = d, la fourmi revient du 2e site au 1er puis au germe) : les lectures près de c₂ n'ont lieu qu'en phase 0 (p croît
   de 4 par pas : C1 tient) ; après le changement de repère de (a), les positions sont identiques ; L ne diminue pas ; Δ₁ est
   inchangé (d conserve les diagonales).
+
+### Transport dual (R-98) : les 2 dernières paires
+Si (b) est prouvée à m₀ seulement (même avec la règle « un pas »), elle couple X(k₁+2, m₀) et X(k₁, m₀) pour tout k₁. On
+transporte alors la vérification (a) (récurrence en m, base W(k₁) = blanc + c₁) le long de k₁ par les repères de (b), à
+condition que (a) n'utilise pas la règle. Les repères de (b) sont des translations de d (p +4, diagonales conservées) ou
+l'identité. La borne MPD de W augmente au plus de 4 ; L_a augmente de 4 sur les segments translatés ; les ensembles {p < L}
+ne font que grandir ; la fenêtre et Z suivent.
+- c₁ = (−127,100), classe de c₂ en NS = 2 pour (b) : (a) en NS = 1, p* = 300, règle 0 ; le changement de repère de (a)
+  (p ≤ 300) a lieu pendant la phase translation de (b) (dont le changement est à p ≤ 100).
+- c₁ = (−119,100) (demi-tour), c₂ = (−401,−409) : (a) en NS = 1, p* = 90, règle 0 ; toutes les lectures de (a) après c₂ ont
+  lieu dans la phase identité de (b) (après le passage au germe) : identiques pour tout k₁.
+Puis, pour chaque k₁, la récurrence (a) donne tous les m ≥ m₀. Contrôle : 6/6 prédictions exactes (k₁ + 20…80, m + 0…30).
