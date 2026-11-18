@@ -354,3 +354,13 @@ et les 22 collisions 1 case (mêmes 22 durées de chaos). Le « demi-tour » de 
 notait la DERNIÈRE (critère de boîte) : le demi-tour retraverse le germe et finit en virage (66 924 pas). Correction :
 T(3) = 51 277, T(4) = 133 984 (fourmi coin bas-gauche, cap haut) — OBSERVÉ. Détails : recherche/autoroute/E0_controle.md.
 Commande : `./ant obstf 150` (nouveau mode), `./ant box 3 v`.
+
+## R-70 Lemme du certificat d'autoroute — DÉMONTRÉ (preuve écrite) + implémenté — 18/11 S1
+Une fourmi, période p : si les p pas « à blanc » depuis l'état courant lisent V, reviennent au même cap avec d ≠ 0
+(F1), si le motif se recopie (F2 : Pa(v+d) = Pv(v)), si les cases neuves sont blanches (F3), si V est convexe le
+long de d (F4) et si la bande ⋃(V+kd) \ V est blanche, alors autoroute pour toujours (récurrence sur les périodes).
+Toute règle à une fourmi. Vérification finie (au-delà de la boîte support ∪ visité, tout est blanc).
+Conséquences VÉRIFIÉES par calcul exact + lemme = DÉMONTRÉ : départ blanc → autoroute 104 pour toujours dès 9 977 ;
+512/512 configs 3×3 (fourmi coin, cap H) certifiées, max 51 277 ; 122 obstacles 1 case certifiés.
+Le moteur s'arrêtait à 16 384 sur une autoroute non certifiée (obstacle plus loin) : corrigé avec -cert.
+Commande : `./fourmi -cert "RL|0,0,H|"` ; `-c0 T`. Détails : recherche/autoroute/E1_certificat.md.

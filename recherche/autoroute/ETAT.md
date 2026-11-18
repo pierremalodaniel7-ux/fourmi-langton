@@ -5,7 +5,7 @@ PROCHAINE TÂCHE : É0 Socle (puis enchaîner É1 dans la même heure)
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-69, E0_controle.md
-- [ ] É1 Lemme du certificat (énoncé, preuve, implémentation)
+- [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-70, E1_certificat.md, `fourmi -cert`
 - [ ] É2 Collisions → théorème « épars »
 - [ ] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n)
 - [ ] É4 Transitoires extrêmes

@@ -30,7 +30,7 @@ trouvaille, faire quand même le rapport (et le dire) ; bestiaire et germes vide
 
 ## Démarrage d'une session (dans cet ordre, rien de plus)
 1. Lire `etat.md` (une page). Ne lire `journal.md` que par recherche ciblée : `grep -n "R-14" journal.md`.
-2. `make -C src` puis `make -C src test` (oracle : 18 tests, quelques secondes) avant toute campagne.
+2. `make -C src` puis `make -C src test` (oracle : 19 tests, quelques secondes) avant toute campagne.
 3. Ne jamais recopier un fichier entier dans la conversation : `head`, `grep`, `wc`, résumés.
 
 ## Outils (ne pas réécrire de moteur : modifier ceux-ci)
