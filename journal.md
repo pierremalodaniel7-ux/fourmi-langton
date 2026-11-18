@@ -563,3 +563,9 @@ toutes certifiées (max 161 286). Détails : recherche/autoroute/E6_germes.md ; 
 ## R-106 Dynamique inverse : passé du départ blanc (autoroute à rebours dès 10 081 = 9 977 + 104), passé du germe minimal (4 426 pas de chaos), 200/200 boîtes aléatoires ont une autoroute à rebours — OBSERVÉ — 18/11 S7
 Outil : `recherche/autoroute/outils/rebours.py` (pas inverse exact, aller-retour contrôlé). Probablement lié à une symétrie connue
 (réversibilité de la fourmi) : à vérifier dans la littérature. Détails : E6_germes.md.
+
+## R-107 Explication de R-106 : le passé = le futur de la fourmi retournée — DÉMONTRÉ (calcul direct, sans doute connu) — 18/11 S8
+Le pas inverse (revenir en a−dir(h), retourner la case, tourner selon sa couleur) est exactement un pas direct de la fourmi placée
+en a−dir(h) avec le cap h+2 (la couleur avant retournement donne le même virage ; reculer = avancer avec le cap opposé). Donc le
+passé d'une configuration est le futur de la même grille avec la fourmi retournée ; « toute configuration a une autoroute à rebours »
+est équivalent à la conjecture. Vérifié : 60/60 boîtes aléatoires, positions et grilles identiques sur 3 000 pas.
