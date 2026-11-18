@@ -4718,5 +4718,125 @@
   "statut": "VÉRIFIÉ (voir note)",
   "deja": "Pas trouvé.",
   "source": "Journal R-62, R-63 (17/11)."
+ },
+ {
+  "id": "A-T1",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Une case noire n'importe où : la plus lente",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "7,-7",
+  "img": [
+   110000,
+   ""
+  ],
+  "situation": "Départ blanc + une case noire en (7,-7).",
+  "deroulement": "Théorème T1 : quelle que soit la case, l'autoroute 104 finit par se construire pour toujours. (7,-7) est la plus lente de [-150,150]².",
+  "mesures": "Certifiée dès 106 258 (départ blanc : 9 977).",
+  "statut": "DÉMONTRÉ (R-72 à R-74, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-310",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Une case noire qui accélère tout",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "0,-2",
+  "img": [
+   2000,
+   ""
+  ],
+  "situation": "Départ blanc + une case noire en (0,-2).",
+  "deroulement": "La case raccourcit le chaos : autoroute presque tout de suite.",
+  "mesures": "Certifiée dès 310.",
+  "statut": "DÉMONTRÉ (R-72)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-DT",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Le demi-tour sur la trace",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-169,150",
+  "img": [
+   90000,
+   ""
+  ],
+  "situation": "Départ blanc + une case noire à 150 cases devant l'autoroute (classe j=-19, k pair).",
+  "deroulement": "L'autoroute heurte la case, repart en arrière en roulant sur sa propre trace, revient au germe, refait du chaos et repart à 90°.",
+  "mesures": "Certifiée dès 84 878 ; +104 pas par case d'éloignement.",
+  "statut": "DÉMONTRÉ (R-74)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-B4",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Boîte 4×4 la plus lente",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "2,0;3,0;2,-1;3,-1;3,-3",
+  "img": [
+   140000,
+   ""
+  ],
+  "situation": "Fourmi au coin de la boîte 4×4, cap haut, 5 cases noires.",
+  "deroulement": "Les 65 536 boîtes 4×4 finissent toutes en autoroute certifiée ; celle-ci est la plus lente.",
+  "mesures": "T(4) = 133 984.",
+  "statut": "DÉMONTRÉ (R-71)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-T2",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Domino le plus lent",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-29,11;-29,12",
+  "img": [
+   120000,
+   ""
+  ],
+  "situation": "Départ blanc + deux cases noires voisines en (-29,11),(-29,12).",
+  "deroulement": "Théorème T2 : un îlot de 2 cases voisines, n'importe où, mène toujours à l'autoroute. Celui-ci est le plus lent de [-150,150]².",
+  "mesures": "Certifié dès 117 736.",
+  "statut": "DÉMONTRÉ (R-76, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-197",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Domino accélérateur",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-2,-1;-1,0",
+  "img": [
+   2000,
+   ""
+  ],
+  "situation": "Départ blanc + deux cases noires en coin (-2,-1),(-1,0).",
+  "deroulement": "Le plus court chaos trouvé avec 2 cases voisines.",
+  "mesures": "Certifié dès 197.",
+  "statut": "DÉMONTRÉ (R-76)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
  }
 ]
