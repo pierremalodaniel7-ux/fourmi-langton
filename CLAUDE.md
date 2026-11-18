@@ -8,6 +8,11 @@ Quand il demande de faire quelque chose (explorer, chercher, construire…), pos
 courtes (AskUserQuestion) pour être sûr de ce qu'il veut : objectif, périmètre (règles, nb de fourmis, cases),
 durée / budget, forme du résultat. Puis reformuler en une ligne et lancer. Exception : mots-clés simples (point, vérifie).
 
+## Mot-clé « continue » / recherche « autoroute » (18/11)
+Si Pierre-Malo écrit « continue » ou parle de la conjecture de l'autoroute : lire
+`recherche/autoroute/INSTRUCTIONS.md` puis `recherche/autoroute/ETAT.md`, et suivre ces instructions
+(séance d'une heure, sans questions préalables, rapport à la fin).
+
 ## Après CHAQUE recherche : 3 documents, tous dans le Drive (demande de Pierre-Malo, 16/11)
 Sans qu'il ait à le redemander, à la fin de toute recherche (explore, campagne…) :
 1. **Bestiaire** (PDF, une fiche par trouvaille vérifiée : image, situation, signature, statut, commande).
