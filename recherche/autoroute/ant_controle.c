@@ -301,7 +301,7 @@ int main(int argc,char**argv){
         if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; }
         if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } }
       if(t==CE){ zx0=x; zy0=y; } if(t==CE+P){ zx1=x; zy1=y; }
-      if(t>=CE){ int pc=PKm(k); if(NS%2){ if(!(pc<LV[NS])) zlow=0; } else { if(!(pc>HV[NS])) zhigh=0; } if(DGs[NS][DGm(k)]) zd=0; }
+      if(t>=CE){ int pc=PKm(k); if(NS%2){ if(!(pc<LV[NS] && (NS==1 || pc<LV[NS-2]))) zlow=0; } else { if(!(pc>HV[NS] && (NS==2 || pc>HV[NS-2]))) zhigh=0; } if(DGs[NS][DGm(k)]) zd=0; }
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]){ RD[i][k]=1; long fin=(i<NS)?sT[i+1]:-1; if(fin<0 || t<=fin) TP[i][k]=1; }
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t==sT[i]+P){ int ex=(i%2)?2:-2; long sh_=(long)(y-sy[i])*W+(x-sx[i]);
         okR[i]=(x-sx[i]==ex&&y-sy[i]==ex&&h==sh[i]); for(int q=0;q<nw[i];q++) if(g[ws[i][q]+sh_]!=wc[i][q]) okR[i]=0; }
@@ -313,7 +313,7 @@ int main(int argc,char**argv){
     int all = (minC1>21) && okZ; printf("multi J=%d K=%d NS=%d C1 %s",J,K,NS,minC1>21?"OK":"ECHEC");
     for(int i=1;i<=NS;i++){ int c3 = (i%2)? 1 : 1; all = all && okR[i]==1 && okC[i];
       printf(" | s%d=%ld %s R %s lect %s(%ld)",i,sT[i],(i%2)?"L":"H",okR[i]==1?"OK":"ECHEC",okC[i]?"OK":"ECHEC",bC[i]); (void)c3; }
-    printf(" | Z %s => %s\n", okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC");
+    printf(" | L1=%d L3=%d | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC");
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){

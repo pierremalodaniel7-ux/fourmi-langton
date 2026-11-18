@@ -428,3 +428,5 @@ difficiles). Commandes : outils/gen_ilots.py A|C, preuves_loin.py, cherche_s.sh,
 Repères alternés translation (site) / identité (germe), ensembles d'accord étendus par la règle « un pas de translation »
 fermée par chaînes. `ant triple2` : 42/42 classes de pente 156 ; `ant multi` NS=3 : 3/3 de pente 208 ; contrôles :
 multi NS=1 = uturn (423), NS=2 = triple2 (42), triple2 échoue sur les pentes 208. Détails : E2_epars.md (S2).
+(R-81, complément) Relecture de `ant multi` : faille du test Z pour NS impair (accord de la phase NS−2 oublié) corrigée ;
+les 3 classes de pente 208 restent démontrées.

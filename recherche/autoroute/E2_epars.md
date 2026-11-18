@@ -203,3 +203,12 @@ Fourmi (0,0) cap H + un îlot I = P + t, P l'une des **400 formes** non vides de
   (`uturn`, p* choisi par `cherche_s.sh`) ; restent 62 classes (5 `pmin` en échec, 1 demi-tour, 11 irrégulières à
   k ≤ 105, 42 de pente 156, 3 de pente 208) : **toutes calculées pour chaque k de 100 à 600 (15 530, certifiées)**,
   régulières dès k ≤ 120 ; preuves à la base k₀ = 200/201 : 12 `pmin` + 5 `uturn` OK, 42 `triple2` OK, 3 `multi` NS = 3 OK.
+
+## S2 — Première relecture de `ant multi` (fin de séance)
+Points vérifiés : bornes L_i (min sur [s_{i−1}, s_i) et min sur [s_i, s_i+104] + 4), H_i (max sur [s_{i−1}, s_i+104]) ;
+fenêtres et cases touchées pendant la 1re période ; marquage des premières lectures ; limites des phases de lecture
+(jusqu'à s_{i+1}+208) ; Δ_i ; règles « un pas » (c ∉ D pour i = 1, voisins dans l'accord de la phase précédente sinon) ;
+profondeur de récursion bornée.
+**Faille trouvée et corrigée** : pour NS impair, le test Z ne vérifiait que p < L_NS, alors que la base exige aussi
+l'accord de la phase NS−2 ; test remplacé par p < L_NS et p < L_{NS−2} (suffisant). Les 3 classes de pente 208 restent OK
+(L₁ = 100 ; L₃ = 64, 62, 100). Le reste de la relecture (preuve écrite du couplage multiple) : séance suivante.
