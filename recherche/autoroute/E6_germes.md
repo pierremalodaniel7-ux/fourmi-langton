@@ -23,3 +23,13 @@ Faits : (1) le bout d'autoroute minimal de R-20 (11 cases) est certifié dès t 
 configurations de 1, 2 ou 3 cases noires dans [−5,5]² (fourmi en (0,0) cap H) sont certifiées (120 + 7 140 + 280 840) : DÉMONTRÉ ;
 le plus lent à 3 cases : 161 286. Le germe à 6 cases (69 pas) améliore la recherche locale de R-17 (80 pas).
 Graphe : `resultats/germes_transitoire_min.png`. Suite d'É6 : dynamique inverse depuis l'autoroute (bassin à rebours).
+
+## Dynamique inverse (R-106)
+`outils/rebours.py` : pas inverse exact (contrôlé par aller-retour de 2 000 pas). Résultats :
+- passé du départ blanc : autoroute « à rebours » dès 10 081 pas en arrière (= 9 977 + 104), dérive (2,−2) ;
+- passé du germe minimal de R-20 : 4 426 pas de chaos à rebours puis une autoroute à rebours. Lu dans le bon sens : une autoroute
+  qui arrive de l'infini (la fourmi « mange » une trace déjà construite), 4 426 pas de chaos, puis l'autoroute pour toujours ;
+- 200 boîtes 3×3, 4×4, 5×5 aléatoires : toutes ont une autoroute à rebours (en 300 000 pas), transitoire à rebours médian 2 277,
+  max 42 084 — très proche des transitoires directs (médiane ≈ 2 300).
+Piste : la dynamique inverse est probablement conjuguée à la dynamique directe par une symétrie (réflexion / déplacement de la
+fourmi sur les arêtes) — sans doute connu (réversibilité, Gale–Propp–Sutherland–Troubetzkoy) ; à vérifier avant d'aller plus loin.

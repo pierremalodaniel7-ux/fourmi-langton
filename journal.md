@@ -559,3 +559,7 @@ de cases noires et log(transitoire) (r² = 0,000 en 5×5 sur 800 boîtes aléato
 k = 0…11 : 9 977, 310, 162, 126 (exacts dans [−5,5]², k ≤ 3), ≤ 114, ≤ 106 (faisceau), ≤ 69, ≤ 61, ≤ 55, ≤ 44, ≤ 38 (sous-ensembles
 du germe de R-20), 0 (germe de R-20, CERT 0 : autoroute pour toujours, DÉMONTRÉ). 288 100 configurations à ≤ 3 cases dans [−5,5]² :
 toutes certifiées (max 161 286). Détails : recherche/autoroute/E6_germes.md ; graphe resultats/germes_transitoire_min.png.
+
+## R-106 Dynamique inverse : passé du départ blanc (autoroute à rebours dès 10 081 = 9 977 + 104), passé du germe minimal (4 426 pas de chaos), 200/200 boîtes aléatoires ont une autoroute à rebours — OBSERVÉ — 18/11 S7
+Outil : `recherche/autoroute/outils/rebours.py` (pas inverse exact, aller-retour contrôlé). Probablement lié à une symétrie connue
+(réversibilité de la fourmi) : à vérifier dans la littérature. Détails : E6_germes.md.

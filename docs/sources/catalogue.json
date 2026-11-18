@@ -5098,5 +5098,25 @@
   "interet": "Observable locale qui détecte l'autoroute (É5).",
   "deja": "Pas trouvé",
   "source": "S7 autoroute 18/11, ./ant imite 5 4084138 209637"
+ },
+ {
+  "id": "A-G11",
+  "b": 18,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Bout d'autoroute minimal (11 cases), démontré",
+  "regle": "RL",
+  "fourmis": "0,0,B",
+  "points": "0,1;1,2;2,3;2,2;2,1;2,0;3,0;3,-1;2,-2;1,-2;-2,-1",
+  "img": [
+   600,
+   ""
+  ],
+  "situation": "Fourmi en (0,0) cap bas + les 11 cases du germe minimal de R-20.",
+  "deroulement": "L'autoroute démarre au pas 0 ; le certificat la démontre pour toujours. Dans le passé (dynamique inverse) : 4 426 pas de chaos puis une autoroute à rebours.",
+  "mesures": "CERT 0 ; passé : autoroute à rebours après 4 426 pas.",
+  "statut": "DÉMONTRÉ (R-105) ; passé OBSERVÉ (R-106)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S7 autoroute 18/11, fourmi -c0 0 ; outils/rebours.py"
  }
 ]

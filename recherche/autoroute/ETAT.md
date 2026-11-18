@@ -1,7 +1,7 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
 PROCHAINE SÉANCE : S8
-PROCHAINE TÂCHE : É6 (germes et dynamique inverse depuis l'autoroute ; lien avec R-20) ; en fond : 5×5 (`outils/box5_fond.sh`,
+PROCHAINE TÂCHE : É6 suite (symétrie directe/inverse : chercher si connue ; germes 4–10 cases exacts) puis É7 ; en fond : 5×5 (`outils/box5_fond.sh`,
 recopier resultats/box5/*.res dans data/ ; faites : [0, 6,4 M) et [7,6 M, 8,0 M)). C-L (R-103) : tester les boîtes 5×5 au fil de
 l'exhaustif. En attente : relecture humaine (SYNTHESE.md, E2b_couplage.md) ; T7 (trois cases éparses, plan dans E2_epars.md).
 
@@ -12,7 +12,7 @@ l'exhaustif. En attente : relecture humaine (SYNTHESE.md, E2b_couplage.md) ; T7 
 - [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S5 : [0, 6 000 000) certifié (6 M/33,5 M), max 209 637
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
-- [ ] É6 Germes et bassin à rebours
+- [~] É6 Germes et bassin à rebours — S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
 - [ ] É7 Contre-attaque
 - [~] É8 Synthèse — S5 : note intermédiaire recherche/autoroute/SYNTHESE.md (+ PDF)
 
@@ -32,7 +32,7 @@ l'exhaustif. En attente : relecture humaine (SYNTHESE.md, E2b_couplage.md) ; T7 
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
-- S7, 18-11, 21:14–21:41 UTC : É5 boucle gelée, C-L (R-102 à R-104) — rapports/S7_2026-11-18.md
+- S7, 18-11, 21:14–21:47 UTC : É5 boucle gelée, C-L (R-102 à R-104), É6 germes et rebours (R-105, R-106) — rapports/S7_2026-11-18.md
 - S6, 18-11, 19:08–19:51 UTC : É4 transitoires (R-101) — rapports/S6_2026-11-18.md
 - S5, 18-11, 15:51–16:23 UTC : T6 deux cases éparses, transport, synthèse S1–S5 — rapports/S5_2026-11-18.md
 - S4, 18-11, 14:38–15:17 UTC : R-92 (faille corrigée), R-93 (deux cases, 1re fixée), R-94 (récurrence en k₁), 5×5 4 M — rapports/S4_2026-11-18.md
