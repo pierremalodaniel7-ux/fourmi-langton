@@ -554,3 +554,8 @@ encore le choc). C-L tient (83 < 104) mais la marge est mince ; variante à 208 
 de cases noires et log(transitoire) (r² = 0,000 en 5×5 sur 800 boîtes aléatoires ; 0,005 en 6×6 sur 300).
 (R-103, grande échelle) Les 65 536 boîtes 4×4 : imitation hors autoroute ≤ 73, calage de −34 à +940 pas, 6 autoroutes temporaires ;
 5 968 îlots/paires : ≤ 89 ; 491 configurations éparses : ≤ 22. Total ≈ 74 300 configurations distinctes : C-L tient (max 89 < 104).
+
+## R-105 Germes (É6) : transitoire minimal en fonction du nombre de cases ; germe R-20 certifié dès 0 ; 1 à 3 cases dans [−5,5]² toutes certifiées — DÉMONTRÉ (cas cités) / bornes OBSERVÉES — 18/11 S7
+k = 0…11 : 9 977, 310, 162, 126 (exacts dans [−5,5]², k ≤ 3), ≤ 114, ≤ 106 (faisceau), ≤ 69, ≤ 61, ≤ 55, ≤ 44, ≤ 38 (sous-ensembles
+du germe de R-20), 0 (germe de R-20, CERT 0 : autoroute pour toujours, DÉMONTRÉ). 288 100 configurations à ≤ 3 cases dans [−5,5]² :
+toutes certifiées (max 161 286). Détails : recherche/autoroute/E6_germes.md ; graphe resultats/germes_transitoire_min.png.
