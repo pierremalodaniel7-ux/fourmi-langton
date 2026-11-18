@@ -479,3 +479,11 @@ Base C₀ = blanc + c₁ (13 bases pivotées d'un quart de tour, cap initial D/B
 264 470 + 418 610 = 683 080 cas, tous certifiés. (B) direct. Plus lent : c₁ = (−119,100) (le demi-tour), c₂ = (7,−19) :
 264 331 ; puis c₁ = (−121,101), c₂ = (−144,104) : 181 641. Outils : `outils/relatif.py "BASE" T0 K2 CAP`, H0 pour `ant`.
 Fichiers : resultats/relatif/ (bases9.txt, bases13.txt, preuves rel_*.txt / rel13_*.txt).
+
+## R-94 Deux cases loin : récurrence en k₁ (la 1re case s'éloigne aussi) — 968 familles à un paramètre DÉMONTRÉES ; double récurrence OUVERTE — 18/11 S4
+Pour les 22 classes de c₁ × 22 classes de c₂ × 2 écarts (k₂ = k₀, k₀+20), on vérifie avec `ant multi` les conditions de la
+récurrence k₁ → k₁+2 : 908 en NS = 0, 50 en NS = 1, 2 en NS = 2 (îlot {c₁, c₂} déplacé en bloc le long de d). Les 8 cas
+restants (c₁ = demi-tour) demandent de garder c₂ FIXE (l'autoroute repart du germe, indépendante de k₁) : c₂ mis en base
+(BASE = c₂, T0 = 9 977), îlot c₁ seul, NS = 1 : 8/8 OK. Chaque cas vérifié prouve la famille « k₁ ≥ 100 » à écart fixé.
+Ce qui manque pour le théorème « deux cases loin » complet : montrer que ces conditions valent pour TOUS les écarts k₂
+(uniformité, vue ici sur 2 à 4 valeurs). Outils : `outils/essai_k1.sh`, resultats/relatif/recurrence_k1.txt.
