@@ -535,3 +535,12 @@ Montée de colline (`outils/colline.py`), graines par recopie au coin. Résultat
 seulement (l'exhaustif partiel a 209 637) ; 8×8 220 334 (= record 5×5 + 4 cases), confirmé par `ant une` (220 333, début de
 période). 0 NONCERT. Méthode faible sur ce paysage. Détails : recherche/autoroute/E4_transitoires.md, graphe resultats/records_transitoire.png.
 Littérature : article MFCS 2026 (temps d'échappement) non lu (arxiv.org inaccessible).
+
+## R-102 Boucle gelée sur l'autoroute nue : suite périodique (104), 34 valeurs, max 152 ; boucle à ≤ 11 cases de la fourmi — VÉRIFIÉ (calcul exact) ; corrige l'acquis « L ≤ 112 » — 18/11 S7
+Près du germe L monte à 172 ; juste après le début d'autres autoroutes jusqu'à 4 072 ; L est toujours ≡ 0 mod 4. Aucun seuil
+sur L ne sépare chaos et autoroute (chaos : L de 4 à 1 388). Commande : `./ant obs N MASQUE DEBUT TFIN PAS`.
+
+## R-103 Conjecture C-L : si L(t) imite la suite de l'autoroute nue pendant 104 pas, la fourmi construit une autoroute — OBSERVÉ (4 612 configurations) — 18/11 S7
+Hors des plages d'autoroute (trace périodique ≥ 104 pas), imitation ≤ 49 pas ; autoroute temporaire de 1 054 pas trouvée dans le
+record 5×5 (imitation 758 pas, pendant la plage) ; calage final de −4 à +623 pas après le début. Commande : `./ant imite N MASQUE DEBUT`.
+Détails : recherche/autoroute/E5_observables.md ; données : resultats/imite_campagne.txt.

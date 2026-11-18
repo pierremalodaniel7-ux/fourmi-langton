@@ -365,6 +365,56 @@ int main(int argc,char**argv){
     for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
     Res r=run(MX,0,0,0,0,N-1,N-1);
     printf("une N=%d masque=%llu : autoroute=%d debut=%ld derive=(%d,%d) pas=%ld\n",N,m,r.ok,r.onset,r.ddx,r.ddy,r.steps);
+  } else if(!strcmp(argv[1],"obs")){
+    /* obs N MASQUE ONSET TFIN PAS : boîte N×N (convention de box). Pour t multiple de PAS (et à chaque pas près du début
+       d'autoroute ONSET, ±1000) : L(t) = longueur de la boucle gelée, nb de cases noires, largeur de la boîte visitée.
+       Résumé : min L sur le chaos [0,ONSET), max L sur l'autoroute [ONSET,TFIN]. */
+    int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long ON=atol(argv[4]), TF=atol(argv[5]); int PS=atoi(argv[6]);
+    for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
+    long nb=0; for(int i=0;i<N*N;i++) nb+=(m>>i)&1;
+    int x=0,y=0,h=0,x0=0,x1=0,y0=0,y1=0; long minC=1L<<60, maxH=0, tminC=-1, lastbig=-1;
+    for(long t=0;t<=TF;t++){
+      if(t%PS==0 || (t>ON-1000 && t<ON+1000)){
+        int fx=x,fy=y,fh=h; long L=0;
+        do{ int col=g[(fy+C)*W+(fx+C)]; fh= col?(fh+3)&3:(fh+1)&3; fx+=dx[fh]; fy+=dy[fh]; L++; }
+        while(!(fx==x&&fy==y&&fh==h) && L<100000000);
+        if(t<ON){ if(L<minC){minC=L;tminC=t;} }
+        else { if(L>maxH) maxH=L; }
+        if(L>172) lastbig=t;
+        if(argc>7) printf("%ld,%ld,%ld,%d\n",t,L,nb,(x1-x0+1)>(y1-y0+1)?(x1-x0+1):(y1-y0+1));
+      }
+      unsigned char *c=&g[(y+C)*W+(x+C)]; int col=*c; h= col?(h+3)&3:(h+1)&3; nb+= col? -1:1; *c^=1; x+=dx[h]; y+=dy[h];
+      if(x<x0)x0=x; if(x>x1)x1=x; if(y<y0)y0=y; if(y>y1)y1=y;
+    }
+    printf("obs N=%d m=%llu debut=%ld : minL(chaos)=%ld (t=%ld) maxL(autoroute)=%ld dernier L>172 : t=%ld\n",N,m,ON,minC,tminC,maxH,lastbig);
+    clear_box(1500);
+  } else if(!strcmp(argv[1],"imite")){
+    /* imite N MASQUE ONSET : L(t) à chaque pas jusqu'à ONSET+3000 ; plus longue suite de pas consécutifs où L(t) égale la
+       suite périodique de l'autoroute nue (calée sur une phase φ) : pendant le chaos (t < ONSET) et instant de calage final. */
+    static long BARE[P]; { int x=0,y=0,h=0; for(long t=0;t<20000+P;t++){ if(t>=20000){ int fx=x,fy=y,fh=h; long L=0;
+        do{ int col=g[(fy+C)*W+(fx+C)]; fh=col?(fh+3)&3:(fh+1)&3; fx+=dx[fh]; fy+=dy[fh]; L++; } while(!(fx==x&&fy==y&&fh==h));
+        BARE[t-20000]=L; } unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; } clear_box(1500); }
+    int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long ON=atol(argv[4]), TF=ON+3000;
+    for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
+    static long run[P]; for(int k=0;k<P;k++) run[k]=0; long bestC=0, tbest=-1, settle=-1, rtr=0, horsA=0, thors=-1; int x=0,y=0,h=0;
+    static unsigned char trc[1<<22]; static int rm[1<<22]; static unsigned char inseg[1<<22];
+    for(long t=0;t<=TF;t++){
+      int fx=x,fy=y,fh=h; long L=0;
+      do{ int col=g[(fy+C)*W+(fx+C)]; fh=col?(fh+3)&3:(fh+1)&3; fx+=dx[fh]; fy+=dy[fh]; L++; } while(!(fx==x&&fy==y&&fh==h)&&L<100000000);
+      long rmax=0; for(int k=0;k<P;k++){ if(BARE[(t+k)%P]==L) run[k]++; else run[k]=0; if(run[k]>rmax) rmax=run[k]; }
+      if(t<ON && rmax>bestC){ bestC=rmax; tbest=t; }
+      if(t<(1<<22)) rm[t]=(int)rmax;
+      if(rmax==0) settle=-1; else if(settle<0) settle=t;   /* début de la dernière suite d'imitation (approx. : n'importe quelle phase) */
+      unsigned char *c=&g[(y+C)*W+(x+C)]; trc[t&((1<<22)-1)]=*c; if(t>=104 && trc[t&((1<<22)-1)]==trc[(t-104)&((1<<22)-1)]) rtr++; else rtr=0;
+      h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h];
+    }
+    { long T2 = TF < (1<<22)-1 ? TF : (1<<22)-1;   /* 2e passe : plages d'autoroute = runs tr[t]==tr[t-104] de longueur >= 104, première période comprise */
+      for(long t=0;t<=T2;t++) inseg[t]=0;
+      long a=-1; for(long t=104;t<=T2+1;t++){ int eq = (t<=T2) && trc[t]==trc[t-104];
+        if(eq){ if(a<0) a=t; } else { if(a>=0 && t-1-a+1>=104){ for(long u=a-104; u<t; u++) if(u>=0) inseg[u]=1; } a=-1; } }
+      long last=-1; for(long t=0;t<=T2;t++){ if(inseg[t]){ last=t; continue; } long v=rm[t]; if(last>=0 && v>t-last) v=t-last; if(v>horsA){ horsA=v; thors=t; } } }
+    printf("imite N=%d m=%llu debut=%ld : plus longue imitation pendant le chaos = %ld pas (fin t=%ld) ; imitation finale depuis t=%ld (debut%+ld) ; HORS AUTOROUTE max %ld (t=%ld)\n",N,m,ON,bestC,tbest,settle,settle-ON,horsA,thors);
+    clear_box(1500);
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){
