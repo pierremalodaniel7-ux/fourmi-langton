@@ -1,0 +1,18 @@
+[
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Record 8×8",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "1,0;3,0;0,-1;2,-1;3,-1;6,-1;7,-1;2,-2;4,-2;2,-3;3,-3;4,-3;0,-4;1,-4;1,-6;0,-7",
+  "note": "certifié à 220 334 (R-101)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Record 5×5 (exhaustif partiel)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "1,0;3,0;0,-1;2,-1;3,-1;2,-2;4,-2;2,-3;3,-3;4,-3;0,-4;1,-4",
+  "note": "certifié à 209 637 (max des 6 M premières boîtes 5×5)"
+ }
+]

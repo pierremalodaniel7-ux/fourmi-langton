@@ -5058,5 +5058,25 @@
   "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
   "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
   "source": "S5 autoroute 18/11, fourmi -cert ; ant multi, outils/transport.py"
+ },
+ {
+  "id": "A-R8",
+  "b": 17,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Record 8×8 trouvé",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "1,0;3,0;0,-1;2,-1;3,-1;6,-1;7,-1;2,-2;4,-2;2,-3;3,-3;4,-3;0,-4;1,-4;1,-6;0,-7",
+  "img": [
+   225000,
+   ""
+  ],
+  "situation": "Boîte 8×8 (fourmi au coin, cap haut) : le record 5×5 connu + 4 cases trouvées par montée de colline.",
+  "deroulement": "Le plus long chaos trouvé avant l'autoroute dans une boîte 8×8 (minorant ; la recherche locale est faible).",
+  "mesures": "Autoroute certifiée dès 220 334 (2e moteur : période dès 220 333).",
+  "statut": "DÉMONTRÉ pour cette configuration ; record OBSERVÉ (R-101)",
+  "interet": "Courbe record(n) du transitoire (É4).",
+  "deja": "Pas trouvé ; article MFCS 2026 sur le temps d'échappement non lu",
+  "source": "S6 autoroute 18/11, outils/colline.py"
  }
 ]

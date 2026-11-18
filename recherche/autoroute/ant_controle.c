@@ -358,6 +358,13 @@ int main(int argc,char**argv){
       if(w==1) printf("deux J=%d K=%d NS=%d : %ld pas comparés, %s (1er écart t=%ld)\n",J,K,NS,nchk,bad<0?"COUPLAGE EXACT":"ECART",bad);
     }
     free(bx); free(by); free(bh); free(bc);
+  } else if(!strcmp(argv[1],"une")){
+    /* une N MASQUE : une boîte N×N (même convention que box : cases (i%N, i/N) en y vers le haut, fourmi (0,0) cap haut) */
+    int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long MX=atol(argc>4?argv[4]:"3900000");
+    if(MX>MAXS){ free(px); free(py); free(tr); px=malloc(MX*2); py=malloc(MX*2); tr=malloc(MX); }
+    for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
+    Res r=run(MX,0,0,0,0,N-1,N-1);
+    printf("une N=%d masque=%llu : autoroute=%d debut=%ld derive=(%d,%d) pas=%ld\n",N,m,r.ok,r.onset,r.ddx,r.ddy,r.steps);
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){

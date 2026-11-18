@@ -529,3 +529,9 @@ pivotée (cases (−11,−29),(−12,−29), cap D), T0 = 117 736 : (C) 22/22 cl
 Tirage : chaque case sur la bande de départ (k ∈ [417, 1 500]) avec probabilité 0,4, sinon uniforme dans [−3 000, 3 000]².
 Le plus lent : 216 750. Indice pour un théorème T7 « trois cases éparses » (même assemblage que T6, bases à deux cases).
 (É3, S5) 5×5 : [4 000 000, 6 000 000) certifiées ; tout [0, 6 000 000) est certifié ; nouveau max 209 637 (tranche 4,0–4,2 M).
+
+## R-101 Transitoires extrêmes (É4), boîtes n×n : record(8) ≥ 220 334, record(n+1) ≥ record(n) — OBSERVÉ (minorants ; chaque configuration trouvée est DÉMONTRÉE par certificat) — 18/11 S6
+Montée de colline (`outils/colline.py`), graines par recopie au coin. Résultats : 6×6 185 471 sans graine ; 5×5 136 663
+seulement (l'exhaustif partiel a 209 637) ; 8×8 220 334 (= record 5×5 + 4 cases), confirmé par `ant une` (220 333, début de
+période). 0 NONCERT. Méthode faible sur ce paysage. Détails : recherche/autoroute/E4_transitoires.md, graphe resultats/records_transitoire.png.
+Littérature : article MFCS 2026 (temps d'échappement) non lu (arxiv.org inaccessible).
