@@ -461,3 +461,9 @@ période (1,1) plus courte que 8n+2 ⇒ vaisseau rapide seulement vu pour n ≡ 
 
 ## R-70 (fin, 10:45) — contre-vérification Python (pas2_py.py) : 256/256, 0 faux ⇒ deux pas VÉRIFIÉS par 2 moteurs (creux + Python), temps fini.
 ## Point final 10:46 — livrables : bestiaire 11 (PDF), germes_2026-11-18.json, rapport ; dépôt Drive 02_Resultats.
+
+## R-71 (application, 10:47) — 2 cases sur l'autoroute nue : 5 995/5 995 paires VÉRIFIÉES pour toujours
+lemme_r24_tout.py : toutes les paires parmi les 110 cases neuves des périodes 10–14 (bout de 11 cases + 2 cases noires) : 5 995/5 995
+finissent en autoroute 104 avec le lemme satisfait (au plus tard au pas 114 000) ⇒ pour toujours. Couvre le type de R-24 (dont les
+1 683 paires de two.c ne sont pas exactement les mêmes : à relancer telles quelles pour fermer R-24 entièrement).
+(Ajouté après le dépôt du rapport dans le Drive : le rapport du dépôt est à jour, celui du Drive mentionne seulement l'échantillon 60/60.)
