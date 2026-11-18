@@ -453,3 +453,9 @@ traverser D. Nouvelle condition (dans `ant multi` NS = 0) : direction −d ⇒ d
 celles de D (d conserve x+y) ; sinon p > MPD−4. Recensement : T1, T2, T3 n'ont AUCUNE translation finissant en −d (résultats
 inchangés) ; T4 en a 92. `multi` NS = 0 sur les 10 690 translations de T4 (bases 100/101 et 200/201) : toutes OK
 (les 5 échecs à la base 100 sont les classes déjà reprises à la base 200). Aussi corrigé : NS = 0 lisait HV[−2] (bug).
+
+## R-90 T5 : « C₀ + une case noire n'importe où » pour une base C₀ quelconque certifiée — exemple DÉMONTRÉ (sous réserve de relecture) — 18/11 S3
+`ant multi`/`deux` acceptent une base (BASE, T0). Exemple C₀ = {(−56,28),(−54,28),(−54,30)} (T0 = 228 739, MPD = 149) :
+(A) [−100,70]×[−50,125] ∪ bande x+y ∈ [70,120], y < 300 : 39 429/39 429 certifiées (plus rapide 310 avec (0,−2), plus lent
+333 741 avec (−56,78)) ; (B) hors zone et hors bande : certifié à T0 ; (C) 22 classes (x+y ∈ [90,100]), toutes de pente 52,
+`multi` 22/22, `deux` 22/22. Commande : `BASE="-56,28;-54,28;-54,30" T0=228739 ./ant multi J K CE 0`. Détails : E2_epars.md (S3).

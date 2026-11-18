@@ -212,3 +212,19 @@ profondeur de récursion bornée.
 **Faille trouvée et corrigée** : pour NS impair, le test Z ne vérifiait que p < L_NS, alors que la base exige aussi
 l'accord de la phase NS−2 ; test remplacé par p < L_NS et p < L_{NS−2} (suffisant). Les 3 classes de pente 208 restent OK
 (L₁ = 100 ; L₃ = 64, 62, 100). Le reste de la relecture (preuve écrite du couplage multiple) : séance suivante.
+
+## S3 — Base quelconque : « T1 relatif » (brique de l'automate des sites)
+`ant multi` et `ant deux` acceptent une configuration de base C₀ (variables BASE="x,y;…" en y vers le bas, T0 = instant
+de certification de son autoroute, qui doit avoir la dérive (−2,+2)). D, MPD (borne de p sur D) et les diagonales de D
+sont recalculés pour C₀. Alors « C₀ + une case noire n'importe où » se traite exactement comme T1 :
+(A) zone d'activité de C₀ + début de sa bande, calcul direct ; (B) ailleurs hors bande : certifié à T0 ;
+(C) loin dans la bande : classes, `multi` à la base k₀.
+**T5 (exemple)** : C₀ = îlot {(−56,28),(−54,28),(−54,30)} (le plus lent de T4, T0 = 228 739, MPD = 149, activité dans
+[−93,62]×[−43,115], bande x+y ∈ [90,100]). (C) : 51 diagonales × k = 300…305 (306 calculs) : 22 classes touchées, toutes
+de pente 52 (aucun demi-tour) ; `multi` NS = 0 : 22/22 OK ; `deux` : 22/22 couplages exacts. (A) : voir R-90.
+
+### Plan pour deux îlots loin (pas fait)
+Double récurrence : (i) k₁ fixé (base C₀ = blanc + c₁(k₁)) : T1 relatif donne c₂ partout ; (ii) k₁ → k₁+2 en déplaçant
+{c₁, c₂} ensemble (îlot à grand écart, `multi` accepte des écarts quelconques). Difficulté : (ii) doit valoir pour tous
+les écarts r = c₂ − c₁ ; il faut montrer que les conditions de `multi` à (k₀, r) se transportent de r à r + d₂
+(couplage le long de la 2e autoroute). Si d₂ ⟂ d, p est constant le long de la 2e bande : piste prometteuse.
