@@ -506,3 +506,8 @@ G2 (d₂ = d) : 7/8. Avec R-95 : 454 + 28 = 482 paires sur 484. Restent OBSERVÉ
 Δ₁ = [−82, 56] : elles s'en éloignent quand c₂ glisse (x+y −4 par pas) ; pour c₂ = (−401,−409) elles vont jusqu'à +102 →
 reste OBSERVÉE (même avec p* = 110, sans règle). G2 : après s₁, max p = 96 ≪ p(c₂) ≈ 820 : aucune lecture de phase 1 près
 de c₂. Bilan inchangé : 482/484.
+
+## R-97 Théorème T6 : deux cases noires éparses (|cᵢ| ≥ 417, |c₁−c₂| ≥ 545, norme max) → autoroute pour toujours — DÉMONTRÉ sous réserve de relecture, sauf 2 paires de classes (OBSERVÉES) — 18/11 S5
+Assemblage de T1 (c₁ seule), de l'argument (B) relatif à la base blanc + c₁, et de R-95/96 (deux cases loin). R et D
+calculés sur les 22 classes (`outils/epars_RD.py` : D = 544 atteint pour c₁ = (−128,100) ; R = 417 pour la classe du
+demi-tour, dont la 2e bande part du germe). Contrôle : 300/300 paires aléatoires du domaine certifiées. Détails : E2_epars.md.

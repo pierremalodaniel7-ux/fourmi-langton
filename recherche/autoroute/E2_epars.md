@@ -248,3 +248,21 @@ Reste pour « deux cases loin » en général : faire varier aussi k₁ (double 
   paramètre). Idée : exprimer les conditions de la récurrence en k₂ sur X(k₁+2, ·) à partir de X(k₁, ·) via le couplage
   en k₁ (p augmente de 4 sur les segments « translation », inchangé sur les segments « identité », diagonales conservées),
   et montrer que chaque inégalité est préservée. Point délicat : la borne MPD de la base (blanc + c₁) augmente avec k₁.
+
+## Théorème T6 (S5) : deux cases noires éparses — DÉMONTRÉ sous réserve de relecture, sauf 2 paires de classes
+Départ blanc + deux cases noires c₁, c₂ avec |c₁|, |c₂| ≥ **R = 417** et |c₁ − c₂| ≥ **D = 545** (norme max(|x|,|y|)).
+Alors la fourmi construit l'autoroute 104 pour toujours — sauf peut-être si (c₁, c₂), après échange éventuel, est dans l'une
+des 2 paires de classes non démontrées de R-96 (OBSERVÉES) : c₁ dans la classe du demi-tour (j = −19, k pair) avec c₂ dans la
+classe de (−401,−409) ; c₁ dans la classe j = −27, k pair, avec la classe de c₂ en NS = 2.
+*Preuve (cas).* Bande de départ : diagonales x+y ∈ [−28,−18] ; |c| ≥ R ⇒ hors du germe (la fourmi blanche reste dans
+[−21,29]×[−22,22] avant 10 185) et, sur la bande, k ≥ 100.
+1. Aucune case sur la bande de départ : certifié à 9 977 (argument (B) de T1).
+2. Sinon, c₁ = la case de la bande touchée la première (k₁ ≥ 100, une des 22 classes). Base W = blanc + c₁, certifiée à T0(k₁)
+   (T1). Les cases que W touche avant T0+104 sont : le germe, la bande de départ avant c₁, la zone du 1er site (translatée
+   avec k₁ ; à distance < D_i ≤ 544 de c₁) et, pour la classe du demi-tour, une zone fixe près du germe (|·| ≤ 416).
+   - c₂ hors de tout cela et hors de la 2e bande Z₂ : W + c₂ est certifiée à T0 (argument (B) relatif à W).
+   - c₂ dans Z₂ : comme |c₂ − c₁| ≥ D (ou |c₂| ≥ R pour le demi-tour, dont Z₂ part du germe), c₂ est dans la partie lointaine
+     (paramètre ≥ 400) : R-95/R-96 (double récurrence) s'applique, sauf les 2 paires ci-dessus.
+   - c₂ sur la bande de départ avant c₁ : contredit le choix de c₁.
+R et D calculés par `outils/epars_RD.py` (maximum sur les 22 classes). Contrôle : 300 paires tirées au hasard dans le domaine
+(moitié avec c₁ sur la bande et c₂ sur des diagonales voisines) : 300/300 certifiées.
