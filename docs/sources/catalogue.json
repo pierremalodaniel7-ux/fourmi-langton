@@ -4978,5 +4978,45 @@
   "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
   "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
   "source": "S3 autoroute 18/11, fourmi -cert ; ant multi (BASE)"
+ },
+ {
+  "id": "A-2CL",
+  "b": 15,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases : la plus lente",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-119,100;7,-19",
+  "img": [
+   270000,
+   ""
+  ],
+  "situation": "Départ blanc + la case du demi-tour (−119,100) + une 2e case en (7,−19).",
+  "deroulement": "Théorème R-93 : avec la 1re case dans l'une des 22 positions de T1 (distance 100/101), la 2e case n'importe où mène à l'autoroute. Cette paire est la plus lente des 683 080 cas proches calculés.",
+  "mesures": "Certifiée dès 264 331.",
+  "statut": "DÉMONTRÉ (R-93, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S4 autoroute 18/11, fourmi -cert ; ant multi (BASE, H0)"
+ },
+ {
+  "id": "A-2CB",
+  "b": 15,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases : la 2e loin, demi-tour au 2e site",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-127,101;-419,400",
+  "img": [
+   115000,
+   ""
+  ],
+  "situation": "Départ blanc + (−127,101) + (−419,400).",
+  "deroulement": "La 2e autoroute heurte la 2e case, revient au 1er site puis repart. Famille démontrée : la 2e case n'importe où loin (R-93) et la paire déplacée en bloc le long de l'autoroute (R-94).",
+  "mesures": "Certifiée dès 110 898 ; +104 pas par case d'éloignement de la 2e case.",
+  "statut": "DÉMONTRÉ (R-93, R-94, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S4 autoroute 18/11, fourmi -cert ; ant multi (BASE, H0)"
  }
 ]

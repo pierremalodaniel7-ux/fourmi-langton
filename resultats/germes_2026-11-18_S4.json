@@ -1,0 +1,18 @@
+[
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Deux cases, la plus lente",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-119,100;7,-19",
+  "note": "certifiée à 264 331 (R-93)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Deux cases, record des bases non pivotées",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-121,101;-144,104",
+  "note": "certifiée à 181 641 (R-93)"
+ }
+]

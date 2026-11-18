@@ -487,3 +487,5 @@ restants (c₁ = demi-tour) demandent de garder c₂ FIXE (l'autoroute repart du
 (BASE = c₂, T0 = 9 977), îlot c₁ seul, NS = 1 : 8/8 OK. Chaque cas vérifié prouve la famille « k₁ ≥ 100 » à écart fixé.
 Ce qui manque pour le théorème « deux cases loin » complet : montrer que ces conditions valent pour TOUS les écarts k₂
 (uniformité, vue ici sur 2 à 4 valeurs). Outils : `outils/essai_k1.sh`, resultats/relatif/recurrence_k1.txt.
+(R-94, complément) Uniformité en k₂, test : 30 paires de classes tirées au hasard × 11 écarts (k₂ = k₀ … k₀+200, pas 20) :
+330/330 configurations certifiées, et la récurrence en k₁ passe pour les 330 (NS = 0 partout). OBSERVÉ (pas une preuve).

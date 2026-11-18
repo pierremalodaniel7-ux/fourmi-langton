@@ -239,3 +239,12 @@ cap D, B ou G : variable H0 pour `ant`, 4e argument de `relatif.py`) pour ramene
   c₁ = (−121,101), c₂ = (−144,104), 181 641) ; 13 bases pivotées : voir R-93.
 - (B) ailleurs : certifié à T0.
 Reste pour « deux cases loin » en général : faire varier aussi k₁ (double récurrence, cf. S3).
+
+### S4 — Double récurrence : état
+- Récurrence en k₂ à k₁ fixé : R-91/R-93 (toutes les classes, k₁ = 100/101).
+- Récurrence en k₁ à écart fixé : R-94 (968 cas, tous OK). Deux paramétrages selon c₁ : îlot {c₁, c₂} déplacé en bloc
+  (l'autoroute sortante bouge avec c₁), ou c₂ fixe en base (c₁ = demi-tour : l'autoroute repart du germe).
+- Manque : l'uniformité (les conditions de l'une des deux récurrences doivent valoir pour toutes les valeurs de l'autre
+  paramètre). Idée : exprimer les conditions de la récurrence en k₂ sur X(k₁+2, ·) à partir de X(k₁, ·) via le couplage
+  en k₁ (p augmente de 4 sur les segments « translation », inchangé sur les segments « identité », diagonales conservées),
+  et montrer que chaque inégalité est préservée. Point délicat : la borne MPD de la base (blanc + c₁) augmente avec k₁.
