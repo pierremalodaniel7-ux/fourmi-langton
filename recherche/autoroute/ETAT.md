@@ -10,8 +10,8 @@ Outils : `fourmi -cert`, `ant pmin/uturn/triple2/multi`, `outils/gen_ilots.py`, 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-69, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-70, E1_certificat.md, `fourmi -cert`
-- [~] É2 Collisions → théorème « épars » — S1 : T1 une case (R-72 à R-74) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
-- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1 : 1,2 M/33,5 M certifiées (tranches 0–600 000, 1 600 000–2 200 000)
+- [~] É2 Collisions → théorème « épars » — S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-72 à R-74) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
+- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1+S2 : 2 M/33,5 M certifiées (tranches 0–1 000 000, 1 600 000–2 600 000)
 - [ ] É4 Transitoires extrêmes
 - [ ] É5 Observables (boucle gelée, frontière)
 - [ ] É6 Germes et bassin à rebours
@@ -22,7 +22,7 @@ Outils : `fourmi -cert`, `ant pmin/uturn/triple2/multi`, `outils/gen_ilots.py`, 
 - Certificat d'autoroute (R-70) : DÉMONTRÉ ; départ blanc démontré dès 9 977.
 - Boîtes 3×3, 4×4 (coin, cap H) : toutes démontrées (R-71).
 - T1 une case noire n'importe où, T2 îlot de 2 cases voisines, T3 îlot de 3 cases en L ou en ligne, n'importe où : DÉMONTRÉS, à faire relire (R-72 à R-78).
-- 5×5 (coin, cap H) : tranches [0,600 000) et [1 600 000,2 200 000) certifiées, max 184 622 (data/box5_*.res).
+- 5×5 (coin, cap H) : tranches [0,1 000 000) et [1 600 000,2 600 000) certifiées (2 M), max 188 466 (resultats/box5/).
 - S2 : T4 tout îlot dans un carré 3×3 (400 formes), n'importe où : DÉMONTRÉ sous réserve de relecture (R-80, R-81).
 - Seul mécanisme de retour en arrière : le demi-tour (1 classe sur 22), qui roule sur la trace jusqu'au site précédent.
 
@@ -34,5 +34,5 @@ Outils : `fourmi -cert`, `ant pmin/uturn/triple2/multi`, `outils/gen_ilots.py`, 
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
-- S2, 18-11, 12:37–13:20 UTC : T4 (îlots 3×3), vérificateurs à n changements de repère, Δ — rapports/S2_2026-11-18.md
+- S2, 18-11, 12:37–13:29 UTC : T4 (îlots 3×3), vérificateurs à n changements de repère, Δ — rapports/S2_2026-11-18.md
 - S1, 18-11, 11:18–12:07 UTC : É0 ✓, É1 ✓, É2 (T1, T2, T3 démontrés), É3 5×5 1,2 M/33,5 M — rapports/S1_2026-11-18.md

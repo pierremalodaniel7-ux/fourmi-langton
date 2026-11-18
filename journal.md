@@ -430,3 +430,6 @@ fermée par chaînes. `ant triple2` : 42/42 classes de pente 156 ; `ant multi` N
 multi NS=1 = uturn (423), NS=2 = triple2 (42), triple2 échoue sur les pentes 208. Détails : E2_epars.md (S2).
 (R-81, complément) Relecture de `ant multi` : faille du test Z pour NS impair (accord de la phase NS−2 oublié) corrigée ;
 les 3 classes de pente 208 restent démontrées.
+(R-80, complément) Contrôle indépendant des récurrences : 200 classes lointaines tirées au hasard + les 62 classes
+difficiles, pas certifié prédit par la formule affine à k = 2 000/2 001 puis calculé : 262/262 exacts (pas et direction), 7 s.
+(É3, S2) 5×5 : tranches [600 000, 1 000 000) et [2 200 000, 2 600 000) certifiées ; total 2 000 000 masques, max 188 466.
