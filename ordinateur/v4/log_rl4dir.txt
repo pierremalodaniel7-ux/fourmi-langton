@@ -1,0 +1,36 @@
+4000 situations, 4 cœurs, 300000 pas max — début 10:25:24
+fin 10:26:59
+4000 situations : AUTOROUTES 1850 (46.2 %), MIXTE 1729 (43.2 %), CYCLE 392 (9.8 %), INDECIS 29 (0.7 %)
+Signatures les plus fréquentes : A104(2,2)x1+N2 427 ; A104(2,2)x1+A104(2,2)x1 403 ; A104(2,2)x1+A104(2,2)x1+N2 380 ; A104(2,2)x1+A104(2,2)x1+A104(2,2)x1 350 ; A104(2,2)x1+A104(2,2)x1+A104(2,2)x1+A104(2,2)x1+A104(2,2)x1 314
+Fourmis non classées (nids, navettes, losanges à examiner) : N2 1440, N1 132, N3 87, N4 83, N5 13, N6 3
+314 morceaux INCONNUS (30 premiers) :
+       11  RL|C24                        ex. RL|3,1,D;1,1,B|
+        7  RL|C44                        ex. RL|0,4,G;-1,3,H|
+        6  RL|C32                        ex. RL|-5,2,H;-3,2,D|
+        4  RL|C28                        ex. RL|-3,3,D;-5,3,H|1,-2
+        4  RL|C764                       ex. RL|-1,2,B;4,4,B|1,5
+        3  RL|C392                       ex. RL|4,0,D;6,2,H|
+        3  RL|C936                       ex. RL|7,0,H;1,7,H|
+        3  RL|C1088                      ex. RL|5,-5,D;6,-2,B|1,-1
+        3  RL|C284                       ex. RL|3,0,G;1,-1,G|
+        3  RL|C184                       ex. RL|-3,3,H;0,2,G|
+        3  RL|C56                        ex. RL|3,1,H;0,2,G|
+        3  RL|C2304                      ex. RL|-2,0,G;1,-1,B|
+        2  RL|C1512                      ex. RL|4,-4,G;-3,-1,B|-5,-2
+        2  RL|C684                       ex. RL|0,0,D;-5,3,H|-1,-4
+        2  RL|C528                       ex. RL|-2,3,B;4,-2,H|
+        2  RL|C1536                      ex. RL|-6,2,H;-1,-2,B|-5,0;-2,-5
+        2  RL|C484                       ex. RL|-4,6,B;-2,0,G|1,-4;2,3
+        2  RL|C4244                      ex. RL|-8,4,H;-8,-3,H|-5,5;0,2
+        2  RL|C400                       ex. RL|0,5,G;-6,5,H|0,-1;2,1
+        2  RL|C2364                      ex. RL|2,6,B;-2,-1,B|1,-4;3,3;5,1
+        2  RL|C2468                      ex. RL|3,-5,B;-4,2,G|4,2
+        2  RL|C2408                      ex. RL|3,2,H;0,0,B|
+        2  RL|C1120                      ex. RL|-2,-4,H;-4,0,D|
+        2  RL|C1900                      ex. RL|1,-3,G;-6,1,G|0,2;1,2
+        2  RL|C1296                      ex. RL|-3,-5,B;-5,5,G|-3,-3;3,2
+        2  RL|C1948                      ex. RL|-5,-3,H;4,4,D|4,0
+        2  RL|C2164                      ex. RL|8,0,D;6,5,D|
+        2  RL|C1836                      ex. RL|3,4,H;1,2,G|-3,5;-2,-5;-1,1
+        2  RL|C440                       ex. RL|3,-2,H;4,4,B|
+        2  RL|C16                        ex. RL|-4,3,G;-2,2,D|-5,-2;-2,4

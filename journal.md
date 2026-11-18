@@ -394,3 +394,40 @@ au pas 24n+6 est R alors que la période finit par n−3. Les périodes 16n+4 so
 départ 24n+7 et cette preuve uniforme : à chercher dans la littérature avant de dire « nouveau ».
 
 ## Point 10:22 — piste 2 faite (R-71, R-72) ; piste 1 : Python 256 en cours (~85/256, 0 faux) ; 2 pas composés : 248/256 puis correctif.
+
+## R-70 DEUX pas de la petite fourmi (pas∘pas) compilés en UN germe LLR — VÉRIFIÉ 256/256 (moteur creux) — 18/11 10:19
+ordinateur/v4/pas2_creux.py : 39 portes niv. 1 + 5 niv. 2, ≤ 119 fourmis, T = 239 120. Ce n'est PAS un chaînage physique
+(sorties du pas 1 → entrées du pas 2, qui demande des croisements) : la fonction composée est compilée d'un seul coup.
+1er essai 248/256 : FAUX sur y'' (états 152, 153, 156, 157, 208, 209, 212, 213). Cause = LIMITE DU COMPILATEUR v3 : une sortie lue
+au niveau 1 (sa puissance ↘ continue) est coupée par la puissance ↙ d'une sortie de niveau 2 placée APRÈS elle. Correctif : placer
+les sorties de niveau 1 en dernier ⇒ 256/256. (Dans R-67, la seule sortie de niveau 1, h0', était déjà la dernière.)
+Contre-vérification Python : non faite faute de temps (les cœurs servaient à la contre-vérification de R-69).
+
+## R-69 (suite) — contre-vérification Python (moteur léger pas256_py.py, indépendant de creux.c) : voir point final.
+
+## Croisement par 3 XOR (piste 1.3) — BLOQUÉ, non tenté (10:21)
+Il faut des portes à plusieurs étages dont les ENTRÉES sont des autoroutes sorties d'autres portes (XOR = 2 niveaux, puis 2 copies) ;
+R-57 : à 3 étages seuls 38/64 placements marchent, et le compilateur v3 ne gère que 2 niveaux avec des entrées « neuves ».
+Estimation > 10 min ⇒ passé. À faire : un compilateur multi-niveaux (entrée d'une porte = sortie ↘ d'une autre), puis a⊕b, a⊕(a⊕b), b⊕(a⊕b).
+
+## R-73 Vaisseaux RAPIDES à 2 fourmis en LⁿR pour n = 2, 5, 8, 11 : période (8n+2)/3, vitesse 3 fois celle d'une fourmi seule — VÉRIFIÉ (lemme, pour toujours) — 18/11 10:24–10:28
+Campagne LLR 2–6 fourmis (3 000 situations, 200 000 pas) : signature inconnue A6(1,1)x2. Germe le plus simple : LLR|3,1,H;1,2,H|
+(aussi LLR|0,0,H;-4,-4,G|). Deux fourmis à 3 cases l'une de l'autre avancent d'une diagonale tous les 6 tours (une fourmi LLR seule :
+18 tours) et laissent une traînée épaisse de couleur 1. Revérifié avec sim.py (verif_p3.py) : (6,(−1,1)) pour les 2 fourmis.
+Preuve pour toujours : lemme générique ordinateur/v4/lemme_gen.py (toute règle, groupe de fourmis seul ; fenêtre W lue en P tours,
+motif identique décalé de v, tube devant blanc) ⇒ vaisseau dès t = 420 (|W| = 6–8 cases).
+Famille : balayage n = 2…17 (2 fourmis, campagnes de 1 500–3 000 tirages + énumération exhaustive des 1 280 placements dans [−4,4]²) :
+  n = 2 : A6 (164 placements) ; n = 5 : A14 (8) ; n = 8 : A22 (36) ; n = 11 : A30 (4) — période (8n+2)/3, n ≡ 2 mod 3 (prédiction n = 11
+  faite AVANT le calcul, confirmée). Une fourmi seule va à 1 diagonale par 8n+2 pas ⇒ vitesse ×3. Chaque cas : prouvé pour toujours
+  (lemme_gen, dès t = 350 / 550 / 1 900 / 2 150). Germes : ordinateur/v4/vaisseaux.txt.
+  n = 3, 4, 6, 7, 9 : aucun vaisseau rapide (campagnes) ; n = 14, 17 : aucun dans [−4,4]² (OUVERT : germe plus grand ? famille finie ?).
+  Aussi vus (pas plus rapides) : A(8n+2)(1,1) à 2 fourmis pour n = 4, 6 (même vitesse qu'une fourmi seule) ; RRL = miroir de LLR (A6 aussi).
+Conjecture (OUVERT) : pour tout n ≡ 2 mod 3, LⁿR a un vaisseau de 2 fourmis de période (8n+2)/3.
+Littérature : 1 recherche (multi-fourmis LLR, période 6, ConwayLife) : rien trouvé ; Lutfalla 2025 ne traite que des fourmis seules.
+arXiv inaccessible depuis le conteneur : « Ants on the highway » (Gajardo-Lutfalla-Rao) NON relu ⇒ nouveauté à confirmer.
+
+## R-74 RL : 4e direction d'autoroute à 2–6 fourmis + 0–4 cases — NÉGATIF (OBSERVÉ) — 18/11 10:25
+outils/campagne.sh rl4dir 300000 --nb 4000 --fourmis 2-6 --rayon 3-9 --cases 0-4 --rc 5 : déplacements trouvés A104(2,2) 11 029,
+A102(3,5) 25, A100(2,2) 6, A388(6,10) 4, A108(2,2) 2 ⇒ seulement les pentes 1 et 5/3 (rien d'horizontal ici). Aucune 4e direction.
+Campagnes hexagonales 2–4 fourmis (rand6:2-3, 4 000) et LLLR 2–6 fourmis (3 000) : rien de neuf retenu (A156 en LLLR = passager lent).
+## Point 10:29 — pistes 1, 2, 3 faites ; reste : Python 256 (≈ 160/256, 0 faux), livrables.
