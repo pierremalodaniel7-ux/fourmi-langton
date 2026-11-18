@@ -59,12 +59,12 @@ fiche("R-70 — DEUX pas de la petite fourmi en un germe LLR : 256/256",
       "Signature : 248/256 au 1er essai (y'' faux) → limite du compilateur : une sortie de niveau 1 est coupée par une puissance de",
       "niveau 2 placée après elle. Sorties de niveau 1 placées en dernier ⇒ 256/256 (moteur creux).",
       "Ce n'est PAS un chaînage physique (pas de croisement) : la composée est compilée d'un coup.",
-      "Statut : VÉRIFIÉ 256/256 (1 moteur, temps fini) ; 2e moteur : à faire.",
+      "Statut : VÉRIFIÉ 256/256 par 2 moteurs (creux + Python), temps fini.",
       "Commande : cd ordinateur/v4 ; python3 pas2_creux.py k 4.",
       "Image : position des fourmis du germe (état 0) ; bleu = cap H (rayons, sorties ↙), rouge = cap G (puissances)."]),
  lambda ax:lay(ax,s2,"germe 2 pas, état 0"),'R-70')
 G.append(dict(dossier="Ordinateur/R-70 deux pas",nom="Deux pas de la petite fourmi — germe unique, état 0",regle="LLR",fourmis=fourmis_de(s2),points="",
-  statut="VÉRIFIÉ 256/256 (temps fini, moteur creux)",ref="R-70",note=f"Lecture au pas {T2}. Autres états : ordinateur/v4/pas2_creux.py."))
+  statut="VÉRIFIÉ 256/256 (temps fini, moteur creux + Python)",ref="R-70",note=f"Lecture au pas {T2}. Autres états : ordinateur/v4/pas2_creux.py."))
 # 3. R-71
 d0,W,R,v=REF[0]
 def dess71(ax):
@@ -106,15 +106,15 @@ def dess73(ax):
         # ne dessiner que la zone autour des fourmis
         cx,cy=(ants[0][0]+ants[1][0])//2,(ants[0][1]+ants[1][1])//2; gg={k:c for k,c in g.items() if abs(k[0]-cx)<=10 and abs(k[1]-cy)<=10}
         grille(a2,gg,ants,f"n = {n} : période {(8*n+2)//3}",cols=['white']+[plt.cm.viridis(j/(n)) for j in range(n)])
-fiche("R-73 — Vaisseaux rapides à 2 fourmis en LⁿR (n = 2, 5, 8, 11) : période (8n+2)/3, vitesse ×3",
+fiche("R-73 — Vaisseaux rapides à 2 fourmis en LⁿR (n = 2, 5, …, 23) : période (8n+2)/3, vitesse ×3",
  txt(["Situation : 2 fourmis LⁿR proches (germes ci-dessous). Signature : le groupe avance d'une diagonale tous les (8n+2)/3 tours",
-      "(6, 14, 22, 30), 3 fois plus vite qu'une fourmi seule (8n+2 tours par diagonale). n ≡ 2 mod 3 ; n = 11 PRÉDIT puis trouvé.",
-      "Preuve pour toujours : lemme générique (lemme_gen.py), dès t = 350 / 550 / 1 900 / 2 150. Revérifié avec sim.py (LLR).",
-      "Germes : " + " ; ".join(V),
-      "Statut : VÉRIFIÉ (4 cas, pour toujours) ; famille pour tout n ≡ 2 mod 3 : OUVERT (rien trouvé pour n = 14, 17 dans [−4,4]²).",
+      "(6, 14, 22, 30, 38, 46, 54, 62), 3 fois plus vite qu'une fourmi seule. n ≡ 2 mod 3 ; n = 11 PRÉDIT puis trouvé. Images : n = 2, 5, 8, 11.",
+      "Preuve pour toujours : lemme générique (lemme_gen.py) pour les 8 cas n = 2…23 (dès t = 350 à 3 000). Revérifié avec sim.py (LLR).",
+      "Germes (n = 2, 5, 8, 11) : " + " ; ".join(V[:4]) + " ; n = 14…23 : voir germes JSON.",
+      "Statut : VÉRIFIÉ (8 cas, pour toujours) ; famille pour tout n ≡ 2 mod 3 : OUVERT (conjecture, 8/8).",
       "Littérature : rien trouvé (1 recherche) ; « Ants on the highway » non relu (arXiv inaccessible).",
       "Commande : cd ordinateur/v4 ; python3 lemme_gen.py ; ./src/fourmi \"LLR|3,1,H;1,2,H|\""]),dess73,'R-73')
-for s,t in zip(V,[350,550,1900,2150]):
+for s,t in zip(V,[350,550,1900,2150,2500,1500,1500,3000]):
     n=s.split('|')[0].count('L')
     G.append(dict(dossier="Vaisseaux/R-73 vaisseaux rapides LⁿR",nom=f"Vaisseau rapide L{n}R à 2 fourmis (période {(8*n+2)//3})",regle=s.split('|')[0],
       fourmis=s.split('|')[1],points="",statut="VÉRIFIÉ (pour toujours, lemme)",ref="R-73",note=f"Vaisseau formé et prouvé dès le pas {t} ; vitesse 3 fois celle d'une fourmi seule."))

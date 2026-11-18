@@ -1,0 +1,122 @@
+[
+ {
+  "dossier": "Ordinateur/R-69 pas complet (moteur creux)",
+  "nom": "Pas complet de la petite fourmi — germe unique, état 0",
+  "regle": "LLR",
+  "fourmis": "-812,1052,H;-757,1307,H;-722,1542,H;-1507,3027,H;-1472,3262,H;-1452,3282,H;-2312,4492,H;-2277,4727,H;-2237,4767,H;-3027,6447,H;-3007,6467,H;-2987,6487,H;-3657,7737,H;-3582,8012,H;-4307,9007,H;-4287,9027,H;-8457,13897,H;-8437,13917,H;-8402,14152,H;-8382,14172,H;-8362,14192,H;-8342,14212,H;-8152,14802,H;-8112,14842,H;-8092,14862,H;-8057,15097,H;-8037,15117,H;-8017,15137,H;-7977,15177,H;-7942,15412,H;-7922,15432,H;-7882,15472,H;-7827,15727,H;-7807,15747,H;-7747,15807,H;-7692,16062,H;-7577,16377,H;-7557,16397,H;-7537,16417,H;-7517,16437,H;-7442,16712,H;-7422,16732,H;-7402,16752,H;-7367,16987,H;-7287,17067,H;-7252,17302,H;-7212,17342,H;-7172,17382,H;-7117,17637,H;-7097,17657,H;-7022,17932,H;-6982,17972,H;-6962,17992,H;-6792,18562,H;-6772,18582,H;-6732,18622,H;-6637,18917,H;-6562,19192,H;-6502,19252,H;-935,935,G;-880,1190,G;-825,1445,G;-1685,2655,G;-1630,2910,G;-1575,3165,G;-2435,4375,G;-2380,4630,G;-2305,4905,G;-3185,6095,G;-3130,6350,G;-3055,6625,G;-3760,7640,G;-3705,7895,G;-4410,8910,G;-4355,9165,G;-8620,13740,G;-8505,14055,G;-8390,14370,G;-8275,14685,G;-8160,15000,G;-8045,15315,G;-7930,15630,G;-7815,15945,G;-7700,16260,G;-7585,16575,G;-7470,16890,G;-7355,17205,G;-7240,17520,G;-7125,17835,G;-7010,18150,G;-6895,18465,G;-6780,18780,G;-6665,19095,G;-6550,19410,G;315,615,H;-435,2335,H;-1185,4055,H;-1935,5775,H;-2860,7320,H;-3510,8590,H;-600,13420,H",
+  "points": "",
+  "statut": "VÉRIFIÉ 256/256 (temps fini, moteur creux + JS + Python)",
+  "ref": "R-69",
+  "note": "État d'entrée 0 (tout blanc, x=y=0, cap H). Lecture au pas 238940. Pour les autres états, regénérer : ordinateur/v4/pas256_creux.py (C.germe(plan, m))."
+ },
+ {
+  "dossier": "Ordinateur/R-70 deux pas",
+  "nom": "Deux pas de la petite fourmi — germe unique, état 0",
+  "regle": "LLR",
+  "fourmis": "-1377,1617,H;-1357,1637,H;-1322,1872,H;-1227,2167,H;-1207,2187,H;-1172,2422,H;-1132,2462,H;-1077,2717,H;-1022,2972,H;-2272,4572,H;-2157,4887,H;-2122,5122,H;-2102,5142,H;-2082,5162,H;-2007,5437,H;-1952,5692,H;-3147,7547,H;-3107,7587,H;-3052,7842,H;-3032,7862,H;-2997,8097,H;-2957,8137,H;-2922,8372,H;-2902,8392,H;-3997,9797,H;-3977,9817,H;-3957,9837,H;-3807,10387,H;-3772,10622,H;-3752,10642,H;-7587,14787,H;-7452,15122,H;-7392,15182,H;-7357,15417,H;-7317,15457,H;-7242,15732,H;-7222,15752,H;-7182,15792,H;-7087,16087,H;-7067,16107,H;-7047,16127,H;-7012,16362,H;-6932,16442,H;-6877,16697,H;-6857,16717,H;-6782,16992,H;-6742,17032,H;-6702,17072,H;-6667,17307,H;-6647,17327,H;-6607,17367,H;-6587,17387,H;-6492,17682,H;-6417,17957,H;-6397,17977,H;-6357,18017,H;-6322,18252,H;-6302,18272,H;-6282,18292,H;-6262,18312,H;-6242,18332,H;-6207,18567,H;-6187,18587,H;-6167,18607,H;-6147,18627,H;-6072,18902,H;-5917,19257,H;-5897,19277,H;-5822,19552,H;-5802,19572,H;-5677,20297,H;-1500,1500,G;-1425,1775,G;-1350,2050,G;-1275,2325,G;-1200,2600,G;-1125,2875,G;-2375,4475,G;-2300,4750,G;-2225,5025,G;-2150,5300,G;-2075,5575,G;-3325,7175,G;-3250,7450,G;-3175,7725,G;-3100,8000,G;-3025,8275,G;-4100,9700,G;-4025,9975,G;-3950,10250,G;-3875,10525,G;-7690,14690,G;-7575,15005,G;-7460,15320,G;-7345,15635,G;-7230,15950,G;-7115,16265,G;-7000,16580,G;-6885,16895,G;-6770,17210,G;-6655,17525,G;-6540,17840,G;-6425,18155,G;-6310,18470,G;-6195,18785,G;-6080,19100,G;-5965,19415,G;-5850,19730,G;-5815,19965,G;-5780,20200,G;880,1180,H;-345,4155,H;-1295,6855,H;-2420,9380,H;-530,14370,H",
+  "points": "",
+  "statut": "VÉRIFIÉ 256/256 (temps fini, moteur creux + Python)",
+  "ref": "R-70",
+  "note": "Lecture au pas 239120. Autres états : ordinateur/v4/pas2_creux.py."
+ },
+ {
+  "dossier": "Autoroutes/R-72 famille LⁿR",
+  "nom": "L³R : autoroute 52 dès le pas 31",
+  "regle": "LLLR",
+  "fourmis": "0,0,H",
+  "points": "",
+  "statut": "VÉRIFIÉ (tout n ≥ 3)",
+  "ref": "R-72",
+  "note": "Remplacer LLLR par LⁿR (n ≥ 3) : période 16n+4, déplacement (−2,+2), dès le pas 24n+7 (preuve symbolique, lnr_sym.py)."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L2R à 2 fourmis (période 6)",
+  "regle": "LLR",
+  "fourmis": "0,0,H;-4,-4,G",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 350 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L5R à 2 fourmis (période 14)",
+  "regle": "LLLLLR",
+  "fourmis": "0,0,D;-4,2,H",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 550 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L8R à 2 fourmis (période 22)",
+  "regle": "LLLLLLLLR",
+  "fourmis": "0,0,D;-4,-4,H",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 1900 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L11R à 2 fourmis (période 30)",
+  "regle": "LLLLLLLLLLLR",
+  "fourmis": "0,0,H;-1,-1,D",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 2150 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L14R à 2 fourmis (période 38)",
+  "regle": "LLLLLLLLLLLLLLR",
+  "fourmis": "-1,1,G;0,-1,D",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 2500 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L17R à 2 fourmis (période 46)",
+  "regle": "LLLLLLLLLLLLLLLLLR",
+  "fourmis": "0,-1,B;-2,0,B",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 1500 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L20R à 2 fourmis (période 54)",
+  "regle": "LLLLLLLLLLLLLLLLLLLLR",
+  "fourmis": "-1,-2,G;1,-2,B",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 1500 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau rapide L23R à 2 fourmis (période 62)",
+  "regle": "LLLLLLLLLLLLLLLLLLLLLLLR",
+  "fourmis": "1,-1,B;0,1,B",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme)",
+  "ref": "R-73",
+  "note": "Vaisseau formé et prouvé dès le pas 3000 ; vitesse 3 fois celle d'une fourmi seule."
+ },
+ {
+  "dossier": "Vaisseaux/R-73 vaisseaux rapides LⁿR",
+  "nom": "Vaisseau LLR à 2 fourmis (germe le plus simple)",
+  "regle": "LLR",
+  "fourmis": "3,1,H;1,2,H",
+  "points": "",
+  "statut": "VÉRIFIÉ (pour toujours, lemme, dès le pas 420)",
+  "ref": "R-73",
+  "note": "Période 6, déplacement (−1,+1) ; une fourmi LLR seule : 18."
+ }
+]

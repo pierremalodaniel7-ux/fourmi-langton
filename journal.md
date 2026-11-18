@@ -440,3 +440,24 @@ Avec le moteur creux (C) et le moteur JS (R-68) : 3 moteurs, 256/256 chacun. Vé
 R-73 (note) : lectures des vaisseaux sans structure « tours de carré » visible (n = 5 : 03232R20014112 / 1114323043R002) ⇒ la preuve
 symbolique de R-72 ne s'étend pas telle quelle à la famille (OUVERT).
 ## Point 10:33 — Python R-70 (deux pas) lancé (fin ≈ 10:44) ; livrables en préparation.
+
+## R-71 (application, 10:38) — R-16 passe à VÉRIFIÉ (pour toujours) : 22/22
+ordinateur/v4/lemme_r16.py : bout d'autoroute de 11 cases (col.c) + 1 case noire sur chacune des 22 cases neuves de la 10e période
+⇒ les 22 cas finissent en autoroute 104 avec le lemme satisfait (au plus tard au pas 42 000) ⇒ autoroute POUR TOUJOURS.
+(Positions équivalentes à celles de auto2.c à une translation de période près ; même ensemble de 22 cases.)
+R-24 (échantillon, lemme_r24.py) : 60 paires tirées parmi les 110 cases neuves des périodes 10–14 : 60/60 VÉRIFIÉES pour toujours (max 22 000).
+Les 1 683 paires de R-24 : à relancer en entier (OBSERVÉ → VÉRIFIÉ seulement pour l'échantillon).
+
+## R-73 (suite, 10:37) — la famille tient pour n = 2, 5, 8, 11, 14, 17, 20, 23 : 8 vaisseaux prouvés pour toujours
+Mon « rien pour n = 14, 17 » de 10:28 était FAUX : erreur de filtre. Pour n ≥ 14 le moteur src/fourmi ne classe qu'UNE des deux
+fourmis (« A38(1,1)x1+N1 », l'autre non confirmée, alors qu'elles finissent côte à côte) et je ne cherchais que « x2 ».
+Tirages au hasard 2–3 fourmis + 0–3 cases (5 000 ; n = 14 : 20 000) : n = 14 : 160 ; 17 : 42 ; 20 : 33 ; 23 : 18 (et n = 5 : 173, 8 : 128, 11 : 93).
+Preuve pour toujours (lemme_gen.py, P = (8n+2)/3, |W| = 8–10) : n = 14 dès t = 2 500 ; 17 dès 1 500 ; 20 dès 1 500 ; 23 dès 3 000.
+Germes : ordinateur/v4/vaisseaux.txt (8 lignes). Conjecture « pour tout n ≡ 2 mod 3 » : OUVERT, 8/8 cas vérifiés de n = 2 à 23.
+Leçon (piège) : une signature « Ax1+N1 » peut cacher un groupe ; vérifier les positions finales (« fin ») avant de conclure « absent ».
+R-73 contrôle (10:38) : n = 3, 4, 6, 7, 9, 10 (4 000 tirages chacun, 2–3 fourmis + 0–3 cases, en lisant aussi « x1+N1 ») : aucune
+période (1,1) plus courte que 8n+2 ⇒ vaisseau rapide seulement vu pour n ≡ 2 mod 3 (OBSERVÉ). Pour n pair (4, 6, 10) : groupes de période
+8n+2 à la vitesse d'une fourmi seule.
+
+## R-70 (fin, 10:45) — contre-vérification Python (pas2_py.py) : 256/256, 0 faux ⇒ deux pas VÉRIFIÉS par 2 moteurs (creux + Python), temps fini.
+## Point final 10:46 — livrables : bestiaire 11 (PDF), germes_2026-11-18.json, rapport ; dépôt Drive 02_Resultats.
