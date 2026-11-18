@@ -364,3 +364,15 @@ Conséquences VÉRIFIÉES par calcul exact + lemme = DÉMONTRÉ : départ blanc 
 512/512 configs 3×3 (fourmi coin, cap H) certifiées, max 51 277 ; 122 obstacles 1 case certifiés.
 Le moteur s'arrêtait à 16 384 sur une autoroute non certifiée (obstacle plus loin) : corrigé avec -cert.
 Commande : `./fourmi -cert "RL|0,0,H|"` ; `-c0 T`. Détails : recherche/autoroute/E1_certificat.md.
+
+## R-71 Boîtes 3×3 et 4×4 — DÉMONTRÉ (calcul exact + certificat R-70) — 18/11 S1
+Fourmi (0,0) cap H au coin (bas-gauche en y vers le haut) de la boîte, cases (i mod N, −⌊i/N⌋) : 512/512 et
+65 536/65 536 configurations construisent l'autoroute 104 pour toujours. T(3) = 51 277, T(4) = 133 984
+(cases 2,0;3,0;2,-1;3,-1;3,-3). ≈ 1 min sur 2 cœurs. Commande : data/box4.in, `fourmi -T 4000000 -cert -lot`.
+
+## R-72 Théorème T1 : une case noire n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (A, B) + (C) À RELIRE — 18/11 S1
+(A) c ∈ [−150,150]² : 90 601/90 601 certifiées ; plus court 310 (c = 0,−2), plus long 106 258 (c = 7,−7).
+(B) hors boîte et hors bande : certifié à 9 977 (argument direct). (C) loin dans la bande : 22 classes = R-16 ;
+pas certifié exactement affine en k (pente 52, demi-tour 104) pour k = 100…1 150 (5 533 calculs) ; lemme de
+translation esquissé. Le demi-tour est la seule issue qui roule sur la trace (obstacle pour plusieurs îlots).
+Détails : recherche/autoroute/E2_epars.md. Germes : resultats/germes_2026-11-18.json.

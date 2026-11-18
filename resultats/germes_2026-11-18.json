@@ -1,0 +1,6 @@
+[
+ {"dossier":"recherche/autoroute","nom":"Case lente (7,-7)","regle":"RL","fourmis":"0,0,H","points":"7,-7","note":"1 case noire : autoroute certifiée seulement à 106 258 (record dans [-150,150]², R-72)"},
+ {"dossier":"recherche/autoroute","nom":"Case rapide (0,-2)","regle":"RL","fourmis":"0,0,H","points":"0,-2","note":"1 case noire : autoroute certifiée dès 310 (R-72)"},
+ {"dossier":"recherche/autoroute","nom":"Demi-tour sur la trace","regle":"RL","fourmis":"0,0,H","points":"-169,150","note":"classe j=-19 k pair : demi-tour, retour au germe, virage ; certifié 84 878 ; pente 104 par case (R-72)"},
+ {"dossier":"recherche/autoroute","nom":"Boîte 4×4 la plus lente","regle":"RL","fourmis":"0,0,H","points":"2,0;3,0;2,-1;3,-1;3,-3","note":"T(4) = 133 984, certifié (R-71)"}
+]
