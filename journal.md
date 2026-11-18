@@ -502,3 +502,7 @@ Outil : `outils/transport.py` ; résultats : resultats/relatif/transport.txt.
 règle, la vérification se transporte en m (E2b_couplage.md, S5). G1 (c₁ = demi-tour, c₂ fixe en base) : 21/22 sans la règle ;
 G2 (d₂ = d) : 7/8. Avec R-95 : 454 + 28 = 482 paires sur 484. Restent OBSERVÉES : c₁ = (−119,100) avec c₂ = (−401,−409)
 (règle utilisée 50 fois) et c₁ = (−127,100) en NS = 2 (règle 72 fois).
+(R-96, vérifications) G1 : les lectures acceptées « hors Δ » APRÈS le 1er contact avec c₂ ont des diagonales ≤ −746, sous
+Δ₁ = [−82, 56] : elles s'en éloignent quand c₂ glisse (x+y −4 par pas) ; pour c₂ = (−401,−409) elles vont jusqu'à +102 →
+reste OBSERVÉE (même avec p* = 110, sans règle). G2 : après s₁, max p = 96 ≪ p(c₂) ≈ 820 : aucune lecture de phase 1 près
+de c₂. Bilan inchangé : 482/484.
