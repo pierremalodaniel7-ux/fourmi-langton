@@ -376,3 +376,9 @@ Fourmi (0,0) cap H au coin (bas-gauche en y vers le haut) de la boîte, cases (i
 pas certifié exactement affine en k (pente 52, demi-tour 104) pour k = 100…1 150 (5 533 calculs) ; lemme de
 translation esquissé. Le demi-tour est la seule issue qui roule sur la trace (obstacle pour plusieurs îlots).
 Détails : recherche/autoroute/E2_epars.md. Germes : resultats/germes_2026-11-18.json.
+
+## R-73 T1, partie (C) : lemme de translation — DÉMONTRÉ pour 21 classes sur 22 — 18/11 S1
+Couplage X_{k+2}(t+104) = X_k(t) + d hors de D (D = écart fixe près du germe, p = −x+y ≤ 25 sur D), stable par
+récurrence car p augmente de 4 par translation. Condition vérifiée une fois à k₀ = 100/101 avec le 2ᵉ moteur :
+min p après impact ∈ [157, 225] > 21 pour 21 classes. Reste la classe du demi-tour (c = (−19−k, k), k pair ≥ 100) :
+OBSERVÉE (certifiée pour k ≤ 1 150), plan de preuve dans E2_epars.md. Commande : `./ant pmin J K T`.

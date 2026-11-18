@@ -4,8 +4,9 @@
 Fourmi RL en (0,0), cap H, grille blanche sauf **une** case noire c ∈ ℤ² quelconque.
 Alors la fourmi construit l'autoroute 104 pour toujours.
 
-Statut : **DÉMONTRÉ** pour (A) et (B) ; (C) **DÉMONTRÉ, preuve esquissée À RELIRE** (lemme de translation) ;
-vérifié par calcul exact + certificat pour 90 601 + 3 311 + 2 222 positions.
+Statut : **DÉMONTRÉ** pour (A), (B) et (C) sauf UNE classe de positions lointaines (le « demi-tour » :
+c = (−19−k, k), k pair ≥ 100), qui reste **OBSERVÉE** (k ≤ 1 150, toutes certifiées) ; preuve prévue ci-dessous.
+Calcul exact + certificat pour 90 601 + 3 311 + 2 222 positions.
 
 ### (A) c ∈ [−150,150]² : calcul exhaustif
 90 601 configurations, toutes **certifiées** (`fourmi -cert`, lemme R-70). Temps de calcul : ≈ 100 s sur 2 cœurs.
@@ -30,15 +31,29 @@ le pas certifié vaut exactement **cert(k₀) + 52 (k − k₀)** pour 21 classe
 revient au germe de départ, y refait du chaos et repart à 90° (direction (−2,−2)). Direction finale constante dans
 chaque classe.
 
-**Lemme de translation (esquisse, À RELIRE).** Soit X_k la configuration avec c = (j−k,k). Pour t ≥ 9 977
-avant l'impact, X_{k+2} au temps t+104 coïncide avec X_k au temps t translatée de d, sauf dans une zone fixe
-G près du germe (la trace entre les deux est périodique). Après l'impact, les deux évolutions restent égales
-(translatées) tant que la fourmi ne lit pas G ; et la bande Z du certificat final ne rencontre pas G. Pour les
-21 classes sans demi-tour, tout se passe à une distance de G qui croît avec k (la fourmi reste du côté de
-l'impact, la nouvelle autoroute part à 90° ou tout droit) : une vérification à k₀ suffit, par récurrence sur k.
-Pour le demi-tour, la fourmi revient sur la trace (périodique) jusqu'à G : l'arrivée au germe est la même pour
-tout k (décalée de 2 × 52 pas par unité de k), puis l'autoroute finale part à 90°, loin de la case c.
-Ce qui reste à écrire proprement : la zone G exacte et la vérification « la fourmi ne lit pas G » à k₀ = 100.
+**Lemme de translation (21 classes : DÉMONTRÉ).** Notations (y vers le bas) : d = (−2,+2), p(x,y) = −x + y
+(p(d) = 4), B(t) = départ blanc, X_k = départ blanc + case c_k = (j−k, k).
+1. Comme B est certifié dès 9 977, a_B(t+104) = a_B(t) + d pour t ≥ 9 977. L'ensemble
+   D = {e : B(t+104)(e) ≠ B(t)(e−d)} ne dépend donc pas de t ≥ 9 977 (les deux configurations basculent la même
+   case à chaque pas). D ⊂ A₁ ∪ (A₀+d) (A₀, A₁ = cases touchées avant 9 977, 10 081) ⇒ **p ≤ 25 sur D**.
+2. Avant l'impact, X_k(t) = B(t) + {c_k} ; donc X_{k+2}(t+104) et X_k(t) translatée de d ne diffèrent que sur D.
+3. Couplage : tant que la fourmi de X_k (translatée de d) ne lit pas de case de D, X_{k+2}(t+104) = X_k(t) + d
+   hors de D (récurrence pas à pas : même case lue, même couleur, même bascule). Si en plus la bande Z_k du
+   certificat translatée de d évite D, X_{k+2} est certifiée à cert_k + 104 avec la même direction.
+4. Condition suffisante, stable par récurrence (p augmente de 4 à chaque translation) : **min p sur les positions
+   de la fourmi de X_{k₀} entre l'impact et cert + 104 > 25 − 4**, et la direction finale d' a p(d') ≥ 0
+   (alors toute la bande Z a p ≥ ce min). Elle se vérifie une fois, à k₀ = 100 et 101, et vaut alors pour tout k ≥ k₀.
+5. Vérification (`./ant pmin J K T`, 2ᵉ moteur) : pour les 21 classes, min p entre **157 et 225** > 21 : **OK**.
+   Directions finales (2,2), (−2,−2), (−2,2) : p(d') ∈ {0, 0, 4} ≥ 0. ∎
+   Classe du demi-tour (−19, k pair) : min p = −39 (la fourmi revient au germe) : ce couplage ne suffit pas.
+
+**Demi-tour : plan de preuve (séance suivante).** (a) Lemme du certificat « sur fond périodique, horizon fini » :
+mêmes F1, F2, F4, et à la place de F3/Z, « pour 1 ≤ k ≤ K et v ∈ V avec v+d ∉ V : C(a+kd+v) = Pv(v) » ⇒ la
+fourmi recopie sa période K fois (même récurrence). La trace de B est périodique (certificat R-70), donc la
+fourmi qui fait demi-tour roule dessus jusqu'au germe. (b) Deuxième couplage, sans translation, entre
+X_{k+2} au temps s+208 et X_k au temps s (même position du « rouleur » au milieu de la trace) : ils ne
+diffèrent que près du site d'impact (p grand) ; vérifier à k₀ = 100 que la suite (germe, chaos, autoroute
+(−2,−2)) reste à p plus petit.
 
 ## Ce que ça apprend sur les collisions (R-16 relu)
 - 21 issues sur 22 partent en **terrain neuf** : l'autoroute qui sort est certifiable aussitôt.
@@ -47,7 +62,7 @@ Ce qui reste à écrire proprement : la zone G exacte et la vérification « la 
   ramène la fourmi en arrière : **c'est l'obstacle principal pour un théorème « épars » à plusieurs îlots**.
 
 ## Suite (É2, séances suivantes)
-1. Écrire G et vérifier « la fourmi ne lit pas G » (rend (C) complet).
+1. Demi-tour : lemme « fond périodique, horizon fini » + 2ᵉ couplage (rend T1 complet).
 2. Deux cases noires loin l'une de l'autre et de l'origine : automate fini des « sites » (germe, 22 types de
    collision), transitions = demi-tour qui revient à un site ; montrer qu'il n'y a pas de ping-pong infini.
 3. Îlots de 2 cases (R-24, 1 683 paires) puis rayon ≤ 2.

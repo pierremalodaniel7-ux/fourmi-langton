@@ -83,6 +83,20 @@ int main(int argc,char**argv){
       clear_box(1500);
     }
     printf("collisions: %ld/%ld se terminent par une autoroute\n",nok,n);
+  } else if(!strcmp(argv[1],"pmin")){
+    /* pmin J K T : case noire en (J-K, K) (y vers le BAS, = (J-K,-K) ici). p = -x + y_bas = -x - y.
+       maxpD : borne de p sur D ⊂ A1 ∪ (A0+d), A0 = cases touchées avant 9977, A1 = avant 9977+104 (départ blanc).
+       minp : min de p sur les positions de la fourmi entre l'impact et T. Condition de récurrence : minp > maxpD - 4. */
+    int J=atoi(argv[2]), K=atoi(argv[3]); long TT=atol(argv[4]);
+    int x=0,y=0,h=0, mA0=-1000000, mA1=-1000000;
+    for(long t=0;t<9977+104;t++){ int p=-x-y; if(t<9977&&p>mA0)mA0=p; if(p>mA1)mA1=p;
+      unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
+    int maxpD = mA1 > mA0+4 ? mA1 : mA0+4; clear_box(1500);
+    int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1; x=y=h=0; long imp=-1; int minp=1<<30;
+    for(long t=0;t<=TT;t++){ if(x==ox&&y==oy&&imp<0) imp=t; if(imp>=0){int p=-x-y; if(p<minp)minp=p;}
+      unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
+    printf("pmin J=%d K=%d impact=%ld T=%ld maxpD=%d minp=%d %s\n",J,K,imp,TT,maxpD,minp, minp>maxpD-4?"OK":"ECHEC");
+    clear_box(1500);
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){
