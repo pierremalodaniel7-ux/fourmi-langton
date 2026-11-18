@@ -46,5 +46,21 @@
   "fourmis": "0,0,H",
   "points": "-2,-1;-1,0",
   "note": "îlot de 2 cases en coin : certifié dès 197 (R-76)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Tromino L lent",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "11,10;12,10;11,11",
+  "note": "îlot de 3 cases : certifié à 93 138 (record T3, R-78)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Ligne de 3 rapide",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,3;0,3;1,3",
+  "note": "îlot de 3 cases en ligne : certifié dès 158 (R-78)"
  }
 ]

@@ -104,3 +104,29 @@ Fourmi (0,0) cap H + deux cases noires {c, c+e}, e ∈ {(1,0),(0,1),(1,1),(1,−
   la bande finale monte alors en p et pourrait croiser le site d'impact. Mais d conserve x+y : les cases où X_k et
   X_{k+2} diffèrent sont sur les diagonales x+y du site, et la bande finale est sur d'autres diagonales
   (ex. site [0,38], bande [−42,−32]) : **disjointes** dans les 3 cas. (Pour T1, direction finale (−2,−2), p(d') = 0 : inutile.)
+
+## Chaîne de demi-tours (S1) — OBSERVÉ (chaque configuration DÉMONTRÉE individuellement)
+`outils/chaine_demitours.py 5 150` : à chaque étape, nouvelle case dans la classe demi-tour de l'autoroute finale
+(repérée par la pente 208 entre k et k+2), à 150 cases au-delà de la position finale. La classe demi-tour est
+**unique** à chaque étape. Résultats (pas certifié, direction finale, y vers le bas) :
+| étape | cases | certifiée dès | direction |
+|---|---|---|---|
+| 0 | — | 9 977 | (−2,2) |
+| 1 | (−287,268) | 97 150 | (−2,−2) |
+| 2 | + (−827,−835) | 255 032 | (2,2) |
+| 3 | + (5372,5378) | 907 088 | (−2,−2) |
+| 4 | + (−23866,−23902) | 3 361 062 | (2,2) |
+Chaque demi-tour ramène la fourmi au site précédent, qui la renvoie dans une direction neuve : pas de ping-pong
+infini jusqu'à 4 niveaux. Étape 5 arrêtée (trop longue pour la séance). Piste pour l'automate des sites.
+
+## Théorème T3 : îlot de 3 cases en L (4 orientations) ou en ligne (2 orientations), n'importe où — DÉMONTRÉ (à faire relire)
+- (A) Boîte réduite : (B) ne demande que « îlot hors de [−60,60]² et hors de la bande », donc (A) = positions dans
+  [−100,100]² ∪ bande x+y ∈ [−36,−11], y ≤ 100 : **246 072/246 072 certifiées** (≈ 4 min, 2 cœurs).
+  Plus rapide : ligne {(−1,3),(0,3),(1,3)} dès **158** ; plus lent : L {(11,10),(12,10),(11,11)} à **93 138**.
+- (C) 228 classes lointaines (k = 100…160, 6 954 calculs), toutes exactement affines : 76 non touchées,
+  148 translations (`pmin` 148/148 OK), **4 demi-tours** (`uturn` OK avec s pris à p* = 90 : à p* ≥ 120 la fourmi
+  n'est pas encore « rouleuse » pour l'un d'eux et U2/U4 échouent — choisir s quand le rouleur est formé).
+  Directions finales des demi-tours : trois fois d (diagonales x+y disjointes du site : OK), une fois −d
+  (repart vers le germe sur une autre diagonale ; p décroît le long de Z, donc Z ⊂ {p < L} : OK).
+- Commandes : `data/tri.in`, `data/trifar.in` (python, voir journal R-78), `outils/preuves_loin.py trifar.cert`,
+  `outils/preuves_trominos.txt` (à passer à `./ant`).

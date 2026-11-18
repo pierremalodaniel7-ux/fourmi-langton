@@ -4838,5 +4838,45 @@
   "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
   "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
   "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-T3",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Tromino L le plus lent",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "11,10;12,10;11,11",
+  "img": [
+   100000,
+   ""
+  ],
+  "situation": "Départ blanc + 3 cases noires en L.",
+  "deroulement": "Théorème T3 : un îlot de 3 cases en L ou en ligne, n'importe où, mène toujours à l'autoroute. Celui-ci est le plus lent.",
+  "mesures": "Certifié dès 93 138.",
+  "statut": "DÉMONTRÉ (R-78, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-158",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Ligne de 3 accélératrice",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,3;0,3;1,3",
+  "img": [
+   2000,
+   ""
+  ],
+  "situation": "Départ blanc + 3 cases noires en ligne sous la fourmi.",
+  "deroulement": "Le chaos le plus court trouvé avec 3 cases en ligne.",
+  "mesures": "Certifié dès 158.",
+  "statut": "DÉMONTRÉ (R-78, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S1 autoroute 18/11, fourmi -cert"
  }
 ]

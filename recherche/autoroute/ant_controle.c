@@ -93,9 +93,10 @@ int main(int argc,char**argv){
       unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
     int maxpD = mA1 > mA0+4 ? mA1 : mA0+4; clear_box(1500);
     int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1; x=y=h=0; long imp=-1; int minp=1<<30;
-    int EX=argc>6?atoi(argv[5]):0, EY=argc>6?atoi(argv[6]):0, two=argc>6;   /* 2e case optionnelle (x+EX, ybas+EY) */
-    if(two) g[(oy-EY+C)*W+(ox+EX+C)]=1;
-    for(long t=0;t<=TT;t++){ if(((x==ox&&y==oy)||(two&&x==ox+EX&&y==oy-EY))&&imp<0) imp=t; if(imp>=0){int p=-x-y; if(p<minp)minp=p;}
+    int ne=0, EXs[16], EYs[16];   /* cases en plus, décalages (EX,EY) en y vers le bas : argv[5..] par paires */
+    for(int a=5;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); g[(oy-EYs[ne]+C)*W+(ox+EXs[ne]+C)]=1; ne++; }
+    for(long t=0;t<=TT;t++){ int hit=(x==ox&&y==oy); for(int e=0;e<ne;e++) if(x==ox+EXs[e]&&y==oy-EYs[e]) hit=1;
+      if(hit&&imp<0) imp=t; if(imp>=0){int p=-x-y; if(p<minp)minp=p;}
       unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
     printf("pmin J=%d K=%d impact=%ld T=%ld maxpD=%d minp=%d %s\n",J,K,imp,TT,maxpD,minp, minp>maxpD-4?"OK":"ECHEC");
     clear_box(1500);
@@ -105,11 +106,12 @@ int main(int argc,char**argv){
     int J=atoi(argv[2]), K=atoi(argv[3]), PS=atoi(argv[4]); long CE=atol(argv[5]);
     static unsigned char wr[W*W]; static int ws[P]; static unsigned char wc[P]; int nw=0;
     int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1; int x=0,y=0,h=0; long imp=-1, s=-1;
-    int EX=argc>7?atoi(argv[6]):0, EY=argc>7?atoi(argv[7]):0, two=argc>7; if(two) g[(oy-EY+C)*W+(ox+EX+C)]=1;
+    int ne=0, EXs[16], EYs[16];
+    for(int a=6;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); g[(oy-EYs[ne]+C)*W+(ox+EXs[ne]+C)]=1; ne++; }
     int qa0=1<<30,qa1=-(1<<30),qz0=1<<30,qz1=-(1<<30); int L=1<<30, minS=1<<30, minU1=1<<30, sx=0,sy=0,sh=0, okFR=1, maxZ=-(1<<30), nfr=0; long badt=-1;
     for(long t=0;t<=CE+P;t++){
       int p=-x-y; long k=(long)(y+C)*W+(x+C);
-      if(((x==ox&&y==oy)||(two&&x==ox+EX&&y==oy-EY))&&imp<0) imp=t;
+      { int hit=(x==ox&&y==oy); for(int e=0;e<ne;e++) if(x==ox+EXs[e]&&y==oy-EYs[e]) hit=1; if(hit&&imp<0) imp=t; }
       if(imp>=0&&s<0&&t>imp+P&&p<=PS){ s=t; sx=x; sy=y; sh=h; }
       if(imp>=0&&(s<0||t<s)&&p<L) L=p;                       /* L = min p sur [impact, s) */
       if(imp>=0&&(s<0||t<=s+P)&&p<minU1) minU1=p;              /* U1 */

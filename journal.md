@@ -400,3 +400,14 @@ Même schéma que T1. (A) 362 404/362 404 certifiées dans [−150,150]² (plus 
 {(−29,11),(−29,12)}). (C) 128 classes lointaines exactement affines (k = 100…300) : 91 par translation (pmin OK),
 5 demi-tours (uturn OK, + condition « diagonales disjointes » pour les 3 qui repartent dans la direction d'origine),
 32 non touchées. Commandes : data/dom.in, data/domfar.in (python, voir E2_epars.md), outils/preuves_dominos.txt.
+
+## R-77 Chaîne de 4 demi-tours successifs — OBSERVÉ (chaque configuration certifiée) — 18/11 S1
+Chaque case ajoutée dans l'unique classe demi-tour de l'autoroute courante : 4 étapes, toutes certifiées
+(dernière : 4 cases, autoroute dès 3 361 062). Directions (−2,2) → (−2,−2) → (2,2) → (−2,−2) → (2,2). Pas de ping-pong.
+Commande : `recherche/autoroute/outils/chaine_demitours.py 5 150`. Détails : E2_epars.md.
+
+## R-78 Théorème T3 : îlot de 3 cases en L ou en ligne, n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
+(A) 246 072/246 072 certifiées ([−100,100]² ∪ bande) ; plus rapide 158 (ligne −1,3;0,3;1,3), plus lent 93 138 (L 11,10;12,10;11,11).
+(C) 228 classes lointaines affines : 148 translations OK, 4 demi-tours OK (dont un qui repart en −d), 76 non touchées.
+Outils génériques ajoutés : `ant pmin/uturn` à n cases, `outils/preuves_loin.py`. Détails : E2_epars.md.
+5×5 (É3) : tranches [0,200 000) et [1 600 000,1 800 000) faites, 400 000/400 000 certifiées, max 155 668.
