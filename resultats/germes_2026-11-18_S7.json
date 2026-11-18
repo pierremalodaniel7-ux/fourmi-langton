@@ -1,0 +1,18 @@
+[
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Autoroute temporaire (record 5×5)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "1,0;3,0;0,-1;2,-1;3,-1;2,-2;4,-2;2,-3;3,-3;4,-3;0,-4;1,-4",
+  "note": "autoroute temporaire de 1 054 pas vers t ≈ 128 000, définitive à 209 637 (R-103)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Imitation de L après un choc",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-28,9;-26,10;-28,11",
+  "note": "L imite encore 83 pas après la cassure de l'autoroute (t = 10 670) (R-103)"
+ }
+]

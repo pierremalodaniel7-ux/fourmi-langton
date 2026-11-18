@@ -37,3 +37,19 @@ Intérêt : un détecteur d'autoroute **local** (il ne regarde que la boucle aut
 
 ## Nouveauté
 `deja_connu.md` : rien ; 1 recherche web (« frozen loop » / invariant pour détecter l'autoroute) : rien trouvé.
+
+## Autres observables (R-104)
+- Nombre de cases noires initial : **aucune corrélation** avec le transitoire (r² ≈ 0, 5×5 et 6×6 aléatoires).
+- Distribution du transitoire (6,8 M boîtes 5×5) : médiane dans [2 048, 4 096) ; 15,2 % ≥ 8 192 ; 4,8 % ≥ 16 384 ; 0,05 % ≥ 65 536.
+
+## Lemme de calage (DÉMONTRÉ, preuve courte)
+*Énoncé.* Sur l'autoroute nue loin du germe, pour chacune des 104 phases, la boucle gelée ne lit que des cases à distance ≤ 11
+(norme max) de la fourmi (calcul exact, t = 20 000…20 103, valable pour toute période ultérieure par périodicité).
+Soit une configuration X dont l'autoroute est certifiée à T0. Si à l'instant t ≥ T0 toutes les cases à distance ≤ 11 de la
+fourmi ont, dans X, la même couleur que dans l'autoroute nue à la même phase (après translation), alors L_X(t) = L_nue(phase).
+*Preuve.* La boucle gelée est déterminée pas à pas par les couleurs qu'elle lit ; par récurrence sur sa longueur, la boucle de X
+lit les mêmes cases que celle de l'autoroute nue (toutes à ≤ 11), donc elle est identique. ∎
+*Conséquence.* Les cases à ≤ 11 de la fourmi coïncident avec l'autoroute nue dès que la fourmi est à plus de 11 cases de toute case
+écrite avant T0 ou noire au départ (devant : bande certifiée blanche ; derrière : trace écrite par l'autoroute elle-même) ;
+l'autoroute avançant d'une diagonale de 2 par période, le calage arrive au plus ≈ 52·(distance + 11) pas après T0.
+Observé : calage de −4 à +623 pas après le début (R-103). La conjecture C-L est la **réciproque** de ce lemme.

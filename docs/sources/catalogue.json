@@ -5078,5 +5078,25 @@
   "interet": "Courbe record(n) du transitoire (É4).",
   "deja": "Pas trouvé ; article MFCS 2026 sur le temps d'échappement non lu",
   "source": "S6 autoroute 18/11, outils/colline.py"
+ },
+ {
+  "id": "A-TMP",
+  "b": 18,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Autoroute temporaire",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "1,0;3,0;0,-1;2,-1;3,-1;2,-2;4,-2;2,-3;3,-3;4,-3;0,-4;1,-4",
+  "img": [
+   128900,
+   ""
+  ],
+  "situation": "Le record 5×5 (fourmi au coin, cap haut) : image au pas 128 900, juste après la cassure.",
+  "deroulement": "Vers t ≈ 127 800 la fourmi lance une autoroute 104 qui tient 1 054 pas (≈ 10 périodes), puis la brise sur la tache ; le chaos reprend jusqu'à l'autoroute définitive (209 637). La boucle gelée L(t) imite la suite de l'autoroute nue pendant 758 pas, seulement pendant cette plage.",
+  "mesures": "Plage périodique t ≈ 127 798–128 852 ; autoroute définitive certifiée dès 209 637.",
+  "statut": "VÉRIFIÉ (calcul exact) ; illustre la conjecture C-L (R-103)",
+  "interet": "Observable locale qui détecte l'autoroute (É5).",
+  "deja": "Pas trouvé",
+  "source": "S7 autoroute 18/11, ./ant imite 5 4084138 209637"
  }
 ]

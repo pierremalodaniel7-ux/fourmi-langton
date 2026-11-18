@@ -547,3 +547,8 @@ Détails : recherche/autoroute/E5_observables.md ; données : resultats/imite_ca
 (R-103, complément) 700 configurations diverses (T1, deux cases loin, îlots 3×3 ; 302 avec autoroute temporaire) : imitation
 hors autoroute ≤ 83 pas ; le max est atteint juste APRÈS la cassure d'une autoroute temporaire (la boucle locale ne voit pas
 encore le choc). C-L tient (83 < 104) mais la marge est mince ; variante à 208 pas proposée. Données : resultats/imite_divers.txt.
+
+## R-104 Statistiques du transitoire, boîtes aléatoires — OBSERVÉ — 18/11 S7
+6 800 000 boîtes 5×5 certifiées (exhaustif partiel) : pas certifié médian dans [2 048, 4 096) ; 15,2 % ≥ 8 192 ; 4,8 % ≥ 16 384 ;
+0,05 % ≥ 65 536 (le départ blanc, 9 977, est donc parmi les ≈ 15 % les plus lents). Régression : corrélation nulle entre le nombre
+de cases noires et log(transitoire) (r² = 0,000 en 5×5 sur 800 boîtes aléatoires ; 0,005 en 6×6 sur 300).
