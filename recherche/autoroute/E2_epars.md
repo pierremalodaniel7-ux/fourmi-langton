@@ -9,7 +9,7 @@ Les 22 classes lointaines sont traitées : 21 par translation, le demi-tour par 
 Calcul exact + certificat pour 90 601 + 3 311 + 2 222 positions.
 
 ### (A) c ∈ [−150,150]² : calcul exhaustif
-90 601 configurations, toutes **certifiées** (`fourmi -cert`, lemme R-70). Temps de calcul : ≈ 100 s sur 2 cœurs.
+90 601 configurations, toutes **certifiées** (`fourmi -cert`, lemme R-83). Temps de calcul : ≈ 100 s sur 2 cœurs.
 - 87 760 certifiées dès 9 977 (la case ne gêne pas), 2 841 autres.
 - Plus court : c = (0,−2), autoroute certifiée dès **310** pas ; puis (1,3) : 313.
 - Plus long : c = **(7,−7)**, certifiée seulement à **106 258** (≈ 10,6 × le départ blanc).
@@ -79,7 +79,7 @@ Robustesse : U1–U4 passent aussi pour s pris à p* = 120, 90, 70.
    collision), transitions = demi-tour qui revient à un site ; montrer qu'il n'y a pas de ping-pong infini.
 3. Îlots de 2 cases (R-24, 1 683 paires) puis rayon ≤ 2.
 
-Commandes : `data/c1.in` (généré par python, voir journal R-72) ; `fourmi -T 8000000 -cert -lot < c1.in` ;
+Commandes : `data/c1.in` (généré par python, voir journal R-85) ; `fourmi -T 8000000 -cert -lot < c1.in` ;
 classes loin : `far.in`, `gap.in`.
 
 ## Deux cases loin (S1, 1re exploration) — OBSERVÉ (chaque configuration calculée est DÉMONTRÉE individuellement)

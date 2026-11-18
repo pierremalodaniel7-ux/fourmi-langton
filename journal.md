@@ -348,14 +348,14 @@ docs/test_circuits.js tout R67 : les 8 sorties justes pour les 256 états (254 s
 deux moteurs indépendants. Aussi, avec le moteur JS : R-39 additionneur 4 bits 256/256, R-53 64/64, les 8 modules R-63 256/256 chacun,
 et les 37 circuits de la bibliothèque v7 justes. Vérification finie (temps fini), comme toujours.
 
-## R-69 Contrôle croisé des deux moteurs + écart « demi-tour » — VÉRIFIÉ (calcul, 2 moteurs) — 18/11 S1
+## R-82 Contrôle croisé des deux moteurs + écart « demi-tour » — VÉRIFIÉ (calcul, 2 moteurs) — 18/11 S1
 `src/fourmi` et `ant_controle.c` d'accord sur le départ blanc (9 977), 512/512 configs 3×3 (même dérive, même début)
 et les 22 collisions 1 case (mêmes 22 durées de chaos). Le « demi-tour » de R-16 est la PREMIÈRE autoroute ; `ant obst`
 notait la DERNIÈRE (critère de boîte) : le demi-tour retraverse le germe et finit en virage (66 924 pas). Correction :
 T(3) = 51 277, T(4) = 133 984 (fourmi coin bas-gauche, cap haut) — OBSERVÉ. Détails : recherche/autoroute/E0_controle.md.
 Commande : `./ant obstf 150` (nouveau mode), `./ant box 3 v`.
 
-## R-70 Lemme du certificat d'autoroute — DÉMONTRÉ (preuve écrite) + implémenté — 18/11 S1
+## R-83 Lemme du certificat d'autoroute — DÉMONTRÉ (preuve écrite) + implémenté — 18/11 S1
 Une fourmi, période p : si les p pas « à blanc » depuis l'état courant lisent V, reviennent au même cap avec d ≠ 0
 (F1), si le motif se recopie (F2 : Pa(v+d) = Pv(v)), si les cases neuves sont blanches (F3), si V est convexe le
 long de d (F4) et si la bande ⋃(V+kd) \ V est blanche, alors autoroute pour toujours (récurrence sur les périodes).
@@ -365,34 +365,34 @@ Conséquences VÉRIFIÉES par calcul exact + lemme = DÉMONTRÉ : départ blanc 
 Le moteur s'arrêtait à 16 384 sur une autoroute non certifiée (obstacle plus loin) : corrigé avec -cert.
 Commande : `./fourmi -cert "RL|0,0,H|"` ; `-c0 T`. Détails : recherche/autoroute/E1_certificat.md.
 
-## R-71 Boîtes 3×3 et 4×4 — DÉMONTRÉ (calcul exact + certificat R-70) — 18/11 S1
+## R-84 Boîtes 3×3 et 4×4 — DÉMONTRÉ (calcul exact + certificat R-83) — 18/11 S1
 Fourmi (0,0) cap H au coin (bas-gauche en y vers le haut) de la boîte, cases (i mod N, −⌊i/N⌋) : 512/512 et
 65 536/65 536 configurations construisent l'autoroute 104 pour toujours. T(3) = 51 277, T(4) = 133 984
 (cases 2,0;3,0;2,-1;3,-1;3,-3). ≈ 1 min sur 2 cœurs. Commande : data/box4.in, `fourmi -T 4000000 -cert -lot`.
 
-## R-72 Théorème T1 : une case noire n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (A, B) + (C) À RELIRE — 18/11 S1
+## R-85 Théorème T1 : une case noire n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (A, B) + (C) À RELIRE — 18/11 S1
 (A) c ∈ [−150,150]² : 90 601/90 601 certifiées ; plus court 310 (c = 0,−2), plus long 106 258 (c = 7,−7).
 (B) hors boîte et hors bande : certifié à 9 977 (argument direct). (C) loin dans la bande : 22 classes = R-16 ;
 pas certifié exactement affine en k (pente 52, demi-tour 104) pour k = 100…1 150 (5 533 calculs) ; lemme de
 translation esquissé. Le demi-tour est la seule issue qui roule sur la trace (obstacle pour plusieurs îlots).
 Détails : recherche/autoroute/E2_epars.md. Germes : resultats/germes_2026-11-18.json.
 
-## R-73 T1, partie (C) : lemme de translation — DÉMONTRÉ pour 21 classes sur 22 — 18/11 S1
+## R-86 T1, partie (C) : lemme de translation — DÉMONTRÉ pour 21 classes sur 22 — 18/11 S1
 Couplage X_{k+2}(t+104) = X_k(t) + d hors de D (D = écart fixe près du germe, p = −x+y ≤ 25 sur D), stable par
 récurrence car p augmente de 4 par translation. Condition vérifiée une fois à k₀ = 100/101 avec le 2ᵉ moteur :
 min p après impact ∈ [157, 225] > 21 pour 21 classes. Reste la classe du demi-tour (c = (−19−k, k), k pair ≥ 100) :
 OBSERVÉE (certifiée pour k ≤ 1 150), plan de preuve dans E2_epars.md. Commande : `./ant pmin J K T`.
 
-## R-74 Théorème T1 complet : départ blanc + UNE case noire quelconque → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
+## R-87 Théorème T1 complet : départ blanc + UNE case noire quelconque → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
 Classe du demi-tour (c = (−19−k, k), k pair ≥ 100) traitée par double couplage : translation jusqu'au milieu de la
 trace, puis identité sans translation (X_{k+2} = X_k décalée de 208 pas). Conditions finies U1–U4 vérifiées à
 k₀ = 100 (`./ant uturn -19 100 150 79678`) ; prédiction cert(k+2) = cert(k)+208 vérifiée (79 678 / 79 886 / 80 094).
-Avec R-72 (A, B) et R-73 (21 classes) : T1 démontré pour toute position de la case. Pas trouvé dans la littérature
+Avec R-85 (A, B) et R-86 (21 classes) : T1 démontré pour toute position de la case. Pas trouvé dans la littérature
 (2 recherches). Détails : recherche/autoroute/E2_epars.md.
 
 ## R-75 Deux cases noires loin l'une de l'autre — OBSERVÉ (2 684 configurations, toutes certifiées) — 18/11 S1
 1re case dans chacune des 22 classes (k = 100/101), 2e case à 200 cases devant l'autoroute qui en sort (122 positions) :
-toutes construisent l'autoroute pour toujours (certificat R-70 ⇒ chacune DÉMONTRÉE ; la famille infinie : pas encore).
+toutes construisent l'autoroute pour toujours (certificat R-83 ⇒ chacune DÉMONTRÉE ; la famille infinie : pas encore).
 22 cases touchables par autoroute (484 doubles collisions) ; retard max 198 026. Détails : E2_epars.md.
 
 ## R-76 Théorème T2 : îlot de 2 cases voisines (côté ou coin) n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
@@ -433,3 +433,8 @@ les 3 classes de pente 208 restent démontrées.
 (R-80, complément) Contrôle indépendant des récurrences : 200 classes lointaines tirées au hasard + les 62 classes
 difficiles, pas certifié prédit par la formule affine à k = 2 000/2 001 puis calculé : 262/262 exacts (pas et direction), 7 s.
 (É3, S2) 5×5 : tranches [600 000, 1 000 000) et [2 200 000, 2 600 000) certifiées ; total 2 000 000 masques, max 188 466.
+
+(Renumérotation 18/11, demande de Pierre-Malo) Les entrées de la séance autoroute S1 numérotées R-69 à R-74 faisaient doublon
+avec la branche lucid-clarke : renumérotées R-82 (contrôle croisé), R-83 (certificat), R-84 (boîtes 3×3/4×4), R-85 (T1 A-B),
+R-86 (T1 translation), R-87 (T1 complet), partout dans le dépôt. R-75 à R-81 inchangés. Bestiaires : fiches autoroute S1 → n° 12,
+S2 → n° 13.
