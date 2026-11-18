@@ -552,3 +552,5 @@ encore le choc). C-L tient (83 < 104) mais la marge est mince ; variante à 208 
 6 800 000 boîtes 5×5 certifiées (exhaustif partiel) : pas certifié médian dans [2 048, 4 096) ; 15,2 % ≥ 8 192 ; 4,8 % ≥ 16 384 ;
 0,05 % ≥ 65 536 (le départ blanc, 9 977, est donc parmi les ≈ 15 % les plus lents). Régression : corrélation nulle entre le nombre
 de cases noires et log(transitoire) (r² = 0,000 en 5×5 sur 800 boîtes aléatoires ; 0,005 en 6×6 sur 300).
+(R-103, grande échelle) Les 65 536 boîtes 4×4 : imitation hors autoroute ≤ 73, calage de −34 à +940 pas, 6 autoroutes temporaires ;
+5 968 îlots/paires : ≤ 89 ; 491 configurations éparses : ≤ 22. Total ≈ 74 300 configurations distinctes : C-L tient (max 89 < 104).
