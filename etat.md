@@ -1,9 +1,12 @@
-# État du projet (mis à jour le 17-11-2026)
+# État du projet (mis à jour le 18-11-2026)
 
 ## Démontré
 - R-03 périodes de cycle ≡ 0 mod 4 (toute règle L/R, tout nombre de fourmis).
 - R-09 toutes les fourmis RL de même classe de parité ⇒ jamais borné (preuve esquissée, À RELIRE).
 - R-20 bout d'autoroute 104 minimal = 11 cases. R-28 cycle minimal : Tourniquet, période 4.
+- R-71 lemme de l'autoroute 104 dans le blanc (connu ; bande de 11 diagonales) ⇒ R-17 (1 case) VÉRIFIÉ pour toujours ; outil lemme104.py / lemme_gen.py.
+- R-72 LⁿR : autoroute 16n+4 dès le pas 24n+7 pour TOUT n ≥ 3 (preuve symbolique, ordinateur/v4/lnr_sym.py).
+- R-73 vaisseaux rapides à 2 fourmis LⁿR, n = 2, 5, 8, 11 (période (8n+2)/3), prouvés pour toujours ; famille n ≡ 2 mod 3 OUVERTE.
 
 ## Vérifié par calcul exact
 Cycles à 2 fourmis (R-02, R-13, record 309 752), à 4 fourmis, composé (1 030 792) ; navettes R-19 / R-21
@@ -24,10 +27,11 @@ Porte « compteur » par traversée de traces : NOR, ET, NON, COPIE, CROISEMENT,
 
 ## Simulateur v7 (17/11 soir)
 docs/ (GitHub Pages après fusion de la PR n°1) : bibliothèque fusionnée (747 éléments), 37 circuits avec interrupteurs, pas complet de la petite fourmi VÉRIFIÉ 256/256 (R-68, moteur JS + Python).
+18/11 : moteur à grille creuse ordinateur/v4/creux.c (R-69) : pas complet 256/256 ; deux pas composés en un germe 256/256 (R-70, correctif d'ordre du compilateur). Croisement 3 XOR : pas fait.
 
 ## Ouvert
 R-04 (≤ 2 états blancs par cycle) ; R-14/R-27 conjecture des phases (0 contre-exemple sur ≈ 2,7 M) ;
-RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? ; ordinateur : mémoire / horloge (R-39) ; 13 à 100 fourmis : aucun cycle ni autoroute nouvelle (R-36, 3 069 situations) ; portée arbitraire des navettes.
+RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? (R-74 : 4 000 situations de plus, rien d'autre) ; ordinateur : mémoire / horloge (R-39) ; 13 à 100 fourmis : aucun cycle ni autoroute nouvelle (R-36, 3 069 situations) ; portée arbitraire des navettes.
 
 ## À revérifier
 Rail 0,0,H ; 2,6,H ; 8,6,D (R-13 vs R-18) ; LLRRRL autoroute 896 (bord de grille ?).

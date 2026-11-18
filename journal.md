@@ -431,3 +431,12 @@ outils/campagne.sh rl4dir 300000 --nb 4000 --fourmis 2-6 --rayon 3-9 --cases 0-4
 A102(3,5) 25, A100(2,2) 6, A388(6,10) 4, A108(2,2) 2 ⇒ seulement les pentes 1 et 5/3 (rien d'horizontal ici). Aucune 4e direction.
 Campagnes hexagonales 2–4 fourmis (rand6:2-3, 4 000) et LLLR 2–6 fourmis (3 000) : rien de neuf retenu (A156 en LLLR = passager lent).
 ## Point 10:29 — pistes 1, 2, 3 faites ; reste : Python 256 (≈ 160/256, 0 faux), livrables.
+
+## R-69 (fin, 10:32) — contre-vérification Python : 256/256 — le pas complet est VÉRIFIÉ par 3 moteurs indépendants
+ordinateur/v4/pas256_py.py (moteur Python écrit à part : dict, garde les 19 dernières positions, pas de trace complète ⇒ plus de
+problème de mémoire comme en R-67) : les 8 sorties justes pour les 256 états, 0 faux (≈ 11 s par état, 4 cœurs, 10:16–10:32).
+Avec le moteur creux (C) et le moteur JS (R-68) : 3 moteurs, 256/256 chacun. Vérification en temps fini (lecture au pas 238 940) :
+« la sortie part pour toujours » demanderait le lemme LLR (cf. R-71, lemme_gen.py) appliqué à l'état final — non fait.
+R-73 (note) : lectures des vaisseaux sans structure « tours de carré » visible (n = 5 : 03232R20014112 / 1114323043R002) ⇒ la preuve
+symbolique de R-72 ne s'étend pas telle quelle à la famille (OUVERT).
+## Point 10:33 — Python R-70 (deux pas) lancé (fin ≈ 10:44) ; livrables en préparation.
