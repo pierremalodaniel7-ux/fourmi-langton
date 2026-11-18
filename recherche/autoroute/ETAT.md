@@ -1,16 +1,16 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
-PROCHAINE SÉANCE : S4
-PROCHAINE TÂCHE : (1) finir la zone (A) des 9 bases de R-91 (data/relA_*.in, 264 470 cas) ; (2) double récurrence
-« deux cases loin » (1re case aussi loin : transporter les conditions de multi le long de la 2e bande, cf. E2_epars.md S3) ;
-(3) 5×5 par tranches (`outils/box5_fond.sh`). Preuve à relire : E2b_couplage.md.
-Outils : `fourmi -cert`, `ant multi/deux` (+ BASE, T0), `outils/relatif.py`, `gen_ilots.py`, `preuves_loin.py`, `cherche_s.sh`.
+PROCHAINE SÉANCE : S5
+PROCHAINE TÂCHE : (1) uniformité de la double récurrence « deux cases loin » (E2_epars.md, S4 : conditions de la
+récurrence en k₂ transportées par le couplage en k₁) ; (2) relire E2b_couplage.md (correctif R-92) ; (3) 5×5 à partir de
+4 000 000 (`outils/box5_fond.sh`, recopier resultats/box5/*.res dans data/).
+Outils : `fourmi -cert`, `ant multi/deux` (+ BASE, T0, H0), `outils/relatif.py`, `essai_k1.sh`, `repreuve_ns1.sh`.
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-82, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-83, E1_certificat.md, `fourmi -cert`
 - [~] É2 Collisions → théorème « épars » — S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
-- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1+S2 : 2 M/33,5 M certifiées (tranches 0–1 000 000, 1 600 000–2 600 000)
+- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S4 : [0, 4 000 000) certifié (4 M/33,5 M), max 188 466
 - [ ] É4 Transitoires extrêmes
 - [ ] É5 Observables (boucle gelée, frontière)
 - [ ] É6 Germes et bassin à rebours
@@ -33,6 +33,7 @@ Outils : `fourmi -cert`, `ant multi/deux` (+ BASE, T0), `outils/relatif.py`, `ge
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
+- S4, 18-11, 14:38–15:17 UTC : R-92 (faille corrigée), R-93 (deux cases, 1re fixée), R-94 (récurrence en k₁), 5×5 4 M — rapports/S4_2026-11-18.md
 - S3, 18-11, 13:38–14:39 UTC (redémarrage 13:57–14:36) : preuve du couplage, R-88 à R-91, T5 — rapports/S3_2026-11-18.md
 - S2, 18-11, 12:37–13:29 UTC : T4 (îlots 3×3), vérificateurs à n changements de repère, Δ — rapports/S2_2026-11-18.md
 - S1, 18-11, 11:18–12:07 UTC : É0 ✓, É1 ✓, É2 (T1, T2, T3 démontrés), É3 5×5 1,2 M/33,5 M — rapports/S1_2026-11-18.md
