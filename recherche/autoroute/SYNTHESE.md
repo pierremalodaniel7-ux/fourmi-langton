@@ -28,7 +28,7 @@ Implémenté dans `src/fourmi -cert`. Exemple : le départ blanc est démontré 
 | T5 | Une configuration C₀ déjà certifiée + une case noire n'importe où (exemple traité : l'îlot 3×3 le plus lent) | 39 429 + 22 classes | R-90 |
 | T6 | **Deux cases noires éparses** : \|c₁\|, \|c₂\| ≥ 417 et \|c₁ − c₂\| ≥ 545 ⇒ autoroute pour toujours | 683 080 cas proches, 484/484 paires de classes lointaines | R-93 à R-98 |
 
-Partiel : boîtes 5×5, les 4 000 000 premières configurations (sur 33,5 M) sont certifiées, transitoire max 188 466.
+Partiel : boîtes 5×5, les 6 000 000 premières configurations (sur 33,5 M) sont certifiées, transitoire max 209 637.
 
 ## 3. La méthode pour « loin » : les couplages
 

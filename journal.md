@@ -528,3 +528,4 @@ pivotée (cases (−11,−29),(−12,−29), cap D), T0 = 117 736 : (C) 22/22 cl
 ## R-100 Trois cases éparses (|cᵢ| ≥ 417, écarts ≥ 545) : 300/300 triplets aléatoires certifiés — OBSERVÉ — 18/11 S5
 Tirage : chaque case sur la bande de départ (k ∈ [417, 1 500]) avec probabilité 0,4, sinon uniforme dans [−3 000, 3 000]².
 Le plus lent : 216 750. Indice pour un théorème T7 « trois cases éparses » (même assemblage que T6, bases à deux cases).
+(É3, S5) 5×5 : [4 000 000, 6 000 000) certifiées ; tout [0, 6 000 000) est certifié ; nouveau max 209 637 (tranche 4,0–4,2 M).

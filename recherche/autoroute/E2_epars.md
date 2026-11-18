@@ -266,3 +266,10 @@ classe de (−401,−409) ; c₁ dans la classe j = −27, k pair, avec la class
    - c₂ sur la bande de départ avant c₁ : contredit le choix de c₁.
 R et D calculés par `outils/epars_RD.py` (maximum sur les 22 classes). Contrôle : 300 paires tirées au hasard dans le domaine
 (moitié avec c₁ sur la bande et c₂ sur des diagonales voisines) : 300/300 certifiées.
+
+### S5 — Plan pour trois cases éparses (T7)
+Même assemblage que T6, un cran plus haut : base W₂ = blanc + c₁ + c₂ (régime lointain de T6), c₃ loin dans la bande de
+l'autoroute finale de W₂ (classes : ≈ 22 par base), puis transport en k₁, m et m₃. Coût brut : 484 bases × `relatif.py`
+(≈ 1 min chacune) ≈ 8 h de calcul pour la partie lointaine, plus les zones proches. Pistes pour réduire : (i) beaucoup de bases
+ont la même autoroute finale à translation près (même classe de sortie) : regrouper par « type de sortie » ; (ii) n'utiliser
+que des p et des diagonales (pas la règle), pour que le transport marche à chaque étage. Indice : R-100 (300/300 triplets).
