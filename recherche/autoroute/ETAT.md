@@ -1,11 +1,11 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
-PROCHAINE SÉANCE : S2
-PROCHAINE TÂCHE : É2 suite — (1) automate des « sites » pour plusieurs îlots loin (germe + 22 types, transitions
-par demi-tour ; partir de `outils/chaine_demitours.py` et R-75), démontrer avec les couplages de E2_epars.md ;
-(2) îlots de rayon ≤ 2 (même schéma que T2/T3 : `outils/preuves_loin.py` + `ant pmin/uturn` à n cases ; prendre s à p* ≈ 90). Puis É3 : 5×5 par tranches de 200 000 (`outils/box5_fond.sh`,
-reprise automatique ; tranches faites : voir resultats/box5/ ; le script de reprise lit data/box5_*.res : recopier ces fichiers dans data/ avant de reprendre).
-Outils de la séance S1 : `fourmi -cert` / `-c0 T` (certificat), `ant obstf`, `ant pmin`, `ant uturn` (preuves par couplage).
+PROCHAINE SÉANCE : S3
+PROCHAINE TÂCHE : (1) relire `ant triple2` / `ant multi` (code neuf de S2) et écrire la preuve du couplage multiple
+proprement ; (2) É2 suite : plusieurs îlots éloignés (automate des sites) avec `ant multi` ; (3) É3 5×5 par tranches
+(`outils/box5_fond.sh`, recopier resultats/box5/*.res dans data/ avant de reprendre).
+Outils : `fourmi -cert`, `ant pmin/uturn/triple2/multi`, `outils/gen_ilots.py`, `preuves_loin.py`, `cherche_s.sh`,
+`cherche_triple.sh`, `juge_uturn.py`.
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-69, E0_controle.md
@@ -23,6 +23,7 @@ Outils de la séance S1 : `fourmi -cert` / `-c0 T` (certificat), `ant obstf`, `a
 - Boîtes 3×3, 4×4 (coin, cap H) : toutes démontrées (R-71).
 - T1 une case noire n'importe où, T2 îlot de 2 cases voisines, T3 îlot de 3 cases en L ou en ligne, n'importe où : DÉMONTRÉS, à faire relire (R-72 à R-78).
 - 5×5 (coin, cap H) : tranches [0,600 000) et [1 600 000,2 200 000) certifiées, max 184 622 (data/box5_*.res).
+- S2 : T4 tout îlot dans un carré 3×3 (400 formes), n'importe où : DÉMONTRÉ sous réserve de relecture (R-80, R-81).
 - Seul mécanisme de retour en arrière : le demi-tour (1 classe sur 22), qui roule sur la trace jusqu'au site précédent.
 
 ## Acquis (18-11, chat, ant_controle.c)
@@ -33,4 +34,5 @@ Outils de la séance S1 : `fourmi -cert` / `-c0 T` (certificat), `ant obstf`, `a
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
+- S2, 18-11, 12:37–13:20 UTC : T4 (îlots 3×3), vérificateurs à n changements de repère, Δ — rapports/S2_2026-11-18.md
 - S1, 18-11, 11:18–12:07 UTC : É0 ✓, É1 ✓, É2 (T1, T2, T3 démontrés), É3 5×5 1,2 M/33,5 M — rapports/S1_2026-11-18.md

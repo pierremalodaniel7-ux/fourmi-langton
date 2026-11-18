@@ -417,3 +417,14 @@ Outils génériques ajoutés : `ant pmin/uturn` à n cases, `outils/preuves_loin
 La condition U4/Z de S1 ignorait les diagonales de la trace ; avec Δ = diagonales x+y touchées après 9 977 (+ îlot),
 les 10 demi-tours de T1, T2, T3 passent (p* = 90). Outils : `outils/juge_uturn.py`, `outils/cherche_s.sh`.
 Détails : E2_epars.md (section S2).
+
+## R-80 Théorème T4 : tout îlot contenu dans un carré 3×3 (400 formes), n'importe où → autoroute 104 pour toujours — DÉMONTRÉ sous réserve de relecture — 18/11 S2
+(A) 1 813 428/1 813 428 certifiées (plus rapide 142, plus lent 228 739 : −56,28;−54,28;−54,30). Trou y = 99 (aussi dans
+T3) comblé : 76 000/76 000. (C) 15 200 classes lointaines : 4 032 hors bande (cert 9 977), 10 690 translations, 439 demi-tours,
+42 aller-retour triples, 3 quadruples ; toutes prouvées (bases k₀ = 100/101 ou 200/201, k = 100…600 calculés pour les 62 cas
+difficiles). Commandes : outils/gen_ilots.py A|C, preuves_loin.py, cherche_s.sh, cherche_triple.sh, preuves_ilots_3x3*.txt.
+
+## R-81 Couplages multiples (aller-retours sur la trace) — DÉMONTRÉ sous réserve de relecture du code — 18/11 S2
+Repères alternés translation (site) / identité (germe), ensembles d'accord étendus par la règle « un pas de translation »
+fermée par chaînes. `ant triple2` : 42/42 classes de pente 156 ; `ant multi` NS=3 : 3/3 de pente 208 ; contrôles :
+multi NS=1 = uturn (423), NS=2 = triple2 (42), triple2 échoue sur les pentes 208. Détails : E2_epars.md (S2).

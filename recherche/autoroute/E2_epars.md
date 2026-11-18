@@ -189,3 +189,17 @@ ou p > H_i ∩ accord de la phase i−2 ; fenêtre ; hors Δ_i ; règle « un pa
 dans l'accord de la phase i−1 ou touchés pendant celle-ci). Cohérence : NS = 1 redonne les 423 demi-tours OK de
 `uturn` (p* = 90) ; NS = 2 redonne les 42/42 de `triple2`. **NS = 3 : les 3 classes de pente 208 OK**
 (`outils/preuves_ilots_3x3_pente208.txt`). Statut : DÉMONTRÉ **sous réserve de relecture du vérificateur** (code neuf).
+
+## Théorème T4 : tout îlot contenu dans un carré 3×3, n'importe où — DÉMONTRÉ (sous réserve de relecture) — S2
+Fourmi (0,0) cap H + un îlot I = P + t, P l'une des **400 formes** non vides de [0,2]² (à translation près), t quelconque.
+- (B) Si I ne touche ni [−24,32]×[−25,25] (la fourmi blanche ne visite que [−21,29]×[−22,22] avant 10 185) ni la
+  bande Z (diagonales x+y ∈ [−28,−18]) : certifié à 9 977 (argument de T1).
+- (A) I touche la boîte, ou la bande avec y ≤ 100 : **1 813 428/1 813 428 certifiées** (≈ 36 min sur 2 cœurs).
+  Plus rapide : {(−1,−3),(0,−3),(1,−3),(−1,−2),(−1,−1),(0,−1)} dès **142** ; plus lent : {(−56,28),(−54,28),(−54,30)} à **228 739**.
+- Trou repéré en S2 (aussi présent dans T3 de S1) : 1re case à y = 99 dont seule une case à y = 101 touche la bande.
+  Comblé par le calcul direct des ancres k = 90…99 : **76 000/76 000 certifiées**.
+- (C) Classes lointaines (forme, j ∈ [−32,−14], parité de k) : 15 200 classes, k = 100…105 (45 600 calculs, tous certifiés).
+  4 032 non touchées ; 10 678 « translation » : 10 673 `pmin` OK à k₀ = 100/101 ; 434 demi-tours : 433 OK
+  (`uturn`, p* choisi par `cherche_s.sh`) ; restent 62 classes (5 `pmin` en échec, 1 demi-tour, 11 irrégulières à
+  k ≤ 105, 42 de pente 156, 3 de pente 208) : **toutes calculées pour chaque k de 100 à 600 (15 530, certifiées)**,
+  régulières dès k ≤ 120 ; preuves à la base k₀ = 200/201 : 12 `pmin` + 5 `uturn` OK, 42 `triple2` OK, 3 `multi` NS = 3 OK.

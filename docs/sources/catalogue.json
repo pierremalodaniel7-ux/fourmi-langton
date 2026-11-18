@@ -4878,5 +4878,65 @@
   "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
   "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
   "source": "S1 autoroute 18/11, fourmi -cert"
+ },
+ {
+  "id": "A-T4",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Îlot 3×3 le plus lent",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-56,28;-54,28;-54,30",
+  "img": [
+   240000,
+   ""
+  ],
+  "situation": "Départ blanc + 3 cases noires dans un carré 3×3.",
+  "deroulement": "Théorème T4 : tout îlot contenu dans un carré 3×3, posé n'importe où, mène à l'autoroute. Celui-ci est le plus lent de la zone calculée.",
+  "mesures": "Certifié dès 228 739.",
+  "statut": "DÉMONTRÉ (R-80, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S2 autoroute 18/11, fourmi -cert ; ant multi"
+ },
+ {
+  "id": "A-142",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Îlot 3×3 le plus rapide",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,-3;0,-3;1,-3;-1,-2;-1,-1;0,-1",
+  "img": [
+   2000,
+   ""
+  ],
+  "situation": "Départ blanc + 6 cases noires au-dessus de la fourmi.",
+  "deroulement": "Le chaos le plus court trouvé parmi les îlots 3×3.",
+  "mesures": "Certifié dès 142.",
+  "statut": "DÉMONTRÉ (R-80)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S2 autoroute 18/11, fourmi -cert ; ant multi"
+ },
+ {
+  "id": "A-AR3",
+  "b": 11,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Aller-retour triple",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-120,101;-118,102;-118,103",
+  "img": [
+   75000,
+   ""
+  ],
+  "situation": "Départ blanc + 3 cases noires loin devant l'autoroute.",
+  "deroulement": "L'autoroute heurte l'îlot, repart en arrière sur sa trace jusqu'au germe, le germe la renvoie vers l'îlot, puis elle part à 90°.",
+  "mesures": "Certifié dès 70 598 ; +156 pas par case d'éloignement.",
+  "statut": "DÉMONTRÉ (R-81, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-70).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S2 autoroute 18/11, fourmi -cert ; ant multi"
  }
 ]
