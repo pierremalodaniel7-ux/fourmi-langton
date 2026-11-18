@@ -4,8 +4,8 @@
 Fourmi RL en (0,0), cap H, grille blanche sauf **une** case noire c ∈ ℤ² quelconque.
 Alors la fourmi construit l'autoroute 104 pour toujours.
 
-Statut : **DÉMONTRÉ** pour (A), (B) et (C) sauf UNE classe de positions lointaines (le « demi-tour » :
-c = (−19−k, k), k pair ≥ 100), qui reste **OBSERVÉE** (k ≤ 1 150, toutes certifiées) ; preuve prévue ci-dessous.
+Statut : **DÉMONTRÉ** (calcul exact fini + lemmes écrits ci-dessous ; preuve à faire relire par un humain).
+Les 22 classes lointaines sont traitées : 21 par translation, le demi-tour par double couplage.
 Calcul exact + certificat pour 90 601 + 3 311 + 2 222 positions.
 
 ### (A) c ∈ [−150,150]² : calcul exhaustif
@@ -47,13 +47,25 @@ chaque classe.
    Directions finales (2,2), (−2,−2), (−2,2) : p(d') ∈ {0, 0, 4} ≥ 0. ∎
    Classe du demi-tour (−19, k pair) : min p = −39 (la fourmi revient au germe) : ce couplage ne suffit pas.
 
-**Demi-tour : plan de preuve (séance suivante).** (a) Lemme du certificat « sur fond périodique, horizon fini » :
-mêmes F1, F2, F4, et à la place de F3/Z, « pour 1 ≤ k ≤ K et v ∈ V avec v+d ∉ V : C(a+kd+v) = Pv(v) » ⇒ la
-fourmi recopie sa période K fois (même récurrence). La trace de B est périodique (certificat R-70), donc la
-fourmi qui fait demi-tour roule dessus jusqu'au germe. (b) Deuxième couplage, sans translation, entre
-X_{k+2} au temps s+208 et X_k au temps s (même position du « rouleur » au milieu de la trace) : ils ne
-diffèrent que près du site d'impact (p grand) ; vérifier à k₀ = 100 que la suite (germe, chaos, autoroute
-(−2,−2)) reste à p plus petit.
+**Demi-tour (classe j = −19, k pair) : double couplage — DÉMONTRÉ.** p = −x+y, d = (−2,+2), D comme ci-dessus (p ≤ 25).
+Dans X_k, après l'impact la fourmi repart en arrière (dérive −d) en roulant sur sa trace : le « rouleur ».
+Soit s un instant où le rouleur est au milieu de la trace, W la fenêtre lue pendant [s, s+104), L = min p de la
+fourmi sur [impact, s). Conditions finies vérifiées à k₀ = 100 (`./ant uturn -19 100 150 79678`) :
+- **U1** p > 21 sur [impact, s+104] (le couplage par translation de l'étape 3 tient jusqu'à s+104) : min 146 ;
+- **U2** a(s+104) = a(s) − d, même cap, et le contenu de la fenêtre se recopie : X(s+104) sur a(s)−d+W = X(s) sur a(s)+W (|W| = 41) ;
+- **U3** min p sur [s, s+104] ≥ L − 4 : 147 ≥ 147 ;
+- **U4** après s+104, toute case lue pour la première fois depuis s est dans {p < L} (2 542 lectures) ; et la bande Z de
+  l'autoroute finale (−2,−2) (p(d') = 0) est dans {p < L} : max p = −7 < 151.
+
+Preuve. Par U1 et le couplage par translation, X_{k+2}(s+208) = X_k(s+104) + d hors de D ; avec U2 le rouleur de
+X_{k+2} est en a(s) au temps s+208, même cap, et la fenêtre a(s)+W y a le même contenu que dans X_k(s).
+Les cases de {p < L} n'ont été touchées, dans X_k avant s et dans X_{k+2} avant s+208, que par l'autoroute de
+départ blanc (U3 : les positions translatées restent à p ≥ L) : elles sont identiques. Par U4, à partir de là
+les deux fourmis lisent les mêmes couleurs : X_{k+2} refait exactement X_k, décalée de 208 pas, **sans translation**,
+jusqu'au certificat (dont la bande Z est dans {p < L}). Les conditions U1–U4 se transmettent de k à k+2
+(L ne diminue pas, mêmes lectures), d'où tout k pair ≥ 100. Prédiction cert(k+2) = cert(k) + 208 : vérifiée
+(79 678, 79 886, 80 094 pour k = 100, 102, 104, et pente 104 par unité de k jusqu'à 1 150). ∎
+Robustesse : U1–U4 passent aussi pour s pris à p* = 120, 90, 70.
 
 ## Ce que ça apprend sur les collisions (R-16 relu)
 - 21 issues sur 22 partent en **terrain neuf** : l'autoroute qui sort est certifiable aussitôt.
@@ -62,7 +74,7 @@ diffèrent que près du site d'impact (p grand) ; vérifier à k₀ = 100 que la
   ramène la fourmi en arrière : **c'est l'obstacle principal pour un théorème « épars » à plusieurs îlots**.
 
 ## Suite (É2, séances suivantes)
-1. Demi-tour : lemme « fond périodique, horizon fini » + 2ᵉ couplage (rend T1 complet).
+1. Faire relire T1 (A, B, C) par un humain ; l'écrire en note courte.
 2. Deux cases noires loin l'une de l'autre et de l'origine : automate fini des « sites » (germe, 22 types de
    collision), transitions = demi-tour qui revient à un site ; montrer qu'il n'y a pas de ping-pong infini.
 3. Îlots de 2 cases (R-24, 1 683 paires) puis rayon ≤ 2.
