@@ -4,7 +4,7 @@ PROCHAINE SÉANCE : S1
 PROCHAINE TÂCHE : É0 Socle (puis enchaîner É1 dans la même heure)
 
 ## Tâches
-- [ ] É0 Socle + contrôle croisé (écart R-16 « demi-tour »)
+- [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-69, E0_controle.md
 - [ ] É1 Lemme du certificat (énoncé, preuve, implémentation)
 - [ ] É2 Collisions → théorème « épars »
 - [ ] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n)
@@ -16,7 +16,7 @@ PROCHAINE TÂCHE : É0 Socle (puis enchaîner É1 dans la même heure)
 
 ## Acquis (18-11, chat, ant_controle.c)
 - Départ blanc : autoroute dès 9 977, dérive (−2,−2) dans la convention y vers le haut. OBSERVÉ (= connu).
-- 3×3 : 512/512 ; 4×4 : 65 536/65 536 → autoroute ; T(3) = 51 380, T(4) = 134 087 (fourmi au coin bas-gauche, cap haut). OBSERVÉ.
+- 3×3 : 512/512 ; 4×4 : 65 536/65 536 → autoroute ; T(3) = 51 277, T(4) = 133 984 (corrigé S1, R-69) (fourmi au coin bas-gauche, cap haut). OBSERVÉ.
 - 1 case sur l'autoroute : 22 classes, 22/22 → autoroute finale (9 même direction, 13 virages). OBSERVÉ ; à réconcilier avec R-16.
 - Boucle gelée : L ≤ 1 336 pendant le chaos, ≤ 112 sur l'autoroute (départ blanc). OBSERVÉ.
 

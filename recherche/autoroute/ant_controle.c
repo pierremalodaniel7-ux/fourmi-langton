@@ -7,7 +7,8 @@
    Usage :
      ./ant blank                      -> début d'autoroute depuis le blanc
      ./ant box N                      -> exhaustif : toutes les configs N×N (fourmi au coin bas-gauche, vers le haut)
-     ./ant obst DIST                  -> collisions autoroute × 1 case noire isolée
+     ./ant obst DIST                  -> collisions autoroute × 1 case noire isolée (DERNIERE autoroute : hors boite)
+     ./ant obstf DIST                 -> idem, PREMIERE autoroute (sans critere de boite) + pas d'impact
      ./ant frozen                     -> longueur de la "boucle gelée" au cours du temps (CSV)
 */
 #include <stdio.h>
@@ -23,12 +24,13 @@ static int dx[4]={0,1,0,-1}, dy[4]={1,0,-1,0}; /* 0=haut,1=droite,2=bas,3=gauche
 static short *px,*py; static unsigned char *tr;
 typedef struct {long onset; int ddx,ddy; int ok; long steps;} Res;
 
+static int NOBOX=0; static long IMPACT=-1; static int OBX=1<<30,OBY=0;
 static Res run(long maxs, int x0,int y0,int bx0,int by0,int bx1,int by1){
   /* bx0..bx1 : boîte du support initial (coordonnées relatives au centre) */
   Res r={-1,0,0,0,0}; int x=x0,y=y0,h=0; long t, runlen=0;
   for(t=0;t<maxs;t++){
     if(x<-C+2||x>C-3||y<-C+2||y>C-3){ r.steps=t; return r; }
-    px[t]=x; py[t]=y;
+    px[t]=x; py[t]=y; if(IMPACT<0&&x==OBX&&y==OBY) IMPACT=t;
     unsigned char *c=&g[(y+C)*W+(x+C)]; int col=*c; tr[t]=col;
     h = col? (h+3)&3 : (h+1)&3;   /* blanc: droite ; noir: gauche */
     *c^=1; x+=dx[h]; y+=dy[h];
@@ -40,7 +42,7 @@ static Res run(long maxs, int x0,int y0,int bx0,int by0,int bx1,int by1){
         for(long s=0;s<=on;s++){ if(px[s]<mx0)mx0=px[s]; if(px[s]>mx1)mx1=px[s]; if(py[s]<my0)my0=py[s]; if(py[s]>my1)my1=py[s]; }
         int okx = ddx>0 ? x>mx1+MARGE : x<mx0-MARGE;
         int oky = ddy>0 ? y>my1+MARGE : y<my0-MARGE;
-        if(okx&&oky){ r.onset=on; r.ddx=ddx; r.ddy=ddy; r.ok=1; r.steps=t; return r; }
+        if(NOBOX?(IMPACT>=0&&on>IMPACT):(okx&&oky)){ r.onset=on; r.ddx=ddx; r.ddy=ddy; r.ok=1; r.steps=t; return r; }
       }
     }
   }
@@ -58,23 +60,25 @@ int main(int argc,char**argv){
     for(long m=0;m<tot;m++){
       for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
       Res r=run(MAXS,0,0,0,0,N-1,N-1);
+      if(argc>3) printf("m %ld %d %ld %d %d\n",m,r.ok,r.onset,r.ddx,r.ddy);
       if(r.ok){ nok++; if(r.onset>mx){mx=r.onset;argmx=m;} int b=0; long v=r.onset; while(v>1){v>>=1;b++;} hist[b]++; }
       else printf("PAS D'AUTOROUTE detectee: masque=%ld (pas=%ld)\n",m,r.steps);
       clear_box(1500);
     }
     printf("box %dx%d: %ld/%ld autoroutes ; transitoire max=%ld (masque %ld)\n",N,N,nok,tot,mx,argmx);
     for(int b=0;b<64;b++) if(hist[b]) printf("  debut in [2^%d,2^%d): %ld\n",b,b+1,hist[b]);
-  } else if(!strcmp(argv[1],"obst")){
+  } else if(!strcmp(argv[1],"obst")||!strcmp(argv[1],"obstf")){
+    /* obstf : PREMIERE autoroute (pas de critere de boite), avec pas d'impact. */
     /* autoroute depuis le blanc : dérive d=(ddx,ddy). On place UNE case noire en p = d/2*k + décalage
        perpendiculaire j, avec k grand (loin du germe). Classes : j (x-y) et k mod 2 (x+y mod 4). */
-    int D=atoi(argv[2]); Res r0=run(MAXS,0,0,0,0,0,0); clear_box(1500);
+    int D=atoi(argv[2]); Res r0=run(MAXS,0,0,0,0,0,0); clear_box(1500); NOBOX=!strcmp(argv[1],"obstf");
     int ux=r0.ddx/2, uy=r0.ddy/2; long n=0,nok=0;
     for(int j=-30;j<=30;j++) for(int k=D;k<D+2;k++){
       int ox=ux*k + j, oy=uy*k;   /* décalage perpendiculaire le long de x */
-      g[(oy+C)*W+(ox+C)]=1;
+      g[(oy+C)*W+(ox+C)]=1; OBX=ox; OBY=oy; IMPACT=-1;
       Res r=run(MAXS,0,0,ox<0?ox:0,oy<0?oy:0,ox>0?ox:0,oy>0?oy:0);
       n++; if(r.ok) nok++;
-      printf("obst j=%d k=%d : autoroute=%d debut=%ld derive=(%d,%d)%s\n",j,k,r.ok,r.onset,r.ddx,r.ddy,
+      printf("obst j=%d k=%d : autoroute=%d debut=%ld derive=(%d,%d) impact=%ld chaos=%ld%s\n",j,k,r.ok,r.onset,r.ddx,r.ddy,IMPACT,IMPACT>=0?r.onset-IMPACT:-1,
         (r.ok && (r.ddx!=r0.ddx||r.ddy!=r0.ddy))?"  <- direction changee":"");
       clear_box(1500);
     }
