@@ -438,3 +438,11 @@ difficiles, pas certifié prédit par la formule affine à k = 2 000/2 001 puis 
 avec la branche lucid-clarke : renumérotées R-82 (contrôle croisé), R-83 (certificat), R-84 (boîtes 3×3/4×4), R-85 (T1 A-B),
 R-86 (T1 translation), R-87 (T1 complet), partout dans le dépôt. R-75 à R-81 inchangés. Bestiaires : fiches autoroute S1 → n° 12,
 S2 → n° 13.
+
+## R-88 Contrôle direct « deux mondes » des couplages — VÉRIFIÉ (calcul exact) — 18/11 S3
+`./ant deux J K CE NS s1..sNS offsets` simule X_k et X_{k+2} et vérifie pas à pas (de 9 977 à CE+104) qu'au temps
+t + 104(i+1) la fourmi de X_{k+2} est en a_k(t) (+d si i pair), même cap, même couleur lue. Résultats : 45/45 classes
+aller-retour (NS = 2, 3), 423/423 demi-tours où `multi` dit OK, 300/300 translations tirées au hasard : couplage EXACT.
+Contrôles négatifs : sans changement de repère, ou changement trop tard → écart détecté ; les 2 demi-tours où `multi`
+échoue (p* mal choisi) montrent aussi un écart. Le vérificateur `multi` n'a donc jamais dit OK à tort sur ces 768 cas
+(ce contrôle porte sur k₀ → k₀+2 ; la récurrence reste celle de `multi`). Outil : `outils/deux_mondes.sh`.

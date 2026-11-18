@@ -314,6 +314,29 @@ int main(int argc,char**argv){
     for(int i=1;i<=NS;i++){ int c3 = (i%2)? 1 : 1; all = all && okR[i]==1 && okC[i];
       printf(" | s%d=%ld %s R %s lect %s(%ld)",i,sT[i],(i%2)?"L":"H",okR[i]==1?"OK":"ECHEC",okC[i]?"OK":"ECHEC",bC[i]); (void)c3; }
     printf(" | L1=%d L3=%d | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC");
+  } else if(!strcmp(argv[1],"deux")){
+    /* deux J K CE NS s1..sNS [EX EY ...] : contrôle DIRECT des couplages de `multi` entre X_k et X_{k+2}.
+       Phase i (s_i <= t < s_{i+1}, s_0 = 9977) : X_{k+2} au temps t + 104(i+1) doit avoir la fourmi en a_k(t) + (i pair ? d : 0),
+       même cap, et lire la même couleur. Vérifié pour t de 9977 à CE+P. y vers le BAS pour J,K,EX,EY ; ici d = (-2,-2). */
+    int J=atoi(argv[2]), K=atoi(argv[3]); long CE=atol(argv[4]); int NS=atoi(argv[5]); long sw[10]; sw[0]=9977;
+    for(int i=1;i<=NS;i++) sw[i]=atol(argv[5+i]);
+    int ne=0, EXs[16], EYs[16]; for(int a=6+NS;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); ne++; }
+    long TB = CE + P + 104L*(NS+1) + 1; int *bx=malloc(TB*sizeof(int)), *by=malloc(TB*sizeof(int)); unsigned char *bh=malloc(TB), *bc=malloc(TB);
+    for(int w=0; w<2; w++){
+      int ox=J-K-(w?0:2), oy=-K-(w?0:2); g[(oy+C)*W+(ox+C)]=1; for(int e=0;e<ne;e++) g[(oy-EYs[e]+C)*W+(ox+EXs[e]+C)]=1;
+      int x=0,y=0,h=0; long bad=-1, nchk=0;
+      long TT = w==0 ? TB : CE+P+1;
+      for(long t=0;t<TT;t++){
+        unsigned char *c=&g[(long)(y+C)*W+(x+C)]; int col=*c;
+        if(w==0){ bx[t]=x; by[t]=y; bh[t]=h; bc[t]=col; }
+        else if(t>=9977){ int i=0; while(i<NS && t>=sw[i+1]) i++; long tb=t+104L*(i+1); int ex=(i%2==0)?-2:0;
+          nchk++; if(!(bx[tb]==x+ex && by[tb]==y+ex && bh[tb]==h && bc[tb]==col) && bad<0) bad=t; }
+        h=col?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h];
+      }
+      clear_box(2000);
+      if(w==1) printf("deux J=%d K=%d NS=%d : %ld pas comparés, %s (1er écart t=%ld)\n",J,K,NS,nchk,bad<0?"COUPLAGE EXACT":"ECART",bad);
+    }
+    free(bx); free(by); free(bh); free(bc);
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){
