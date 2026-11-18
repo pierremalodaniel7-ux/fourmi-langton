@@ -446,3 +446,10 @@ aller-retour (NS = 2, 3), 423/423 demi-tours où `multi` dit OK, 300/300 transla
 Contrôles négatifs : sans changement de repère, ou changement trop tard → écart détecté ; les 2 demi-tours où `multi`
 échoue (p* mal choisi) montrent aussi un écart. Le vérificateur `multi` n'a donc jamais dit OK à tort sur ces 768 cas
 (ce contrôle porte sur k₀ → k₀+2 ; la récurrence reste celle de `multi`). Outil : `outils/deux_mondes.sh`.
+
+## R-89 Lacune de `pmin` (direction finale −d) trouvée et comblée ; T4 tient — DÉMONTRÉ (sous réserve de relecture) — 18/11 S3
+`pmin` (S1) ne vérifiait pas la direction finale ; si l'autoroute finale part en −d, sa bande Z descend en p et peut
+traverser D. Nouvelle condition (dans `ant multi` NS = 0) : direction −d ⇒ diagonales x+y de la fenêtre finale hors de
+celles de D (d conserve x+y) ; sinon p > MPD−4. Recensement : T1, T2, T3 n'ont AUCUNE translation finissant en −d (résultats
+inchangés) ; T4 en a 92. `multi` NS = 0 sur les 10 690 translations de T4 (bases 100/101 et 200/201) : toutes OK
+(les 5 échecs à la base 100 sont les classes déjà reprises à la base 200). Aussi corrigé : NS = 0 lisait HV[−2] (bug).

@@ -59,3 +59,8 @@ sont fermés par le décalage de repère et s'évaluent sur des cases où les de
 
 ## Points à relire en priorité
 Le point 3 pour i ≥ 3 (accord de la phase i−2) et la fermeture des ensembles d'accord par le décalage (passage k₀+2 → k₀+4).
+
+## Correctif S3 (R-89) : direction finale −d en phase 0
+Pour NS = 0 (translation pure), la bande Z de l'autoroute finale doit éviter D après translation. Si la direction finale
+est −d, p décroît le long de Z : on exige que les diagonales x+y de la fenêtre finale ne soient pas celles de D
+(D ⊂ cases touchées avant T0+104 ∪ cases de la base, sur leurs diagonales). Sinon (p non décroissant) : p > MPD−4.
