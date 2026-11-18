@@ -411,3 +411,4 @@ Commande : `recherche/autoroute/outils/chaine_demitours.py 5 150`. Détails : E2
 (C) 228 classes lointaines affines : 148 translations OK, 4 demi-tours OK (dont un qui repart en −d), 76 non touchées.
 Outils génériques ajoutés : `ant pmin/uturn` à n cases, `outils/preuves_loin.py`. Détails : E2_epars.md.
 5×5 (É3) : tranches [0,200 000) et [1 600 000,1 800 000) faites, 400 000/400 000 certifiées, max 155 668.
+(R-78, complément) 5×5 : 1 200 000 masques certifiés ([0,600 000) et [1 600 000,2 200 000)), max 184 622.
