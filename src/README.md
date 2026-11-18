@@ -13,4 +13,5 @@
 | explore.c, full.c, onset.c, lam.c + ana.py, cycpipe.py, build.py | recherche massive, nids, Lambine | R-26 à R-34 |
 | hw.c, hwv.c + dirs.py, sel.py, build6.py, enum_regles.py | autoroutes par direction (hwv.c est le vérificateur) | R-35 |
 
-Manquent (pas dans l'export) : oneh.c, exact.c, perturb.c, multi.c, ants.c, mkbestiaires.py, render.c.
+Manquent (pas dans l'export) : oneh.c, exact.c, perturb.c, multi.c, ants.c, render.c.
+mkbestiaires.py : réécrit le 18/11, voir `outils/mkbestiaires.py`.

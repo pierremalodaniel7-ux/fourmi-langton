@@ -1,0 +1,26 @@
+[
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Îlot 3×3 le plus lent",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-56,28;-54,28;-54,30",
+  "note": "T4 : certifié à 228 739 (record des îlots 3×3, R-80)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Îlot 3×3 le plus rapide",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,-3;0,-3;1,-3;-1,-2;-1,-1;0,-1",
+  "note": "T4 : certifié dès 142 (R-80)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Aller-retour triple",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-120,101;-118,102;-118,103",
+  "note": "site → germe → site → départ à 90° ; certifié 70 598 ; +156 pas par case d'éloignement (R-81)"
+ }
+]

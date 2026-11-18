@@ -347,3 +347,94 @@ Suite R-67 (16:22) : 2e tirage 16/16, 3e tirage arrêté (mémoire) après 1 ét
 docs/test_circuits.js tout R67 : les 8 sorties justes pour les 256 états (254 s). Avec le moteur Python (33/33 états tirés au hasard, R-67),
 deux moteurs indépendants. Aussi, avec le moteur JS : R-39 additionneur 4 bits 256/256, R-53 64/64, les 8 modules R-63 256/256 chacun,
 et les 37 circuits de la bibliothèque v7 justes. Vérification finie (temps fini), comme toujours.
+
+## R-82 Contrôle croisé des deux moteurs + écart « demi-tour » — VÉRIFIÉ (calcul, 2 moteurs) — 18/11 S1
+`src/fourmi` et `ant_controle.c` d'accord sur le départ blanc (9 977), 512/512 configs 3×3 (même dérive, même début)
+et les 22 collisions 1 case (mêmes 22 durées de chaos). Le « demi-tour » de R-16 est la PREMIÈRE autoroute ; `ant obst`
+notait la DERNIÈRE (critère de boîte) : le demi-tour retraverse le germe et finit en virage (66 924 pas). Correction :
+T(3) = 51 277, T(4) = 133 984 (fourmi coin bas-gauche, cap haut) — OBSERVÉ. Détails : recherche/autoroute/E0_controle.md.
+Commande : `./ant obstf 150` (nouveau mode), `./ant box 3 v`.
+
+## R-83 Lemme du certificat d'autoroute — DÉMONTRÉ (preuve écrite) + implémenté — 18/11 S1
+Une fourmi, période p : si les p pas « à blanc » depuis l'état courant lisent V, reviennent au même cap avec d ≠ 0
+(F1), si le motif se recopie (F2 : Pa(v+d) = Pv(v)), si les cases neuves sont blanches (F3), si V est convexe le
+long de d (F4) et si la bande ⋃(V+kd) \ V est blanche, alors autoroute pour toujours (récurrence sur les périodes).
+Toute règle à une fourmi. Vérification finie (au-delà de la boîte support ∪ visité, tout est blanc).
+Conséquences VÉRIFIÉES par calcul exact + lemme = DÉMONTRÉ : départ blanc → autoroute 104 pour toujours dès 9 977 ;
+512/512 configs 3×3 (fourmi coin, cap H) certifiées, max 51 277 ; 122 obstacles 1 case certifiés.
+Le moteur s'arrêtait à 16 384 sur une autoroute non certifiée (obstacle plus loin) : corrigé avec -cert.
+Commande : `./fourmi -cert "RL|0,0,H|"` ; `-c0 T`. Détails : recherche/autoroute/E1_certificat.md.
+
+## R-84 Boîtes 3×3 et 4×4 — DÉMONTRÉ (calcul exact + certificat R-83) — 18/11 S1
+Fourmi (0,0) cap H au coin (bas-gauche en y vers le haut) de la boîte, cases (i mod N, −⌊i/N⌋) : 512/512 et
+65 536/65 536 configurations construisent l'autoroute 104 pour toujours. T(3) = 51 277, T(4) = 133 984
+(cases 2,0;3,0;2,-1;3,-1;3,-3). ≈ 1 min sur 2 cœurs. Commande : data/box4.in, `fourmi -T 4000000 -cert -lot`.
+
+## R-85 Théorème T1 : une case noire n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (A, B) + (C) À RELIRE — 18/11 S1
+(A) c ∈ [−150,150]² : 90 601/90 601 certifiées ; plus court 310 (c = 0,−2), plus long 106 258 (c = 7,−7).
+(B) hors boîte et hors bande : certifié à 9 977 (argument direct). (C) loin dans la bande : 22 classes = R-16 ;
+pas certifié exactement affine en k (pente 52, demi-tour 104) pour k = 100…1 150 (5 533 calculs) ; lemme de
+translation esquissé. Le demi-tour est la seule issue qui roule sur la trace (obstacle pour plusieurs îlots).
+Détails : recherche/autoroute/E2_epars.md. Germes : resultats/germes_2026-11-18.json.
+
+## R-86 T1, partie (C) : lemme de translation — DÉMONTRÉ pour 21 classes sur 22 — 18/11 S1
+Couplage X_{k+2}(t+104) = X_k(t) + d hors de D (D = écart fixe près du germe, p = −x+y ≤ 25 sur D), stable par
+récurrence car p augmente de 4 par translation. Condition vérifiée une fois à k₀ = 100/101 avec le 2ᵉ moteur :
+min p après impact ∈ [157, 225] > 21 pour 21 classes. Reste la classe du demi-tour (c = (−19−k, k), k pair ≥ 100) :
+OBSERVÉE (certifiée pour k ≤ 1 150), plan de preuve dans E2_epars.md. Commande : `./ant pmin J K T`.
+
+## R-87 Théorème T1 complet : départ blanc + UNE case noire quelconque → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
+Classe du demi-tour (c = (−19−k, k), k pair ≥ 100) traitée par double couplage : translation jusqu'au milieu de la
+trace, puis identité sans translation (X_{k+2} = X_k décalée de 208 pas). Conditions finies U1–U4 vérifiées à
+k₀ = 100 (`./ant uturn -19 100 150 79678`) ; prédiction cert(k+2) = cert(k)+208 vérifiée (79 678 / 79 886 / 80 094).
+Avec R-85 (A, B) et R-86 (21 classes) : T1 démontré pour toute position de la case. Pas trouvé dans la littérature
+(2 recherches). Détails : recherche/autoroute/E2_epars.md.
+
+## R-75 Deux cases noires loin l'une de l'autre — OBSERVÉ (2 684 configurations, toutes certifiées) — 18/11 S1
+1re case dans chacune des 22 classes (k = 100/101), 2e case à 200 cases devant l'autoroute qui en sort (122 positions) :
+toutes construisent l'autoroute pour toujours (certificat R-83 ⇒ chacune DÉMONTRÉE ; la famille infinie : pas encore).
+22 cases touchables par autoroute (484 doubles collisions) ; retard max 198 026. Détails : E2_epars.md.
+
+## R-76 Théorème T2 : îlot de 2 cases voisines (côté ou coin) n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
+Même schéma que T1. (A) 362 404/362 404 certifiées dans [−150,150]² (plus court 197, plus long 117 736 :
+{(−29,11),(−29,12)}). (C) 128 classes lointaines exactement affines (k = 100…300) : 91 par translation (pmin OK),
+5 demi-tours (uturn OK, + condition « diagonales disjointes » pour les 3 qui repartent dans la direction d'origine),
+32 non touchées. Commandes : data/dom.in, data/domfar.in (python, voir E2_epars.md), outils/preuves_dominos.txt.
+
+## R-77 Chaîne de 4 demi-tours successifs — OBSERVÉ (chaque configuration certifiée) — 18/11 S1
+Chaque case ajoutée dans l'unique classe demi-tour de l'autoroute courante : 4 étapes, toutes certifiées
+(dernière : 4 cases, autoroute dès 3 361 062). Directions (−2,2) → (−2,−2) → (2,2) → (−2,−2) → (2,2). Pas de ping-pong.
+Commande : `recherche/autoroute/outils/chaine_demitours.py 5 150`. Détails : E2_epars.md.
+
+## R-78 Théorème T3 : îlot de 3 cases en L ou en ligne, n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
+(A) 246 072/246 072 certifiées ([−100,100]² ∪ bande) ; plus rapide 158 (ligne −1,3;0,3;1,3), plus lent 93 138 (L 11,10;12,10;11,11).
+(C) 228 classes lointaines affines : 148 translations OK, 4 demi-tours OK (dont un qui repart en −d), 76 non touchées.
+Outils génériques ajoutés : `ant pmin/uturn` à n cases, `outils/preuves_loin.py`. Détails : E2_epars.md.
+5×5 (É3) : tranches [0,200 000) et [1 600 000,1 800 000) faites, 400 000/400 000 certifiées, max 155 668.
+(R-78, complément) 5×5 : 1 200 000 masques certifiés ([0,600 000) et [1 600 000,2 200 000)), max 184 622.
+
+## R-79 Juge des demi-tours raffiné (diagonales Δ) ; T1–T3 revérifiés — DÉMONTRÉ — 18/11 S2
+La condition U4/Z de S1 ignorait les diagonales de la trace ; avec Δ = diagonales x+y touchées après 9 977 (+ îlot),
+les 10 demi-tours de T1, T2, T3 passent (p* = 90). Outils : `outils/juge_uturn.py`, `outils/cherche_s.sh`.
+Détails : E2_epars.md (section S2).
+
+## R-80 Théorème T4 : tout îlot contenu dans un carré 3×3 (400 formes), n'importe où → autoroute 104 pour toujours — DÉMONTRÉ sous réserve de relecture — 18/11 S2
+(A) 1 813 428/1 813 428 certifiées (plus rapide 142, plus lent 228 739 : −56,28;−54,28;−54,30). Trou y = 99 (aussi dans
+T3) comblé : 76 000/76 000. (C) 15 200 classes lointaines : 4 032 hors bande (cert 9 977), 10 690 translations, 439 demi-tours,
+42 aller-retour triples, 3 quadruples ; toutes prouvées (bases k₀ = 100/101 ou 200/201, k = 100…600 calculés pour les 62 cas
+difficiles). Commandes : outils/gen_ilots.py A|C, preuves_loin.py, cherche_s.sh, cherche_triple.sh, preuves_ilots_3x3*.txt.
+
+## R-81 Couplages multiples (aller-retours sur la trace) — DÉMONTRÉ sous réserve de relecture du code — 18/11 S2
+Repères alternés translation (site) / identité (germe), ensembles d'accord étendus par la règle « un pas de translation »
+fermée par chaînes. `ant triple2` : 42/42 classes de pente 156 ; `ant multi` NS=3 : 3/3 de pente 208 ; contrôles :
+multi NS=1 = uturn (423), NS=2 = triple2 (42), triple2 échoue sur les pentes 208. Détails : E2_epars.md (S2).
+(R-81, complément) Relecture de `ant multi` : faille du test Z pour NS impair (accord de la phase NS−2 oublié) corrigée ;
+les 3 classes de pente 208 restent démontrées.
+(R-80, complément) Contrôle indépendant des récurrences : 200 classes lointaines tirées au hasard + les 62 classes
+difficiles, pas certifié prédit par la formule affine à k = 2 000/2 001 puis calculé : 262/262 exacts (pas et direction), 7 s.
+(É3, S2) 5×5 : tranches [600 000, 1 000 000) et [2 200 000, 2 600 000) certifiées ; total 2 000 000 masques, max 188 466.
+
+(Renumérotation 18/11, demande de Pierre-Malo) Les entrées de la séance autoroute S1 numérotées R-69 à R-74 faisaient doublon
+avec la branche lucid-clarke : renumérotées R-82 (contrôle croisé), R-83 (certificat), R-84 (boîtes 3×3/4×4), R-85 (T1 A-B),
+R-86 (T1 translation), R-87 (T1 complet), partout dans le dépôt. R-75 à R-81 inchangés. Bestiaires : fiches autoroute S1 → n° 12,
+S2 → n° 13.

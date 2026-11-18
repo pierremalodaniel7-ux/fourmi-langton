@@ -95,6 +95,44 @@ static void detect(long t, int i){                  // cherche une autoroute con
   }
 }
 
+
+// ---- Certificat d'autoroute (É1, recherche/autoroute/E1_certificat.md) ----------------------------
+// À l'instant courant, fourmi 0 (seule), période p : on joue p pas « à blanc » (sans toucher la grille)
+// → V = cases lues (relatives à la fourmi), Pv = couleurs lues avant, Pa = couleurs après, d = déplacement.
+// Conditions finies : F1 retour au même cap avec d ≠ 0 ; F2 Pa(v+d) = Pv(v) si v, v+d ∈ V ;
+// F3 Pv(v) = 0 si v+d ∉ V ; F4 V convexe le long de d ; Z : toutes les cases de ∪_{k≥1}(V+kd) \ V sont
+// blanches (au-delà de la boîte « support initial ∪ cases visitées », tout est blanc).
+// Si tout est vrai : DÉMONTRÉ (lemme du certificat) que la fourmi refait ce motif pour toujours.
+static int certif = 0; static long cert0 = -1;   // -c0 T : chercher le certificat à partir de T
+ static long ib0, ib1, jb0, jb1;     // boîte du support initial (x : ib, y : jb)
+static int g_get(long x, long y){ uint64_t k = KEY(x, y), m = g.cap - 1, s = hsh(k) & m;
+  while (g.k[s]) { if (g.k[s] == k) return g.cur[s]; s = (s + 1) & m; } return 0; }
+static int cfind(int nv, const int *vx, const int *vy, long x, long y){
+  for (int i = 0; i < nv; i++) if (vx[i] == x && vy[i] == y) return i; return -1; }
+static int certifie(long p){
+  static int vx[PMAX], vy[PMAX], pv[PMAX], pa[PMAX]; int nv = 0;
+  long x = ax[0], y = ay[0]; int d = ad[0];
+  for (long s = 0; s < p; s++) {
+    int i = cfind(nv, vx, vy, x - ax[0], y - ay[0]);
+    if (i < 0) { i = nv++; vx[i] = x - ax[0]; vy[i] = y - ay[0]; pv[i] = pa[i] = g_get(x, y); }
+    int c = pa[i]; d = (d + turn[c]) % M; pa[i] = c + 1 == q ? 0 : c + 1; x += DX[d]; y += DY[d]; }
+  long Dx = x - ax[0], Dy = y - ay[0];
+  if (d != ad[0] || (!Dx && !Dy)) return 0;                                   // F1
+  for (int i = 0; i < nv; i++) { int j = cfind(nv, vx, vy, vx[i] + Dx, vy[i] + Dy);
+    if (j >= 0 ? pa[j] != pv[i] : pv[i] != 0) return 0; }                     // F2, F3
+  for (int i = 0; i < nv; i++) for (long m = 2; m <= 2 * p; m++)               // F4
+    if (cfind(nv, vx, vy, vx[i] + m * Dx, vy[i] + m * Dy) >= 0)
+      for (long k = 1; k < m; k++) if (cfind(nv, vx, vy, vx[i] + k * Dx, vy[i] + k * Dy) < 0) return 0;
+  long X0 = bx0 < ib0 ? bx0 : ib0, X1 = bx1 > ib1 ? bx1 : ib1, Y0 = by0 < jb0 ? by0 : jb0, Y1 = by1 > jb1 ? by1 : jb1;
+  long dm = labs(Dx) > labs(Dy) ? labs(Dx) : labs(Dy);                       // Z : au-delà de K, V+kd est
+  long K = (X1 - X0 + Y1 - Y0 + 4 * p) / dm + 2;                               // hors de la boîte (|v| ≤ p)
+  for (long k = 1; k <= K; k++)
+    for (int i = 0; i < nv; i++) { long cx = ax[0] + vx[i] + k * Dx, cy = ay[0] + vy[i] + k * Dy;
+      if (cx < X0 || cx > X1 || cy < Y0 || cy > Y1) continue;
+      if (cfind(nv, vx, vy, cx - ax[0], cy - ay[0]) < 0 && g_get(cx, cy)) return 0; }
+  return nv;
+}
+
 static void run(char *line){
   char buf[16384]; strncpy(buf, line, sizeof buf - 1); buf[sizeof buf - 1] = 0;
   char *nl = strpbrk(buf, "\r\n"); if (nl) *nl = 0;
@@ -108,10 +146,11 @@ static void run(char *line){
     while (*s == ' ') s++; if (!*s) continue;
     char *c1 = strchr(s, ','), *c2 = c1 ? strchr(c1 + 1, ',') : 0; if (!c2) continue;
     x0[n] = ax[n] = atoi(s); y0_[n] = ay[n] = atoi(c1 + 1); while (c2[1] == ' ') c2++; d0[n] = ad[n] = cap_of(c2 + 1) % M; n++; }
-  strcpy(tmp, f2);
+  strcpy(tmp, f2); ib0 = ib1 = x0[0]; jb0 = jb1 = y0_[0];
   for (char *s = strtok(tmp, ";"); s; s = strtok(NULL, ";")) {
     char *c1 = strchr(s, ','); if (!c1) continue; char *c2 = strchr(c1 + 1, ',');
-    int col = c2 ? atoi(c2 + 1) : 1; uint64_t sl = g_slot(KEY(atoi(s), atoi(c1 + 1)));
+    int col = c2 ? atoi(c2 + 1) : 1; long X = atoi(s), Y = atoi(c1 + 1); uint64_t sl = g_slot(KEY(X, Y));
+    if (X < ib0) ib0 = X; if (X > ib1) ib1 = X; if (Y < jb0) jb0 = Y; if (Y > jb1) jb1 = Y;
     g.cur[sl] = g.ini[sl] = (uint8_t)(((col % q) + q) % q); }
   if (histcap < T + 1) { for (int i = 0; i < MAXA; i++) { free(hist[i]); hist[i] = malloc(T + 1); } histcap = T + 1; }
   for (int i = 0; i < n; i++) { P[i] = 0; hist[i][0] = ad[i]; }
@@ -140,6 +179,7 @@ static void run(char *line){
         // parallèles, même sens, vitesses différentes : l'une roule sur la trace de l'autre (passager,
         // navette R-19) et peut faire demi-tour au bout de la trace → ne pas conclure, aller jusqu'à T
         else if ((long)ddx[i] * ddy[j] == (long)ddy[i] * ddx[j] && (long)ddx[i] * ddx[j] + (long)ddy[i] * ddy[j] > 0) all = 0; }
+      if (all && certif && n == 1 && !certifie(P[0])) all = 0;   // -cert : ne s'arrêter que sur un état certifié
       if (all) break; }
   }
   if (t > T) t = T;
@@ -163,6 +203,18 @@ static void run(char *line){
   for (int a = 0; a < ns; a++) printf("%s%s", a ? "+" : "", sig[a]);
   if (nc) printf("%sN%d", ns ? "+" : "", nc);
   printf("|%ld|", t);
+  if (certif && n == 1 && P[0]) {                   // 2e passage : premier instant certifié à partir de deb-p
+    long fin = t, p = P[0], t0 = cert0 >= 0 ? cert0 : deb[0] > p ? deb[0] - p : 0, tc = -1; int nv = 0;
+    int sx = ax[0], sy = ay[0], sd = ad[0];
+    for (uint64_t k = 0; k < g.cap; k++) if (g.k[k]) g.cur[k] = g.ini[k];
+    ax[0] = x0[0]; ay[0] = y0_[0]; ad[0] = d0[0];
+    for (long u = 0; u <= fin; u++) {
+      if (u >= t0 && (nv = certifie(p))) { tc = u; break; }
+      if (u >= t0 + 50 * p && cert0 < 0) break;
+      uint64_t sl = g_slot(KEY(ax[0], ay[0])); int c = g.cur[sl]; ad[0] = (ad[0] + turn[c]) % M;
+      g.cur[sl] = c + 1 == q ? 0 : c + 1; ax[0] += DX[ad[0]]; ay[0] += DY[ad[0]]; }
+    if (tc >= 0) printf("CERT %ld |V|=%d ", tc, nv); else printf("NONCERT ");
+    t = fin; ax[0] = sx; ay[0] = sy; ad[0] = sd; }
   for (int i = 0; i < n; i++) if (P[i]) printf("%ld,%d,%d,%ld ", P[i], ddx[i], ddy[i], deb[i]); else printf("- ");
   printf("boite %ldx%ld fin", bx1 - bx0 + 1, by1 - by0 + 1);
   for (int i = 0; i < n; i++) printf(" %d,%d", ax[i], ay[i]);
@@ -174,6 +226,8 @@ int main(int argc, char **argv){
   for (int i = 1; i < argc; i++) {
     if (!strcmp(argv[i], "-T") && i + 1 < argc) T = atol(argv[++i]);
     else if (!strcmp(argv[i], "-img") && i + 1 < argc) img = argv[++i];
+    else if (!strcmp(argv[i], "-cert")) certif = 1;
+    else if (!strcmp(argv[i], "-c0") && i + 1 < argc) { certif = 1; cert0 = atol(argv[++i]); }
     else if (!strcmp(argv[i], "-lot")) lot = 1; else one = argv[i]; }
   setvbuf(stdout, NULL, _IOLBF, 0);
   if (one) run(one);

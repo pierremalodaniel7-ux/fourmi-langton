@@ -13,6 +13,7 @@ test: all
 	@./cyc 1000 "0,0,H;-1,0,B" | grep -q "periode 16 .*OUI" && echo "OK  cycle 16" || echo "ÉCHEC cycle 16"
 	@./tipmin 60 | grep -q "minimum = 11 cases" && echo "OK  R-20 : bout minimal 11" || echo "ÉCHEC R-20"
 	@grep -v '^#' oracle.txt | while IFS= read -r l; do sit="$${l%% => *}"; att="$${l##* => }"; got=$$(./fourmi -T 4000000 "$$sit" | cut -d'|' -f4-5); [ "$$got" = "$$att" ] && echo "OK  fourmi $$sit -> $$got" || echo "ÉCHEC fourmi $$sit : $$got au lieu de $$att"; done
+	@./fourmi -cert "RL|0,0,H|" | grep -q "CERT 9977 " && echo "OK  certificat : départ blanc DÉMONTRÉ dès 9 977" || echo "ÉCHEC certificat"
 	@test "$$(./auto2 3000000 2>/dev/null | wc -l)" = 22 && echo "OK  R-16 : 22 collisions" || echo "ÉCHEC R-16"
 
 clean:
