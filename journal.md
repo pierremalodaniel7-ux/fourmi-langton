@@ -472,3 +472,10 @@ diagonales). Correct : repère identité (i impair) → ces cases valent la mêm
 retouchées) : Δ_i d'origine suffit ; repère translation (i pair) → il faut aussi exclure les diagonales de D (germe, base).
 `ant multi` corrigé (Δ_i ⊇ diagonales de D pour i pair). Revérification complète : 439/439 demi-tours (T1–T4, p* recherché,
 `outils/preuves_demitours_S4.txt`), 42/42 triples, 3/3 quadruples, 10 690 translations (NS = 0, déjà avec D en S3) : tout OK.
+
+## R-93 Deux cases noires : la 1re dans l'une des 22 classes de T1 à k = 100/101, la 2e n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (sous réserve de relecture) — 18/11 S4
+Base C₀ = blanc + c₁ (13 bases pivotées d'un quart de tour, cap initial D/B/G, pour ramener la dérive à (−2,+2)).
+(C) 22 × 22 = 484 classes de c₂ lointaines : 484/484 `multi` + 484/484 couplages exacts (`deux`). (A) zones proches :
+264 470 + 418 610 = 683 080 cas, tous certifiés. (B) direct. Plus lent : c₁ = (−119,100) (le demi-tour), c₂ = (7,−19) :
+264 331 ; puis c₁ = (−121,101), c₂ = (−144,104) : 181 641. Outils : `outils/relatif.py "BASE" T0 K2 CAP`, H0 pour `ant`.
+Fichiers : resultats/relatif/ (bases9.txt, bases13.txt, preuves rel_*.txt / rel13_*.txt).
