@@ -394,3 +394,9 @@ Avec R-72 (A, B) et R-73 (21 classes) : T1 démontré pour toute position de la 
 1re case dans chacune des 22 classes (k = 100/101), 2e case à 200 cases devant l'autoroute qui en sort (122 positions) :
 toutes construisent l'autoroute pour toujours (certificat R-70 ⇒ chacune DÉMONTRÉE ; la famille infinie : pas encore).
 22 cases touchables par autoroute (484 doubles collisions) ; retard max 198 026. Détails : E2_epars.md.
+
+## R-76 Théorème T2 : îlot de 2 cases voisines (côté ou coin) n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (à faire relire) — 18/11 S1
+Même schéma que T1. (A) 362 404/362 404 certifiées dans [−150,150]² (plus court 197, plus long 117 736 :
+{(−29,11),(−29,12)}). (C) 128 classes lointaines exactement affines (k = 100…300) : 91 par translation (pmin OK),
+5 demi-tours (uturn OK, + condition « diagonales disjointes » pour les 3 qui repartent dans la direction d'origine),
+32 non touchées. Commandes : data/dom.in, data/domfar.in (python, voir E2_epars.md), outils/preuves_dominos.txt.

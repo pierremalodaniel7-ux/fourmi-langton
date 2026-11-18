@@ -6,7 +6,7 @@ PROCHAINE TÂCHE : É0 Socle (puis enchaîner É1 dans la même heure)
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-69, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-70, E1_certificat.md, `fourmi -cert`
-- [~] É2 Collisions → théorème « épars » — S1 : T1 (1 case) fait (R-72), reste : lemme de translation propre, 2 cases, îlots
+- [~] É2 Collisions → théorème « épars » — S1 : T1 une case (R-72 à R-74) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
 - [ ] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n)
 - [ ] É4 Transitoires extrêmes
 - [ ] É5 Observables (boucle gelée, frontière)

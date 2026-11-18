@@ -89,3 +89,18 @@ Chaque nouvelle autoroute a aussi exactement 22 cases « touchables » (484 doub
 à la 2e case : 198 026 pas (1re case −119,100 = le demi-tour, puis demi-tour au 2e site). Aucun « ping-pong »
 infini dans ces 484 cas. Prochaine étape : écrire l'automate des sites (germe + 22 types) et ses transitions
 par demi-tour, et le démontrer avec les mêmes couplages.
+
+## Théorème T2 : un îlot de 2 cases voisines (côté ou coin), n'importe où — DÉMONTRÉ (à faire relire)
+Fourmi (0,0) cap H + deux cases noires {c, c+e}, e ∈ {(1,0),(0,1),(1,1),(1,−1)}, c quelconque.
+- (A) c ∈ [−150,150]² : **362 404/362 404 certifiées** (≈ 5 min sur 2 cœurs). Plus court : {(−2,−1),(−1,0)}
+  certifié dès **197** ; plus long : {(−29,11),(−29,12)} à **117 736**. 350 203 certifiées dès 9 977.
+- (B) hors boîte et hors bande : comme T1.
+- (C) loin dans la bande : 4 × 16 × 2 = **128 classes** (orientation, j ∈ [−31,−16], parité de k), mesurées pour
+  k = 100…300 pas à pas (12 864 calculs) : toutes exactement affines, une seule direction par classe :
+  32 non touchées (pente 0), 91 « translation » (pente 52), **5 demi-tours** (pente 104).
+  Preuves à k₀ = 100/101 (`recherche/autoroute/outils/preuves_dominos.txt`, à passer à `./ant`) :
+  91/91 `pmin` OK (min p entre 117 et 226 > 21) ; 5/5 `uturn` : U1–U4 OK.
+  Condition en plus, trouvée ici : 3 des 5 demi-tours repartent ensuite dans la direction d'origine d (p(d') = 4 > 0) ;
+  la bande finale monte alors en p et pourrait croiser le site d'impact. Mais d conserve x+y : les cases où X_k et
+  X_{k+2} diffèrent sont sur les diagonales x+y du site, et la bande finale est sur d'autres diagonales
+  (ex. site [0,38], bande [−42,−32]) : **disjointes** dans les 3 cas. (Pour T1, direction finale (−2,−2), p(d') = 0 : inutile.)

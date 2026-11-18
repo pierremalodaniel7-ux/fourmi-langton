@@ -93,7 +93,9 @@ int main(int argc,char**argv){
       unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
     int maxpD = mA1 > mA0+4 ? mA1 : mA0+4; clear_box(1500);
     int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1; x=y=h=0; long imp=-1; int minp=1<<30;
-    for(long t=0;t<=TT;t++){ if(x==ox&&y==oy&&imp<0) imp=t; if(imp>=0){int p=-x-y; if(p<minp)minp=p;}
+    int EX=argc>6?atoi(argv[5]):0, EY=argc>6?atoi(argv[6]):0, two=argc>6;   /* 2e case optionnelle (x+EX, ybas+EY) */
+    if(two) g[(oy-EY+C)*W+(ox+EX+C)]=1;
+    for(long t=0;t<=TT;t++){ if(((x==ox&&y==oy)||(two&&x==ox+EX&&y==oy-EY))&&imp<0) imp=t; if(imp>=0){int p=-x-y; if(p<minp)minp=p;}
       unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
     printf("pmin J=%d K=%d impact=%ld T=%ld maxpD=%d minp=%d %s\n",J,K,imp,TT,maxpD,minp, minp>maxpD-4?"OK":"ECHEC");
     clear_box(1500);
@@ -103,10 +105,11 @@ int main(int argc,char**argv){
     int J=atoi(argv[2]), K=atoi(argv[3]), PS=atoi(argv[4]); long CE=atol(argv[5]);
     static unsigned char wr[W*W]; static int ws[P]; static unsigned char wc[P]; int nw=0;
     int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1; int x=0,y=0,h=0; long imp=-1, s=-1;
-    int L=1<<30, minS=1<<30, minU1=1<<30, sx=0,sy=0,sh=0, okFR=1, maxZ=-(1<<30), nfr=0; long badt=-1;
+    int EX=argc>7?atoi(argv[6]):0, EY=argc>7?atoi(argv[7]):0, two=argc>7; if(two) g[(oy-EY+C)*W+(ox+EX+C)]=1;
+    int qa0=1<<30,qa1=-(1<<30),qz0=1<<30,qz1=-(1<<30); int L=1<<30, minS=1<<30, minU1=1<<30, sx=0,sy=0,sh=0, okFR=1, maxZ=-(1<<30), nfr=0; long badt=-1;
     for(long t=0;t<=CE+P;t++){
       int p=-x-y; long k=(long)(y+C)*W+(x+C);
-      if(x==ox&&y==oy&&imp<0) imp=t;
+      if(((x==ox&&y==oy)||(two&&x==ox+EX&&y==oy-EY))&&imp<0) imp=t;
       if(imp>=0&&s<0&&t>imp+P&&p<=PS){ s=t; sx=x; sy=y; sh=h; }
       if(imp>=0&&(s<0||t<s)&&p<L) L=p;                       /* L = min p sur [impact, s) */
       if(imp>=0&&(s<0||t<=s+P)&&p<minU1) minU1=p;              /* U1 */
@@ -114,14 +117,15 @@ int main(int argc,char**argv){
       if(s>=0&&t>=s+P&&!wr[k]){ int inW=0; for(int i=0;i<nw;i++) if(ws[i]==k){inW=1;break;}
         nfr++; if(!inW && p>=L){ okFR=0; if(badt<0) badt=t; } }   /* U4 lectures neuves */
       if(t>=CE&&p>maxZ) maxZ=p;
+      { int qq=x-y; if(imp>=0&&(s<0||t<=s+P)){ if(qq<qa0)qa0=qq; if(qq>qa1)qa1=qq; } if(t>=CE){ if(qq<qz0)qz0=qq; if(qq>qz1)qz1=qq; } }
       if(s>=0&&t>=s) wr[k]=1;
       if(s>=0&&t==s+P){ /* U2 : position, cap */
         long sh_=(long)(y-sy)*W+(x-sx); int okW=1; for(int i=0;i<nw;i++) if(g[ws[i]+sh_]!=wc[i]) okW=0;
         printf("U2 : a(s+P)-a(s)=(%d,%d) cap %d->%d, fenetre |W|=%d recopiee : %s\n",x-sx,y-sy,sh,h,nw,okW?"OK":"ECHEC"); }
       unsigned char *c=&g[k]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h];
     }
-    printf("uturn J=%d K=%d impact=%ld s=%ld L=%d minU1=%d (U1 %s) min[s,s+P]=%d (U3 %s) lectures_neuves=%d (U4 %s, 1er echec t=%ld) maxpZ=%d (Z %s)\n",
-      J,K,imp,s,L,minU1,minU1>21?"OK":"ECHEC",minS,minS>=L-4?"OK":"ECHEC",nfr,okFR?"OK":"ECHEC",badt,maxZ,maxZ<L?"OK":"ECHEC");
+    printf("uturn J=%d K=%d impact=%ld s=%ld L=%d minU1=%d (U1 %s) min[s,s+P]=%d (U3 %s) lectures_neuves=%d (U4 %s, 1er echec t=%ld) maxpZ=%d (Z %s) diag x+y : site [%d,%d] bande finale [%d,%d] %s\n",
+      J,K,imp,s,L,minU1,minU1>21?"OK":"ECHEC",minS,minS>=L-4?"OK":"ECHEC",nfr,okFR?"OK":"ECHEC",badt,maxZ,maxZ<L?"OK":"ECHEC",-qa1,-qa0,-qz1,-qz0,(qz1<qa0||qz0>qa1)?"disjointes":"CHEVAUCHENT");
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){
