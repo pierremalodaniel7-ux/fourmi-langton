@@ -1,0 +1,9 @@
+étape 1 : case (-11, -4) à 1 demi-périodes devant la fourmi (pas 9977, fourmi en (-15,-10)) ; certifié 15199, direction (2, -2) ; boîte des cases 11
+étape 2 : case (26, -13) à 1 demi-périodes devant la fourmi (pas 15199, fourmi en (26,-11)) ; certifié 18785, direction (-2, 2) ; boîte des cases 26
+étape 3 : case (7, 28) à 1 demi-périodes devant la fourmi (pas 18785, fourmi en (9,28)) ; certifié 36485, direction (2, -2) ; boîte des cases 28
+étape 4 : case (47, 30) à 1 demi-périodes devant la fourmi (pas 36485, fourmi en (41,26)) ; certifié 43678, direction (-2, 2) ; boîte des cases 47
+étape 5 : case (-13, 25) à 1 demi-périodes devant la fourmi (pas 43678, fourmi en (-1,35)) ; certifié 55755, direction (2, -2) ; boîte des cases 47
+étape 6 : case (46, -1) à 1 demi-périodes devant la fourmi (pas 55755, fourmi en (46,1)) ; certifié 81382, direction (-2, 2) ; boîte des cases 47
+étape 7 : case (-18, 56) à 2 demi-périodes devant la fourmi (pas 81382, fourmi en (-19,51)) ; certifié 79188, direction (2, -2) ; boîte des cases 56
+étape 8 : case (67, -45) à 25 demi-périodes devant la fourmi (pas 79188, fourmi en (44,-18)) ; certifié 136818, direction (-2, 2) ; boîte des cases 67
+étape 9 : aucun demi-tour trouvé à moins de 400 demi-périodes

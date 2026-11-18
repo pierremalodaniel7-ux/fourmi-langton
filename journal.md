@@ -569,3 +569,10 @@ Le pas inverse (revenir en a−dir(h), retourner la case, tourner selon sa coule
 en a−dir(h) avec le cap h+2 (la couleur avant retournement donne le même virage ; reculer = avancer avec le cap opposé). Donc le
 passé d'une configuration est le futur de la même grille avec la fourmi retournée ; « toute configuration a une autoroute à rebours »
 est équivalent à la conjecture. Vérifié : 60/60 boîtes aléatoires, positions et grilles identiques sur 3 000 pas.
+
+## R-108 Germes à 4 cases : toutes les configurations de 4 cases dans [−4,4]² (1 581 580) construisent l'autoroute — DÉMONTRÉ (certificat) ; transitoire minimal à 4 cases dans [−4,4]² = 67 — 18/11 S8
+Plus court : −4,−1;−2,1;−1,2;0,3 (cap H) → 67 pas (la borne de S7 était 114) ; plus long : −3,−1;−3,0;−2,4;2,−2 → 149 266.
+
+## R-109 É7, « ping-pong le plus court » : 8 renversements successifs avec 8 cases dans une boîte de rayon 67 (certifié à 136 818), puis plus de case renversante proche — OBSERVÉ — 18/11 S8
+Méthode gloutonne `outils/pingpong.py` (case la plus proche devant la fourmi qui renverse la direction finale). Pas de décor fini
+qui occupe la fourmi indéfiniment ; explication de l'échec et pistes : recherche/autoroute/E7_contre_attaque.md.
