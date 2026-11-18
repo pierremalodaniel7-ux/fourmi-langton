@@ -81,3 +81,11 @@ Robustesse : U1–U4 passent aussi pour s pris à p* = 120, 90, 70.
 
 Commandes : `data/c1.in` (généré par python, voir journal R-72) ; `fourmi -T 8000000 -cert -lot < c1.in` ;
 classes loin : `far.in`, `gap.in`.
+
+## Deux cases loin (S1, 1re exploration) — OBSERVÉ (chaque configuration calculée est DÉMONTRÉE individuellement)
+1re case : les 22 classes à k = 100/101 ; 2e case : 122 positions (décalage −30…30, deux parités) à 200 cases
+devant la nouvelle autoroute. **2 684/2 684 certifiées** (`data/two.in`, `fourmi -T 30000000 -cert`, < 30 s).
+Chaque nouvelle autoroute a aussi exactement 22 cases « touchables » (484 doubles collisions). Retard maximal dû
+à la 2e case : 198 026 pas (1re case −119,100 = le demi-tour, puis demi-tour au 2e site). Aucun « ping-pong »
+infini dans ces 484 cas. Prochaine étape : écrire l'automate des sites (germe + 22 types) et ses transitions
+par demi-tour, et le démontrer avec les mêmes couplages.

@@ -389,3 +389,8 @@ trace, puis identité sans translation (X_{k+2} = X_k décalée de 208 pas). Con
 k₀ = 100 (`./ant uturn -19 100 150 79678`) ; prédiction cert(k+2) = cert(k)+208 vérifiée (79 678 / 79 886 / 80 094).
 Avec R-72 (A, B) et R-73 (21 classes) : T1 démontré pour toute position de la case. Pas trouvé dans la littérature
 (2 recherches). Détails : recherche/autoroute/E2_epars.md.
+
+## R-75 Deux cases noires loin l'une de l'autre — OBSERVÉ (2 684 configurations, toutes certifiées) — 18/11 S1
+1re case dans chacune des 22 classes (k = 100/101), 2e case à 200 cases devant l'autoroute qui en sort (122 positions) :
+toutes construisent l'autoroute pour toujours (certificat R-70 ⇒ chacune DÉMONTRÉE ; la famille infinie : pas encore).
+22 cases touchables par autoroute (484 doubles collisions) ; retard max 198 026. Détails : E2_epars.md.
