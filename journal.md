@@ -519,3 +519,8 @@ D'où R-95/96/98 : 484/484 paires de classes, et T6 : |c₁|, |c₂| ≥ 417, |c
 (R-98, vérifications de chronologie) G2 (c₁ = (−127,100)) : changement de repère de (a) à t = 101 288, avant celui de (b)
 (106 488 ; 2e à 115 872). G1 (c₁ = (−119,100), c₂ = (−401,−409)) : (b) passe en repère identité à 68 836, avant le 1er
 contact avec c₂ (99 410). Les deux hypothèses du transport dual sont donc vérifiées.
+
+## R-99 Outil « T1 relatif » complet ; exemple : domino le plus lent + une case n'importe où — DÉMONTRÉ (sous réserve de relecture) — 18/11 S5
+`outils/t1relatif.py "BASE" CAP [K2]` fait (A) + (C) pour une base déjà pivotée (dérive (−2,+2)). Base {(−29,11),(−29,12)}
+pivotée (cases (−11,−29),(−12,−29), cap D), T0 = 117 736 : (C) 22/22 classes (toutes de pente 52) + 22/22 couplages exacts ;
+(A) 20 793/20 793 certifiées (plus lent 298 348) ; (B) direct. Brique pour « trois cases éparses ».
