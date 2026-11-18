@@ -20,7 +20,7 @@ histoire dans les deux mondes. ∎
 ## Lemme 2 (phase 0 : translation)
 Pour t ≥ 9 977 avant l'impact, X_{k+2}(t+104)(c+d) = X_k(t)(c) pour c ∉ D−d, et les fourmis sont couplées (v = d).
 *Preuve* : X_k(t) = B(t) ∪ I_k, X_{k+2}(t+104) = B(t+104) ∪ (I_k + d), définition de D, et B est certifié dès 9 977. ∎
-Avec le lemme 1, le couplage dure tant que X_k lit des cases de p > 21 (condition C1).
+Avec le lemme 1, le couplage dure tant que X_k lit des cases de p > 21 (condition C1 ; en général p > MPD − 4, MPD = max p sur D).
 
 ## Lemme 3 (changement de repère)
 Supposons le couplage du repère i−1 (décalage τ_{i−1} = 104·i, translation v_{i−1}) valable jusqu'à s_i + 104, et :
@@ -53,6 +53,22 @@ parité, construit l'autoroute pour toujours.
 s'applique à X_{k₀+2} car la fenêtre et Z coïncident. Pour passer à k₀+4 : X_{k₀+2} a les mêmes s_i (+τ), les mêmes
 fenêtres, et les ensembles S_i(k₀+2) contiennent S_i(k₀) aux cases utiles, parce que tous les critères (p, Δ, chaînes)
 sont fermés par le décalage de repère et s'évaluent sur des cases où les deux mondes coïncident. ∎
+
+## Généralisations utilisées (S3–S4)
+- **Base quelconque** C₀ (au lieu du départ blanc) dont l'autoroute est certifiée à T0 avec la dérive d : remplacer 9 977 par T0,
+  B par l'évolution de C₀, D par {c : C₀(t+104)(c) ≠ C₀(t)(c−d)} ⊂ cases touchées avant T0+104 ∪ cases de C₀ (et leurs
+  translatées par d), MPD = max p sur cet ensemble. Les cases de C₀ sont identiques dans les deux mondes : elles comptent dans
+  Δ_i seulement pour i pair (repère translation) — c'est le correctif R-92.
+- **Rotation** : la règle RL commute avec les rotations d'un quart de tour ; on pivote la configuration (et le cap initial de
+  la fourmi) pour ramener la dérive de la base à d.
+- **Îlot** : ses cases bougent (de d) entre X_k et X_{k+2} ; en repère identité elles diffèrent donc d'un monde à l'autre,
+  c'est pourquoi leurs diagonales sont toujours dans Δ_i (d conserve x+y).
+
+## Relecture S5
+Relu en entier après R-89, R-92 et R-95/96. Cohérent avec le code de `ant multi` (bases, Δ, règle, L/H, fenêtres, Z selon la
+direction). Points encore délicats : la fermeture des ensembles S_i par le décalage de repère (passage k₀+2 → k₀+4), argumentée
+mais pas écrite case par case ; l'attribution des acceptations dans les appels récursifs de `agree` (NS ≥ 2) pour le décompte
+« règle » de R-96 (seule une paire NS = 2 est concernée, et elle reste OBSERVÉE).
 
 ## Contrôles
 - `ant multi` vérifie exactement ces conditions sur X_{k₀} (NS = 0 : `pmin` ; NS = 1 : `uturn` ; NS = 2 : `triple2`).
