@@ -459,3 +459,9 @@ inchangés) ; T4 en a 92. `multi` NS = 0 sur les 10 690 translations de T4 (base
 (A) [−100,70]×[−50,125] ∪ bande x+y ∈ [70,120], y < 300 : 39 429/39 429 certifiées (plus rapide 310 avec (0,−2), plus lent
 333 741 avec (−56,78)) ; (B) hors zone et hors bande : certifié à T0 ; (C) 22 classes (x+y ∈ [90,100]), toutes de pente 52,
 `multi` 22/22, `deux` 22/22. Commande : `BASE="-56,28;-54,28;-54,30" T0=228739 ./ant multi J K CE 0`. Détails : E2_epars.md (S3).
+
+## R-91 Deux cases loin, 1re case fixée : la 2e n'importe où loin dans la nouvelle bande — DÉMONTRÉ (partie lointaine, sous réserve de relecture) — 18/11 S3
+Pour les 9 positions de c₁ (k = 100/101) dont l'autoroute repart en (−2,+2) : base C₀ = blanc + c₁ ; `outils/relatif.py`
+trouve 22 classes par base (21 translations, 1 demi-tour qui revient au 1er site) : 198/198 preuves `multi` OK (seuils p*
+au-dessus de la zone D de la base, ≥ 300 pour le demi-tour), 198/198 couplages exacts (`deux`). Zone proche (A) des 9 bases
+(264 470 cas) : lancée en fin de S3, résultat en S4. Résultats : resultats/relatif/.

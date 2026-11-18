@@ -1,0 +1,18 @@
+[
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Îlot lent + une case",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-56,28;-54,28;-54,30;-56,78",
+  "note": "T5 : certifié à 333 741 (record de la zone calculée, R-90)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Deux cases loin, demi-tour au 2e site",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-127,101;-419,400",
+  "note": "certifié à 110 898 ; famille c2 lointaine démontrée (R-91)"
+ }
+]

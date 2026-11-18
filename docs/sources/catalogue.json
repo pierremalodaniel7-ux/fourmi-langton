@@ -4938,5 +4938,45 @@
   "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
   "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
   "source": "S2 autoroute 18/11, fourmi -cert ; ant multi"
+ },
+ {
+  "id": "A-T5",
+  "b": 14,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Une case de plus sur l'îlot le plus lent",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-56,28;-54,28;-54,30;-56,78",
+  "img": [
+   340000,
+   ""
+  ],
+  "situation": "Base C₀ = l'îlot 3×3 le plus lent (autoroute certifiée à 228 739) + une case noire en (−56,78).",
+  "deroulement": "Théorème T5 (exemple) : C₀ + une case noire n'importe où mène à l'autoroute. Cette case-ci donne le plus long transitoire de la zone calculée.",
+  "mesures": "Certifié dès 333 741.",
+  "statut": "DÉMONTRÉ (R-90, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S3 autoroute 18/11, fourmi -cert ; ant multi (BASE)"
+ },
+ {
+  "id": "A-2C",
+  "b": 14,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases loin : demi-tour au 2e site",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-127,101;-419,400",
+  "img": [
+   115000,
+   ""
+  ],
+  "situation": "Départ blanc + une case en (−127,101) (l'autoroute repart tout droit, décalée) + une 2e case loin dans la nouvelle bande.",
+  "deroulement": "La nouvelle autoroute heurte la 2e case, fait demi-tour sur sa trace jusqu'au 1er site, puis repart. Démontré pour toutes les positions lointaines de la 2e case (k ≥ 400), avec la 1re case fixée.",
+  "mesures": "Certifié dès 110 898.",
+  "statut": "DÉMONTRÉ partie lointaine (R-91, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S3 autoroute 18/11, fourmi -cert ; ant multi (BASE)"
  }
 ]
