@@ -66,3 +66,22 @@ Le point 3 pour i ≥ 3 (accord de la phase i−2) et la fermeture des ensembles
 Pour NS = 0 (translation pure), la bande Z de l'autoroute finale doit éviter D après translation. Si la direction finale
 est −d, p décroît le long de Z : on exige que les diagonales x+y de la fenêtre finale ne soient pas celles de D
 (D ⊂ cases touchées avant T0+104 ∪ cases de la base, sur leurs diagonales). Sinon (p non décroissant) : p > MPD−4.
+
+## S5 — Lemme de transport : double récurrence « deux cases loin » (R-95)
+Notations : c₁ dans une classe de T1 à la distance k₁ (le long de d) ; d₂ = direction de l'autoroute qui sort du 1er site ;
+c₂ = c₁ + r₀ + m·d₂ (m ≥ m₀). X(k₁, m) = blanc + {c₁, c₂}.
+- (a) m → m+1 à k₁ = k₀ fixé : prouvé en R-93 (base W = blanc + c₁(k₀), `multi` avec BASE/T0/H0). Ses repères relient
+  X(k₀, m+1) et X(k₀, m) : sur chaque segment, la position de la fourmi est soit la même (repère identité), soit translatée
+  de d₂ (repère translation), avec un décalage de temps fixe, jusqu'au certificat.
+- (b) k₁ → k₁+2 à m fixé : îlot {c₁, c₂} déplacé en bloc de d ; condition NS = 0 de `multi` : (C1) p > 21 sur les positions
+  après l'impact, (Z) fenêtre finale : p > 21 si la direction finale n'est pas −d, diagonales hors de celles de D sinon.
+**Lemme de transport.** Si (b) vaut à (k₀, m) avec NS = 0 et si p(d₂) ≥ 0 (d₂ = d ou d₂ ⟂ d), alors (b) vaut à (k₀, m+1),
+sauf dans un cas : direction finale −d et d₂ ⟂ d avec des diagonales qui se rapprochent de celles de D.
+*Preuve.* Par (a), les positions de X(k₀, m+1) après l'impact sont les images de celles de X(k₀, m) : identiques, ou
+translatées de d₂ (p augmente de p(d₂) ≥ 0). Donc le min de p ne diminue pas (C1). La fenêtre finale est l'image de l'ancienne
+(même direction finale) : p ne diminue pas ; d₂ = d conserve les diagonales ; si d₂ ⟂ d, les diagonales bougent de ±4 par
+pas, donc il suffit qu'elles soient déjà du côté où elles s'éloignent de D. ∎
+**Théorème (R-95).** Pour les 454 paires de classes où (b) vaut à la base avec NS = 0 et où le lemme s'applique :
+pour tout k₁ ≥ k₀ (même parité) et tout m ≥ m₀, X(k₁, m) construit l'autoroute pour toujours.
+*Preuve.* Par récurrence sur m (lemme), (b) vaut à (k₀, m) pour tout m ≥ m₀ ; puis, à m fixé, la récurrence (b) donne tout k₁. ∎
+Contrôle indépendant : cert(k₀+40, m₀+10) prédit par les deux pentes, calculé directement : 40/40 exacts.

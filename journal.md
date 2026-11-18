@@ -489,3 +489,10 @@ Ce qui manque pour le théorème « deux cases loin » complet : montrer que ces
 (uniformité, vue ici sur 2 à 4 valeurs). Outils : `outils/essai_k1.sh`, resultats/relatif/recurrence_k1.txt.
 (R-94, complément) Uniformité en k₂, test : 30 paires de classes tirées au hasard × 11 écarts (k₂ = k₀ … k₀+200, pas 20) :
 330/330 configurations certifiées, et la récurrence en k₁ passe pour les 330 (NS = 0 partout). OBSERVÉ (pas une preuve).
+
+## R-95 Deux cases LOIN (les deux distances variables) : 454 paires de classes sur 484 — DÉMONTRÉ (sous réserve de relecture) — 18/11 S5
+Lemme de transport (E2b_couplage.md, S5) : la condition NS = 0 de la récurrence en k₁ se transporte de m à m+1 par les repères
+de la récurrence en m (R-93), quand d₂ = d ou d₂ ⟂ d (p ne diminue pas). D'où : pour 454 des 484 paires (classe de c₁, classe de
+c₂), toute position k₁ ≥ k₀, m ≥ m₀ mène à l'autoroute pour toujours. Restent 30 paires : 25 + 1 dont la récurrence en k₁
+change de repère (NS = 1, 2), 4 à « c₂ fixe » (c₁ = demi-tour). Contrôle : 40/40 prédictions exactes à (k₀+40, m₀+10).
+Outil : `outils/transport.py` ; résultats : resultats/relatif/transport.txt.
