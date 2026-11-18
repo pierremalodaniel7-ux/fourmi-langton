@@ -130,3 +130,28 @@ infini jusqu'à 4 niveaux. Étape 5 arrêtée (trop longue pour la séance). Pis
   (repart vers le germe sur une autre diagonale ; p décroît le long de Z, donc Z ⊂ {p < L} : OK).
 - Commandes : `data/tri.in`, `data/trifar.in` (python, voir journal R-78), `outils/preuves_loin.py trifar.cert`,
   `outils/preuves_trominos.txt` (à passer à `./ant`).
+
+## S2 — Raffinement de la condition U4 et de Z (diagonales Δ)
+Les cases où X_k(s) et X_{k+2}(s+208) diffèrent sont parmi les cases touchées après 9 977 (dans l'un ou l'autre
+monde) et les cases de l'îlot. Comme d conserve x+y, toutes sont sur les diagonales
+**Δ = {x+y des positions de X_k sur [9 977, s+104]} ∪ {x+y des cases de l'îlot}**. Donc :
+- **U4'** : une case lue pour la première fois depuis s (après s+104) est sûre si p < L, ou si elle est dans la fenêtre W,
+  ou si sa diagonale n'est pas dans Δ (elle est blanche dans les deux mondes).
+- **Z** selon la direction finale d' : d' = +d (p croît) ⇒ toutes les diagonales de la fenêtre finale hors de Δ ;
+  d' = −d ou perpendiculaire (p ne croît pas) ⇒ max p de la fenêtre finale < L.
+- En S1, le test « diagonales disjointes » ne regardait que le site, pas la trace : les 10 demi-tours de T1–T3 ont été
+  **revérifiés en S2 avec Δ complet : 10/10 OK** (`outils/juge_uturn.py`, `outils/cherche_s.sh`).
+- Le choix de s (seuil p*) fait partie de la preuve : `cherche_s.sh` essaie p* ∈ {90, 70, 50, 110, …, 210} et garde le
+  premier qui passe (le rouleur doit être formé : U2).
+
+## S2 — Classes « aller-retour » (pente 156 et 208) : diagnostic
+Exemple : îlot {(−120,101),(−118,102),(−118,103)} (classe j = −19, k impair, cases (0,0),(2,1),(2,2)).
+Trace de p = −x+y : impact vers 15 000 (p ≈ 200), chaos au site jusqu'à ≈ 47 000, rouleur vers le germe (p → −36 à
+57 000), le germe le **renvoie** le long de la trace (p → 242 à 67 000), nouveau chaos au site, puis autoroute à 90°
+(p ≈ 160 constant). Trois traversées de la trace : pente 3 × 52 = 156. Pente 208 : quatre traversées.
+Preuve à faire (« triple couplage ») : translation (site) → identité (germe) → translation (site). Le mode
+`./ant triple J K CE P1 T1 P2 T2 L …` vérifie C1–C7 mais **échoue** : au 2ᵉ changement de repère, le rouleur qui
+revient relit le sillage du premier rouleur, qui n'est dans aucun ensemble d'accord prouvé. Il manque le lemme
+« **rouleur sur fond périodique** » : un rouleur périodique laisse un sillage invariant par translation de d, ce
+qui donne l'accord sur tout le sillage. C'est la prochaine pièce à écrire ; elle servira aussi à l'automate des sites
+(le germe est un site qui renvoie ou dévie les rouleurs).

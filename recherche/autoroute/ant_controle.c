@@ -108,7 +108,8 @@ int main(int argc,char**argv){
     int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1; int x=0,y=0,h=0; long imp=-1, s=-1;
     int ne=0, EXs[16], EYs[16];
     for(int a=6;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); g[(oy-EYs[ne]+C)*W+(ox+EXs[ne]+C)]=1; ne++; }
-    int qa0=1<<30,qa1=-(1<<30),qz0=1<<30,qz1=-(1<<30); int L=1<<30, minS=1<<30, minU1=1<<30, sx=0,sy=0,sh=0, okFR=1, maxZ=-(1<<30), nfr=0; long badt=-1;
+    int qa0=1<<30,qa1=-(1<<30),qz0=1<<30,qz1=-(1<<30); static unsigned char DG[2*W]; memset(DG,0,sizeof DG); int zinD=0, frD=0;
+    DG[ox-oy+W]=1; for(int e=0;e<ne;e++) DG[ox+EXs[e]-(oy-EYs[e])+W]=1;   /* Δ : diagonales x+y(bas) = x-y(haut) touchées */ int L=1<<30, minS=1<<30, minU1=1<<30, sx=0,sy=0,sh=0, okFR=1, maxZ=-(1<<30), nfr=0; long badt=-1;
     for(long t=0;t<=CE+P;t++){
       int p=-x-y; long k=(long)(y+C)*W+(x+C);
       { int hit=(x==ox&&y==oy); for(int e=0;e<ne;e++) if(x==ox+EXs[e]&&y==oy-EYs[e]) hit=1; if(hit&&imp<0) imp=t; }
@@ -117,8 +118,10 @@ int main(int argc,char**argv){
       if(imp>=0&&(s<0||t<=s+P)&&p<minU1) minU1=p;              /* U1 */
       if(s>=0&&t>=s&&t<s+P){ if(p<minS)minS=p; if(!wr[k]){ int dej=0; for(int i=0;i<nw;i++) if(ws[i]==k){dej=1;break;} if(!dej){ wc[nw]=g[k]; ws[nw++]=(int)k; } } }
       if(s>=0&&t>=s+P&&!wr[k]){ int inW=0; for(int i=0;i<nw;i++) if(ws[i]==k){inW=1;break;}
-        nfr++; if(!inW && p>=L){ okFR=0; if(badt<0) badt=t; } }   /* U4 lectures neuves */
+        nfr++; if(!inW && p>=L){ if(DG[x-y+W]){ okFR=0; if(badt<0) badt=t; } else frD++; } }   /* U4 lectures neuves */
       if(t>=CE&&p>maxZ) maxZ=p;
+      if(t>=9977&&(s<0||t<=s+P)) DG[x-y+W]=1;
+      if(t>=CE&&DG[x-y+W]) zinD=1;
       { int qq=x-y; if(imp>=0&&(s<0||t<=s+P)){ if(qq<qa0)qa0=qq; if(qq>qa1)qa1=qq; } if(t>=CE){ if(qq<qz0)qz0=qq; if(qq>qz1)qz1=qq; } }
       if(s>=0&&t>=s) wr[k]=1;
       if(s>=0&&t==s+P){ /* U2 : position, cap */
@@ -126,8 +129,52 @@ int main(int argc,char**argv){
         printf("U2 : a(s+P)-a(s)=(%d,%d) cap %d->%d, fenetre |W|=%d recopiee : %s\n",x-sx,y-sy,sh,h,nw,okW?"OK":"ECHEC"); }
       unsigned char *c=&g[k]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h];
     }
-    printf("uturn J=%d K=%d impact=%ld s=%ld L=%d minU1=%d (U1 %s) min[s,s+P]=%d (U3 %s) lectures_neuves=%d (U4 %s, 1er echec t=%ld) maxpZ=%d (Z %s) diag x+y : site [%d,%d] bande finale [%d,%d] %s\n",
-      J,K,imp,s,L,minU1,minU1>21?"OK":"ECHEC",minS,minS>=L-4?"OK":"ECHEC",nfr,okFR?"OK":"ECHEC",badt,maxZ,maxZ<L?"OK":"ECHEC",-qa1,-qa0,-qz1,-qz0,(qz1<qa0||qz0>qa1)?"disjointes":"CHEVAUCHENT");
+    printf("uturn J=%d K=%d impact=%ld s=%ld L=%d minU1=%d (U1 %s) min[s,s+P]=%d (U3 %s) lectures_neuves=%d (U4 %s, 1er echec t=%ld) maxpZ=%d (Z %s) diag x+y : site [%d,%d] bande finale [%d,%d] %s | fenetre finale hors Δ : %s, lectures p>=L hors Δ : %d\n",
+      J,K,imp,s,L,minU1,minU1>21?"OK":"ECHEC",minS,minS>=L-4?"OK":"ECHEC",nfr,okFR?"OK":"ECHEC",badt,maxZ,maxZ<L?"OK":"ECHEC",-qa1,-qa0,-qz1,-qz0,(qz1<qa0||qz0>qa1)?"disjointes":"CHEVAUCHENT", zinD?"NON":"OUI", frD);
+  } else if(!strcmp(argv[1],"triple")){
+    /* triple J K CE P1 T1 P2 T2 L [EX EY ...] : site -> germe -> site (classes de pente 156). y vers le BAS pour J,K,EX,EY.
+       s1 = 1er instant après impact+P où p <= P1 (rouleur vers le germe) ; s2 = 1er instant après s1 où p >= P2
+       (rouleur qui revient). Conditions C1..C8 : voir E2_epars.md (triple couplage). */
+    int J=atoi(argv[2]), K=atoi(argv[3]); long CE=atol(argv[4]); int P1=atoi(argv[5]); long T1=atol(argv[6]); int P2=atoi(argv[7]); long T2=atol(argv[8]); int LL=atoi(argv[9]); /* L imposé, validé en fin (C3) */
+    int ne=0, EXs[16], EYs[16]; int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1;
+    for(int a=10;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); g[(oy-EYs[ne]+C)*W+(ox+EXs[ne]+C)]=1; ne++; }
+    static unsigned char w1[W*W], w2[W*W], D1[2*W], D2[2*W]; static int ws1[P], ws2[P]; static unsigned char wc1[P], wc2[P];
+    memset(D1,0,sizeof D1); memset(D2,0,sizeof D2);
+    D1[ox-oy+W]=D2[ox-oy+W]=1; for(int e=0;e<ne;e++) D1[ox+EXs[e]-(oy-EYs[e])+W]=D2[ox+EXs[e]-(oy-EYs[e])+W]=1;
+    int x=0,y=0,h=0, n1=0,n2=0, sx1=0,sy1=0,sh1=0,sx2=0,sy2=0,sh2=0; long imp=-1,s1=-1,s2=-1;
+    int L=1<<30, minS1=1<<30, minC1=1<<30, Hm=-(1<<30), ok2=-1, ok5=-1, ok4=1, ok7=1, zA=1, zmin=1<<30, zoffD=1; long b4=-1,b7=-1;
+    for(long t=0;t<=CE+P;t++){
+      int p=-x-y; long k=(long)(y+C)*W+(x+C); int dg=x-y+W;
+      { int hit=(x==ox&&y==oy); for(int e=0;e<ne;e++) if(x==ox+EXs[e]&&y==oy-EYs[e]) hit=1; if(hit&&imp<0) imp=t; }
+      if(imp>=0&&s1<0&&t>imp+P&&t>=T1&&p<=P1){ s1=t; sx1=x; sy1=y; sh1=h; }
+      if(s1>=0&&s2<0&&t>s1+P&&t>=T2&&p>=P2){ s2=t; sx2=x; sy2=y; sh2=h; }
+      if(t>=9977&&(s1<0||t<=s1+P)) D1[dg]=1;
+      if(t>=9977&&(s2<0||t<=s2+P)) D2[dg]=1;
+      if(imp>=0&&s1<0&&p<L) L=p;
+      if(imp>=0&&(s1<0||t<=s1+P)&&p<minC1) minC1=p;
+      if(s1>=0&&t>=s1&&t<=s1+P&&p<minS1) minS1=p;
+      if(s1>=0&&t>=s1&&(s2<0||t<=s2+P)&&p>Hm) Hm=p;
+      /* fenetre 1 */
+      if(s1>=0&&t>=s1&&t<s1+P&&!w1[k]){ int dej=0; for(int i=0;i<n1;i++) if(ws1[i]==k){dej=1;break;} if(!dej){wc1[n1]=g[k]; ws1[n1++]=(int)k;} }
+      /* C4 : lectures neuves (depuis s1) sur [s1+P, s2+2P] */
+      if(s1>=0&&t>=s1+P&&(s2<0||t<=s2+2*P)&&!w1[k]){ int inW=0; for(int i=0;i<n1;i++) if(ws1[i]==k){inW=1;break;}
+        if(!inW&&p>=LL&&D1[dg]){ ok4=0; if(b4<0)b4=t; } }
+      /* fenetre 2 */
+      if(s2>=0&&t>=s2&&t<s2+P&&!w2[k]){ int dej=0; for(int i=0;i<n2;i++) if(ws2[i]==k){dej=1;break;} if(!dej){wc2[n2]=g[k]; ws2[n2++]=(int)k;} }
+      /* C7 : lectures neuves (depuis s2) après s2+P ; Hm complet seulement après s2+P */
+      if(s2>=0&&t>=s2+P&&!w2[k]){ int inW=0; for(int i=0;i<n2;i++) if(ws2[i]==k){inW=1;break;}
+        if(!inW&&p<=Hm+4-4&&D2[dg]){ ok7=0; if(b7<0)b7=t; } }
+      if(t>=CE){ if(p<zmin)zmin=p; if(D2[dg]) zoffD=0; }
+      if(s1>=0&&t>=s1) w1[k]=1;
+      if(s2>=0&&t>=s2) w2[k]=1;
+      if(s1>=0&&t==s1+P){ long sh_=(long)(y-sy1)*W+(x-sx1); ok2=(x-sx1==2&&y-sy1==2&&h==sh1); for(int i=0;i<n1;i++) if(g[ws1[i]+sh_]!=wc1[i]) ok2=0; }
+      if(s2>=0&&t==s2+P){ long sh_=(long)(y-sy2)*W+(x-sx2); ok5=(x-sx2==-2&&y-sy2==-2&&h==sh2); for(int i=0;i<n2;i++) if(g[ws2[i]+sh_]!=wc2[i]) ok5=0; }
+      unsigned char *c=&g[k]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h];
+    }
+    int Hs=Hm+4; int c1=minC1>21, c3=(L>=LL)&&(minS1+4>=LL);   /* L imposé = P1-8 doit être <= min p sur [impact,s1) et <= min[s1,s1+P]+4 */
+    printf("triple J=%d K=%d impact=%ld s1=%ld s2=%ld L=%d(min %d, min[s1,s1+P]+4 %d) H*=%d C1 %s C2 %s C3 %s C4 %s(%ld) C5 %s C7 %s(%ld) Zmin=%d Zhorsdelta=%s\n",
+      J,K,imp,s1,s2,LL,L,minS1+4,Hs,c1?"OK":"ECHEC",ok2==1?"OK":"ECHEC",c3?"OK":"ECHEC",ok4?"OK":"ECHEC",b4,ok5==1?"OK":"ECHEC",ok7?"OK":"ECHEC",b7,zmin,zoffD?"OUI":"NON");
+    memset(w1,0,sizeof w1); memset(w2,0,sizeof w2);
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){
