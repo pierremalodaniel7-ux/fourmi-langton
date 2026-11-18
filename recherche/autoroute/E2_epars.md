@@ -228,3 +228,14 @@ Double récurrence : (i) k₁ fixé (base C₀ = blanc + c₁(k₁)) : T1 relati
 {c₁, c₂} ensemble (îlot à grand écart, `multi` accepte des écarts quelconques). Difficulté : (ii) doit valoir pour tous
 les écarts r = c₂ − c₁ ; il faut montrer que les conditions de `multi` à (k₀, r) se transportent de r à r + d₂
 (couplage le long de la 2e autoroute). Si d₂ ⟂ d, p est constant le long de la 2e bande : piste prometteuse.
+
+## S4 — Deux cases : la 1re à distance fixe (k = 100/101, ses 22 classes), la 2e n'importe où
+Pour chacune des 22 positions c₁ de T1 à k = 100/101 (celles qui touchent l'autoroute), base C₀ = blanc + c₁
+(T0 = son certificat). Les 13 bases dont l'autoroute tourne sont **pivotées d'un quart de tour** (fourmi au départ en
+cap D, B ou G : variable H0 pour `ant`, 4e argument de `relatif.py`) pour ramener la dérive à (−2,+2).
+- (C) loin dans la nouvelle bande (k₂ ≥ 400) : 22 × 22 = 484 classes, **484/484 preuves `multi`**, 484/484 couplages exacts
+  (`deux`). Sur 13 bases, 1 classe demi-tour qui revient au 1er site (p* ≥ 300) ; 7 bases sans demi-tour.
+- (A) zone d'activité de la base + bande jusqu'à k₂ < 400 : 9 bases non pivotées 264 470/264 470 certifiées (plus lent :
+  c₁ = (−121,101), c₂ = (−144,104), 181 641) ; 13 bases pivotées : voir R-93.
+- (B) ailleurs : certifié à T0.
+Reste pour « deux cases loin » en général : faire varier aussi k₁ (double récurrence, cf. S3).
