@@ -155,3 +155,37 @@ revient relit le sillage du premier rouleur, qui n'est dans aucun ensemble d'acc
 « **rouleur sur fond périodique** » : un rouleur périodique laisse un sillage invariant par translation de d, ce
 qui donne l'accord sur tout le sillage. C'est la prochaine pièce à écrire ; elle servira aussi à l'automate des sites
 (le germe est un site qui renvoie ou dévie les rouleurs).
+**Piste précise pour S3 (triple couplage).** Ensemble d'accord au 1er changement de repère (X_k(s1) contre
+X_{k+2}(s1+208)) : en plus de {p < L}, W1 et « hors Δ », toute case c ∉ D telle que
+(i) c−d n'est pas touchée par X_k sur [s1, s1+104) et (ii) X_k(s1)(c−d) = X_k(s1)(c).
+Justification : X_{k+2}(s1+208)(c) = X_k(s1+104)(c−d) (couplage par translation jusqu'à s1+104) = X_k(s1)(c−d) (i) = X_k(s1)(c) (ii).
+Pour la récurrence k → k+2, exiger la **fermeture par chaînes** : si c entre par cette règle, c−d doit être dans
+l'ensemble (règle ou base) ; la chaîne c, c−d, c−2d… descend en p de 4 par pas et finit dans {p < L}.
+Même règle (avec +d) au 2ᵉ changement de repère. Tout se vérifie sur X_{k₀} seul. À coder dans `ant triple`.
+
+## S2 — Triple couplage (classes de pente 156) : vérificateur `ant triple2` — DÉMONTRÉ sous réserve de relecture
+Trois repères successifs entre X_k et X_{k+2} : translation d, décalage 104 (site) → identité, décalage 208 (germe)
+→ translation d, décalage 312 (site). s1 = 1er instant après l'impact où p ≤ P1 (rouleur vers le germe) ; s2 = 1er
+instant, après passage au germe (p ≤ 25), où p ≥ P2 (rouleur qui revient).
+Ensembles d'accord (tous vérifiés sur X_{k₀} seul) :
+- **S_G** (au temps s1) : p < L, ou fenêtre W1, ou diagonale hors Δ1, ou règle « un pas » : c ∉ D, c−d non touchée sur
+  [s1, s1+104), X(s1)(c−d) = X(s1)(c), et c−d ∈ S_G (fermeture par chaîne, la chaîne descend en p jusqu'à p < L).
+- **S_A2** (au temps s2) : p > Hm (Hm = max p sur [s1, s2+104]), ou fenêtre W2, ou diagonale hors Δ2, ou règle
+  « un pas » vers +d : X(s2)(c+d) = X(s2)(c), c+d non touchée sur [s2, s2+104), c et c+d dans S_G ∪ {touchées sur [s1, s2]},
+  et c+d ∈ S_A2 (chaîne montante jusqu'à p > Hm).
+Conditions : C1 p > 21 jusqu'à s1+104 ; C2 rouleur 1 périodique (−d, même cap, fenêtre recopiée) ; C3 L ≤ min p ;
+C4 lectures neuves sur [s1+104, s2+208] dans S_G ; C5 rouleur 2 périodique (+d) ; C7 lectures neuves après s2+104
+dans S_A2 ; Z selon la direction finale (perpendiculaire ou +d : min p > Hm ; −d : diagonales hors Δ2).
+Récurrence k → k+2 : les ensembles sont fermés par +d (base p, Δ, chaînes), et S_G(k+2) ⊇ S_G(k), S_A2(k+2) ⊇ S_A2(k)
+car ils s'évaluent sur des cases où les deux mondes coïncident. Prédiction : cert(k+2) = cert(k) + 312 (pente 156) : vérifiée.
+Résultat : **42/42 classes de pente 156 OK** (base k₀ = 200/201 ; k = 100…199 certifiés un par un).
+Contrôle négatif : les **3 classes de pente 208** (quatre traversées) **échouent** (C7), comme attendu.
+Commandes : `outils/cherche_triple.sh`, liste et paramètres dans `outils/preuves_ilots_3x3_triple.txt`.
+
+## S2 — Vérificateur général `ant multi` (n changements de repère)
+`./ant multi J K CE NS P1 … PNS offsets` : repères alternés (impair : identité vers le germe, décalage 104·(i+1) ;
+pair : translation d vers le site), ensembles d'accord définis récursivement (base p < L_i ∩ accord de la phase i−2,
+ou p > H_i ∩ accord de la phase i−2 ; fenêtre ; hors Δ_i ; règle « un pas » avec fermeture par chaînes, voisins
+dans l'accord de la phase i−1 ou touchés pendant celle-ci). Cohérence : NS = 1 redonne les 423 demi-tours OK de
+`uturn` (p* = 90) ; NS = 2 redonne les 42/42 de `triple2`. **NS = 3 : les 3 classes de pente 208 OK**
+(`outils/preuves_ilots_3x3_pente208.txt`). Statut : DÉMONTRÉ **sous réserve de relecture du vérificateur** (code neuf).
