@@ -4,7 +4,7 @@ PROCHAINE SÉANCE : S2
 PROCHAINE TÂCHE : É2 suite — (1) automate des « sites » pour plusieurs îlots loin (germe + 22 types, transitions
 par demi-tour ; partir de `outils/chaine_demitours.py` et R-75), démontrer avec les couplages de E2_epars.md ;
 (2) îlots de rayon ≤ 2 (même schéma que T2/T3 : `outils/preuves_loin.py` + `ant pmin/uturn` à n cases ; prendre s à p* ≈ 90). Puis É3 : 5×5 par tranches de 200 000 (`outils/box5_fond.sh`,
-reprise automatique ; tranches faites : voir data/box5_*.res).
+reprise automatique ; tranches faites : voir resultats/box5/ ; le script de reprise lit data/box5_*.res : recopier ces fichiers dans data/ avant de reprendre).
 Outils de la séance S1 : `fourmi -cert` / `-c0 T` (certificat), `ant obstf`, `ant pmin`, `ant uturn` (preuves par couplage).
 
 ## Tâches
