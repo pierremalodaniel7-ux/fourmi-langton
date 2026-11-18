@@ -16,7 +16,9 @@ Si Pierre-Malo écrit « continue » ou parle de la conjecture de l'autoroute : 
 ## Après CHAQUE recherche : 3 documents, tous dans le Drive (demande de Pierre-Malo, 16/11)
 Sans qu'il ait à le redemander, à la fin de toute recherche (explore, campagne…) :
 1. **Bestiaire** (PDF, une fiche par trouvaille vérifiée : image, situation, signature, statut, commande).
-   Ajouter les bêtes à `catalogue.json` (nouveau numéro de bestiaire) et générer avec `mkbestiaires.py`.
+   Ajouter les bêtes à `docs/sources/catalogue.json` (nouveau numéro de bestiaire = le plus grand du catalogue ET du
+   dossier Bestiaires du Drive, + 1) puis générer TOI-MÊME le PDF :
+   `python3 outils/mkbestiaires.py <numéro> "<titre>"` (→ `resultats/Bestiaire <n> - <titre>.pdf`). Ne pas le laisser au chat.
 2. **Germes** (`germes_<date>.json`, format {dossier, nom, regle, fourmis, points, note}).
 3. **Rapport de travail** : ce que j'ai fait, heures (début/fin de chaque tranche), nombre de situations,
    répartition des issues, ce qui a raté, temps de calcul ; jamais de chiffre inventé (pas de compteur de tokens).
