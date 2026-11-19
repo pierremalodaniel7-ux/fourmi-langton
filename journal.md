@@ -576,3 +576,6 @@ Plus court : −4,−1;−2,1;−1,2;0,3 (cap H) → 67 pas (la borne de S7 éta
 ## R-109 É7, « ping-pong le plus court » : 8 renversements successifs avec 8 cases dans une boîte de rayon 67 (certifié à 136 818), puis plus de case renversante proche — OBSERVÉ — 18/11 S8
 Méthode gloutonne `outils/pingpong.py` (case la plus proche devant la fourmi qui renverse la direction finale). Pas de décor fini
 qui occupe la fourmi indéfiniment ; explication de l'échec et pistes : recherche/autoroute/E7_contre_attaque.md.
+
+## R-110 Germes à 5 cases : toutes les configurations de 5 cases dans [−3,3]² (1 712 304) construisent l'autoroute — DÉMONTRÉ ; transitoire minimal à 5 cases dans [−3,3]² = 62 — 18/11 S8
+Plus court : −3,1;−2,0;−1,−1;−1,1;1,−3 → 62 ; plus long : −3,0;−2,−3;0,2;1,−2;1,2 → 186 217. Détails : E6_germes.md.

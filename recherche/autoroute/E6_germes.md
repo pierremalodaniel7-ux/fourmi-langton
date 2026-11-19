@@ -9,8 +9,8 @@ Question : combien de cases noires faut-il, au minimum, pour que l'autoroute dé
 | 1 | 310 | exact dans [−5,5]² | (0,−2), cap H |
 | 2 | 162 | exact dans [−5,5]² | (−1,3);(1,3), cap H |
 | 3 | 126 | exact dans [−5,5]² (280 840 configurations, **toutes certifiées**) | (0,−2);(1,−3);(3,−5), cap H |
-| 4 | ≤ 114 | recherche en faisceau | (0,−2);(1,−3);(2,−1);(3,−5), cap H |
-| 5 | ≤ 106 | faisceau | (−1,3);(0,−2);(1,−3);(2,−1);(3,−5), cap H |
+| 4 | 67 | exact dans [−4,4]² (1 581 580 configurations, **toutes certifiées**, S8) | (−4,−1);(−2,1);(−1,2);(0,3), cap H |
+| 5 | ≤ 62 ; exact 62 dans [−3,3]² (1 712 304 configurations, **toutes certifiées**, S8) | | (−3,1);(−2,0);(−1,−1);(−1,1);(1,−3), cap H |
 | 6 | ≤ 69 | sous-ensemble du germe R-20 | cap B : 0,1;1,2;2,3;2,1;3,0;−2,−1 |
 | 7 | ≤ 61 | idem | cap B : 0,1;1,2;2,3;2,1;3,0;2,−2;−2,−1 |
 | 8 | ≤ 55 | idem | |
@@ -33,3 +33,8 @@ Graphe : `resultats/germes_transitoire_min.png`. Suite d'É6 : dynamique inverse
   max 42 084 — très proche des transitoires directs (médiane ≈ 2 300).
 Piste : la dynamique inverse est probablement conjuguée à la dynamique directe par une symétrie (réflexion / déplacement de la
 fourmi sur les arêtes) — sans doute connu (réversibilité, Gale–Propp–Sutherland–Troubetzkoy) ; à vérifier avant d'aller plus loin.
+
+## S8 : germes exacts à 4 et 5 cases (R-108, R-110)
+Toutes les configurations de 4 cases dans [−4,4]² (1 581 580, max 149 266) et de 5 cases dans [−3,3]² (1 712 304, max 186 217)
+construisent l'autoroute pour toujours (certificat). Transitoires minimaux exacts dans ces boîtes : 67 (4 cases), 62 (5 cases).
+Avec R-105 : toute configuration de ≤ 3 cases dans [−5,5]², ≤ 4 dans [−4,4]², ≤ 5 dans [−3,3]² est DÉMONTRÉE.
