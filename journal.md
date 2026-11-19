@@ -617,3 +617,10 @@ Pointe de la trace fixée ; `for P …; a=$((-100-2*P)); b=$((100+2*P-12+j)); tr
 j = 7, P ≡ 0 (mod 4) : (2,2), (2,2), (−2,2) selon P mod 12 = 4, 8, 0 (P = 100…160) ; P impair : toujours (2,2), pas de période 3.
 j = 13 : (2,2) / (−2,−2) / (2,2)-autre classe, période 12 en P. Lecture : la fourmi roule sur la trace jusqu'à son germe et y
 arrive avec une phase qui dépend de P mod 12 (le rouleur n'avance pas d'un multiple de la période de la trace).
+
+## Relecture (S9) du code du certificat `certifie()` (src/fourmi.c) — pas d'erreur trouvée — AFFIRMÉ (relecture par Claude, pas humaine) — 19/11
+Points vérifiés : V et couleurs lues à blanc sur une copie ; F2/F3 + Z donnent nouveau(v+d) = ancien(v) sur tout V+d ; F4 (convexité)
+garantit que V∖(V+d) n'est jamais relu ; borne K du test Z prudente (|v| ≤ p) ; au 2e passage, la grille est remise à l'état initial
+et la boîte utilisée est celle de la fin du 1er passage (⊇ cases visitées jusqu'à l'instant certifié) ; hors boîte tout est blanc.
+Seule remarque : le pas « CERT » rendu est le premier instant certifié dans la fenêtre [début − p, début + 50p], pas forcément le
+premier absolu (sans effet sur les statuts). Bug voisin trouvé et corrigé ce jour : lignes > 16 ko tronquées (R-112).
