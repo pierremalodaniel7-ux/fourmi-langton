@@ -712,3 +712,9 @@ MPP 912, MPM 685, MMP 642, MMM 453, PPP 264, PPM 198, PMP 157, PMM 117 (3 428 sa
 PMX 12, PXM 9, MMX 5 (136). Le lemme de transport de T6 (R-95) vaut quand chaque changement est M ou P : il devrait couvrir les 3 428
 premiers en l'itérant (m puis m₃) ; les 136 avec X demandent l'analogue de G1 (case fixe en base) ou le transport dual (R-98).
 Données : data/t7/directions.txt (non suivi).
+
+## R-126 T7, uniformité testée : le pas certifié est additif en (k₁, m, m₃) — 300/300 prédictions exactes à (k₁+14, m+10, m₃+12) pour les triplets « NS0 + sans demi-tour » ; 496/534 pour les autres — OBSERVÉ (chaque configuration calculée est DÉMONTRÉE) — 19/11 S10
+Hypothèses du transport itéré (NS = 0 dans les récurrences « bloc » en k₁ et en m, aucun demi-tour) : 3 030 triplets sur 3 564.
+Test : CE(a,b,c) = CE(0) + a·Δ_k₁ + b·Δ_m + c·Δ_m₃ (pentes mesurées un paramètre à la fois ; c₁ += a·d, c₂ += a·d + b·d₂,
+c₃ += a·d + b·d₂ + c·d₃). Échantillon de 300 candidats : 300/300 exacts. Les 534 autres (départ décalé d'un pas) : 496 exacts, 38 non
+additifs (MPM 22, MPP 16), 0 non certifié. Script dans le rapport S10.
