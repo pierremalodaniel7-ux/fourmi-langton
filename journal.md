@@ -667,3 +667,9 @@ automatique) → data/t7/b_<n>.txt et data/t7/bilan.txt. Deux changements de `re
 [−450, 450]), sinon les bases pivotées n'avaient aucune classe. Bilan de la séance : voir rapport S9.
 (R-119, suite) Classe à pente 156 (deux allers-retours, NS = 2) dans la base n° 18 : passe avec p* = (1 200, 900), règle « un pas »
 utilisée 72 fois (comme G2 de T6) ; ajouté en fin de grille NS = 2 de relatif.py ; base 18 refaite : 22/22.
+(R-114, suite) 10 cases dans [−2,2]² : PARTIEL, combinaisons [0, 1 200 000) sur 1 961 256 certifiées (0 échec) ; min provisoire 52
+(par ex. 0,−2;1,−2;2,−2;−2,−1;0,−1;1,−1;1,0;0,1;1,1;−2,2) ; max provisoire 206 499. Morceaux : data/germes_R2_k10_*.out (relancer
+`germes_k.sh 10 2 A B` pour [1 200 000, 1 961 256)).
+
+## R-120 Bilan S9 du fond : 5×5 [0, 12 400 000) certifiées sans trou (+ [13,8 M ; 14,0 M) et [15,4 M ; 15,6 M)), max 351 374 (R-118) ; T7 (C) : 53 bases sur 484 terminées, toutes complètes — DÉMONTRÉ (ces boîtes) / T7 en cours — 19/11 S9
+Tranches : resultats/box5/ (64 fichiers). T7 : data/t7/b_<n>.txt (non suivis) ; reprise `recherche/autoroute/outils/t7_lance.sh 0 484`.

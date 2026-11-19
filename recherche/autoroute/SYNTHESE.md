@@ -31,7 +31,7 @@ Implémenté dans `src/fourmi -cert`. Exemple : le départ blanc est démontré 
 | Germe R-20 | Le bout d'autoroute de 11 cases est certifié dès le pas 0 | 1 config | R-105 |
 | Rebours | Le passé d'une configuration = le futur de la même grille, fourmi retournée (a − dir(h), cap h+2). Donc « autoroute à rebours pour tout décor fini » ⇔ conjecture | calcul direct, 60/60 contrôles | R-107 (sans doute connu) |
 
-Partiel : boîtes 5×5 (fourmi au coin, cap H), les masques [0, X) sont certifiés (X : voir la fin du §7), transitoire max 351 374 (R-118).
+Partiel : boîtes 5×5 (fourmi au coin, cap H), les masques [0, 12 400 000) sont certifiés (S9), transitoire max 351 374 (R-118).
 
 ### Observations chiffrées (OBSERVÉ, pas démontré)
 
@@ -68,8 +68,8 @@ X(k) et X(k+2) et compare pas à pas : 768 + 484 cas, tous exacts).
 4 orientations, tous les décalages utiles : 328 configurations) construit toujours une autoroute certifiée (2ᵉ moteur d'accord
 328/328). En perpendiculaire : 8 classes (traverse, « relais » qui longe la trace et prolonge la vieille autoroute, remontée jusqu'au
 germe de la trace, demi-tour), indépendantes de la longueur et du point de croisement loin des bouts (R-113) ; de face, l'issue ne
-dépend que de P mod 12 (R-115). Une vieille trace se comporte donc comme un « site » de plus. Germes : 6 et 7 cases dans [−2,2]²
-toutes démontrées (R-114).
+dépend que de P mod 12 (R-115). Une vieille trace se comporte donc comme un « site » de plus. Germes : 6 à 9 cases dans [−2,2]²
+toutes démontrées (R-114). T6 rendu reproductible (R-116) ; T7 (C) lancé : 53/484 bases complètes (R-119).
 
 Pas de décor fini qui occupe la fourmi indéfiniment. Le seul mécanisme de retour vu dans T1–T6 est le **demi-tour** (une case
 sur la bande renvoie l'autoroute sur sa trace jusqu'au site précédent) ; le nombre de traversées est fini et fixé par la classe.

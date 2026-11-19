@@ -1,0 +1,53 @@
+0 -127,100;-430,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+1 -127,100;-431,401 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+2 -127,100;-429,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+3 -127,100;-430,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+4 -127,100;-428,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+5 -127,100;-429,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+6 -127,100;-427,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+7 -127,100;-428,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+8 -127,100;-426,400 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+9 -127,100;-427,401 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+10 -127,100;-425,400 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+11 -127,100;-426,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+12 -127,100;-424,400 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+13 -127,100;-425,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+14 -127,100;-423,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+15 -127,100;-424,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+16 -127,100;-422,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+17 -127,100;-423,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+18 -127,100;-421,400 H # classes {52.0: 21, 156.0: 1} preuves OK 22 ECHEC 0
+19 -127,100;-422,401 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+20 -127,100;-420,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+21 -127,100;-421,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+22 -128,101;-428,400 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+23 -128,101;-429,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+24 -128,101;-427,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+25 -128,101;-428,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+26 -128,101;-426,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+27 -128,101;-427,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+28 -128,101;-425,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+29 -128,101;-426,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+30 -128,101;-424,400 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+31 -128,101;-425,401 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+32 -128,101;-423,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+33 -128,101;-424,401 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+34 -128,101;-422,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+35 -128,101;-423,401 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+36 -128,101;-421,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+37 -128,101;-422,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+38 -128,101;-420,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+39 -128,101;-421,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+40 -128,101;-419,400 G # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+41 -128,101;-420,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+42 -128,101;-418,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+43 -128,101;-419,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+44 -126,100;-428,400 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+45 -126,100;-429,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+46 -126,100;-427,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+47 -126,100;-428,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+48 -126,100;-426,400 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+49 -126,100;-427,401 H # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0
+50 -126,100;-425,400 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+51 -126,100;-426,401 G # classes {52.0: 22} preuves OK 22 ECHEC 0
+52 -126,100;-424,400 D # classes {52.0: 21, 104.0: 1} preuves OK 22 ECHEC 0

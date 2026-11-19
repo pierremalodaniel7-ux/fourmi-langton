@@ -1,19 +1,20 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
 PROCHAINE SÉANCE : S10
-PROCHAINE TÂCHE (S10) : T7 (trois cases éparses). Étapes : (1) T6 est reproductible pour R-94/95/96/98 (`outils/t6_refait.sh`, R-116) ;
-y ajouter la zone proche (A) de R-93 si ses commandes se retrouvent ; (2) T7 : base W₂ = blanc + c₁ + c₂, essai S9 dans data/t7
-(voir R-117 pour le temps mesuré) ; regrouper les 484 bases par « type de sortie » (piste (i) de E2_epars.md) avant de tout lancer. En fond : 5×5 à partir de X5 (voir la
-ligne É3 ; `cp resultats/box5/*.res data/` puis `nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh C DEBUT 200000 N &` par cœur,
-3 cœurs, 4,5 min par tranche et par cœur).
-Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans E7_contre_attaque.md) ; germes 8–10 cases dans [−2,2]²
-(8 et 9 : voir R-114) ; É4 records.
+PROCHAINE TÂCHE (S10) : T7 (trois cases éparses), suite. Étapes : (1) relancer la partie (C) : `nohup nice -n 5 recherche/autoroute/outils/t7_lance.sh 0 484 &`
+(reprise : refait les bases dont data/t7/b_<n>.txt manque ; 53/484 faites en S9, liste resultats/relatif/t7_bilan_S9.txt ; data/ est perdu
+si le conteneur change : alors tout refaire, ≈ 10–40 s par base) ; (2) écrire l'assemblage de T7 comme T6 (transport en k₁, m, m₃ ;
+R-95/96/98 un cran plus haut), en commençant par vérifier la récurrence en k₂ avec c₃ ; (3) zone proche (A).
+En fond : 5×5 à partir de 12 400 000 (sauf [13,8 M ; 14,0 M) et [15,4 M ; 15,6 M), déjà faites) : `cp resultats/box5/*.res data/`
+puis `nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh C DEBUT 200000 N &` (4,5 à 9 min par tranche et par cœur) ;
+germes 10 cases dans [−2,2]² : reste [1 200 000 ; 1 961 256) (`outils/germes_k.sh 10 2 A B`).
+Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans E7_contre_attaque.md) ; É4 records (5×5 : 351 374).
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-82, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-83, E1_certificat.md, `fourmi -cert`
-- [~] É2 Collisions → théorème « épars » — S9 : R-94/R-95 refaits à l'identique (R-116, `t6_refait.sh`). S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
-- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S8 : [0, 9 200 000) certifié (9,2 M/33,5 M), max 252 046 (R-111)
+- [~] É2 Collisions → théorème « épars » — S9 : T7 (C) lancé, 53/484 bases complètes (R-117, R-119, R-120) ; R-94/R-95 refaits à l'identique (R-116, `t6_refait.sh`). S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
+- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S9 : [0, 12 400 000) certifié (+ 2 tranches), max 351 374 (R-118)
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
 - [~] É6 Germes et bassin à rebours — S9 : 6 et 7 cases dans [−2,2]² toutes démontrées (R-114). S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
@@ -36,6 +37,7 @@ Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans 
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
+- S9, 19-11, 09:59–10:53 UTC : É8 synthèse, É7 autoroute × trace (R-112–R-115), germes [−2,2]² (R-114), T6 reproductible (R-116), T7 lancé (R-117, R-119), record 5×5 351 374 (R-118) — rapports/S9_2026-11-19.md
 - S8, 18-11, 23:37–00:10 UTC : R-107 à R-110, É6 germes, É7 — rapports/S8_2026-11-18.md
 - S7, 18-11, 21:14–21:47 UTC : É5 boucle gelée, C-L (R-102 à R-104), É6 germes et rebours (R-105, R-106) — rapports/S7_2026-11-18.md
 - S6, 18-11, 19:08–19:51 UTC : É4 transitoires (R-101) — rapports/S6_2026-11-18.md
