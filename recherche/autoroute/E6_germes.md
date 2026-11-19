@@ -13,7 +13,7 @@ Question : combien de cases noires faut-il, au minimum, pour que l'autoroute dé
 | 5 | ≤ 62 ; exact 62 dans [−3,3]² (1 712 304 configurations, **toutes certifiées**, S8) | | (−3,1);(−2,0);(−1,−1);(−1,1);(1,−3), cap H |
 | 6 | ≤ 69 ; dans [−2,2]² : exact 120 (134 596 configurations, **toutes certifiées**, S9) | sous-ensemble du germe R-20 | cap B : 0,1;1,2;2,3;2,1;3,0;−2,−1 |
 | 7 | ≤ 61 ; dans [−2,2]² : exact 68 (346 104 configurations, **toutes certifiées**, S9) | idem | cap B : 0,1;1,2;2,3;2,1;3,0;2,−2;−2,−1 |
-| 8 | ≤ 55 | idem | |
+| 8 | ≤ 55 ; dans [−2,2]² : exact 64 (735 471 configurations, **toutes certifiées**, S9) | idem | |
 | 9 | ≤ 44 | idem | |
 | 10 | ≤ 38 | idem | |
 | 11 | **0** | exact (R-20) ; **certifié dès le pas 0 : DÉMONTRÉ** | cap B : 0,1;1,2;2,3;2,2;2,1;2,0;3,0;3,−1;2,−2;1,−2;−2,−1 |
