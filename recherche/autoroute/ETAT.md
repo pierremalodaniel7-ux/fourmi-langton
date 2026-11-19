@@ -1,9 +1,9 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
 PROCHAINE SÉANCE : S10
-PROCHAINE TÂCHE (S10) : T7 (trois cases éparses). Étapes : (1) étendre `outils/t6_refait.sh` à R-96/R-98 (G1, G2, transport dual) pour
-que T6 soit entièrement reproductible (R-94/R-95 le sont depuis S9, R-116) ; (2) T7 : mesurer le temps d'une base W₂ = blanc + c₁ + c₂
-avec `t1relatif.py`, puis regrouper les 484 bases par « type de sortie » (piste (i) de E2_epars.md) avant de tout lancer. En fond : 5×5 à partir de X5 (voir la
+PROCHAINE TÂCHE (S10) : T7 (trois cases éparses). Étapes : (1) T6 est reproductible pour R-94/95/96/98 (`outils/t6_refait.sh`, R-116) ;
+y ajouter la zone proche (A) de R-93 si ses commandes se retrouvent ; (2) T7 : base W₂ = blanc + c₁ + c₂, essai S9 dans data/t7
+(voir R-117 pour le temps mesuré) ; regrouper les 484 bases par « type de sortie » (piste (i) de E2_epars.md) avant de tout lancer. En fond : 5×5 à partir de X5 (voir la
 ligne É3 ; `cp resultats/box5/*.res data/` puis `nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh C DEBUT 200000 N &` par cœur,
 3 cœurs, 4,5 min par tranche et par cœur).
 Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans E7_contre_attaque.md) ; germes 8–10 cases dans [−2,2]²

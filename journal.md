@@ -635,3 +635,9 @@ R-98, contrôles à la main : (a) pour G2, base −127,100 (T0 = 21 929), `ant m
 (a) pour G1, base pivotée 100,119 (cap G, T0 = 79 678) : 22/22 sans la règle ✓ ; (b) pour G1, c₂ = (−401,−409) :
 s₁ = 68 836 avec p* = 110 (69 356 avec p* = 90 : le journal ne notait pas p*) ✓. T6 : seules les zones proches (A, 683 080 cas)
 et R-97 (assemblage, epars_RD.py) ne sont pas dans le script.
+
+## R-117 T7, premier essai d'une base à 2 cases : W₂ = blanc + (−127,100) + (−429,400) (T0 = 37 543, dérive (−2,2)) ; c₃ loin (k = 900) : 22 classes, 21 prouvées par `ant multi` (pente 52, NS = 0), la classe demi-tour (pente 104) non prouvée (NS = 1, 2, 3, p* de 50 à 400) — OUVERT — 19/11 S9
+`cd data/t7 && python3 ../../recherche/autoroute/outils/relatif.py "-127,100;-429,400" 37543 900 H` : 21 s (machine chargée).
+Échec : `BASE="-127,100;-429,400" T0=37543 ant multi -21 901 210722 NS p…` ; le demi-tour au 3e site roule jusqu'au 2e site, pas au
+germe : les repères de `multi` (identité près du germe) ne collent pas. Il faudra l'astuce « c₃ fixe » de T6 (base = blanc + c₃) ou
+un repère par site. Coût brut T7 (C) : ≈ 20 s × 484 bases ≈ 3 h, plus les demi-tours.
