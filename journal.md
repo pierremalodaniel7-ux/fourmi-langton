@@ -728,3 +728,9 @@ Les 441 restants : variantes « c₃ fixe » (R-124, déjà vérifiées pour 352
 (x + y = −21 à −27 : c₁ à k ≈ 100, c₂ à k ≈ 400, c₃ à k ≈ 900 ; d₂ = d₃ = d) : la fourmi enchaîne les sites sur la même bande.
 `BASE=-128,101 T0=15917 ant multi -27 400 226322 …` : aucune grille NS ≤ 2 (p* jusqu'à 1 500) ne passe (lecture refusée à 31 556 ou
 168 512, la règle « un pas » est sollicitée). Même famille que les « chaînes de demi-tours » de T3 (E2_epars.md, S1) : à traiter à part.
+
+## R-128 Bilan S10 de T7 : (C) 407/484 bases finies, toutes complètes ; chaîne `t7_tout.sh` sur 282 bases (6 204 triplets) : récurrence en k₁ 6 199/6 204, en m 6 196/6 204, toutes recoupées par `ant deux` ; hypothèses du transport à deux étages remplies pour 5 262 — DÉMONTRÉ sous réserve de relecture (familles à un paramètre) / transport OBSERVÉ (décompte) — 19/11 S10
+k₁ : 5 473 « bloc » (5 473 couplages exacts) + 726 « c₃ fixe » (exacts), 5 ECHEC (base 19). m : 5 932 « bloc » + 264 « c₃ fixe » (exacts),
+8 ouverts (bases 18, 24, 46, 68, 105, 135, 147, 178). Transport : K ok & M ok 5 262 ; K non-NS0 & M ok 594 ; les deux non-NS0 214 ; K ok & M non-NS0 109 ;
+K refusé par les directions 25. Audit `deux` de T7 (C) : 5 126/5 126 couplages exacts (233 bases). 5×5 : [0, 16 000 000) certifié sans trou
+(80 tranches dans resultats/box5/), max inchangé 351 374. Bilan : resultats/relatif/t7_bilan_S10.txt.

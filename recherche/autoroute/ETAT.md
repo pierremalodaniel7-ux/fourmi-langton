@@ -12,8 +12,8 @@ Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-82, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-83, E1_certificat.md, `fourmi -cert`
-- [~] É2 Collisions → théorème « épars » — S10 : faille de `multi` corrigée (R-122) ; T7 : (C) 233/484 bases, récurrences k₁ et m 3 559/3 564 (R-123, R-124). S9 : T7 (C) lancé (R-117, R-119, R-120) ; R-94/R-95 refaits à l'identique (R-116, `t6_refait.sh`). S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
-- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S9 : [0, 12 400 000) certifié (+ 2 tranches), max 351 374 (R-118)
+- [~] É2 Collisions → théorème « épars » — S10 : faille de `multi` corrigée (R-122) ; T7 : (C) 407/484 bases, récurrences k₁ 6 199/6 204 et m 6 196/6 204, transport 5 262 (R-122 à R-128). S9 : T7 (C) lancé (R-117, R-119, R-120) ; R-94/R-95 refaits à l'identique (R-116, `t6_refait.sh`). S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
+- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S10 : [0, 16 000 000) certifié, max 351 374 (R-118)
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
 - [~] É6 Germes et bassin à rebours — S10 : 10 cases dans [−2,2]² (R-121). S9 : 6 et 7 cases dans [−2,2]² toutes démontrées (R-114). S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
@@ -36,7 +36,7 @@ Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
-- S10, 19-11, 11:33–12:3x UTC : faille de `ant multi` corrigée (R-122), T7 récurrences k₁ et m (R-124), transport à deux étages (R-125 à R-127), germes 10 cases (R-121) — rapports/S10_2026-11-19.md
+- S10, 19-11, 11:33–12:31 UTC : faille de `ant multi` corrigée (R-122), T7 récurrences k₁ et m (R-124), transport à deux étages (R-125 à R-127), germes 10 cases (R-121) — rapports/S10_2026-11-19.md
 - S9, 19-11, 09:59–10:53 UTC : É8 synthèse, É7 autoroute × trace (R-112–R-115), germes [−2,2]² (R-114), T6 reproductible (R-116), T7 lancé (R-117, R-119), record 5×5 351 374 (R-118) — rapports/S9_2026-11-19.md
 - S8, 18-11, 23:37–00:10 UTC : R-107 à R-110, É6 germes, É7 — rapports/S8_2026-11-18.md
 - S7, 18-11, 21:14–21:47 UTC : É5 boucle gelée, C-L (R-102 à R-104), É6 germes et rebours (R-105, R-106) — rapports/S7_2026-11-18.md
