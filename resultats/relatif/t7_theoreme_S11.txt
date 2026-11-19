@@ -1,0 +1,10 @@
+bases 441 ; classes de triplets 9702 ; DÉMONTRÉES par T7-loin 9441
+  ('DEMONTRE', 'C:ok', 'K:ok', 'M:ok') 7652
+  ('DEMONTRE', 'C:ok', "K':ok", 'M:ok') 1449
+  ('DEMONTRE', 'C:ok', 'K:ok', "M':ok") 191
+  ('DEMONTRE', 'C:ok', "K':ok", "M':ok") 149
+  ('NON', 'C:ok', 'K:non-NS0', 'M:non-NS0') 69
+  ('NON', 'C:ok', 'K:dir', "M':ok") 67
+  ('NON', 'C:ok', 'K:ok', 'M:non-NS0') 54
+  ('NON', 'C:ok', 'K:non-NS0', 'M:ok') 47
+  ('NON', 'C:ok', 'K:non-NS0', "M':ok") 24

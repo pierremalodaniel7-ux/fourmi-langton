@@ -760,3 +760,10 @@ Sur les données S10 : T7-loin passe de 5 929 à 6 057 classes de triplets sur 6
 
 ## R-134 T7 (C) terminé : 484/484 bases W₂ = blanc + c₁ + c₂, chacune avec ses 22 classes de c₃ prouvées par `multi` (10 648 preuves), relatif.py avec p* élargis — DÉMONTRÉ sous réserve de relecture (récurrence en m₃) — 19/11 S11
 Audit `ant deux` : voir R-133 (data/t7/audit_c_all.out).
+
+## R-133 T7-loin appliqué : 9 441 classes de triplets sur 9 702 (441 bases sur 484) démontrées « loin » (pour tous k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀) — DÉMONTRÉ sous réserve de relecture des lemmes T, T' ; audit `deux` de T7 (C) : 10 648/10 648 couplages exacts — 19/11 S11
+Chaîne refaite sur 9 702 triplets (0 désaccord de pas certifié). (K) « bloc » : 8 047 OK, 8 047/8 047 exacts ; (K') « c₃ fixe » : 1 628 OK
+exacts, 27 ECHEC ; (M) « bloc » : 9 254 OK exacts (0 écart) ; (M') : 440 OK exacts. Critères : transport7 (K ok & M ok 7 652), t7_kprime
+1 598/1 628, t7_mprime 431/440. Bilan T7-loin : K & M 7 652 ; K' & M 1 449 ; K & M' 191 ; K' & M' 149 ; non couverts 261 (K et M non NS0 69,
+K refusé par les directions avec M' 67, K ok & M non 54, K non & M 47, K non & M' 24). Les 43 bases restantes (441 à 483) ont (C) prouvé
+et audité mais pas encore la chaîne k₁/m. Fichiers : resultats/relatif/t7_theoreme_S11.txt, t7_theoreme_detail_S11.txt, t7_transport7_S11.txt.
