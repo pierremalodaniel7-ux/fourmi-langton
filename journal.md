@@ -691,3 +691,18 @@ Correction (ant_controle.c) : L_i ≤ pI = plus petit p des cases de l'îlot. Re
   corrigé pour utiliser « c₂ fixe ». T1–T5 : îlots compacts à grand p, non concernés (pI ≥ k ≥ 100 > L).
 - T7 (C) : audit par `ant deux` de chaque preuve (audit_t7c.sh) : voir R-123.
 Leçon : toute preuve `multi` doit être recoupée par `ant deux` (couplage simulé) avant d'être comptée.
+
+## R-123 Audit de T7 (C) par `ant deux` : les 3 300 preuves `multi` des 150 premières bases finies redonnent toutes un couplage exact — VÉRIFIÉ — 19/11 S10
+`recherche/autoroute/outils/audit_t7c.sh 0 484` (BASE, T0, H0 de chaque base) ; sortie data/t7/audit_c.out. Les bases faites après la
+correction R-122 utilisent le `multi` corrigé.
+
+## R-124 T7, récurrences en k₁ et en m (analogue de R-94 pour trois cases) : 3 559/3 564 triplets passent chacune, tous recoupés par `ant deux` (couplage exact) — DÉMONTRÉ sous réserve de relecture (les familles à un paramètre correspondantes) ; 5 + 5 cas OUVERTS — 19/11 S10
+Triplets : `outils/t7_triples.py` (3 564 = 162 bases finies × 22 classes de c₃, pas certifiés recalculés dans le repère d'origine : 0 désaccord).
+- Récurrence en k₁ (îlot {c₁,c₂,c₃} déplacé en bloc le long de d) : `outils/essai_k1_bloc.sh` : 3 207 OK (3 145 NS0, 35 NS1, 27 NS2),
+  3 207/3 207 couplages exacts. 357 ECHEC → « c₃ fixe » (base = blanc + c₃, îlot {c₁,c₂}, `outils/essai_k1_c3fixe.sh`) : 352 OK
+  (348 sans la règle), 352/352 exacts. Restent 5 triplets de la base 19 (c₁ = (−127,100), c₂ = (−422,401), c₃ ≈ (900,1097)) : issue stable
+  et affine en k₁ (pente 312 par Δk₁ = 2, trois traversées) mais aucune grille NS ≤ 3 ne passe. OBSERVÉ.
+- Récurrence en m (base blanc + c₁ pivotée, îlot {c₂,c₃} en bloc le long de la 2ᵉ bande) : `outils/essai_m_bloc.py` : 3 427 OK, tous exacts ;
+  137 ECHEC → « c₃ fixe » (base blanc + c₁ + c₃, îlot c₂, `outils/essai_m_c3fixe.py`) : 132 OK sans la règle, tous exacts. Restent 5 :
+  base 18 (classe de pente 156) et 4 triplets où c₃ est sur la bande de W₁ (la base blanc + c₁ + c₃ n'a plus la dérive (−2,+2)). OUVERT.
+Manque pour T7 : le transport (uniformité, comme R-95/96/98), les zones proches (A) et l'assemblage avec R et D.
