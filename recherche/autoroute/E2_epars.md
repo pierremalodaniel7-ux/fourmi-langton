@@ -212,3 +212,64 @@ profondeur de récursion bornée.
 **Faille trouvée et corrigée** : pour NS impair, le test Z ne vérifiait que p < L_NS, alors que la base exige aussi
 l'accord de la phase NS−2 ; test remplacé par p < L_NS et p < L_{NS−2} (suffisant). Les 3 classes de pente 208 restent OK
 (L₁ = 100 ; L₃ = 64, 62, 100). Le reste de la relecture (preuve écrite du couplage multiple) : séance suivante.
+
+## S3 — Base quelconque : « T1 relatif » (brique de l'automate des sites)
+`ant multi` et `ant deux` acceptent une configuration de base C₀ (variables BASE="x,y;…" en y vers le bas, T0 = instant
+de certification de son autoroute, qui doit avoir la dérive (−2,+2)). D, MPD (borne de p sur D) et les diagonales de D
+sont recalculés pour C₀. Alors « C₀ + une case noire n'importe où » se traite exactement comme T1 :
+(A) zone d'activité de C₀ + début de sa bande, calcul direct ; (B) ailleurs hors bande : certifié à T0 ;
+(C) loin dans la bande : classes, `multi` à la base k₀.
+**T5 (exemple)** : C₀ = îlot {(−56,28),(−54,28),(−54,30)} (le plus lent de T4, T0 = 228 739, MPD = 149, activité dans
+[−93,62]×[−43,115], bande x+y ∈ [90,100]). (C) : 51 diagonales × k = 300…305 (306 calculs) : 22 classes touchées, toutes
+de pente 52 (aucun demi-tour) ; `multi` NS = 0 : 22/22 OK ; `deux` : 22/22 couplages exacts. (A) : voir R-90.
+
+### Plan pour deux îlots loin (pas fait)
+Double récurrence : (i) k₁ fixé (base C₀ = blanc + c₁(k₁)) : T1 relatif donne c₂ partout ; (ii) k₁ → k₁+2 en déplaçant
+{c₁, c₂} ensemble (îlot à grand écart, `multi` accepte des écarts quelconques). Difficulté : (ii) doit valoir pour tous
+les écarts r = c₂ − c₁ ; il faut montrer que les conditions de `multi` à (k₀, r) se transportent de r à r + d₂
+(couplage le long de la 2e autoroute). Si d₂ ⟂ d, p est constant le long de la 2e bande : piste prometteuse.
+
+## S4 — Deux cases : la 1re à distance fixe (k = 100/101, ses 22 classes), la 2e n'importe où
+Pour chacune des 22 positions c₁ de T1 à k = 100/101 (celles qui touchent l'autoroute), base C₀ = blanc + c₁
+(T0 = son certificat). Les 13 bases dont l'autoroute tourne sont **pivotées d'un quart de tour** (fourmi au départ en
+cap D, B ou G : variable H0 pour `ant`, 4e argument de `relatif.py`) pour ramener la dérive à (−2,+2).
+- (C) loin dans la nouvelle bande (k₂ ≥ 400) : 22 × 22 = 484 classes, **484/484 preuves `multi`**, 484/484 couplages exacts
+  (`deux`). Sur 13 bases, 1 classe demi-tour qui revient au 1er site (p* ≥ 300) ; 7 bases sans demi-tour.
+- (A) zone d'activité de la base + bande jusqu'à k₂ < 400 : 9 bases non pivotées 264 470/264 470 certifiées (plus lent :
+  c₁ = (−121,101), c₂ = (−144,104), 181 641) ; 13 bases pivotées : voir R-93.
+- (B) ailleurs : certifié à T0.
+Reste pour « deux cases loin » en général : faire varier aussi k₁ (double récurrence, cf. S3).
+
+### S4 — Double récurrence : état
+- Récurrence en k₂ à k₁ fixé : R-91/R-93 (toutes les classes, k₁ = 100/101).
+- Récurrence en k₁ à écart fixé : R-94 (968 cas, tous OK). Deux paramétrages selon c₁ : îlot {c₁, c₂} déplacé en bloc
+  (l'autoroute sortante bouge avec c₁), ou c₂ fixe en base (c₁ = demi-tour : l'autoroute repart du germe).
+- Manque : l'uniformité (les conditions de l'une des deux récurrences doivent valoir pour toutes les valeurs de l'autre
+  paramètre). Idée : exprimer les conditions de la récurrence en k₂ sur X(k₁+2, ·) à partir de X(k₁, ·) via le couplage
+  en k₁ (p augmente de 4 sur les segments « translation », inchangé sur les segments « identité », diagonales conservées),
+  et montrer que chaque inégalité est préservée. Point délicat : la borne MPD de la base (blanc + c₁) augmente avec k₁.
+
+## Théorème T6 (S5) : deux cases noires éparses — DÉMONTRÉ sous réserve de relecture (les 2 paires d'abord exclues sont traitées par R-98)
+Départ blanc + deux cases noires c₁, c₂ avec |c₁|, |c₂| ≥ **R = 417** et |c₁ − c₂| ≥ **D = 545** (norme max(|x|,|y|)).
+Alors la fourmi construit l'autoroute 104 pour toujours — sauf peut-être si (c₁, c₂), après échange éventuel, est dans l'une
+des 2 paires de classes non démontrées de R-96 (OBSERVÉES) : c₁ dans la classe du demi-tour (j = −19, k pair) avec c₂ dans la
+classe de (−401,−409) ; c₁ dans la classe j = −27, k pair, avec la classe de c₂ en NS = 2.
+*Preuve (cas).* Bande de départ : diagonales x+y ∈ [−28,−18] ; |c| ≥ R ⇒ hors du germe (la fourmi blanche reste dans
+[−21,29]×[−22,22] avant 10 185) et, sur la bande, k ≥ 100.
+1. Aucune case sur la bande de départ : certifié à 9 977 (argument (B) de T1).
+2. Sinon, c₁ = la case de la bande touchée la première (k₁ ≥ 100, une des 22 classes). Base W = blanc + c₁, certifiée à T0(k₁)
+   (T1). Les cases que W touche avant T0+104 sont : le germe, la bande de départ avant c₁, la zone du 1er site (translatée
+   avec k₁ ; à distance < D_i ≤ 544 de c₁) et, pour la classe du demi-tour, une zone fixe près du germe (|·| ≤ 416).
+   - c₂ hors de tout cela et hors de la 2e bande Z₂ : W + c₂ est certifiée à T0 (argument (B) relatif à W).
+   - c₂ dans Z₂ : comme |c₂ − c₁| ≥ D (ou |c₂| ≥ R pour le demi-tour, dont Z₂ part du germe), c₂ est dans la partie lointaine
+     (paramètre ≥ 400) : R-95/R-96 (double récurrence) s'applique, sauf les 2 paires ci-dessus.
+   - c₂ sur la bande de départ avant c₁ : contredit le choix de c₁.
+R et D calculés par `outils/epars_RD.py` (maximum sur les 22 classes). Contrôle : 300 paires tirées au hasard dans le domaine
+(moitié avec c₁ sur la bande et c₂ sur des diagonales voisines) : 300/300 certifiées.
+
+### S5 — Plan pour trois cases éparses (T7)
+Même assemblage que T6, un cran plus haut : base W₂ = blanc + c₁ + c₂ (régime lointain de T6), c₃ loin dans la bande de
+l'autoroute finale de W₂ (classes : ≈ 22 par base), puis transport en k₁, m et m₃. Coût brut : 484 bases × `relatif.py`
+(≈ 1 min chacune) ≈ 8 h de calcul pour la partie lointaine, plus les zones proches. Pistes pour réduire : (i) beaucoup de bases
+ont la même autoroute finale à translation près (même classe de sortie) : regrouper par « type de sortie » ; (ii) n'utiliser
+que des p et des diagonales (pas la règle), pour que le transport marche à chaque étage. Indice : R-100 (300/300 triplets).

@@ -4938,5 +4938,265 @@
   "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
   "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
   "source": "S2 autoroute 18/11, fourmi -cert ; ant multi"
+ },
+ {
+  "id": "A-T5",
+  "b": 14,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Une case de plus sur l'îlot le plus lent",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-56,28;-54,28;-54,30;-56,78",
+  "img": [
+   340000,
+   ""
+  ],
+  "situation": "Base C₀ = l'îlot 3×3 le plus lent (autoroute certifiée à 228 739) + une case noire en (−56,78).",
+  "deroulement": "Théorème T5 (exemple) : C₀ + une case noire n'importe où mène à l'autoroute. Cette case-ci donne le plus long transitoire de la zone calculée.",
+  "mesures": "Certifié dès 333 741.",
+  "statut": "DÉMONTRÉ (R-90, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S3 autoroute 18/11, fourmi -cert ; ant multi (BASE)"
+ },
+ {
+  "id": "A-2C",
+  "b": 14,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases loin : demi-tour au 2e site",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-127,101;-419,400",
+  "img": [
+   115000,
+   ""
+  ],
+  "situation": "Départ blanc + une case en (−127,101) (l'autoroute repart tout droit, décalée) + une 2e case loin dans la nouvelle bande.",
+  "deroulement": "La nouvelle autoroute heurte la 2e case, fait demi-tour sur sa trace jusqu'au 1er site, puis repart. Démontré pour toutes les positions lointaines de la 2e case (k ≥ 400), avec la 1re case fixée.",
+  "mesures": "Certifié dès 110 898.",
+  "statut": "DÉMONTRÉ partie lointaine (R-91, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S3 autoroute 18/11, fourmi -cert ; ant multi (BASE)"
+ },
+ {
+  "id": "A-2CL",
+  "b": 15,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases : la plus lente",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-119,100;7,-19",
+  "img": [
+   270000,
+   ""
+  ],
+  "situation": "Départ blanc + la case du demi-tour (−119,100) + une 2e case en (7,−19).",
+  "deroulement": "Théorème R-93 : avec la 1re case dans l'une des 22 positions de T1 (distance 100/101), la 2e case n'importe où mène à l'autoroute. Cette paire est la plus lente des 683 080 cas proches calculés.",
+  "mesures": "Certifiée dès 264 331.",
+  "statut": "DÉMONTRÉ (R-93, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S4 autoroute 18/11, fourmi -cert ; ant multi (BASE, H0)"
+ },
+ {
+  "id": "A-2CB",
+  "b": 15,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases : la 2e loin, demi-tour au 2e site",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-127,101;-419,400",
+  "img": [
+   115000,
+   ""
+  ],
+  "situation": "Départ blanc + (−127,101) + (−419,400).",
+  "deroulement": "La 2e autoroute heurte la 2e case, revient au 1er site puis repart. Famille démontrée : la 2e case n'importe où loin (R-93) et la paire déplacée en bloc le long de l'autoroute (R-94).",
+  "mesures": "Certifiée dès 110 898 ; +104 pas par case d'éloignement de la 2e case.",
+  "statut": "DÉMONTRÉ (R-93, R-94, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S4 autoroute 18/11, fourmi -cert ; ant multi (BASE, H0)"
+ },
+ {
+  "id": "A-T6",
+  "b": 16,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Deux cases éparses",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-889,870;1766,-1747",
+  "img": [
+   165000,
+   ""
+  ],
+  "situation": "Départ blanc + deux cases noires loin de l'origine (≥ 417) et loin l'une de l'autre (≥ 545).",
+  "deroulement": "Théorème T6 : toute paire de cases ainsi éparpillée mène à l'autoroute. Celle-ci est la plus lente d'un tirage de 300 paires : l'autoroute heurte la 1re case, repart, puis passe loin de la 2e.",
+  "mesures": "Certifiée dès 159 758.",
+  "statut": "DÉMONTRÉ (R-97, R-98, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S5 autoroute 18/11, fourmi -cert ; ant multi, outils/transport.py"
+ },
+ {
+  "id": "A-DUAL",
+  "b": 16,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "La dernière paire : demi-tour puis 2e case",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-119,100;-401,-409",
+  "img": [
+   200000,
+   ""
+  ],
+  "situation": "Départ blanc + la case du demi-tour (−119,100) + une 2e case sur l'autoroute qui repart du germe.",
+  "deroulement": "L'autoroute fait demi-tour sur la 1re case, revient au germe, repart à 90° et heurte la 2e case. C'est l'une des 2 paires qui ont demandé le « transport dual » (R-98).",
+  "mesures": "Certifiée dès 193 256.",
+  "statut": "DÉMONTRÉ (R-98, à faire relire)",
+  "interet": "Preuve, pas seulement simulation : certificat d'autoroute (R-83).",
+  "deja": "Pas trouvé (conjecture générale ouverte ; recherche 18/11)",
+  "source": "S5 autoroute 18/11, fourmi -cert ; ant multi, outils/transport.py"
+ },
+ {
+  "id": "A-R8",
+  "b": 17,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Record 8×8 trouvé",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "1,0;3,0;0,-1;2,-1;3,-1;6,-1;7,-1;2,-2;4,-2;2,-3;3,-3;4,-3;0,-4;1,-4;1,-6;0,-7",
+  "img": [
+   225000,
+   ""
+  ],
+  "situation": "Boîte 8×8 (fourmi au coin, cap haut) : le record 5×5 connu + 4 cases trouvées par montée de colline.",
+  "deroulement": "Le plus long chaos trouvé avant l'autoroute dans une boîte 8×8 (minorant ; la recherche locale est faible).",
+  "mesures": "Autoroute certifiée dès 220 334 (2e moteur : période dès 220 333).",
+  "statut": "DÉMONTRÉ pour cette configuration ; record OBSERVÉ (R-101)",
+  "interet": "Courbe record(n) du transitoire (É4).",
+  "deja": "Pas trouvé ; article MFCS 2026 sur le temps d'échappement non lu",
+  "source": "S6 autoroute 18/11, outils/colline.py"
+ },
+ {
+  "id": "A-TMP",
+  "b": 18,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Autoroute temporaire",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "1,0;3,0;0,-1;2,-1;3,-1;2,-2;4,-2;2,-3;3,-3;4,-3;0,-4;1,-4",
+  "img": [
+   128900,
+   ""
+  ],
+  "situation": "Le record 5×5 (fourmi au coin, cap haut) : image au pas 128 900, juste après la cassure.",
+  "deroulement": "Vers t ≈ 127 800 la fourmi lance une autoroute 104 qui tient 1 054 pas (≈ 10 périodes), puis la brise sur la tache ; le chaos reprend jusqu'à l'autoroute définitive (209 637). La boucle gelée L(t) imite la suite de l'autoroute nue pendant 758 pas, seulement pendant cette plage.",
+  "mesures": "Plage périodique t ≈ 127 798–128 852 ; autoroute définitive certifiée dès 209 637.",
+  "statut": "VÉRIFIÉ (calcul exact) ; illustre la conjecture C-L (R-103)",
+  "interet": "Observable locale qui détecte l'autoroute (É5).",
+  "deja": "Pas trouvé",
+  "source": "S7 autoroute 18/11, ./ant imite 5 4084138 209637"
+ },
+ {
+  "id": "A-G11",
+  "b": 18,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Bout d'autoroute minimal (11 cases), démontré",
+  "regle": "RL",
+  "fourmis": "0,0,B",
+  "points": "0,1;1,2;2,3;2,2;2,1;2,0;3,0;3,-1;2,-2;1,-2;-2,-1",
+  "img": [
+   600,
+   ""
+  ],
+  "situation": "Fourmi en (0,0) cap bas + les 11 cases du germe minimal de R-20.",
+  "deroulement": "L'autoroute démarre au pas 0 ; le certificat la démontre pour toujours. Dans le passé (dynamique inverse) : 4 426 pas de chaos puis une autoroute à rebours.",
+  "mesures": "CERT 0 ; passé : autoroute à rebours après 4 426 pas.",
+  "statut": "DÉMONTRÉ (R-105) ; passé OBSERVÉ (R-106)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S7 autoroute 18/11, fourmi -c0 0 ; outils/rebours.py"
+ },
+ {
+  "id": "A-G4",
+  "b": 19,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Germe 4 cases le plus rapide",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-4,-1;-2,1;-1,2;0,3",
+  "img": [
+   600,
+   ""
+  ],
+  "situation": "Fourmi en (0,0) cap haut + 4 cases noires.",
+  "deroulement": "Le plus court chaos possible avec 4 cases noires dans [−4,4]².",
+  "mesures": "Certifié dès 67 (exact dans [−4,4]²).",
+  "statut": "DÉMONTRÉ (R-108)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S8 autoroute 19/11, fourmi -cert -lot (exhaustif)"
+ },
+ {
+  "id": "A-G5",
+  "b": 19,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Germe 5 cases le plus rapide",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-3,1;-2,0;-1,-1;-1,1;1,-3",
+  "img": [
+   600,
+   ""
+  ],
+  "situation": "Fourmi en (0,0) cap haut + 5 cases noires.",
+  "deroulement": "Le plus court chaos possible avec 5 cases noires dans [−3,3]².",
+  "mesures": "Certifié dès 62 (exact dans [−3,3]²).",
+  "statut": "DÉMONTRÉ (R-110)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S8 autoroute 19/11, fourmi -cert -lot (exhaustif)"
+ },
+ {
+  "id": "A-P8",
+  "b": 19,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Ping-pong : 8 renversements",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-11,-4;26,-13;7,28;47,30;-13,25;46,-1;-18,56;67,-45",
+  "img": [
+   140000,
+   ""
+  ],
+  "situation": "Fourmi en (0,0) cap haut + 8 cases noires.",
+  "deroulement": "8 cases posées une à une, chacune renversant la direction finale de l'autoroute (É7).",
+  "mesures": "Certifié dès 136 818.",
+  "statut": "DÉMONTRÉ pour cette configuration ; méthode OBSERVÉE (R-109)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S8 autoroute 19/11, fourmi -cert -lot (exhaustif)"
+ },
+ {
+  "id": "A-R5",
+  "b": 19,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Record 5×5 (exhaustif partiel)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "0,0;1,0;2,0;0,-1;0,-2;2,-2;3,-2;0,-3;1,-3;4,-3;1,-4;2,-4",
+  "img": [
+   255000,
+   ""
+  ],
+  "situation": "Boîte 5×5, fourmi au coin (0,0) cap haut, 12 cases noires (masque 6927399).",
+  "deroulement": "Le plus long chaos parmi les 9,2 M premières boîtes 5×5 (sur 33,5 M) ; dépasse le record 8×8 trouvé par montée de colline.",
+  "mesures": "Certifiée dès 252 046 (2e moteur : début 252 046).",
+  "statut": "DÉMONTRÉ pour cette configuration ; record OBSERVÉ (R-111)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S8 autoroute 19/11, outils/box5_fond.sh ; ant une 5 6927399"
  }
 ]

@@ -438,3 +438,149 @@ difficiles, pas certifié prédit par la formule affine à k = 2 000/2 001 puis 
 avec la branche lucid-clarke : renumérotées R-82 (contrôle croisé), R-83 (certificat), R-84 (boîtes 3×3/4×4), R-85 (T1 A-B),
 R-86 (T1 translation), R-87 (T1 complet), partout dans le dépôt. R-75 à R-81 inchangés. Bestiaires : fiches autoroute S1 → n° 12,
 S2 → n° 13.
+
+## R-88 Contrôle direct « deux mondes » des couplages — VÉRIFIÉ (calcul exact) — 18/11 S3
+`./ant deux J K CE NS s1..sNS offsets` simule X_k et X_{k+2} et vérifie pas à pas (de 9 977 à CE+104) qu'au temps
+t + 104(i+1) la fourmi de X_{k+2} est en a_k(t) (+d si i pair), même cap, même couleur lue. Résultats : 45/45 classes
+aller-retour (NS = 2, 3), 423/423 demi-tours où `multi` dit OK, 300/300 translations tirées au hasard : couplage EXACT.
+Contrôles négatifs : sans changement de repère, ou changement trop tard → écart détecté ; les 2 demi-tours où `multi`
+échoue (p* mal choisi) montrent aussi un écart. Le vérificateur `multi` n'a donc jamais dit OK à tort sur ces 768 cas
+(ce contrôle porte sur k₀ → k₀+2 ; la récurrence reste celle de `multi`). Outil : `outils/deux_mondes.sh`.
+
+## R-89 Lacune de `pmin` (direction finale −d) trouvée et comblée ; T4 tient — DÉMONTRÉ (sous réserve de relecture) — 18/11 S3
+`pmin` (S1) ne vérifiait pas la direction finale ; si l'autoroute finale part en −d, sa bande Z descend en p et peut
+traverser D. Nouvelle condition (dans `ant multi` NS = 0) : direction −d ⇒ diagonales x+y de la fenêtre finale hors de
+celles de D (d conserve x+y) ; sinon p > MPD−4. Recensement : T1, T2, T3 n'ont AUCUNE translation finissant en −d (résultats
+inchangés) ; T4 en a 92. `multi` NS = 0 sur les 10 690 translations de T4 (bases 100/101 et 200/201) : toutes OK
+(les 5 échecs à la base 100 sont les classes déjà reprises à la base 200). Aussi corrigé : NS = 0 lisait HV[−2] (bug).
+
+## R-90 T5 : « C₀ + une case noire n'importe où » pour une base C₀ quelconque certifiée — exemple DÉMONTRÉ (sous réserve de relecture) — 18/11 S3
+`ant multi`/`deux` acceptent une base (BASE, T0). Exemple C₀ = {(−56,28),(−54,28),(−54,30)} (T0 = 228 739, MPD = 149) :
+(A) [−100,70]×[−50,125] ∪ bande x+y ∈ [70,120], y < 300 : 39 429/39 429 certifiées (plus rapide 310 avec (0,−2), plus lent
+333 741 avec (−56,78)) ; (B) hors zone et hors bande : certifié à T0 ; (C) 22 classes (x+y ∈ [90,100]), toutes de pente 52,
+`multi` 22/22, `deux` 22/22. Commande : `BASE="-56,28;-54,28;-54,30" T0=228739 ./ant multi J K CE 0`. Détails : E2_epars.md (S3).
+
+## R-91 Deux cases loin, 1re case fixée : la 2e n'importe où loin dans la nouvelle bande — DÉMONTRÉ (partie lointaine, sous réserve de relecture) — 18/11 S3
+Pour les 9 positions de c₁ (k = 100/101) dont l'autoroute repart en (−2,+2) : base C₀ = blanc + c₁ ; `outils/relatif.py`
+trouve 22 classes par base (21 translations, 1 demi-tour qui revient au 1er site) : 198/198 preuves `multi` OK (seuils p*
+au-dessus de la zone D de la base, ≥ 300 pour le demi-tour), 198/198 couplages exacts (`deux`). Zone proche (A) des 9 bases
+(264 470 cas) : lancée en fin de S3, résultat en S4. Résultats : resultats/relatif/.
+
+## R-92 Faille du point 2 du lemme 3 (cases hors Δ) corrigée ; T1–T4 revérifiés — DÉMONTRÉ (sous réserve de relecture) — 18/11 S4
+« Hors des diagonales Δ_i : blanches partout » est faux pour les cases du germe (touchées avant T0, sur d'autres
+diagonales). Correct : repère identité (i impair) → ces cases valent la même chose dans les deux mondes (même germe, jamais
+retouchées) : Δ_i d'origine suffit ; repère translation (i pair) → il faut aussi exclure les diagonales de D (germe, base).
+`ant multi` corrigé (Δ_i ⊇ diagonales de D pour i pair). Revérification complète : 439/439 demi-tours (T1–T4, p* recherché,
+`outils/preuves_demitours_S4.txt`), 42/42 triples, 3/3 quadruples, 10 690 translations (NS = 0, déjà avec D en S3) : tout OK.
+
+## R-93 Deux cases noires : la 1re dans l'une des 22 classes de T1 à k = 100/101, la 2e n'importe où → autoroute 104 pour toujours — DÉMONTRÉ (sous réserve de relecture) — 18/11 S4
+Base C₀ = blanc + c₁ (13 bases pivotées d'un quart de tour, cap initial D/B/G, pour ramener la dérive à (−2,+2)).
+(C) 22 × 22 = 484 classes de c₂ lointaines : 484/484 `multi` + 484/484 couplages exacts (`deux`). (A) zones proches :
+264 470 + 418 610 = 683 080 cas, tous certifiés. (B) direct. Plus lent : c₁ = (−119,100) (le demi-tour), c₂ = (7,−19) :
+264 331 ; puis c₁ = (−121,101), c₂ = (−144,104) : 181 641. Outils : `outils/relatif.py "BASE" T0 K2 CAP`, H0 pour `ant`.
+Fichiers : resultats/relatif/ (bases9.txt, bases13.txt, preuves rel_*.txt / rel13_*.txt).
+
+## R-94 Deux cases loin : récurrence en k₁ (la 1re case s'éloigne aussi) — 968 familles à un paramètre DÉMONTRÉES ; double récurrence OUVERTE — 18/11 S4
+Pour les 22 classes de c₁ × 22 classes de c₂ × 2 écarts (k₂ = k₀, k₀+20), on vérifie avec `ant multi` les conditions de la
+récurrence k₁ → k₁+2 : 908 en NS = 0, 50 en NS = 1, 2 en NS = 2 (îlot {c₁, c₂} déplacé en bloc le long de d). Les 8 cas
+restants (c₁ = demi-tour) demandent de garder c₂ FIXE (l'autoroute repart du germe, indépendante de k₁) : c₂ mis en base
+(BASE = c₂, T0 = 9 977), îlot c₁ seul, NS = 1 : 8/8 OK. Chaque cas vérifié prouve la famille « k₁ ≥ 100 » à écart fixé.
+Ce qui manque pour le théorème « deux cases loin » complet : montrer que ces conditions valent pour TOUS les écarts k₂
+(uniformité, vue ici sur 2 à 4 valeurs). Outils : `outils/essai_k1.sh`, resultats/relatif/recurrence_k1.txt.
+(R-94, complément) Uniformité en k₂, test : 30 paires de classes tirées au hasard × 11 écarts (k₂ = k₀ … k₀+200, pas 20) :
+330/330 configurations certifiées, et la récurrence en k₁ passe pour les 330 (NS = 0 partout). OBSERVÉ (pas une preuve).
+
+## R-95 Deux cases LOIN (les deux distances variables) : 454 paires de classes sur 484 — DÉMONTRÉ (sous réserve de relecture) — 18/11 S5
+Lemme de transport (E2b_couplage.md, S5) : la condition NS = 0 de la récurrence en k₁ se transporte de m à m+1 par les repères
+de la récurrence en m (R-93), quand d₂ = d ou d₂ ⟂ d (p ne diminue pas). D'où : pour 454 des 484 paires (classe de c₁, classe de
+c₂), toute position k₁ ≥ k₀, m ≥ m₀ mène à l'autoroute pour toujours. Restent 30 paires : 25 + 1 dont la récurrence en k₁
+change de repère (NS = 1, 2), 4 à « c₂ fixe » (c₁ = demi-tour). Contrôle : 40/40 prédictions exactes à (k₀+40, m₀+10).
+Outil : `outils/transport.py` ; résultats : resultats/relatif/transport.txt.
+
+## R-96 Deux cases loin : 28 paires de plus (récurrence en k₁ avec changement de repère) — 482/484 DÉMONTRÉES (sous réserve de relecture) — 18/11 S5
+`ant multi` compte maintenant par quel critère chaque lecture est acceptée (fenêtre, hors Δ, p, règle « un pas »). Sans la
+règle, la vérification se transporte en m (E2b_couplage.md, S5). G1 (c₁ = demi-tour, c₂ fixe en base) : 21/22 sans la règle ;
+G2 (d₂ = d) : 7/8. Avec R-95 : 454 + 28 = 482 paires sur 484. Restent OBSERVÉES : c₁ = (−119,100) avec c₂ = (−401,−409)
+(règle utilisée 50 fois) et c₁ = (−127,100) en NS = 2 (règle 72 fois).
+(R-96, vérifications) G1 : les lectures acceptées « hors Δ » APRÈS le 1er contact avec c₂ ont des diagonales ≤ −746, sous
+Δ₁ = [−82, 56] : elles s'en éloignent quand c₂ glisse (x+y −4 par pas) ; pour c₂ = (−401,−409) elles vont jusqu'à +102 →
+reste OBSERVÉE (même avec p* = 110, sans règle). G2 : après s₁, max p = 96 ≪ p(c₂) ≈ 820 : aucune lecture de phase 1 près
+de c₂. Bilan inchangé : 482/484.
+
+## R-97 Théorème T6 : deux cases noires éparses (|cᵢ| ≥ 417, |c₁−c₂| ≥ 545, norme max) → autoroute pour toujours — DÉMONTRÉ sous réserve de relecture, sauf 2 paires de classes (OBSERVÉES) — 18/11 S5
+Assemblage de T1 (c₁ seule), de l'argument (B) relatif à la base blanc + c₁, et de R-95/96 (deux cases loin). R et D
+calculés sur les 22 classes (`outils/epars_RD.py` : D = 544 atteint pour c₁ = (−128,100) ; R = 417 pour la classe du
+demi-tour, dont la 2e bande part du germe). Contrôle : 300/300 paires aléatoires du domaine certifiées. Détails : E2_epars.md.
+
+## R-98 Transport dual : les 2 dernières paires → 484/484 ; T6 (deux cases éparses) SANS exception — DÉMONTRÉ (sous réserve de relecture) — 18/11 S5
+Pour les 2 paires restantes, c'est la vérification de la récurrence en m (a), sans la règle « un pas », qu'on transporte le
+long de k₁ par les repères de (b), prouvée à m₀ seulement. Détails : E2b_couplage.md. Contrôle : 6/6 prédictions exactes.
+D'où R-95/96/98 : 484/484 paires de classes, et T6 : |c₁|, |c₂| ≥ 417, |c₁ − c₂| ≥ 545 ⇒ autoroute pour toujours.
+(R-98, vérifications de chronologie) G2 (c₁ = (−127,100)) : changement de repère de (a) à t = 101 288, avant celui de (b)
+(106 488 ; 2e à 115 872). G1 (c₁ = (−119,100), c₂ = (−401,−409)) : (b) passe en repère identité à 68 836, avant le 1er
+contact avec c₂ (99 410). Les deux hypothèses du transport dual sont donc vérifiées.
+
+## R-99 Outil « T1 relatif » complet ; exemple : domino le plus lent + une case n'importe où — DÉMONTRÉ (sous réserve de relecture) — 18/11 S5
+`outils/t1relatif.py "BASE" CAP [K2]` fait (A) + (C) pour une base déjà pivotée (dérive (−2,+2)). Base {(−29,11),(−29,12)}
+pivotée (cases (−11,−29),(−12,−29), cap D), T0 = 117 736 : (C) 22/22 classes (toutes de pente 52) + 22/22 couplages exacts ;
+(A) 20 793/20 793 certifiées (plus lent 298 348) ; (B) direct. Brique pour « trois cases éparses ».
+
+## R-100 Trois cases éparses (|cᵢ| ≥ 417, écarts ≥ 545) : 300/300 triplets aléatoires certifiés — OBSERVÉ — 18/11 S5
+Tirage : chaque case sur la bande de départ (k ∈ [417, 1 500]) avec probabilité 0,4, sinon uniforme dans [−3 000, 3 000]².
+Le plus lent : 216 750. Indice pour un théorème T7 « trois cases éparses » (même assemblage que T6, bases à deux cases).
+(É3, S5) 5×5 : [4 000 000, 6 000 000) certifiées ; tout [0, 6 000 000) est certifié ; nouveau max 209 637 (tranche 4,0–4,2 M).
+
+## R-101 Transitoires extrêmes (É4), boîtes n×n : record(8) ≥ 220 334, record(n+1) ≥ record(n) — OBSERVÉ (minorants ; chaque configuration trouvée est DÉMONTRÉE par certificat) — 18/11 S6
+Montée de colline (`outils/colline.py`), graines par recopie au coin. Résultats : 6×6 185 471 sans graine ; 5×5 136 663
+seulement (l'exhaustif partiel a 209 637) ; 8×8 220 334 (= record 5×5 + 4 cases), confirmé par `ant une` (220 333, début de
+période). 0 NONCERT. Méthode faible sur ce paysage. Détails : recherche/autoroute/E4_transitoires.md, graphe resultats/records_transitoire.png.
+Littérature : article MFCS 2026 (temps d'échappement) non lu (arxiv.org inaccessible).
+
+## R-102 Boucle gelée sur l'autoroute nue : suite périodique (104), 34 valeurs, max 152 ; boucle à ≤ 11 cases de la fourmi — VÉRIFIÉ (calcul exact) ; corrige l'acquis « L ≤ 112 » — 18/11 S7
+Près du germe L monte à 172 ; juste après le début d'autres autoroutes jusqu'à 4 072 ; L est toujours ≡ 0 mod 4. Aucun seuil
+sur L ne sépare chaos et autoroute (chaos : L de 4 à 1 388). Commande : `./ant obs N MASQUE DEBUT TFIN PAS`.
+
+## R-103 Conjecture C-L : si L(t) imite la suite de l'autoroute nue pendant 104 pas, la fourmi construit une autoroute — OBSERVÉ (4 612 configurations) — 18/11 S7
+Hors des plages d'autoroute (trace périodique ≥ 104 pas), imitation ≤ 49 pas ; autoroute temporaire de 1 054 pas trouvée dans le
+record 5×5 (imitation 758 pas, pendant la plage) ; calage final de −4 à +623 pas après le début. Commande : `./ant imite N MASQUE DEBUT`.
+Détails : recherche/autoroute/E5_observables.md ; données : resultats/imite_campagne.txt.
+(R-103, complément) 700 configurations diverses (T1, deux cases loin, îlots 3×3 ; 302 avec autoroute temporaire) : imitation
+hors autoroute ≤ 83 pas ; le max est atteint juste APRÈS la cassure d'une autoroute temporaire (la boucle locale ne voit pas
+encore le choc). C-L tient (83 < 104) mais la marge est mince ; variante à 208 pas proposée. Données : resultats/imite_divers.txt.
+
+## R-104 Statistiques du transitoire, boîtes aléatoires — OBSERVÉ — 18/11 S7
+6 800 000 boîtes 5×5 certifiées (exhaustif partiel) : pas certifié médian dans [2 048, 4 096) ; 15,2 % ≥ 8 192 ; 4,8 % ≥ 16 384 ;
+0,05 % ≥ 65 536 (le départ blanc, 9 977, est donc parmi les ≈ 15 % les plus lents). Régression : corrélation nulle entre le nombre
+de cases noires et log(transitoire) (r² = 0,000 en 5×5 sur 800 boîtes aléatoires ; 0,005 en 6×6 sur 300).
+(R-103, grande échelle) Les 65 536 boîtes 4×4 : imitation hors autoroute ≤ 73, calage de −34 à +940 pas, 6 autoroutes temporaires ;
+5 968 îlots/paires : ≤ 89 ; 491 configurations éparses : ≤ 22. Total ≈ 74 300 configurations distinctes : C-L tient (max 89 < 104).
+
+## R-105 Germes (É6) : transitoire minimal en fonction du nombre de cases ; germe R-20 certifié dès 0 ; 1 à 3 cases dans [−5,5]² toutes certifiées — DÉMONTRÉ (cas cités) / bornes OBSERVÉES — 18/11 S7
+k = 0…11 : 9 977, 310, 162, 126 (exacts dans [−5,5]², k ≤ 3), ≤ 114, ≤ 106 (faisceau), ≤ 69, ≤ 61, ≤ 55, ≤ 44, ≤ 38 (sous-ensembles
+du germe de R-20), 0 (germe de R-20, CERT 0 : autoroute pour toujours, DÉMONTRÉ). 288 100 configurations à ≤ 3 cases dans [−5,5]² :
+toutes certifiées (max 161 286). Détails : recherche/autoroute/E6_germes.md ; graphe resultats/germes_transitoire_min.png.
+
+## R-106 Dynamique inverse : passé du départ blanc (autoroute à rebours dès 10 081 = 9 977 + 104), passé du germe minimal (4 426 pas de chaos), 200/200 boîtes aléatoires ont une autoroute à rebours — OBSERVÉ — 18/11 S7
+Outil : `recherche/autoroute/outils/rebours.py` (pas inverse exact, aller-retour contrôlé). Probablement lié à une symétrie connue
+(réversibilité de la fourmi) : à vérifier dans la littérature. Détails : E6_germes.md.
+
+## R-107 Explication de R-106 : le passé = le futur de la fourmi retournée — DÉMONTRÉ (calcul direct, sans doute connu) — 18/11 S8
+Le pas inverse (revenir en a−dir(h), retourner la case, tourner selon sa couleur) est exactement un pas direct de la fourmi placée
+en a−dir(h) avec le cap h+2 (la couleur avant retournement donne le même virage ; reculer = avancer avec le cap opposé). Donc le
+passé d'une configuration est le futur de la même grille avec la fourmi retournée ; « toute configuration a une autoroute à rebours »
+est équivalent à la conjecture. Vérifié : 60/60 boîtes aléatoires, positions et grilles identiques sur 3 000 pas.
+
+## R-108 Germes à 4 cases : toutes les configurations de 4 cases dans [−4,4]² (1 581 580) construisent l'autoroute — DÉMONTRÉ (certificat) ; transitoire minimal à 4 cases dans [−4,4]² = 67 — 18/11 S8
+Plus court : −4,−1;−2,1;−1,2;0,3 (cap H) → 67 pas (la borne de S7 était 114) ; plus long : −3,−1;−3,0;−2,4;2,−2 → 149 266.
+
+## R-109 É7, « ping-pong le plus court » : 8 renversements successifs avec 8 cases dans une boîte de rayon 67 (certifié à 136 818), puis plus de case renversante proche — OBSERVÉ — 18/11 S8
+Méthode gloutonne `outils/pingpong.py` (case la plus proche devant la fourmi qui renverse la direction finale). Pas de décor fini
+qui occupe la fourmi indéfiniment ; explication de l'échec et pistes : recherche/autoroute/E7_contre_attaque.md.
+
+## R-110 Germes à 5 cases : toutes les configurations de 5 cases dans [−3,3]² (1 712 304) construisent l'autoroute — DÉMONTRÉ ; transitoire minimal à 5 cases dans [−3,3]² = 62 — 18/11 S8
+Plus court : −3,1;−2,0;−1,−1;−1,1;1,−3 → 62 ; plus long : −3,0;−2,−3;0,2;1,−2;1,2 → 186 217. Détails : E6_germes.md.
+
+## R-111 Boîtes 5×5 : [0, 9 200 000) certifiées (27 % des 33,5 M) ; nouveau max 252 046 — DÉMONTRÉ pour ces boîtes ; record(n) ≥ 252 046 pour n ≥ 5 — 19/11 S8 (fin)
+Record : cases 0,0;1,0;2,0;0,−1;0,−2;2,−2;3,−2;0,−3;1,−3;4,−3;1,−4;2,−4 (fourmi 0,0,H, masque 6927399) : certifié à 252 046 ;
+2ᵉ moteur `ant une 5 6927399` : début 252 046. Il dépasse le record 8×8 de R-101 (220 334) ; par recopie au coin, record(n) ≥ 252 046
+pour tout n ≥ 5 (OBSERVÉ, minorant). Tranches : resultats/box5/.

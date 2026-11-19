@@ -50,8 +50,24 @@ static Res run(long maxs, int x0,int y0,int bx0,int by0,int bx1,int by1){
 }
 static void clear_box(int r){ for(int y=-r;y<=r;y++) memset(&g[(y+C)*W+(C-r)],0,2*r+1); }
 
+
+/* Configuration de base (S3) : BASE="x,y;x,y" (y vers le BAS) et T0 = instant où son autoroute (dérive (-2,+2) en y vers
+   le bas) est certifiée. Par défaut : départ blanc, T0 = 9977. MPD = borne de p sur D (écart de translation de la base). */
+static int NB=0, BXs[4096], BYs[4096]; static long T0=9977; static int MPD=25; static unsigned char DGD[2*W]; /* diagonales x-y(haut) de D */ static int H0=0; /* cap initial (0 H,1 D,2 B,3 G) */
+static void place_base(void){ for(int i=0;i<NB;i++) g[(long)(BYs[i]+C)*W+(BXs[i]+C)]=1; }
+static void setup_base(void){
+  char *b=getenv("BASE"), *t=getenv("T0"), *hh=getenv("H0"); if(b&&*b&&t) T0=atol(t); if(hh) H0=atoi(hh)&3;
+  if(b&&*b){ char buf[65536]; strncpy(buf,b,sizeof buf-1); buf[sizeof buf-1]=0;
+    for(char *q=strtok(buf,";"); q&&NB<4096; q=strtok(NULL,";")){ char *c=strchr(q,','); if(!c) continue; BXs[NB]=atoi(q); BYs[NB]=-atoi(c+1); NB++; } }
+  int mx=-(1<<30); for(int i=0;i<NB;i++){ int p=-BXs[i]-BYs[i]; if(p+4>mx) mx=p+4; DGD[BXs[i]-BYs[i]+W]=1; }
+  place_base(); int x=0,y=0,h=H0;
+  for(long u=0;u<T0+104;u++){ int p=-x-y; if(u<T0&&p+4>mx) mx=p+4; if(p>mx) mx=p; DGD[x-y+W]=1;
+    unsigned char *c=&g[(long)(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; }
+  clear_box(2000); MPD=mx; if(NB) fprintf(stderr,"base : %d cases, T0=%ld, borne p sur D = %d\n",NB,T0,MPD);
+}
+
 int main(int argc,char**argv){
-  long MAXS=4000000; px=malloc(MAXS*2); py=malloc(MAXS*2); tr=malloc(MAXS);
+  long MAXS=4000000; px=malloc(MAXS*2); py=malloc(MAXS*2); tr=malloc(MAXS); setup_base();
   if(!strcmp(argv[1],"blank")){
     Res r=run(MAXS,0,0,0,0,0,0);
     printf("blanc: autoroute=%d debut=%ld derive=(%d,%d) detectee_au_pas=%ld\n",r.ok,r.onset,r.ddx,r.ddy,r.steps);
@@ -247,29 +263,31 @@ int main(int argc,char**argv){
        pair : vers le site, repère translation). Généralise triple2 (NS=2). Voir E2_epars.md (S2). y vers le BAS. */
     int J=atoi(argv[2]), K=atoi(argv[3]); long CE=atol(argv[4]); int NS=atoi(argv[5]); int PT[8];
     for(int i=1;i<=NS;i++) PT[i]=atoi(argv[5+i]);
-    int ne=0, EXs[16], EYs[16]; int ox=J-K, oy=-K; g[(oy+C)*W+(ox+C)]=1;
+    int ne=0, EXs[16], EYs[16]; int ox=J-K, oy=-K; place_base(); g[(oy+C)*W+(ox+C)]=1;
     for(int a=6+NS;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); g[(oy-EYs[ne]+C)*W+(ox+EXs[ne]+C)]=1; ne++; }
     unsigned char *SN[8],*TO[8],*TP[8],*WM[8],*RD[8],*DGs[8]; static int ws[8][P]; static unsigned char wc[8][P]; int nw[8]={0};
-    for(int i=1;i<=NS;i++){ SN[i]=calloc(W*W,1); TO[i]=calloc(W*W,1); TP[i]=calloc(W*W,1); WM[i]=calloc(W*W,1); RD[i]=calloc(W*W,1); DGs[i]=calloc(2*W,1);
+    for(int i=1;i<=NS;i++){ SN[i]=calloc(W*W,1); TO[i]=calloc(W*W,1); TP[i]=calloc(W*W,1); WM[i]=calloc(W*W,1); RD[i]=calloc(W*W,1); DGs[i]=calloc(2*W,1); if(i%2==0) memcpy(DGs[i],DGD,2*W);   /* repère translation (i pair) : Δ_i contient aussi les diagonales de D (germe/base) */
       DGs[i][ox-oy+W]=1; for(int e=0;e<ne;e++) DGs[i][ox+EXs[e]-(oy-EYs[e])+W]=1; }
     long DD=-2L*W-2; long sT[8]; int sx[8],sy[8],sh[8],LV[8],HV[8],minS[8],okR[8],okC[8]; long bC[8];
     for(int i=0;i<8;i++){ sT[i]=-1; LV[i]=1<<30; HV[i]=-(1<<30); minS[i]=1<<30; okR[i]=-1; okC[i]=1; bC[i]=-1; }
-    int x=0,y=0,h=0,minC1=1<<30,reachG=0,reachS=0,cur=0; long imp=-1; int zx0=0,zy0=0,zx1=0,zy1=0,zlow=1,zhigh=1,zd=1;
+    int x=0,y=0,h=H0,minC1=1<<30,reachG=0,reachS=0,cur=0; long imp=-1; int zx0=0,zy0=0,zx1=0,zy1=0,zlow=1,zhigh=1,zd=1,zd0=1,zq0=1<<30,zq1=-(1<<30);
     #define PKm(kk) ((int)(-( ((kk)%W) - C ) - ( ((kk)/W) - C )))
     #define DGm(kk) ((int)((((kk)%W)-C) - (((kk)/W)-C) + W))
     /* appartenance à l'ensemble d'accord du changement i (récursif sur i, chaînes) */
+    long nacc[5]={0,0,0,0,0}; int lastwhy=0, hq0=1<<30, hq1=-(1<<30), gq0=1<<30, gq1=-(1<<30); long tbase=-1; /* 1er contact avec une case de la base */   /* 1 fenêtre, 2 hors Δ, 3 base p, 4 règle */
     auto int agree(int i,long c);
     int touchedphase(int i,long c){ return i>=1 && TP[i][c]; }
     int A(int j,long c){ return agree(j,c)||touchedphase(j,c); }
     int agree(int i,long c){
       for(int it=0;it<200000;it++){
         int pc=PKm(c);
-        if(WM[i][c]||!DGs[i][DGm(c)]) return 1;
-        if(i%2){ if(pc<LV[i] && (i==1 || A(i-2,c))) return 1;
-                 if(pc<=25) return 0; long n=c-DD; if(TO[i][n]) return 0; if(SN[i][n]!=SN[i][c]) return 0;
+        if(WM[i][c]){ if(!lastwhy) lastwhy=it?4:1; return 1; }
+        if(!DGs[i][DGm(c)]){ if(!lastwhy) lastwhy=it?4:2; return 1; }
+        if(i%2){ if(pc<LV[i] && (i==1 || A(i-2,c))){ if(!lastwhy) lastwhy=it?4:3; return 1; }
+                 if(pc<=MPD) return 0; long n=c-DD; if(TO[i][n]) return 0; if(SN[i][n]!=SN[i][c]) return 0;
                  if(i>1){ if(!A(i-1,n)) return 0; if(!A(i-1,c)) return 0; }
                  c=n; }
-        else { if(pc>HV[i] && (i==2 ? PKm(c+DD)>25 : A(i-2,c))) return 1;
+        else { if(pc>HV[i] && (i==2 ? PKm(c+DD)>MPD : A(i-2,c))){ if(!lastwhy) lastwhy=it?4:3; return 1; }
                long n=c+DD; if(TO[i][n]) return 0; if(SN[i][n]!=SN[i][c]) return 0;
                if(!A(i-1,n)) return 0; if(!A(i-1,c)) return 0;
                c=n; }
@@ -277,12 +295,13 @@ int main(int argc,char**argv){
     for(long t=0;t<=CE+P;t++){
       int p=-x-y; long k=(long)(y+C)*W+(x+C);
       { int hit=(x==ox&&y==oy); for(int e=0;e<ne;e++) if(x==ox+EXs[e]&&y==oy-EYs[e]) hit=1; if(hit&&imp<0) imp=t; }
+      if(tbase<0) for(int b=0;b<NB;b++) if(x==BXs[b]&&y==BYs[b]) tbase=t;
       if(imp>=0 && cur<NS){ int i=cur+1;
-        if(p<=25) reachG=1; if(p>=PT[i>1?i-1:1]+60) reachS=1;
+        if(p<=MPD) reachG=1; if(p>=PT[i>1?i-1:1]+60) reachS=1;
         long prev = cur? sT[cur] : imp;
         int trig = (i%2) ? (p<=PT[i] && (i==1 || reachS)) : (p>=PT[i] && reachG);
         if(t>prev+P && trig){ cur=i; sT[i]=t; sx[i]=x; sy[i]=y; sh[i]=h; memcpy(SN[i],g,(size_t)W*W); reachG=reachS=0; } }
-      for(int i=1;i<=NS;i++) if(t>=9977 && (sT[i]<0 || t<=sT[i]+P)) DGs[i][x-y+W]=1;
+      for(int i=1;i<=NS;i++) if(t>=T0 && (sT[i]<0 || t<=sT[i]+P)) DGs[i][x-y+W]=1;
       if(imp>=0 && cur==0 && p<minC1) minC1=p;
       if(cur>=1 && t<=sT[1]+P && p<minC1) minC1=p;
       /* L_i, H_i */
@@ -299,9 +318,9 @@ int main(int argc,char**argv){
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]+P && !RD[i][k]){
         long lim = (i<NS) ? (sT[i+1]>=0 ? sT[i+1]+2*P : -2) : CE+P; if(lim!=-2 && t>lim) continue;
         if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; }
-        if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } }
+        lastwhy=0; if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } else { nacc[lastwhy]++; if(lastwhy==2){ int q=DGm(k)-W; if(tbase>=0){ if(q<gq0)gq0=q; if(q>gq1)gq1=q; } else { if(q<hq0)hq0=q; if(q>hq1)hq1=q; } } } }
       if(t==CE){ zx0=x; zy0=y; } if(t==CE+P){ zx1=x; zy1=y; }
-      if(t>=CE){ int pc=PKm(k); if(NS%2){ if(!(pc<LV[NS] && (NS==1 || pc<LV[NS-2]))) zlow=0; } else { if(!(pc>HV[NS] && (NS==2 || pc>HV[NS-2]))) zhigh=0; } if(DGs[NS][DGm(k)]) zd=0; }
+      if(t>=CE){ int pc=PKm(k); if(NS==0){ if(!(pc>MPD-4)) zhigh=0; } else if(NS%2){ if(!(pc<LV[NS] && (NS==1 || pc<LV[NS-2]))) zlow=0; } else { if(!(pc>HV[NS] && (NS==2 || pc>HV[NS-2]))) zhigh=0; } if(NS>0 && DGs[NS][DGm(k)]) zd=0; if(DGD[DGm(k)]) zd0=0; { int q=DGm(k)-W; if(q<zq0)zq0=q; if(q>zq1)zq1=q; } }
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]){ RD[i][k]=1; long fin=(i<NS)?sT[i+1]:-1; if(fin<0 || t<=fin) TP[i][k]=1; }
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t==sT[i]+P){ int ex=(i%2)?2:-2; long sh_=(long)(y-sy[i])*W+(x-sx[i]);
         okR[i]=(x-sx[i]==ex&&y-sy[i]==ex&&h==sh[i]); for(int q=0;q<nw[i];q++) if(g[ws[i][q]+sh_]!=wc[i][q]) okR[i]=0; }
@@ -309,11 +328,94 @@ int main(int argc,char**argv){
     }
     int fx=zx1-zx0, fy=zy1-zy0; int moinsd=(fx==2&&fy==2), plusd=(fx==-2&&fy==-2); int okZ;
     if(NS%2) okZ = plusd ? zd : (zlow || (moinsd && zd));   /* repère identité (germe) : p ne croît pas -> p<L suffit */
+    else if(NS==0) okZ = moinsd ? zd0 : zhigh;   /* phase 0 : -d -> diagonales de Z hors de celles de D ; sinon p > MPD-4 */
     else okZ = moinsd ? zd : (zhigh || (plusd && zd));
-    int all = (minC1>21) && okZ; printf("multi J=%d K=%d NS=%d C1 %s",J,K,NS,minC1>21?"OK":"ECHEC");
+    int all = (minC1>MPD-4) && okZ; printf("multi J=%d K=%d NS=%d C1 %s",J,K,NS,minC1>MPD-4?"OK":"ECHEC");
     for(int i=1;i<=NS;i++){ int c3 = (i%2)? 1 : 1; all = all && okR[i]==1 && okC[i];
       printf(" | s%d=%ld %s R %s lect %s(%ld)",i,sT[i],(i%2)?"L":"H",okR[i]==1?"OK":"ECHEC",okC[i]?"OK":"ECHEC",bC[i]); (void)c3; }
-    printf(" | L1=%d L3=%d | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC");
+    { int d0=1<<30,d1=-(1<<30); for(int q=0;q<2*W;q++) if(DGD[q]){ if(q-W<d0)d0=q-W; if(q-W>d1)d1=q-W; }
+      printf(" | acc fen=%ld horsD=%ld p=%ld regle=%ld",nacc[1],nacc[2],nacc[3],nacc[4]); { int a0=1<<30,a1=-(1<<30); if(NS>=1) for(int q=0;q<2*W;q++) if(DGs[1][q]){ if(q-W<a0)a0=q-W; if(q-W>a1)a1=q-W; } printf(" | horsD diag avant base=[%d,%d] apres base=[%d,%d] Delta1=[%d,%d]",hq0,hq1,gq0,gq1,a0,a1); } printf(" | L1=%d L3=%d | dir=(%d,%d) diagZ=[%d,%d] diagD=[%d,%d] | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, fx,fy, zq0,zq1,d0,d1, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC"); }
+  } else if(!strcmp(argv[1],"deux")){
+    /* deux J K CE NS s1..sNS [EX EY ...] : contrôle DIRECT des couplages de `multi` entre X_k et X_{k+2}.
+       Phase i (s_i <= t < s_{i+1}, s_0 = 9977) : X_{k+2} au temps t + 104(i+1) doit avoir la fourmi en a_k(t) + (i pair ? d : 0),
+       même cap, et lire la même couleur. Vérifié pour t de 9977 à CE+P. y vers le BAS pour J,K,EX,EY ; ici d = (-2,-2). */
+    int J=atoi(argv[2]), K=atoi(argv[3]); long CE=atol(argv[4]); int NS=atoi(argv[5]); long sw[10]; sw[0]=T0;
+    for(int i=1;i<=NS;i++) sw[i]=atol(argv[5+i]);
+    int ne=0, EXs[16], EYs[16]; for(int a=6+NS;a+1<argc&&ne<16;a+=2){ EXs[ne]=atoi(argv[a]); EYs[ne]=atoi(argv[a+1]); ne++; }
+    long TB = CE + P + 104L*(NS+1) + 1; int *bx=malloc(TB*sizeof(int)), *by=malloc(TB*sizeof(int)); unsigned char *bh=malloc(TB), *bc=malloc(TB);
+    for(int w=0; w<2; w++){
+      int ox=J-K-(w?0:2), oy=-K-(w?0:2); place_base(); g[(oy+C)*W+(ox+C)]=1; for(int e=0;e<ne;e++) g[(oy-EYs[e]+C)*W+(ox+EXs[e]+C)]=1;
+      int x=0,y=0,h=H0; long bad=-1, nchk=0;
+      long TT = w==0 ? TB : CE+P+1;
+      for(long t=0;t<TT;t++){
+        unsigned char *c=&g[(long)(y+C)*W+(x+C)]; int col=*c;
+        if(w==0){ bx[t]=x; by[t]=y; bh[t]=h; bc[t]=col; }
+        else if(t>=T0){ int i=0; while(i<NS && t>=sw[i+1]) i++; long tb=t+104L*(i+1); int ex=(i%2==0)?-2:0;
+          nchk++; if(!(bx[tb]==x+ex && by[tb]==y+ex && bh[tb]==h && bc[tb]==col) && bad<0) bad=t; }
+        h=col?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h];
+      }
+      clear_box(2000);
+      if(w==1) printf("deux J=%d K=%d NS=%d : %ld pas comparés, %s (1er écart t=%ld)\n",J,K,NS,nchk,bad<0?"COUPLAGE EXACT":"ECART",bad);
+    }
+    free(bx); free(by); free(bh); free(bc);
+  } else if(!strcmp(argv[1],"une")){
+    /* une N MASQUE : une boîte N×N (même convention que box : cases (i%N, i/N) en y vers le haut, fourmi (0,0) cap haut) */
+    int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long MX=atol(argc>4?argv[4]:"3900000");
+    if(MX>MAXS){ free(px); free(py); free(tr); px=malloc(MX*2); py=malloc(MX*2); tr=malloc(MX); }
+    for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
+    Res r=run(MX,0,0,0,0,N-1,N-1);
+    printf("une N=%d masque=%llu : autoroute=%d debut=%ld derive=(%d,%d) pas=%ld\n",N,m,r.ok,r.onset,r.ddx,r.ddy,r.steps);
+  } else if(!strcmp(argv[1],"obs")){
+    /* obs N MASQUE ONSET TFIN PAS : boîte N×N (convention de box). Pour t multiple de PAS (et à chaque pas près du début
+       d'autoroute ONSET, ±1000) : L(t) = longueur de la boucle gelée, nb de cases noires, largeur de la boîte visitée.
+       Résumé : min L sur le chaos [0,ONSET), max L sur l'autoroute [ONSET,TFIN]. */
+    int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long ON=atol(argv[4]), TF=atol(argv[5]); int PS=atoi(argv[6]);
+    for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
+    long nb=0; for(int i=0;i<N*N;i++) nb+=(m>>i)&1;
+    int x=0,y=0,h=0,x0=0,x1=0,y0=0,y1=0; long minC=1L<<60, maxH=0, tminC=-1, lastbig=-1;
+    for(long t=0;t<=TF;t++){
+      if(t%PS==0 || (t>ON-1000 && t<ON+1000)){
+        int fx=x,fy=y,fh=h; long L=0;
+        do{ int col=g[(fy+C)*W+(fx+C)]; fh= col?(fh+3)&3:(fh+1)&3; fx+=dx[fh]; fy+=dy[fh]; L++; }
+        while(!(fx==x&&fy==y&&fh==h) && L<100000000);
+        if(t<ON){ if(L<minC){minC=L;tminC=t;} }
+        else { if(L>maxH) maxH=L; }
+        if(L>172) lastbig=t;
+        if(argc>7) printf("%ld,%ld,%ld,%d\n",t,L,nb,(x1-x0+1)>(y1-y0+1)?(x1-x0+1):(y1-y0+1));
+      }
+      unsigned char *c=&g[(y+C)*W+(x+C)]; int col=*c; h= col?(h+3)&3:(h+1)&3; nb+= col? -1:1; *c^=1; x+=dx[h]; y+=dy[h];
+      if(x<x0)x0=x; if(x>x1)x1=x; if(y<y0)y0=y; if(y>y1)y1=y;
+    }
+    printf("obs N=%d m=%llu debut=%ld : minL(chaos)=%ld (t=%ld) maxL(autoroute)=%ld dernier L>172 : t=%ld\n",N,m,ON,minC,tminC,maxH,lastbig);
+    clear_box(1500);
+  } else if(!strcmp(argv[1],"imite")){
+    /* imite N MASQUE ONSET : L(t) à chaque pas jusqu'à ONSET+3000 ; plus longue suite de pas consécutifs où L(t) égale la
+       suite périodique de l'autoroute nue (calée sur une phase φ) : pendant le chaos (t < ONSET) et instant de calage final. */
+    static long BARE[P]; { int x=0,y=0,h=0; for(long t=0;t<20000+P;t++){ if(t>=20000){ int fx=x,fy=y,fh=h; long L=0;
+        do{ int col=g[(fy+C)*W+(fx+C)]; fh=col?(fh+3)&3:(fh+1)&3; fx+=dx[fh]; fy+=dy[fh]; L++; } while(!(fx==x&&fy==y&&fh==h));
+        BARE[t-20000]=L; } unsigned char *c=&g[(y+C)*W+(x+C)]; h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h]; } clear_box(1500); }
+    int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long ON=atol(argv[4]), TF=ON+3000;
+    for(int i=0;i<N*N;i++) g[(i/N+C)*W+(i%N+C)]=(m>>i)&1;
+    place_base();   /* configuration quelconque via BASE="x,y;..." (y vers le bas) */
+    static long run[P]; for(int k=0;k<P;k++) run[k]=0; long bestC=0, tbest=-1, settle=-1, rtr=0, horsA=0, thors=-1; int x=0,y=0,h=0;
+    static unsigned char trc[1<<22]; static int rm[1<<22]; static unsigned char inseg[1<<22];
+    for(long t=0;t<=TF;t++){
+      int fx=x,fy=y,fh=h; long L=0;
+      do{ int col=g[(fy+C)*W+(fx+C)]; fh=col?(fh+3)&3:(fh+1)&3; fx+=dx[fh]; fy+=dy[fh]; L++; } while(!(fx==x&&fy==y&&fh==h)&&L<100000000);
+      long rmax=0; for(int k=0;k<P;k++){ if(BARE[(t+k)%P]==L) run[k]++; else run[k]=0; if(run[k]>rmax) rmax=run[k]; }
+      if(t<ON && rmax>bestC){ bestC=rmax; tbest=t; }
+      if(t<(1<<22)) rm[t]=(int)rmax;
+      if(rmax==0) settle=-1; else if(settle<0) settle=t;   /* début de la dernière suite d'imitation (approx. : n'importe quelle phase) */
+      unsigned char *c=&g[(y+C)*W+(x+C)]; trc[t&((1<<22)-1)]=*c; if(t>=104 && trc[t&((1<<22)-1)]==trc[(t-104)&((1<<22)-1)]) rtr++; else rtr=0;
+      h=*c?(h+3)&3:(h+1)&3; *c^=1; x+=dx[h]; y+=dy[h];
+    }
+    { long T2 = TF < (1<<22)-1 ? TF : (1<<22)-1;   /* 2e passe : plages d'autoroute = runs tr[t]==tr[t-104] de longueur >= 104, première période comprise */
+      for(long t=0;t<=T2;t++) inseg[t]=0;
+      long a=-1; for(long t=104;t<=T2+1;t++){ int eq = (t<=T2) && trc[t]==trc[t-104];
+        if(eq){ if(a<0) a=t; } else { if(a>=0 && t-1-a+1>=104){ for(long u=a-104; u<t; u++) if(u>=0) inseg[u]=1; } a=-1; } }
+      long last=-1; for(long t=0;t<=T2;t++){ if(inseg[t]){ last=t; continue; } long v=rm[t]; if(last>=0 && v>t-last) v=t-last; if(v>horsA){ horsA=v; thors=t; } } }
+    printf("imite N=%d m=%llu debut=%ld : plus longue imitation pendant le chaos = %ld pas (fin t=%ld) ; imitation finale depuis t=%ld (debut%+ld) ; HORS AUTOROUTE max %ld (t=%ld)\n",N,m,ON,bestC,tbest,settle,settle-ON,horsA,thors);
+    clear_box(1500);
   } else if(!strcmp(argv[1],"frozen")){
     int x=0,y=0,h=0; printf("t,L\n");
     for(long t=0;t<14000;t++){

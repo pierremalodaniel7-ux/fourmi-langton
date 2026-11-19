@@ -1,0 +1,18 @@
+[
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Deux cases éparses lentes",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-889,870;1766,-1747",
+  "note": "T6, certifiée à 159 758 (R-97)"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Dernière paire (transport dual)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-119,100;-401,-409",
+  "note": "certifiée à 193 256 (R-98)"
+ }
+]

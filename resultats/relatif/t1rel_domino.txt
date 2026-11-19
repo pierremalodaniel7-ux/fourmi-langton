@@ -1,0 +1,4 @@
+# base T0=117736 activité x[-61, 50] y[-81, 38]
+# (C) # classes {52.0: 22} preuves OK 22 ECHEC 0 ; bande x+y in [1,11]
+# (A) 20793/20793 certifiées ; max 298348
+# BILAN : DEMONTRE (sous réserve de relecture)
