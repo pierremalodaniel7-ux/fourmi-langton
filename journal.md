@@ -757,3 +757,6 @@ Le théorème T7-loin accepte désormais (iii) ou (iii') (`t7_theoreme.py`).
 E2b §S11. Critère ajouté à `outils/t7_kprime.py` (lit les s₁' de data/t7/mprime.txt). Contrôle : 30 triplets de la famille d₂ = d,
 c₂ déplacé de 5·d₂ et c₃ de 5·d₃ (famille « c₃ absolu » de (M')) : 30/30 preuves (K') refaites, `deux` exact, règle 0.
 Sur les données S10 : T7-loin passe de 5 929 à 6 057 classes de triplets sur 6 204.
+
+## R-134 T7 (C) terminé : 484/484 bases W₂ = blanc + c₁ + c₂, chacune avec ses 22 classes de c₃ prouvées par `multi` (10 648 preuves), relatif.py avec p* élargis — DÉMONTRÉ sous réserve de relecture (récurrence en m₃) — 19/11 S11
+Audit `ant deux` : voir R-133 (data/t7/audit_c_all.out).
