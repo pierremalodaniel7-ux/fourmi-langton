@@ -724,3 +724,7 @@ additifs (MPM 22, MPP 16), 0 non certifié. Outil : `outils/t7_uniformite.py 300
 (bloc, repère de blanc + c₁, NS0) transportée le long de m₃. Bilan : K ok et M ok 3 123 ; K non-NS0 / M ok 264 ; les deux non-NS0 155 ;
 K ok / M non-NS0 16 ; K refusé par les directions 6. Schéma de preuve visé : (C) à (k₀, m₀) pour tout m₃, puis M (tout m), puis K (tout k₁).
 Les 441 restants : variantes « c₃ fixe » (R-124, déjà vérifiées pour 352 + 132 cas) à transporter, et transport dual (R-98).
+(R-124, détail) Les 4 cas ouverts « c₃ sur la bande de W₁ » en m sont en fait trois cases alignées sur la bande de départ
+(x + y = −21 à −27 : c₁ à k ≈ 100, c₂ à k ≈ 400, c₃ à k ≈ 900 ; d₂ = d₃ = d) : la fourmi enchaîne les sites sur la même bande.
+`BASE=-128,101 T0=15917 ant multi -27 400 226322 …` : aucune grille NS ≤ 2 (p* jusqu'à 1 500) ne passe (lecture refusée à 31 556 ou
+168 512, la règle « un pas » est sollicitée). Même famille que les « chaînes de demi-tours » de T3 (E2_epars.md, S1) : à traiter à part.
