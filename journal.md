@@ -741,3 +741,10 @@ d₂, d₃ ∈ {d, ⟂ d} (règle des diagonales pour une direction finale oppos
 k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀. Preuve : (C) donne m₃ ; lemme T avec les repères de (C) puis récurrence (M) donne m ; lemme T avec (C) puis (M),
 puis récurrence (K) donne k₁. Le correctif R-122 est aussi écrit dans le lemme 3 (point 3 : L_i ≤ pI). Outil d'application :
 `outils/t7_theoreme.py` (vérifie (i) dans data/t7/audit_c_all.out, (ii)–(iii) dans data/t7/transport7.txt). Bilan : voir R-130.
+
+## R-130 Lemme T' : les preuves (K) « c₃ fixe » (NS = 1, sans la règle) se transportent le long de m et m₃ sous un critère de diagonales — 584/726 cas S10 le remplissent ; contrôle 40/40 à (m+10, m₃+10) — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+E2b_couplage.md §S11 (lemme T'). Critère vérifié par `outils/t7_kprime.py` (nouveaux champs de `ant multi` : tc2, tbase, dfix,
+horsD_apres_c2, zlow, zd). Sur les 726 preuves « c₃ fixe » de S10 : 584 passent (famille d₂ ⟂ d, d₃ = −d), 128 échouent le long de m
+(d₂ = d : p augmente de 4 par pas après c₂, les acceptations « p < L₁ » ne sont pas uniformes), 14 utilisent la règle. Contrôle
+indépendant : 40 triplets tirés au hasard, déplacés de 5 pas en m et en m₃ : 40/40 preuves (K') refaites, `deux` exact, règle 0.
+Le théorème T7-loin accepte désormais (iii) ou (iii') (`t7_theoreme.py`).
