@@ -15,7 +15,7 @@ Question : combien de cases noires faut-il, au minimum, pour que l'autoroute dé
 | 7 | ≤ 61 ; dans [−2,2]² : exact 68 (346 104 configurations, **toutes certifiées**, S9) | idem | cap B : 0,1;1,2;2,3;2,1;3,0;2,−2;−2,−1 |
 | 8 | ≤ 55 ; dans [−2,2]² : exact 64 (735 471 configurations, **toutes certifiées**, S9) | idem | |
 | 9 | ≤ 44 ; dans [−2,2]² : exact 56 (1 307 504 configurations, **toutes certifiées**, S9) | idem | |
-| 10 | ≤ 38 | idem | |
+| 10 | ≤ 38 ; dans [−2,2]² : exact 52 (1 961 256 configurations, **toutes certifiées**, S10) | idem | |
 | 11 | **0** | exact (R-20) ; **certifié dès le pas 0 : DÉMONTRÉ** | cap B : 0,1;1,2;2,3;2,2;2,1;2,0;3,0;3,−1;2,−2;1,−2;−2,−1 |
 
 Faits : (1) le bout d'autoroute minimal de R-20 (11 cases) est certifié dès t = 0, donc il construit l'autoroute **pour toujours**
