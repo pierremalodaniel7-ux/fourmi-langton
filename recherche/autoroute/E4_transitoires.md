@@ -31,3 +31,8 @@ Graphe : `resultats/records_transitoire.png`.
 
 ## Suite
 Recherche plus forte (recuit simulé sur plusieurs heures, ou génétique), et surtout finir l'exhaustif 5×5 (É3), qui donnera T(5) exact.
+
+## Mise à jour S8 (R-111)
+L'exhaustif 5×5 couvre [0, 9 200 000) : nouveau maximum **252 046** (cases 0,0;1,0;2,0;0,−1;0,−2;2,−2;3,−2;0,−3;1,−3;4,−3;1,−4;2,−4,
+masque 6927399), confirmé par `ant une`. Donc record(n) ≥ 252 046 pour n ≥ 5 (recopie au coin), au-dessus du 8×8 trouvé par montée
+de colline (220 334) : nouvelle preuve que la recherche locale est faible ici.

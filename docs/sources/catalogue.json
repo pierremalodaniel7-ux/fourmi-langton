@@ -5178,5 +5178,25 @@
   "interet": "Germes (É6).",
   "deja": "Pas trouvé",
   "source": "S8 autoroute 19/11, fourmi -cert -lot (exhaustif)"
+ },
+ {
+  "id": "A-R5",
+  "b": 19,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Record 5×5 (exhaustif partiel)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "0,0;1,0;2,0;0,-1;0,-2;2,-2;3,-2;0,-3;1,-3;4,-3;1,-4;2,-4",
+  "img": [
+   255000,
+   ""
+  ],
+  "situation": "Boîte 5×5, fourmi au coin (0,0) cap haut, 12 cases noires (masque 6927399).",
+  "deroulement": "Le plus long chaos parmi les 9,2 M premières boîtes 5×5 (sur 33,5 M) ; dépasse le record 8×8 trouvé par montée de colline.",
+  "mesures": "Certifiée dès 252 046 (2e moteur : début 252 046).",
+  "statut": "DÉMONTRÉ pour cette configuration ; record OBSERVÉ (R-111)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S8 autoroute 19/11, outils/box5_fond.sh ; ant une 5 6927399"
  }
 ]

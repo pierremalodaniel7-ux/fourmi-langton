@@ -579,3 +579,8 @@ qui occupe la fourmi indéfiniment ; explication de l'échec et pistes : recherc
 
 ## R-110 Germes à 5 cases : toutes les configurations de 5 cases dans [−3,3]² (1 712 304) construisent l'autoroute — DÉMONTRÉ ; transitoire minimal à 5 cases dans [−3,3]² = 62 — 18/11 S8
 Plus court : −3,1;−2,0;−1,−1;−1,1;1,−3 → 62 ; plus long : −3,0;−2,−3;0,2;1,−2;1,2 → 186 217. Détails : E6_germes.md.
+
+## R-111 Boîtes 5×5 : [0, 9 200 000) certifiées (27 % des 33,5 M) ; nouveau max 252 046 — DÉMONTRÉ pour ces boîtes ; record(n) ≥ 252 046 pour n ≥ 5 — 19/11 S8 (fin)
+Record : cases 0,0;1,0;2,0;0,−1;0,−2;2,−2;3,−2;0,−3;1,−3;4,−3;1,−4;2,−4 (fourmi 0,0,H, masque 6927399) : certifié à 252 046 ;
+2ᵉ moteur `ant une 5 6927399` : début 252 046. Il dépasse le record 8×8 de R-101 (220 334) ; par recopie au coin, record(n) ≥ 252 046
+pour tout n ≥ 5 (OBSERVÉ, minorant). Tranches : resultats/box5/.

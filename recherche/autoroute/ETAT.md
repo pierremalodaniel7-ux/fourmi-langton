@@ -1,15 +1,18 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
 PROCHAINE SÉANCE : S9
-PROCHAINE TÂCHE : É8 (synthèse finale : vérifier la nouveauté de chaque résultat, note PDF) ; É7 piste « collision autoroute ×
-trace qui renvoie vers un site auto-créé » (R-25) ; en fond : 5×5 (`outils/box5_fond.sh` ; faites : [0, 6,4 M), [7,6 M, 8,0 M)).
-En attente : relecture humaine (SYNTHESE.md, E2b_couplage.md) ; T7 (trois cases éparses).
+PROCHAINE TÂCHE (S9) : É8 — synthèse finale. Étapes : (1) mettre à jour recherche/autoroute/SYNTHESE.md avec S6–S8 (É4 R-101/R-111,
+É5 R-102 à R-104, É6 R-105 à R-110, É7 R-109) et régénérer le PDF (pandoc → HTML → chromium --print-to-pdf, voir S5) ; (2) pour
+chaque résultat « DÉMONTRÉ », une ligne de nouveauté (deja_connu.md + au plus 1 recherche) ; (3) lister ce qui attend une
+relecture humaine (E2b_couplage.md, `ant multi`). En fond : 5×5 à partir de 9 200 000 (`cp resultats/box5/*.res data/` puis
+`nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh 0 9200000 200000 N &`, idem cœur 1 à partir de 9 200 000 + 200 000·N).
+Pistes ouvertes : T7 (trois cases éparses, ≈ 8 h, plan dans E2_epars.md) ; É7 « autoroute × trace » ; germes exacts 6–10 cases.
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-82, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-83, E1_certificat.md, `fourmi -cert`
 - [~] É2 Collisions → théorème « épars » — S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
-- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S5 : [0, 6 000 000) certifié (6 M/33,5 M), max 209 637
+- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S8 : [0, 9 200 000) certifié (9,2 M/33,5 M), max 252 046 (R-111)
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
 - [~] É6 Germes et bassin à rebours — S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
@@ -20,7 +23,7 @@ En attente : relecture humaine (SYNTHESE.md, E2b_couplage.md) ; T7 (trois cases 
 - Certificat d'autoroute (R-83) : DÉMONTRÉ ; départ blanc démontré dès 9 977.
 - Boîtes 3×3, 4×4 (coin, cap H) : toutes démontrées (R-84).
 - T1 une case noire n'importe où, T2 îlot de 2 cases voisines, T3 îlot de 3 cases en L ou en ligne, n'importe où : DÉMONTRÉS, à faire relire (R-85 à R-78).
-- 5×5 (coin, cap H) : tranches [0,1 000 000) et [1 600 000,2 600 000) certifiées (2 M), max 188 466 (resultats/box5/).
+- 5×5 (coin, cap H) : [0, 9 200 000) certifié, max 252 046 (R-111, resultats/box5/).
 - S2 : T4 tout îlot dans un carré 3×3 (400 formes), n'importe où : DÉMONTRÉ sous réserve de relecture (R-80, R-81).
 - Seul mécanisme de retour en arrière : le demi-tour (1 classe sur 22), qui roule sur la trace jusqu'au site précédent.
 
