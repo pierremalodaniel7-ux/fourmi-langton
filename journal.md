@@ -665,3 +665,5 @@ de relatif.py (ajouter 900, 1 200, 1 500 ou p* = p(2ᵉ site) + 70) puis lancer 
 automatique) → data/t7/b_<n>.txt et data/t7/bilan.txt. Deux changements de `relatif.py` : p* ∈ {…, 600, 900, 1 200, 1 500} pour NS = 1
 (ajoutés en fin de liste : les anciens choix sont inchangés) et balayage des diagonales centré sur la fourmi à T0 (union avec l'ancien
 [−450, 450]), sinon les bases pivotées n'avaient aucune classe. Bilan de la séance : voir rapport S9.
+(R-119, suite) Classe à pente 156 (deux allers-retours, NS = 2) dans la base n° 18 : passe avec p* = (1 200, 900), règle « un pas »
+utilisée 72 fois (comme G2 de T6) ; ajouté en fin de grille NS = 2 de relatif.py ; base 18 refaite : 22/22.

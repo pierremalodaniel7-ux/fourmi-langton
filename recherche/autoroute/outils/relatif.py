@@ -38,7 +38,7 @@ for (j, par), V in sorted(cl.items()):
     s = S.pop(); stat[s] += 1
     if s == 0: continue
     NS = int(s // 52) - 1; k0, c0 = V[0]; good = False
-    grids = {0: [[]], 1: [[90], [70], [50], [110], [130], [150], [190], [300], [400], [500], [600], [900], [1200], [1500]], 2: [[100, 70], [100, 40], [120, 70], [100, 120], [400, 300], [500, 350], [600, 400]], 3: [[100, 70, 100], [100, 120, 100], [500, 350, 500]]}.get(NS, [])  # seuils hauts : bases dont D monte haut
+    grids = {0: [[]], 1: [[90], [70], [50], [110], [130], [150], [190], [300], [400], [500], [600], [900], [1200], [1500]], 2: [[100, 70], [100, 40], [120, 70], [100, 120], [400, 300], [500, 350], [600, 400], [1200, 900], [1500, 900]], 3: [[100, 70, 100], [100, 120, 100], [500, 350, 500]]}.get(NS, [])  # seuils hauts : bases dont D monte haut
     for P in grids:
         r = subprocess.run([A, 'multi', str(j), str(k0), str(c0), str(NS)] + [str(p) for p in P], capture_output=True, text=True, env=env).stdout
         if 'TOUT OK' in r: good = True; print('OK', j, k0, c0, NS, *P); break
