@@ -278,7 +278,7 @@ int main(int argc,char**argv){
     #define PKm(kk) ((int)(-( ((kk)%W) - C ) - ( ((kk)/W) - C )))
     #define DGm(kk) ((int)((((kk)%W)-C) - (((kk)/W)-C) + W))
     /* appartenance à l'ensemble d'accord du changement i (récursif sur i, chaînes) */
-    long nacc[5]={0,0,0,0,0}; int lastwhy=0, hq0=1<<30, hq1=-(1<<30), gq0=1<<30, gq1=-(1<<30); long tbase=-1; /* 1er contact avec une case de la base */   /* 1 fenêtre, 2 hors Δ, 3 base p, 4 règle */
+    long nacc[5]={0,0,0,0,0}; int lastwhy=0, hq0=1<<30, hq1=-(1<<30), gq0=1<<30, gq1=-(1<<30); long tbase=-1; long tc2=-1; int fx0=1<<30,fx1=-(1<<30),ra0=1<<30,ra1=-(1<<30); /* S11 : tc2 = 1er contact avec la 2e case de l'îlot, dfix = diagonales des positions avant tc2, lectures hors Δ après tc2 */ /* 1er contact avec une case de la base */   /* 1 fenêtre, 2 hors Δ, 3 base p, 4 règle */
     auto int agree(int i,long c);
     int touchedphase(int i,long c){ return i>=1 && TP[i][c]; }
     int A(int j,long c){ return agree(j,c)||touchedphase(j,c); }
@@ -300,6 +300,8 @@ int main(int argc,char**argv){
       int p=-x-y; long k=(long)(y+C)*W+(x+C);
       { int hit=(x==ox&&y==oy); for(int e=0;e<ne;e++) if(x==ox+EXs[e]&&y==oy-EYs[e]) hit=1; if(hit&&imp<0) imp=t; }
       if(tbase<0) for(int b=0;b<NB;b++) if(x==BXs[b]&&y==BYs[b]) tbase=t;
+      if(ne>0 && tc2<0 && x==ox+EXs[0] && y==oy-EYs[0]) tc2=t;
+      if(t>=T0 && tc2<0){ int q=x-y; if(q<fx0)fx0=q; if(q>fx1)fx1=q; }
       if(imp>=0 && cur<NS){ int i=cur+1;
         if(p<=MPD) reachG=1; if(p>=PT[i>1?i-1:1]+60) reachS=1;
         long prev = cur? sT[cur] : imp;
@@ -322,7 +324,7 @@ int main(int argc,char**argv){
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]+P && !RD[i][k]){
         long lim = (i<NS) ? (sT[i+1]>=0 ? sT[i+1]+2*P : -2) : CE+P; if(lim!=-2 && t>lim) continue;
         if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; if(LV[i]>pI) LV[i]=pI; }
-        lastwhy=0; if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } else { nacc[lastwhy]++; if(lastwhy==2){ int q=DGm(k)-W; if(tbase>=0){ if(q<gq0)gq0=q; if(q>gq1)gq1=q; } else { if(q<hq0)hq0=q; if(q>hq1)hq1=q; } } } }
+        lastwhy=0; if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } else { nacc[lastwhy]++; if(lastwhy==2){ int q=DGm(k)-W; if(tc2>=0){ if(q<ra0)ra0=q; if(q>ra1)ra1=q; } if(tbase>=0){ if(q<gq0)gq0=q; if(q>gq1)gq1=q; } else { if(q<hq0)hq0=q; if(q>hq1)hq1=q; } } } }
       if(t==CE){ zx0=x; zy0=y; } if(t==CE+P){ zx1=x; zy1=y; }
       if(t>=CE){ int pc=PKm(k); if(NS==0){ if(!(pc>MPD-4)) zhigh=0; } else if(NS%2){ if(!(pc<LV[NS] && (NS==1 || pc<LV[NS-2]))) zlow=0; } else { if(!(pc>HV[NS] && (NS==2 || pc>HV[NS-2]))) zhigh=0; } if(NS>0 && DGs[NS][DGm(k)]) zd=0; if(DGD[DGm(k)]) zd0=0; { int q=DGm(k)-W; if(q<zq0)zq0=q; if(q>zq1)zq1=q; } }
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]){ RD[i][k]=1; long fin=(i<NS)?sT[i+1]:-1; if(fin<0 || t<=fin) TP[i][k]=1; }
@@ -338,6 +340,7 @@ int main(int argc,char**argv){
     for(int i=1;i<=NS;i++){ int c3 = (i%2)? 1 : 1; all = all && okR[i]==1 && okC[i];
       printf(" | s%d=%ld %s R %s lect %s(%ld)",i,sT[i],(i%2)?"L":"H",okR[i]==1?"OK":"ECHEC",okC[i]?"OK":"ECHEC",bC[i]); (void)c3; }
     { int d0=1<<30,d1=-(1<<30); for(int q=0;q<2*W;q++) if(DGD[q]){ if(q-W<d0)d0=q-W; if(q-W>d1)d1=q-W; }
+      { int q1=ox-oy; if(q1<fx0)fx0=q1; if(q1>fx1)fx1=q1; } printf(" | DEV tc2=%ld tbase=%ld dfix=[%d,%d] horsD_apres_c2=[%d,%d] zlow=%d zd=%d",tc2,tbase,fx0,fx1,ra0,ra1,zlow,zd);
       printf(" | acc fen=%ld horsD=%ld p=%ld regle=%ld",nacc[1],nacc[2],nacc[3],nacc[4]); { int a0=1<<30,a1=-(1<<30); if(NS>=1) for(int q=0;q<2*W;q++) if(DGs[1][q]){ if(q-W<a0)a0=q-W; if(q-W>a1)a1=q-W; } printf(" | horsD diag avant base=[%d,%d] apres base=[%d,%d] Delta1=[%d,%d]",hq0,hq1,gq0,gq1,a0,a1); } printf(" | L1=%d L3=%d | dir=(%d,%d) diagZ=[%d,%d] diagD=[%d,%d] | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, fx,fy, zq0,zq1,d0,d1, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC"); }
   } else if(!strcmp(argv[1],"deux")){
     /* deux J K CE NS s1..sNS [EX EY ...] : contrôle DIRECT des couplages de `multi` entre X_k et X_{k+2}.

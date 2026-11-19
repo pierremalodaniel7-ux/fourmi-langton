@@ -185,3 +185,19 @@ touche c₁ puis c₂ avant c₃, ce qui est le cas dans les triplets construits
 (m, m₃) à l'étape (c), qui demande que la preuve de (M) à (k₀, m, m₃) soit elle aussi à NS = 0 (conséquence du lemme T et de la
 récurrence : les conditions se transmettent telles quelles).
 Application : `outils/transport7.py` (S10) vérifie exactement (ii) et (iii) ; (i) par `audit_t7c.sh`.
+
+### S11 — Lemme T' : transport d'une preuve (K) « c₃ fixe » à NS = 1 — DÉMONTRÉ sous réserve de relecture
+Cadre : (K') récurrence en k₁ avec base B₃ = blanc + c₃ (c₃ fixe) et îlot {c₁, c₂} déplacé de d ; vérifiée avec NS = 1 (un passage en repère
+identité à s₁), sans la règle « un pas ». Notations : t_{c₂} = premier contact avec c₂, t_B = premier contact avec c₃ ; Δ₁ = Δ_fix ∪ Δ_mob, où
+Δ_fix = diagonales des positions sur [T0, t_{c₂}) et de c₁, Δ_mob = le reste (positions de [t_{c₂}, s₁+104] et diagonale de c₂).
+**(a) le long de m (Q = (M) à NS = 0, f = d₂ ⟂ d).** Après t_{c₂}, tout X(k₀, m+1, m₃) est l'image de X(k₀, m, m₃) translatée de d₂ (c₂ et c₃
+bougent de d₂) ; avant, identique. Si t_{c₂} < s₁ : p est inchangé partout (p(d₂) = 0), donc C1, L₁, pI, MPD (p(c₃) inchangé) et les
+acceptations « p < L₁ » sont conservés ; la fenêtre se recopie ; Δ_mob et toutes les lectures de la phase 1 (postérieures à s₁ > t_{c₂}) bougent
+ensemble de ±4 en diagonale ; une lecture acceptée « hors Δ₁ » le reste si sa diagonale ne rencontre jamais Δ_fix, ce qui est garanti si
+toutes ces lectures sont du côté de Δ_fix vers lequel elles s'en éloignent. Même critère pour la fenêtre finale si (Z) n'est pas acquis par p.
+**(b) le long de m₃ (Q = (C), f = d₃).** Si t_B > s₁ + 104, rien ne change avant t_B (s₁, L₁, Δ₁ identiques) ; après, les positions sont
+identiques ou translatées de d₃. Si d₃ = −d : p diminue de 4 (les acceptations « p < L₁ » restent vraies), les diagonales ne bougent pas.
+Si d₃ ⟂ d : p inchangé, diagonales ±4 : critère « s'éloignent de Δ₁ » pour les lectures après t_B et la fenêtre finale.
+Conclusion : sous ces conditions (vérifiées par `outils/t7_kprime.py`), (K') vaut à (k₀, m, m₃) pour tous m, m₃, et le théorème de récurrence
+donne tout k₁ : dans le théorème T7-loin, (iii) peut être remplacé par (iii') « (K') vérifiée et critère de t7_kprime ». Contrôle : 40 cas
+déplacés à (m+10, m₃+10) : 40/40 preuves (K') refaites, couplage exact, règle non utilisée.
