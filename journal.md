@@ -659,3 +659,9 @@ couvre des diagonales jusqu'à p = 839, contre ≈ 25 pour le départ blanc) : c
 2ᵉ site (p ≈ 829) et pas seulement le germe. Contrôle direct `deux_mondes.sh` : couplage exact sur 173 284 pas. Donc pour cette base
 W₂, partie (C) de T7 : 22/22 classes — DÉMONTRÉ sous réserve de relecture (mêmes lemmes que T6). À faire : élargir la liste des p*
 de relatif.py (ajouter 900, 1 200, 1 500 ou p* = p(2ᵉ site) + 70) puis lancer les 484 bases (≈ 3 h).
+
+## R-119 T7 (trois cases éparses), partie (C) lancée : 484 bases W₂ = blanc + c₁ + c₂ (une par paire de classes, écart k₀), pivotées pour la dérive (−2,+2) — en cours — 19/11 S9
+`outils/t7_bases.py` → resultats/relatif/t7_bases.txt (484 bases : 156 H, 100 D, 146 G, 82 B) ; `outils/t7_lance.sh 0 484` (reprise
+automatique) → data/t7/b_<n>.txt et data/t7/bilan.txt. Deux changements de `relatif.py` : p* ∈ {…, 600, 900, 1 200, 1 500} pour NS = 1
+(ajoutés en fin de liste : les anciens choix sont inchangés) et balayage des diagonales centré sur la fourmi à T0 (union avec l'ancien
+[−450, 450]), sinon les bases pivotées n'avaient aucune classe. Bilan de la séance : voir rapport S9.
