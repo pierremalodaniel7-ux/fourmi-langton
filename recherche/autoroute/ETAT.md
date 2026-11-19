@@ -1,14 +1,13 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
-PROCHAINE SÉANCE : S10
-PROCHAINE TÂCHE (S10) : T7 (trois cases éparses), suite. Étapes : (1) relancer la partie (C) : `nohup nice -n 5 recherche/autoroute/outils/t7_lance.sh 0 484 &`
-(reprise : refait les bases dont data/t7/b_<n>.txt manque ; 53/484 faites en S9, liste resultats/relatif/t7_bilan_S9.txt ; data/ est perdu
-si le conteneur change : alors tout refaire, ≈ 10–40 s par base) ; (2) écrire l'assemblage de T7 comme T6 (transport en k₁, m, m₃ ;
-R-95/96/98 un cran plus haut), en commençant par vérifier la récurrence en k₂ avec c₃ ; (3) zone proche (A).
-En fond : 5×5 à partir de 12 400 000 (sauf [13,8 M ; 14,0 M) et [15,4 M ; 15,6 M), déjà faites) : `cp resultats/box5/*.res data/`
-puis `nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh C DEBUT 200000 N &` (4,5 à 9 min par tranche et par cœur) ;
-germes 10 cases dans [−2,2]² : reste [1 200 000 ; 1 961 256) (`outils/germes_k.sh 10 2 A B`).
-Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans E7_contre_attaque.md) ; É4 records (5×5 : 351 374).
+PROCHAINE SÉANCE : S11
+PROCHAINE TÂCHE (S11) : T7, preuve du transport à deux étages. Étapes : (1) rédiger en détail l'esquisse de E2b_couplage.md §S10
+(points (1)–(3)), en vérifiant le point (3) (cases de l'îlot qui bougent, borne L ≤ pI de R-122) ; (2) l'appliquer aux triplets qui
+remplissent les hypothèses (`outils/transport7.py`, 3 123/3 564 en S10) ; (3) les autres : « c₃ fixe » transporté, transport dual (R-98),
+10 cas ouverts de R-124. Avant : relancer le fond — T7 (C) `nohup nice -n 5 recherche/autoroute/outils/t7_lance.sh 0 484 &` (reprise,
+data/t7/), puis `recherche/autoroute/outils/t7_tout.sh` (chaîne complète, ≈ 20 min) ; 5×5 : voir la ligne É3 (`box5_fond.sh`).
+Règle depuis R-122 : toute preuve `ant multi` doit être recoupée par `ant deux` avant d'être comptée.
+Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 records (5×5 : 351 374).
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-82, E0_controle.md
@@ -17,7 +16,7 @@ Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans 
 - [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S9 : [0, 12 400 000) certifié (+ 2 tranches), max 351 374 (R-118)
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
-- [~] É6 Germes et bassin à rebours — S9 : 6 et 7 cases dans [−2,2]² toutes démontrées (R-114). S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
+- [~] É6 Germes et bassin à rebours — S10 : 10 cases dans [−2,2]² (R-121). S9 : 6 et 7 cases dans [−2,2]² toutes démontrées (R-114). S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
 - [~] É7 Contre-attaque — S9 : « autoroute × vieille trace », 328 collisions certifiées, aucune boucle (R-112). S8 : pas de construction ; ping-pong le plus court (R-109), E7_contre_attaque.md
 - [x] É8 Synthèse — S9 : SYNTHESE.md S1–S8 + nouveauté par résultat + liste de relecture (+ PDF) ; S5 : note intermédiaire
 
@@ -37,6 +36,7 @@ Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans 
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
+- S10, 19-11, 11:33–12:3x UTC : faille de `ant multi` corrigée (R-122), T7 récurrences k₁ et m (R-124), transport à deux étages (R-125 à R-127), germes 10 cases (R-121) — rapports/S10_2026-11-19.md
 - S9, 19-11, 09:59–10:53 UTC : É8 synthèse, É7 autoroute × trace (R-112–R-115), germes [−2,2]² (R-114), T6 reproductible (R-116), T7 lancé (R-117, R-119), record 5×5 351 374 (R-118) — rapports/S9_2026-11-19.md
 - S8, 18-11, 23:37–00:10 UTC : R-107 à R-110, É6 germes, É7 — rapports/S8_2026-11-18.md
 - S7, 18-11, 21:14–21:47 UTC : É5 boucle gelée, C-L (R-102 à R-104), É6 germes et rebours (R-105, R-106) — rapports/S7_2026-11-18.md
