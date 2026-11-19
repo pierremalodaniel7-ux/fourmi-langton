@@ -5324,5 +5324,47 @@
   "deja": "Pas trouvé",
   "source": "S9 autoroute 19/11",
   "commande": "recherche/autoroute/outils/germes_k.sh 9 2"
+ },
+ {
+  "id": "A-G10",
+  "b": 21,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Germe à 10 cases le plus rapide dans [−2,2]²",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,-2;0,-2;2,-2;-2,-1;0,-1;1,-1;1,0;0,1;1,1;-2,2",
+  "img": [
+   300,
+   ""
+  ],
+  "situation": "10 cases noires dans le carré [−2,2]² autour de la fourmi (0,0) cap haut.",
+  "deroulement": "Autoroute après 52 pas : le plus court parmi les 1 961 256 configurations de 10 cases du carré (toutes démontrées).",
+  "mesures": "Certifiée dès 52. Minima exacts dans [−2,2]² : 120, 68, 64, 56, 52 pour 6 à 10 cases ; plus lente à 10 cases : 206 499.",
+  "statut": "DÉMONTRÉ (les 1 961 256 configurations) ; minimum exact dans ce carré (R-121)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S10 autoroute 19/11",
+  "commande": "recherche/autoroute/outils/germes_k.sh 10 2"
+ },
+ {
+  "id": "A-T7L",
+  "b": 21,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Trois cases éparses : la plus lente des 6 204 classes calculées",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-121,101;-472,401;-900,-700",
+  "img": [
+   427000,
+   ""
+  ],
+  "situation": "Départ blanc + trois cases noires loin les unes des autres : c₁ sur la 1re autoroute (k = 101), c₂ sur la 2e, c₃ sur la 3e.",
+  "deroulement": "La fourmi percute les trois sites l'un après l'autre (avec allers-retours sur sa trace) avant de partir pour de bon.",
+  "mesures": "Certifiée dès 426 535. Classe de c₃ prouvée par `ant multi` (NS = 2, p* = 400, 300), couplage recoupé par `ant deux`.",
+  "statut": "DÉMONTRÉ pour cette configuration ; famille (récurrence en m₃) DÉMONTRÉE sous réserve de relecture (R-119, R-123)",
+  "interet": "T7 (É2).",
+  "deja": "Pas trouvé",
+  "source": "S10 autoroute 19/11, t7_lance.sh base 151",
+  "commande": "recherche/autoroute/outils/t7_tout.sh"
  }
 ]
