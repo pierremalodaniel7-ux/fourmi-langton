@@ -603,3 +603,6 @@ du cap dans le nouveau mode (corrigé ; une simulation directe a tranché pour f
 ## R-113 Croisement d'une vieille trace (perpendiculaire) : loin des bouts (20 ≤ s ≤ 160 sur 200), les 8 classes ne dépendent ni de la longueur P (120 à 400) ni du point de croisement ; temps linéaires (longer : 22 826 − 4s ; remonter : 12 638 + 20s) — OBSERVÉ — 19/11 S9
 Boucle sur s : `a=$((2*s-150)); b=$((2*s+150)); recherche/autoroute/outils/trace_croise.sh 200 $a $((a+4)) $b $((b+2)) 1`.
 Tableau : recherche/autoroute/E7_contre_attaque.md §5. Piste : théorème « départ blanc + une trace d'autoroute quelconque loin » par couplage.
+(R-113, suite) Perpendiculaire construite vers (2,2) : 8 classes (4 longent, 3 traversent, 1 demi-tour), indépendantes de s pour
+20 ≤ s ≤ 190. De face : 88/100 issues indépendantes de P (150, 200, 300) ; les 12 autres remontent toute la trace jusqu'à son germe
+et dépendent de P. Même sens : 100/100 indépendantes de P. Toutes certifiées. Fichiers data/tc_r*_P*.txt (non suivis).

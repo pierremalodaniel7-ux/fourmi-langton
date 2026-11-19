@@ -74,3 +74,11 @@ Et pour s = P/2 : identiques pour P = 120, 200, 300, 400. Lecture : la fourmi qu
 4 pas par case de diagonale, celle qui « remonte » (classe 4) roule vers le germe de la trace à 20 pas par case ; les autres
 ne voient que le croisement. C'est la même structure que pour une case noire lointaine (T1) : une preuve par couplage
 « trace de longueur quelconque, croisée n'importe où loin des bouts » paraît accessible avec les outils de E2b_couplage.md.
+
+Autres orientations (R-113, suite) :
+- perpendiculaire, trace construite vers (2,2) : 8 classes, mêmes résultats pour s = 20 à 190 : 4 « longent » vers la pointe
+  ((2,2), 4 pas par case), 3 traversent, 1 demi-tour (26 695, constant). Seul s = 10 (près du germe de la trace) diffère.
+- de face (la fourmi arrive sur la pointe) : P = 150, 200, 300 donnent la même issue pour 88/100 décalages ; les 12 autres
+  (6 classes, pas certifiés 45 000 à 114 000) sont celles où la fourmi remonte toute la trace jusqu'à son germe : l'issue
+  dépend alors de P (rencontre avec le germe de la trace à une autre phase).
+- même sens (la fourmi rattrape le germe de la trace) : 100/100 identiques pour P = 150, 200, 300.
