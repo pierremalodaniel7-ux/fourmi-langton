@@ -599,3 +599,7 @@ Données : tableau dans recherche/autoroute/E7_contre_attaque.md §5. Aucune bou
 configurations : même direction finale 328/328 ; début (ant) et certificat (fourmi) à ≤ 1 pas près 322/328, ≤ 3 pas pour les 6
 autres (le certificat arrive 2 à 3 pas après le début de la trace périodique). Un premier essai donnait 2 désaccords : bug de lecture
 du cap dans le nouveau mode (corrigé ; une simulation directe a tranché pour fourmi).
+
+## R-113 Croisement d'une vieille trace (perpendiculaire) : loin des bouts (20 ≤ s ≤ 160 sur 200), les 8 classes ne dépendent ni de la longueur P (120 à 400) ni du point de croisement ; temps linéaires (longer : 22 826 − 4s ; remonter : 12 638 + 20s) — OBSERVÉ — 19/11 S9
+Boucle sur s : `a=$((2*s-150)); b=$((2*s+150)); recherche/autoroute/outils/trace_croise.sh 200 $a $((a+4)) $b $((b+2)) 1`.
+Tableau : recherche/autoroute/E7_contre_attaque.md §5. Piste : théorème « départ blanc + une trace d'autoroute quelconque loin » par couplage.

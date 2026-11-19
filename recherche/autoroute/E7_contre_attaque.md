@@ -59,3 +59,18 @@ une autoroute en terrain neuf. Aucun croisement n'a donné de boucle. Ce n'est p
 Contrôle croisé (`ant lot`, 2ᵉ moteur) : même direction finale 328/328, début à ≤ 3 pas du certificat.
 Bug corrigé au passage : `src/fourmi` tronquait en silence les lignes de plus de 16 ko (configurations de > ≈ 1 500 cases) ;
 tampon porté à 1 Mo, 19/19 tests OK.
+
+### Indépendance vis-à-vis de la longueur et du point de croisement (R-113)
+Croisement perpendiculaire (trace construite vers (−2,−2)), point de croisement fixé en (−150,150), s = position du croisement
+le long de la trace (0 = germe de la trace, P = sa pointe). Les 8 classes (dans l'ordre a = 0..3, b = 0..1) :
+
+| s (P = 200) | classes 1–8 | pas certifiés |
+|---|---|---|
+| 10 | (−2,−2) (2,2) (2,2) (2,2) (−2,2) (−2,2) (−2,2) (2,2) | effet du bout (germe de la trace) |
+| 20 à 160 | (−2,−2) (−2,2) (−2,−2) (2,2) (−2,2) (−2,2) (−2,2) (2,2) | classe 1 : 22 826 − 4s ; classe 4 : 12 638 + 20s ; les 6 autres constants |
+| 180, 190 | changent (effet de la pointe) | |
+
+Et pour s = P/2 : identiques pour P = 120, 200, 300, 400. Lecture : la fourmi qui « longe » (classe 1) roule vers la pointe à
+4 pas par case de diagonale, celle qui « remonte » (classe 4) roule vers le germe de la trace à 20 pas par case ; les autres
+ne voient que le croisement. C'est la même structure que pour une case noire lointaine (T1) : une preuve par couplage
+« trace de longueur quelconque, croisée n'importe où loin des bouts » paraît accessible avec les outils de E2b_couplage.md.
