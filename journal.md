@@ -734,3 +734,10 @@ k₁ : 5 473 « bloc » (5 473 couplages exacts) + 726 « c₃ fixe » (exacts),
 8 ouverts (bases 18, 24, 46, 68, 105, 135, 147, 178). Transport : K ok & M ok 5 262 ; K non-NS0 & M ok 594 ; les deux non-NS0 214 ; K ok & M non-NS0 109 ;
 K refusé par les directions 25. Audit `deux` de T7 (C) : 5 126/5 126 couplages exacts (233 bases). 5×5 : [0, 16 000 000) certifié sans trou
 (80 tranches dans resultats/box5/), max inchangé 351 374. Bilan : resultats/relatif/t7_bilan_S10.txt.
+
+## R-129 Lemme T (transport d'une condition NS = 0 le long d'un autre paramètre) et théorème T7-loin écrits en détail — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+recherche/autoroute/E2b_couplage.md §S11. T7-loin : si (C) vaut (recoupé par `deux`), (M) à NS = 0 avec d₃ ∈ {d₂, ⟂ d₂}, et (K) à NS = 0 avec
+d₂, d₃ ∈ {d, ⟂ d} (règle des diagonales pour une direction finale opposée), alors X(k₁, m, m₃) construit l'autoroute pour toujours pour tous
+k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀. Preuve : (C) donne m₃ ; lemme T avec les repères de (C) puis récurrence (M) donne m ; lemme T avec (C) puis (M),
+puis récurrence (K) donne k₁. Le correctif R-122 est aussi écrit dans le lemme 3 (point 3 : L_i ≤ pI). Outil d'application :
+`outils/t7_theoreme.py` (vérifie (i) dans data/t7/audit_c_all.out, (ii)–(iii) dans data/t7/transport7.txt). Bilan : voir R-130.
