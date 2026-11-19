@@ -62,5 +62,37 @@
   "fourmis": "0,0,H",
   "points": "0,0;1,0;4,0;0,-1;2,-1;3,-1;4,-1;0,-2;2,-2;3,-2;4,-2;2,-3;3,-3;4,-3;1,-4;3,-4",
   "note": "R-118, certifié dès 351 374"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Germe 8 cases le plus rapide de [−2,2]² (64)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,-2;2,-2;-2,-1;1,-1;1,0;0,1;1,1;-2,2",
+  "note": "R-114"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Germe 8 cases le plus lent de [−2,2]² (181 037)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,-2;0,-2;-1,-1;-2,0;0,1;-1,2;0,2;2,2",
+  "note": "R-114"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Germe 9 cases le plus rapide de [−2,2]² (56)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "0,-2;2,-2;-2,-1;0,-1;1,-1;1,0;0,1;1,1;-2,2",
+  "note": "R-114"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Germe 9 cases le plus lent de [−2,2]² (179 492)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-2,-2;1,-2;2,-2;-2,-1;-1,-1;1,-1;-2,0;2,0;-2,2",
+  "note": "R-114"
  }
 ]

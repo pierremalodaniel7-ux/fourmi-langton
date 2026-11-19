@@ -5303,5 +5303,26 @@
   "deja": "Pas trouvé (dépôt evanmack45 non relu)",
   "source": "S9 autoroute 19/11, box5_fond.sh",
   "commande": "recherche/autoroute/ant une 5 11433907"
+ },
+ {
+  "id": "A-G9",
+  "b": 20,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Germe à 9 cases le plus rapide dans [−2,2]²",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "0,-2;2,-2;-2,-1;0,-1;1,-1;1,0;0,1;1,1;-2,2",
+  "img": [
+   300,
+   ""
+  ],
+  "situation": "9 cases noires dans le carré [−2,2]² autour de la fourmi (0,0) cap haut.",
+  "deroulement": "Autoroute après 56 pas : le plus court parmi les 1 307 504 configurations de 9 cases du carré (toutes démontrées).",
+  "mesures": "Certifiée dès 56. Minima exacts dans [−2,2]² : 120 (6 cases), 68 (7), 64 (8), 56 (9).",
+  "statut": "DÉMONTRÉ (les 1 307 504 configurations) ; minimum exact dans ce carré (R-114)",
+  "interet": "Germes (É6).",
+  "deja": "Pas trouvé",
+  "source": "S9 autoroute 19/11",
+  "commande": "recherche/autoroute/outils/germes_k.sh 9 2"
  }
 ]
