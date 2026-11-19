@@ -34,7 +34,9 @@ aux instants s_i (X_k) et s_i + τ_i (X_{k+2}), et les configurations coïnciden
    dans aucun des deux mondes. Repère identité (i impair) : elles valent donc la même chose (même germe). Repère translation
    (i pair) : il faut en plus qu'elles évitent D, d'où Δ_i ⊇ diagonales de D pour i pair (correctif S4, R-92) ;
 3. (i impair) p < L_i, et accord de la phase i−2 (pour i ≥ 3) : ces cases n'ont été touchées dans aucun des deux mondes
-   pendant la phase i−1 (L_i ≤ min p sur [s_{i−1}, s_i) et ≤ min p sur [s_i, s_i+104] + 4) ;
+   pendant la phase i−1 (L_i ≤ min p sur [s_{i−1}, s_i) et ≤ min p sur [s_i, s_i+104] + 4) ; **et (correctif S10, R-122)
+   L_i ≤ pI = min p sur les cases de l'îlot** : pour i = 1, « égales au début de la phase » vient de ce que les deux mondes ne
+   diffèrent, en repère identité, que sur l'îlot (et la trace de la phase 0, à grand p) — il faut donc que l'îlot soit hors de {p < L₁} ;
    (i pair) p > H_i (max p sur [s_{i−1}, s_i+104]), et c+d ∉ D pour i = 2, accord de la phase i−2 sinon ;
 4. règle « un pas » : c telle que c+u ne soit pas touchée sur [s_i, s_i+104), X_k(s_i)(c+u) = X_k(s_i)(c), c+u dans
    l'accord du repère i−1 à l'instant s_i+104 (et c aussi, pour la récurrence), et c+u ∈ S_i (fermeture par chaîne :
@@ -141,3 +143,45 @@ translatées de d₃, et p₂ — la coordonnée le long de d₂ — ne diminue 
 c₂ et c₃ de d₂) ; leur p ne diminue pas sous les mêmes hypothèses, donc la borne L ≤ pI de `multi` se transporte.
 Décompte des triplets qui remplissent les hypothèses : 3 123 / 3 564 (R-127). Contrôle indépendant : R-126 (300/300 prédictions).
 À faire : rédiger (1)–(3) en détail, traiter les variantes « c₃ fixe » (R-124) et le transport dual (R-98) pour les 441 autres.
+
+## S11 — Transport à deux étages (T7) : preuve détaillée — DÉMONTRÉ sous réserve de relecture
+Remplace l'esquisse S10 ci-dessus.
+
+**Notations.** y vers le bas ; pour une direction e d'autoroute, p_e(c) = ⟨c, e⟩/2 (pour e = d = (−2,2) : p = −x+y, comme plus haut).
+c₁ = c₁⁰ + ((k₁−k₀)/2)·d ; c₂ = c₁ + r₀ + ((m−m₀)/2)·d₂ ; c₃ = c₂ + s₀ + ((m₃−m₃₀)/2)·d₃ (d₂, d₃ : dérives des autoroutes qui sortent
+du 1er et du 2e site ; c₂ − c₁ et c₃ − c₂ ne dépendent que de m et m₃). X(k₁, m, m₃) = blanc + {c₁, c₂, c₃}.
+Trois récurrences, chacune de la forme du « Théorème (récurrence sur k) » avec une base et un îlot :
+- (C) en m₃, base W₂ = blanc + {c₁, c₂} à (k₀, m₀) (pivotée pour que d₃ devienne d), îlot {c₃} ;
+- (M) en m, base W₁ = blanc + c₁(k₀) (pivotée : d₂ devient d), îlot {c₂, c₃} déplacé en bloc de d₂ ;
+- (K) en k₁, base blanc, îlot {c₁, c₂, c₃} déplacé en bloc de d.
+
+**Lemme T (transport d'une condition NS = 0).** Soit (R) l'une des récurrences (M) ou (K), de direction e (e = d₂ pour (M), d pour (K)),
+et (Q) une récurrence vérifiée (pour tout ν ≥ ν₀) qui fait varier un paramètre ν, dont les repères relient X(ν+1) et X(ν) par
+des positions identiques ou translatées de f (f = d₃ pour (C), d₂ pour (M)), avec p_e(f) ≥ 0. Si les conditions de (R) avec NS = 0
+valent pour X(ν), elles valent pour X(ν+1), sauf peut-être si la direction finale est −e, f ⟂ e, et les diagonales de la fenêtre
+finale se déplacent vers celles de D_e.
+*Preuve.* Les conditions de (R) avec NS = 0 sont : (C1) toute position de la fourmi après le premier contact avec l'îlot de (R) a
+p_e > MPD_e − 4 ; (Z) la fenêtre finale est dans l'accord de la phase 0 : p_e > MPD_e − 4 si la direction finale n'est pas −e, sinon
+ses diagonales évitent celles de D_e. (Avec NS = 0 il n'y a ni repère identité ni borne L : le correctif R-122 ne joue pas.)
+Par (Q), chaque position de X(ν+1) est l'image d'une position de X(ν) (avant l'arrivée de (Q) sur son propre îlot les deux mondes sont
+identiques ; ensuite repère identité ou translation de f ; les pas « en plus » de la phase 0 sont des translatés de pas de l'autoroute
+de la base de (Q)). Le premier contact avec l'îlot de (R) a lieu avant que (Q) ne distingue les deux mondes (l'îlot de (R) contient
+celui de (Q), et c₁ — resp. c₂ — est touchée avant c₃). Donc min p_e ne diminue pas (p_e(f) ≥ 0) : (C1) passe. La fenêtre finale de
+X(ν+1) est l'image de celle de X(ν), avec la même direction finale : p_e ne diminue pas ; si f = e les diagonales sont conservées ; si
+f ⟂ e elles bougent de ±4 par pas, d'où l'exception. Enfin les ensembles D_e et MPD_e ne dépendent que de la base de (R), qui ne
+dépend pas de ν. ∎
+
+**Théorème T7-loin.** Pour une classe de triplets (classe de c₁ à k₀, de c₂ à m₀, de c₃ à m₃₀) telle que :
+(i) (C) vaut (preuve `multi` recoupée par `deux`) ; (ii) (M) vaut à (k₀, m₀, m₃₀) avec NS = 0 et d₃ ∈ {d₂, ⟂ d₂} (avec la règle des
+diagonales si d₃ ⟂ d₂ et direction finale −d₂) ; (iii) (K) vaut à (k₀, m₀, m₃₀) avec NS = 0 et d₂, d₃ ∈ {d, ⟂ d} (même règle) ;
+alors pour tous k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀ de mêmes parités, X(k₁, m, m₃) construit l'autoroute pour toujours.
+*Preuve.* (a) Par (C), X(k₀, m₀, m₃) est certifiée pour tout m₃ ≥ m₃₀. (b) Lemme T avec (R) = (M), (Q) = (C) : (M) vaut à
+(k₀, m₀, m₃) pour tout m₃ ; puis le théorème de récurrence appliqué à (M) donne la certification de X(k₀, m, m₃) pour tout m, et
+ses repères (translation de d₂) pour tout (m, m₃). (c) Lemme T avec (R) = (K), (Q) = (C) : (K) vaut à (k₀, m₀, m₃) pour tout m₃ ;
+puis avec (Q) = (M) (repères de l'étape b, f = d₂) : (K) vaut à (k₀, m, m₃) pour tous m, m₃ ; le théorème de récurrence appliqué à
+(K) donne tout k₁. ∎
+Points à relire : l'affirmation « le premier contact avec l'îlot de (R) précède toute différence créée par (Q) » (vraie si la fourmi
+touche c₁ puis c₂ avant c₃, ce qui est le cas dans les triplets construits à partir des bases T7) ; l'usage des repères de (M) pour tous
+(m, m₃) à l'étape (c), qui demande que la preuve de (M) à (k₀, m, m₃) soit elle aussi à NS = 0 (conséquence du lemme T et de la
+récurrence : les conditions se transmettent telles quelles).
+Application : `outils/transport7.py` (S10) vérifie exactement (ii) et (iii) ; (i) par `audit_t7c.sh`.
