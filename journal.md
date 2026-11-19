@@ -706,3 +706,9 @@ Triplets : `outils/t7_triples.py` (3 564 = 162 bases finies × 22 classes de c�
   137 ECHEC → « c₃ fixe » (base blanc + c₁ + c₃, îlot c₂, `outils/essai_m_c3fixe.py`) : 132 OK sans la règle, tous exacts. Restent 5 :
   base 18 (classe de pente 156) et 4 triplets où c₃ est sur la bande de W₁ (la base blanc + c₁ + c₃ n'a plus la dérive (−2,+2)). OUVERT.
 Manque pour T7 : le transport (uniformité, comme R-95/96/98), les zones proches (A) et l'assemblage avec R et D.
+
+## R-125 T7 : directions successives des 3 564 triplets (d → d₂ → d₃ → d₄ ; M = même sens, P = perpendiculaire, X = demi-tour) — VÉRIFIÉ (calcul) — 19/11 S10
+MPP 912, MPM 685, MMP 642, MMM 453, PPP 264, PPM 198, PMP 157, PMM 117 (3 428 sans demi-tour) ; avec demi-tour : MPX 75, PPX 22, PXP 13,
+PMX 12, PXM 9, MMX 5 (136). Le lemme de transport de T6 (R-95) vaut quand chaque changement est M ou P : il devrait couvrir les 3 428
+premiers en l'itérant (m puis m₃) ; les 136 avec X demandent l'analogue de G1 (case fixe en base) ou le transport dual (R-98).
+Données : data/t7/directions.txt (non suivi).
