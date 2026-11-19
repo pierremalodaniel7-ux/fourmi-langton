@@ -645,3 +645,6 @@ un repère par site. Coût brut T7 (C) : ≈ 20 s × 484 bases ≈ 3 h, plus les
 ## R-118 Nouveau record 5×5 : masque 11433907 (16 cases), autoroute certifiée dès 351 374 — DÉMONTRÉ (cette configuration) ; record(n) ≥ 351 374 pour n ≥ 5 — OBSERVÉ (minorant) — 19/11 S9
 Cases 0,0;1,0;4,0;0,−1;2,−1;3,−1;4,−1;0,−2;2,−2;3,−2;4,−2;2,−3;3,−3;4,−3;1,−4;3,−4 (fourmi 0,0,H). 2ᵉ moteur `ant une 5 11433907` :
 début 351 374. Trouvé dans la tranche [11,4 M ; 11,6 M) du parcours exhaustif (box5_fond.sh). Bat R-111 (252 046) de 39 %.
+(R-117, suite) Classe demi-tour de c₃ : CERT = 210 722 + 104·(k − 901) (k = 901…909), autoroute finale (2,2) : la fourmi revient en
+roulant jusqu'au 2e site (−429,400) qui la renvoie en (2,2), loin de la bande de c₃. Un seul retour (NS = 1 devrait suffire) : l'échec
+de `multi` vient donc de ses ensembles d'accord autour de la base (pensés pour un germe à l'origine), pas de la dynamique. À examiner en S10.
