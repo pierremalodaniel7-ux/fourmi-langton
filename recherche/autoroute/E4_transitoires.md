@@ -36,3 +36,7 @@ Recherche plus forte (recuit simulé sur plusieurs heures, ou génétique), et s
 L'exhaustif 5×5 couvre [0, 9 200 000) : nouveau maximum **252 046** (cases 0,0;1,0;2,0;0,−1;0,−2;2,−2;3,−2;0,−3;1,−3;4,−3;1,−4;2,−4,
 masque 6927399), confirmé par `ant une`. Donc record(n) ≥ 252 046 pour n ≥ 5 (recopie au coin), au-dessus du 8×8 trouvé par montée
 de colline (220 334) : nouvelle preuve que la recherche locale est faible ici.
+
+## S9 (19-11) : nouveau record 5×5 (R-118)
+Parcours exhaustif 5×5 (fourmi au coin, cap H), tranche [11,4 M ; 11,6 M) : masque 11433907 (16 cases), certifié dès **351 374**
+(2ᵉ moteur : 351 374). record(n) ≥ 351 374 pour tout n ≥ 5 (recopie au coin). La montée de colline (S6) n'avait trouvé que 220 334 en 8×8.

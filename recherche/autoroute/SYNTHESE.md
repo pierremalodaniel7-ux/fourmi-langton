@@ -31,13 +31,13 @@ Implémenté dans `src/fourmi -cert`. Exemple : le départ blanc est démontré 
 | Germe R-20 | Le bout d'autoroute de 11 cases est certifié dès le pas 0 | 1 config | R-105 |
 | Rebours | Le passé d'une configuration = le futur de la même grille, fourmi retournée (a − dir(h), cap h+2). Donc « autoroute à rebours pour tout décor fini » ⇔ conjecture | calcul direct, 60/60 contrôles | R-107 (sans doute connu) |
 
-Partiel : boîtes 5×5 (fourmi au coin, cap H), les masques [0, X) sont certifiés (X : voir la fin du §7), transitoire max 252 046 (R-111).
+Partiel : boîtes 5×5 (fourmi au coin, cap H), les masques [0, X) sont certifiés (X : voir la fin du §7), transitoire max 351 374 (R-118).
 
 ### Observations chiffrées (OBSERVÉ, pas démontré)
 
 | | Énoncé | Données | Réf. |
 |---|---|---|---|
-| Records | record(n) = plus long transitoire d'une boîte n×n ; record(n+1) ≥ record(n) (recopie au coin) ; record(5) ≥ 252 046 (exhaustif partiel), donc record(n) ≥ 252 046 pour n ≥ 5 ; la montée de colline ne fait pas mieux (8×8 : 220 334) | T(3) = 51 277, T(4) = 133 984 exacts | R-84, R-101, R-111 |
+| Records | record(n) = plus long transitoire d'une boîte n×n ; record(n+1) ≥ record(n) (recopie au coin) ; record(5) ≥ 351 374 (exhaustif partiel, S9), donc record(n) ≥ 351 374 pour n ≥ 5 ; la montée de colline ne fait pas mieux (8×8 : 220 334) | T(3) = 51 277, T(4) = 133 984 exacts | R-84, R-101, R-111, R-118 |
 | Statistique | Pas certifié médian 5×5 dans [2 048, 4 096) ; 15 % ≥ 8 192 ; aucune corrélation entre nombre de cases noires et log(transitoire) (r² ≈ 0) | 6,8 M boîtes | R-104 |
 | Boucle gelée | Sur l'autoroute nue, la boucle gelée L(t) est périodique (104), 34 valeurs, max 152 | calcul exact | R-102 (VÉRIFIÉ) |
 | C-L | Si L(t) imite la suite de l'autoroute nue pendant 104 pas, une autoroute suit ; hors autoroute, imitation ≤ 89 pas | ≈ 74 300 configurations | R-103 |
@@ -104,7 +104,7 @@ pour toujours) est sans doute connue de façon informelle.
 | T6 (deux cases éparses) | DÉMONTRÉ, à relire | pas trouvé |
 | Germes ≤ 5 cases (R-105, R-108, R-110) | DÉMONTRÉ | pas trouvé |
 | Rebours (R-107) | DÉMONTRÉ | sans doute connu (réversibilité de la fourmi, classique) |
-| Records de transitoire (R-101, R-111) | OBSERVÉ | pas trouvé. MFCS 2026 (Etse, arXiv 2606.26677) borne le **temps d'échappement** d'un domaine fini (borne factorielle pour les carrés) : autre question (sortie du domaine, pas arrivée de l'autoroute) |
+| Records de transitoire (R-101, R-111, R-118) | OBSERVÉ | pas trouvé. MFCS 2026 (Etse, arXiv 2606.26677) borne le **temps d'échappement** d'un domaine fini (borne factorielle pour les carrés) : autre question (sortie du domaine, pas arrivée de l'autoroute) |
 | C-L, boucle gelée (R-102, R-103) | OBSERVÉ / VÉRIFIÉ | pas trouvé |
 
 ## 6. Prochaines étapes
