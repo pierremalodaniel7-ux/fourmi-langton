@@ -654,3 +654,8 @@ couvre des diagonales jusqu'à p = 839, contre ≈ 25 pour le départ blanc) : c
 (−1,−2;0,−2;−1,−1;−2,0;0,1;−1,2;0,2;2,2). (Borne R-105 à 8 cases : ≤ 55, hors de ce carré.)
 (R-114, suite) 9 cases dans [−2,2]² : 1 307 504/1 307 504 certifiées ; min 56 (0,−2;2,−2;−2,−1;0,−1;1,−1;1,0;0,1;1,1;−2,2), max 179 492
 (−2,−2;1,−2;2,−2;−2,−1;−1,−1;1,−1;−2,0;2,0;−2,2).
+(R-117, résolu) La classe demi-tour passe avec p* = 900 : `BASE="-127,100;-429,400" T0=37543 ant multi -21 901 210722 1 900` → TOUT OK
+(règle 0) ; p* = 900 à 1 700 marchent, ≤ 600 non. Raison : p* = L borne la zone d'accord en repère identité ; elle doit couvrir le
+2ᵉ site (p ≈ 829) et pas seulement le germe. Contrôle direct `deux_mondes.sh` : couplage exact sur 173 284 pas. Donc pour cette base
+W₂, partie (C) de T7 : 22/22 classes — DÉMONTRÉ sous réserve de relecture (mêmes lemmes que T6). À faire : élargir la liste des p*
+de relatif.py (ajouter 900, 1 200, 1 500 ou p* = p(2ᵉ site) + 70) puis lancer les 484 bases (≈ 3 h).
