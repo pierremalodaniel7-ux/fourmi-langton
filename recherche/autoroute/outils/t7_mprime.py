@@ -34,5 +34,5 @@ for l in open(sys.argv[1]):
     dd = d3p[0] * (-2) + d3p[1] * 2
     crit = rg == 0 and P[0] == '1' and tl > s1 + 104 and (dd < 0 or (dd == 0 and loin(l0, l1, D0, D1, d3p) and (zl == 1 or loin(Z0, Z1, D0, D1, d3p))))
     why = '' if crit else ('regle' if rg else 'NS' if P[0] != '1' else 'tc3' if tl <= s1 + 104 else 'dir' if dd > 0 else 'diag')
-    cnt[('MP:ok' if crit else 'MP:non', why)] += 1; out.write(f'{n} {C} {"MP:ok" if crit else "MP:non"} {why}\n')
+    cnt[('MP:ok' if crit else 'MP:non', why)] += 1; out.write(f'{n} {C} {"MP:ok" if crit else "MP:non"} {why} s1={s1}\n')
 for k, v in cnt.most_common(): print(k, v)

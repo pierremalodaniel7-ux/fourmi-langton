@@ -210,3 +210,10 @@ ne dépend pas de m (l'autoroute qui part du 2ᵉ site repart en fait du 1er, co
 classe : après l'épisode c₂, les trajectoires de X(m) et X(m+1) sont identiques (repère identité), donc passent par la même 3ᵉ bande. La
 famille démontrée est alors {c₁(k₁), c₂(m), c₃ ∈ 3ᵉ bande, loin}, ce qui est bien la famille de T7 pour ces classes. De même pour (K') : la vérification place le contact avec c₃ après le passage en repère identité (t_B > s₁ + 104),
 donc la trajectoire qui mène à c₃ est la même pour k₁ et k₁ + 2 : la 3ᵉ bande ne dépend pas de k₁, et c₃ fixe décrit bien la famille.
+**Lemme T' (a'), le long de m avec les repères de (M') (S11).** Si (M) n'est vérifiée qu'en variante (M') (c₃ fixe), ses repères sont :
+identiques avant c₂, translation de d₂ jusqu'à son passage en repère identité s₁', puis identité. Si le passage en repère identité de (K')
+vient après : s₁(K') ≥ s₁'(M') + 104, alors toutes les lectures de la phase 1 de (K') et la fenêtre finale sont identiques dans X(m) et
+X(m+1) ; en phase 0, les positions sont identiques ou translatées de d₂ ∈ {d, ⟂ d} (p ne diminue pas : C1 tient ; L₁ ne peut que croître,
+donc les acceptations « p < L₁ » restent vraies ; si d₂ = d les diagonales ne bougent pas). Donc (K') se transporte le long de m.
+(Pour d₂ ⟂ d, les diagonales de Δ₁ en phase 0 bougent : ce cas n'est pas utilisé.) Contrôle : 30 cas (d₂ = d) déplacés (c₂ de 5·d₂, c₃ de 5·d₃) :
+30/30 preuves (K') refaites, couplage exact, règle 0.

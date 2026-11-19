@@ -752,3 +752,8 @@ Le théorème T7-loin accepte désormais (iii) ou (iii') (`t7_theoreme.py`).
 ## R-131 Variante (M') du transport (preuves (M) « c₃ fixe ») : 258/264 cas S10 remplissent le critère ; contrôle 30/30 à m₃ + 10 — DÉMONTRÉ sous réserve de relecture — 19/11 S11
 `outils/t7_mprime.py` (nouveau champ `tlast` de `multi` : premier contact avec la dernière case de la base, ici c₃). Échecs : 4 (diagonales),
 2 (règle). T7-loin accepte (ii) ou (ii').
+
+## R-132 Lemme T' (a') : preuves (K') transportées le long de m avec les repères de (M') quand d₂ = d et s₁(K') ≥ s₁'(M') + 104 — +128 cas S10 ; contrôle 30/30 — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+E2b §S11. Critère ajouté à `outils/t7_kprime.py` (lit les s₁' de data/t7/mprime.txt). Contrôle : 30 triplets de la famille d₂ = d,
+c₂ déplacé de 5·d₂ et c₃ de 5·d₃ (famille « c₃ absolu » de (M')) : 30/30 preuves (K') refaites, `deux` exact, règle 0.
+Sur les données S10 : T7-loin passe de 5 929 à 6 057 classes de triplets sur 6 204.

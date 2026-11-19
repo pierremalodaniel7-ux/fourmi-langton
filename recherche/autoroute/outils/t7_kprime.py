@@ -9,6 +9,12 @@ D={}
 for l in open(sys.argv[2]):
     w=l.split(); D[(w[0],w[1].split(';')[2])]=[(int(a),int(b)) for a,b in re.findall(r'\((-?\d+), (-?\d+)\)',' '.join(w[3:]))]
 d=(-2,2); dot=lambda a,b:a[0]*b[0]+a[1]*b[1]
+MS={}
+try:
+    for l in open('data/t7/mprime.txt'):
+        w=l.split()
+        if w[2]=='MP:ok': MS[(w[0],w[1])]=int(w[-1][3:])
+except FileNotFoundError: pass
 cnt=Counter(); out=open('data/t7/kprime.txt','w')
 for l in open(sys.argv[1]):
     if 'deux:COUPLAGE' not in l: continue
@@ -32,6 +38,9 @@ for l in open(sys.argv[1]):
     m_ok = dot(d2,d)==0 and loin(r0,r1,f0,f1,d2) and (zl==1 or loin(*g(r'diagZ=\[(-?\d+),(-?\d+)\]'),f0,f1,d2))
     # transport en m3 (f = d3) : c3 touchée après s1+104 ; d3 = -d (p diminue, diagonales fixes) ou d3 ⟂ d (lectures après c3 loin de Δ1)
     m3_ok = tb>s1+104 and (dot(d3,d)<0 or (dot(d3,d)==0 and loin(A0,A1,D0,D1,d3) and (zl==1 or loin(*g(r'diagZ=\[(-?\d+),(-?\d+)\]'),D0,D1,d3))))
+    # variante (S11) : le long de m avec les repères de (M') (c3 fixe) : tout le repère identité de K' après celui de M'
+    Jx,Kx,ax,bx=int(J),int(K),int(a),int(b); Ckey=f'{Jx-Kx},{Kx};{Jx-Kx+ax},{Kx+bx};{c3}'
+    if not m_ok and dot(d2,d)>0 and (n,Ckey) in MS and s1 >= MS[(n,Ckey)]+104: m_ok=True   # lemme T' (a'), d2 = d seulement
     v='KP:ok' if all(ok) and m_ok and m3_ok else 'KP:non'
     why='' if v=='KP:ok' else ('regle' if not ok[0] else 'NS' if not ok[1] else 'tc2' if not ok[2] else 'm' if not m_ok else 'm3')
     cnt[(v,why)]+=1; out.write(f'{n} {J} {K} {CE} {a} {b} c3={c3} {v} {why}\n')
