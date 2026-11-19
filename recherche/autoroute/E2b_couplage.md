@@ -205,3 +205,9 @@ déplacés à (m+10, m₃+10) : 40/40 preuves (K') refaites, couplage exact, rè
 transport le long de m₃ seulement (f = d₃ ; d₃ = −d₂ ou ⟂ d₂ avec le critère des diagonales ; c₃ touchée après s₁ + 104 — champ `tlast`
 de `multi`), puis la récurrence (M') donne tout m. Outil `outils/t7_mprime.py` ; dans T7-loin, (ii) peut être remplacé par (ii').
 Contrôle : 30 cas déplacés de 5 pas en m₃ : 30/30 preuves (M') refaites, couplage exact, règle 0.
+*Paramétrage (point à relire).* (M') fixe c₃ en absolu quand c₂ bouge : elle décrit la famille « c₃ sur la 3ᵉ bande » seulement si cette bande
+ne dépend pas de m (l'autoroute qui part du 2ᵉ site repart en fait du 1er, comme G1 de T6). Le couplage exact de (M') le montre pour la
+classe : après l'épisode c₂, les trajectoires de X(m) et X(m+1) sont identiques (repère identité), donc passent par la même 3ᵉ bande. La
+famille démontrée est alors {c₁(k₁), c₂(m), c₃ ∈ 3ᵉ bande, loin}, ce qui est bien la famille de T7 pour ces classes. De même pour (K') :
+c₃ fixe est cohérent quand la 3ᵉ bande est parallèle à d (d₃ = ±d), car la translation de c₁, c₂ par d la laisse globalement invariante ;
+pour d₃ ⟂ d il faudrait le vérifier (aucun cas de ce type n'est compté par t7_kprime, qui exige d₃ = −d ou le critère de diagonales).
