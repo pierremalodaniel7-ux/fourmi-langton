@@ -624,3 +624,8 @@ garantit que V∖(V+d) n'est jamais relu ; borne K du test Z prudente (|v| ≤ p
 et la boîte utilisée est celle de la fin du 1er passage (⊇ cases visitées jusqu'à l'instant certifié) ; hors boîte tout est blanc.
 Seule remarque : le pas « CERT » rendu est le premier instant certifié dans la fenêtre [début − p, début + 50p], pas forcément le
 premier absolu (sans effet sur les statuts). Bug voisin trouvé et corrigé ce jour : lignes > 16 ko tronquées (R-112).
+
+## R-116 T6 reproductible : les étapes R-94 (récurrence en k₁, 968 vérifications `ant multi`) et R-95 (transport, 484 paires) refaites depuis zéro redonnent exactement les résultats gardés (0 ligne différente) — VÉRIFIÉ — 19/11 S9
+`recherche/autoroute/outils/t6_refait.sh` (45 s). Constat : les entrées de `transport.py` (gap.cert, dbl22.res) n'étaient pas gardées ;
+gap.cert = `fourmi -cert` sur les 22 classes de c₁ (gardé maintenant dans resultats/relatif/), dbl22.res = resultats/relatif/recurrence_k1.txt.
+Les 968 pas certifiés recalculés sont identiques. Non refait par ce script : R-96/R-98 (G1, G2, transport dual) et la partie (A) proche.

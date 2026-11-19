@@ -1,17 +1,18 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
-PROCHAINE SÉANCE : S9
-PROCHAINE TÂCHE (S9) : É8 — synthèse finale. Étapes : (1) mettre à jour recherche/autoroute/SYNTHESE.md avec S6–S8 (É4 R-101/R-111,
-É5 R-102 à R-104, É6 R-105 à R-110, É7 R-109) et régénérer le PDF (pandoc → HTML → chromium --print-to-pdf, voir S5) ; (2) pour
-chaque résultat « DÉMONTRÉ », une ligne de nouveauté (deja_connu.md + au plus 1 recherche) ; (3) lister ce qui attend une
-relecture humaine (E2b_couplage.md, `ant multi`). En fond : 5×5 à partir de 9 200 000 (`cp resultats/box5/*.res data/` puis
-`nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh 0 9200000 200000 N &`, idem cœur 1 à partir de 9 200 000 + 200 000·N).
-Pistes ouvertes : T7 (trois cases éparses, ≈ 8 h, plan dans E2_epars.md) ; É7 « autoroute × trace » ; germes exacts 6–10 cases.
+PROCHAINE SÉANCE : S10
+PROCHAINE TÂCHE (S10) : T7 (trois cases éparses). Étapes : (1) étendre `outils/t6_refait.sh` à R-96/R-98 (G1, G2, transport dual) pour
+que T6 soit entièrement reproductible (R-94/R-95 le sont depuis S9, R-116) ; (2) T7 : mesurer le temps d'une base W₂ = blanc + c₁ + c₂
+avec `t1relatif.py`, puis regrouper les 484 bases par « type de sortie » (piste (i) de E2_epars.md) avant de tout lancer. En fond : 5×5 à partir de X5 (voir la
+ligne É3 ; `cp resultats/box5/*.res data/` puis `nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh C DEBUT 200000 N &` par cœur,
+3 cœurs, 4,5 min par tranche et par cœur).
+Pistes ouvertes : théorème « départ blanc + une vieille trace » (plan dans E7_contre_attaque.md) ; germes 8–10 cases dans [−2,2]²
+(8 et 9 : voir R-114) ; É4 records.
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-82, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-83, E1_certificat.md, `fourmi -cert`
-- [~] É2 Collisions → théorème « épars » — S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
+- [~] É2 Collisions → théorème « épars » — S9 : R-94/R-95 refaits à l'identique (R-116, `t6_refait.sh`). S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
 - [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S8 : [0, 9 200 000) certifié (9,2 M/33,5 M), max 252 046 (R-111)
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
