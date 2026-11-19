@@ -201,3 +201,7 @@ Si d₃ ⟂ d : p inchangé, diagonales ±4 : critère « s'éloignent de Δ₁ 
 Conclusion : sous ces conditions (vérifiées par `outils/t7_kprime.py`), (K') vaut à (k₀, m, m₃) pour tous m, m₃, et le théorème de récurrence
 donne tout k₁ : dans le théorème T7-loin, (iii) peut être remplacé par (iii') « (K') vérifiée et critère de t7_kprime ». Contrôle : 40 cas
 déplacés à (m+10, m₃+10) : 40/40 preuves (K') refaites, couplage exact, règle non utilisée.
+**Variante (M') (S11).** Même argument (partie (b) du lemme T') pour (M) « c₃ fixe » : base blanc + c₁ + c₃ (pivotée), îlot c₂, NS = 1,
+transport le long de m₃ seulement (f = d₃ ; d₃ = −d₂ ou ⟂ d₂ avec le critère des diagonales ; c₃ touchée après s₁ + 104 — champ `tlast`
+de `multi`), puis la récurrence (M') donne tout m. Outil `outils/t7_mprime.py` ; dans T7-loin, (ii) peut être remplacé par (ii').
+Contrôle : 30 cas déplacés de 5 pas en m₃ : 30/30 preuves (M') refaites, couplage exact, règle 0.

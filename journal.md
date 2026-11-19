@@ -748,3 +748,7 @@ horsD_apres_c2, zlow, zd). Sur les 726 preuves « c₃ fixe » de S10 : 584 pass
 (d₂ = d : p augmente de 4 par pas après c₂, les acceptations « p < L₁ » ne sont pas uniformes), 14 utilisent la règle. Contrôle
 indépendant : 40 triplets tirés au hasard, déplacés de 5 pas en m et en m₃ : 40/40 preuves (K') refaites, `deux` exact, règle 0.
 Le théorème T7-loin accepte désormais (iii) ou (iii') (`t7_theoreme.py`).
+
+## R-131 Variante (M') du transport (preuves (M) « c₃ fixe ») : 258/264 cas S10 remplissent le critère ; contrôle 30/30 à m₃ + 10 — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+`outils/t7_mprime.py` (nouveau champ `tlast` de `multi` : premier contact avec la dernière case de la base, ici c₃). Échecs : 4 (diagonales),
+2 (règle). T7-loin accepte (ii) ou (ii').
