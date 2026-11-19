@@ -1,11 +1,11 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
-PROCHAINE SÉANCE : S11
-PROCHAINE TÂCHE (S11) : T7, preuve du transport à deux étages. Étapes : (1) rédiger en détail l'esquisse de E2b_couplage.md §S10
-(points (1)–(3)), en vérifiant le point (3) (cases de l'îlot qui bougent, borne L ≤ pI de R-122) ; (2) l'appliquer aux triplets qui
-remplissent les hypothèses (`outils/transport7.py`, 3 123/3 564 en S10) ; (3) les autres : « c₃ fixe » transporté, transport dual (R-98),
-10 cas ouverts de R-124. Avant : relancer le fond — T7 (C) `nohup nice -n 5 recherche/autoroute/outils/t7_lance.sh 0 484 &` (reprise,
-data/t7/), puis `recherche/autoroute/outils/t7_tout.sh` (chaîne complète, ≈ 20 min) ; 5×5 : voir la ligne É3 (`box5_fond.sh`).
+PROCHAINE SÉANCE : S12
+PROCHAINE TÂCHE (S12) : T7, finir la partie « loin » puis l'assemblage. Étapes : (1) relancer `recherche/autoroute/outils/t7_tout.sh` puis
+`t7_mprime.py data/t7/rec_m_c3fixe.txt data/t7/directions.txt`, `t7_kprime.py data/t7/rec_k1_c3fixe.txt data/t7/directions.txt`,
+`t7_theoreme.py` si des bases T7 (C) ont été ajoutées (484 attendues) ; (2) classes non couvertes par T7-loin (voir R-133) : NS ≥ 1 en (K)
+« bloc », règle utilisée, cas d₂ ⟂ d de (a') ; (3) zones proches (A) et R, D pour trois cases (adapter `outils/epars_RD.py`), énoncé T7.
+En fond : 5×5 à partir de 16 000 000 (`box5_fond.sh`, en pause depuis S11).
 Règle depuis R-122 : toute preuve `ant multi` doit être recoupée par `ant deux` avant d'être comptée.
 Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 records (5×5 : 351 374).
 
@@ -36,6 +36,7 @@ Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
+- S11, 19-11, 14:24–15:2x UTC : transport à deux étages écrit (R-129 à R-132), T7-loin appliqué (R-133) — rapports/S11_2026-11-19.md
 - S10, 19-11, 11:33–12:31 UTC : faille de `ant multi` corrigée (R-122), T7 récurrences k₁ et m (R-124), transport à deux étages (R-125 à R-127), germes 10 cases (R-121) — rapports/S10_2026-11-19.md
 - S9, 19-11, 09:59–10:53 UTC : É8 synthèse, É7 autoroute × trace (R-112–R-115), germes [−2,2]² (R-114), T6 reproductible (R-116), T7 lancé (R-117, R-119), record 5×5 351 374 (R-118) — rapports/S9_2026-11-19.md
 - S8, 18-11, 23:37–00:10 UTC : R-107 à R-110, É6 germes, É7 — rapports/S8_2026-11-18.md
