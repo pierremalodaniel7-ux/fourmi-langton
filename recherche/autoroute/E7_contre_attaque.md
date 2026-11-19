@@ -84,3 +84,12 @@ Autres orientations (R-113, suite) :
 - même sens (la fourmi rattrape le germe de la trace) : 100/100 identiques pour P = 150, 200, 300.
 - (R-115) Pour ces cas « de face » qui remontent toute la trace, l'issue ne dépend que de P mod 12 (testé P = 100 à 161) : la
   fourmi arrive au germe de la trace avec une phase qui tourne avec P.
+
+### Plan pour un théorème « départ blanc + une vieille trace » (non commencé)
+Paramètres : orientation (4), P (longueur), s (point de croisement), k (distance du croisement au germe), décalage (8 classes en
+perpendiculaire). (1) Couplage en k : translater la trace de d (période de l'autoroute de la fourmi) ; les deux mondes diffèrent
+seulement près du germe (ensemble D de T1), et la fourmi n'y revient que dans la classe « demi-tour » — même argument que T1.
+(2) Couplage en s : translater la trace le long d'elle-même de sa période ; les mondes diffèrent seulement aux deux bouts ; à
+démontrer : la fourmi n'approche pas des bouts (classes « traverse », « demi-tour ») ou y arrive par un rouleur (classes
+« longe », « remonte ») dont l'arrivée se ramène au cas de face. (3) Cas de face : récurrence en P mod 12 (R-115).
+Obstacle pratique : `ant multi` n'accepte que ≤ 16 cases d'obstacle ; il faudrait un vérificateur qui prend la trace en entrée.
