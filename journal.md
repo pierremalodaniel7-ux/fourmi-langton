@@ -652,3 +652,5 @@ de `multi` vient donc de ses ensembles d'accord autour de la base (pensés pour 
 couvre des diagonales jusqu'à p = 839, contre ≈ 25 pour le départ blanc) : c'est probablement ce D trop large qui bloque.
 (R-114, suite) 8 cases dans [−2,2]² : 735 471/735 471 certifiées ; min 64 (−1,−2;2,−2;−2,−1;1,−1;1,0;0,1;1,1;−2,2), max 181 037
 (−1,−2;0,−2;−1,−1;−2,0;0,1;−1,2;0,2;2,2). (Borne R-105 à 8 cases : ≤ 55, hors de ce carré.)
+(R-114, suite) 9 cases dans [−2,2]² : 1 307 504/1 307 504 certifiées ; min 56 (0,−2;2,−2;−2,−1;0,−1;1,−1;1,0;0,1;1,1;−2,2), max 179 492
+(−2,−2;1,−2;2,−2;−2,−1;−1,−1;1,−1;−2,0;2,0;−2,2).
