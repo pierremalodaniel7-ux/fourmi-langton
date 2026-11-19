@@ -717,4 +717,10 @@ Données : data/t7/directions.txt (non suivi).
 Hypothèses du transport itéré (NS = 0 dans les récurrences « bloc » en k₁ et en m, aucun demi-tour) : 3 030 triplets sur 3 564.
 Test : CE(a,b,c) = CE(0) + a·Δ_k₁ + b·Δ_m + c·Δ_m₃ (pentes mesurées un paramètre à la fois ; c₁ += a·d, c₂ += a·d + b·d₂,
 c₃ += a·d + b·d₂ + c·d₃). Échantillon de 300 candidats : 300/300 exacts. Les 534 autres (départ décalé d'un pas) : 496 exacts, 38 non
-additifs (MPM 22, MPP 16), 0 non certifié. Script dans le rapport S10.
+additifs (MPM 22, MPP 16), 0 non certifié. Outil : `outils/t7_uniformite.py 300 10`.
+
+## R-127 T7 : hypothèses du transport (critère de transport.py, R-95) aux deux étages remplies pour 3 123 triplets sur 3 564 — OBSERVÉ (décompte) ; le lemme à deux étages reste À ÉCRIRE ET RELIRE — 19/11 S10
+`outils/transport7.py` : K = récurrence en k₁ (bloc, NS0) transportée le long de m (pas d₂) et de m₃ (pas d₃) ; M = récurrence en m
+(bloc, repère de blanc + c₁, NS0) transportée le long de m₃. Bilan : K ok et M ok 3 123 ; K non-NS0 / M ok 264 ; les deux non-NS0 155 ;
+K ok / M non-NS0 16 ; K refusé par les directions 6. Schéma de preuve visé : (C) à (k₀, m₀) pour tout m₃, puis M (tout m), puis K (tout k₁).
+Les 441 restants : variantes « c₃ fixe » (R-124, déjà vérifiées pour 352 + 132 cas) à transporter, et transport dual (R-98).
