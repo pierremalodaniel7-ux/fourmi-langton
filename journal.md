@@ -629,3 +629,9 @@ premier absolu (sans effet sur les statuts). Bug voisin trouvé et corrigé ce j
 `recherche/autoroute/outils/t6_refait.sh` (45 s). Constat : les entrées de `transport.py` (gap.cert, dbl22.res) n'étaient pas gardées ;
 gap.cert = `fourmi -cert` sur les 22 classes de c₁ (gardé maintenant dans resultats/relatif/), dbl22.res = resultats/relatif/recurrence_k1.txt.
 Les 968 pas certifiés recalculés sont identiques. Non refait par ce script : R-96/R-98 (G1, G2, transport dual) et la partie (A) proche.
+(R-116, suite) R-96 refait (`t6_refait.sh`, étapes 5–6) : G1 (c₁ = −119,100) 17/18 sans la règle + 8/8 vérifications « c₂ fixe »
+(base = blanc + c₂, NS = 1, p* = 90) ; G2 (d₂ = d) 7/8 sans la règle ; mêmes 2 exceptions (règle utilisée 50 et 72 fois).
+R-98, contrôles à la main : (a) pour G2, base −127,100 (T0 = 21 929), `ant multi -21 401 158602 1 300` : s₁ = 101 288, règle 0 ✓ ;
+(a) pour G1, base pivotée 100,119 (cap G, T0 = 79 678) : 22/22 sans la règle ✓ ; (b) pour G1, c₂ = (−401,−409) :
+s₁ = 68 836 avec p* = 110 (69 356 avec p* = 90 : le journal ne notait pas p*) ✓. T6 : seules les zones proches (A, 683 080 cas)
+et R-97 (assemblage, epars_RD.py) ne sont pas dans le script.
