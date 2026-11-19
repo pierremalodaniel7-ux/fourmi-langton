@@ -641,3 +641,7 @@ et R-97 (assemblage, epars_RD.py) ne sont pas dans le script.
 Échec : `BASE="-127,100;-429,400" T0=37543 ant multi -21 901 210722 NS p…` ; le demi-tour au 3e site roule jusqu'au 2e site, pas au
 germe : les repères de `multi` (identité près du germe) ne collent pas. Il faudra l'astuce « c₃ fixe » de T6 (base = blanc + c₃) ou
 un repère par site. Coût brut T7 (C) : ≈ 20 s × 484 bases ≈ 3 h, plus les demi-tours.
+
+## R-118 Nouveau record 5×5 : masque 11433907 (16 cases), autoroute certifiée dès 351 374 — DÉMONTRÉ (cette configuration) ; record(n) ≥ 351 374 pour n ≥ 5 — OBSERVÉ (minorant) — 19/11 S9
+Cases 0,0;1,0;4,0;0,−1;2,−1;3,−1;4,−1;0,−2;2,−2;3,−2;4,−2;2,−3;3,−3;4,−3;1,−4;3,−4 (fourmi 0,0,H). 2ᵉ moteur `ant une 5 11433907` :
+début 351 374. Trouvé dans la tranche [11,4 M ; 11,6 M) du parcours exhaustif (box5_fond.sh). Bat R-111 (252 046) de 39 %.

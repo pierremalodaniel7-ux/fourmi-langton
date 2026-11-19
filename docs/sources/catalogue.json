@@ -5282,5 +5282,26 @@
   "deja": "Pas trouvé",
   "source": "S9 autoroute 19/11",
   "commande": "recherche/autoroute/outils/germes_k.sh 6 2"
+ },
+ {
+  "id": "A-R5b",
+  "b": 20,
+  "classe": "Conjecture de l'autoroute (certificats)",
+  "nom": "Nouveau record 5×5 : 351 374 pas",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "0,0;1,0;4,0;0,-1;2,-1;3,-1;4,-1;0,-2;2,-2;3,-2;4,-2;2,-3;3,-3;4,-3;1,-4;3,-4",
+  "img": [
+   352000,
+   ""
+  ],
+  "situation": "Boîte 5×5, fourmi au coin (0,0) cap haut, 16 cases noires (masque 11433907).",
+  "deroulement": "Le plus long chaos trouvé dans les boîtes 5×5 (parcours exhaustif en cours) ; bat le record précédent (252 046, R-111) de 39 %.",
+  "mesures": "Certifiée dès 351 374, autoroute (2,2) ; 2e moteur (ant une) : début 351 374.",
+  "statut": "DÉMONTRÉ pour cette configuration ; record OBSERVÉ (R-118)",
+  "interet": "É3/É4 : record(n) ≥ 351 374 pour n ≥ 5.",
+  "deja": "Pas trouvé (dépôt evanmack45 non relu)",
+  "source": "S9 autoroute 19/11, box5_fond.sh",
+  "commande": "recherche/autoroute/ant une 5 11433907"
  }
 ]
