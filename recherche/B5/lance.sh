@@ -2,6 +2,8 @@
 # lance.sh [TMAX] [COEURS] : 25 positions × 64 sous-arbres (préfixe de 6 choix), reprise possible :
 # un sous-arbre déjà écrit (data/B5/jobs/*.res non vide) est sauté. Échantillons : data/B5/echantillons.txt (graine 20261119).
 D=$(cd $(dirname $0); pwd); R=$D/../..; J=$R/data/B5/jobs; mkdir -p $J
+# reprise après recyclage du conteneur : restaurer les sous-arbres sauvegardés (sauve.sh)
+[ -f $D/jobs.tar.gz ] && tar -xzf $D/jobs.tar.gz -C $J --skip-old-files
 TMAX=${1:-5000000}; K=${2:-$(nproc)}
 for y in 0 1 2 3 4; do for x in 0 1 2 3 4; do for p in $(seq 0 63); do
   pr=$(echo "obase=2;$p" | bc); pr=$(printf "%06d" $pr); echo "$x $y $pr"; done; done; done |
