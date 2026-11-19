@@ -36,3 +36,25 @@ Un mécanisme **auto-entretenu** (la fourmi fabrique elle-même les miroirs qui 
 Lutfalla pour LLRRRL). Pour RL, les seules structures auto-construites observées sont l'autoroute et le « rouleur » qui roule sur
 sa trace et s'arrête au site précédent (R-74, R-81). Aucune ne se reconstruit plus loin. Piste non explorée : chercher, parmi les
 issues de collision « autoroute × trace » (R-25), une issue qui renvoie une autoroute vers un site qu'elle vient elle-même de créer.
+
+## 5. S9 (19-11) : « autoroute × vieille trace » (R-112)
+Montage : fourmi = germe R-20 (0,0,B ; certifié dès 0, autoroute (−2,2)). Obstacle = la trace laissée par ce même germe après
+200 périodes (2 400 cases environ, sans la fourmi), tournée de 0°, 90°, 180° ou 270° et décalée de (a,b) pour que l'autoroute
+la percute à ≈ 100 cases. Outil : `outils/trace_croise.sh 200 A0 A1 B0 B1 ROT` (la trace est construite en Python, seul
+`src/fourmi -cert` juge). 328 configurations, **328 certifiées** (autoroute pour toujours, DÉMONTRÉ pour chacune).
+
+| trace | configurations | traverse (−2,2) | longe la trace (−2,−2) | remonte la trace (2,2) | demi-tour (2,−2) | pas certifié max |
+|---|---|---|---|---|---|---|
+| perpendiculaire, construite vers (−2,−2) | 64 | 32 | 16 | 16 | 0 | 50 486 |
+| perpendiculaire, construite vers (2,2) | 64 | 24 | 0 | 32 | 8 | 26 903 |
+| de face (pointe vers la fourmi) | 100 | 44 (dont 21 ratées) | 26 | 26 | 4 | 113 648 |
+| même sens (la fourmi rattrape le germe de la trace) | 100 | 57 (dont 19 ratées) | 15 | 26 | 2 | 26 787 |
+
+Perpendiculaire : exactement 8 classes (période 4 en a, 2 en b, réseau engendré par (2,2) et (−2,2)), chaque classe vue 8 fois
+avec le même résultat (pas certifiés égaux à ±104·k près, ou à quelques pas près quand la fourmi longe la trace jusqu'à son bout).
+« Longe la trace » = **relais** : la fourmi rejoint la vieille autoroute, la suit jusqu'à sa pointe et la prolonge.
+« Remonte » : elle roule sur la vieille trace jusqu'à son germe, puis repart. Demi-tour : elle revient sur sa propre trace.
+Conclusion pour É7 : une vieille trace se comporte comme un « site » de plus (comme une case noire) : 1 traversée de plus, puis
+une autoroute en terrain neuf. Aucun croisement n'a donné de boucle. Ce n'est pas une preuve qu'il n'en existe pas.
+Bug corrigé au passage : `src/fourmi` tronquait en silence les lignes de plus de 16 ko (configurations de > ≈ 1 500 cases) ;
+tampon porté à 1 Mo, 19/19 tests OK.

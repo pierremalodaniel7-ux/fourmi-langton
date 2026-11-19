@@ -590,3 +590,8 @@ pour tout n ≥ 5 (OBSERVÉ, minorant). Tranches : resultats/box5/.
 tableau de nouveauté résultat par résultat + liste de relecture (certificat, couplage, transport, `ant multi`, R-107).
 1 recherche web : MFCS 2026 (Etse, arXiv 2606.26677) borne le temps d'ÉCHAPPEMENT d'un domaine fini (borne factorielle pour
 les carrés), pas le transitoire avant l'autoroute : nos records (R-101, R-111) restent non trouvés. PDF : resultats/Synthese autoroute S1-S9.
+
+## R-112 É7 « autoroute × vieille trace » : 328 collisions (trace de 200 périodes, 4 orientations, tous décalages utiles) → 328 autoroutes certifiées ; perpendiculaire : 8 classes (traverse, relais le long de la trace, remonte la trace, demi-tour) — DÉMONTRÉ (ces 328 configurations) / « une trace = un site de plus » OBSERVÉ — 19/11 S9
+`recherche/autoroute/outils/trace_croise.sh 200 50 58 350 358 1` (et rot 3 : -350 -342 -50 -42 ; rot 2 : -500 -496 488 513 ; rot 0 : -100 -96 88 113).
+Données : tableau dans recherche/autoroute/E7_contre_attaque.md §5. Aucune boucle. Au passage : `src/fourmi` tronquait les lignes
+> 16 ko (bug silencieux ; sans effet sur les résultats autoroute, dont les configurations ont ≤ 25 cases ; autres usages anciens non revérifiés) ; corrigé (1 Mo), 19/19 tests.
