@@ -606,3 +606,8 @@ Tableau : recherche/autoroute/E7_contre_attaque.md §5. Piste : théorème « d�
 (R-113, suite) Perpendiculaire construite vers (2,2) : 8 classes (4 longent, 3 traversent, 1 demi-tour), indépendantes de s pour
 20 ≤ s ≤ 190. De face : 88/100 issues indépendantes de P (150, 200, 300) ; les 12 autres remontent toute la trace jusqu'à son germe
 et dépendent de P. Même sens : 100/100 indépendantes de P. Toutes certifiées. Fichiers data/tc_r*_P*.txt (non suivis).
+
+## R-114 Germes dans le carré [−2,2]² : toutes les configurations de 6 cases (134 596) et de 7 cases (346 104) construisent l'autoroute — DÉMONTRÉ (certificat) ; minima exacts dans ce carré : 120 (6 cases), 68 (7 cases) — 19/11 S9
+`recherche/autoroute/outils/germes_k.sh K 2` (fourmi 0,0,H, cases ≠ (0,0)). 6 cases : min 120 (1,−2;2,−2;−2,1;2,1;1,2;2,2), max 105 789
+(0,−2;1,−2;1,−1;1,0;−1,1;−1,2). 7 cases : min 68 (2,−2;−2,−1;1,−1;1,0;0,1;1,1;−2,2), max 167 636 (−2,−2;−1,−2;2,−2;1,−1;2,−1;−1,2;2,2).
+Les bornes de R-105 (≤ 69 à 6 cases, ≤ 61 à 7 cases) viennent de boîtes plus grandes : le carré [−2,2]² ne fait pas mieux.

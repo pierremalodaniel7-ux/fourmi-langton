@@ -15,7 +15,7 @@ Pistes ouvertes : T7 (trois cases éparses, ≈ 8 h, plan dans E2_epars.md) ; É
 - [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S8 : [0, 9 200 000) certifié (9,2 M/33,5 M), max 252 046 (R-111)
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
-- [~] É6 Germes et bassin à rebours — S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
+- [~] É6 Germes et bassin à rebours — S9 : 6 et 7 cases dans [−2,2]² toutes démontrées (R-114). S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
 - [~] É7 Contre-attaque — S9 : « autoroute × vieille trace », 328 collisions certifiées, aucune boucle (R-112). S8 : pas de construction ; ping-pong le plus court (R-109), E7_contre_attaque.md
 - [x] É8 Synthèse — S9 : SYNTHESE.md S1–S8 + nouveauté par résultat + liste de relecture (+ PDF) ; S5 : note intermédiaire
 
