@@ -648,3 +648,5 @@ début 351 374. Trouvé dans la tranche [11,4 M ; 11,6 M) du parcours exhaustif 
 (R-117, suite) Classe demi-tour de c₃ : CERT = 210 722 + 104·(k − 901) (k = 901…909), autoroute finale (2,2) : la fourmi revient en
 roulant jusqu'au 2e site (−429,400) qui la renvoie en (2,2), loin de la bande de c₃. Un seul retour (NS = 1 devrait suffire) : l'échec
 de `multi` vient donc de ses ensembles d'accord autour de la base (pensés pour un germe à l'origine), pas de la dynamique. À examiner en S10.
+(R-117, détail) `multi … 1 90` : s₁ = 158 910, lecture refusée à 168 512, « Z ECHEC » ; borne p sur D = 839 (la trace de la base W₂
+couvre des diagonales jusqu'à p = 839, contre ≈ 25 pour le départ blanc) : c'est probablement ce D trop large qui bloque.
