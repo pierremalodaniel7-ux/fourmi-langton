@@ -611,3 +611,9 @@ et dépendent de P. Même sens : 100/100 indépendantes de P. Toutes certifiées
 `recherche/autoroute/outils/germes_k.sh K 2` (fourmi 0,0,H, cases ≠ (0,0)). 6 cases : min 120 (1,−2;2,−2;−2,1;2,1;1,2;2,2), max 105 789
 (0,−2;1,−2;1,−1;1,0;−1,1;−1,2). 7 cases : min 68 (2,−2;−2,−1;1,−1;1,0;0,1;1,1;−2,2), max 167 636 (−2,−2;−1,−2;2,−2;1,−1;2,−1;−1,2;2,2).
 Les bornes de R-105 (≤ 69 à 6 cases, ≤ 61 à 7 cases) viennent de boîtes plus grandes : le carré [−2,2]² ne fait pas mieux.
+
+## R-115 Collision de face avec une vieille trace, cas où la fourmi remonte toute la trace : l'issue dépend de la longueur P seulement par P mod 12 (P = 100 à 161, 2 décalages) ; les pas certifiés croissent linéairement en P — OBSERVÉ (chaque configuration DÉMONTRÉE) — 19/11 S9
+Pointe de la trace fixée ; `for P …; a=$((-100-2*P)); b=$((100+2*P-12+j)); trace_croise.sh $P $a $((a+1)) $b $((b+1)) 2` (j = 7, 13).
+j = 7, P ≡ 0 (mod 4) : (2,2), (2,2), (−2,2) selon P mod 12 = 4, 8, 0 (P = 100…160) ; P impair : toujours (2,2), pas de période 3.
+j = 13 : (2,2) / (−2,−2) / (2,2)-autre classe, période 12 en P. Lecture : la fourmi roule sur la trace jusqu'à son germe et y
+arrive avec une phase qui dépend de P mod 12 (le rouleur n'avance pas d'un multiple de la période de la trace).

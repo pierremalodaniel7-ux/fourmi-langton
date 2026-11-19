@@ -82,3 +82,5 @@ Autres orientations (R-113, suite) :
   (6 classes, pas certifiés 45 000 à 114 000) sont celles où la fourmi remonte toute la trace jusqu'à son germe : l'issue
   dépend alors de P (rencontre avec le germe de la trace à une autre phase).
 - même sens (la fourmi rattrape le germe de la trace) : 100/100 identiques pour P = 150, 200, 300.
+- (R-115) Pour ces cas « de face » qui remontent toute la trace, l'issue ne dépend que de P mod 12 (testé P = 100 à 161) : la
+  fourmi arrive au germe de la trace avec une phase qui tourne avec P.
