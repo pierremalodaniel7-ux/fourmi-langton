@@ -12,10 +12,10 @@ awk '{x1=$1-$2; y1=$2; printf "RL|0,0,H|%d,%d;%d,%d\n", x1, y1, x1+$4, y1+$5}' r
 $R/src/fourmi -T 30000000 -cert -lot < dbl.in > dbl.cert
 # 3) récurrence en k1 (R-94) refaite avec ant multi
 $R/recherche/autoroute/outils/essai_k1.sh dbl.cert > dbl22.res 2>/dev/null
-echo "R-94 : $(diff dbl22.res recurrence_k1.txt | grep -c '^[<>]') ligne(s) différente(s) (attendu 0)"
+echo "R-94 : $(diff dbl22.res recurrence_k1.txt | grep -c '^[<>]') ligne(s) différente(s) (attendu 0 avant R-122 ; depuis : 72 pour R-94 et 36 pour R-95, tous de c1 = -119,100 « bloc » → ECHEC, traités par l'étape 6)"
 # 4) transport (R-95)
 python3 $R/recherche/autoroute/outils/transport.py > transport.log
-echo "R-95 : $(diff transport.res transport.txt | grep -c '^[<>]') ligne(s) différente(s) (attendu 0)"
+echo "R-95 : $(diff transport.res transport.txt | grep -c '^[<>]') ligne(s) différente(s) (attendu 0 avant R-122 ; depuis : 72 pour R-94 et 36 pour R-95, tous de c1 = -119,100 « bloc » → ECHEC, traités par l'étape 6)"
 # 5) R-96 : paires non traitées par le transport → `ant multi` avec le NS de recurrence_k1, décompte de la règle « un pas »
 grep -v DEMONTRE transport.res | python3 -c "
 import sys,re,subprocess
@@ -28,9 +28,12 @@ for l in sys.stdin:
     else: print(c1,d2,'c2_fixe'); continue
     o=subprocess.run([A,'multi',J,K,CE]+a+[ex,ey],capture_output=True,text=True).stdout
     print(c1,d2,v.replace(' ','_'),'OK' if 'TOUT OK' in o else 'ECHEC',re.search(r'regle=\d+',o).group(0))" > r96.txt
-# 6) R-94 / G1 : les 8 vérifications « c2 fixe » (base = blanc + c2, îlot c1 seul, NS = 1, p* = 90)
-grep ECHEC recurrence_k1.txt | while read J K CE ex ey v; do x2=$((J-K+ex)); y2=$((K+ey))
-  o=$(BASE="$x2,$y2" T0=9977 $R/recherche/autoroute/ant multi $J $K $CE 1 90 2>/dev/null | tail -1)
-  echo "$J $K c2=$x2,$y2 $(echo "$o" | grep -q 'TOUT OK' && echo OK || echo ECHEC) $(echo "$o" | grep -o 'regle=[0-9]*')"; done > g1_fixe.txt
-echo "R-96 : G1 (c1 = -119,100) sans règle $(grep -c '^-119,100 .* OK regle=0$' r96.txt)/18 + c2 fixe $(grep -c 'OK regle=0' g1_fixe.txt)/8 vérifications ;" \
-     "G2 (d2 = d) sans règle $(grep -v '^-119,100' r96.txt | grep -c 'OK regle=0$')/8 (attendu : 17/18, 8/8, 7/8)"
+# 6) R-94 / G1 : c1 = classe demi-tour (-119,100) : c2 FIXE en base (base = blanc + c2, îlot c1 seul, NS = 1), contrôle `ant deux`
+#    (le paramétrage « bloc » de l'étape 5 n'est PAS valable pour cette classe : R-122)
+grep '^-19 100 ' recurrence_k1.txt | while read J K CE ex ey v rest; do x2=$((J-K+ex)); y2=$((K+ey)); r=ECHEC
+  for p in 90 70 50 110 150 190 300; do o=$(BASE="$x2,$y2" T0=9977 $R/recherche/autoroute/ant multi $J $K $CE 1 $p 2>/dev/null | tail -1)
+    if echo "$o" | grep -q 'TOUT OK'; then s1=$(echo "$o" | grep -o 's1=[0-9]*' | cut -d= -f2)
+      d=$(BASE="$x2,$y2" T0=9977 $R/recherche/autoroute/ant deux $J $K $CE 1 $s1 2>/dev/null | grep -o 'COUPLAGE EXACT\|ECART')
+      r="OK $(echo "$o" | grep -o 'regle=[0-9]*') $d"; break; fi; done; echo "$J $K c2=$x2,$y2 $r"; done > g1_fixe.txt
+echo "R-96 : G1 (c1 = -119,100, c2 fixe) sans règle $(grep -c 'OK regle=0 COUPLAGE EXACT' g1_fixe.txt)/44 vérifications, avec règle $(grep -c 'OK regle=[1-9].*COUPLAGE EXACT' g1_fixe.txt) ;" \
+     "G2 (d2 = d) sans règle $(grep -v '^-119,100' r96.txt | grep -c 'OK regle=0$')/8 (attendu : 42/44, 2, 7/8)"

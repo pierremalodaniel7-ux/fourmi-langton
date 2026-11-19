@@ -270,6 +270,9 @@ int main(int argc,char**argv){
     for(int i=1;i<=NS;i++){ SN[i]=calloc(W*W,1); TO[i]=calloc(W*W,1); TP[i]=calloc(W*W,1); WM[i]=calloc(W*W,1); RD[i]=calloc(W*W,1); DGs[i]=calloc(2*W,1); if(i%2==0) memcpy(DGs[i],DGD,2*W);   /* repère translation (i pair) : Δ_i contient aussi les diagonales de D (germe/base) */
       DGs[i][ox-oy+W]=1; for(int e=0;e<ne;e++) DGs[i][ox+EXs[e]-(oy-EYs[e])+W]=1; }
     long DD=-2L*W-2; long sT[8]; int sx[8],sy[8],sh[8],LV[8],HV[8],minS[8],okR[8],okC[8]; long bC[8];
+    /* S10 (R-122) : en repère identité, l'accord « p < L » suppose que les cases de l'îlot ont p ≥ L (dans les deux mondes) ;
+       sinon (case de l'îlot à petit p, ex. c3 sur une autre bande) l'accord est faux. pI = plus petit p des cases de l'îlot. */
+    int pI = -ox-oy; for(int e=0;e<ne;e++){ int pe = -(ox+EXs[e])-(oy-EYs[e]); if(pe<pI) pI=pe; }
     for(int i=0;i<8;i++){ sT[i]=-1; LV[i]=1<<30; HV[i]=-(1<<30); minS[i]=1<<30; okR[i]=-1; okC[i]=1; bC[i]=-1; }
     int x=0,y=0,h=H0,minC1=1<<30,reachG=0,reachS=0,cur=0; long imp=-1; int zx0=0,zy0=0,zx1=0,zy1=0,zlow=1,zhigh=1,zd=1,zd0=1,zq0=1<<30,zq1=-(1<<30);
     #define PKm(kk) ((int)(-( ((kk)%W) - C ) - ( ((kk)/W) - C )))
@@ -318,7 +321,7 @@ int main(int argc,char**argv){
       /* lectures neuves de la phase cur (après s_cur+P), jusqu'à s_{cur+1}+2P */
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]+P && !RD[i][k]){
         long lim = (i<NS) ? (sT[i+1]>=0 ? sT[i+1]+2*P : -2) : CE+P; if(lim!=-2 && t>lim) continue;
-        if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; }
+        if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; if(LV[i]>pI) LV[i]=pI; }
         lastwhy=0; if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } else { nacc[lastwhy]++; if(lastwhy==2){ int q=DGm(k)-W; if(tbase>=0){ if(q<gq0)gq0=q; if(q>gq1)gq1=q; } else { if(q<hq0)hq0=q; if(q>hq1)hq1=q; } } } }
       if(t==CE){ zx0=x; zy0=y; } if(t==CE+P){ zx1=x; zy1=y; }
       if(t>=CE){ int pc=PKm(k); if(NS==0){ if(!(pc>MPD-4)) zhigh=0; } else if(NS%2){ if(!(pc<LV[NS] && (NS==1 || pc<LV[NS-2]))) zlow=0; } else { if(!(pc>HV[NS] && (NS==2 || pc>HV[NS-2]))) zhigh=0; } if(NS>0 && DGs[NS][DGm(k)]) zd=0; if(DGD[DGm(k)]) zd0=0; { int q=DGm(k)-W; if(q<zq0)zq0=q; if(q>zq1)zq1=q; } }

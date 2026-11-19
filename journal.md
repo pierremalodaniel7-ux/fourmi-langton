@@ -677,3 +677,17 @@ Tranches : resultats/box5/ (64 fichiers). T7 : data/t7/b_<n>.txt (non suivis) ; 
 ## R-121 Germes à 10 cases dans [−2,2]² : les 1 961 256 configurations construisent l'autoroute — DÉMONTRÉ (certificat) ; minimum exact 52, maximum 206 499 — 19/11 S10
 Min : −1,−2;0,−2;2,−2;−2,−1;0,−1;1,−1;1,0;0,1;1,1;−2,2 (et une autre) ; max : −2,−2;−1,−2;0,−2;2,−2;−2,−1;−1,−1;2,−1;0,1;2,1;−1,2.
 Terminé en fond après S9 (morceaux data/germes_R2_k10_*.out). Minima exacts dans [−2,2]² : 120, 68, 64, 56, 52 pour 6 à 10 cases.
+
+## R-122 Faille de `ant multi` trouvée et corrigée : en repère identité, l'accord « p < L » était admis même quand une case de l'îlot a un petit p — FAUX positifs possibles ; aucun résultat publié touché après recontrôle — VÉRIFIÉ — 19/11 S10
+Découverte : récurrence en k₁ de T7, triplet (−130,103) + (−291,299) + (−772,−1014) (décalages) : `multi -27 103 189428 1 90 …` disait
+TOUT OK, mais `ant deux` trouve un écart à t = 157 031 et les pas certifiés (k₁ = 103 : 189 428 ; 105 : 111 414) excluent tout couplage.
+Cause : en repère identité (NS impair), `multi` accepte toute lecture de p < L_i (« près du germe, les deux mondes coïncident »). C'est faux
+si une case de l'îlot (qui diffère entre X(k) et X(k+2)) a elle-même p < L_i : ici c₃, posé sur une autre bande à p ≈ −18.
+Correction (ant_controle.c) : L_i ≤ pI = plus petit p des cases de l'îlot. Recontrôles avec le binaire corrigé :
+- T6 (C), R-93 : 484/484 toujours OK ; T6 R-94 : seuls les 36 contrôles « bloc » de c₁ = (−119,100) (classe demi-tour) passent de NS1 à
+  ECHEC — c'est exactement le cas où le journal (R-94) prescrivait « c₂ fixe en base » ; avec c₂ fixe : 44/44 OK (42 sans la règle, 2 avec,
+  comme R-96) et `deux` confirme 44/44 couplages exacts. T6 et ses énoncés sont inchangés.
+- Mon `t6_refait.sh` (S9, étape 5) vérifiait G1 avec le paramétrage « bloc » : il obtenait les bons comptes pour une mauvaise raison ;
+  corrigé pour utiliser « c₂ fixe ». T1–T5 : îlots compacts à grand p, non concernés (pI ≥ k ≥ 100 > L).
+- T7 (C) : audit par `ant deux` de chaque preuve (audit_t7c.sh) : voir R-123.
+Leçon : toute preuve `multi` doit être recoupée par `ant deux` (couplage simulé) avant d'être comptée.
