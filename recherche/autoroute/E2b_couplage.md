@@ -123,3 +123,21 @@ ne font que grandir ; la fenêtre et Z suivent.
 - c₁ = (−119,100) (demi-tour), c₂ = (−401,−409) : (a) en NS = 1, p* = 90, règle 0 ; toutes les lectures de (a) après c₂ ont
   lieu dans la phase identité de (b) (après le passage au germe) : identiques pour tout k₁.
 Puis, pour chaque k₁, la récurrence (a) donne tous les m ≥ m₀. Contrôle : 6/6 prédictions exactes (k₁ + 20…80, m + 0…30).
+
+## S10 — Esquisse : transport à deux étages pour trois cases (T7) — À RELIRE, NON DÉMONTRÉ
+Notations : c₁ = classe de T1 à k₁ (le long de d) ; c₂ = c₁ + r₀ + m·d₂ ; c₃ = c₂ + s₀ + m₃·d₃ (d₂, d₃ : directions des autoroutes qui
+sortent du 1er et du 2e site). X(k₁, m, m₃) = blanc + {c₁, c₂, c₃}. Trois récurrences vérifiées avec `multi` puis `deux` :
+- (C) m₃ → m₃+1 à (k₀, m₀) : base blanc + c₁ + c₂ (R-117, R-119, R-123) ; ses repères relient X(k₀,m₀,m₃+1) et X(k₀,m₀,m₃) :
+  positions identiques ou translatées de d₃, décalage de temps fixe.
+- (M) m → m+1 à k₀, îlot {c₂, c₃} en bloc, base blanc + c₁ (R-124) ; repères : identité ou translation de d₂.
+- (K) k₁ → k₁+2, îlot {c₁, c₂, c₃} en bloc (R-124).
+**Énoncé visé.** Si (M) vaut à (k₀, m₀, m₃₀) avec NS = 0 et d₃ ∈ {d₂, ⟂ d₂}, et si (K) vaut à (k₀, m₀, m₃₀) avec NS = 0 et
+d₂, d₃ ∈ {d, ⟂ d} (avec la règle des diagonales de transport.py quand la direction finale est −d), alors X(k₁, m, m₃) construit
+l'autoroute pour toujours pour tous k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀ (mêmes parités).
+**Schéma.** (1) Lemme de transport de R-95 appliqué avec les repères de (C) : (M) vaut à (k₀, m₀, m₃) pour tout m₃ (les positions sont
+translatées de d₃, et p₂ — la coordonnée le long de d₂ — ne diminue pas si d₃ = d₂ ou ⟂ d₂) ; la récurrence (M) donne alors tout m.
+(2) Même lemme avec les repères de (C) puis de (M) : (K) vaut à (k₀, m, m₃) pour tous m, m₃ (p le long de d ne diminue pas si d₂, d₃ ∈
+{d, ⟂ d}) ; la récurrence (K) donne tout k₁. (3) Point à vérifier (leçon de R-122) : les cases de l'îlot bougent aussi (c₃ de d₃,
+c₂ et c₃ de d₂) ; leur p ne diminue pas sous les mêmes hypothèses, donc la borne L ≤ pI de `multi` se transporte.
+Décompte des triplets qui remplissent les hypothèses : 3 123 / 3 564 (R-127). Contrôle indépendant : R-126 (300/300 prédictions).
+À faire : rédiger (1)–(3) en détail, traiter les variantes « c₃ fixe » (R-124) et le transport dual (R-98) pour les 441 autres.
