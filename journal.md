@@ -584,3 +584,9 @@ Plus court : −3,1;−2,0;−1,−1;−1,1;1,−3 → 62 ; plus long : −3,0;�
 Record : cases 0,0;1,0;2,0;0,−1;0,−2;2,−2;3,−2;0,−3;1,−3;4,−3;1,−4;2,−4 (fourmi 0,0,H, masque 6927399) : certifié à 252 046 ;
 2ᵉ moteur `ant une 5 6927399` : début 252 046. Il dépasse le record 8×8 de R-101 (220 334) ; par recopie au coin, record(n) ≥ 252 046
 pour tout n ≥ 5 (OBSERVÉ, minorant). Tranches : resultats/box5/.
+
+## É8 Synthèse S1–S8 (séance S9) — 19/11
+`recherche/autoroute/SYNTHESE.md` mise à jour (germes R-105/108/110, rebours R-107, observations R-101 à R-104, R-109, R-111) +
+tableau de nouveauté résultat par résultat + liste de relecture (certificat, couplage, transport, `ant multi`, R-107).
+1 recherche web : MFCS 2026 (Etse, arXiv 2606.26677) borne le temps d'ÉCHAPPEMENT d'un domaine fini (borne factorielle pour
+les carrés), pas le transitoire avant l'autoroute : nos records (R-101, R-111) restent non trouvés. PDF : resultats/Synthese autoroute S1-S9.
