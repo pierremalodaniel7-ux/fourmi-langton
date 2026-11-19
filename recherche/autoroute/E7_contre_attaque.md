@@ -56,5 +56,6 @@ avec le même résultat (pas certifiés égaux à ±104·k près, ou à quelques
 « Remonte » : elle roule sur la vieille trace jusqu'à son germe, puis repart. Demi-tour : elle revient sur sa propre trace.
 Conclusion pour É7 : une vieille trace se comporte comme un « site » de plus (comme une case noire) : 1 traversée de plus, puis
 une autoroute en terrain neuf. Aucun croisement n'a donné de boucle. Ce n'est pas une preuve qu'il n'en existe pas.
+Contrôle croisé (`ant lot`, 2ᵉ moteur) : même direction finale 328/328, début à ≤ 3 pas du certificat.
 Bug corrigé au passage : `src/fourmi` tronquait en silence les lignes de plus de 16 ko (configurations de > ≈ 1 500 cases) ;
 tampon porté à 1 Mo, 19/19 tests OK.

@@ -24,10 +24,11 @@ static int dx[4]={0,1,0,-1}, dy[4]={1,0,-1,0}; /* 0=haut,1=droite,2=bas,3=gauche
 static short *px,*py; static unsigned char *tr;
 typedef struct {long onset; int ddx,ddy; int ok; long steps;} Res;
 
+static int RH=0; /* cap initial de run (mode lot) */
 static int NOBOX=0; static long IMPACT=-1; static int OBX=1<<30,OBY=0;
 static Res run(long maxs, int x0,int y0,int bx0,int by0,int bx1,int by1){
   /* bx0..bx1 : boîte du support initial (coordonnées relatives au centre) */
-  Res r={-1,0,0,0,0}; int x=x0,y=y0,h=0; long t, runlen=0;
+  Res r={-1,0,0,0,0}; int x=x0,y=y0,h=RH; long t, runlen=0;
   for(t=0;t<maxs;t++){
     if(x<-C+2||x>C-3||y<-C+2||y>C-3){ r.steps=t; return r; }
     px[t]=x; py[t]=y; if(IMPACT<0&&x==OBX&&y==OBY) IMPACT=t;
@@ -358,6 +359,20 @@ int main(int argc,char**argv){
       if(w==1) printf("deux J=%d K=%d NS=%d : %ld pas comparés, %s (1er écart t=%ld)\n",J,K,NS,nchk,bad<0?"COUPLAGE EXACT":"ECART",bad);
     }
     free(bx); free(by); free(bh); free(bc);
+  } else if(!strcmp(argv[1],"lot")){
+    /* lot : lignes « RL|0,0,CAP|x,y;x,y… » (format de src/fourmi, y vers le BAS, fourmi en 0,0) -> dernière autoroute (S9) */
+    static char L[1<<20]; long MX=argc>2?atol(argv[2]):3900000;
+    if(MX>MAXS){ free(px); free(py); free(tr); px=malloc(MX*2); py=malloc(MX*2); tr=malloc(MX); }
+    while(fgets(L,sizeof L,stdin)){
+      char *f1=strchr(L,'|'); if(!f1) continue; f1++; char *f2=strchr(f1,'|'); if(!f2) continue; f2++;
+      f2[-1]=0; char *cp=strrchr(f1,','); char cc=cp?cp[1]:'H'; int h0=cc=='D'?1:cc=='B'?2:cc=='G'?3:0;
+      clear_box(1800); int bx0=0,bx1=0,by0=0,by1=0;
+      for(char *q=strtok(f2,";\n"); q; q=strtok(NULL,";\n")){ char *c=strchr(q,','); if(!c) continue; int x=atoi(q), y=-atoi(c+1);
+        if(x<-1700||x>1700||y<-1700||y>1700) continue; g[(long)(y+C)*W+(x+C)]^=1;
+        if(x<bx0)bx0=x; if(x>bx1)bx1=x; if(y<by0)by0=y; if(y>by1)by1=y; }
+      RH=h0; IMPACT=-1; Res r=run(MX,0,0,bx0,by0,bx1,by1);
+      printf("autoroute=%d debut=%ld derive=(%d,%d) pas=%ld\n",r.ok,r.onset,r.ddx,-r.ddy,r.steps); fflush(stdout);
+    }
   } else if(!strcmp(argv[1],"une")){
     /* une N MASQUE : une boîte N×N (même convention que box : cases (i%N, i/N) en y vers le haut, fourmi (0,0) cap haut) */
     int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long MX=atol(argc>4?argv[4]:"3900000");

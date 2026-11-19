@@ -595,3 +595,7 @@ les carrés), pas le transitoire avant l'autoroute : nos records (R-101, R-111) 
 `recherche/autoroute/outils/trace_croise.sh 200 50 58 350 358 1` (et rot 3 : -350 -342 -50 -42 ; rot 2 : -500 -496 488 513 ; rot 0 : -100 -96 88 113).
 Données : tableau dans recherche/autoroute/E7_contre_attaque.md §5. Aucune boucle. Au passage : `src/fourmi` tronquait les lignes
 > 16 ko (bug silencieux ; sans effet sur les résultats autoroute, dont les configurations ont ≤ 25 cases ; autres usages anciens non revérifiés) ; corrigé (1 Mo), 19/19 tests.
+(R-112, contrôle croisé) 2ᵉ moteur : nouveau mode `recherche/autoroute/ant lot [MAXS]` (lit le format de src/fourmi). Les 328
+configurations : même direction finale 328/328 ; début (ant) et certificat (fourmi) à ≤ 1 pas près 322/328, ≤ 3 pas pour les 6
+autres (le certificat arrive 2 à 3 pas après le début de la trace périodique). Un premier essai donnait 2 désaccords : bug de lecture
+du cap dans le nouveau mode (corrigé ; une simulation directe a tranché pour fourmi).
