@@ -5366,5 +5366,505 @@
   "deja": "Pas trouvé",
   "source": "S10 autoroute 19/11, t7_lance.sh base 151",
   "commande": "recherche/autoroute/outils/t7_tout.sh"
+ },
+ {
+  "id": "B5-00",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (0,0) — T(5)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "0,0;1,0;4,0;0,-1;2,-1;3,-1;4,-1;0,-2;2,-2;3,-2;4,-2;2,-3;3,-3;4,-3;1,-4;3,-4",
+  "img": [
+   354374,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (0,0) cap haut, 16 cases noires (masque 11433907). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 351 374 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "T(5) = 351 374 : plus long transitoire de tout le carré 5×5 (toutes positions, tous caps).",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-10",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (1,0)",
+  "regle": "RL",
+  "fourmis": "1,0,H",
+  "points": "1,0;2,0;3,0;4,0;2,-1;3,-1;0,-2;1,-2;4,-2;0,-3;2,-3;4,-3;1,-4;3,-4;4,-4",
+  "img": [
+   221072,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (1,0) cap haut, 15 cases noires (masque 27970974). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 218 072 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-20",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (2,0)",
+  "regle": "RL",
+  "fourmis": "2,0,H",
+  "points": "0,0;1,0;2,0;4,0;0,-1;1,-1;4,-1;1,-2;2,-2;3,-2;4,-2;0,-3;1,-3;2,-3;2,-4",
+  "img": [
+   237449,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (2,0) cap haut, 15 cases noires (masque 4455031). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 234 449 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-30",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (3,0)",
+  "regle": "RL",
+  "fourmis": "3,0,H",
+  "points": "0,0;4,0;4,-1;0,-2;1,-2;3,-2;4,-2;0,-3;0,-4;1,-4;3,-4;4,-4",
+  "img": [
+   236237,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (3,0) cap haut, 12 cases noires (masque 28372497). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 237 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-40",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (4,0)",
+  "regle": "RL",
+  "fourmis": "4,0,H",
+  "points": "0,0;1,0;4,0;0,-1;2,-1;3,-1;4,-1;0,-2;1,-2;2,-2;3,-2;4,-2;1,-3;3,-3;4,-3;1,-4;2,-4",
+  "img": [
+   276825,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (4,0) cap haut, 17 cases noires (masque 7176115). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 273 825 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-01",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (0,1)",
+  "regle": "RL",
+  "fourmis": "0,-1,H",
+  "points": "1,0;2,0;3,0;1,-1;2,-1;3,-1;1,-2;2,-2;4,-2;0,-3;2,-3;3,-3;4,-3;0,-4;1,-4;2,-4",
+  "img": [
+   276824,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (0,1) cap haut, 16 cases noires (masque 8313294). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 273 824 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-11",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (1,1)",
+  "regle": "RL",
+  "fourmis": "1,-1,H",
+  "points": "2,0;4,0;0,-1;2,-1;4,-1;2,-3;4,-3;0,-4;2,-4;3,-4;4,-4",
+  "img": [
+   236234,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (1,1) cap haut, 11 cases noires (masque 31064756). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 234 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-21",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (2,1)",
+  "regle": "RL",
+  "fourmis": "2,-1,H",
+  "points": "0,0;3,0;4,0;2,-1;3,-1;4,-1;2,-2;3,-2;4,-2;1,-3;2,-3;3,-3;0,-4;1,-4;3,-4;4,-4",
+  "img": [
+   234822,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (2,1) cap haut, 16 cases noires (masque 28799897). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 231 822 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-31",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (3,1)",
+  "regle": "RL",
+  "fourmis": "3,-1,H",
+  "points": "0,0;1,0;3,0;0,-1;2,-1;3,-1;4,-1;0,-2;1,-2;2,-2;3,-2;4,-2;1,-3;3,-3;4,-3;1,-4;2,-4",
+  "img": [
+   276823,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (3,1) cap haut, 17 cases noires (masque 7176107). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 273 823 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-41",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (4,1)",
+  "regle": "RL",
+  "fourmis": "4,-1,H",
+  "points": "0,0;3,0;4,-1;0,-2;1,-2;3,-2;4,-2;0,-3;0,-4;1,-4;3,-4;4,-4",
+  "img": [
+   236235,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (4,1) cap haut, 12 cases noires (masque 28372489). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 235 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-02",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (0,2)",
+  "regle": "RL",
+  "fourmis": "0,-2,H",
+  "points": "1,0;2,0;3,0;4,0;1,-1;2,-1;4,-1;0,-2;2,-2;3,-2;4,-2;0,-3;2,-3;3,-3;0,-4;2,-4;3,-4;4,-4",
+  "img": [
+   222673,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (0,2) cap haut, 18 cases noires (masque 30865118). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 219 673 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-12",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (1,2)",
+  "regle": "RL",
+  "fourmis": "1,-2,H",
+  "points": "1,0;2,0;3,0;0,-1;2,-1;3,-1;1,-2;2,-2;4,-2;0,-3;2,-3;3,-3;4,-3;0,-4;1,-4;2,-4",
+  "img": [
+   276822,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (1,2) cap haut, 16 cases noires (masque 8313262). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 273 822 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-22",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (2,2)",
+  "regle": "RL",
+  "fourmis": "2,-2,H",
+  "points": "2,0;4,0;0,-1;1,-1;4,-1;2,-3;4,-3;0,-4;2,-4;3,-4;4,-4",
+  "img": [
+   236232,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (2,2) cap haut, 11 cases noires (masque 31064692). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 232 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-32",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (3,2)",
+  "regle": "RL",
+  "fourmis": "3,-2,H",
+  "points": "0,0;3,0;3,-1;0,-2;1,-2;3,-2;4,-2;0,-3;0,-4;1,-4;3,-4;4,-4",
+  "img": [
+   236233,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (3,2) cap haut, 12 cases noires (masque 28372233). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 233 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-42",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (4,2)",
+  "regle": "RL",
+  "fourmis": "4,-2,H",
+  "points": "0,0;4,0;0,-1;1,-1;1,-2;2,-2;3,-2;4,-2;0,-3;1,-3;2,-3;3,-3;4,-3;0,-4;2,-4;3,-4;4,-4",
+  "img": [
+   234823,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (4,2) cap haut, 17 cases noires (masque 31455345). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 231 823 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-03",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (0,3)",
+  "regle": "RL",
+  "fourmis": "0,-3,H",
+  "points": "1,0;2,0;3,0;0,-1;2,-1;3,-1;0,-2;2,-2;4,-2;0,-3;2,-3;3,-3;4,-3;0,-4;1,-4;2,-4",
+  "img": [
+   276820,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (0,3) cap haut, 16 cases noires (masque 8312238). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 273 820 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-13",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (1,3)",
+  "regle": "RL",
+  "fourmis": "1,-3,H",
+  "points": "0,0;1,0;2,0;4,0;0,-1;2,-1;1,-2;2,-2;0,-3;3,-3;4,-3;0,-4;2,-4",
+  "img": [
+   236230,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (1,3) cap haut, 13 cases noires (masque 6068407). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 230 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-23",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (2,3)",
+  "regle": "RL",
+  "fourmis": "2,-3,H",
+  "points": "0,0;3,0;3,-1;0,-2;1,-2;2,-2;4,-2;0,-3;0,-4;1,-4;3,-4;4,-4",
+  "img": [
+   236231,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (2,3) cap haut, 12 cases noires (masque 28368137). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 231 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-33",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (3,3)",
+  "regle": "RL",
+  "fourmis": "3,-3,H",
+  "points": "0,0;1,0;2,0;4,0;0,-1;1,-1;2,-1;3,-1;4,-1;1,-3;2,-3;3,-3;4,-3;0,-4;4,-4",
+  "img": [
+   234817,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (3,3) cap haut, 15 cases noires (masque 18809847). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 231 817 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-43",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (4,3)",
+  "regle": "RL",
+  "fourmis": "4,-3,H",
+  "points": "0,0;1,0;3,0;4,0;1,-1;2,-1;4,-1;0,-2;1,-2;1,-3;2,-3;3,-3;1,-4;4,-4",
+  "img": [
+   236223,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (4,3) cap haut, 14 cases noires (masque 19336923). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 223 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-04",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (0,4)",
+  "regle": "RL",
+  "fourmis": "0,-4,H",
+  "points": "0,0;1,0;2,0;4,0;0,-1;1,-1;2,-1;3,-1;4,-1;1,-2;2,-2;0,-3;4,-3;0,-4;4,-4",
+  "img": [
+   234811,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (0,4) cap haut, 15 cases noires (masque 18390007). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 231 811 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-14",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (1,4)",
+  "regle": "RL",
+  "fourmis": "1,-4,H",
+  "points": "1,0;4,0;0,-1;2,-1;3,-1;0,-2;1,-2;0,-3;1,-3;3,-3;4,-3;0,-4;1,-4;3,-4",
+  "img": [
+   221568,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (1,4) cap haut, 14 cases noires (masque 12422578). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 218 568 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-24",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (2,4)",
+  "regle": "RL",
+  "fourmis": "2,-4,H",
+  "points": "2,0;3,0;0,-1;1,-1;3,-1;0,-2;1,-2;2,-2;3,-2;4,-2;0,-3;4,-3;1,-4;3,-4;4,-4",
+  "img": [
+   276821,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (2,4) cap haut, 15 cases noires (masque 27852140). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 273 821 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-34",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (3,4)",
+  "regle": "RL",
+  "fourmis": "3,-4,H",
+  "points": "0,0;1,0;3,0;4,0;1,-1;2,-1;3,-1;0,-2;1,-2;2,-2;0,-3;1,-3;2,-3;0,-4;1,-4;2,-4;3,-4;4,-4",
+  "img": [
+   234824,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (3,4) cap haut, 18 cases noires (masque 32742875). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 231 824 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
+ },
+ {
+  "id": "B5-44",
+  "b": 22,
+  "classe": "Conjecture de l'autoroute (B5, carré 5×5)",
+  "nom": "Record 5×5, fourmi en (4,4)",
+  "regle": "RL",
+  "fourmis": "4,-4,H",
+  "points": "0,0;1,0;2,0;4,0;0,-1;2,-1;0,-3;2,-3;4,-3;0,-4;2,-4;3,-4;4,-4",
+  "img": [
+   236236,
+   ""
+  ],
+  "situation": "Carré 5×5 (coin bas-gauche (0,0), y vers le haut), fourmi en (4,4) cap haut, 13 cases noires (masque 31097015). Image en y vers le bas.",
+  "deroulement": "Pire des 2^25 coloriages pour cette position : le plus long chaos avant l'autoroute 104.",
+  "mesures": "Premier instant certifié 233 236 (arbre, moteur brut, src/fourmi -cert identiques ; ant_controle : début ≤ certificat).",
+  "statut": "DÉMONTRÉ pour cette configuration (calcul exact + lemme R-83) ; record de la position = max exhaustif (B5)",
+  "interet": "Borne exacte du transitoire pour une fourmi dans un carré 5×5.",
+  "deja": "Pas trouvé (voir deja_connu.md, B5)",
+  "source": "recherche/B5 (19/11), R-135"
  }
 ]

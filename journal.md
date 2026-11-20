@@ -767,3 +767,13 @@ exacts, 27 ECHEC ; (M) « bloc » : 9 254 OK exacts (0 écart) ; (M') : 440 OK e
 1 598/1 628, t7_mprime 431/440. Bilan T7-loin : K & M 7 652 ; K' & M 1 449 ; K & M' 191 ; K' & M' 149 ; non couverts 261 (K et M non NS0 69,
 K refusé par les directions avec M' 67, K ok & M non 54, K non & M 47, K non & M' 24). Les 43 bases restantes (441 à 483) ont (C) prouvé
 et audité mais pas encore la chaîne k₁/m. Fichiers : resultats/relatif/t7_theoreme_S11.txt, t7_theoreme_detail_S11.txt, t7_transport7_S11.txt.
+## R-135 B5 : toute configuration dans un carré 5×5, fourmi n'importe où dans le carré, tout cap → autoroute 104 pour toujours — DÉMONTRÉ (calcul exhaustif + certificat R-83 ; sous réserve de relecture humaine du code de l'arbre) — 19-20/11
+Symétrie (quart de tour autour de (2,2)) ⇒ cap haut × 25 positions × 2²⁵ = 838 860 800 cas. Arbre de choix (cases du carré
+inconnues, branche à la première lecture ou si une case de Z est inconnue), feuille = premier instant certifié (Z dans
+la boîte carré ∪ visité). Par position : poids = 2²⁵ exactement, 0 non résolu (Tmax 5·10⁶), dérive (±2,±2) partout ;
+702 113 441 feuilles, ≈ 10 h·cœur. **T(5) = 351 374** (fourmi (0,0) cap haut, masque 11433907, y vers le haut).
+Validation : arbre = brut sur 3×3/4×4, = `src/fourmi -cert` sur 4×4 ; T(3) = 51 277, T(4) = 133 984 (les références 51 377
+et 134 065 commençaient la recherche dans un trou de phases non certifiables). Contrôles : 100 000 tirages = src/fourmi
+(instants identiques) et ant_controle (début ≤ certificat), 25 records et 46 tranches box5 identiques.
+Estimation 6×5 : ≈ 765 h·cœur (non calculé). Commande : recherche/B5/lance.sh, agrege.py, controles.py. Détails :
+recherche/B5/README.md. Bestiaire 22, germes resultats/germes_2026-11-19_B5.json (dossier B5 du simulateur).

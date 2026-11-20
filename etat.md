@@ -3,6 +3,7 @@
 ## Démontré
 - R-03 périodes de cycle ≡ 0 mod 4 (toute règle L/R, tout nombre de fourmis).
 - R-09 toutes les fourmis RL de même classe de parité ⇒ jamais borné (preuve esquissée, À RELIRE).
+- R-135 B5 : toute config dans un carré 5×5, fourmi n'importe où, tout cap → autoroute 104 (exhaustif, certificat ; code à relire) ; T(5) = 351 374.
 - R-20 bout d'autoroute 104 minimal = 11 cases. R-28 cycle minimal : Tourniquet, période 4.
 
 ## Vérifié par calcul exact

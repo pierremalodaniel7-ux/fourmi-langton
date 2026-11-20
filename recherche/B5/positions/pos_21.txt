@@ -1,0 +1,3 @@
+position 2,1 cap haut : sous-arbres 64/64, feuilles 27835784, poids certifié 33554432 (2^25 = 33554432), non résolus 0 (poids 0), dérive ≠ (±2,±2) : 0
+1er certificat max 231822 (masque 28799897), min 51, pas simulés 129221723034, temps 1378.7 s·cœur
+histogramme log2(t) : [0, 0, 0, 0, 0, 12, 143, 64781, 1501660, 4008016, 5908500, 6334390, 5231340, 3265069, 1266189, 239839, 15606, 239, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
