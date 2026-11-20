@@ -26,11 +26,15 @@ Porte « compteur » par traversée de traces : NOR, ET, NON, COPIE, CROISEMENT,
 ## Simulateur v7 (17/11 soir)
 docs/ (GitHub Pages après fusion de la PR n°1) : bibliothèque fusionnée (747 éléments), 37 circuits avec interrupteurs, pas complet de la petite fourmi VÉRIFIÉ 256/256 (R-68, moteur JS + Python).
 
+## Balayage LR (20/11, R-136 à R-141)
+65 242 règles LR q ≤ 16, 1 fourmi depuis le blanc : 6 785 autoroutes CERTIFIÉES (record période 54 280 ; transitoire 80,7 M pour LLRRLLR),
+0 cycle, S = règles à paires (connu), conjecture LᵃRᵇ (période 16(a+b)−20). Bestiaire 23. recherche/balayage_lr/.
+
 ## Ouvert
 R-04 (≤ 2 états blancs par cycle) ; R-14/R-27 conjecture des phases (0 contre-exemple sur ≈ 2,7 M) ;
 RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? ; ordinateur : mémoire / horloge (R-39) ; 13 à 100 fourmis : aucun cycle ni autoroute nouvelle (R-36, 3 069 situations) ; portée arbitraire des navettes.
 
 ## À revérifier
-Rail 0,0,H ; 2,6,H ; 8,6,D (R-13 vs R-18) ; LLRRRL autoroute 896 (bord de grille ?).
+Rail 0,0,H ; 2,6,H ; 8,6,D (R-13 vs R-18). (LLRRRL 896 : CERTIFIÉE au pas 64 416 367, R-138.)
 
 ## Pistes : voir `pistes.md`. Journal complet : `journal.md` (chercher par grep).

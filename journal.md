@@ -777,3 +777,27 @@ et 134 065 commençaient la recherche dans un trou de phases non certifiables). 
 (instants identiques) et ant_controle (début ≤ certificat), 25 records et 46 tranches box5 identiques.
 Estimation 6×5 : ≈ 765 h·cœur (non calculé). Commande : recherche/B5/lance.sh, agrege.py, controles.py. Détails :
 recherche/B5/README.md. Bestiaire 22, germes resultats/germes_2026-11-19_B5.json (dossier B5 du simulateur).
+
+## 20-11-2026 — Balayage massif des règles LR (1 fourmi, carré, départ blanc, q = 2..16)
+Moteur `src/balaye.c` (grille infinie par tuiles, entiers) ; 65 242 mots primitifs (un par paire L↔R) × 2·10⁶ pas,
+puis 317 règles q ≤ 9 à 10⁸ pas et 163 à 2·10⁷. Tout dans recherche/balayage_lr/, rapport rapports/balayage_LR_2026-11-20.md,
+tableau resultats/balayage_lr_2026-11-20.csv.gz, Bestiaire 23, germes resultats/germes_2026-11-20_balayage_lr.json.
+## R-136 Certificat d'autoroute pour une règle LR quelconque (q couleurs) — DÉMONTRÉ (raisonnement, PREUVES.md R6) ; code certif() de src/balaye.c
+Si après P pas la fourmi est translatée de D ≠ 0 avec le même cap et si f0(c+(k+1)D) + Σ_{i=1..k+1} n(c+iD) ≡ f0(c) (mod q)
+pour toute case c visitée pendant la période et tout k (vérification finie), l'autoroute est infinie. 6 785 autoroutes certifiées ;
+9 caps périodiques tardifs refusés (LRRRRRLLR, LRRRRLLR… : fourmi qui longe un bord). Source : balayage 20-11.
+## R-137 Classement des 65 242 règles LR q ≤ 16 (2·10⁶ pas, plus passe 2) — V 6 785 (DÉMONTRÉ), V? 9, C 6 167, S 470, X 51 811, B 0, E 0 (OBSERVÉ)
+Période la plus fréquente 18 (2 038 règles) ; record de période 54 280 (LLLLLLLRRLLRLLL, D (−32,32), certifiée) ; 17 directions.
+Aucun cycle depuis le blanc. C/X par seuil heuristique (20-grammes). Commande : voir rapport. Source : balayage 20-11.
+## R-138 Transitoires géants certifiés : LLRRLLR (q=7) autoroute 204 au pas 80 669 024 ; LLRRRL 896 au pas 64 416 367 ;
+LLRLRRLR 1000 au pas 57 230 891 ; LRLRLRRLR 512 au pas 45 835 335 ; LLLRRLLR 118 au pas 34 895 126 — DÉMONTRÉ (certificat).
+LLRRRL : règle le « À revérifier » (pas un effet de bord ; autoroute connue de Lutfalla 2025). Les autres : catalogues non consultables.
+Commande : `echo LLRRLLR | src/balaye 100000000`. Source : balayage 20-11.
+## R-139 Réductions : L↔R = miroir ; w^k = même trajectoire que w ; L^q cycle exact de période 4q — VÉRIFIÉ (preuves PREUVES.md R1–R3 + verif_sec1.py).
+Rotation du mot = départ sur fond uni d'une autre couleur (identité). Depuis le blanc, envers / rotation / complément-envers
+ne conservent PAS le comportement — FAUX en général (contre-exemple LLLR autoroute 52 / LLRL 384 / LRRR sans autoroute).
+## R-140 Théorème des paires (Gale, Propp, Sutherland, Troubetzkoy 1995, DÉJÀ CONNU) vérifié : classe S = exactement les 470 règles
+dont une rotation est à lettres doublées (q ≤ 16), aucune exception — OBSERVÉ (nos données) / démontré dans la littérature.
+## R-141 Conjecture LᵃRᵇ — OBSERVÉ (92 cas conformes, q ≤ 16) : b = 1, a ≥ 3 → P = 16a+4, début 24a+6 (connu, Gajardo-Lutfalla-Rao 2025) ;
+b impair ≥ 3 et a ≥ max(3, b−1) → autoroute de période 16(a+b)−20 ou sa moitié ; b pair → jamais d'autoroute (boîtes minuscules :
+L¹²RR dans 12×12 après 2·10⁶ pas) ; exception LLRRR. Fichier famille_LaRb.txt. Pas de preuve.

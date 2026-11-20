@@ -64,7 +64,8 @@ def draw(e, fn):
     shades = ["#000000", "#555555", "#999999", "#bbbbbb"]
     for c, pts in sorted(cols.items()):
         xs, ys = zip(*pts)
-        ax.scatter(xs, ys, s=.4, c=shades[(c - 1) % 4], marker="s", lw=0)
+        col = shades[(c - 1) % 4] if max(cols) <= 4 else plt.cm.viridis((c - 1) / max(1, max(cols) - 1))
+        ax.scatter(xs, ys, s=.4, color=col, marker="s", lw=0)
     init = [p for p in e.get("points", "").split(";") if p.strip()]
     if init and len(init) <= 60:
         P = [xy(kind, *map(int, p.split(",")[:2])) for p in init]

@@ -1,0 +1,121 @@
+LR                 a= 1 b= 1 V P=  104 début=    9976 cert=oui hors conjecture
+LLR                a= 2 b= 1 V P=   18 début=      38 cert=oui hors conjecture
+LRR                a= 1 b= 2 C P=    0 début=         cert=non OK
+LLLR               a= 3 b= 1 V P=   52 début=      78 cert=oui OK
+LLRR               a= 2 b= 2 S P=    0 début=         cert=non OK
+LRRR               a= 1 b= 3 C P=    0 début=         cert=non hors conjecture
+LLLLR              a= 4 b= 1 V P=   68 début=     102 cert=oui OK
+LLLRR              a= 3 b= 2 X P=    0 début=         cert=non OK
+LLRRR              a= 2 b= 3 X P=    0 début=         cert=non CONTRE-EX
+LRRRR              a= 1 b= 4 C P=    0 début=         cert=non OK
+LLLLLR             a= 5 b= 1 V P=   84 début=     126 cert=oui OK
+LLLLRR             a= 4 b= 2 S P=    0 début=         cert=non OK
+LLLRRR             a= 3 b= 3 V P=   38 début=      98 cert=oui OK (moitié)
+LLRRRR             a= 2 b= 4 S P=    0 début=         cert=non OK
+LRRRRR             a= 1 b= 5 C P=    0 début=         cert=non hors conjecture
+LLLLLLR            a= 6 b= 1 V P=  100 début=     150 cert=oui OK
+LLLLLRR            a= 5 b= 2 C P=    0 début=         cert=non OK
+LLLLRRR            a= 4 b= 3 V P=   92 début=     114 cert=oui OK
+LLLRRRR            a= 3 b= 4 X P=    0 début=         cert=non OK
+LLRRRRR            a= 2 b= 5 C P=    0 début=         cert=non hors conjecture
+LRRRRRR            a= 1 b= 6 C P=    0 début=         cert=non OK
+LLLLLLLR           a= 7 b= 1 V P=  116 début=     174 cert=oui OK
+LLLLLLRR           a= 6 b= 2 S P=    0 début=         cert=non OK
+LLLLLRRR           a= 5 b= 3 V P=  108 début=     130 cert=oui OK
+LLLLRRRR           a= 4 b= 4 S P=    0 début=         cert=non OK
+LLLRRRRR           a= 3 b= 5 X P=    0 début=         cert=non hors conjecture
+LLRRRRRR           a= 2 b= 6 S P=    0 début=         cert=non OK
+LRRRRRRR           a= 1 b= 7 C P=    0 début=         cert=non hors conjecture
+LLLLLLLLR          a= 8 b= 1 V P=  132 début=     198 cert=oui OK
+LLLLLLLRR          a= 7 b= 2 C P=    0 début=         cert=non OK
+LLLLLLRRR          a= 6 b= 3 V P=  124 début=     146 cert=oui OK
+LLLLLRRRR          a= 5 b= 4 X P=    0 début=         cert=non OK
+LLLLRRRRR          a= 4 b= 5 V P=   62 début=     521 cert=oui OK (moitié)
+LLLRRRRRR          a= 3 b= 6 X P=    0 début=         cert=non OK
+LLRRRRRRR          a= 2 b= 7 C P=    0 début=         cert=non hors conjecture
+LRRRRRRRR          a= 1 b= 8 C P=    0 début=         cert=non OK
+LLLLLLLLLR         a= 9 b= 1 V P=  148 début=     222 cert=oui OK
+LLLLLLLLRR         a= 8 b= 2 S P=    0 début=         cert=non OK
+LLLLLLLRRR         a= 7 b= 3 V P=  140 début=     162 cert=oui OK
+LLLLLLRRRR         a= 6 b= 4 S P=    0 début=         cert=non OK
+LLLLLRRRRR         a= 5 b= 5 V P=  140 début=     178 cert=oui OK
+LLLLRRRRRR         a= 4 b= 6 S P=    0 début=         cert=non OK
+LLLRRRRRRR         a= 3 b= 7 X P=    0 début=         cert=non hors conjecture
+LLRRRRRRRR         a= 2 b= 8 S P=    0 début=         cert=non OK
+LRRRRRRRRR         a= 1 b= 9 C P=    0 début=         cert=non hors conjecture
+LLLLLLLLLLR        a=10 b= 1 V P=  164 début=     246 cert=oui OK
+LLLLLLLLLRR        a= 9 b= 2 C P=    0 début=         cert=non OK
+LLLLLLLLRRR        a= 8 b= 3 V P=  156 début=     178 cert=oui OK
+LLLLLLLRRRR        a= 7 b= 4 X P=    0 début=         cert=non OK
+LLLLLLRRRRR        a= 6 b= 5 V P=   78 début=     194 cert=oui OK (moitié)
+LLLLLRRRRRR        a= 5 b= 6 X P=    0 début=         cert=non OK
+LLLLRRRRRRR        a= 4 b= 7 X P=    0 début=         cert=non hors conjecture
+LLLRRRRRRRR        a= 3 b= 8 X P=    0 début=         cert=non OK
+LLRRRRRRRRR        a= 2 b= 9 C P=    0 début=         cert=non hors conjecture
+LRRRRRRRRRR        a= 1 b=10 C P=    0 début=         cert=non OK
+LLLLLLLLLLLR       a=11 b= 1 V P=  180 début=     270 cert=oui OK
+LLLLLLLLLLRR       a=10 b= 2 S P=    0 début=         cert=non OK
+LLLLLLLLLRRR       a= 9 b= 3 V P=  172 début=     194 cert=oui OK
+LLLLLLLLRRRR       a= 8 b= 4 S P=    0 début=         cert=non OK
+LLLLLLLRRRRR       a= 7 b= 5 V P=  172 début=     210 cert=oui OK
+LLLLLLRRRRRR       a= 6 b= 6 S P=    0 début=         cert=non OK
+LLLLLRRRRRRR       a= 5 b= 7 X P=    0 début=         cert=non hors conjecture
+LLLLRRRRRRRR       a= 4 b= 8 S P=    0 début=         cert=non OK
+LLLRRRRRRRRR       a= 3 b= 9 X P=    0 début=         cert=non hors conjecture
+LLRRRRRRRRRR       a= 2 b=10 S P=    0 début=         cert=non OK
+LRRRRRRRRRRR       a= 1 b=11 C P=    0 début=         cert=non hors conjecture
+LLLLLLLLLLLLR      a=12 b= 1 V P=  196 début=     294 cert=oui OK
+LLLLLLLLLLLRR      a=11 b= 2 C P=    0 début=         cert=non OK
+LLLLLLLLLLRRR      a=10 b= 3 V P=  188 début=     210 cert=oui OK
+LLLLLLLLLRRRR      a= 9 b= 4 C P=    0 début=         cert=non OK
+LLLLLLLLRRRRR      a= 8 b= 5 V P=  188 début=     226 cert=oui OK
+LLLLLLLRRRRRR      a= 7 b= 6 X P=    0 début=         cert=non OK
+LLLLLLRRRRRRR      a= 6 b= 7 V P=  188 début=    1564 cert=oui OK
+LLLLLRRRRRRRR      a= 5 b= 8 X P=    0 début=         cert=non OK
+LLLLRRRRRRRRR      a= 4 b= 9 C P=    0 début=         cert=non hors conjecture
+LLLRRRRRRRRRR      a= 3 b=10 C P=    0 début=         cert=non OK
+LLRRRRRRRRRRR      a= 2 b=11 C P=    0 début=         cert=non hors conjecture
+LRRRRRRRRRRRR      a= 1 b=12 C P=    0 début=         cert=non OK
+LLLLLLLLLLLLLR     a=13 b= 1 V P=  212 début=     318 cert=oui OK
+LLLLLLLLLLLLRR     a=12 b= 2 S P=    0 début=         cert=non OK
+LLLLLLLLLLLRRR     a=11 b= 3 V P=  204 début=     226 cert=oui OK
+LLLLLLLLLLRRRR     a=10 b= 4 S P=    0 début=         cert=non OK
+LLLLLLLLLRRRRR     a= 9 b= 5 V P=  204 début=     242 cert=oui OK
+LLLLLLLLRRRRRR     a= 8 b= 6 S P=    0 début=         cert=non OK
+LLLLLLLRRRRRRR     a= 7 b= 7 V P=  204 début=     258 cert=oui OK
+LLLLLLRRRRRRRR     a= 6 b= 8 S P=    0 début=         cert=non OK
+LLLLLRRRRRRRRR     a= 5 b= 9 X P=    0 début=         cert=non hors conjecture
+LLLLRRRRRRRRRR     a= 4 b=10 S P=    0 début=         cert=non OK
+LLLRRRRRRRRRRR     a= 3 b=11 C P=    0 début=         cert=non hors conjecture
+LLRRRRRRRRRRRR     a= 2 b=12 S P=    0 début=         cert=non OK
+LRRRRRRRRRRRRR     a= 1 b=13 C P=    0 début=         cert=non hors conjecture
+LLLLLLLLLLLLLLR    a=14 b= 1 V P=  228 début=     342 cert=oui OK
+LLLLLLLLLLLLLRR    a=13 b= 2 C P=    0 début=         cert=non OK
+LLLLLLLLLLLLRRR    a=12 b= 3 V P=  220 début=     242 cert=oui OK
+LLLLLLLLLLLRRRR    a=11 b= 4 C P=    0 début=         cert=non OK
+LLLLLLLLLLRRRRR    a=10 b= 5 V P=  220 début=     258 cert=oui OK
+LLLLLLLLLRRRRRR    a= 9 b= 6 X P=    0 début=         cert=non OK
+LLLLLLLLRRRRRRR    a= 8 b= 7 V P=  220 début=     274 cert=oui OK
+LLLLLLLRRRRRRRR    a= 7 b= 8 X P=    0 début=         cert=non OK
+LLLLLLRRRRRRRRR    a= 6 b= 9 X P=    0 début=         cert=non hors conjecture
+LLLLLRRRRRRRRRR    a= 5 b=10 X P=    0 début=         cert=non OK
+LLLLRRRRRRRRRRR    a= 4 b=11 C P=    0 début=         cert=non hors conjecture
+LLLRRRRRRRRRRRR    a= 3 b=12 C P=    0 début=         cert=non OK
+LLRRRRRRRRRRRRR    a= 2 b=13 C P=    0 début=         cert=non hors conjecture
+LRRRRRRRRRRRRRR    a= 1 b=14 C P=    0 début=         cert=non OK
+LLLLLLLLLLLLLLLR   a=15 b= 1 V P=  244 début=     366 cert=oui OK
+LLLLLLLLLLLLLLRR   a=14 b= 2 S P=    0 début=         cert=non OK
+LLLLLLLLLLLLLRRR   a=13 b= 3 V P=  236 début=     258 cert=oui OK
+LLLLLLLLLLLLRRRR   a=12 b= 4 S P=    0 début=         cert=non OK
+LLLLLLLLLLLRRRRR   a=11 b= 5 V P=  236 début=     274 cert=oui OK
+LLLLLLLLLLRRRRRR   a=10 b= 6 S P=    0 début=         cert=non OK
+LLLLLLLLLRRRRRRR   a= 9 b= 7 V P=  118 début=     290 cert=oui OK (moitié)
+LLLLLLLLRRRRRRRR   a= 8 b= 8 S P=    0 début=         cert=non OK
+LLLLLLLRRRRRRRRR   a= 7 b= 9 X P=    0 début=         cert=non hors conjecture
+LLLLLLRRRRRRRRRR   a= 6 b=10 S P=    0 début=         cert=non OK
+LLLLLRRRRRRRRRRR   a= 5 b=11 X P=    0 début=         cert=non hors conjecture
+LLLLRRRRRRRRRRRR   a= 4 b=12 S P=    0 début=         cert=non OK
+LLLRRRRRRRRRRRRR   a= 3 b=13 C P=    0 début=         cert=non hors conjecture
+LLRRRRRRRRRRRRRR   a= 2 b=14 S P=    0 début=         cert=non OK
+LRRRRRRRRRRRRRRR   a= 1 b=15 C P=    0 début=         cert=non hors conjecture
+conformes 92, contre-exemples 1

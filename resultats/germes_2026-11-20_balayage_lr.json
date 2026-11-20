@@ -1,0 +1,695 @@
+[
+ {
+  "dossier": "Balayage LR/Référence",
+  "nom": "RL — fourmi de Langton, test du code (autoroute 104 vers 10 000)",
+  "regle": "RL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 104, déplacement (-2,2) par période, à partir du pas 9976."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLLLLLLRRLLRLLL — période 54280 (rang parmi les plus longues)",
+  "regle": "LLLLLLLRRLLRLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 54280, déplacement (-32,32) par période, à partir du pas 253714."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLLLLRRRRRRRLL — période 28224 (rang parmi les plus longues)",
+  "regle": "LLLLLRRRRRRRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 28224, déplacement (-60,-60) par période, à partir du pas 1174492."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LRLRLRLRRRRRRRLR — période 27528 (rang parmi les plus longues)",
+  "regle": "LRLRLRLRRRRRRRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 27528, déplacement (24,-78) par période, à partir du pas 1098998."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLRLRLLLLRLRLRRL — période 24444 (rang parmi les plus longues)",
+  "regle": "LLRLRLLLLRLRLRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 24444, déplacement (-66,-66) par période, à partir du pas 1506323."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LRLRLRLRRRRRRLLR — période 19680 (rang parmi les plus longues) ; pente 4/13 (2 ",
+  "regle": "LRLRLRLRRRRRRLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 19680, déplacement (-24,78) par période, à partir du pas 645516."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLLLLLRRLRRRRRLL — période 18996 (rang parmi les plus longues)",
+  "regle": "LLLLLLRRLRRRRRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 18996, déplacement (42,42) par période, à partir du pas 712769."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLLLLLLRRRRRRRL — période 12144 (rang parmi les plus longues)",
+  "regle": "LLLLLLLRRRRRRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 12144, déplacement (-30,30) par période, à partir du pas 529259."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLLRLRRLRLRRLLL — période 11288 (rang parmi les plus longues) ; pente 1/7 (3 r",
+  "regle": "LLLRLRRLRLRRLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 11288, déplacement (28,-4) par période, à partir du pas 67079."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLLRLRRLRLRRLLLL — période 11020 (rang parmi les plus longues)",
+  "regle": "LLLRLRRLRLRRLLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 11020, déplacement (28,-4) par période, à partir du pas 225850."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLRLRLRRRLLRRLRR — période 8852 (rang parmi les plus longues)",
+  "regle": "LLRLRLRRRLLRRLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 8852, déplacement (36,-12) par période, à partir du pas 108718."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLRRRLRRRLRLLLL — période 8544 (rang parmi les plus longues)",
+  "regle": "LLRRRLRRRLRLLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 8544, déplacement (-18,-18) par période, à partir du pas 72871."
+ },
+ {
+  "dossier": "Balayage LR/Records de période",
+  "nom": "LLRRRLRRRLRLLL — période 7652 (rang parmi les plus longues)",
+  "regle": "LLRRRLRRRLRLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 7652, déplacement (-18,18) par période, à partir du pas 1324433."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLRRLLR — autoroute qui n'apparaît qu'au pas 80669024",
+  "regle": "LLRRLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 204, déplacement (-2,-2) par période, à partir du pas 80669024."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLRRRL — autoroute qui n'apparaît qu'au pas 64416367",
+  "regle": "LLRRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 896, déplacement (-4,4) par période, à partir du pas 64416367."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLRLRRLR — autoroute qui n'apparaît qu'au pas 57230891",
+  "regle": "LLRLRRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 1000, déplacement (6,6) par période, à partir du pas 57230891."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LRLRLRRLR — autoroute qui n'apparaît qu'au pas 45835335 ; pente 1/3 (121",
+  "regle": "LRLRLRRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 512, déplacement (-2,6) par période, à partir du pas 45835335."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLLRRLLR — autoroute qui n'apparaît qu'au pas 34895126",
+  "regle": "LLLRRLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 118, déplacement (-1,1) par période, à partir du pas 34895126."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LRRLRLLLR — autoroute qui n'apparaît qu'au pas 14973490",
+  "regle": "LRRLRLLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 578, déplacement (-5,5) par période, à partir du pas 14973490."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLLLLRRRL — autoroute qui n'apparaît qu'au pas 8744718",
+  "regle": "LLLLLRRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 664, déplacement (-2,2) par période, à partir du pas 8744718."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LRLRLRLRRRRRRLL — autoroute qui n'apparaît qu'au pas 7152649",
+  "regle": "LRLRLRLRRRRRRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 3284, déplacement (0,-24) par période, à partir du pas 7152649."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLLRRRLLL — autoroute qui n'apparaît qu'au pas 6772882",
+  "regle": "LLLRRRLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 488, déplacement (-2,2) par période, à partir du pas 6772882."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLRLRRL — autoroute qui n'apparaît qu'au pas 5024551",
+  "regle": "LLRLRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 296, déplacement (2,-2) par période, à partir du pas 5024551."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LLLRLRRLLRRLRRL — autoroute qui n'apparaît qu'au pas 1978870",
+  "regle": "LLLRLRRLLRRLRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 216, déplacement (2,2) par période, à partir du pas 1978870."
+ },
+ {
+  "dossier": "Balayage LR/Records de transitoire",
+  "nom": "LRLRRLRRRLRRLLRR — autoroute qui n'apparaît qu'au pas 1972069",
+  "regle": "LRLRRLRRRLRRLLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 210, déplacement (-1,3) par période, à partir du pas 1972069."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLRLRRLRRRLRRR — pente 7/17 (1 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLRLRRLRRRLRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 2214, déplacement (7,17) par période, à partir du pas 28976."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLLRLRLRLLLRRRR — pente 7/9 (1 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLLRLRLRLLLRRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 1026, déplacement (7,-9) par période, à partir du pas 4083."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLRLRRLLRRRRLRL — pente 3/13 (1 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLRLRRLLRRRRLRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 1482, déplacement (-3,-13) par période, à partir du pas 1718."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LLRLLLRLLRLRR — pente 3/7 (2 règle(s) dans le balayage), la plus courte",
+  "regle": "LLRLLLRLLRLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 726, déplacement (-7,-3) par période, à partir du pas 1707752."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLRRLRRLRRLLLLL — pente 9/11 (2 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLRRLRRLRRLLLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 1362, déplacement (9,11) par période, à partir du pas 18683."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLRLRLRLRLRL — pente 7/11 (3 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLRLRLRLRLRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 894, déplacement (11,7) par période, à partir du pas 4394."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLLRRLRLRLL — pente 5/7 (4 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLLRRLRLRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 686, déplacement (5,7) par période, à partir du pas 555358."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LLLRLLRLRLRRRL — pente 1/5 (4 règle(s) dans le balayage), la plus courte",
+  "regle": "LLLRLLRLRLRRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 972, déplacement (-10,-2) par période, à partir du pas 45736."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLLRLRLRLLL — pente 3/11 (5 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLLRLRLRLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 1062, déplacement (3,-11) par période, à partir du pas 48890."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LLLRLLRLRRLRLR — pente 2/3 (6 règle(s) dans le balayage), la plus courte",
+  "regle": "LLLRLLRLRRLRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 552, déplacement (-6,4) par période, à partir du pas 464495."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LLLLLRRRLLLLL — pente 1/2 (7 règle(s) dans le balayage), la plus courte",
+  "regle": "LLLLLRRRLLLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 840, déplacement (-2,4) par période, à partir du pas 29940."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LRLRLRRRLLR — pente 3/5 (12 règle(s) dans le balayage), la plus courte",
+  "regle": "LRLRLRRRLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 490, déplacement (3,-5) par période, à partir du pas 501649."
+ },
+ {
+  "dossier": "Balayage LR/Directions d'autoroute",
+  "nom": "LLRRLRRLRLR — pente 0/1 (77 règle(s) dans le balayage), la plus courte",
+  "regle": "LLRRLRRLRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 108, déplacement (0,-2) par période, à partir du pas 1636890."
+ },
+ {
+  "dossier": "Balayage LR/Périodes fréquentes",
+  "nom": "LLR — période 18 partagée par 2038 règles ; la plus courte",
+  "regle": "LLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 18, déplacement (-1,1) par période, à partir du pas 38."
+ },
+ {
+  "dossier": "Balayage LR/Périodes fréquentes",
+  "nom": "LLLR — période 52 partagée par 509 règles ; la plus courte ; contre",
+  "regle": "LLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 52, déplacement (-2,2) par période, à partir du pas 78."
+ },
+ {
+  "dossier": "Balayage LR/Périodes fréquentes",
+  "nom": "LRLRLRLL — période 88 partagée par 284 règles ; la plus courte",
+  "regle": "LRLRLRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 88, déplacement (-2,2) par période, à partir du pas 4172."
+ },
+ {
+  "dossier": "Balayage LR/Périodes fréquentes",
+  "nom": "LLLRRR — période 38 partagée par 180 règles ; la plus courte",
+  "regle": "LLLRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 38, déplacement (1,-1) par période, à partir du pas 98."
+ },
+ {
+  "dossier": "Balayage LR/Périodes fréquentes",
+  "nom": "LLRRLRL — période 42 partagée par 146 règles ; la plus courte",
+  "regle": "LLRRLRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 42, déplacement (-1,1) par période, à partir du pas 300."
+ },
+ {
+  "dossier": "Balayage LR/Périodes fréquentes",
+  "nom": "LRLLRRL — période 168 partagée par 132 règles ; la plus courte",
+  "regle": "LRLLRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 168, déplacement (2,2) par période, à partir du pas 192626."
+ },
+ {
+  "dossier": "Balayage LR/Symétriques (paires)",
+  "nom": "LLRR — motif symétrique, règle à lettres doublées (théorème connu)",
+  "regle": "LLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe S (motif symétrique) jusqu'au pas 100000000 ; boîte 323x384, rapport de boîte 1.223 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Symétriques (paires)",
+  "nom": "LLLLRR — motif symétrique, règle à lettres doublées (théorème connu)",
+  "regle": "LLLLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe S (motif symétrique) jusqu'au pas 100000000 ; boîte 31x32, rapport de boîte 1.067 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Symétriques (paires)",
+  "nom": "LLRRLL — motif symétrique, règle à lettres doublées (théorème connu)",
+  "regle": "LLRRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe S (motif symétrique) jusqu'au pas 100000000 ; boîte 33x34, rapport de boîte 1.062 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Symétriques (paires à rotation près)",
+  "nom": "LRRL — rotation d'une règle à lettres doublées",
+  "regle": "LRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe S (motif symétrique) jusqu'au pas 100000000 ; boîte 1167x1316, rapport de boîte 1.154 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Symétriques (paires à rotation près)",
+  "nom": "LLLRRL — rotation d'une règle à lettres doublées",
+  "regle": "LLLRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe S (motif symétrique) jusqu'au pas 100000000 ; boîte 31x34, rapport de boîte 1.062 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Constructeurs réguliers",
+  "nom": "LLLLRLLLLLLRRLR — suite des virages très régulière (79 20-grammes distincts su",
+  "regle": "LLLLRLLLLLLRRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 451x449, rapport de boîte 1.409 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Constructeurs réguliers",
+  "nom": "LRRLRRRLLLRR — suite des virages très régulière (83 20-grammes distincts su",
+  "regle": "LRRLRRRLLLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 996x996, rapport de boîte 1.415 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Constructeurs réguliers",
+  "nom": "LLLRLLLLLRRLLRLR — suite des virages très régulière (85 20-grammes distincts su",
+  "regle": "LLLRLLLLLRRLLRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 504x502, rapport de boîte 1.412 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Constructeurs réguliers",
+  "nom": "LLLRLLLLLRRLLR — suite des virages très régulière (87 20-grammes distincts su",
+  "regle": "LLLRLLLLLRRLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 504x502, rapport de boîte 1.412 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Constructeurs réguliers",
+  "nom": "LLLRLLLLLRRLRL — suite des virages très régulière (87 20-grammes distincts su",
+  "regle": "LLLRLLLLLRRLRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 504x502, rapport de boîte 1.412 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Constructeurs réguliers",
+  "nom": "LLLRLLLLLLLLLRL — suite des virages très régulière (87 20-grammes distincts su",
+  "regle": "LLLRLLLLLLLLLRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 504x502, rapport de boîte 1.412 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Constructeurs réguliers",
+  "nom": "LLLRLLLLLRRLLRLL — suite des virages très régulière (87 20-grammes distincts su",
+  "regle": "LLLRLLLLLRRLLRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 502x504, rapport de boîte 1.412 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : presque immobiles",
+  "nom": "LLLLLLLRR — boîte 22x22 seulement après 100000000 pas",
+  "regle": "LLLLLLLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 100000000 ; boîte 22x22, rapport de boîte 1.048 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : presque immobiles",
+  "nom": "LLLLLLRRL — boîte 22x22 seulement après 100000000 pas",
+  "regle": "LLLLLLRRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 100000000 ; boîte 22x22, rapport de boîte 1.000 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : presque immobiles",
+  "nom": "LLLLLRRLL — boîte 22x22 seulement après 100000000 pas",
+  "regle": "LLLLLRRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 100000000 ; boîte 22x22, rapport de boîte 1.000 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : presque immobiles",
+  "nom": "LLLLRRLLL — boîte 22x22 seulement après 100000000 pas",
+  "regle": "LLLLRRLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 100000000 ; boîte 22x22, rapport de boîte 1.000 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : presque immobiles",
+  "nom": "LLLLLLRR — boîte 22x24 seulement après 100000000 pas",
+  "regle": "LLLLLLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe S (motif symétrique) jusqu'au pas 100000000 ; boîte 22x24, rapport de boîte 1.000 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : croissance linéaire sans autoroute",
+  "nom": "LRRLLRLRLRLLLLLR — boîte x5.825 quand t double",
+  "regle": "LRRLLRLRLRLLLLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe X (chaotique) jusqu'au pas 2000000 ; boîte 824x897, rapport de boîte 5.825 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : croissance linéaire sans autoroute",
+  "nom": "LRRRRRRRRRRRLRL — boîte x4.748 quand t double",
+  "regle": "LRRRRRRRRRRRLRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 20000000 ; boîte 2108x2106, rapport de boîte 4.748 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : croissance linéaire sans autoroute",
+  "nom": "LRRRLLRLRRLRRR — boîte x4.526 quand t double",
+  "regle": "LRRRLLRLRRLRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 687x688, rapport de boîte 4.526 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : croissance linéaire sans autoroute",
+  "nom": "LLRRRLLRRLLLRLR — boîte x4.440 quand t double",
+  "regle": "LLRRRLLRRLLLRLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe X (chaotique) jusqu'au pas 2000000 ; boîte 666x544, rapport de boîte 4.440 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Étranges : croissance linéaire sans autoroute",
+  "nom": "LRRRRRLLLLLRRR — boîte x4.213 quand t double",
+  "regle": "LRRRRRLLLLLRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe C (constructeur (virages réguliers)) jusqu'au pas 2000000 ; boîte 674x674, rapport de boîte 4.213 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Relations (section 1)",
+  "nom": "LLRL — contre-exemple : l'envers / la rotation n'ont pas le même co",
+  "regle": "LLRL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 384, déplacement (4,-4) par période, à partir du pas 256240."
+ },
+ {
+  "dossier": "Balayage LR/Faux amis (certificat refusé)",
+  "nom": "LLLLLRLL — cap périodique de période 48 dès le pas 80185929, mais le ce",
+  "regle": "LLLLLRLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe V? (cap périodique 48 depuis le pas 80185929, certificat refusé) jusqu'au pas 80216064 ; boîte 2587x2589, rapport de boîte 1.266 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Faux amis (certificat refusé)",
+  "nom": "LLLLRLLL — cap périodique de période 40 dès le pas 95913902, mais le ce",
+  "regle": "LLLLRLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe V? (cap périodique 40 depuis le pas 95913902, certificat refusé) jusqu'au pas 95944704 ; boîte 3100x3100, rapport de boîte 1.385 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Faux amis (certificat refusé)",
+  "nom": "LRRRRLLR — cap périodique de période 100 dès le pas 63277579, mais le c",
+  "regle": "LRRRRLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe V? (cap périodique 100 depuis le pas 63277579, certificat refusé) jusqu'au pas 63307776 ; boîte 3832x3832, rapport de boîte 1.170 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Faux amis (certificat refusé)",
+  "nom": "LLLLRLLLL — cap périodique de période 40 dès le pas 93358637, mais le ce",
+  "regle": "LLLLRLLLL",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe V? (cap périodique 40 depuis le pas 93358637, certificat refusé) jusqu'au pas 93388800 ; boîte 3058x3059, rapport de boîte 1.366 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Famille LᵃRᵇ (conjecture)",
+  "nom": "LLLLLLLLLLLLLR — famille LⁿR : P = 16n+4 = 212, début 24n+6 = 318 (connu, Gaj",
+  "regle": "LLLLLLLLLLLLLR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 212, déplacement (-2,2) par période, à partir du pas 318."
+ },
+ {
+  "dossier": "Balayage LR/Famille LᵃRᵇ (conjecture)",
+  "nom": "LLLLLLLRRRRR — famille LᵃRᵇ, b impair : P = 16(a+b)−20 = 172",
+  "regle": "LLLLLLLRRRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 172, déplacement (2,-2) par période, à partir du pas 210."
+ },
+ {
+  "dossier": "Balayage LR/Famille LᵃRᵇ (conjecture)",
+  "nom": "LLLLLLRRRRR — famille LᵃRᵇ : demi-période 78 = (16·11−20)/2",
+  "regle": "LLLLLLRRRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 78, déplacement (1,-1) par période, à partir du pas 194."
+ },
+ {
+  "dossier": "Balayage LR/Famille LᵃRᵇ (conjecture)",
+  "nom": "LLLLLLLLLRRRRRRR — famille LᵃRᵇ : demi-période (16·16−20)/2 = 118, q = 16",
+  "regle": "LLLLLLLLLRRRRRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Autoroute de période 118, déplacement (1,-1) par période, à partir du pas 290."
+ },
+ {
+  "dossier": "Balayage LR/Famille LᵃRᵇ (conjecture)",
+  "nom": "LLRRR — seule exception à « b impair, a ≥ b−1 ⇒ autoroute » : chaoti",
+  "regle": "LLRRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe X (chaotique) jusqu'au pas 100000000 ; boîte 51x51, rapport de boîte 1.041 quand t double."
+ },
+ {
+  "dossier": "Balayage LR/Famille LᵃRᵇ (conjecture)",
+  "nom": "LLLLLLLLLLRR — famille LᵃRR (b pair) : jamais d'autoroute, boîte minuscule",
+  "regle": "LLLLLLLLLLRR",
+  "grille": "carrée",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "Classe S (motif symétrique) jusqu'au pas 2000000 ; boîte 13x14, rapport de boîte 1.000 quand t double."
+ }
+]
