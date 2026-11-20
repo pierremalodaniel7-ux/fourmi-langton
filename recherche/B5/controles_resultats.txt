@@ -1,0 +1,30 @@
+(a) échantillons trouvés dans l'arbre : 100000 / 100000 (lignes du fichier, doublons compris)
+    fourmi -cert : instants différents : 0
+    ant_controle : autoroute détectée et début <= instant certifié : 100000 / 100000 ; écart certificat-début : 0 pour 77472 , max 3 , min 0
+(b) records par position
+    0 0 masque 11433907 arbre 351374 brut 351374 fourmi 351374 ant_controle début 351374 dérive (2, -2) OK
+    0 1 masque 8313294 arbre 273824 brut 273824 fourmi 273824 ant_controle début 273824 dérive (-2, -2) OK
+    0 2 masque 30865118 arbre 219673 brut 219673 fourmi 219673 ant_controle début 219673 dérive (-2, -2) OK
+    0 3 masque 8312238 arbre 273820 brut 273820 fourmi 273820 ant_controle début 273820 dérive (-2, -2) OK
+    0 4 masque 18390007 arbre 231811 brut 231811 fourmi 231811 ant_controle début 231811 dérive (2, 2) OK
+    1 0 masque 27970974 arbre 218072 brut 218072 fourmi 218072 ant_controle début 218071 dérive (2, -2) OK
+    1 1 masque 31064756 arbre 233234 brut 233234 fourmi 233234 ant_controle début 233234 dérive (2, -2) OK
+    1 2 masque 8313262 arbre 273822 brut 273822 fourmi 273822 ant_controle début 273822 dérive (-2, -2) OK
+    1 3 masque 6068407 arbre 233230 brut 233230 fourmi 233230 ant_controle début 233230 dérive (-2, 2) OK
+    1 4 masque 12422578 arbre 218568 brut 218568 fourmi 218568 ant_controle début 218568 dérive (-2, -2) OK
+    2 0 masque 4455031 arbre 234449 brut 234449 fourmi 234449 ant_controle début 234449 dérive (2, 2) OK
+    2 1 masque 28799897 arbre 231822 brut 231822 fourmi 231822 ant_controle début 231822 dérive (-2, 2) OK
+    2 2 masque 31064692 arbre 233232 brut 233232 fourmi 233232 ant_controle début 233232 dérive (2, -2) OK
+    2 3 masque 28368137 arbre 233231 brut 233231 fourmi 233231 ant_controle début 233231 dérive (2, 2) OK
+    2 4 masque 27852140 arbre 273821 brut 273821 fourmi 273821 ant_controle début 273821 dérive (-2, 2) OK
+    3 0 masque 28372497 arbre 233237 brut 233237 fourmi 233237 ant_controle début 233237 dérive (2, 2) OK
+    3 1 masque 7176107 arbre 273823 brut 273823 fourmi 273823 ant_controle début 273823 dérive (2, -2) OK
+    3 2 masque 28372233 arbre 233233 brut 233233 fourmi 233233 ant_controle début 233233 dérive (2, 2) OK
+    3 3 masque 18809847 arbre 231817 brut 231817 fourmi 231817 ant_controle début 231817 dérive (2, 2) OK
+    3 4 masque 32742875 arbre 231824 brut 231824 fourmi 231824 ant_controle début 231824 dérive (2, -2) OK
+    4 0 masque 7176115 arbre 273825 brut 273825 fourmi 273825 ant_controle début 273825 dérive (2, -2) OK
+    4 1 masque 28372489 arbre 233235 brut 233235 fourmi 233235 ant_controle début 233235 dérive (2, 2) OK
+    4 2 masque 31455345 arbre 231823 brut 231823 fourmi 231823 ant_controle début 231823 dérive (-2, -2) OK
+    4 3 masque 19336923 arbre 233223 brut 233223 fourmi 233223 ant_controle début 233223 dérive (-2, -2) OK
+    4 4 masque 31097015 arbre 233236 brut 233236 fourmi 233236 ant_controle début 233236 dérive (-2, 2) OK
+(c) tranches box5 : records identiques 46 / 46

@@ -68,5 +68,68 @@ le vérificateur indépendant a commencé sa recherche après le premier instant
 premier certificat **après son point de départ**. Le premier certificat est bien 51 277 / 133 984 (certifié par deux
 programmes). Pour le masque 5×5 11433907 il est parti assez tôt : accord exact (351 374).
 
-## Résultats
-(à compléter à la fin du calcul : voir `tableau.md`)
+## Résultats (19-20/11)
+**25/25 positions, cap haut : chaque position a ses 64 sous-arbres, somme des poids = 2²⁵ = 33 554 432 exactement,
+0 non résolu (Tmax = 5·10⁶), toutes les feuilles certifiées avec une dérive (±2,±2) (autoroute 104).**
+Total : 838 860 800 coloriages, 702 113 441 feuilles (83,7 % de 25·2²⁵ : la fourmi lit presque toujours tout le carré),
+3,28·10¹² pas simulés (≈ 3 911 par coloriage), 35 856 s·cœur ≈ 10,0 h·cœur (≈ 9,1·10⁷ pas/s/cœur), 4 cœurs ;
+temps réel : 18 h 17 – 19 h 11 (580 sous-arbres) puis 22 h 34 – 00 h 11 (1 020 sous-arbres ; le premier lancement
+s'est arrêté avec la fin du tour de conversation, reprise automatique sans perte).
+
+**T(5) = 351 374** (fourmi en (0,0) cap haut, masque 11433907) = maximum des 25 records ; par la symétrie, c'est le
+plus long transitoire (premier instant certifié) pour toute position du carré et tout cap.
+
+| position (x,y) | sous-arbres | feuilles | poids certifié | non résolus | 1er certificat max | masque du record | plus court | temps (s·cœur) |
+|---|---|---|---|---|---|---|---|---|
+| 0,0 | 64/64 | 28 588 484 | 33 554 432 = 2^25 | 0 | 351 374 | 11433907 | 60 | 1481 |
+| 1,0 | 64/64 | 28 511 923 | 33 554 432 = 2^25 | 0 | 218 072 | 27970974 | 56 | 1456 |
+| 2,0 | 64/64 | 28 366 365 | 33 554 432 = 2^25 | 0 | 234 449 | 4455031 | 48 | 1447 |
+| 3,0 | 64/64 | 28 412 580 | 33 554 432 = 2^25 | 0 | 233 237 | 28372497 | 65 | 1421 |
+| 4,0 | 64/64 | 28 490 693 | 33 554 432 = 2^25 | 0 | 273 825 | 7176115 | 44 | 1420 |
+| 0,1 | 64/64 | 28 092 041 | 33 554 432 = 2^25 | 0 | 273 824 | 8313294 | 27 | 1414 |
+| 1,1 | 64/64 | 28 367 346 | 33 554 432 = 2^25 | 0 | 233 234 | 31064756 | 46 | 1403 |
+| 2,1 | 64/64 | 27 835 784 | 33 554 432 = 2^25 | 0 | 231 822 | 28799897 | 51 | 1379 |
+| 3,1 | 64/64 | 27 987 883 | 33 554 432 = 2^25 | 0 | 273 823 | 7176107 | 26 | 1394 |
+| 4,1 | 64/64 | 28 698 953 | 33 554 432 = 2^25 | 0 | 233 235 | 28372489 | 59 | 1506 |
+| 0,2 | 64/64 | 27 520 199 | 33 554 432 = 2^25 | 0 | 219 673 | 30865118 | 52 | 1426 |
+| 1,2 | 64/64 | 27 886 800 | 33 554 432 = 2^25 | 0 | 273 822 | 8313262 | 37 | 1437 |
+| 2,2 | 64/64 | 27 815 144 | 33 554 432 = 2^25 | 0 | 233 232 | 31064692 | 32 | 1420 |
+| 3,2 | 64/64 | 27 890 705 | 33 554 432 = 2^25 | 0 | 233 233 | 28372233 | 33 | 1428 |
+| 4,2 | 64/64 | 28 063 130 | 33 554 432 = 2^25 | 0 | 231 823 | 31455345 | 24 | 1443 |
+| 0,3 | 64/64 | 28 118 339 | 33 554 432 = 2^25 | 0 | 273 820 | 8312238 | 47 | 1474 |
+| 1,3 | 64/64 | 28 006 839 | 33 554 432 = 2^25 | 0 | 233 230 | 6068407 | 30 | 1430 |
+| 2,3 | 64/64 | 27 728 720 | 33 554 432 = 2^25 | 0 | 233 231 | 28368137 | 31 | 1408 |
+| 3,3 | 64/64 | 27 421 061 | 33 554 432 = 2^25 | 0 | 231 817 | 18809847 | 34 | 1405 |
+| 4,3 | 64/64 | 27 923 088 | 33 554 432 = 2^25 | 0 | 233 223 | 19336923 | 47 | 1433 |
+| 0,4 | 64/64 | 28 338 524 | 33 554 432 = 2^25 | 0 | 231 811 | 18390007 | 28 | 1493 |
+| 1,4 | 64/64 | 27 760 108 | 33 554 432 = 2^25 | 0 | 218 568 | 12422578 | 53 | 1421 |
+| 2,4 | 64/64 | 27 778 129 | 33 554 432 = 2^25 | 0 | 273 821 | 27852140 | 48 | 1435 |
+| 3,4 | 64/64 | 27 972 621 | 33 554 432 = 2^25 | 0 | 231 824 | 32742875 | 25 | 1441 |
+| 4,4 | 64/64 | 28 537 982 | 33 554 432 = 2^25 | 0 | 233 236 | 31097015 | 68 | 1443 |
+
+« plus court » = plus petit premier certificat de la position. Temps = somme des 64 sous-arbres (s·cœur).
+Remarque : plusieurs records valent 273 820–273 825 ou 233 223–233 237 pour des positions différentes, avec des masques
+voisins : probablement le même chaos décalé de quelques pas (non vérifié).
+
+## Contrôles croisés (étape 3)
+Voir `controles_resultats.txt`.
+| Contrôle | Résultat |
+|---|---|
+| (a) 100 000 tirages (pos, masque) au hasard, graine 20261119 (99 997 distincts) : instant de la feuille de l'arbre vs `src/fourmi -cert` | 100 000/100 000 identiques |
+| (a) mêmes tirages vs `ant_controle_b5 lotpos` (moteur de ant_controle.c, début d'autoroute) | 100 000/100 000 : autoroute détectée, début ≤ certificat (égal pour 77 472, écart max 3 pas) |
+| (b) record de chaque position : arbre / `b5 brut` / `src/fourmi -cert` / ant_controle | 25/25 : mêmes instants (ant_controle : début = certificat ou −1) |
+| (c) coin bas-gauche : records des 46 tranches de `resultats/box5/` (masques [0, 9,2 M)) recalculés | 46/46 identiques ; max box5 252 046 ≤ 351 374 (record hors des tranches déjà calculées) |
+Durée des contrôles : 2 min 46 s (1 cœur).
+
+## Statut
+**B5 DÉMONTRÉ (sous réserve de relecture humaine du code de l'arbre, `b5.c`, fonctions `certifie` et `arbre`)** :
+0 non résolu, comptages exacts (25 × 2²⁵), contrôles 100 % d'accord. La preuve = lemme R-83 (démontré) +
+calcul exact fini de 838 860 800 cas + symétrie ci-dessus. Corollaire : T(5) = 351 374 exactement (le premier
+certificat ; le début réel de l'autoroute peut être jusqu'à quelques pas plus tôt, cf. ant_controle).
+
+## Estimation 6×5 (non calculé)
+Rectangle 6×5 : seule la rotation d'un demi-tour le conserve ⇒ 2 caps (haut, droite) × 30 positions × 2³⁰ =
+6,4·10¹⁰ cas (77 × B5). Au coût mesuré ici (4,27·10⁻⁵ s·cœur par coloriage, arbre peu efficace), ≈ 2,75·10⁶ s·cœur
+≈ 765 h·cœur ≈ 8 jours sur 4 cœurs — minorant, car les transitoires grandissent avec le support. Il faudrait
+d'abord gagner un facteur ≥ 10 (par ex. mémoriser les états du chaos déjà certifiés, ou partager les préfixes de
+trajectoire entre positions de départ).

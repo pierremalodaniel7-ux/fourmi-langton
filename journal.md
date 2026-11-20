@@ -584,3 +584,14 @@ Plus court : −3,1;−2,0;−1,−1;−1,1;1,−3 → 62 ; plus long : −3,0;�
 Record : cases 0,0;1,0;2,0;0,−1;0,−2;2,−2;3,−2;0,−3;1,−3;4,−3;1,−4;2,−4 (fourmi 0,0,H, masque 6927399) : certifié à 252 046 ;
 2ᵉ moteur `ant une 5 6927399` : début 252 046. Il dépasse le record 8×8 de R-101 (220 334) ; par recopie au coin, record(n) ≥ 252 046
 pour tout n ≥ 5 (OBSERVÉ, minorant). Tranches : resultats/box5/.
+
+## R-135 B5 : toute configuration dans un carré 5×5, fourmi n'importe où dans le carré, tout cap → autoroute 104 pour toujours — DÉMONTRÉ (calcul exhaustif + certificat R-83 ; sous réserve de relecture humaine du code de l'arbre) — 19-20/11
+Symétrie (quart de tour autour de (2,2)) ⇒ cap haut × 25 positions × 2²⁵ = 838 860 800 cas. Arbre de choix (cases du carré
+inconnues, branche à la première lecture ou si une case de Z est inconnue), feuille = premier instant certifié (Z dans
+la boîte carré ∪ visité). Par position : poids = 2²⁵ exactement, 0 non résolu (Tmax 5·10⁶), dérive (±2,±2) partout ;
+702 113 441 feuilles, ≈ 10 h·cœur. **T(5) = 351 374** (fourmi (0,0) cap haut, masque 11433907, y vers le haut).
+Validation : arbre = brut sur 3×3/4×4, = `src/fourmi -cert` sur 4×4 ; T(3) = 51 277, T(4) = 133 984 (les références 51 377
+et 134 065 commençaient la recherche dans un trou de phases non certifiables). Contrôles : 100 000 tirages = src/fourmi
+(instants identiques) et ant_controle (début ≤ certificat), 25 records et 46 tranches box5 identiques.
+Estimation 6×5 : ≈ 765 h·cœur (non calculé). Commande : recherche/B5/lance.sh, agrege.py, controles.py. Détails :
+recherche/B5/README.md. Bestiaire 22, germes resultats/germes_2026-11-19_B5.json (dossier B5 du simulateur).
