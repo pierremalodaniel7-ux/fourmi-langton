@@ -134,14 +134,14 @@ static int certifie(long p){
 }
 
 static void run(char *line){
-  char buf[16384]; strncpy(buf, line, sizeof buf - 1); buf[sizeof buf - 1] = 0;
+  static char buf[1<<20]; { size_t L = strlen(line); if (L > sizeof buf - 1) L = sizeof buf - 1; memcpy(buf, line, L); buf[L] = 0; }
   char *nl = strpbrk(buf, "\r\n"); if (nl) *nl = 0;
   if (!buf[0] || buf[0] == '#') return;
   char *f1 = strchr(buf, '|'); if (!f1) { printf("%s|ERREUR|format|0|\n", buf); return; }
   *f1++ = 0; char *f2 = strchr(f1, '|'); if (f2) *f2++ = 0; else f2 = "";
   if (!parse_rule(buf)) { printf("%s|ERREUR|regle|0|\n", buf); return; }
   g_init(1 << 16); diff = 0; n = 0;
-  char tmp[16384]; strcpy(tmp, f1);
+  static char tmp[1<<20]; strcpy(tmp, f1);
   for (char *s = strtok(tmp, ";"); s && n < MAXA; s = strtok(NULL, ";")) {
     while (*s == ' ') s++; if (!*s) continue;
     char *c1 = strchr(s, ','), *c2 = c1 ? strchr(c1 + 1, ',') : 0; if (!c2) continue;
@@ -231,7 +231,7 @@ int main(int argc, char **argv){
     else if (!strcmp(argv[i], "-lot")) lot = 1; else one = argv[i]; }
   setvbuf(stdout, NULL, _IOLBF, 0);
   if (one) run(one);
-  if (lot) { static char line[16384]; while (fgets(line, sizeof line, stdin)) run(line); }
+  if (lot) { static char line[1<<20]; while (fgets(line, sizeof line, stdin)) run(line); }
   if (!one && !lot) { fprintf(stderr, "usage : ./fourmi [-T pas] \"RL|0,0,H|\"  ou  ./fourmi -lot < fichier\n"); return 1; }
   return 0;
 }

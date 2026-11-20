@@ -24,10 +24,11 @@ static int dx[4]={0,1,0,-1}, dy[4]={1,0,-1,0}; /* 0=haut,1=droite,2=bas,3=gauche
 static short *px,*py; static unsigned char *tr;
 typedef struct {long onset; int ddx,ddy; int ok; long steps;} Res;
 
+static int RH=0; /* cap initial de run (mode lot) */
 static int NOBOX=0; static long IMPACT=-1; static int OBX=1<<30,OBY=0;
 static Res run(long maxs, int x0,int y0,int bx0,int by0,int bx1,int by1){
   /* bx0..bx1 : boîte du support initial (coordonnées relatives au centre) */
-  Res r={-1,0,0,0,0}; int x=x0,y=y0,h=0; long t, runlen=0;
+  Res r={-1,0,0,0,0}; int x=x0,y=y0,h=RH; long t, runlen=0;
   for(t=0;t<maxs;t++){
     if(x<-C+2||x>C-3||y<-C+2||y>C-3){ r.steps=t; return r; }
     px[t]=x; py[t]=y; if(IMPACT<0&&x==OBX&&y==OBY) IMPACT=t;
@@ -269,12 +270,15 @@ int main(int argc,char**argv){
     for(int i=1;i<=NS;i++){ SN[i]=calloc(W*W,1); TO[i]=calloc(W*W,1); TP[i]=calloc(W*W,1); WM[i]=calloc(W*W,1); RD[i]=calloc(W*W,1); DGs[i]=calloc(2*W,1); if(i%2==0) memcpy(DGs[i],DGD,2*W);   /* repère translation (i pair) : Δ_i contient aussi les diagonales de D (germe/base) */
       DGs[i][ox-oy+W]=1; for(int e=0;e<ne;e++) DGs[i][ox+EXs[e]-(oy-EYs[e])+W]=1; }
     long DD=-2L*W-2; long sT[8]; int sx[8],sy[8],sh[8],LV[8],HV[8],minS[8],okR[8],okC[8]; long bC[8];
+    /* S10 (R-122) : en repère identité, l'accord « p < L » suppose que les cases de l'îlot ont p ≥ L (dans les deux mondes) ;
+       sinon (case de l'îlot à petit p, ex. c3 sur une autre bande) l'accord est faux. pI = plus petit p des cases de l'îlot. */
+    int pI = -ox-oy; for(int e=0;e<ne;e++){ int pe = -(ox+EXs[e])-(oy-EYs[e]); if(pe<pI) pI=pe; }
     for(int i=0;i<8;i++){ sT[i]=-1; LV[i]=1<<30; HV[i]=-(1<<30); minS[i]=1<<30; okR[i]=-1; okC[i]=1; bC[i]=-1; }
     int x=0,y=0,h=H0,minC1=1<<30,reachG=0,reachS=0,cur=0; long imp=-1; int zx0=0,zy0=0,zx1=0,zy1=0,zlow=1,zhigh=1,zd=1,zd0=1,zq0=1<<30,zq1=-(1<<30);
     #define PKm(kk) ((int)(-( ((kk)%W) - C ) - ( ((kk)/W) - C )))
     #define DGm(kk) ((int)((((kk)%W)-C) - (((kk)/W)-C) + W))
     /* appartenance à l'ensemble d'accord du changement i (récursif sur i, chaînes) */
-    long nacc[5]={0,0,0,0,0}; int lastwhy=0, hq0=1<<30, hq1=-(1<<30), gq0=1<<30, gq1=-(1<<30); long tbase=-1; /* 1er contact avec une case de la base */   /* 1 fenêtre, 2 hors Δ, 3 base p, 4 règle */
+    long nacc[5]={0,0,0,0,0}; int lastwhy=0, hq0=1<<30, hq1=-(1<<30), gq0=1<<30, gq1=-(1<<30); long tbase=-1; long tc2=-1, tlast=-1; int fx0=1<<30,fx1=-(1<<30),ra0=1<<30,ra1=-(1<<30),rl0=1<<30,rl1=-(1<<30); /* S11 : tc2 = 1er contact avec la 2e case de l'îlot, dfix = diagonales des positions avant tc2, lectures hors Δ après tc2 */ /* 1er contact avec une case de la base */   /* 1 fenêtre, 2 hors Δ, 3 base p, 4 règle */
     auto int agree(int i,long c);
     int touchedphase(int i,long c){ return i>=1 && TP[i][c]; }
     int A(int j,long c){ return agree(j,c)||touchedphase(j,c); }
@@ -296,6 +300,9 @@ int main(int argc,char**argv){
       int p=-x-y; long k=(long)(y+C)*W+(x+C);
       { int hit=(x==ox&&y==oy); for(int e=0;e<ne;e++) if(x==ox+EXs[e]&&y==oy-EYs[e]) hit=1; if(hit&&imp<0) imp=t; }
       if(tbase<0) for(int b=0;b<NB;b++) if(x==BXs[b]&&y==BYs[b]) tbase=t;
+      if(ne>0 && tc2<0 && x==ox+EXs[0] && y==oy-EYs[0]) tc2=t;
+      if(NB>0 && tlast<0 && x==BXs[NB-1] && y==BYs[NB-1]) tlast=t;
+      if(t>=T0 && tc2<0){ int q=x-y; if(q<fx0)fx0=q; if(q>fx1)fx1=q; }
       if(imp>=0 && cur<NS){ int i=cur+1;
         if(p<=MPD) reachG=1; if(p>=PT[i>1?i-1:1]+60) reachS=1;
         long prev = cur? sT[cur] : imp;
@@ -317,8 +324,8 @@ int main(int argc,char**argv){
       /* lectures neuves de la phase cur (après s_cur+P), jusqu'à s_{cur+1}+2P */
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]+P && !RD[i][k]){
         long lim = (i<NS) ? (sT[i+1]>=0 ? sT[i+1]+2*P : -2) : CE+P; if(lim!=-2 && t>lim) continue;
-        if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; }
-        lastwhy=0; if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } else { nacc[lastwhy]++; if(lastwhy==2){ int q=DGm(k)-W; if(tbase>=0){ if(q<gq0)gq0=q; if(q>gq1)gq1=q; } else { if(q<hq0)hq0=q; if(q>hq1)hq1=q; } } } }
+        if(i%2){ if(LV[i]>minS[i]+4) LV[i]=minS[i]+4; if(LV[i]>pI) LV[i]=pI; }
+        lastwhy=0; if(!agree(i,k)){ okC[i]=0; if(bC[i]<0)bC[i]=t; } else { nacc[lastwhy]++; if(lastwhy==2){ int q=DGm(k)-W; if(tc2>=0){ if(q<ra0)ra0=q; if(q>ra1)ra1=q; } if(tlast>=0){ if(q<rl0)rl0=q; if(q>rl1)rl1=q; } if(tbase>=0){ if(q<gq0)gq0=q; if(q>gq1)gq1=q; } else { if(q<hq0)hq0=q; if(q>hq1)hq1=q; } } } }
       if(t==CE){ zx0=x; zy0=y; } if(t==CE+P){ zx1=x; zy1=y; }
       if(t>=CE){ int pc=PKm(k); if(NS==0){ if(!(pc>MPD-4)) zhigh=0; } else if(NS%2){ if(!(pc<LV[NS] && (NS==1 || pc<LV[NS-2]))) zlow=0; } else { if(!(pc>HV[NS] && (NS==2 || pc>HV[NS-2]))) zhigh=0; } if(NS>0 && DGs[NS][DGm(k)]) zd=0; if(DGD[DGm(k)]) zd0=0; { int q=DGm(k)-W; if(q<zq0)zq0=q; if(q>zq1)zq1=q; } }
       for(int i=1;i<=NS;i++) if(sT[i]>=0 && t>=sT[i]){ RD[i][k]=1; long fin=(i<NS)?sT[i+1]:-1; if(fin<0 || t<=fin) TP[i][k]=1; }
@@ -334,6 +341,7 @@ int main(int argc,char**argv){
     for(int i=1;i<=NS;i++){ int c3 = (i%2)? 1 : 1; all = all && okR[i]==1 && okC[i];
       printf(" | s%d=%ld %s R %s lect %s(%ld)",i,sT[i],(i%2)?"L":"H",okR[i]==1?"OK":"ECHEC",okC[i]?"OK":"ECHEC",bC[i]); (void)c3; }
     { int d0=1<<30,d1=-(1<<30); for(int q=0;q<2*W;q++) if(DGD[q]){ if(q-W<d0)d0=q-W; if(q-W>d1)d1=q-W; }
+      { int q1=ox-oy; if(q1<fx0)fx0=q1; if(q1>fx1)fx1=q1; } printf(" | DEV tc2=%ld tbase=%ld dfix=[%d,%d] horsD_apres_c2=[%d,%d] zlow=%d zd=%d tlast=%ld horsD_apres_last=[%d,%d]",tc2,tbase,fx0,fx1,ra0,ra1,zlow,zd,tlast,rl0,rl1);
       printf(" | acc fen=%ld horsD=%ld p=%ld regle=%ld",nacc[1],nacc[2],nacc[3],nacc[4]); { int a0=1<<30,a1=-(1<<30); if(NS>=1) for(int q=0;q<2*W;q++) if(DGs[1][q]){ if(q-W<a0)a0=q-W; if(q-W>a1)a1=q-W; } printf(" | horsD diag avant base=[%d,%d] apres base=[%d,%d] Delta1=[%d,%d]",hq0,hq1,gq0,gq1,a0,a1); } printf(" | L1=%d L3=%d | dir=(%d,%d) diagZ=[%d,%d] diagD=[%d,%d] | Z %s => %s\n", LV[1], NS>=3?LV[3]:0, fx,fy, zq0,zq1,d0,d1, okZ?"OK":"ECHEC", all?"TOUT OK":"ECHEC"); }
   } else if(!strcmp(argv[1],"deux")){
     /* deux J K CE NS s1..sNS [EX EY ...] : contrôle DIRECT des couplages de `multi` entre X_k et X_{k+2}.
@@ -358,6 +366,20 @@ int main(int argc,char**argv){
       if(w==1) printf("deux J=%d K=%d NS=%d : %ld pas comparés, %s (1er écart t=%ld)\n",J,K,NS,nchk,bad<0?"COUPLAGE EXACT":"ECART",bad);
     }
     free(bx); free(by); free(bh); free(bc);
+  } else if(!strcmp(argv[1],"lot")){
+    /* lot : lignes « RL|0,0,CAP|x,y;x,y… » (format de src/fourmi, y vers le BAS, fourmi en 0,0) -> dernière autoroute (S9) */
+    static char L[1<<20]; long MX=argc>2?atol(argv[2]):3900000;
+    if(MX>MAXS){ free(px); free(py); free(tr); px=malloc(MX*2); py=malloc(MX*2); tr=malloc(MX); }
+    while(fgets(L,sizeof L,stdin)){
+      char *f1=strchr(L,'|'); if(!f1) continue; f1++; char *f2=strchr(f1,'|'); if(!f2) continue; f2++;
+      f2[-1]=0; char *cp=strrchr(f1,','); char cc=cp?cp[1]:'H'; int h0=cc=='D'?1:cc=='B'?2:cc=='G'?3:0;
+      clear_box(1800); int bx0=0,bx1=0,by0=0,by1=0;
+      for(char *q=strtok(f2,";\n"); q; q=strtok(NULL,";\n")){ char *c=strchr(q,','); if(!c) continue; int x=atoi(q), y=-atoi(c+1);
+        if(x<-1700||x>1700||y<-1700||y>1700) continue; g[(long)(y+C)*W+(x+C)]^=1;
+        if(x<bx0)bx0=x; if(x>bx1)bx1=x; if(y<by0)by0=y; if(y>by1)by1=y; }
+      RH=h0; IMPACT=-1; Res r=run(MX,0,0,bx0,by0,bx1,by1);
+      printf("autoroute=%d debut=%ld derive=(%d,%d) pas=%ld\n",r.ok,r.onset,r.ddx,-r.ddy,r.steps); fflush(stdout);
+    }
   } else if(!strcmp(argv[1],"une")){
     /* une N MASQUE : une boîte N×N (même convention que box : cases (i%N, i/N) en y vers le haut, fourmi (0,0) cap haut) */
     int N=atoi(argv[2]); unsigned long long m=strtoull(argv[3],0,10); long MX=atol(argc>4?argv[4]:"3900000");

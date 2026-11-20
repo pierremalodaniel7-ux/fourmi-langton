@@ -11,11 +11,11 @@ Question : combien de cases noires faut-il, au minimum, pour que l'autoroute dé
 | 3 | 126 | exact dans [−5,5]² (280 840 configurations, **toutes certifiées**) | (0,−2);(1,−3);(3,−5), cap H |
 | 4 | 67 | exact dans [−4,4]² (1 581 580 configurations, **toutes certifiées**, S8) | (−4,−1);(−2,1);(−1,2);(0,3), cap H |
 | 5 | ≤ 62 ; exact 62 dans [−3,3]² (1 712 304 configurations, **toutes certifiées**, S8) | | (−3,1);(−2,0);(−1,−1);(−1,1);(1,−3), cap H |
-| 6 | ≤ 69 | sous-ensemble du germe R-20 | cap B : 0,1;1,2;2,3;2,1;3,0;−2,−1 |
-| 7 | ≤ 61 | idem | cap B : 0,1;1,2;2,3;2,1;3,0;2,−2;−2,−1 |
-| 8 | ≤ 55 | idem | |
-| 9 | ≤ 44 | idem | |
-| 10 | ≤ 38 | idem | |
+| 6 | ≤ 69 ; dans [−2,2]² : exact 120 (134 596 configurations, **toutes certifiées**, S9) | sous-ensemble du germe R-20 | cap B : 0,1;1,2;2,3;2,1;3,0;−2,−1 |
+| 7 | ≤ 61 ; dans [−2,2]² : exact 68 (346 104 configurations, **toutes certifiées**, S9) | idem | cap B : 0,1;1,2;2,3;2,1;3,0;2,−2;−2,−1 |
+| 8 | ≤ 55 ; dans [−2,2]² : exact 64 (735 471 configurations, **toutes certifiées**, S9) | idem | |
+| 9 | ≤ 44 ; dans [−2,2]² : exact 56 (1 307 504 configurations, **toutes certifiées**, S9) | idem | |
+| 10 | ≤ 38 ; dans [−2,2]² : exact 52 (1 961 256 configurations, **toutes certifiées**, S10) | idem | |
 | 11 | **0** | exact (R-20) ; **certifié dès le pas 0 : DÉMONTRÉ** | cap B : 0,1;1,2;2,3;2,2;2,1;2,0;3,0;3,−1;2,−2;1,−2;−2,−1 |
 
 Faits : (1) le bout d'autoroute minimal de R-20 (11 cases) est certifié dès t = 0, donc il construit l'autoroute **pour toujours**
@@ -38,3 +38,7 @@ fourmi sur les arêtes) — sans doute connu (réversibilité, Gale–Propp–Su
 Toutes les configurations de 4 cases dans [−4,4]² (1 581 580, max 149 266) et de 5 cases dans [−3,3]² (1 712 304, max 186 217)
 construisent l'autoroute pour toujours (certificat). Transitoires minimaux exacts dans ces boîtes : 67 (4 cases), 62 (5 cases).
 Avec R-105 : toute configuration de ≤ 3 cases dans [−5,5]², ≤ 4 dans [−4,4]², ≤ 5 dans [−3,3]² est DÉMONTRÉE.
+
+## S9 : carré [−2,2]² (R-114)
+Toutes les configurations de 6 et 7 cases dans [−2,2]² (fourmi 0,0,H) sont certifiées ; minima 120 et 68, maxima 105 789 et
+167 636. Outil : `outils/germes_k.sh K R [DEBUT FIN]`. 8 cases : voir R-114 (suite) dans le journal.

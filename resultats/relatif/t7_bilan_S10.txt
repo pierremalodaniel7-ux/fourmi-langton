@@ -1,0 +1,4 @@
+triplets : # 6204 triplets, 0 désaccord(s)
+k1 bloc : 5473 OK (deux exacts 5473) ; c3 fixe : 726 OK exacts, 5 ECHEC
+m bloc : 5932 OK exacts, 272 ECHEC ; c3 fixe : 264 OK exacts
+transport : ('K:ok', 'M:ok') 5262 ('K:non-NS0', 'M:ok') 594 ('K:non-NS0', 'M:non-NS0') 214 ('K:ok', 'M:non-NS0') 109 ('K:dir', 'M:non-NS0') 25 

@@ -585,6 +585,188 @@ Record : cases 0,0;1,0;2,0;0,−1;0,−2;2,−2;3,−2;0,−3;1,−3;4,−3;1,�
 2ᵉ moteur `ant une 5 6927399` : début 252 046. Il dépasse le record 8×8 de R-101 (220 334) ; par recopie au coin, record(n) ≥ 252 046
 pour tout n ≥ 5 (OBSERVÉ, minorant). Tranches : resultats/box5/.
 
+## É8 Synthèse S1–S8 (séance S9) — 19/11
+`recherche/autoroute/SYNTHESE.md` mise à jour (germes R-105/108/110, rebours R-107, observations R-101 à R-104, R-109, R-111) +
+tableau de nouveauté résultat par résultat + liste de relecture (certificat, couplage, transport, `ant multi`, R-107).
+1 recherche web : MFCS 2026 (Etse, arXiv 2606.26677) borne le temps d'ÉCHAPPEMENT d'un domaine fini (borne factorielle pour
+les carrés), pas le transitoire avant l'autoroute : nos records (R-101, R-111) restent non trouvés. PDF : resultats/Synthese autoroute S1-S9.
+
+## R-112 É7 « autoroute × vieille trace » : 328 collisions (trace de 200 périodes, 4 orientations, tous décalages utiles) → 328 autoroutes certifiées ; perpendiculaire : 8 classes (traverse, relais le long de la trace, remonte la trace, demi-tour) — DÉMONTRÉ (ces 328 configurations) / « une trace = un site de plus » OBSERVÉ — 19/11 S9
+`recherche/autoroute/outils/trace_croise.sh 200 50 58 350 358 1` (et rot 3 : -350 -342 -50 -42 ; rot 2 : -500 -496 488 513 ; rot 0 : -100 -96 88 113).
+Données : tableau dans recherche/autoroute/E7_contre_attaque.md §5. Aucune boucle. Au passage : `src/fourmi` tronquait les lignes
+> 16 ko (bug silencieux ; sans effet sur les résultats autoroute, dont les configurations ont ≤ 25 cases ; autres usages anciens non revérifiés) ; corrigé (1 Mo), 19/19 tests.
+(R-112, contrôle croisé) 2ᵉ moteur : nouveau mode `recherche/autoroute/ant lot [MAXS]` (lit le format de src/fourmi). Les 328
+configurations : même direction finale 328/328 ; début (ant) et certificat (fourmi) à ≤ 1 pas près 322/328, ≤ 3 pas pour les 6
+autres (le certificat arrive 2 à 3 pas après le début de la trace périodique). Un premier essai donnait 2 désaccords : bug de lecture
+du cap dans le nouveau mode (corrigé ; une simulation directe a tranché pour fourmi).
+
+## R-113 Croisement d'une vieille trace (perpendiculaire) : loin des bouts (20 ≤ s ≤ 160 sur 200), les 8 classes ne dépendent ni de la longueur P (120 à 400) ni du point de croisement ; temps linéaires (longer : 22 826 − 4s ; remonter : 12 638 + 20s) — OBSERVÉ — 19/11 S9
+Boucle sur s : `a=$((2*s-150)); b=$((2*s+150)); recherche/autoroute/outils/trace_croise.sh 200 $a $((a+4)) $b $((b+2)) 1`.
+Tableau : recherche/autoroute/E7_contre_attaque.md §5. Piste : théorème « départ blanc + une trace d'autoroute quelconque loin » par couplage.
+(R-113, suite) Perpendiculaire construite vers (2,2) : 8 classes (4 longent, 3 traversent, 1 demi-tour), indépendantes de s pour
+20 ≤ s ≤ 190. De face : 88/100 issues indépendantes de P (150, 200, 300) ; les 12 autres remontent toute la trace jusqu'à son germe
+et dépendent de P. Même sens : 100/100 indépendantes de P. Toutes certifiées. Fichiers data/tc_r*_P*.txt (non suivis).
+
+## R-114 Germes dans le carré [−2,2]² : toutes les configurations de 6 cases (134 596) et de 7 cases (346 104) construisent l'autoroute — DÉMONTRÉ (certificat) ; minima exacts dans ce carré : 120 (6 cases), 68 (7 cases) — 19/11 S9
+`recherche/autoroute/outils/germes_k.sh K 2` (fourmi 0,0,H, cases ≠ (0,0)). 6 cases : min 120 (1,−2;2,−2;−2,1;2,1;1,2;2,2), max 105 789
+(0,−2;1,−2;1,−1;1,0;−1,1;−1,2). 7 cases : min 68 (2,−2;−2,−1;1,−1;1,0;0,1;1,1;−2,2), max 167 636 (−2,−2;−1,−2;2,−2;1,−1;2,−1;−1,2;2,2).
+Les bornes de R-105 (≤ 69 à 6 cases, ≤ 61 à 7 cases) viennent de boîtes plus grandes : le carré [−2,2]² ne fait pas mieux.
+
+## R-115 Collision de face avec une vieille trace, cas où la fourmi remonte toute la trace : l'issue dépend de la longueur P seulement par P mod 12 (P = 100 à 161, 2 décalages) ; les pas certifiés croissent linéairement en P — OBSERVÉ (chaque configuration DÉMONTRÉE) — 19/11 S9
+Pointe de la trace fixée ; `for P …; a=$((-100-2*P)); b=$((100+2*P-12+j)); trace_croise.sh $P $a $((a+1)) $b $((b+1)) 2` (j = 7, 13).
+j = 7, P ≡ 0 (mod 4) : (2,2), (2,2), (−2,2) selon P mod 12 = 4, 8, 0 (P = 100…160) ; P impair : toujours (2,2), pas de période 3.
+j = 13 : (2,2) / (−2,−2) / (2,2)-autre classe, période 12 en P. Lecture : la fourmi roule sur la trace jusqu'à son germe et y
+arrive avec une phase qui dépend de P mod 12 (le rouleur n'avance pas d'un multiple de la période de la trace).
+
+## Relecture (S9) du code du certificat `certifie()` (src/fourmi.c) — pas d'erreur trouvée — AFFIRMÉ (relecture par Claude, pas humaine) — 19/11
+Points vérifiés : V et couleurs lues à blanc sur une copie ; F2/F3 + Z donnent nouveau(v+d) = ancien(v) sur tout V+d ; F4 (convexité)
+garantit que V∖(V+d) n'est jamais relu ; borne K du test Z prudente (|v| ≤ p) ; au 2e passage, la grille est remise à l'état initial
+et la boîte utilisée est celle de la fin du 1er passage (⊇ cases visitées jusqu'à l'instant certifié) ; hors boîte tout est blanc.
+Seule remarque : le pas « CERT » rendu est le premier instant certifié dans la fenêtre [début − p, début + 50p], pas forcément le
+premier absolu (sans effet sur les statuts). Bug voisin trouvé et corrigé ce jour : lignes > 16 ko tronquées (R-112).
+
+## R-116 T6 reproductible : les étapes R-94 (récurrence en k₁, 968 vérifications `ant multi`) et R-95 (transport, 484 paires) refaites depuis zéro redonnent exactement les résultats gardés (0 ligne différente) — VÉRIFIÉ — 19/11 S9
+`recherche/autoroute/outils/t6_refait.sh` (45 s). Constat : les entrées de `transport.py` (gap.cert, dbl22.res) n'étaient pas gardées ;
+gap.cert = `fourmi -cert` sur les 22 classes de c₁ (gardé maintenant dans resultats/relatif/), dbl22.res = resultats/relatif/recurrence_k1.txt.
+Les 968 pas certifiés recalculés sont identiques. Non refait par ce script : R-96/R-98 (G1, G2, transport dual) et la partie (A) proche.
+(R-116, suite) R-96 refait (`t6_refait.sh`, étapes 5–6) : G1 (c₁ = −119,100) 17/18 sans la règle + 8/8 vérifications « c₂ fixe »
+(base = blanc + c₂, NS = 1, p* = 90) ; G2 (d₂ = d) 7/8 sans la règle ; mêmes 2 exceptions (règle utilisée 50 et 72 fois).
+R-98, contrôles à la main : (a) pour G2, base −127,100 (T0 = 21 929), `ant multi -21 401 158602 1 300` : s₁ = 101 288, règle 0 ✓ ;
+(a) pour G1, base pivotée 100,119 (cap G, T0 = 79 678) : 22/22 sans la règle ✓ ; (b) pour G1, c₂ = (−401,−409) :
+s₁ = 68 836 avec p* = 110 (69 356 avec p* = 90 : le journal ne notait pas p*) ✓. T6 : seules les zones proches (A, 683 080 cas)
+et R-97 (assemblage, epars_RD.py) ne sont pas dans le script.
+
+## R-117 T7, premier essai d'une base à 2 cases : W₂ = blanc + (−127,100) + (−429,400) (T0 = 37 543, dérive (−2,2)) ; c₃ loin (k = 900) : 22 classes, 21 prouvées par `ant multi` (pente 52, NS = 0), la classe demi-tour (pente 104) non prouvée (NS = 1, 2, 3, p* de 50 à 400) — OUVERT — 19/11 S9
+`cd data/t7 && python3 ../../recherche/autoroute/outils/relatif.py "-127,100;-429,400" 37543 900 H` : 21 s (machine chargée).
+Échec : `BASE="-127,100;-429,400" T0=37543 ant multi -21 901 210722 NS p…` ; le demi-tour au 3e site roule jusqu'au 2e site, pas au
+germe : les repères de `multi` (identité près du germe) ne collent pas. Il faudra l'astuce « c₃ fixe » de T6 (base = blanc + c₃) ou
+un repère par site. Coût brut T7 (C) : ≈ 20 s × 484 bases ≈ 3 h, plus les demi-tours.
+
+## R-118 Nouveau record 5×5 : masque 11433907 (16 cases), autoroute certifiée dès 351 374 — DÉMONTRÉ (cette configuration) ; record(n) ≥ 351 374 pour n ≥ 5 — OBSERVÉ (minorant) — 19/11 S9
+Cases 0,0;1,0;4,0;0,−1;2,−1;3,−1;4,−1;0,−2;2,−2;3,−2;4,−2;2,−3;3,−3;4,−3;1,−4;3,−4 (fourmi 0,0,H). 2ᵉ moteur `ant une 5 11433907` :
+début 351 374. Trouvé dans la tranche [11,4 M ; 11,6 M) du parcours exhaustif (box5_fond.sh). Bat R-111 (252 046) de 39 %.
+(R-117, suite) Classe demi-tour de c₃ : CERT = 210 722 + 104·(k − 901) (k = 901…909), autoroute finale (2,2) : la fourmi revient en
+roulant jusqu'au 2e site (−429,400) qui la renvoie en (2,2), loin de la bande de c₃. Un seul retour (NS = 1 devrait suffire) : l'échec
+de `multi` vient donc de ses ensembles d'accord autour de la base (pensés pour un germe à l'origine), pas de la dynamique. À examiner en S10.
+(R-117, détail) `multi … 1 90` : s₁ = 158 910, lecture refusée à 168 512, « Z ECHEC » ; borne p sur D = 839 (la trace de la base W₂
+couvre des diagonales jusqu'à p = 839, contre ≈ 25 pour le départ blanc) : c'est probablement ce D trop large qui bloque.
+(R-114, suite) 8 cases dans [−2,2]² : 735 471/735 471 certifiées ; min 64 (−1,−2;2,−2;−2,−1;1,−1;1,0;0,1;1,1;−2,2), max 181 037
+(−1,−2;0,−2;−1,−1;−2,0;0,1;−1,2;0,2;2,2). (Borne R-105 à 8 cases : ≤ 55, hors de ce carré.)
+(R-114, suite) 9 cases dans [−2,2]² : 1 307 504/1 307 504 certifiées ; min 56 (0,−2;2,−2;−2,−1;0,−1;1,−1;1,0;0,1;1,1;−2,2), max 179 492
+(−2,−2;1,−2;2,−2;−2,−1;−1,−1;1,−1;−2,0;2,0;−2,2).
+(R-117, résolu) La classe demi-tour passe avec p* = 900 : `BASE="-127,100;-429,400" T0=37543 ant multi -21 901 210722 1 900` → TOUT OK
+(règle 0) ; p* = 900 à 1 700 marchent, ≤ 600 non. Raison : p* = L borne la zone d'accord en repère identité ; elle doit couvrir le
+2ᵉ site (p ≈ 829) et pas seulement le germe. Contrôle direct `deux_mondes.sh` : couplage exact sur 173 284 pas. Donc pour cette base
+W₂, partie (C) de T7 : 22/22 classes — DÉMONTRÉ sous réserve de relecture (mêmes lemmes que T6). À faire : élargir la liste des p*
+de relatif.py (ajouter 900, 1 200, 1 500 ou p* = p(2ᵉ site) + 70) puis lancer les 484 bases (≈ 3 h).
+
+## R-119 T7 (trois cases éparses), partie (C) lancée : 484 bases W₂ = blanc + c₁ + c₂ (une par paire de classes, écart k₀), pivotées pour la dérive (−2,+2) — en cours — 19/11 S9
+`outils/t7_bases.py` → resultats/relatif/t7_bases.txt (484 bases : 156 H, 100 D, 146 G, 82 B) ; `outils/t7_lance.sh 0 484` (reprise
+automatique) → data/t7/b_<n>.txt et data/t7/bilan.txt. Deux changements de `relatif.py` : p* ∈ {…, 600, 900, 1 200, 1 500} pour NS = 1
+(ajoutés en fin de liste : les anciens choix sont inchangés) et balayage des diagonales centré sur la fourmi à T0 (union avec l'ancien
+[−450, 450]), sinon les bases pivotées n'avaient aucune classe. Bilan de la séance : voir rapport S9.
+(R-119, suite) Classe à pente 156 (deux allers-retours, NS = 2) dans la base n° 18 : passe avec p* = (1 200, 900), règle « un pas »
+utilisée 72 fois (comme G2 de T6) ; ajouté en fin de grille NS = 2 de relatif.py ; base 18 refaite : 22/22.
+(R-114, suite) 10 cases dans [−2,2]² : PARTIEL, combinaisons [0, 1 200 000) sur 1 961 256 certifiées (0 échec) ; min provisoire 52
+(par ex. 0,−2;1,−2;2,−2;−2,−1;0,−1;1,−1;1,0;0,1;1,1;−2,2) ; max provisoire 206 499. Morceaux : data/germes_R2_k10_*.out (relancer
+`germes_k.sh 10 2 A B` pour [1 200 000, 1 961 256)).
+
+## R-120 Bilan S9 du fond : 5×5 [0, 12 400 000) certifiées sans trou (+ [13,8 M ; 14,0 M) et [15,4 M ; 15,6 M)), max 351 374 (R-118) ; T7 (C) : 53 bases sur 484 terminées, toutes complètes — DÉMONTRÉ (ces boîtes) / T7 en cours — 19/11 S9
+Tranches : resultats/box5/ (64 fichiers). T7 : data/t7/b_<n>.txt (non suivis) ; reprise `recherche/autoroute/outils/t7_lance.sh 0 484`.
+
+## R-121 Germes à 10 cases dans [−2,2]² : les 1 961 256 configurations construisent l'autoroute — DÉMONTRÉ (certificat) ; minimum exact 52, maximum 206 499 — 19/11 S10
+Min : −1,−2;0,−2;2,−2;−2,−1;0,−1;1,−1;1,0;0,1;1,1;−2,2 (et une autre) ; max : −2,−2;−1,−2;0,−2;2,−2;−2,−1;−1,−1;2,−1;0,1;2,1;−1,2.
+Terminé en fond après S9 (morceaux data/germes_R2_k10_*.out). Minima exacts dans [−2,2]² : 120, 68, 64, 56, 52 pour 6 à 10 cases.
+
+## R-122 Faille de `ant multi` trouvée et corrigée : en repère identité, l'accord « p < L » était admis même quand une case de l'îlot a un petit p — FAUX positifs possibles ; aucun résultat publié touché après recontrôle — VÉRIFIÉ — 19/11 S10
+Découverte : récurrence en k₁ de T7, triplet (−130,103) + (−291,299) + (−772,−1014) (décalages) : `multi -27 103 189428 1 90 …` disait
+TOUT OK, mais `ant deux` trouve un écart à t = 157 031 et les pas certifiés (k₁ = 103 : 189 428 ; 105 : 111 414) excluent tout couplage.
+Cause : en repère identité (NS impair), `multi` accepte toute lecture de p < L_i (« près du germe, les deux mondes coïncident »). C'est faux
+si une case de l'îlot (qui diffère entre X(k) et X(k+2)) a elle-même p < L_i : ici c₃, posé sur une autre bande à p ≈ −18.
+Correction (ant_controle.c) : L_i ≤ pI = plus petit p des cases de l'îlot. Recontrôles avec le binaire corrigé :
+- T6 (C), R-93 : 484/484 toujours OK ; T6 R-94 : seuls les 36 contrôles « bloc » de c₁ = (−119,100) (classe demi-tour) passent de NS1 à
+  ECHEC — c'est exactement le cas où le journal (R-94) prescrivait « c₂ fixe en base » ; avec c₂ fixe : 44/44 OK (42 sans la règle, 2 avec,
+  comme R-96) et `deux` confirme 44/44 couplages exacts. T6 et ses énoncés sont inchangés.
+- Mon `t6_refait.sh` (S9, étape 5) vérifiait G1 avec le paramétrage « bloc » : il obtenait les bons comptes pour une mauvaise raison ;
+  corrigé pour utiliser « c₂ fixe ». T1–T5 : îlots compacts à grand p, non concernés (pI ≥ k ≥ 100 > L).
+- T7 (C) : audit par `ant deux` de chaque preuve (audit_t7c.sh) : voir R-123.
+Leçon : toute preuve `multi` doit être recoupée par `ant deux` (couplage simulé) avant d'être comptée.
+
+## R-123 Audit de T7 (C) par `ant deux` : les 3 300 preuves `multi` des 150 premières bases finies redonnent toutes un couplage exact — VÉRIFIÉ — 19/11 S10
+`recherche/autoroute/outils/audit_t7c.sh 0 484` (BASE, T0, H0 de chaque base) ; sortie data/t7/audit_c.out. Les bases faites après la
+correction R-122 utilisent le `multi` corrigé.
+
+## R-124 T7, récurrences en k₁ et en m (analogue de R-94 pour trois cases) : 3 559/3 564 triplets passent chacune, tous recoupés par `ant deux` (couplage exact) — DÉMONTRÉ sous réserve de relecture (les familles à un paramètre correspondantes) ; 5 + 5 cas OUVERTS — 19/11 S10
+Triplets : `outils/t7_triples.py` (3 564 = 162 bases finies × 22 classes de c₃, pas certifiés recalculés dans le repère d'origine : 0 désaccord).
+- Récurrence en k₁ (îlot {c₁,c₂,c₃} déplacé en bloc le long de d) : `outils/essai_k1_bloc.sh` : 3 207 OK (3 145 NS0, 35 NS1, 27 NS2),
+  3 207/3 207 couplages exacts. 357 ECHEC → « c₃ fixe » (base = blanc + c₃, îlot {c₁,c₂}, `outils/essai_k1_c3fixe.sh`) : 352 OK
+  (348 sans la règle), 352/352 exacts. Restent 5 triplets de la base 19 (c₁ = (−127,100), c₂ = (−422,401), c₃ ≈ (900,1097)) : issue stable
+  et affine en k₁ (pente 312 par Δk₁ = 2, trois traversées) mais aucune grille NS ≤ 3 ne passe. OBSERVÉ.
+- Récurrence en m (base blanc + c₁ pivotée, îlot {c₂,c₃} en bloc le long de la 2ᵉ bande) : `outils/essai_m_bloc.py` : 3 427 OK, tous exacts ;
+  137 ECHEC → « c₃ fixe » (base blanc + c₁ + c₃, îlot c₂, `outils/essai_m_c3fixe.py`) : 132 OK sans la règle, tous exacts. Restent 5 :
+  base 18 (classe de pente 156) et 4 triplets où c₃ est sur la bande de W₁ (la base blanc + c₁ + c₃ n'a plus la dérive (−2,+2)). OUVERT.
+Manque pour T7 : le transport (uniformité, comme R-95/96/98), les zones proches (A) et l'assemblage avec R et D.
+
+## R-125 T7 : directions successives des 3 564 triplets (d → d₂ → d₃ → d₄ ; M = même sens, P = perpendiculaire, X = demi-tour) — VÉRIFIÉ (calcul) — 19/11 S10
+MPP 912, MPM 685, MMP 642, MMM 453, PPP 264, PPM 198, PMP 157, PMM 117 (3 428 sans demi-tour) ; avec demi-tour : MPX 75, PPX 22, PXP 13,
+PMX 12, PXM 9, MMX 5 (136). Le lemme de transport de T6 (R-95) vaut quand chaque changement est M ou P : il devrait couvrir les 3 428
+premiers en l'itérant (m puis m₃) ; les 136 avec X demandent l'analogue de G1 (case fixe en base) ou le transport dual (R-98).
+Données : data/t7/directions.txt (non suivi).
+
+## R-126 T7, uniformité testée : le pas certifié est additif en (k₁, m, m₃) — 300/300 prédictions exactes à (k₁+14, m+10, m₃+12) pour les triplets « NS0 + sans demi-tour » ; 496/534 pour les autres — OBSERVÉ (chaque configuration calculée est DÉMONTRÉE) — 19/11 S10
+Hypothèses du transport itéré (NS = 0 dans les récurrences « bloc » en k₁ et en m, aucun demi-tour) : 3 030 triplets sur 3 564.
+Test : CE(a,b,c) = CE(0) + a·Δ_k₁ + b·Δ_m + c·Δ_m₃ (pentes mesurées un paramètre à la fois ; c₁ += a·d, c₂ += a·d + b·d₂,
+c₃ += a·d + b·d₂ + c·d₃). Échantillon de 300 candidats : 300/300 exacts. Les 534 autres (départ décalé d'un pas) : 496 exacts, 38 non
+additifs (MPM 22, MPP 16), 0 non certifié. Outil : `outils/t7_uniformite.py 300 10`.
+
+## R-127 T7 : hypothèses du transport (critère de transport.py, R-95) aux deux étages remplies pour 3 123 triplets sur 3 564 — OBSERVÉ (décompte) ; le lemme à deux étages reste À ÉCRIRE ET RELIRE — 19/11 S10
+`outils/transport7.py` : K = récurrence en k₁ (bloc, NS0) transportée le long de m (pas d₂) et de m₃ (pas d₃) ; M = récurrence en m
+(bloc, repère de blanc + c₁, NS0) transportée le long de m₃. Bilan : K ok et M ok 3 123 ; K non-NS0 / M ok 264 ; les deux non-NS0 155 ;
+K ok / M non-NS0 16 ; K refusé par les directions 6. Schéma de preuve visé : (C) à (k₀, m₀) pour tout m₃, puis M (tout m), puis K (tout k₁).
+Les 441 restants : variantes « c₃ fixe » (R-124, déjà vérifiées pour 352 + 132 cas) à transporter, et transport dual (R-98).
+(R-124, détail) Les 4 cas ouverts « c₃ sur la bande de W₁ » en m sont en fait trois cases alignées sur la bande de départ
+(x + y = −21 à −27 : c₁ à k ≈ 100, c₂ à k ≈ 400, c₃ à k ≈ 900 ; d₂ = d₃ = d) : la fourmi enchaîne les sites sur la même bande.
+`BASE=-128,101 T0=15917 ant multi -27 400 226322 …` : aucune grille NS ≤ 2 (p* jusqu'à 1 500) ne passe (lecture refusée à 31 556 ou
+168 512, la règle « un pas » est sollicitée). Même famille que les « chaînes de demi-tours » de T3 (E2_epars.md, S1) : à traiter à part.
+
+## R-128 Bilan S10 de T7 : (C) 407/484 bases finies, toutes complètes ; chaîne `t7_tout.sh` sur 282 bases (6 204 triplets) : récurrence en k₁ 6 199/6 204, en m 6 196/6 204, toutes recoupées par `ant deux` ; hypothèses du transport à deux étages remplies pour 5 262 — DÉMONTRÉ sous réserve de relecture (familles à un paramètre) / transport OBSERVÉ (décompte) — 19/11 S10
+k₁ : 5 473 « bloc » (5 473 couplages exacts) + 726 « c₃ fixe » (exacts), 5 ECHEC (base 19). m : 5 932 « bloc » + 264 « c₃ fixe » (exacts),
+8 ouverts (bases 18, 24, 46, 68, 105, 135, 147, 178). Transport : K ok & M ok 5 262 ; K non-NS0 & M ok 594 ; les deux non-NS0 214 ; K ok & M non-NS0 109 ;
+K refusé par les directions 25. Audit `deux` de T7 (C) : 5 126/5 126 couplages exacts (233 bases). 5×5 : [0, 16 000 000) certifié sans trou
+(80 tranches dans resultats/box5/), max inchangé 351 374. Bilan : resultats/relatif/t7_bilan_S10.txt.
+
+## R-129 Lemme T (transport d'une condition NS = 0 le long d'un autre paramètre) et théorème T7-loin écrits en détail — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+recherche/autoroute/E2b_couplage.md §S11. T7-loin : si (C) vaut (recoupé par `deux`), (M) à NS = 0 avec d₃ ∈ {d₂, ⟂ d₂}, et (K) à NS = 0 avec
+d₂, d₃ ∈ {d, ⟂ d} (règle des diagonales pour une direction finale opposée), alors X(k₁, m, m₃) construit l'autoroute pour toujours pour tous
+k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀. Preuve : (C) donne m₃ ; lemme T avec les repères de (C) puis récurrence (M) donne m ; lemme T avec (C) puis (M),
+puis récurrence (K) donne k₁. Le correctif R-122 est aussi écrit dans le lemme 3 (point 3 : L_i ≤ pI). Outil d'application :
+`outils/t7_theoreme.py` (vérifie (i) dans data/t7/audit_c_all.out, (ii)–(iii) dans data/t7/transport7.txt). Bilan : voir R-130.
+
+## R-130 Lemme T' : les preuves (K) « c₃ fixe » (NS = 1, sans la règle) se transportent le long de m et m₃ sous un critère de diagonales — 584/726 cas S10 le remplissent ; contrôle 40/40 à (m+10, m₃+10) — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+E2b_couplage.md §S11 (lemme T'). Critère vérifié par `outils/t7_kprime.py` (nouveaux champs de `ant multi` : tc2, tbase, dfix,
+horsD_apres_c2, zlow, zd). Sur les 726 preuves « c₃ fixe » de S10 : 584 passent (famille d₂ ⟂ d, d₃ = −d), 128 échouent le long de m
+(d₂ = d : p augmente de 4 par pas après c₂, les acceptations « p < L₁ » ne sont pas uniformes), 14 utilisent la règle. Contrôle
+indépendant : 40 triplets tirés au hasard, déplacés de 5 pas en m et en m₃ : 40/40 preuves (K') refaites, `deux` exact, règle 0.
+Le théorème T7-loin accepte désormais (iii) ou (iii') (`t7_theoreme.py`).
+
+## R-131 Variante (M') du transport (preuves (M) « c₃ fixe ») : 258/264 cas S10 remplissent le critère ; contrôle 30/30 à m₃ + 10 — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+`outils/t7_mprime.py` (nouveau champ `tlast` de `multi` : premier contact avec la dernière case de la base, ici c₃). Échecs : 4 (diagonales),
+2 (règle). T7-loin accepte (ii) ou (ii').
+
+## R-132 Lemme T' (a') : preuves (K') transportées le long de m avec les repères de (M') quand d₂ = d et s₁(K') ≥ s₁'(M') + 104 — +128 cas S10 ; contrôle 30/30 — DÉMONTRÉ sous réserve de relecture — 19/11 S11
+E2b §S11. Critère ajouté à `outils/t7_kprime.py` (lit les s₁' de data/t7/mprime.txt). Contrôle : 30 triplets de la famille d₂ = d,
+c₂ déplacé de 5·d₂ et c₃ de 5·d₃ (famille « c₃ absolu » de (M')) : 30/30 preuves (K') refaites, `deux` exact, règle 0.
+Sur les données S10 : T7-loin passe de 5 929 à 6 057 classes de triplets sur 6 204.
+
+## R-134 T7 (C) terminé : 484/484 bases W₂ = blanc + c₁ + c₂, chacune avec ses 22 classes de c₃ prouvées par `multi` (10 648 preuves), relatif.py avec p* élargis — DÉMONTRÉ sous réserve de relecture (récurrence en m₃) — 19/11 S11
+Audit `ant deux` : voir R-133 (data/t7/audit_c_all.out).
+
+## R-133 T7-loin appliqué : 9 441 classes de triplets sur 9 702 (441 bases sur 484) démontrées « loin » (pour tous k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀) — DÉMONTRÉ sous réserve de relecture des lemmes T, T' ; audit `deux` de T7 (C) : 10 648/10 648 couplages exacts — 19/11 S11
+Chaîne refaite sur 9 702 triplets (0 désaccord de pas certifié). (K) « bloc » : 8 047 OK, 8 047/8 047 exacts ; (K') « c₃ fixe » : 1 628 OK
+exacts, 27 ECHEC ; (M) « bloc » : 9 254 OK exacts (0 écart) ; (M') : 440 OK exacts. Critères : transport7 (K ok & M ok 7 652), t7_kprime
+1 598/1 628, t7_mprime 431/440. Bilan T7-loin : K & M 7 652 ; K' & M 1 449 ; K & M' 191 ; K' & M' 149 ; non couverts 261 (K et M non NS0 69,
+K refusé par les directions avec M' 67, K ok & M non 54, K non & M 47, K non & M' 24). Les 43 bases restantes (441 à 483) ont (C) prouvé
+et audité mais pas encore la chaîne k₁/m. Fichiers : resultats/relatif/t7_theoreme_S11.txt, t7_theoreme_detail_S11.txt, t7_transport7_S11.txt.
 ## R-135 B5 : toute configuration dans un carré 5×5, fourmi n'importe où dans le carré, tout cap → autoroute 104 pour toujours — DÉMONTRÉ (calcul exhaustif + certificat R-83 ; sous réserve de relecture humaine du code de l'arbre) — 19-20/11
 Symétrie (quart de tour autour de (2,2)) ⇒ cap haut × 25 positions × 2²⁵ = 838 860 800 cas. Arbre de choix (cases du carré
 inconnues, branche à la première lecture ou si une case de Z est inconnue), feuille = premier instant certifié (Z dans

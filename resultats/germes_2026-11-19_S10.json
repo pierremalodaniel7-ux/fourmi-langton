@@ -1,0 +1,34 @@
+[
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Germe 10 cases le plus rapide de [−2,2]² (52)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-1,-2;0,-2;2,-2;-2,-1;0,-1;1,-1;1,0;0,1;1,1;-2,2",
+  "note": "R-121"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Germe 10 cases le plus lent de [−2,2]² (206 499)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-2,-2;-1,-2;0,-2;2,-2;-2,-1;-1,-1;2,-1;0,1;2,1;-1,2",
+  "note": "R-121"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Trois cases éparses, la plus lente (426 535)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-121,101;-472,401;-900,-700",
+  "note": "T7, R-119/R-123"
+ },
+ {
+  "dossier": "recherche/autoroute",
+  "nom": "Faux positif de multi (R-122) : k1 = 103",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "-130,103;-421,402;-902,-911",
+  "note": "CERT 189 428 ; à k1 = 105 : 111 414 ; multi disait couplé avant correction"
+ }
+]

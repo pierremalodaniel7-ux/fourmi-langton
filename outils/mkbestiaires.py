@@ -108,13 +108,16 @@ def main():
     tmp = tempfile.mkdtemp()
     for e in fiches:
         fn = os.path.join(tmp, e["id"] + ".png"); draw(e, fn)
-        sit = f'{e["regle"]}|{e["fourmis"]}|{e.get("points","")}'
+        pts = e.get("points", "")
+        if len(pts) > 1200:   # longues listes (traces) : abrégées sur la fiche, complètes dans catalogue.json et les germes
+            pts = pts[:600] + f" … [{pts.count(';') + 1} cases ; liste complète dans catalogue.json, fiche {e['id']}]"
+        sit = f'{e["regle"]}|{e["fourmis"]}|{pts}'
         germe = {"dossier": e.get("classe", ""), "nom": e["nom"], "regle": e["regle"], "fourmis": e["fourmis"],
-                 "points": e.get("points", ""), "note": e.get("mesures", "")}
+                 "points": pts, "note": e.get("mesures", "")}
         rows = [("Classe", e.get("classe", "")), ("Situation", e.get("situation", "")), ("Déroulement", e.get("deroulement", "")),
                 ("Mesures", e.get("mesures", "")), ("Statut", e.get("statut", "")), ("Intérêt", e.get("interet", "")),
                 ("Déjà connu ?", e.get("deja", "")), ("Source", e.get("source", "")),
-                ("Commande", Paragraph(esc(f'./fourmi -T {int(e["img"][0])} "{sit}"'), M)),
+                ("Commande", Paragraph(esc(f'./fourmi -T {int(e["img"][0])} "{sit}"' + (f'  |  {e["commande"]}' if e.get("commande") else "")), M)),
                 ("Germe", Paragraph(esc(json.dumps(germe, ensure_ascii=False)), M))]
         t = Table([[Paragraph(a, L), b if not isinstance(b, str) else Paragraph(esc(b), N)] for a, b in rows],
                   colWidths=[3.2 * cm, 13.8 * cm])

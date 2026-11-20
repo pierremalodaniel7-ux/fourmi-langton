@@ -273,3 +273,20 @@ l'autoroute finale de W₂ (classes : ≈ 22 par base), puis transport en k₁, 
 (≈ 1 min chacune) ≈ 8 h de calcul pour la partie lointaine, plus les zones proches. Pistes pour réduire : (i) beaucoup de bases
 ont la même autoroute finale à translation près (même classe de sortie) : regrouper par « type de sortie » ; (ii) n'utiliser
 que des p et des diagonales (pas la règle), pour que le transport marche à chaque étage. Indice : R-100 (300/300 triplets).
+
+## S10 — T7 (trois cases éparses) : état
+- Bases W₂ = blanc + c₁ + c₂ : 484 (une par paire de classes de T6, écart k₀), pivotées (`outils/t7_bases.py`). Partie (C) (c₃ loin dans
+  la bande finale de W₂, récurrence en m₃) : `outils/t7_lance.sh` (`relatif.py` avec p* élargis et balayage centré, R-117/R-119) ;
+  chaque preuve `multi` est recoupée par `ant deux` (`outils/audit_t7c.sh`, R-123).
+- **Faille R-122** : `multi` acceptait « p < L » en repère identité même si une case de l'îlot a un petit p ; corrigé (L ≤ pI). Toute
+  preuve `multi` doit désormais être recoupée par `deux`.
+- Récurrences en k₁ et en m (R-124) : paramétrage « bloc » sinon « c₃ fixe en base » (analogue de G1 de T6) : 3 559/3 564 chacune.
+- Directions (R-125) : 3 428 triplets sans demi-tour (transport de R-95 à itérer), 136 avec demi-tour.
+- Reste : transport en (m, m₃) puis k₁ (uniformité), zones proches (A), calcul de R et D pour trois cases, 10 cas ouverts (R-124).
+
+## S11 — T7 : théorème « loin » par classes
+Théorème T7-loin (E2b_couplage.md §S11 : lemme T, lemme T' (a), (a'), (b), variante (M')) : pour une classe de triplets (c₁ dans une des 22
+classes à k₀ = 100/101, c₂ dans une des 22 classes de la 2ᵉ bande, c₃ dans une des 22 classes de la 3ᵉ bande), si les vérifications
+(C), (M) ou (M'), (K) ou (K') passent avec les critères de transport, alors toutes les positions plus lointaines (k₁ ≥ k₀, m ≥ m₀, m₃ ≥ m₃₀)
+mènent à l'autoroute pour toujours. Application : `outils/t7_theoreme.py` (bilan R-133). Reste pour T7 complet : les classes non couvertes,
+les zones proches (A) et le calcul de R et D (comme `epars_RD.py` pour T6).

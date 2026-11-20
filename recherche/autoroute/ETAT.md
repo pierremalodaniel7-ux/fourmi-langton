@@ -1,23 +1,24 @@
 # Autoroute — état (mis à jour à la fin de chaque séance)
 
-PROCHAINE SÉANCE : S9
-PROCHAINE TÂCHE (S9) : É8 — synthèse finale. Étapes : (1) mettre à jour recherche/autoroute/SYNTHESE.md avec S6–S8 (É4 R-101/R-111,
-É5 R-102 à R-104, É6 R-105 à R-110, É7 R-109) et régénérer le PDF (pandoc → HTML → chromium --print-to-pdf, voir S5) ; (2) pour
-chaque résultat « DÉMONTRÉ », une ligne de nouveauté (deja_connu.md + au plus 1 recherche) ; (3) lister ce qui attend une
-relecture humaine (E2b_couplage.md, `ant multi`). En fond : 5×5 à partir de 9 200 000 (`cp resultats/box5/*.res data/` puis
-`nohup nice -n 10 recherche/autoroute/outils/box5_fond.sh 0 9200000 200000 N &`, idem cœur 1 à partir de 9 200 000 + 200 000·N).
-Pistes ouvertes : T7 (trois cases éparses, ≈ 8 h, plan dans E2_epars.md) ; É7 « autoroute × trace » ; germes exacts 6–10 cases.
+PROCHAINE SÉANCE : S12
+PROCHAINE TÂCHE (S12) : T7, finir la partie « loin » puis l'assemblage. Étapes : (1) relancer `recherche/autoroute/outils/t7_tout.sh` puis
+`t7_mprime.py data/t7/rec_m_c3fixe.txt data/t7/directions.txt`, `t7_kprime.py data/t7/rec_k1_c3fixe.txt data/t7/directions.txt`,
+`t7_theoreme.py` si des bases T7 (C) ont été ajoutées (484 attendues) ; (2) classes non couvertes par T7-loin (voir R-133) : NS ≥ 1 en (K)
+« bloc », règle utilisée, cas d₂ ⟂ d de (a') ; (3) zones proches (A) et R, D pour trois cases (adapter `outils/epars_RD.py`), énoncé T7.
+En fond : 5×5 à partir de 16 600 000 (`cp resultats/box5/*.res data/` puis `box5_fond.sh C DEBUT 200000 N`).
+Règle depuis R-122 : toute preuve `ant multi` doit être recoupée par `ant deux` avant d'être comptée.
+Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 records (5×5 : 351 374).
 
 ## Tâches
 - [x] É0 Socle + contrôle croisé (écart R-16 « demi-tour ») — S1, R-82, E0_controle.md
 - [x] É1 Lemme du certificat (énoncé, preuve, implémentation) — S1, R-83, E1_certificat.md, `fourmi -cert`
-- [~] É2 Collisions → théorème « épars » — S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
-- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S8 : [0, 9 200 000) certifié (9,2 M/33,5 M), max 252 046 (R-111)
+- [~] É2 Collisions → théorème « épars » — S10 : faille de `multi` corrigée (R-122) ; T7 : (C) 484/484 ; T7-loin 9 441/9 702 classes de triplets (R-129 à R-134). S9 : T7 (C) lancé (R-117, R-119, R-120) ; R-94/R-95 refaits à l'identique (R-116, `t6_refait.sh`). S5 : T6 deux cases éparses DÉMONTRÉ (R-95 à R-98, à relire). S2 : T4 îlots 3×3 (R-80, R-81, à relire). S1 : T1 une case (R-85 à R-87) et T2 îlot de 2 cases voisines (R-76) DÉMONTRÉS ; 2 cases loin OBSERVÉ (R-75). Reste : automate des sites (plusieurs îlots loin), îlots de rayon ≤ 2
+- [~] É3 Boîtes exhaustives 5×5 (6×6 ?) + T(n) — S1–S10 : [0, 16 600 000) certifié, max 351 374 (R-118)
 - [~] É4 Transitoires extrêmes — S6 : montée de colline, record(8) ≥ 220 334 (R-101), E4_transitoires.md
 - [x] É5 Observables (boucle gelée, frontière) — S7 : R-102 à R-104, conjecture C-L, E5_observables.md
-- [~] É6 Germes et bassin à rebours — S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
-- [~] É7 Contre-attaque — S8 : pas de construction ; ping-pong le plus court (R-109), E7_contre_attaque.md
-- [~] É8 Synthèse — S5 : note intermédiaire recherche/autoroute/SYNTHESE.md (+ PDF)
+- [~] É6 Germes et bassin à rebours — S10 : 10 cases dans [−2,2]² (R-121). S9 : 6 et 7 cases dans [−2,2]² toutes démontrées (R-114). S8 : R-107 (inverse = fourmi retournée), R-108/R-110 (toutes les configurations de 4 cases dans [−4,4]² et 5 cases dans [−3,3]² démontrées). S7 : R-105 (transitoire minimal à k cases), R-106 (dynamique inverse), E6_germes.md
+- [~] É7 Contre-attaque — S9 : « autoroute × vieille trace », 328 collisions certifiées, aucune boucle (R-112). S8 : pas de construction ; ping-pong le plus court (R-109), E7_contre_attaque.md
+- [x] É8 Synthèse — S9 : SYNTHESE.md S1–S8 + nouveauté par résultat + liste de relecture (+ PDF) ; S5 : note intermédiaire
 
 ## Acquis S1 (18-11, voir rapports/S1_2026-11-18.md)
 - Certificat d'autoroute (R-83) : DÉMONTRÉ ; départ blanc démontré dès 9 977.
@@ -35,6 +36,9 @@ Pistes ouvertes : T7 (trois cases éparses, ≈ 8 h, plan dans E2_epars.md) ; É
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
+- S11, 19-11, 14:24–15:08 UTC (clôture 16:06, arrêt propre) : transport à deux étages écrit (R-129 à R-132), T7-loin appliqué : 9 441/9 702 classes (R-133), T7 (C) 484/484 (R-134) — rapports/S11_2026-11-19.md
+- S10, 19-11, 11:33–12:31 UTC : faille de `ant multi` corrigée (R-122), T7 récurrences k₁ et m (R-124), transport à deux étages (R-125 à R-127), germes 10 cases (R-121) — rapports/S10_2026-11-19.md
+- S9, 19-11, 09:59–10:53 UTC : É8 synthèse, É7 autoroute × trace (R-112–R-115), germes [−2,2]² (R-114), T6 reproductible (R-116), T7 lancé (R-117, R-119), record 5×5 351 374 (R-118) — rapports/S9_2026-11-19.md
 - S8, 18-11, 23:37–00:10 UTC : R-107 à R-110, É6 germes, É7 — rapports/S8_2026-11-18.md
 - S7, 18-11, 21:14–21:47 UTC : É5 boucle gelée, C-L (R-102 à R-104), É6 germes et rebours (R-105, R-106) — rapports/S7_2026-11-18.md
 - S6, 18-11, 19:08–19:51 UTC : É4 transitoires (R-101) — rapports/S6_2026-11-18.md
