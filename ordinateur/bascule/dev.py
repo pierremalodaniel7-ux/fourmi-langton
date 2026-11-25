@@ -21,4 +21,10 @@ for l in open(sys.argv[1]):
         else:
             p1=int(cy.split()[1]); same=(p1==p0 and orbite(A1,C1,p1)==orbite(A0,C0,p0))
             r['classe']='même orbite' if same else 'CHANGÉE'; r['p0']=p0; r['p1']=p1
+            if p1<=2000:                                   # taille de la zone vraiment visitée par S1
+                turn,an,no=charge(situ_piece(A1,C1)); vis=set()
+                for _ in range(p1):
+                    for a in an: vis.add((a[0],a[1]))
+                    pas(turn,an,no,range(len(an)))
+                r['zone']=[min(x for x,y in vis),min(y for x,y in vis),max(x for x,y in vis),max(y for x,y in vis)]
     print(json.dumps(r,ensure_ascii=False),flush=True)
