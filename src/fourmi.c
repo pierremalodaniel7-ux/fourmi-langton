@@ -16,7 +16,11 @@
 //   SIGNATURE : C<P> ou liste triée A<P>(dx,dy)x<k> (k fourmis groupées : même P, même déplacement, < 64 cases),
 //     déplacement ramené par rotation (carré : dx>0, dy>=0 ; hexa : q>0, r>=0), + N<k> fourmis non classées.
 //   détails : par fourmi P,dx,dy,début (début au sens de bestiaire2) ; taille de la boîte visitée.
-// Une simulation finie ne prouve pas un comportement infini (sauf CYCLE).
+// Options (25/11) : -gomme t : après le pas t, chaque fourmi (x,cap h) → (x − e_h, h+2) et l'ordre de jeu est inversé ;
+//   issue EFFACE si la grille redevient celle du départ, fourmis en R(départ).  -retour : pas d'arrêt anticipé, arrêt
+//   (issue RETOUR) quand une fourmi est en R(départ de la fourmi 0).  -boite x0,y0,x1,y1 : compte les cases ≠ départ dans / hors boîte.
+//   -dump f : ajoute l'état final (format situation, caps en chiffres, couleurs) au fichier f.
+// Une simulation finie ne prouve pas un comportement infini (sauf CYCLE, EFFACE, RETOUR : calculs exacts).
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -103,7 +107,8 @@ static void detect(long t, int i){                  // cherche une autoroute con
 // F3 Pv(v) = 0 si v+d ∉ V ; F4 V convexe le long de d ; Z : toutes les cases de ∪_{k≥1}(V+kd) \ V sont
 // blanches (au-delà de la boîte « support initial ∪ cases visitées », tout est blanc).
 // Si tout est vrai : DÉMONTRÉ (lemme du certificat) que la fourmi refait ce motif pour toujours.
-static int certif = 0; static long cert0 = -1;   // -c0 T : chercher le certificat à partir de T
+static int certif = 0; static long cert0 = -1;
+static long gomme = -1; static int retour = 0; static const char *dumpf = NULL; static int hasbox = 0; static long Bx0, By0, Bx1, By1;   // -c0 T : chercher le certificat à partir de T
  static long ib0, ib1, jb0, jb1;     // boîte du support initial (x : ib, y : jb)
 static int g_get(long x, long y){ uint64_t k = KEY(x, y), m = g.cap - 1, s = hsh(k) & m;
   while (g.k[s]) { if (g.k[s] == k) return g.cur[s]; s = (s + 1) & m; } return 0; }
@@ -155,9 +160,10 @@ static void run(char *line){
   if (histcap < T + 1) { for (int i = 0; i < MAXA; i++) { free(hist[i]); hist[i] = malloc(T + 1); } histcap = T + 1; }
   for (int i = 0; i < n; i++) { P[i] = 0; hist[i][0] = ad[i]; }
   bx0 = bx1 = ax[0]; by0 = by1 = ay[0];
-  long t, next = 4096; int cyc = 0;
+  long t, next = 4096; int cyc = 0, rev = 0, eff = 0, ret = 0, reti = 0;
+  int rx0 = x0[0] - DX[d0[0]], ry0 = y0_[0] - DY[d0[0]], rd0 = (d0[0] + M / 2) % M;   // R(fourmi 0 de départ)
   for (t = 1; t <= T; t++) {
-    for (int i = 0; i < n; i++) {
+    for (int ii = 0; ii < n; ii++) { int i = rev ? n - 1 - ii : ii;
       uint64_t s = g_slot(KEY(ax[i], ay[i])); int c = g.cur[s];
       ad[i] = (ad[i] + turn[c]) % M;
       int nc = c + 1 == q ? 0 : c + 1;
@@ -165,8 +171,14 @@ static void run(char *line){
       g.cur[s] = nc; ax[i] += DX[ad[i]]; ay[i] += DY[ad[i]]; hist[i][t] = ad[i];
       if (ax[i] < bx0) bx0 = ax[i]; if (ax[i] > bx1) bx1 = ax[i]; if (ay[i] < by0) by0 = ay[i]; if (ay[i] > by1) by1 = ay[i];
     }
-    if (!diff) { int ok = 1; for (int i = 0; i < n; i++) if (ax[i] != x0[i] || ay[i] != y0_[i] || ad[i] != d0[i]) { ok = 0; break; }
+    if (!diff && !rev) { int ok = 1; for (int i = 0; i < n; i++) if (ax[i] != x0[i] || ay[i] != y0_[i] || ad[i] != d0[i]) { ok = 0; break; }
       if (ok) { cyc = 1; break; } }
+    if (!diff && rev) { int ok = 1; for (int i = 0; i < n; i++)      // gomme : tout effacé, fourmis en R(départ)
+        if (ax[i] != x0[i] - DX[d0[i]] || ay[i] != y0_[i] - DY[d0[i]] || ad[i] != (d0[i] + M / 2) % M) { ok = 0; break; }
+      if (ok) { eff = 1; break; } }
+    if (t == gomme) { rev = 1; for (int i = 0; i < n; i++) { ax[i] -= DX[ad[i]]; ay[i] -= DY[ad[i]]; ad[i] = (ad[i] + M / 2) % M; } }
+    if (retour) { for (int i = 0; i < n; i++) if (ax[i] == rx0 && ay[i] == ry0 && ad[i] == rd0) { ret = 1; reti = i; break; }   // n'importe quelle fourmi en R(départ de 0)
+      if (ret) break; }
     if (t == next || t == T) { next *= 2; int all = 1;
       for (int i = 0; i < n; i++) { P[i] = 0; detect(t, i); if (!P[i]) all = 0; }   // tout revérifier : une autoroute peut casser
       // arrêt anticipé seulement si aucune paire ne peut encore se rencontrer :
@@ -180,11 +192,24 @@ static void run(char *line){
         // navette R-19) et peut faire demi-tour au bout de la trace → ne pas conclure, aller jusqu'à T
         else if ((long)ddx[i] * ddy[j] == (long)ddy[i] * ddx[j] && (long)ddx[i] * ddx[j] + (long)ddy[i] * ddy[j] > 0) all = 0; }
       if (all && certif && n == 1 && !certifie(P[0])) all = 0;   // -cert : ne s'arrêter que sur un état certifié
-      if (all) break; }
+      if (all && !retour && gomme < 0) break; }        // -retour / -gomme : pas d'arrêt anticipé
   }
   if (t > T) t = T;
   printf("%s|%s|%s|", buf, f1, f2);
   if (img) image();
+  if (dumpf) { FILE *f = fopen(dumpf, "a"); if (f) {               // -dump : état final au format situation
+      fprintf(f, "%s|", buf); for (int i = 0; i < n; i++) fprintf(f, "%s%d,%d,%d", i ? ";" : "", ax[i], ay[i], ad[i]);
+      fprintf(f, "|"); int first = 1;
+      for (uint64_t k = 0; k < g.cap; k++) if (g.k[k] && g.cur[k]) { long x = (long)(g.k[k] >> 32) - 0x40000000, y = (long)(uint32_t)g.k[k] - 0x40000000;
+        fprintf(f, "%s%ld,%ld,%d", first ? "" : ";", x, y, g.cur[k]); first = 0; }
+      fprintf(f, "\n"); fclose(f); } }
+  if (hasbox) { long in = 0, out = 0;                 // -boite : cases ≠ départ dans / hors de la boîte
+    for (uint64_t k = 0; k < g.cap; k++) if (g.k[k] && g.cur[k] != g.ini[k]) { long x = (long)(g.k[k] >> 32) - 0x40000000, y = (long)(uint32_t)g.k[k] - 0x40000000;
+      if (x >= Bx0 && x <= Bx1 && y >= By0 && y <= By1) in++; else out++; }
+    printf("dans=%ld hors=%ld|", in, out); }
+  if (eff) { printf("EFFACE|E%ld|%ld|boite %ldx%ld\n", t, t, bx1 - bx0 + 1, by1 - by0 + 1); g_free(); return; }
+  if (ret) { printf("RETOUR|R%ld|%ld|fourmi %d diff=%ld boite %ldx%ld fin", t, t, reti, diff, bx1 - bx0 + 1, by1 - by0 + 1);
+    for (int i = 0; i < n; i++) printf(" %d,%d,%d", ax[i], ay[i], ad[i]); printf("\n"); g_free(); return; }
   if (cyc) { printf("CYCLE|C%ld|%ld|boite %ldx%ld\n", t, t, bx1 - bx0 + 1, by1 - by0 + 1); g_free(); return; }
   // groupes : même P, même déplacement, à moins de 64 cases
   int grp[MAXA], ng = 0, nc = 0; for (int i = 0; i < n; i++) grp[i] = -1;
@@ -228,6 +253,10 @@ int main(int argc, char **argv){
     else if (!strcmp(argv[i], "-img") && i + 1 < argc) img = argv[++i];
     else if (!strcmp(argv[i], "-cert")) certif = 1;
     else if (!strcmp(argv[i], "-c0") && i + 1 < argc) { certif = 1; cert0 = atol(argv[++i]); }
+    else if (!strcmp(argv[i], "-gomme") && i + 1 < argc) gomme = atol(argv[++i]);
+    else if (!strcmp(argv[i], "-retour")) retour = 1;
+    else if (!strcmp(argv[i], "-dump") && i + 1 < argc) dumpf = argv[++i];
+    else if (!strcmp(argv[i], "-boite") && i + 1 < argc) { hasbox = 1; sscanf(argv[++i], "%ld,%ld,%ld,%ld", &Bx0, &By0, &Bx1, &By1); }
     else if (!strcmp(argv[i], "-lot")) lot = 1; else one = argv[i]; }
   setvbuf(stdout, NULL, _IOLBF, 0);
   if (one) run(one);
