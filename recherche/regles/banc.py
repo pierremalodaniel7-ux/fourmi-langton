@@ -45,7 +45,7 @@ def outcome(rule, l, i, P, D):
     if a is None: return ('perdue', None, None, None)
     p, dx, dy, deb = a
     r = dirclass(rule, D, (dx, dy))
-    return ('propre' if p == P and r is not None and d['issue'] == 'AUTOROUTES' else 'autre', r, lane((dx, dy), d['fin'][i]), deb)
+    return ('propre' if p == P and r is not None else 'autre', r, lane((dx, dy), d['fin'][i]), deb)
 
 def banc(g):
     rule, P, D = g['regle'], g['P'], tuple(g['D'])

@@ -1,0 +1,6 @@
+H:R2L2	N=10	{'AUTOROUTES': 200}	début médian 28	{'A8(1,0)x1': 200}
+RL	N=10	{'AUTOROUTES': 200}	début médian 2396	{'A104(2,2)x1': 200}
+LLR	N=10	{'AUTOROUTES': 200}	début médian 123	{'A18(1,1)x1': 200}
+LLLR	N=10	{'AUTOROUTES': 200}	début médian 199	{'A52(2,2)x1': 200}
+H:R2UL2	N=10	{'AUTOROUTES': 150, 'CYCLE': 50}	début médian 94	{'A12(1,0)x1': 113, 'A18(1,0)x1': 37}
+H:R2N	N=10	{'AUTOROUTES': 200}	début médian 22	{'A4(1,0)x1': 200}
