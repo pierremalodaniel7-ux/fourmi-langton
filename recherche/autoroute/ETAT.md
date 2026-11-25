@@ -5,7 +5,7 @@ PROCHAINE TÂCHE (S13) : T7, les 28 bases (sur 441–483) dont la récurrence en
 comprendre pourquoi la fenêtre n'est pas recopiée à s₁ + P (comparer la base 441 qui échoue avec 462 qui passe ; `ant multi` affiche
 s1 et « L R ECHEC »), puis adapter (fenêtre, repère de la base) SANS affaiblir le lemme. Ensuite (2) classes non couvertes par T7-loin
 (R-133 + R-145 : 261 + 470), (3) zones proches (A), R, D pour trois cases.
-Données : data/t7/b_*.txt est en cours de régénération (25/11, `t7_lance.sh`, 44 s par base) ; si absent, `t7_tout.sh` après `t7_lance.sh 0 484`.
+Données : data/t7/b_*.txt régénéré (25/11, 484/484, R-134 reproduit) ; audit + chaîne complète lancés en fond (`data/t7/relance_S12.sh`, fichier FINI à la fin) ; si data/t7 a disparu : `t7_lance.sh 0 484` (≈ 40 min sur 4 cœurs) puis ce script.
 En fond : 5×5 à partir de 16 600 000 (`cp resultats/box5/*.res data/` puis `box5_fond.sh C DEBUT 200000 N`) — pas relancé en S12 (cœurs pris par T7).
 Règle depuis R-122 : toute preuve `ant multi` doit être recoupée par `ant deux` avant d'être comptée.
 Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 records (5×5 : 351 374).
@@ -37,7 +37,7 @@ Pistes ouvertes : théorème « départ blanc + une vieille trace » (E7) ; É4 
 
 ## Séances
 (une ligne par séance : S<n>, date, durée, tâches, lien du rapport)
-- S12, 25-11, 05:45–06:10 UTC : T7 sur les 43 dernières bases (R-145, R-146) ; régénération de data/t7 (en cours) — rapports/S12_2026-11-25.md
+- S12, 25-11, 05:45–06:27 UTC : T7 sur les 43 dernières bases (R-145, R-146) ; régénération de data/t7 (en cours) — rapports/S12_2026-11-25.md
 - S11, 19-11, 14:24–15:08 UTC (clôture 16:06, arrêt propre) : transport à deux étages écrit (R-129 à R-132), T7-loin appliqué : 9 441/9 702 classes (R-133), T7 (C) 484/484 (R-134) — rapports/S11_2026-11-19.md
 - S10, 19-11, 11:33–12:31 UTC : faille de `ant multi` corrigée (R-122), T7 récurrences k₁ et m (R-124), transport à deux étages (R-125 à R-127), germes 10 cases (R-121) — rapports/S10_2026-11-19.md
 - S9, 19-11, 09:59–10:53 UTC : É8 synthèse, É7 autoroute × trace (R-112–R-115), germes [−2,2]² (R-114), T6 reproductible (R-116), T7 lancé (R-117, R-119), record 5×5 351 374 (R-118) — rapports/S9_2026-11-19.md
