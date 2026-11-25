@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""fiches.py : ajoute les fiches du bestiaire 24 (bascule, nuit du 25/11) à docs/sources/catalogue.json et écrit
+"""fiches.py : ajoute les fiches du bestiaire 25 (bascule, nuit du 25/11) à docs/sources/catalogue.json et écrit
 resultats/germes_2026-11-25_bascule.json (dossier « Ordinateur/Bascules »). Idempotent (remplace les fiches BA-*)."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +22,7 @@ ch2=json.load(open(f'{H}/chaine_2.json')); ch0=json.load(open(f'{H}/chaine_0.jso
 ecr=json.load(open(f'{H}/ecran2.json'))
 F=[]
 def fiche(id_,nom,sit,img,situation,deroulement,mesures,statut,interet,deja,source,commande='',zoom=None):
-    r,f,c=lettres(sit); e={"id":id_,"b":24,"classe":"Ordinateur — gomme et bascule (25/11)","nom":nom,"regle":r,"fourmis":f,"points":c,
+    r,f,c=lettres(sit); e={"id":id_,"b":25,"classe":"Ordinateur — gomme et bascule (25/11)","nom":nom,"regle":r,"fourmis":f,"points":c,
       "img":[img,""],"situation":situation,"deroulement":deroulement,"mesures":mesures,"statut":statut,"interet":interet,"deja":deja,"source":source}
     if commande: e["commande"]=commande
     if zoom: e["zoom"]=zoom

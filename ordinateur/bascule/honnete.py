@@ -7,9 +7,9 @@ import sys, json, os, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bascule import orbite, situ_piece, G, E, dans
 from moteur2 import charge, pas
-os.environ['CY']='cycles2.json'
+os.environ.setdefault('CY','cycles2.json')
 import recherche_lib as RL
-S1L=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'cyclesS1.json')))
+S1L=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),os.environ.get('S1F','cyclesS1.json'))))
 hits=json.load(open(sys.argv[1])); K0=int(sys.argv[2]); K=int(sys.argv[3]); TMP=f'/tmp/claude-0/h{os.getpid()}.dump'
 def norm_frame(sit,p):
     turn,ants,noir=charge(sit); vis=set()

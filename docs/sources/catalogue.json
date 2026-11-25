@@ -5869,7 +5869,7 @@
  },
  {
   "id": "BA-1",
-  "b": 24,
+  "b": 25,
   "classe": "Ordinateur — gomme et bascule (25/11)",
   "nom": "Gomme d'une autoroute 104",
   "regle": "RL",
@@ -5890,7 +5890,7 @@
  },
  {
   "id": "BA-2",
-  "b": 24,
+  "b": 25,
   "classe": "Ordinateur — gomme et bascule (25/11)",
   "nom": "Gomme par échange (pièce de 4 fourmis, détruite)",
   "regle": "RL",
@@ -5910,7 +5910,7 @@
  },
  {
   "id": "BA-3",
-  "b": 24,
+  "b": 25,
   "classe": "Ordinateur — gomme et bascule (25/11)",
   "nom": "Bascule T 572 : ON puis OFF, la ligne est effacée",
   "regle": "RL",
@@ -5930,7 +5930,7 @@
  },
  {
   "id": "BA-4",
-  "b": 24,
+  "b": 25,
   "classe": "Ordinateur — gomme et bascule (25/11)",
   "nom": "Bascule T 572 : ON, OFF, ON",
   "regle": "RL",
@@ -5956,7 +5956,7 @@
  },
  {
   "id": "BA-5",
-  "b": 24,
+  "b": 25,
   "classe": "Ordinateur — gomme et bascule (25/11)",
   "nom": "Bascule T 185 : ON puis OFF",
   "regle": "RL",
@@ -5976,7 +5976,7 @@
  },
  {
   "id": "BA-6",
-  "b": 24,
+  "b": 25,
   "classe": "Ordinateur — gomme et bascule (25/11)",
   "nom": "Bascule T 186 : ON puis OFF",
   "regle": "RL",
@@ -5996,7 +5996,7 @@
  },
  {
   "id": "BA-7",
-  "b": 24,
+  "b": 25,
   "classe": "Ordinateur — gomme et bascule (25/11)",
   "nom": "Écran de 2 pixels : ON, OFF, ON sur chaque pixel",
   "regle": "RL",

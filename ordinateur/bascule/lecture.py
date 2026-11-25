@@ -10,15 +10,21 @@ from bascule import G, E, situ_piece, dans
 os.environ['CY']='cycles2.json'
 import recherche_lib as RL
 S1L=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'cyclesS1.json')))
-ic=int(sys.argv[1]); i1=int(sys.argv[2]); D=50
-A0,C0,p0=RL.piece0(ic,0); e=S1L[i1]
+ic=int(sys.argv[1]); i1=int(sys.argv[2]); ROT=int(sys.argv[3]) if len(sys.argv)>3 else 0; D=50
+A0,C0,p0=RL.piece0(ic,0); e=dict(S1L[i1])
+def rot(sit):                                   # rotation de 90°·ROT : (x,y) → (−y,x), cap +1 (la règle RL est invariante)
+    r,a,c=sit.split('|')
+    A=[tuple(map(int,t.split(','))) for t in a.split(';')]; C=[tuple(map(int,t.split(','))) for t in c.split(';') if t]
+    for _ in range(ROT): A=[(-y,x,(d+1)%4) for x,y,d in A]; C=[(-y,x) for x,y in C]
+    return situ_piece(A,C)
+A0s=rot(situ_piece(A0,C0)); e['situation']=rot(e['situation'])
 def orbite_etats(sit,p):
     turn,an,no=charge(sit); vis=set(); L=[]
     for _ in range(p):
         for a in an: vis.add((a[0],a[1]))
         L.append(([tuple(a) for a in an],sorted(no))); pas(turn,an,no,range(len(an)))
     return L, vis
-E0,V0=orbite_etats(situ_piece(A0,C0),p0); E1,V1=orbite_etats(e['situation'],e['periode'])
+E0,V0=orbite_etats(A0s,p0); E1,V1=orbite_etats(e['situation'],e['periode'])
 K0={(tuple(a),frozenset(c for c in n if c in V0)) for a,n in E0}; K1={(tuple(a),frozenset(c for c in n if c in V1)) for a,n in E1}
 zone={(x+dx,y+dy) for x,y in V0|V1 for dx in range(-3,4) for dy in range(-3,4)}
 lines=[]; meta=[]
@@ -48,7 +54,11 @@ res=[]
 for (tx,ty) in sorted({(k[0],k[1]) for k in R}):
     a=collections.Counter(R[(tx,ty,'S0')]); b=collections.Counter(R[(tx,ty,'S1')])
     res.append({'voie':[tx,ty],'S0':dict((f'{k[0]}>{k[1]}',v) for k,v in a.items()),'S1':dict((f'{k[0]}>{k[1]}',v) for k,v in b.items())})
-json.dump(res,open(f'../../data/bascule/lecture_{ic}_{i1}.json','w'),indent=0)
+json.dump(res,open(f'../../data/bascule/lecture_{ic}_{i1}_r{ROT}.json','w'),indent=0)
+def sorties(d): return {k.split('>')[0] for k in d}
 for r in res:
-    if len(r['S0'])==1 and len(r['S1'])==1 and r['S0']!=r['S1']: print('LECTURE (uniforme) :',r)
+    # lecture : chaque état garde son orbite pour toutes ses phases, et les sorties diffèrent
+    k0=all(k.endswith('>S0') for k in r['S0']); k1=all(k.endswith('>S1') for k in r['S1'])
+    if k0 and k1 and sorties(r['S0'])!=sorties(r['S1']): print('LECTURE :',r)
+    elif sorties(r['S0']).isdisjoint(sorties(r['S1'])) and '-2,2' not in sorties(r['S0'])|sorties(r['S1']): print('sorties disjointes :',r)
 print(len(lines),'tirs ;',len(res),'voies')

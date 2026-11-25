@@ -19,5 +19,5 @@ for l in open(sys.argv[1]):
     if key not in vus: vus[key]={'situation':sit,'periode':d['p1'],'depuis':[]}
     vus[key]['depuis'].append(d['id']+d['sortie'])
 out=sorted(vus.values(),key=lambda e:e['periode'])
-json.dump(out,open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'cyclesS1.json'),'w'))
+json.dump(out,open(os.path.join(os.path.dirname(os.path.abspath(__file__)),os.environ.get('S1F','cyclesS1.json')),'w'))
 print(len(out),'orbites S1 ;',sum(len(e['depuis']) for e in out),'cas')
