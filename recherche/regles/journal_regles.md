@@ -166,3 +166,37 @@ fourmis à virages ±60° (hexagones / triangles) semblent conjuguées par un ch
 
 ## R-318 (suite) portes à choc réutilisables (12/12 suites, k = 100, 120 géométries par règle) : RL 0 (25/1 080 suites), LLR 0 (56), LLLR 0 (51),
 R2N 0 (4), UN 0 (369), R2UL2 0/94 (533/846), R2R2L2 0 (156), R2L1R1 0 (0), R2R1R1 0 (0). SEULE R2L2 en a (42/292).
+
+## R-323 Miroir fixe « à direction constante » en hexa R2R2L2 (q = 3) — OBSERVÉ (miroirs.py, multi_passage.py)
+Obstacle 3 cases (59,−59) (60,−61) (61,−61) devant le germe R2R2L2 (1 case) : 6 autoroutes successives (10 ou 30 périodes d'écart) tournent
+TOUTES de 120°, mais sur des voies différentes (−116, −118, 2, 42, 82, 122). 1 seul des 46 obstacles qui tournent fait cela. Pas un vrai miroir.
+
+## R-324 Littérature (2e passe) — voir deja_connu_regles.md
+H:R2L2 = gaz de Lorentz à « flipping rotators » ±2π/3 sur réseau triangulaire : la propagation (dans une bande) est CONNUE
+(Kong-Cohen ; Grosfils-Boon, arXiv cond-mat/9905168). Hexa ±60° / triangle RL = rotateurs ±π/3 sur nid d'abeilles : Webb-Cohen 2014
+(marche auto-évitante entre retours). Plusieurs particules ±2π/3 : arXiv 1908.06019 (2019) — NON LU (arxiv.org inaccessible) : à lire avant
+de dire « nouveau » pour les chocs et portes R2L2.
+
+## R-325 Demi-additionneur R2L2 sans case fixe — OBSERVÉ (demi_add4.py, demi_add5.py) — 307 distincts (les 1 025 « trouvés » contiennent des doublons : plusieurs (r3,i,j) donnent la même place de K3)
+Porte d'interaction (B, A) : U = A seule (a∧¬b), V = B seule (¬a∧b), C = A déviée (a∧b). Un seul virage ne peut pas mettre U sur la voie de V
+(les voies obtenues s'éloignent : la voie de sortie avance d'1 voie par période de décalage du point de virage, dans le mauvais sens) ;
+d'où un ZIGZAG : K2 tourne U vers la 3e direction, K3 la retourne vers la direction de V, et on cale la voie. 1 025 trouvés = 307 demi-additionneurs distincts
+(table S = a⊕b sur UNE voie, C = a∧b) avec la porte « H:R2L2|0,0,4;29,-56,0|1,0,1;28,-55,1 » (4 vaisseaux : A, B, K2, K3 constants).
+
+## R-326 / R-327 Réutilisation du demi-additionneur — OBSERVÉ (demi_add_reuse.py, portes_propres.py, demi_add6.py)
+Porte 29,−56 : 0 réutilisable sur 307 distincts (meilleurs 15/16 suites ; échec (1,0) puis (1,0) ou (1,1) puis (1,0)). 105 portes d'interaction
+sans débris (42 avec A et B dans la même classe de caps, condition pour pouvoir réunir U et V). Porte « H:R2L2|0,0,4;30,-56,0|1,0,1;29,-55,1 » :
+demi-additionneurs réutilisables pour les 16 suites de 2 usages ; au total (recherche arrêtée à 02:03 après 9 portes sur 42) :
+8 demi-additionneurs DISTINCTS sur 4 portes (resumes/demi_additionneurs_16sur16.json ; les listes brutes contiennent des doublons).
+
+## R-328 Plus de 2 usages : 17/20 — OBSERVÉ (usages_add.py, triplets_add.py)
+Les demi-additionneurs « 16/16 » testés donnent 17/20 additions justes sur 20 usages au hasard (k = 150 à 500, même résultat) :
+4 suites de 3 usages sur 64 sont fausses, toujours (1,0), x, (1,0) : le 3e zigzag est perturbé par ce qu'a laissé le 1er. Suite : R-329.
+
+## R-329 Pourquoi pas 20/20 : les virages du zigzag laissent des cases — OBSERVÉ (debug, demi_add6.py, demi_add7.py)
+Un usage (1,0) laisse 2 paires de cases exactement aux 2 points de virage (K2 et K3) ; le 2e passage les traverse encore correctement,
+le 3e non (suites (1,0), x, (1,0) fausses, pour les 16 demi-additionneurs « 16/16 » testés, et indépendamment de l'écart k = 150…500).
+En imposant des virages SANS débris (demi_add7.py), ce sont des suites de 2 usages qui échouent ((1,0)(1,0), (1,0)(1,1), (1,1)(1,0)) :
+0 demi-additionneur réutilisable sur les portes testées. OUVERT : réunir 2 voies sans débris (autre géométrie de zigzag, ou réunion par
+un choc à 3 vaisseaux). En attendant, le demi-additionneur « S sur 2 voies » (S = U ou V, C = A déviée) EST la porte d'interaction,
+réutilisable (R-318 : 42 portes 12/12) ; et le circuit à 2 étages R-321 est réutilisé 30/30.

@@ -80,6 +80,14 @@
   "note": "OBSERVÉ. 1 seul obstacle sur 46 qui tournent garde la direction pour tous les passages ; voie non conservée. Lire vers le pas 12000."
  },
  {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-325 — Demi-additionneur R2L2 (a=1, b=0 : le zigzag)",
+  "regle": "H:R2L2",
+  "fourmis": "30,-56,0;-51,106,4;-161,160,4",
+  "points": "29,-55;-50,106;-160,160",
+  "note": "OBSERVÉ (moteur C, temps fini). 307 placements distincts justes (table 4/4) ; 8 distincts réutilisables pour les 16 suites de 2 usages ; 17/20 additions justes sur 20 usages au hasard (échec (1,0), x, (1,0) : débris aux 2 virages). Lire vers le pas 1600."
+ },
+ {
   "dossier": "Règles/Comparaison/Lanceurs",
   "nom": "Lanceur RL (autoroute 104, déplacement (-2, 2))",
   "regle": "RL",

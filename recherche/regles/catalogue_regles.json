@@ -208,5 +208,26 @@
   "deja": "Pas trouvé.",
   "source": "R-323",
   "commande": ""
+ },
+ {
+  "id": "R-325",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Demi-additionneur R2L2 (a=1, b=0 : le zigzag)",
+  "regle": "H:R2L2",
+  "fourmis": "30,-56,0;-51,106,4;-161,160,4",
+  "points": "29,-55;-50,106;-160,160",
+  "img": [
+   1600,
+   ""
+  ],
+  "situation": "Porte d'interaction B (0,0) × A (30,−56) sans débris + 2 vaisseaux constants K2, K3 (ici a = 1, b = 0 : B absent). Situation complète a=b=1 : H:R2L2|0,0,4;30,-56,0;-51,106,4;-161,160,4|1,0,1;29,-55,1;-50,106,1;-160,160,1",
+  "deroulement": "A seule (a∧¬b) est tournée vers (−1,0) par K2 puis vers (1,−1) par K3 : elle rejoint la voie de B seule (¬a∧b). S = a⊕b = un vaisseau sur la voie de B ; C = a∧b = A déviée.",
+  "mesures": "307 placements distincts justes (table 4/4) ; 8 distincts réutilisables pour les 16 suites de 2 usages ; 17/20 additions justes sur 20 usages au hasard (échec (1,0), x, (1,0) : débris aux 2 virages).",
+  "statut": "OBSERVÉ (moteur C, temps fini)",
+  "interet": "Première addition (somme sur une seule voie) faite avec des vaisseaux sans aucune case fixe.",
+  "deja": "Pas trouvé (voir R-324 : article 2019 non lu).",
+  "source": "R-325 à R-329",
+  "commande": "python3 usages_add.py 0 20 200"
  }
 ]

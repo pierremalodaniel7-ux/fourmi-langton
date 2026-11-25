@@ -6,7 +6,7 @@ import json, itertools, random, sys
 from banc import sit, rotv
 from outils_r import lot, parse
 R = 'H:R2L2'; P = 8
-F = json.load(open('data/demi_add4.json')); k = 200; NF = int(sys.argv[1]) if len(sys.argv) > 1 else 60
+F = json.load(open(sys.argv[2] if len(sys.argv) > 2 else 'data/demi_add4.json')); k = 200; NF = int(sys.argv[1]) if len(sys.argv) > 1 else 60
 def tracks(l):
     d = parse(l); return [((a[1], a[2]), a[1] * d['fin'][i][1] - a[2] * d['fin'][i][0]) if a else None for i, a in enumerate(d['ants'])]
 B = ((0, 0, 4), [(1, 0)]); A = ((29, -56, 0), [(28, -55)])
@@ -33,6 +33,8 @@ for fi, f in enumerate(F[:NF]):
     one = {ab: SC(l, S) for ab, l in zip(((0,0),(1,0),(0,1),(1,1)), lot([build(f, [ab]) for ab in ((0,0),(1,0),(0,1),(1,1))], 1 << 19))}
     okC = one == {(0,0): (0,0), (1,0): (1,0), (0,1): (1,0), (1,1): (0,1)}
     if not okC: res_all.append((fi, 'table', one)); continue
+    pre = SC(lot([build(f, [(1,0),(1,0)])], 1 << 20)[0], S)
+    if pre != (2, 0): res_all.append((fi, 'pre', pre)); continue
     seqs = list(itertools.product(((0,0),(1,0),(0,1),(1,1)), repeat=2))
     out = lot([build(f, list(s)) for s in seqs], 1 << 20)
     good = 0
@@ -42,6 +44,7 @@ for fi, f in enumerate(F[:NF]):
         good += t == exp
     res_all.append((fi, good, 16))
     print(fi, 'table S,C juste ; suites justes', good, '/ 16', flush=True)
+    if good == 16: json.dump([F[r[0]] for r in res_all if r[1] == 16], open('data/demi_add_ok.json', 'w'))
 ok = [r for r in res_all if r[1] == 16]
-print('demi-additionneurs : table juste', sum(1 for r in res_all if r[1] != 'table'), '/', len(res_all), '; réutilisables 16/16 :', len(ok))
+print('demi-additionneurs : table juste', sum(1 for r in res_all if r[1] not in ('table',)), '/', len(res_all), '; réutilisables 16/16 :', len(ok))
 json.dump({'resultats': [list(map(str, r)) for r in res_all], 'reutilisables': [r[0] for r in ok]}, open('data/demi_add_reuse.json', 'w'))
