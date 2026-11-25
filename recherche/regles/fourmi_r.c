@@ -28,6 +28,7 @@
 
 typedef struct { uint64_t *k; uint8_t *cur, *ini; uint64_t cap, n; } Grid;
 static Grid g;
+static long pa_ = -1, pb_ = -1;                 // -path a b : positions de la fourmi 0 aux pas a..b (ligne PATH)
 static long diff, nz; static int zstop = 0;   // nz = nb de cases non blanches ; -z : arrêt quand la grille est toute blanche                                  // nb de cases dont la couleur diffère de la couleur de départ
 static uint64_t KEY(long x, long y){ return ((uint64_t)(uint32_t)(x + 0x40000000) << 32) | (uint32_t)(y + 0x40000000); }
 static uint64_t hsh(uint64_t k){ k ^= k >> 33; k *= 0xff51afd7ed558ccdULL; k ^= k >> 33; return k; }
@@ -177,6 +178,7 @@ static void run(char *line){
       g.cur[s] = nc; ax[i] += DX[ad[i]]; ay[i] += DY[ad[i]]; hist[i][t] = ad[i];
       if (ax[i] < bx0) bx0 = ax[i]; if (ax[i] > bx1) bx1 = ax[i]; if (ay[i] < by0) by0 = ay[i]; if (ay[i] > by1) by1 = ay[i];
     }
+    if (t >= pa_ && t <= pb_) { if (t == pa_) printf("PATH %ld", t); printf(" %d,%d,%d", ax[0], ay[0], ad[0]); if (t == pb_) printf("\n"); }
     if (zstop && !nz) { printf("ZERO %ld\n", t); break; }
     if (!diff && !exact) { int ok = 1; for (int i = 0; i < n; i++) if (ax[i] != x0[i] || ay[i] != y0_[i] || ad[i] != d0[i]) { ok = 0; break; }
       if (ok) { cyc = 1; break; } }
@@ -249,6 +251,7 @@ int main(int argc, char **argv){
     else if (!strcmp(argv[i], "-c0") && i + 1 < argc) { certif = 1; cert0 = atol(argv[++i]); }
     else if (!strcmp(argv[i], "-x")) exact = 1;
     else if (!strcmp(argv[i], "-z")) zstop = 1;
+    else if (!strcmp(argv[i], "-path") && i + 2 < argc) { pa_ = atol(argv[++i]); pb_ = atol(argv[++i]); }
     else if (!strcmp(argv[i], "-dump")) dump = 1;
     else if (!strcmp(argv[i], "-lot")) lot = 1; else one = argv[i]; }
   setvbuf(stdout, NULL, _IOLBF, 0);
