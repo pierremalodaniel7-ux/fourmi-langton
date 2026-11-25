@@ -36,16 +36,20 @@ def chrono(sit,T,pasx=100):
 sit=h['situation']; T=h['T']; m=2; jprev=h['k']
 r,a,c=sit.split('|'); g=tuple(map(int,a.split(';')[0].split(',')[:2]))
 hist=[{'impulsions':2,'situation':sit,'T':T}]
+if os.environ.get('REPRISE'):                       # reprendre une chaîne déjà construite
+    hist=json.load(open(f'../../data/bascule/chaine_{i}.json')); sit=hist[-1]['situation']; T=hist[-1]['T']; m=hist[-1]['impulsions']
+    g=tuple(map(int,sit.split('|')[1].split(';')[0].split(',')[:2]))
+J0,J1=int(os.environ.get('J0',40)),int(os.environ.get('J1',100))
 while m<NMAX:
     r,a,c=sit.split('|'); want='S1' if m%2==0 else 'S0'
     lines=[]; meta=[]
-    for j in range(40,100):
+    for j in range(J0,J1):
         for dp in range(-8,9):
             for sh in range(4):
                 gx=g[0]+2*j+sh; gy=g[1]-2*j+dp-sh
                 g3=[(x+gx,y+gy) for x,y in G]
                 lines.append(f'RL|{gx},{gy},2;'+a+'|'+c+';'+';'.join(f'{x},{y}' for x,y in g3)); meta.append((j,dp,sh,gx,gy))
-    T2=T+104*140
+    T2=T+104*(J1+40)
     open(f'/tmp/claude-0/ch{i}.txt','w').write('\n'.join(lines)+'\n')
     if os.path.exists(f'/tmp/claude-0/ch{i}.dump'): os.remove(f'/tmp/claude-0/ch{i}.dump')
     subprocess.run(f"{E} -T {T2} -dump /tmp/claude-0/ch{i}.dump -lot < /tmp/claude-0/ch{i}.txt > /dev/null",shell=True)
