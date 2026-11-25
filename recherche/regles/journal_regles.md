@@ -114,3 +114,55 @@ H:R2L2 : 772 cycles / 44 928 (périodes 3, 12, 15, 18, 21, 24, 27, 30, 54 ; pér
 Le vaisseau traverse 235 fois, tourne de ±120° 153 fois mais l'oscillateur est alors presque toujours détruit (ses 2 fourmis partent en
 vaisseaux) ; 10 déviations propres avec oscillateur intact ; une 2e vaisseau 10, 60 ou 3 780 périodes derrière n'est JAMAIS dévié pareil
 (l'oscillateur a changé d'état). ⇒ pas de miroir fixe réutilisable trouvé en R2L2. OUVERT : miroir à 3 fourmis ou plus, « rail » de vaisseaux.
+
+## R-314 Portes R2L2 « boule de billard » : INTERACTION et AIGUILLAGE — VÉRIFIÉ 4/4 chacune (moteur, temps fini) (porte_r2l2.py)
+Interaction (choc (60°, −120°, +120°)) : B = 0,0,4 + case 1,0 ; A = −1,−34,5 + case −1,−33 (A joue en 1er). Seule, B part (1,−1),
+seule A part (1,0) ; ensemble : A → (−1,1), B → (−1,0). Les 4 sorties codent a∧¬b, ¬a∧b, a∧b (deux fois). Le choc laisse 3 cases.
+Aiguillage (« switch gate » de Fredkin) : C = 0,0,4 + 1,0 joue en 1er, X = 2,−34,5 + 2,−33 : C sort toujours (1,−1) (décalé d'une voie
+si X est là) ; X sort (1,0) si C absent, (−1,1) si C présent. ATTENTION : l'ordre de jeu compte (X en 1er → les deux tournent).
+
+## R-315 / R-317 Lieu de choc réutilisable, débris — OBSERVÉ (reuse_chocs.py, debris.py)
+Même choc rejoué au même endroit (2e paire translatée de k périodes le long de B) : R2L2 178/261 (k = 40 et 100) ; RL 23/339 (k=40),
+84/339 (k=100) ; LLR 5/307, 117/307 ; LLLR 37/319, 132/319 (en carré la 2e paire roule sur les traces : coïncidences, voir R-318).
+Débris R2L2 (cases restant à moins de 60 du point de choc) : 105 chocs déviés sur 292 ne laissent AUCUNE case ; transparents : 0 case.
+
+## R-316 Soupes 10×10 (densité 1/2, 200 tirages, 2^20 pas) — OBSERVÉ (soupes.py)
+R2L2 200/200 vaisseaux (début médian 28) ; RL 200/200 (2 396) ; LLR 200/200 (123) ; LLLR 200/200 (199) ; R2N 200/200 (22) ;
+R2UL2 150 autoroutes + 50 cycles.
+
+## R-318 RÉUTILISATION d'une porte à choc (protocole juste) — OBSERVÉ (porte_reuse.py, k = 100 périodes)
+2 usages successifs SUR LES MÊMES VOIES (chaque entrée reculée de k périodes sur sa propre voie), 12 suites (a1,b1 ≠ 0,0 ; a2,b2 ≠ 0,0),
+comparées à une porte neuve. Porte réutilisable = 12/12.
+R2L2 : 42 / 292 portes réutilisables, 2 190 / 2 628 suites justes (83 %). LLR : 0 / 120 (56 / 1 080 suites, 5 %). LLLR : 0 / 120 (51 / 1 080).
+(RL : voir fin de nuit.) En carré la trace du 1er usage fait dévier les entrées du 2e AVANT la porte (R-66, R-307).
+
+## R-319 Circuit à 2 étages R2L2 SANS AUCUNE CASE FIXE, puis réutilisé — OBSERVÉ (chaine_r2l2.py, chaine_reuse.py)
+Porte 1 = choc réutilisable de R-318 (B, A) ; sa sortie « A déviée » (= a∧b) croise une 3e fourmi C. Sur 5 portes 1 × 6 orientations
+× 49 places : 103 placements de C où la sortie de C (direction, voie) ne dépend que de a∧b (8/8 entrées, toutes propres).
+Exemple : porte 1 = « H:R2L2|0,0,4;29,-56,0|1,0,1;28,-55,1 », C = germe tourné de 2 crans en (108,−218) : C sort sur la voie −108 si
+non (a∧b), −105 si a∧b (décalage de 3 voies = le bit). Réutilisation (2e jeu d'entrées 200 périodes plus tard, 49 suites) : 46/49 justes ;
+les 3 échecs suivent tous un 1er usage (1,1,1) (le 2e choc laisse des débris). Résultat complet des 103 : voir R-320.
+
+## R-320 Circuits à 2 étages R2L2 réutilisables — OBSERVÉ (chaine_reuse.py, k = 200 périodes)
+Sur les 103 placements de R-319 : 12 sont réutilisables pour les 49 suites (1er usage, 2e usage ∈ {0,1}³ non vides), ex. C en (111,−217),
+(112,−219), (113,−221) [r = 2] et (218,−106), (220,−107), (222,−108) [r = 4] ; les autres : 43 à 47/49 (échecs après un 1er usage (1,1,1)).
+
+## R-321 UN circuit utilisé 10 et 30 fois de suite — VÉRIFIÉ 10/10 (2 moteurs : fourmi_r et verif_py.py, positions finales identiques
+pour les 19 fourmis à 40 000 tours) ; OBSERVÉ 30/30 (moteur C, k = 100 et 200, 2 placements) (dix_usages.py)
+Circuit : porte 1 = « H:R2L2|0,0,4;29,-56,0|1,0,1;28,-55,1 » + C = germe R2L2 tourné de 2 crans en (111,−217) (fourmi + 1 case).
+Usage u : les 3 entrées (a, b, c tirées au hasard) sont les mêmes germes reculés de u·200 périodes sur leurs voies. Sortie : C tourne
+de 240° (direction (−1,1)) ssi a∧b, sinon continue sur la voie −111. 10/10 usages justes dans UNE seule simulation (19 fourmis, 19 cases) ;
+30/30 avec 55 fourmis (k = 100 et k = 200). C'est le premier calcul RÉUTILISÉ du projet sans remise à zéro extérieure : aucune case fixe,
+rien n'est consommé dans la zone de calcul (les vaisseaux ne laissent pas de trace, les chocs choisis ne laissent pas de débris).
+Défaut : les entrées sont des vaisseaux « fournis de l'extérieur » à chaque usage (comme les boules du billard de Fredkin) ; pas de miroir fixe
+(un vaisseau ne tourne que s'il rencontre un autre vaisseau).
+
+## R-311 (suite) gomme collective de l'additionneur 4 bits : VÉRIFIÉE avec un 2e moteur (verif_gomme_py.py, Python pur) : 0 case différente.
+
+## R-322 Hexa R1L1 et triangle RL : même dynamique ? — OBSERVÉ
+Depuis le blanc, même nombre de cases noires à 1 000, 77 777 et 10^6 pas (106, 1 405, 6 114) et même abscisse de la fourmi : les deux
+fourmis à virages ±60° (hexagones / triangles) semblent conjuguées par un changement de coordonnées. Aucune autoroute en 3,3·10^7 pas
+(ni RLLR). À démontrer (OUVERT) ; probablement classique (réseau dual).
+
+## R-318 (suite) portes à choc réutilisables (12/12 suites, k = 100, 120 géométries par règle) : RL 0 (25/1 080 suites), LLR 0 (56), LLLR 0 (51),
+R2N 0 (4), UN 0 (369), R2UL2 0/94 (533/846), R2R2L2 0 (156), R2L1R1 0 (0), R2R1R1 0 (0). SEULE R2L2 en a (42/292).
