@@ -843,3 +843,20 @@ il manque une entrée de lecture « b » pour compléter un RLEM ; non trouvée 
 comprises) ; pièces : 185 (4), 186 (2), 572 (5), 1020 (22) ; toutes = cycle de 2 fourmis + UNE case isolée. Nouvelle : 1020
 (0,0,D ; −1,−1,B + case 3,1 ; cycle 28) : S0 → S1 (5 400) → S0 (10 000), ligne effacée (199 → 0 cases). Fiche BA-8.
 Les 422 cycles sans case isolée : 0 bascule. La 5e impulsion de 572 n'a pas pu être cherchée (redémarrage du conteneur).
+
+## R-145 T7-loin sur les 43 dernières bases (441–483) : 476 classes de triplets sur 946 démontrées « loin », 19 bases entièrement ; 28 bases échouent toutes à la 1re fenêtre (s₁) de la récurrence en k₁ — DÉMONTRÉ (sous réserve de relecture des lemmes T, T') / OBSERVÉ (diagnostic) — 25/11 S12
+Données data/t7 perdues (conteneur neuf) : (C) refait pour 441–483 (`t7_lance.sh`, 44 s par base), audit `ant deux` 946/946 couplages exacts,
+chaîne `t7_tout.sh` (sur une copie de data/t7 réduite à ces bases), `t7_mprime.py` (43 MP:ok), `t7_kprime.py` (154 KP:ok), `t7_theoreme.py`.
+Bilan 441–483 : K & M 306, K' & M 154, K & M' 16 → 476 DÉMONTRÉES ; non couvertes 470 (K non NS0 & M 432, K non NS0 & M' 22,
+K et M non NS0 11, K dir & M' 5). Récurrence k₁ « bloc » : tout ou rien par base — 15 bases 22/22, 28 bases 0/22 ; sur 40 échecs tirés au
+hasard, 40 échouent à la fenêtre s₁ (« L R ECHEC » : recopie de la fenêtre à s₁ + P), quel que soit p* (essayé jusqu'à 6 000, NS = 2 aussi) ;
+direction après c₁ : (−2,−2) dans tous les cas, succès comme échecs. Total T7-loin (S11 + S12) : 9 917 classes sur 10 648 (484 bases).
+Fichiers : resultats/relatif/t7_theoreme_S12_bases441-483.txt, t7_k1_S12_bases441-483.txt, t7_audit_c_S12_bases441-483.txt.
+
+## R-146 Pourquoi la récurrence en k₁ échoue sur les bases c₁ = (−119,100) : s₁ tombe dans le chaos de c₁ — OBSERVÉ (diagnostic) — 25/11 S12
+Les 43 dernières bases = les 2 dernières classes de c₁ : (−119,100) [21 bases, k₁ « bloc » 0/21] et (−118,100) [22 bases, 15 OK, 7 échecs].
+c₁ = (−119,100) seule : certificat au pas 79 678 (direction finale (−2,−2)). Dans `ant multi` (NS = 1), s₁ = 15 458 pour tout p* ≥ 50
+(déclenchement trop tôt, fenêtre non recopiée) ; p* = 40…10 : s₁ ≈ 70 600–71 400, fenêtre recopiée OK mais « lectures neuves » ECHEC
+dès s₁ + 104 ; p* ≤ 0 : s₁ ≈ 71 654–72 880 ou jamais. NS = 2 (8 couples) et la variante « c₃ fixe » : mêmes échecs. Aucun s₁ n'est donc
+placé après la fin du chaos de c₁ (79 678). Prochaine piste : déclencher s₁ au certificat de c₁ (ou au-delà) et revoir le lemme 3 pour ce cas.
+`ant multi -19 100 CE 1 40 -282 -518 -1617 800` (base 441).
