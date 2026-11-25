@@ -5,7 +5,7 @@ Fourmi 0 = la sonde (jouée en premier). Usage : gen_cycles.py D i0 i1 [fichier.
 import sys, json
 sys.path.insert(0, sys.path[0]); from moteur2 import charge, pas
 G=[(0,1),(1,2),(2,3),(2,2),(2,1),(2,0),(3,0),(3,-1),(2,-2),(1,-2),(-2,-1)]
-D=int(sys.argv[1]); C=json.load(open(sys.path[0]+'/cycles2.json'))
+D=int(sys.argv[1]); C=json.load(open(sys.path[0]+'/'+(sys.argv[5] if len(sys.argv)>5 else 'cycles2.json')))
 i0=int(sys.argv[2]) if len(sys.argv)>2 else 0; i1=int(sys.argv[3]) if len(sys.argv)>3 else len(C)
 turn,ants,noir=charge("RL|0,0,B|"+';'.join(f'{x},{y}' for x,y in G)); V=set()
 for t in range(104*(D+6)):
