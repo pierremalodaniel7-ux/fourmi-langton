@@ -64,7 +64,7 @@ def draw(e, fn):
     shades = ["#000000", "#555555", "#999999", "#bbbbbb"]
     for c, pts in sorted(cols.items()):
         xs, ys = zip(*pts)
-        ax.scatter(xs, ys, s=.4, c=shades[(c - 1) % 4], marker="s", lw=0)
+        ax.scatter(xs, ys, s=(2600 / max(1, e["zoom"][2] - e["zoom"][0]) ** 2 * 40 if e.get("zoom") else .4), c=shades[(c - 1) % 4], marker="s", lw=0)
     init = [p for p in e.get("points", "").split(";") if p.strip()]
     if init and len(init) <= 60:
         P = [xy(kind, *map(int, p.split(",")[:2])) for p in init]
@@ -72,6 +72,8 @@ def draw(e, fn):
     ax.scatter(*zip(*[xy(kind, s[0], s[1]) for s in starts]), s=25, c="#2ca02c", label="départ des fourmis")
     ax.scatter(*zip(*[xy(kind, a[0], a[1]) for a in ants]), s=45, c="#1f77b4", marker="^",
                label=f"fourmis au pas {int(e['img'][0]):,}".replace(",", " "))
+    if e.get("zoom"):                                   # champ facultatif "zoom": [x0, y0, x1, y1] (25/11)
+        z = e["zoom"]; ax.set_xlim(z[0] - .5, z[2] + .5); ax.set_ylim(z[1] - .5, z[3] + .5)
     ax.invert_yaxis(); ax.set_aspect("equal"); ax.legend(loc="best", fontsize=7)
     ax.set_title(f"{e['id']} — état au pas {int(e['img'][0]):,}".replace(",", " "))
     fig.tight_layout(); fig.savefig(fn, dpi=160); plt.close(fig)
