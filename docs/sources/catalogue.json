@@ -6013,5 +6013,25 @@
   "interet": "Première démonstration d'un écran réinscriptible (2 pixels, 3 écritures chacun) dans la fourmi RL à plusieurs fourmis.",
   "deja": "Pas trouvé.",
   "source": "R-142, ordinateur/bascule/ecran2.py"
+ },
+ {
+  "id": "BA-8",
+  "b": 25,
+  "classe": "Ordinateur — gomme et bascule (25/11)",
+  "nom": "Bascule T 1020 : ON puis OFF (4e pièce, couverture complète)",
+  "regle": "RL",
+  "fourmis": "224,-222,B;104,-97,B;1,3,G;0,0,H",
+  "points": "104,-96;105,-95;106,-94;106,-95;106,-96;106,-97;107,-97;107,-98;106,-99;105,-99;102,-98;0,1;1,1;2,2;2,3;5,3;224,-221;225,-220;226,-219;226,-220;226,-221;226,-222;227,-222;227,-223;226,-224;225,-224;222,-223",
+  "img": [
+   16000,
+   ""
+  ],
+  "situation": "Pièce n° 1020 de cycles2.json : cycle de 2 fourmis (0,0,D ; −1,−1,B, période 28) + une case noire isolée (3,1) ; 2 germes sur la même ligne (NE).",
+  "deroulement": "S0 → S1 (pas 5 400) → S0 en place (10 000) ; la paire efface la ligne puis repart vers le NO depuis les sources.",
+  "mesures": "Chronologie moteur2.py ; fenêtre de la ligne : 199 cases au pas 6 000, 0 aux pas 16 000 et 30 000 (src/fourmi -boite). Couverture complète des 2 049 pièces : 40 bascules idéalisées, 33 honnêtes, 4 pièces seulement (185, 186, 572, 1020), dont 22 variantes pour 1020.",
+  "statut": "VÉRIFIÉ (2 moteurs, temps fini)",
+  "interet": "Montre que la famille « cycle de 2 fourmis + 1 case isolée » est la bonne.",
+  "deja": "Pas trouvé.",
+  "source": "R-144, bascules_completes.json"
  }
 ]

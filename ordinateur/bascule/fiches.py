@@ -69,6 +69,12 @@ fiche("BA-7","Écran de 2 pixels : ON, OFF, ON sur chaque pixel",ecr['situation'
  "Chronologie moteur2.py ; positions finales des 10 fourmis identiques avec src/fourmi (T = 60 888).",
  "VÉRIFIÉ (2 moteurs, temps fini)","Première démonstration d'un écran réinscriptible (2 pixels, 3 écritures chacun) dans la fourmi RL à plusieurs fourmis.",
  "Pas trouvé.","R-142, ordinateur/bascule/ecran2.py","")
+bc=json.load(open(f'{H}/bascules_completes.json'))[11]
+fiche("BA-8","Bascule T 1020 : ON puis OFF (4e pièce, couverture complète)",bc['situation'],16000,
+ "Pièce n° 1020 de cycles2.json : cycle de 2 fourmis (0,0,D ; −1,−1,B, période 28) + une case noire isolée (3,1) ; 2 germes sur la même ligne (NE).",
+ "S0 → S1 (pas 5 400) → S0 en place (10 000) ; la paire efface la ligne puis repart vers le NO depuis les sources.",
+ "Chronologie moteur2.py ; fenêtre de la ligne : 199 cases au pas 6 000, 0 aux pas 16 000 et 30 000 (src/fourmi -boite). Couverture complète des 2 049 pièces : 40 bascules idéalisées, 33 honnêtes, 4 pièces seulement (185, 186, 572, 1020), dont 22 variantes pour 1020.",
+ "VÉRIFIÉ (2 moteurs, temps fini)","Montre que la famille « cycle de 2 fourmis + 1 case isolée » est la bonne.","Pas trouvé.","R-144, bascules_completes.json","")
 cat=json.load(open(f'{R}/docs/sources/catalogue.json')); cat=[e for e in cat if not e['id'].startswith('BA-')]+F
 json.dump(cat,open(f'{R}/docs/sources/catalogue.json','w'),ensure_ascii=False,indent=1)
 germes=[{"dossier":"Ordinateur/Bascules","nom":e['nom'],"regle":e['regle'],"fourmis":e['fourmis'],"points":e['points'],"note":e['deroulement'][:300]} for e in F]

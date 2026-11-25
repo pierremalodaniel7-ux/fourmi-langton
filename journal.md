@@ -836,3 +836,10 @@ pareil pour 186 ; 572 : SE dans les deux cas (voies x−y = 0 et 3). La sortie d
 il manque une entrée de lecture « b » pour compléter un RLEM ; non trouvée (≈ 36 000 tirs, 4 directions) — OUVERT.
 (d) Piège : retirer la case « inerte » d'un cycle (jamais visitée par ses fourmis) change tout pour l'autoroute qui arrive : sur les
 422 cycles sans case inerte, 0 bascule (pipeline complet) ; les 3 bascules ont toutes une case isolée à côté du cycle.
+
+## R-144 Couverture complète des 2 049 pièces « cycle de 2 fourmis (+ 1 case) » : 4 pièces seulement font une bascule T — VÉRIFIÉ (2 moteurs, temps fini) / OBSERVÉ (exhaustivité dans ce montage) — 25/11
+`ordinateur/bascule/pipeline.sh c2 cycles2.json` : 1er tir 2,9 M essais → 107 481 déviations « pièce intacte » → 1 532 orbites S1 ;
+2e tir → 87 187 déviations → 10 013 résidus changés testés → 40 retours à S0 (idéalisé) → 33 honnêtes (même simulation, traces
+comprises) ; pièces : 185 (4), 186 (2), 572 (5), 1020 (22) ; toutes = cycle de 2 fourmis + UNE case isolée. Nouvelle : 1020
+(0,0,D ; −1,−1,B + case 3,1 ; cycle 28) : S0 → S1 (5 400) → S0 (10 000), ligne effacée (199 → 0 cases). Fiche BA-8.
+Les 422 cycles sans case isolée : 0 bascule. La 5e impulsion de 572 n'a pas pu être cherchée (redémarrage du conteneur).

@@ -7,7 +7,7 @@ from moteur2 import charge, pas
 os.environ['CY']='cycles2.json'
 import recherche_lib as RL
 from bascule import situ_piece
-S1L=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'cyclesS1.json')))
+S1L=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),os.environ.get('S1F','cyclesS1.json'))))
 H=json.load(open(sys.argv[1])); h=H[int(sys.argv[2])]
 def etats(sit,p):
     turn,an,no=charge(sit); vis=set(); L=[]

@@ -26,7 +26,7 @@ Porte « compteur » par traversée de traces : NOR, ET, NON, COPIE, CROISEMENT,
 ## Ordinateur — mémoire (25/11 nuit, R-136 à R-142, ordinateur/bascule/)
 Gomme (R-136, connu). Une fourmi seule ne repart jamais en gomme (R-137, démontré). Loi d'équilibre des classes dans les cycles (R-139, observé).
 BASCULE T trouvée : 2 fourmis + 1 case, S0/S1 à chaque autoroute sur la même ligne, ON/OFF/ON (R-140) ; la paire ON/OFF efface sa ligne (R-141) ;
-écran 2 pixels ON/OFF/ON (R-142). Ouvert : 4e impulsion, lecture non destructive, élément à 2 entrées (RLEM non dégénéré).
+écran 2 pixels ON/OFF/ON (R-142) ; 4e impulsion OK (572), flux nul sur chaque arête des cycles (R-143) ; 4 pièces sur 2 049 (R-144). Ouvert : 5e impulsion, lecture non destructive, élément à 2 entrées (RLEM non dégénéré).
 
 ## Simulateur v7 (17/11 soir)
 docs/ (GitHub Pages après fusion de la PR n°1) : bibliothèque fusionnée (747 éléments), 37 circuits avec interrupteurs, pas complet de la petite fourmi VÉRIFIÉ 256/256 (R-68, moteur JS + Python).

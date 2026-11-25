@@ -2,10 +2,9 @@
 # pipeline.sh NOM CYFILE : recherche complète de bascules T (idéalisées puis honnêtes) sur toutes les orbites de CYFILE.
 # 1) tirs sur S0 (flux.sh) 2) déviations « pièce intacte » 3) résidus S1 (dev.py) 4) liste S1 (s1list.py) 5) tirs sur S1
 # 6) résidus S2 7) retours à S0 (toggle.py) 8) test honnête (honnete.py). Tout dans data/bascule/NOM_*.
-set -e; N=$1; CYF=$2; D=$(cd $(dirname $0); pwd); O=$D/../../data/bascule; cd $D
+set -e; N=$1; CYF=$2; ETAPE=${3:-a}; D=$(cd $(dirname $0); pwd); O=$D/../../data/bascule; cd $D
 n=$(python3 -c "import json;print(len(json.load(open('$CYF'))))")
 echo "$(date +%T) $n orbites"
-CY=$CYF ./flux.sh ${N}_a 0 $n 20000 -8,-8,14,14 2>/dev/null
 filtre() { python3 - "$1" "$2" <<'PY'
 import sys
 out=open(sys.argv[2],'w'); n=0
@@ -21,11 +20,14 @@ for l in open(sys.argv[1]):
 print(n,'déviations pièce intacte')
 PY
 }
+if [ $ETAPE = a ]; then
+CY=$CYF ./flux.sh ${N}_a 0 $n 20000 -8,-8,14,14 2>/dev/null
 filtre $O/${N}_a.res $O/${N}_a_dev.res
 split -n l/4 -d $O/${N}_a_dev.res $O/${N}_ap
 for p in $O/${N}_ap0?; do CY=$CYF python3 dev.py $p > $p.json & done; wait
 cat $O/${N}_ap0?.json > $O/${N}_a.json; rm $O/${N}_ap0?*
 S1F=cyclesS1_$N.json python3 s1list.py $O/${N}_a.json
+fi
 m=$(python3 -c "import json;print(len(json.load(open('cyclesS1_$N.json'))))")
 CY=cyclesS1_$N.json ./flux.sh ${N}_b 0 $m 20000 -8,-8,14,14 2>/dev/null
 filtre $O/${N}_b.res $O/${N}_b_dev.res
