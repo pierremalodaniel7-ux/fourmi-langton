@@ -41,13 +41,15 @@ for r, g in G.items():
     libre = b.get('d_reutilisation', {}).get('libre_m10', {})
     lib_ok = bool(libre) and libre['B'][0] == 'propre' and libre['B'][1] == 0 and libre['B'][2] == libre['solo'][2]
     rc_s = (rc or {}).get('stat', {}); rc_ok = rc_s.get("(100, True)", 0); rc_n = (rc or {}).get('devies', 0)
-    rows.append(dict(regle=r, P=g['P'], germe=len(g['cases']), debut_blanc=g['debut_blanc'] if g['depart'].endswith('|0,0,0|') else None,
+    pr = J(f'data/porte_reuse_{f}_k100.json')
+    porte = f"{pr['portes_reutilisables']}/{pr['geometries']} ({pr['suites_justes']}/{pr['suites']})" if pr else '-'
+    rows.append(dict(porte_reutil=porte, regle=r, P=g['P'], germe=len(g['cases']), debut_blanc=g['debut_blanc'] if g['depart'].endswith('|0,0,0|') else None,
         pct_petits=pct, trace=trace.get(r), gomme=gomme(r),
         dev1=f"{b1.get('propre')}/{b1.get('n')}", dev1_devie=defl1, chaos1=b1.get('chaos_med'), dev2=f"{b2.get('propre')}/{b2.get('n')}",
         trace_B=f"{b3.get('B_propre')}/{b3.get('n')}", nb_dirs=len(dirs),
         crois_T=f"{ct}/{cn}", crois_X=cx, lane_libre=lib_ok, miroir_reutil=f"{reuse_obst}/{n_obst}", choc_reutil=f"{rc_ok}/{rc_n}"))
 json.dump(rows, open('resumes/tableau.json', 'w'), indent=1)
-H = ['regle','P','germe','debut_blanc','pct_petits','trace','dev1','dev1_devie','chaos1','dev2','trace_B','nb_dirs','crois_T','crois_X','lane_libre','miroir_reutil','choc_reutil','gomme']
+H = ['regle','P','germe','debut_blanc','pct_petits','trace','dev1','dev1_devie','chaos1','dev2','trace_B','nb_dirs','crois_T','crois_X','lane_libre','miroir_reutil','porte_reutil','gomme']
 with open('resumes/tableau.md', 'w') as o:
     o.write('| ' + ' | '.join(H) + ' |\n|' + '---|' * len(H) + '\n')
     for x in rows: o.write('| ' + ' | '.join(str(x[h]) for h in H) + ' |\n')

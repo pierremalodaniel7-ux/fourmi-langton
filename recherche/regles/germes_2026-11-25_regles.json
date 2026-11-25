@@ -1,0 +1,234 @@
+[
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-306 — Vaisseau hexa R2L2 (fourmi + 1 case, période 8, sans trace)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,4",
+  "points": "1,0",
+  "note": "DÉMONTRÉ (certificat, fourmi_r -cert). Certificat d'autoroute dès t = 0 (|V| = 4). 1 case non blanche dans toute la grille après 200 et 400 périodes. 100 % des 2 626 petites configurations et 200/200 soupes 10×10 donnent ce vaisseau (début médian 2 et 28). Lire vers le pas 400."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-306b — Vaisseau hexa R2UL2 (q = 3, période 12, sans trace)",
+  "regle": "H:R2UL2",
+  "fourmis": "0,0,4",
+  "points": "1,0",
+  "note": "DÉMONTRÉ (certificat). Certificat dès t = 0. 98 % des petites configurations (48 cycles). Chocs : 389/735 transparents, mais 0/94 portes réutilisables (533/846 suites). Lire vers le pas 600."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-314a — Porte d'interaction R2L2 (choc, a = b = 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-1,-34,5;0,0,4",
+  "points": "-1,-33;1,0",
+  "note": "VÉRIFIÉ (moteur C, temps fini). Table 4/4 ; les 2 vaisseaux ressortent propres ; le choc laisse 3 cases. Sur 1 215 chocs de 2 vaisseaux : 0 perte. Lire vers le pas 600."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-314b — Aiguillage R2L2 (switch gate)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,4;2,-34,5",
+  "points": "1,0;2,-33",
+  "note": "VÉRIFIÉ (moteur C, temps fini). 4/4. L'ordre de jeu compte : X en 1er → les deux tournent. Lire vers le pas 600."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-321 — Circuit à 2 étages R2L2 réutilisé 10 fois (19 fourmis, 0 case fixe)",
+  "regle": "H:R2L2",
+  "fourmis": "30,-56,0;0,0,4;30,-256,0;111,-617,0;30,-656,0;111,-817,0;30,-856,0;-800,800,4;111,-1017,0;-1000,1000,4;111,-1217,0;-1200,1200,4;111,-1617,0;30,-1656,0;-1600,1600,4;111,-1817,0;30,-1856,0;-1800,1800,4;111,-2017,0",
+  "points": "29,-55,1;1,0,1;29,-255,1;110,-616,1;29,-655,1;110,-816,1;29,-855,1;-799,800,1;110,-1016,1;-999,1000,1;110,-1216,1;-1199,1200,1;110,-1616,1;29,-1655,1;-1599,1600,1;110,-1816,1;29,-1855,1;-1799,1800,1;110,-2016,1",
+  "note": "VÉRIFIÉ 10/10 (2 moteurs, temps fini) ; OBSERVÉ 30/30. 10/10 usages justes, 2 moteurs (positions finales des 19 fourmis identiques à 40 000 tours) ; 30/30 avec 55 fourmis (k = 100 et 200). 12 des 103 circuits trouvés sont réutilisables pour les 49 suites. Lire vers le pas 20000."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-312 — Oscillateur R2L2 de période 3 (2 fourmis + 1 case)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,0;-1,0,3",
+  "points": "-1,0",
+  "note": "VÉRIFIÉ (cycle exact). 772 cycles à 2 fourmis dans [−3,3]² (périodes 3 à 54). Contre un vaisseau : il est presque toujours détruit ; 0 miroir réutilisable. Lire vers le pas 30."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-311 — Additionneur 4 bits RL remis à zéro par la gomme collective",
+  "regle": "RL",
+  "fourmis": "1101,-1299,D;1441,-1559,D;4312,-4290,D;4652,-4550,D;7523,-7281,D;7863,-7541,D;10734,-10272,D;11074,-10532,D",
+  "points": "1099,-1301;1100,-1301;1101,-1300;1102,-1299;1099,-1298;1102,-1298;1099,-1297;1101,-1297;1100,-1296;1101,-1296;1101,-1295;-55,-144;74,-5;57,-30;35,14;1439,-1561;1440,-1561;1441,-1560;1442,-1559;1439,-1558;1442,-1558;1439,-1557;1441,-1557;1440,-1556;1441,-1556;1441,-1555;285,-404;359,-329;376,-304;385,-353;405,-331;475,-251;421,-331;472,-264;395,-370;455,-302;4310,-4292;4311,-4292;4312,-4291;4313,-4290;4310,-4289;4313,-4289;4310,-4288;4312,-4288;4311,-4287;4312,-4287;4312,-4286;1256,-1235;1385,-1096;1368,-1121;1346,-1077;1395,-1098;1329,-1102;1338,-1069;1370,-1051;4650,-4552;4651,-4552;4652,-4551;4653,-4550;4650,-4549;4653,-4549;4650,-4548;4652,-4548;4651,-4547;4652,-4547;4652,-4546;1596,-1495;1670,-1420;1687,-1395;1695,-1387;1716,-1422;1786,-1342;1732,-1422;1783,-1355;1706,-1461;1766,-1393;7521,-7283;7522,-7283;7523,-7282;7524,-7281;7521,-7280;7524,-7280;7521,-7279;7523,-7279;7522,-7278;7523,-7278;7523,-7277;2567,-2326;2696,-2187;7861,-7543;7862,-7543;7863,-7542;7864,-7541;7861,-7540;7864,-7540;7861,-7539;7863,-7539;7862,-7538;7863,-7538;7863,-7537;2907,-2586;3007,-2535;3027,-2513;3097,-2433;3043,-2513;3094,-2446;3017,-2552;3077,-2484;10732,-10274;10733,-10274;10734,-10273;10735,-10272;10732,-10271;10735,-10271;10732,-10270;10734,-10270;10733,-10269;10734,-10269;10734,-10268;3878,-3417;4007,-3278;11072,-10534;11073,-10534;11074,-10533;11075,-10532;11072,-10531;11075,-10531;11072,-10530;11074,-10530;11073,-10529;11074,-10529;11074,-10528;4218,-3677;4318,-3626;4338,-3604;4408,-3524;4354,-3604;4405,-3537;4328,-3643;4388,-3575",
+  "note": "DÉMONTRÉ (preuve R-300/R-311) + VÉRIFIÉ. 0 case différente, 2 moteurs (fourmi_r et Python). Les 28 portes du projet : 56/56. Lire vers le pas 420000."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-300 — La gomme (RL)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "",
+  "note": "DÉMONTRÉ (preuve courte, journal_regles R-300) + VÉRIFIÉ. Condition exacte : q = 2 et K₁ = −K₀ (RL, hexa R1L1 et R2L2, triangle RL). Balayage de 341 règles : 13 « toujours » = exactement celles-là. Lire vers le pas 11000."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-303a — Autoroute hexa R2UL1 dans la direction (11,4), période 1 863",
+  "regle": "H:R2UL1",
+  "fourmis": "0,0,0",
+  "points": "",
+  "note": "OBSERVÉ (simulation finie). 96 % des petites configurations ; trace 158 cases/période ; tous les obstacles la dévient (6 directions). Lire vers le pas 60000."
+ },
+ {
+  "dossier": "Règles/Comparaison/Bestiaire 24",
+  "nom": "R-323 — Miroir fixe R2R2L2 à direction constante (6 autoroutes)",
+  "regle": "H:R2R2L2",
+  "fourmis": "0,0,4;-20,20,4;-40,40,4;-60,60,4;-80,80,4;-100,100,4",
+  "points": "1,0;-19,20;-39,40;-59,60;-79,80;-99,100;59,-59;60,-61;61,-61",
+  "note": "OBSERVÉ. 1 seul obstacle sur 46 qui tournent garde la direction pour tous les passages ; voie non conservée. Lire vers le pas 12000."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur RL (autoroute 104, déplacement (-2, 2))",
+  "regle": "RL",
+  "fourmis": "0,0,3",
+  "points": "-2,3;-2,4;-1,0;-1,1;-1,2;-1,5;0,4;0,5;0,6;1,3",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 10 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur LLR (autoroute 18, déplacement (-1, 1))",
+  "regle": "LLR",
+  "fourmis": "0,0,3",
+  "points": "-1,0;0,1,2",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 2 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur LLLR (autoroute 52, déplacement (-2, 2))",
+  "regle": "LLLR",
+  "fourmis": "0,0,1",
+  "points": "-2,1,2;-1,1,2;-1,2,3;0,0,3",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 4 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur LLLLR (autoroute 68, déplacement (-2, 2))",
+  "regle": "LLLLR",
+  "fourmis": "0,0,1",
+  "points": "-2,0,3;-2,1,3;-1,2,4;0,0,4",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 4 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2L2 (autoroute 8, déplacement (1, -1))",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,4",
+  "points": "1,0",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 1 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2N (autoroute 4, déplacement (1, 0))",
+  "regle": "H:R2N",
+  "fourmis": "0,0,2",
+  "points": "1,-1",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 1 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:UN (autoroute 3, déplacement (1, 0))",
+  "regle": "H:UN",
+  "fourmis": "0,0,3",
+  "points": "1,0",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 1 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur LLRRRL (autoroute 896, déplacement (-4, -4))",
+  "regle": "LLRRRL",
+  "fourmis": "0,0,1",
+  "points": "-11,-9,2;-11,-8,2;-11,-7,2;-11,-6,2;-11,-5;-11,-4;-11,-3;-11,-2;-10,-9,3;-10,-5,4;-10,-4,4;-10,-3,4;-10,-2,4;-10,0,3;-9,-9,3;-9,-8,2;-9,-7,4;-9,-6,3;-9,-5,2;-9,-3,2;-9,-2,3;-8,-9,3;-8,-8,2;-8,-7,4;-8,-6,5;-8,-5,4;-8,-4,4;-7,-9,3;-7,-7,2;-7,-6,4;-6,-9,3;-6,-6,2;-5,-9,3;-5,-6,4;-4,-9,2;-4,-8,4;-4,-7;-4,-6,4;-3,-8,2;-3,-6;-2,-8,2;-2,-5,2;-2,-4,4;-2,-3,2;-1,-8,2;-1,-6,2;0,-8;0,-6;1,-7,3",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 49 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R1N (autoroute 288, déplacement (-1, 7))",
+  "regle": "H:R1N",
+  "fourmis": "0,0,2",
+  "points": "-6,2;-5,3;-4,3;-3,1;-3,3;-2,3;-1,0;-1,1;-1,2;0,0;0,1",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 11 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2NR1 (autoroute 54, déplacement (2, -1))",
+  "regle": "H:R2NR1",
+  "fourmis": "0,0,1",
+  "points": "-1,1,2;-1,2,2;0,-2,2;0,1;0,2,2;0,3;1,-2",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 7 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur LLLLLR (autoroute 84, déplacement (-2, 2))",
+  "regle": "LLLLLR",
+  "fourmis": "0,0,1",
+  "points": "-2,1,4;-1,1,4;-1,2,5;0,0,5",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 4 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur LLLLLLR (autoroute 100, déplacement (-2, 2))",
+  "regle": "LLLLLLR",
+  "fourmis": "0,0,1",
+  "points": "-2,0,5;0,0,6;0,2,6",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 3 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2R1R1 (autoroute 25, déplacement (-1, 1))",
+  "regle": "H:R2R1R1",
+  "fourmis": "0,0,2",
+  "points": "-1,-1;-1,0;0,-1;0,0",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 4 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2L2L2 (autoroute 98, déplacement (0, -2))",
+  "regle": "H:R2L2L2",
+  "fourmis": "0,0,2",
+  "points": "-1,-2;0,-3;0,-1,2",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 3 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2R2L2 (autoroute 25, déplacement (2, -2))",
+  "regle": "H:R2R2L2",
+  "fourmis": "0,0,4",
+  "points": "1,0,2",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 1 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2UL2 (autoroute 12, déplacement (1, -1))",
+  "regle": "H:R2UL2",
+  "fourmis": "0,0,4",
+  "points": "1,0",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 1 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2L1R1 (autoroute 5, déplacement (1, -1))",
+  "regle": "H:R2L1R1",
+  "fourmis": "0,0,4",
+  "points": "1,0",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 1 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2UL1 (autoroute 1863, déplacement (-11, -4))",
+  "regle": "H:R2UL1",
+  "fourmis": "0,0,4",
+  "points": "-10,6;-9,-1;-9,0;-9,1;-9,5,2;-9,6;-8,-1,2;-8,0;-8,1;-8,2,2;-8,4,2;-8,5;-8,6,2;-7,0;-7,1,2;-7,3,2;-7,4,2;-7,5;-6,-2;-6,-1;-6,2;-6,4,2;-5,-2;-5,-1;-5,0,2;-5,1,2;-5,2;-5,3;-4,2,2;-4,3;-3,0;-3,2,2;-2,-2;-2,-1,2;-2,0;-2,1,2",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 36 cases. OBSERVÉ."
+ },
+ {
+  "dossier": "Règles/Comparaison/Lanceurs",
+  "nom": "Lanceur H:R2R2R1 (autoroute 1940, déplacement (5, 1))",
+  "regle": "H:R2R2R1",
+  "fourmis": "0,0,0",
+  "points": "-1,2;0,0,2;0,1;0,2;1,0;1,1,2;2,-1,2;2,0,2;2,1,2;3,-1,2",
+  "note": "Germe glouton R-305 : autoroute dès le départ (début ≤ 2P). 10 cases. OBSERVÉ."
+ }
+]

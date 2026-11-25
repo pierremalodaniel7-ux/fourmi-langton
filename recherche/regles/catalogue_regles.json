@@ -1,0 +1,212 @@
+[
+ {
+  "id": "R-306",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Vaisseau hexa R2L2 (fourmi + 1 case, période 8, sans trace)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,4",
+  "points": "1,0",
+  "img": [
+   400,
+   ""
+  ],
+  "situation": "Hexa, blanc → +120°, noir → −120°. Fourmi en (0,0) cap 4 (NO), 1 case noire en (1,0).",
+  "deroulement": "Dès le pas 0 : motif de période 8 qui avance d'une case en diagonale (1,−1) et emporte ses cases ; rien ne reste derrière.",
+  "mesures": "Certificat d'autoroute dès t = 0 (|V| = 4). 1 case non blanche dans toute la grille après 200 et 400 périodes. 100 % des 2 626 petites configurations et 200/200 soupes 10×10 donnent ce vaisseau (début médian 2 et 28).",
+  "statut": "DÉMONTRÉ (certificat, fourmi_r -cert)",
+  "interet": "Un signal qui ne salit pas sa voie : la voie est réutilisable sans nettoyage.",
+  "deja": "Propagation CONNUE : c'est le gaz de Lorentz à « flipping rotators » ±2π/3 sur réseau triangulaire (Kong-Cohen ; Grosfils-Boon, bande). Le vaisseau à 1 case exact : pas trouvé tel quel.",
+  "source": "recherche/regles, R-306 (25/11)",
+  "commande": "./fourmi_r -cert \"H:R2L2|0,0,4|1,0\""
+ },
+ {
+  "id": "R-306b",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Vaisseau hexa R2UL2 (q = 3, période 12, sans trace)",
+  "regle": "H:R2UL2",
+  "fourmis": "0,0,4",
+  "points": "1,0",
+  "img": [
+   600,
+   ""
+  ],
+  "situation": "Hexa q=3 : couleur 0 → +120°, 1 → demi-tour, 2 → −120°. Même germe que R2L2.",
+  "deroulement": "Motif de période 12, 1 case par période, aucune trace.",
+  "mesures": "Certificat dès t = 0. 98 % des petites configurations (48 cycles). Chocs : 389/735 transparents, mais 0/94 portes réutilisables (533/846 suites).",
+  "statut": "DÉMONTRÉ (certificat)",
+  "interet": "2e règle sans trace, mais moins propre que R2L2 (chocs avec pertes : 242/735).",
+  "deja": "Pas trouvé (1 recherche).",
+  "source": "R-306",
+  "commande": ""
+ },
+ {
+  "id": "R-314a",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Porte d'interaction R2L2 (choc, a = b = 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-1,-34,5;0,0,4",
+  "points": "-1,-33;1,0",
+  "img": [
+   600,
+   ""
+  ],
+  "situation": "A = (−1,−34) cap 5 + case (−1,−33) (joue en 1er) ; B = (0,0) cap 4 + case (1,0).",
+  "deroulement": "Seule, A part (1,0) ; seule, B part (1,−1). Ensemble, ils se croisent vers le pas 240 et repartent A → (−1,1), B → (−1,0).",
+  "mesures": "Table 4/4 ; les 2 vaisseaux ressortent propres ; le choc laisse 3 cases. Sur 1 215 chocs de 2 vaisseaux : 0 perte.",
+  "statut": "VÉRIFIÉ (moteur C, temps fini)",
+  "interet": "= porte d'interaction des boules de billard (Fredkin-Toffoli 1982) : sorties a∧¬b, ¬a∧b, a∧b.",
+  "deja": "Le modèle des boules de billard est connu ; sa réalisation par des fourmis : pas trouvé (article 2019 « multiparticle dynamics on the triangular lattice », arXiv 1908.06019, NON LU).",
+  "source": "R-310, R-314",
+  "commande": ""
+ },
+ {
+  "id": "R-314b",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Aiguillage R2L2 (switch gate)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,4;2,-34,5",
+  "points": "1,0;2,-33",
+  "img": [
+   600,
+   ""
+  ],
+  "situation": "C = (0,0) cap 4 + (1,0) joue en 1er ; X = (2,−34) cap 5 + (2,−33).",
+  "deroulement": "C continue toujours (1,−1) (une voie plus loin si X est là) ; X part (1,0) si C absent, tourne à (−1,1) si C présent.",
+  "mesures": "4/4. L'ordre de jeu compte : X en 1er → les deux tournent.",
+  "statut": "VÉRIFIÉ (moteur C, temps fini)",
+  "interet": "Avec C toujours présent (constante), c'est un MIROIR qui consomme un vaisseau.",
+  "deja": "Switch gate de Fredkin : connu (principe).",
+  "source": "R-314",
+  "commande": ""
+ },
+ {
+  "id": "R-321",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Circuit à 2 étages R2L2 réutilisé 10 fois (19 fourmis, 0 case fixe)",
+  "regle": "H:R2L2",
+  "fourmis": "30,-56,0;0,0,4;30,-256,0;111,-617,0;30,-656,0;111,-817,0;30,-856,0;-800,800,4;111,-1017,0;-1000,1000,4;111,-1217,0;-1200,1200,4;111,-1617,0;30,-1656,0;-1600,1600,4;111,-1817,0;30,-1856,0;-1800,1800,4;111,-2017,0",
+  "points": "29,-55,1;1,0,1;29,-255,1;110,-616,1;29,-655,1;110,-816,1;29,-855,1;-799,800,1;110,-1016,1;-999,1000,1;110,-1216,1;-1199,1200,1;110,-1616,1;29,-1655,1;-1599,1600,1;110,-1816,1;29,-1855,1;-1799,1800,1;110,-2016,1",
+  "img": [
+   20000,
+   ""
+  ],
+  "situation": "Porte 1 = choc B × A ; sa sortie a∧b croise C (germe tourné de 2 crans en (111,−217)). 10 jeux d'entrées (a,b,c) au hasard, chacun reculé de 200 périodes sur ses voies.",
+  "deroulement": "Les 10 calculs passent au même endroit l'un après l'autre ; C tourne vers (−1,1) ssi a∧b, sinon continue (voie −111).",
+  "mesures": "10/10 usages justes, 2 moteurs (positions finales des 19 fourmis identiques à 40 000 tours) ; 30/30 avec 55 fourmis (k = 100 et 200). 12 des 103 circuits trouvés sont réutilisables pour les 49 suites.",
+  "statut": "VÉRIFIÉ 10/10 (2 moteurs, temps fini) ; OBSERVÉ 30/30",
+  "interet": "Premier calcul du projet réutilisé sans remise à zéro.",
+  "deja": "Pas trouvé (voir R-302, R-324).",
+  "source": "R-319 à R-321",
+  "commande": "python3 dix_usages.py 111,-217 10 200"
+ },
+ {
+  "id": "R-312",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Oscillateur R2L2 de période 3 (2 fourmis + 1 case)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,0;-1,0,3",
+  "points": "-1,0",
+  "img": [
+   30,
+   ""
+  ],
+  "situation": "2 fourmis voisines, caps 0 et 3, 1 case noire.",
+  "deroulement": "Cycle exact de période 3 (l'état complet revient).",
+  "mesures": "772 cycles à 2 fourmis dans [−3,3]² (périodes 3 à 54). Contre un vaisseau : il est presque toujours détruit ; 0 miroir réutilisable.",
+  "statut": "VÉRIFIÉ (cycle exact)",
+  "interet": "Objet fixe le plus petit de R2L2 ; pas un miroir.",
+  "deja": "Pas cherché (petits cycles : phénomène connu en général).",
+  "source": "R-312, R-313",
+  "commande": ""
+ },
+ {
+  "id": "R-311",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Additionneur 4 bits RL remis à zéro par la gomme collective",
+  "regle": "RL",
+  "fourmis": "1101,-1299,D;1441,-1559,D;4312,-4290,D;4652,-4550,D;7523,-7281,D;7863,-7541,D;10734,-10272,D;11074,-10532,D",
+  "points": "1099,-1301;1100,-1301;1101,-1300;1102,-1299;1099,-1298;1102,-1298;1099,-1297;1101,-1297;1100,-1296;1101,-1296;1101,-1295;-55,-144;74,-5;57,-30;35,14;1439,-1561;1440,-1561;1441,-1560;1442,-1559;1439,-1558;1442,-1558;1439,-1557;1441,-1557;1440,-1556;1441,-1556;1441,-1555;285,-404;359,-329;376,-304;385,-353;405,-331;475,-251;421,-331;472,-264;395,-370;455,-302;4310,-4292;4311,-4292;4312,-4291;4313,-4290;4310,-4289;4313,-4289;4310,-4288;4312,-4288;4311,-4287;4312,-4287;4312,-4286;1256,-1235;1385,-1096;1368,-1121;1346,-1077;1395,-1098;1329,-1102;1338,-1069;1370,-1051;4650,-4552;4651,-4552;4652,-4551;4653,-4550;4650,-4549;4653,-4549;4650,-4548;4652,-4548;4651,-4547;4652,-4547;4652,-4546;1596,-1495;1670,-1420;1687,-1395;1695,-1387;1716,-1422;1786,-1342;1732,-1422;1783,-1355;1706,-1461;1766,-1393;7521,-7283;7522,-7283;7523,-7282;7524,-7281;7521,-7280;7524,-7280;7521,-7279;7523,-7279;7522,-7278;7523,-7278;7523,-7277;2567,-2326;2696,-2187;7861,-7543;7862,-7543;7863,-7542;7864,-7541;7861,-7540;7864,-7540;7861,-7539;7863,-7539;7862,-7538;7863,-7538;7863,-7537;2907,-2586;3007,-2535;3027,-2513;3097,-2433;3043,-2513;3094,-2446;3017,-2552;3077,-2484;10732,-10274;10733,-10274;10734,-10273;10735,-10272;10732,-10271;10735,-10271;10732,-10270;10734,-10270;10733,-10269;10734,-10269;10734,-10268;3878,-3417;4007,-3278;11072,-10534;11073,-10534;11074,-10533;11075,-10532;11072,-10531;11075,-10531;11072,-10530;11074,-10530;11073,-10529;11074,-10529;11074,-10528;4218,-3677;4318,-3626;4338,-3604;4408,-3524;4354,-3604;4405,-3537;4328,-3643;4388,-3575",
+  "img": [
+   420000,
+   ""
+  ],
+  "situation": "Germe R-39 (8 fourmis, 140 cases, réglé sur 3+2). Après 420 000 tours (toutes les lectures faites), on retourne chaque fourmi sur la case qu'elle vient de quitter, cap inversé, et on inverse l'ordre de jeu.",
+  "deroulement": "420 000 tours de plus : la grille revient EXACTEMENT à l'état de départ (image : état au pas 420 000, avant la gomme).",
+  "mesures": "0 case différente, 2 moteurs (fourmi_r et Python). Les 28 portes du projet : 56/56.",
+  "statut": "DÉMONTRÉ (preuve R-300/R-311) + VÉRIFIÉ",
+  "interet": "Un ordinateur RL à usage unique devient réutilisable (calculer, lire, gommer, changer les entrées).",
+  "deja": "Réversibilité de la fourmi : connue (Gajardo et al. 2011) ; la remise à zéro d'un circuit multi-fourmis : pas trouvé.",
+  "source": "R-311",
+  "commande": "python3 gomme_collective.py"
+ },
+ {
+  "id": "R-300",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "La gomme (RL)",
+  "regle": "RL",
+  "fourmis": "0,0,H",
+  "points": "",
+  "img": [
+   11000,
+   ""
+  ],
+  "situation": "Fourmi RL depuis le blanc.",
+  "deroulement": "Retournée sur la case qu'elle vient de quitter, elle repasse exactement par son chemin et efface tout.",
+  "mesures": "Condition exacte : q = 2 et K₁ = −K₀ (RL, hexa R1L1 et R2L2, triangle RL). Balayage de 341 règles : 13 « toujours » = exactement celles-là.",
+  "statut": "DÉMONTRÉ (preuve courte, journal_regles R-300) + VÉRIFIÉ",
+  "interet": "Filtre théorique : seules ces règles permettent d'effacer un calcul.",
+  "deja": "Réversibilité : connue ; condition générale : pas trouvée énoncée.",
+  "source": "R-300, R-301",
+  "commande": "python3 gomme2.py"
+ },
+ {
+  "id": "R-303a",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Autoroute hexa R2UL1 dans la direction (11,4), période 1 863",
+  "regle": "H:R2UL1",
+  "fourmis": "0,0,0",
+  "points": "",
+  "img": [
+   60000,
+   ""
+  ],
+  "situation": "Hexa q=3, départ blanc.",
+  "deroulement": "Chaos jusqu'au pas 24 344, puis autoroute de période 1 863 qui avance de (11,4) par période (direction non axiale).",
+  "mesures": "96 % des petites configurations ; trace 158 cases/période ; tous les obstacles la dévient (6 directions).",
+  "statut": "OBSERVÉ (simulation finie)",
+  "interet": "Direction « oblique » inhabituelle en hexa.",
+  "deja": "Pas trouvé (rien sur les périodes hexagonales, R-302).",
+  "source": "R-303",
+  "commande": ""
+ },
+ {
+  "id": "R-323",
+  "b": 24,
+  "classe": "Règles/Comparaison",
+  "nom": "Miroir fixe R2R2L2 à direction constante (6 autoroutes)",
+  "regle": "H:R2R2L2",
+  "fourmis": "0,0,4;-20,20,4;-40,40,4;-60,60,4;-80,80,4;-100,100,4",
+  "points": "1,0;-19,20;-39,40;-59,60;-79,80;-99,100;59,-59;60,-61;61,-61",
+  "img": [
+   12000,
+   ""
+  ],
+  "situation": "6 autoroutes R2R2L2 (germe 1 case) sur la même voie, espacées de 10 périodes, contre 3 cases (59,−59) (60,−61) (61,−61).",
+  "deroulement": "Les 6 tournent toutes de 120° (même direction) ; leurs voies de sortie se décalent (−116, −118, 2, 42, 82, 122).",
+  "mesures": "1 seul obstacle sur 46 qui tournent garde la direction pour tous les passages ; voie non conservée.",
+  "statut": "OBSERVÉ",
+  "interet": "Le plus proche d'un miroir réutilisable parmi les règles à trace.",
+  "deja": "Pas trouvé.",
+  "source": "R-323",
+  "commande": ""
+ }
+]
