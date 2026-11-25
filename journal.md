@@ -822,3 +822,17 @@ son état « 3 120 pas avant », calculé exactement par réversibilité (gomme,
 les germes NE marche pas (le germe d'origine devient un bout de trace, que la 2e autoroute voit). Chronologie : A ON 6 100, OFF 8 400,
 ON 21 700 ; B ON 8 900, OFF 15 900, ON 59 900 ; positions finales des 10 fourmis identiques (src/fourmi, moteur2.py). ordinateur/bascule/ecran2.py,
 resultats/bascule/4_ecran_2pixels.png. Fiche BA-7.
+
+## R-143 Compléments de la nuit (25/11) : 4e impulsion, flux nul sur chaque arête des cycles, sortie dépendant de l'état
+(a) Bascule 572 : 4e germe (recul 100–220 périodes) → S0 → S1 → S0 → S1 → S0 (pas 6 100 / 8 400 / 21 700 / 24 200), S0 reconnu
+exactement jusqu'à 84 184 — VÉRIFIÉ (src/fourmi pour la recherche, moteur2.py pour la chronologie). Mais la 2e paire n'efface pas sa
+ligne (débris autour de la pièce, ≈ 550 cases dans la fenêtre). chaine.py (REPRISE=1 J0=100 J1=220).
+(b) Dans TOUS les cycles testés, chaque arête est traversée autant de fois dans un sens que dans l'autre (sur une arête, les deux sens
+correspondent aux deux classes) : 2 049/2 049 (cycles2), 3 978/3 978 (cycles4), 46/46 (catalogue, période ≤ 400 000) — OBSERVÉ.
+Cela entraîne la loi d'équilibre R-139. Ce n'est PAS la symétrie par renversement du temps : R(état) est sur l'orbite pour 2 049/2 049
+cycles à 2 fourmis mais seulement 776/3 978 à 4 fourmis. Preuve : OUVERT. ordinateur/bascule/aretes.py.
+(c) Tirs idéalisés (autoroute neuve) : pièce 185 : S0 → S1 et l'autoroute part au NO (−2,−2) ; S1 → S0 et elle part au SE (2,2) ;
+pareil pour 186 ; 572 : SE dans les deux cas (voies x−y = 0 et 3). La sortie dépend donc de l'état (moitié « a » d'un RLEM 2 états) ;
+il manque une entrée de lecture « b » pour compléter un RLEM ; non trouvée (≈ 36 000 tirs, 4 directions) — OUVERT.
+(d) Piège : retirer la case « inerte » d'un cycle (jamais visitée par ses fourmis) change tout pour l'autoroute qui arrive : sur les
+422 cycles sans case inerte, 0 bascule (pipeline complet) ; les 3 bascules ont toutes une case isolée à côté du cycle.
