@@ -316,3 +316,8 @@ Au-delà de j = 30 : les fenêtres actives sont disjointes, deux routes rectilig
 le même axe en sens opposés à ≤ 6 voies : AUCUNE paire (sortie, entrée) de ce type ; sinon leur distance croît avec j (constaté : +100 par usage).
 ⇒ pour toute suite (a₁,b₁), (a₂,b₂), … espacée de 200 périodes, chaque usage donne S = a⊕b et C = a∧b. Hypothèses : convention
 « l'une après l'autre » (sans effet ici : les usages ne se touchent pas), grille infinie, entrées et constantes K2, K3 fournies à chaque usage.
+
+## R-339 La mémoire R-335 marche pour TOUT nombre d'usages et TOUTE suite de bits — DÉMONTRÉ (même certificat que R-338) (memoire_certif.py)
+Un usage = écrire b (si b = 1) puis lire ; il part du pixel vide et y revient (0 case laissée, contrôlé). Les usages sont des copies exactes
+décalées de 3 200 pas. Distance minimale exacte entre fourmis de deux usages (tous temps, 4 couples de bits) : 101 + 200 (j − 1) pour
+j = 1 … 20 ; aucune paire de routes de face. ⇒ N usages = superposition exacte ; chaque lecture rend le bit écrit (R-335).
