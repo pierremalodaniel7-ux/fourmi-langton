@@ -235,6 +235,10 @@ static void tir_mode(int D, int T){
             psit(stdout, a0, na, cx, cy, nc); printf(" | D=%d T=%d | restant ", D, TT); psit(stdout, b, nb2, bx, by, nbc); printf("\n");
             orb_free(&o2); continue; }
         }
+        int ncnear = 0; { static int bl2[2 * 4096]; int nbk2 = blacks(bl2, 4096); for (int k = 0; k < nbk2 && nbk2 <= 4096; k++) if (hd(bl2[2 * k] - ocx, bl2[2 * k + 1] - ocy) <= R) ncnear++; }
+        if (nsh == n && !deb && getenv("DES")) {   // destruction propre : toutes les fourmis repartent en vaisseaux, aucune case
+          printf("DES osc=%ld p=%d ord=%d r=%d l=%d ph=%d cases_restantes=%d sorties=", nosc, p, ord, r, l, ph, ncnear);
+          for (int k = 0; k < nsh; k++) printf("%s%d", k ? "," : "", sh[k].r); printf(" | "); psit(stdout, a0, na, cx, cy, nc); printf(" | D=%d T=%d\n", D, TT); }
         if (psi < 0 || nsh != 1 || deb) { cnt[0]++;
           if (getenv("DIAG")) { int nn = 0; for (int k = 0; k < n; k++) if (hd(a[k].x - ocx, a[k].y - ocy) <= R) nn++;
             printf("DIAG proches=%d vaisseaux=%d", nn, nsh); for (int k = 0; k < nsh; k++) printf(" r%d%s", sh[k].r, sh[k].k == kship ? "v" : "o"); printf(" debris=%d psi=%d\n", deb, psi); }

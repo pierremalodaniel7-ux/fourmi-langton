@@ -237,3 +237,38 @@ Accord avec les recherches (miroir.c, R-332) : 0 miroir exact sur 7 723 oscillat
 comme R-314) ou un objet qu'il modifie ; une « boucle de miroirs » fixe est impossible (et R-330 exclut déjà les cases seules).
 Remarque : les chocs PROPRES de 2 vaisseaux (sans débris) doivent conserver Q(A) + Q(B) mod 3 et les classes ; ex. (60°, −120°, +120°)
 de R-314 : B −120° (Q + 1), A +120° (Q − 1) ✓ ; « B tout droit, A +120° » laisse forcément des cases (R-314 : 3 cases).
+
+## R-332 Recherche de miroirs-oscillateurs (2, 3, 4 fourmis) — OBSERVÉ (miroir.c : enum, tir, flux ; confirmé par R-331)
+Oscillateurs = cycles EXACTS (retour à l'état de départ, donc périodiques pour toujours) : 2 fourmis dans [−3,3]² + ≤ 1 case (44 928
+situations) → 95 orbites distinctes (à translation, rotation, phase près ; périodes 3, 12 ×87, 15…54) ; 2 fourmis dans [−6,6]² + ≤ 2 cases
+(1 971 648) → 1 711 ; 3 fourmis dans [−2,2]² + ≤ 1 case (3 100 032) → 12 (périodes 6, 12, 18, 36 ; NB : McGinnis-Webb laissent ouvert
+« N impair périodique ? » dans leur modèle synchrone ; ici, ordre « l'une après l'autre », il en existe) ; 4 fourmis dans [−2,2]² sans case
+→ voir R-336. Recoupement : les 9 premiers oscillateurs donnent CYCLE avec la même période dans fourmi_r.
+Tir : chaque oscillateur × 6 directions × toutes les voies qui le touchent × toutes ses phases × 2 ordres de jeu (vaisseau avant/après).
+2 fourmis (95 + 1 711) et 3 fourmis : 0 miroir exact ; 2 « miroirs » où l'objet ressort TOURNÉ et DÉPLACÉ (osc. p = 36) ; 4 fourmis
+(6 000 premiers) : 0. Très souvent le vaisseau tourne en CHANGEANT l'oscillateur (en un autre : 540 442 cas pour les 1 711).
+Flux (miroir.c flux) : NV vaisseaux sur la même voie, espacés de 160 à 399 pas : au mieux 4 vaisseaux de suite tournés pareil par le même
+objet, jamais 5 (461 candidats). ⇒ conforme au théorème R-331.
+Passages « exactement transparents » : parfois une fourmi de l'oscillateur part à la place du vaisseau (échange d'identité), sans aucun
+décalage : invisible de l'extérieur, inutile pour lire.
+
+## R-333 « 0 perte » pour TOUS les chocs de 2 vaisseaux R2L2 — DÉMONTRÉ (calcul exhaustif + certificats ; chocs_exhaustif.py, chocs_certif.py)
+Ensemble fini : B en direction 0 (rotation globale), A en direction r = 1..5, A avancé de τ = 0..7 pas, position relative v modulo
+u = d_A − d_B (décaler les deux de 8 pas = ajouter u), 2 ordres de jeu. Les cases noires d'un vaisseau sont à distance ≤ 2 de sa fourmi :
+si les fourmis ne passent jamais à moins de 6 l'une de l'autre, chacune ne voit que du blanc → transparent EXACT (4 852 géométries).
+Les 940 autres × 2 ordres = 1 880 chocs, simulés : 1 688 → 2 vaisseaux propres, 168 → 2 vaisseaux + des cases (débris), 24 → 1 vaisseau
+DOUBLE (les 2 fourmis liées, période 8, se déplace comme un vaisseau) ; 0 autre issue. Certificats pour tout temps : les 2 vaisseaux
+(prolongés seuls 200 périodes) ne se rapprochent jamais à moins de 6 et ne touchent jamais les débris (distances croissantes) ; le vaisseau
+double se répète exactement (51 périodes) et s'éloigne de ses débris. 2 moteurs : 1 880/1 880 états finaux identiques (hx.py / fourmi_r).
+⇒ THÉORÈME (convention « l'une après l'autre ») : un choc de 2 vaisseaux R2L2 ne détruit jamais un vaisseau. Chaque issue respecte (I1) et
+(I2) de R-331. Ce qui bloque le billard complet : pas de miroir (R-330, R-331) ; on ne tourne qu'avec d'autres vaisseaux.
+
+## R-334 Pixel et écran de 2 pixels (version 1 : OFF = 1 case) — VÉRIFIÉ (2 moteurs, temps fini) (pixels.py)
+Pixel ON = O = « H:R2L2|0,0,3;1,0,0|1,0 » (2 fourmis, 1 case, période 3 : le plus petit oscillateur). O est son propre film à l'envers
+(gomme collective R-311 : la destruction renversée recrée O exactement, au même endroit). EFFACER : 1 vaisseau (r = 3, voie 0, O en
+phase 2, joué après O) → O part en 3 vaisseaux et laisse 1 case en (0,−1) (obligatoire : invariant Q, 0 + 1 ≢ 1 + 1 + 2… mod 3).
+ÉCRIRE : film à l'envers de l'effacement (r = 1, voie −2) : 3 vaisseaux + la case (0,−1) → O, un 4e vaisseau repart.
+Toutes les routes vont dans les directions 2, 3, 4 : aucun choc frontal en vol. Démo (UNE simulation, 11 fourmis posées à t = 0, aucune
+case fixe à part la case « OFF » de chaque pixel) : P1 = ON, OFF, ON et P2 = OFF, ON, OFF à t = 1 600, 3 200, 4 800 : 3/3 justes ;
+2 moteurs (hx.py et fourmi_r -x -dump) : 4/4 états identiques. Limite : LIRE un pixel OFF déplace sa case (0,−1) → (2,−2) (le vaisseau
+la traverse, R-330 : il ne tourne pas mais la décale) ⇒ pas de mémoire lisible avec cette version ; voir R-335.
