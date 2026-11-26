@@ -1,0 +1,9 @@
+RL chocs déviés 339
+  2e choc identique (mêmes directions, mêmes voies) : {'k=40': '23/339', 'k=100': '84/339'}
+RL [(('D', 0), 103), (('D', 9), 239), (('T', 0), 68), (('T', 9), 31)]
+LLR chocs déviés 307
+  2e choc identique (mêmes directions, mêmes voies) : {'k=40': '5/307', 'k=100': '117/307'}
+LLR [(('D', 9), 373), (('T', 9), 61), (('X', 9), 7)]
+LLLR chocs déviés 319
+  2e choc identique (mêmes directions, mêmes voies) : {'k=40': '37/319', 'k=100': '132/319'}
+LLLR [(('D', 9), 372), (('T', 9), 69)]
