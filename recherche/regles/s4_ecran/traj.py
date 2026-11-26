@@ -47,5 +47,7 @@ def catalogue(deflect_only=True):
     for c in cat:
         LB, LA, oB, oA = (tuple(c[k]) for k in ('LB', 'LA', 'oB', 'oA'))
         if deflect_only and (oB[0] in (LB[0], LA[0]) or oA[0] in (LB[0], LA[0])): continue
+        # une sortie opposée à une entrée du même choc repart sur l'axe de cette entrée (de face) : interdit pour la réutilisation
+        if deflect_only and any((o[0] - i[0]) % 6 == 3 for o in (oB, oA) for i in (LB, LA)): continue
         out.append(Choc([of_label(LB), of_label(LA)], [of_label(oB), of_label(oA)], 0 if c['ordre'] == 0 else 1))
     return out
