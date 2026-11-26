@@ -1,0 +1,4 @@
+fourmi_r_big
+*.pyc
+__pycache__/
+data/
