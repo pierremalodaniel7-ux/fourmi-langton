@@ -326,3 +326,20 @@ j = 1 … 20 ; aucune paire de routes de face. ⇒ N usages = superposition exac
 4 fourmis dans [−2,2]² avec 0 ou 1 case dans [−2,2]² (409 204 224 situations testées) → 23 364 orbites distinctes (périodes 12 … 345).
 Tir (6 directions × voies × phases × 2 ordres, 3 tranches) : 0 miroir exact, 0 miroir « tourné/déplacé » ; détruits/sales 42 161 060,
 transparents 61 780 692, décalés 17 788. Conforme à R-331 (aucun miroir exact possible).
+
+## R-340 Un objet périodique ne peut pas CAPTURER un vaisseau sans rien émettre — DÉMONTRÉ (3 lignes) ; = Thm 3 de McGinnis-Webb 2019 (modèle synchrone)
+Si R (périodique) + vaisseau → objet borné pour toujours, tout le système est borné dans le futur, donc périodique (réversibilité, R-44),
+donc borné dans le passé : impossible, le vaisseau venait de l'infini. ⇒ « faire entrer un bit avec UN vaisseau » oblige à émettre au
+moins un vaisseau : on CHANGE l'objet R en R' (le vaisseau ressort). Recherche (bascule_hexa.py sur les 95 oscillateurs à 2 fourmis de
+[−3,3]²) : 20 335 conversions R → R', 11 510 R' distincts, 438 496 retours R' → R AU MÊME ENDROIT (avec doublons).
+Bascule « T » (le même vaisseau fait R → R' puis R' → R) : 0 ; avec même direction et même ordre, la voie diffère toujours de ±1 (473 cas).
+Bascules « RS » (mise à 1 et mise à 0 par 2 vaisseaux différents) dont toutes les routes tiennent dans un demi-plan : 920.
+Aucune n'est idempotente (écrire 1 sur un 1 abîme l'objet pour au moins une phase) : il faut alterner, ou lire avant d'écrire.
+
+## R-341 Bascule RS à UN vaisseau par écriture, 20/20 — VÉRIFIÉ (2 moteurs, temps fini) (bascule_demo.py)
+État 0 = M = « H:R2L2|0,0,1;1,-1,0|-1,1 » (le bit de R-335, période 21) ; état 1 = R' = « H:R2L2|-1,0,3;1,1,0|-1,0;-1,1;0,-1;1,0;1,1 »
+(2 fourmis + 5 cases, période 12), au même endroit. Mise à 1 : 1 vaisseau direction 0 (voie 1 depuis le centre, M en phase 16), il
+TRAVERSE et continue tout droit ; mise à 0 : 1 vaisseau direction 2 (voie −2, R' en phase 2), il traverse aussi. Chaque vaisseau arrive à
+la bonne phase (instant choisi au pas près ; germes avancés de 0 à 7 pas). 20 écritures alternées 1, 0, 1, 0… au même endroit, UNE
+simulation (22 fourmis posées à t = 0, t = 32 405) : 20/20 états justes entre deux écritures ; 2 moteurs identiques à la fin.
+C'est exactement « faire entrer le bit (1) et le faire sortir (0) avec un autre vaisseau » de la consigne 3a, sans miroir.
