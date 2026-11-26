@@ -321,3 +321,8 @@ le même axe en sens opposés à ≤ 6 voies : AUCUNE paire (sortie, entrée) de
 Un usage = écrire b (si b = 1) puis lire ; il part du pixel vide et y revient (0 case laissée, contrôlé). Les usages sont des copies exactes
 décalées de 3 200 pas. Distance minimale exacte entre fourmis de deux usages (tous temps, 4 couples de bits) : 101 + 200 (j − 1) pour
 j = 1 … 20 ; aucune paire de routes de face. ⇒ N usages = superposition exacte ; chaque lecture rend le bit écrit (R-335).
+
+## R-336 Oscillateurs à 4 fourmis : 23 364 orbites, 0 miroir — OBSERVÉ (miroir.c enum 4 2 0 + tir)
+4 fourmis dans [−2,2]² avec 0 ou 1 case dans [−2,2]² (409 204 224 situations testées) → 23 364 orbites distinctes (périodes 12 … 345).
+Tir (6 directions × voies × phases × 2 ordres, 3 tranches) : 0 miroir exact, 0 miroir « tourné/déplacé » ; détruits/sales 42 161 060,
+transparents 61 780 692, décalés 17 788. Conforme à R-331 (aucun miroir exact possible).

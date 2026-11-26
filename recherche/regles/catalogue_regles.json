@@ -229,5 +229,236 @@
   "deja": "Pas trouvé (voir R-324 : article 2019 non lu).",
   "source": "R-325 à R-329",
   "commande": "python3 usages_add.py 0 20 200"
+ },
+ {
+  "id": "R-330",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Vaisseau R2L2 à travers un champ de cases au hasard : jamais tourné",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,4",
+  "points": "1,0;31,-38;31,-36;31,-33;31,-32;31,-31;32,-40;32,-39;32,-36;32,-32;33,-42;33,-41;33,-39;33,-37;33,-36;33,-33;34,-40;34,-39;34,-38;34,-36;34,-32;35,-43;35,-41;35,-40;35,-37;35,-34;35,-33;35,-32;35,-31;36,-45;36,-41;36,-36;36,-34;36,-31;37,-45;37,-43;37,-41;37,-32;38,-43;38,-42;38,-41;39,-45;39,-41;39,-39;39,-33;40,-40;40,-33;41,-43;41,-42;41,-39;41,-36;41,-34;41,-33;41,-32;42,-49;42,-48;42,-47;42,-42;42,-40;42,-38;42,-36;42,-33;43,-48;43,-40;44,-47;44,-42;44,-41;44,-35;45,-47;45,-45;45,-42;45,-39;45,-37;46,-49;46,-43;46,-41;46,-39;46,-38;47,-45;48,-46;48,-43;48,-39;49,-49;49,-44;49,-42",
+  "img": [
+   700,
+   ""
+  ],
+  "situation": "Vaisseau R2L2 (fourmi 0,0 cap 4 + case 1,0) lancé vers un champ de 35 % de cases noires centré en (40,−40).",
+  "deroulement": "Il traverse le champ, le dérange, puis ressort en vaisseau dans LA MÊME direction (1,−1), un peu décalé de voie.",
+  "mesures": "Preuve (preuve_obstacles.py) : quel que soit l'obstacle (fini ou infini), le vaisseau ne recule jamais de plus de 3 crans : 14 états ; 3 000 champs au hasard : recul max 3, 3 000/3 000 même direction.",
+  "statut": "DÉMONTRÉ (calcul exact, ensemble fermé de 14 états) ; déjà esquissé par Grosfils et al. 1999",
+  "interet": "Aucun miroir ne peut être fait de cases : il faut des fourmis.",
+  "deja": "Connu (Grosfils, Boon, Cohen, Bunimovich 1999, preuve par cas) ; notre certificat à 14 états : pas trouvé",
+  "source": "journal_regles R-330",
+  "commande": "python3 preuve_obstacles.py 3"
+ },
+ {
+  "id": "R-334-O",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Le plus petit oscillateur R2L2 : 2 fourmis + 1 case, période 3",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,3;1,0,0",
+  "points": "1,0",
+  "img": [
+   30,
+   ""
+  ],
+  "situation": "2 fourmis de classes opposées (caps 3 et 0) côte à côte, 1 case noire.",
+  "deroulement": "Revient exactement à son état toutes les 3 étapes. C'est son propre film à l'envers.",
+  "mesures": "Cycle exact (fourmi_r CYCLE C3 ; hx.py). Détruit par 1 vaisseau en 3 vaisseaux (il reste 1 case, imposé par l'invariant Q).",
+  "statut": "VÉRIFIÉ (cycle exact = périodique pour toujours)",
+  "interet": "Pixel ON de l'écran version 1 (R-334).",
+  "deja": "Cycles à 2 particules : McGinnis-Webb 2019 (modèle synchrone) ; celui-ci : pas trouvé tel quel",
+  "source": "journal_regles R-312, R-334",
+  "commande": "./fourmi_r \"H:R2L2|0,0,3;1,0,0|1,0\""
+ },
+ {
+  "id": "R-335-M",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Bit de mémoire : oscillateur M (2 fourmis + 1 case, période 21)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,1;1,-1,0",
+  "points": "-1,1",
+  "img": [
+   63,
+   ""
+  ],
+  "situation": "2 fourmis (caps 1 et 0) et 1 case : une paire qui tourne en rond.",
+  "deroulement": "Période 21 ; propre film à l'envers (à une phase près) ; ses destructions propres ne laissent AUCUNE case.",
+  "mesures": "Cycle exact ; écriture (3 vaisseaux) et lecture (1 sonde → 3 vaisseaux) ; 20/20 usages, certifié pour tout nombre d'usages (R-339).",
+  "statut": "VÉRIFIÉ",
+  "interet": "Bit 1 = M présent, bit 0 = rien : la « boule dans sa boîte » qui remplace la boucle de miroirs impossible.",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-335, R-339",
+  "commande": "python3 memoire_finale.py 20 26"
+ },
+ {
+  "id": "R-335-E",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "ÉCRIRE 1 : trois vaisseaux qui fabriquent le bit M",
+  "regle": "H:R2L2",
+  "fourmis": "46,1,2;49,-51,3;51,-1,2",
+  "points": "47,1;48,-50;49,-51;51,-2",
+  "img": [
+   720,
+   ""
+  ],
+  "situation": "Film à l'envers (gomme collective) d'une destruction propre de M : 3 vaisseaux qui convergent vers (0,0).",
+  "deroulement": "Au pas 720, M est là exactement (phase 2) et un 4e vaisseau repart vers la gauche.",
+  "mesures": "hx.py et fourmi_r identiques ; aucune case en trop.",
+  "statut": "VÉRIFIÉ (temps fini ; M est ensuite un cycle exact)",
+  "interet": "Écriture d'une mémoire sans aucune case fixe.",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-335",
+  "commande": "python3 memoire_finale.py"
+ },
+ {
+  "id": "R-335-L",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "LIRE : la sonde détruit M en 3 vaisseaux propres (bit 1)",
+  "regle": "H:R2L2",
+  "fourmis": "0,-1,3;0,-1,4;2,-42,0",
+  "points": "-1,1;1,-41",
+  "img": [
+   720,
+   ""
+  ],
+  "situation": "M (phase 11) + 1 vaisseau-sonde de direction (0,1) joué après M.",
+  "deroulement": "M part en 3 vaisseaux (directions 3, 2, 4) ; il ne reste RIEN. Sans M, la sonde passe seule.",
+  "mesures": "Bit lu = 3 vaisseaux sortants (1) ou 1 (0). 20/20 sur 4 tirages ; 2 moteurs identiques.",
+  "statut": "VÉRIFIÉ",
+  "interet": "Lecture destructive, comme une mémoire à tores.",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-335",
+  "commande": "python3 memoire_finale.py"
+ },
+ {
+  "id": "R-335-6",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Mémoire 1 bit : 6 usages au même endroit (1, 0, 1, 1, 0, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "46,1,2;49,-51,3;51,-1,2;2,-246,0;2,-642,0;846,1,2;849,-851,3;851,-1,2;2,-1046,0;1246,1,2;1249,-1251,3;1251,-1,2;2,-1446,0;2,-1842,0;2046,1,2;2049,-2051,3;2051,-1,2;2,-2246,0",
+  "points": "1,-2245;1,-1841;1,-1445;1,-1045;1,-641;1,-245;47,1;48,-50;49,-51;51,-2;847,1;848,-850;849,-851;851,-2;1247,1;1248,-1250;1249,-1251;1251,-2;2047,1;2048,-2050;2049,-2051;2051,-2",
+  "img": [
+   1600,
+   ""
+  ],
+  "situation": "18 fourmis, toutes en vaisseaux venus de loin à t = 0 ; aucune case fixe. Usage i : écriture (si 1) à 3 200·i, lecture vers 3 200·i + 1 600.",
+  "deroulement": "Image au pas 1 600 : le bit 1 du 1er usage est écrit (M au centre) ; les vaisseaux des usages suivants approchent.",
+  "mesures": "6/6 lectures justes ; version 20 usages : 20/20 (4 tirages), 2 moteurs ; certificat pour tout nombre d'usages (R-339).",
+  "statut": "VÉRIFIÉ / DÉMONTRÉ (R-339)",
+  "interet": "Premier bit réinscriptible du projet sans remise à zéro extérieure.",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-335, R-339",
+  "commande": "python3 memoire_finale.py 20 26"
+ },
+ {
+  "id": "R-335-X",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Écran de 2 pixels : P1 = ON, OFF, ON ; P2 = OFF, ON, OFF",
+  "regle": "H:R2L2",
+  "fourmis": "46,1,2;49,-51,3;51,-1,2;2,-246,0;286,21,2;289,-231,3;291,19,2;42,-426,0;446,1,2;449,-451,3;451,-1,2",
+  "points": "1,-245;41,-425;47,1;48,-50;49,-51;51,-2;287,21;288,-230;289,-231;291,18;447,1;448,-450;449,-451;451,-2",
+  "img": [
+   1600,
+   ""
+  ],
+  "situation": "P1 en (0,0), P2 en (40,20) ; 11 fourmis posées à t = 0 (kits d'écriture et d'effacement).",
+  "deroulement": "Lectures à t = 1 600, 3 200, 4 800 : (ON, OFF), (OFF, ON), (ON, OFF).",
+  "mesures": "3/3 justes ; version 1 (pixel 2 fourmis + 1 case, OFF = 1 case) : 3/3, 2 moteurs 4/4 (pixels.py).",
+  "statut": "VÉRIFIÉ (temps fini)",
+  "interet": "Pixel « comme Conway » : ON = une paire qui tourne, OFF = vide.",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-334, R-335",
+  "commande": "python3 pixels.py ; python3 memoire_finale.py"
+ },
+ {
+  "id": "R-337-10",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Demi-additionneur réutilisable : un usage a = 1, b = 0 (S sur la voie de V)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;30,-56,0",
+  "points": "-15,16;62,-23;63,-23;29,-55",
+  "img": [
+   1400,
+   ""
+  ],
+  "situation": "Porte R-327 (B en (0,0), A en (30,−56)) + K2 (62,−24) + K3 (−16,16) ; ici seul A est présent.",
+  "deroulement": "K2 tourne U vers la gauche, puis U pousse K3 sur la voie de sortie de B : S = 1 sur la même voie que dans le cas b = 1. Aucune case ne reste.",
+  "mesures": "4 cas justes, 0 case ; 563 variantes trouvées ; 20 usages au hasard : 20/20 (5 tirages), 2 moteurs ; certificat pour tout nombre d'usages (R-338).",
+  "statut": "VÉRIFIÉ / DÉMONTRÉ (R-338)",
+  "interet": "Ferme R-329 : demi-additionneur à sortie S unique, réutilisable sans remise à zéro.",
+  "deja": "Pas trouvé (billard de Fredkin-Toffoli sans miroir)",
+  "source": "journal_regles R-337, R-338",
+  "commande": "python3 demi_add_final.py 7 200"
+ },
+ {
+  "id": "R-337-20",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Demi-additionneur : 20 additions au hasard au même endroit",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;30,-56,0;-216,216,4;262,-24,4;-200,200,4;-416,416,4;462,-24,4;-400,400,4;30,-456,0;-616,616,4;662,-24,4;-816,816,4;862,-24,4;-1016,1016,4;1062,-24,4;-1216,1216,4;1262,-24,4;30,-1256,0;-1416,1416,4;1462,-24,4;-1616,1616,4;1662,-24,4;-1600,1600,4;-1816,1816,4;1862,-24,4;-2016,2016,4;2062,-24,4;-2216,2216,4;2262,-24,4;-2200,2200,4;30,-2256,0;-2416,2416,4;2462,-24,4;-2400,2400,4;30,-2456,0;-2616,2616,4;2662,-24,4;-2816,2816,4;2862,-24,4;-2800,2800,4;-3016,3016,4;3062,-24,4;-3216,3216,4;3262,-24,4;-3200,3200,4;30,-3256,0;-3416,3416,4;3462,-24,4;-3616,3616,4;3662,-24,4;-3816,3816,4;3862,-24,4;-3800,3800,4",
+  "points": "-15,16;62,-23;63,-23;29,-55;-215,216;262,-23;263,-23;-199,200;-415,416;462,-23;463,-23;-399,400;29,-455;-615,616;662,-23;663,-23;-815,816;862,-23;863,-23;-1015,1016;1062,-23;1063,-23;-1215,1216;1262,-23;1263,-23;29,-1255;-1415,1416;1462,-23;1463,-23;-1615,1616;1662,-23;1663,-23;-1599,1600;-1815,1816;1862,-23;1863,-23;-2015,2016;2062,-23;2063,-23;-2215,2216;2262,-23;2263,-23;-2199,2200;29,-2255;-2415,2416;2462,-23;2463,-23;-2399,2400;29,-2455;-2615,2616;2662,-23;2663,-23;-2815,2816;2862,-23;2863,-23;-2799,2800;-3015,3016;3062,-23;3063,-23;-3215,3216;3262,-23;3263,-23;-3199,3200;29,-3255;-3415,3416;3462,-23;3463,-23;-3615,3616;3662,-23;3663,-23;-3815,3816;3862,-23;3863,-23;-3799,3800",
+  "img": [
+   3200,
+   ""
+  ],
+  "situation": "54 fourmis (entrées et constantes de 20 usages espacés de 200 périodes), toutes posées à t = 0.",
+  "deroulement": "Chaque usage sort S = a⊕b (voie 0) et C = a∧b (voie (2,−28)) ; les usages ne se touchent jamais (distance ≥ 90).",
+  "mesures": "20/20 justes, 2 moteurs identiques, 0 case restante.",
+  "statut": "VÉRIFIÉ",
+  "interet": "Calcul réutilisé 20 fois.",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-337",
+  "commande": "python3 demi_add_final.py 7 200"
+ },
+ {
+  "id": "R-333-D",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Vaisseau DOUBLE : 2 vaisseaux qui se collent et repartent ensemble",
+  "regle": "H:R2L2",
+  "fourmis": "-25,25,4;0,-25,0",
+  "points": "-24,25;-1,-24",
+  "img": [
+   500,
+   ""
+  ],
+  "situation": "Choc de 2 vaisseaux (directions (1,−1) et (0,1)) dans l'une des 24 géométries « liées » de R-333.",
+  "deroulement": "Après le choc, les 2 fourmis restent liées : un objet de période 8 qui avance comme un vaisseau.",
+  "mesures": "Répétition exacte sur 51 périodes ; s'éloigne de ses débris (certificat chocs_certif.py).",
+  "statut": "VÉRIFIÉ (certificat de périodicité)",
+  "interet": "Une des 3 issues possibles d'un choc (jamais de perte, R-333).",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-333",
+  "commande": "python3 chocs_exhaustif.py && python3 chocs_certif.py"
+ },
+ {
+  "id": "R-332-3",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Oscillateur à 3 fourmis (nombre impair), période 6",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,2;1,-2,4;0,-1,0",
+  "points": "1,-2",
+  "img": [
+   30,
+   ""
+  ],
+  "situation": "3 fourmis + 1 case dans un carré 3×3.",
+  "deroulement": "Cycle exact de période 6.",
+  "mesures": "12 orbites distinctes à 3 fourmis trouvées ([−2,2]², ≤ 1 case) ; fourmi_r : CYCLE.",
+  "statut": "VÉRIFIÉ (cycle exact)",
+  "interet": "McGinnis-Webb (2019) laissent ouvert « N impair périodique ? » dans leur modèle SYNCHRONE ; ici, ordre « l'une après l'autre » (les fourmis se croisent sur une même case).",
+  "deja": "Différent du cadre de 1908.06019 (convention)",
+  "source": "journal_regles R-332",
+  "commande": "./miroir enum 3 2 1 4096"
  }
 ]
