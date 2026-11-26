@@ -1,0 +1,22 @@
+usage  1 : a = 1, b = 0 → S = 1, C = 0  OK
+usage  2 : a = 0, b = 1 → S = 1, C = 0  OK
+usage  3 : a = 1, b = 1 → S = 0, C = 1  OK
+usage  4 : a = 0, b = 0 → S = 0, C = 0  OK
+usage  5 : a = 0, b = 0 → S = 0, C = 0  OK
+usage  6 : a = 0, b = 0 → S = 0, C = 0  OK
+usage  7 : a = 1, b = 0 → S = 1, C = 0  OK
+usage  8 : a = 0, b = 0 → S = 0, C = 0  OK
+usage  9 : a = 0, b = 1 → S = 1, C = 0  OK
+usage 10 : a = 0, b = 0 → S = 0, C = 0  OK
+usage 11 : a = 0, b = 0 → S = 0, C = 0  OK
+usage 12 : a = 1, b = 1 → S = 0, C = 1  OK
+usage 13 : a = 1, b = 1 → S = 0, C = 1  OK
+usage 14 : a = 0, b = 0 → S = 0, C = 0  OK
+usage 15 : a = 0, b = 1 → S = 1, C = 0  OK
+usage 16 : a = 0, b = 0 → S = 0, C = 0  OK
+usage 17 : a = 1, b = 1 → S = 0, C = 1  OK
+usage 18 : a = 0, b = 0 → S = 0, C = 0  OK
+usage 19 : a = 0, b = 0 → S = 0, C = 0  OK
+usage 20 : a = 0, b = 1 → S = 1, C = 0  OK
+20/20 additions justes ; 54 fourmis ; 2 moteurs identiques : True ; cases restantes hors vaisseaux : 0
+demi-additionneur : K2 = [[62, -24, 4], [[62, -23], [63, -23]]]  K3 = [[-16, 16, 4], [[-15, 16]]]  C lu sur (2, -28)

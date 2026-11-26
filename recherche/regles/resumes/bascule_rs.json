@@ -1,0 +1,17 @@
+{
+ "R": "H:R2L2|0,0,1;1,-1,0|-1,1",
+ "R2": "H:R2L2|-1,0,3;1,1,0|-1,0;-1,1;0,-1;1,0;1,1",
+ "s1": "CONV osc=7 p=21 p2=12 ord=0 r=0 l=1 ph=16 angle=0 sortie_r=0 qui=vaisseau na2=2 centre2=0,0 centre=0,0",
+ "s2": "CONV osc=176 p=12 p2=21 ord=0 r=2 l=-2 ph=2 angle=0 sortie_r=2 qui=vaisseau na2=2 centre2=0,0 centre=0,0",
+ "ecritures": [
+  1,
+  0
+ ],
+ "lus": [
+  1,
+  0
+ ],
+ "justes": "2/2",
+ "deux_moteurs": true,
+ "situation": "H:R2L2|0,0,1;1,-1,0;-41,42,4;2,-243,4|-40,42;-1,1;1,-242;1,-241;2,-243"
+}

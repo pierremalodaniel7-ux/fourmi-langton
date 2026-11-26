@@ -1,0 +1,25 @@
+# Lignes à AJOUTER à deja_connu.md (nuit du 25/11, session « règles » ; non fusionné pour ne pas toucher aux fichiers communs)
+
+| Sujet | Verdict | Source | Cherché le |
+|---|---|---|---|
+| Réversibilité de la fourmi généralisée (retour en arrière en retournant la fourmi) | Connu | Gajardo et al., Algorithms 4(1) 2011 (PSPACE, « time-reversible generalized Langton's ant ») ; ci2ma pp11-28 | 25/11 |
+| Condition exacte de la gomme : q = 2 et K₁ = −K₀ (carré, hexa, triangle) ; gomme collective (n fourmis, ordre inversé) qui remet à zéro un circuit entier | Pas trouvé énoncé (sans doute folklore pour RL) | 1 recherche web | 25/11 |
+| LLLR : autoroutes 52 et 156 | Connu | arXiv 2506.10482 | 25/11 |
+| LLRRRL : infinité d'autoroutes (896, 992, 800, 1 088…) | Connu | Lutfalla, « Sideways on the highways », arXiv 2505.05426 | 25/11 |
+| Hexa ±120° (H:R2L2) = gaz de Lorentz à « flipping rotators » ±2π/3 sur réseau triangulaire : la particule se propage | Connu (propagation dans une bande) | Kong & Cohen ; Grosfils & Boon (arXiv cond-mat/9905168) ; plusieurs particules : arXiv 1908.06019 (2019) NON LU (arxiv.org inaccessible) | 25/11 |
+| Hexa ±60° (H:R1L1) / triangle RL = flipping rotators ±π/3 sur nid d'abeilles : marche auto-évitante entre retours | Connu | Webb & Cohen 2014 (arXiv 1404.3629, 1507.07133) | 25/11 |
+| Vaisseau R2L2 à 1 case sans trace ; chocs de 2 vaisseaux (0 perte sur 1 215) ; portes interaction / aiguillage ; circuit à 2 étages réutilisé 30 fois | Pas trouvé — À VÉRIFIER dans arXiv 1908.06019 avant de dire « nouveau » | 4 recherches web | 25/11 |
+| Comparaison de règles pour le calcul réutilisable (fil, déviation, croisement, réutilisation, gomme) | Pas trouvé | 1 recherche web | 25/11 |
+
+## Nuit du 26/11 (session hexa) — lecture de arXiv 1908.06019 et des sources voisines
+| Sujet | Verdict | Source | Cherché le |
+|---|---|---|---|
+| Vaisseau R2L2 (R-306) : fourmi ±120° qui se propage dans une bande, 8 pas par case | **Déjà connu** : « la particule se propage dans une direction à travers une bande », pour TOUTE configuration de rotateurs ; vitesse moyenne 1/8 (= notre période 8, 1 case) ; appelé « glider » par Khlabystova. Notre forme exacte (1 seule case portée, aucune trace sur fond blanc) n'est pas écrite telle quelle mais en découle | Grosfils, Boon, Cohen, Bunimovich, J. Stat. Phys. 97 (1999) 575 (arXiv cond-mat/9905168, Thm 2) ; Kong & Cohen ; S. Khlabystova, thèse Georgia Tech 2003 | 26/11 |
+| « Une fois dans sa bande, la particule n'en sort jamais » (pour toute configuration) ⇒ AUCUN obstacle fixe ne peut tourner un vaisseau | **Déjà connu** (preuve esquissée par cas, figures 10-12) ; nous le revérifions par un calcul exhaustif (R-330) | Grosfils et al. 1999 ; explique R-307 | 26/11 |
+| Plusieurs particules ±2π/3 sur réseau triangulaire (rotateurs partout), orbites périodiques à 2 particules (période 4d, taille 3d+1), « chain reaction », théorème : passé non borné ⇒ futur non borné | **Déjà connu** — mais modèle SYNCHRONE avec hypothèse « jamais 2 particules sur le même site au même instant » ; notre convention (l'une après l'autre) diffère exactement dans ces cas | McGinnis & Webb, arXiv 1908.06019 (2019) | 26/11 |
+| Deux particules qui se « diffusent » mutuellement dans de nouvelles bandes (déviation par choc, R-310) | **Probablement connu** (Prop. 4.2 de la thèse Khlabystova, lue seulement en résumé) ; McGinnis-Webb Fig. 3 : « déviation de son mouvement par une autre particule » | Khlabystova 2003 ; 1908.06019 | 26/11 |
+| Portes « boule de billard » faites de chocs de vaisseaux R2L2 (interaction, aiguillage R-314), circuit réutilisé 30 fois (R-321) | **Pas trouvé ailleurs** : aucune porte logique ni modèle de billard dans 1908.06019, Grosfils 1999, Khlabystova 2003 ; Bunimovich-Khalbystova 2002 (« LLG and many-dimensional Turing machines », Collision-Based Computing, Springer) non lu : c'est la seule source à risque | 6 recherches web + 3 lectures | 26/11 |
+| Turmite hexagonale ±120° (Golly HexTurmite) | Rien de spécifique trouvé (règles hexa générales connues, Turk/Golly) | 1 recherche | 26/11 |
+| Invariant Q = (cases noires) − Σ⌊cap/2⌋ mod 3 (R2L2) ⇒ aucun miroir exact ; forme générale pour q = 2 : c·K₀ ≡ 1, c·K₁ ≡ −1, c·M ≡ 0 (mod m) (RL : mod 4, R1L1 : mod 6) | **Pas trouvé** (2 recherches) ; le cas RL est sans doute du folklore (parité « damier » de la fourmi, Gale-Propp « Further travels with my ant ») | 2 recherches | 26/11 |
+| « 0 perte » pour tous les chocs de 2 vaisseaux (calcul exhaustif) ; mémoire, écran, bascule RS, demi-additionneur réutilisables (certificats pour tout nombre d'usages) | **Pas trouvé** | idem | 26/11 |
+| Capture d'un vaisseau par un objet périodique impossible sans émission | **Déjà connu** sous une autre forme : McGinnis-Webb 2019, Thm 3 (passé non borné ⇒ futur non borné) | 1908.06019 | 26/11 |

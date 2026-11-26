@@ -1,0 +1,620 @@
+U (0, 1) V (1, -1) voie V 0 d3 (-1, 0)
+K2 possibles : 51
+  essai K2 (0, -1, 2) K3 (0, -2, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 1
+  essai K2 (0, -1, 2) K3 (0, -2, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 2
+  essai K2 (0, -1, 2) K3 (0, -1, -1) n3 114 S sur la voie : [1, 1, 2, 1]
+  essai K2 (0, -1, 2) K3 (0, -1, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 3
+  essai K2 (0, -1, 2) K3 (0, -1, 1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 4
+  essai K2 (0, -1, 2) K3 (0, 0, -1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 5
+  essai K2 (0, -1, 2) K3 (0, 0, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 6
+  essai K2 (0, -1, 2) K3 (0, 1, -2) n3 115 S sur la voie : [1, 1, 2, 1]
+  essai K2 (0, -1, 2) K3 (0, 1, -1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 7
+  essai K2 (0, -1, 2) K3 (0, 1, 0) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 8
+  essai K2 (0, -1, 2) K3 (0, 2, -2) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 9
+  essai K2 (0, -1, 2) K3 (0, 2, -1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 10
+  essai K2 (0, -1, 2) K3 (2, 0, -2) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 11
+  essai K2 (0, -1, 2) K3 (2, 1, -1) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 12
+  essai K2 (0, -1, 2) K3 (2, 2, 0) n3 120 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 13
+  essai K2 (0, -1, 2) K3 (3, -2, -2) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, -1, 2) K3 (3, -2, -1) n3 113 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, -1, 2) K3 (3, -2, 0) n3 114 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, -1, 2) K3 (3, -2, 1) n3 115 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, -1, 2) K3 (3, -2, 2) n3 116 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, -1, 2) K3 (3, 1, -2) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 14
+  essai K2 (0, -1, 2) K3 (3, 1, -1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 15
+  essai K2 (0, -1, 2) K3 (3, 1, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 16
+  essai K2 (0, -1, 2) K3 (3, 1, 1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 17
+  essai K2 (0, -1, 2) K3 (3, 1, 2) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 18
+  essai K2 (0, -1, 2) K3 (5, -2, 2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 19
+  essai K2 (0, -1, 2) K3 (5, -1, 1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 20
+  essai K2 (0, -1, 2) K3 (5, 0, 0) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 21
+  essai K2 (0, -1, 2) K3 (5, 1, -1) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 22
+  essai K2 (0, -1, 2) K3 (5, 2, -2) n3 120 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 23
+  essai K2 (0, 0, 0) K3 (0, -2, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 24
+  essai K2 (0, 0, 0) K3 (0, -2, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 25
+  essai K2 (0, 0, 0) K3 (0, -1, -1) n3 112 S sur la voie : [1, 1, 2, 1]
+  essai K2 (0, 0, 0) K3 (0, -1, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 26
+  essai K2 (0, 0, 0) K3 (0, -1, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 27
+  essai K2 (0, 0, 0) K3 (0, 0, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 28
+  essai K2 (0, 0, 0) K3 (0, 0, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 29
+  essai K2 (0, 0, 0) K3 (0, 1, -2) n3 113 S sur la voie : [1, 1, 2, 1]
+  essai K2 (0, 0, 0) K3 (0, 1, -1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 30
+  essai K2 (0, 0, 0) K3 (0, 1, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 31
+  essai K2 (0, 0, 0) K3 (0, 2, -2) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 32
+  essai K2 (0, 0, 0) K3 (0, 2, -1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 33
+  essai K2 (0, 0, 0) K3 (2, 0, -2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 34
+  essai K2 (0, 0, 0) K3 (2, 1, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 35
+  essai K2 (0, 0, 0) K3 (2, 2, 0) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 36
+  essai K2 (0, 0, 0) K3 (3, -2, -2) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 37
+  essai K2 (0, 0, 0) K3 (3, -2, -1) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 38
+  essai K2 (0, 0, 0) K3 (3, -2, 0) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 39
+  essai K2 (0, 0, 0) K3 (3, -2, 1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 40
+  essai K2 (0, 0, 0) K3 (3, -2, 2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 41
+  essai K2 (0, 0, 0) K3 (3, 1, -2) n3 113 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 0, 0) K3 (3, 1, -1) n3 114 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 0, 0) K3 (3, 1, 0) n3 115 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 0, 0) K3 (3, 1, 1) n3 116 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 0, 0) K3 (3, 1, 2) n3 117 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 0, 0) K3 (5, -2, 2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 42
+  essai K2 (0, 0, 0) K3 (5, -1, 1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 43
+  essai K2 (0, 0, 0) K3 (5, 0, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 44
+  essai K2 (0, 0, 0) K3 (5, 1, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 45
+  essai K2 (0, 0, 0) K3 (5, 2, -2) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 46
+  essai K2 (0, 1, -2) K3 (0, -2, 0) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 47
+  essai K2 (0, 1, -2) K3 (0, -2, 1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 48
+  essai K2 (0, 1, -2) K3 (0, -1, -1) n3 110 S sur la voie : [1, 1, 2, 1]
+  essai K2 (0, 1, -2) K3 (0, -1, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 49
+  essai K2 (0, 1, -2) K3 (0, -1, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 50
+  essai K2 (0, 1, -2) K3 (0, 0, -1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 51
+  essai K2 (0, 1, -2) K3 (0, 0, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 52
+  essai K2 (0, 1, -2) K3 (0, 1, -2) n3 111 S sur la voie : [1, 1, 2, 1]
+  essai K2 (0, 1, -2) K3 (0, 1, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 53
+  essai K2 (0, 1, -2) K3 (0, 1, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 54
+  essai K2 (0, 1, -2) K3 (0, 2, -2) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 55
+  essai K2 (0, 1, -2) K3 (0, 2, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 56
+  essai K2 (0, 1, -2) K3 (2, 0, -2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 57
+  essai K2 (0, 1, -2) K3 (2, 1, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 58
+  essai K2 (0, 1, -2) K3 (2, 2, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 59
+  essai K2 (0, 1, -2) K3 (3, -2, -2) n3 108 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 1, -2) K3 (3, -2, -1) n3 109 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 1, -2) K3 (3, -2, 0) n3 110 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 1, -2) K3 (3, -2, 1) n3 111 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 1, -2) K3 (3, -2, 2) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (0, 1, -2) K3 (3, 1, -2) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 60
+  essai K2 (0, 1, -2) K3 (3, 1, -1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 61
+  essai K2 (0, 1, -2) K3 (3, 1, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 62
+  essai K2 (0, 1, -2) K3 (3, 1, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 63
+  essai K2 (0, 1, -2) K3 (3, 1, 2) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 64
+  essai K2 (0, 1, -2) K3 (5, -2, 2) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 65
+  essai K2 (0, 1, -2) K3 (5, -1, 1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 66
+  essai K2 (0, 1, -2) K3 (5, 0, 0) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 67
+  essai K2 (0, 1, -2) K3 (5, 1, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 68
+  essai K2 (0, 1, -2) K3 (5, 2, -2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 69
+  essai K2 (1, -3, 1) K3 (0, -2, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 70
+  essai K2 (1, -3, 1) K3 (0, -2, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 71
+  essai K2 (1, -3, 1) K3 (0, -1, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 72
+  essai K2 (1, -3, 1) K3 (0, -1, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 73
+  essai K2 (1, -3, 1) K3 (0, 0, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 74
+  essai K2 (1, -3, 1) K3 (0, 0, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 75
+  essai K2 (1, -3, 1) K3 (0, 1, -1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 76
+  essai K2 (1, -3, 1) K3 (0, 1, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 77
+  essai K2 (1, -3, 1) K3 (0, 2, -2) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 78
+  essai K2 (1, -3, 1) K3 (0, 2, -1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 79
+  essai K2 (1, -3, 1) K3 (2, -2, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 80
+  essai K2 (1, -3, 1) K3 (2, -1, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 81
+  essai K2 (1, -3, 1) K3 (2, 0, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 82
+  essai K2 (1, -3, 1) K3 (2, 1, 2) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 83
+  essai K2 (1, -3, 1) K3 (3, -1, -2) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 84
+  essai K2 (1, -3, 1) K3 (3, -1, -1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 85
+  essai K2 (1, -3, 1) K3 (3, -1, 0) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 86
+  essai K2 (1, -3, 1) K3 (3, -1, 1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 87
+  essai K2 (1, -3, 1) K3 (3, -1, 2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 88
+  essai K2 (1, -3, 1) K3 (3, 1, -2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 89
+  essai K2 (1, -3, 1) K3 (3, 1, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 90
+  essai K2 (1, -3, 1) K3 (3, 1, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 91
+  essai K2 (1, -3, 1) K3 (3, 1, 1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 92
+  essai K2 (1, -3, 1) K3 (3, 1, 2) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 93
+  essai K2 (1, -3, 1) K3 (5, -2, 2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 94
+  essai K2 (1, -3, 1) K3 (5, -1, 1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 95
+  essai K2 (1, -3, 1) K3 (5, 0, 0) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 96
+  essai K2 (1, -3, 1) K3 (5, 1, -1) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 97
+  essai K2 (1, -3, 1) K3 (5, 2, -2) n3 120 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 98
+  essai K2 (1, -3, 2) K3 (0, -2, 1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 99
+  essai K2 (1, -3, 2) K3 (0, -2, 2) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 100
+  essai K2 (1, -3, 2) K3 (0, -1, 0) n3 113 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -3, 2) K3 (0, -1, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 101
+  essai K2 (1, -3, 2) K3 (0, 0, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 102
+  essai K2 (1, -3, 2) K3 (0, 0, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 103
+  essai K2 (1, -3, 2) K3 (0, 1, -1) n3 114 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -3, 2) K3 (0, 1, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 104
+  essai K2 (1, -3, 2) K3 (0, 2, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 105
+  essai K2 (1, -3, 2) K3 (0, 2, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 106
+  essai K2 (1, -3, 2) K3 (2, 1, -2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 107
+  essai K2 (1, -3, 2) K3 (2, 2, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 108
+  essai K2 (1, -3, 2) K3 (3, 0, -2) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 109
+  essai K2 (1, -3, 2) K3 (3, 0, -1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 110
+  essai K2 (1, -3, 2) K3 (3, 0, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 111
+  essai K2 (1, -3, 2) K3 (3, 0, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 112
+  essai K2 (1, -3, 2) K3 (3, 0, 2) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 113
+  essai K2 (1, -3, 2) K3 (3, 2, -2) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 114
+  essai K2 (1, -3, 2) K3 (3, 2, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 115
+  essai K2 (1, -3, 2) K3 (3, 2, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 116
+  essai K2 (1, -3, 2) K3 (3, 2, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 117
+  essai K2 (1, -3, 2) K3 (3, 2, 2) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 118
+  essai K2 (1, -3, 2) K3 (5, -1, 2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 119
+  essai K2 (1, -3, 2) K3 (5, 0, 1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 120
+  essai K2 (1, -3, 2) K3 (5, 1, 0) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 121
+  essai K2 (1, -3, 2) K3 (5, 2, -1) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 122
+  essai K2 (1, -2, 0) K3 (0, -2, 0) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 123
+  essai K2 (1, -2, 0) K3 (0, -2, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 124
+  essai K2 (1, -2, 0) K3 (0, -1, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 125
+  essai K2 (1, -2, 0) K3 (0, -1, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 126
+  essai K2 (1, -2, 0) K3 (0, 0, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 127
+  essai K2 (1, -2, 0) K3 (0, 0, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 128
+  essai K2 (1, -2, 0) K3 (0, 1, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 129
+  essai K2 (1, -2, 0) K3 (0, 1, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 130
+  essai K2 (1, -2, 0) K3 (0, 2, -2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 131
+  essai K2 (1, -2, 0) K3 (0, 2, -1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 132
+  essai K2 (1, -2, 0) K3 (2, -2, -1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 133
+  essai K2 (1, -2, 0) K3 (2, -1, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 134
+  essai K2 (1, -2, 0) K3 (2, 0, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 135
+  essai K2 (1, -2, 0) K3 (2, 1, 2) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 136
+  essai K2 (1, -2, 0) K3 (3, -1, -2) n3 110 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, -1, -1) n3 111 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, -1, 0) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, -1, 1) n3 113 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, -1, 2) n3 114 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, 1, -2) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, 1, -1) n3 113 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, 1, 0) n3 114 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, 1, 1) n3 115 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (3, 1, 2) n3 116 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 0) K3 (5, -2, 2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 137
+  essai K2 (1, -2, 0) K3 (5, -1, 1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 138
+  essai K2 (1, -2, 0) K3 (5, 0, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 139
+  essai K2 (1, -2, 0) K3 (5, 1, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 140
+  essai K2 (1, -2, 0) K3 (5, 2, -2) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 141
+  essai K2 (1, -2, 1) K3 (0, -2, 1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 142
+  essai K2 (1, -2, 1) K3 (0, -2, 2) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 143
+  essai K2 (1, -2, 1) K3 (0, -1, 0) n3 111 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -2, 1) K3 (0, -1, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 144
+  essai K2 (1, -2, 1) K3 (0, 0, 0) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 145
+  essai K2 (1, -2, 1) K3 (0, 0, 1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 146
+  essai K2 (1, -2, 1) K3 (0, 1, -1) n3 112 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -2, 1) K3 (0, 1, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 147
+  essai K2 (1, -2, 1) K3 (0, 2, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 148
+  essai K2 (1, -2, 1) K3 (0, 2, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 149
+  essai K2 (1, -2, 1) K3 (2, 1, -2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 150
+  essai K2 (1, -2, 1) K3 (2, 2, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 151
+  essai K2 (1, -2, 1) K3 (3, 0, -2) n3 109 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 0, -1) n3 110 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 0, 0) n3 111 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 0, 1) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 0, 2) n3 113 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 2, -2) n3 111 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 2, -1) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 2, 0) n3 113 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 2, 1) n3 114 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (3, 2, 2) n3 115 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 1) K3 (5, -1, 2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 152
+  essai K2 (1, -2, 1) K3 (5, 0, 1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 153
+  essai K2 (1, -2, 1) K3 (5, 1, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 154
+  essai K2 (1, -2, 1) K3 (5, 2, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 155
+  essai K2 (1, -2, 3) K3 (0, -2, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 156
+  essai K2 (1, -2, 3) K3 (0, -2, 1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 157
+  essai K2 (1, -2, 3) K3 (0, -1, -1) n3 115 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -2, 3) K3 (0, -1, 0) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 158
+  essai K2 (1, -2, 3) K3 (0, -1, 1) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 159
+  essai K2 (1, -2, 3) K3 (0, 0, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 160
+  essai K2 (1, -2, 3) K3 (0, 0, 0) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 161
+  essai K2 (1, -2, 3) K3 (0, 1, -2) n3 116 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -2, 3) K3 (0, 1, -1) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 162
+  essai K2 (1, -2, 3) K3 (0, 1, 0) n3 120 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 163
+  essai K2 (1, -2, 3) K3 (0, 2, -2) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 164
+  essai K2 (1, -2, 3) K3 (0, 2, -1) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 165
+  essai K2 (1, -2, 3) K3 (2, 0, -2) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 166
+  essai K2 (1, -2, 3) K3 (2, 1, -1) n3 120 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 167
+  essai K2 (1, -2, 3) K3 (2, 2, 0) n3 121 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 168
+  essai K2 (1, -2, 3) K3 (3, -2, -2) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 169
+  essai K2 (1, -2, 3) K3 (3, -2, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 170
+  essai K2 (1, -2, 3) K3 (3, -2, 0) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 171
+  essai K2 (1, -2, 3) K3 (3, -2, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 172
+  essai K2 (1, -2, 3) K3 (3, -2, 2) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 173
+  essai K2 (1, -2, 3) K3 (3, 1, -2) n3 116 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 3) K3 (3, 1, -1) n3 117 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 3) K3 (3, 1, 0) n3 118 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 3) K3 (3, 1, 1) n3 119 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 3) K3 (3, 1, 2) n3 120 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -2, 3) K3 (5, -2, 2) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 174
+  essai K2 (1, -2, 3) K3 (5, -1, 1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 175
+  essai K2 (1, -2, 3) K3 (5, 0, 0) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 176
+  essai K2 (1, -2, 3) K3 (5, 1, -1) n3 120 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 177
+  essai K2 (1, -2, 3) K3 (5, 2, -2) n3 121 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 178
+  essai K2 (1, -1, -1) K3 (0, -2, 0) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 179
+  essai K2 (1, -1, -1) K3 (0, -2, 1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 180
+  essai K2 (1, -1, -1) K3 (0, -1, 0) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 181
+  essai K2 (1, -1, -1) K3 (0, -1, 1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 182
+  essai K2 (1, -1, -1) K3 (0, 0, -1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 183
+  essai K2 (1, -1, -1) K3 (0, 0, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 184
+  essai K2 (1, -1, -1) K3 (0, 1, -1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 185
+  essai K2 (1, -1, -1) K3 (0, 1, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 186
+  essai K2 (1, -1, -1) K3 (0, 2, -2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 187
+  essai K2 (1, -1, -1) K3 (0, 2, -1) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 188
+  essai K2 (1, -1, -1) K3 (2, -2, -1) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 189
+  essai K2 (1, -1, -1) K3 (2, -1, 0) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 190
+  essai K2 (1, -1, -1) K3 (2, 0, 1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 191
+  essai K2 (1, -1, -1) K3 (2, 1, 2) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 192
+  essai K2 (1, -1, -1) K3 (3, -1, -2) n3 108 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 193
+  essai K2 (1, -1, -1) K3 (3, -1, -1) n3 109 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 194
+  essai K2 (1, -1, -1) K3 (3, -1, 0) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 195
+  essai K2 (1, -1, -1) K3 (3, -1, 1) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 196
+  essai K2 (1, -1, -1) K3 (3, -1, 2) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 197
+  essai K2 (1, -1, -1) K3 (3, 1, -2) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 198
+  essai K2 (1, -1, -1) K3 (3, 1, -1) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 199
+  essai K2 (1, -1, -1) K3 (3, 1, 0) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 200
+  essai K2 (1, -1, -1) K3 (3, 1, 1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 201
+  essai K2 (1, -1, -1) K3 (3, 1, 2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 202
+  essai K2 (1, -1, -1) K3 (5, -2, 2) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 203
+  essai K2 (1, -1, -1) K3 (5, -1, 1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 204
+  essai K2 (1, -1, -1) K3 (5, 0, 0) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 205
+  essai K2 (1, -1, -1) K3 (5, 1, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 206
+  essai K2 (1, -1, -1) K3 (5, 2, -2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 207
+  essai K2 (1, -1, 0) K3 (0, -2, 1) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 208
+  essai K2 (1, -1, 0) K3 (0, -2, 2) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 209
+  essai K2 (1, -1, 0) K3 (0, -1, 0) n3 109 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -1, 0) K3 (0, -1, 1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 210
+  essai K2 (1, -1, 0) K3 (0, 0, 0) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 211
+  essai K2 (1, -1, 0) K3 (0, 0, 1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 212
+  essai K2 (1, -1, 0) K3 (0, 1, -1) n3 110 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -1, 0) K3 (0, 1, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 213
+  essai K2 (1, -1, 0) K3 (0, 2, -1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 214
+  essai K2 (1, -1, 0) K3 (0, 2, 0) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 215
+  essai K2 (1, -1, 0) K3 (2, 1, -2) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 216
+  essai K2 (1, -1, 0) K3 (2, 2, -1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 217
+  essai K2 (1, -1, 0) K3 (3, 0, -2) n3 107 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 218
+  essai K2 (1, -1, 0) K3 (3, 0, -1) n3 108 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 219
+  essai K2 (1, -1, 0) K3 (3, 0, 0) n3 109 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 220
+  essai K2 (1, -1, 0) K3 (3, 0, 1) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 221
+  essai K2 (1, -1, 0) K3 (3, 0, 2) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 222
+  essai K2 (1, -1, 0) K3 (3, 2, -2) n3 109 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 223
+  essai K2 (1, -1, 0) K3 (3, 2, -1) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 224
+  essai K2 (1, -1, 0) K3 (3, 2, 0) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 225
+  essai K2 (1, -1, 0) K3 (3, 2, 1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 226
+  essai K2 (1, -1, 0) K3 (3, 2, 2) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 227
+  essai K2 (1, -1, 0) K3 (5, -1, 2) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 228
+  essai K2 (1, -1, 0) K3 (5, 0, 1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 229
+  essai K2 (1, -1, 0) K3 (5, 1, 0) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 230
+  essai K2 (1, -1, 0) K3 (5, 2, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 231
+  essai K2 (1, -1, 2) K3 (0, -2, 0) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 232
+  essai K2 (1, -1, 2) K3 (0, -2, 1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 233
+  essai K2 (1, -1, 2) K3 (0, -1, -1) n3 113 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -1, 2) K3 (0, -1, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 234
+  essai K2 (1, -1, 2) K3 (0, -1, 1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 235
+  essai K2 (1, -1, 2) K3 (0, 0, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 236
+  essai K2 (1, -1, 2) K3 (0, 0, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 237
+  essai K2 (1, -1, 2) K3 (0, 1, -2) n3 114 S sur la voie : [1, 1, 2, 1]
+  essai K2 (1, -1, 2) K3 (0, 1, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 238
+  essai K2 (1, -1, 2) K3 (0, 1, 0) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 239
+  essai K2 (1, -1, 2) K3 (0, 2, -2) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 240
+  essai K2 (1, -1, 2) K3 (0, 2, -1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 241
+  essai K2 (1, -1, 2) K3 (2, 0, -2) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 242
+  essai K2 (1, -1, 2) K3 (2, 1, -1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 243
+  essai K2 (1, -1, 2) K3 (2, 2, 0) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 244
+  essai K2 (1, -1, 2) K3 (3, -2, -2) n3 111 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -1, 2) K3 (3, -2, -1) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -1, 2) K3 (3, -2, 0) n3 113 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -1, 2) K3 (3, -2, 1) n3 114 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -1, 2) K3 (3, -2, 2) n3 115 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, -1, 2) K3 (3, 1, -2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 245
+  essai K2 (1, -1, 2) K3 (3, 1, -1) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 246
+  essai K2 (1, -1, 2) K3 (3, 1, 0) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 247
+  essai K2 (1, -1, 2) K3 (3, 1, 1) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 248
+  essai K2 (1, -1, 2) K3 (3, 1, 2) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 249
+  essai K2 (1, -1, 2) K3 (5, -2, 2) n3 115 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 250
+  essai K2 (1, -1, 2) K3 (5, -1, 1) n3 116 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 251
+  essai K2 (1, -1, 2) K3 (5, 0, 0) n3 117 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 252
+  essai K2 (1, -1, 2) K3 (5, 1, -1) n3 118 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 253
+  essai K2 (1, -1, 2) K3 (5, 2, -2) n3 119 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 254
+  essai K2 (1, 0, -2) K3 (0, -2, 0) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 255
+  essai K2 (1, 0, -2) K3 (0, -2, 1) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 256
+  essai K2 (1, 0, -2) K3 (0, -1, 0) n3 109 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 257
+  essai K2 (1, 0, -2) K3 (0, -1, 1) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 258
+  essai K2 (1, 0, -2) K3 (0, 0, -1) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 259
+  essai K2 (1, 0, -2) K3 (0, 0, 0) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 260
+  essai K2 (1, 0, -2) K3 (0, 1, -1) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 261
+  essai K2 (1, 0, -2) K3 (0, 1, 0) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 262
+  essai K2 (1, 0, -2) K3 (0, 2, -2) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 263
+  essai K2 (1, 0, -2) K3 (0, 2, -1) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 264
+  essai K2 (1, 0, -2) K3 (2, -2, -1) n3 108 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 265
+  essai K2 (1, 0, -2) K3 (2, -1, 0) n3 109 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 266
+  essai K2 (1, 0, -2) K3 (2, 0, 1) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 267
+  essai K2 (1, 0, -2) K3 (2, 1, 2) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 268
+  essai K2 (1, 0, -2) K3 (3, -1, -2) n3 106 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, -1, -1) n3 107 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, -1, 0) n3 108 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, -1, 1) n3 109 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, -1, 2) n3 110 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, 1, -2) n3 108 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, 1, -1) n3 109 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, 1, 0) n3 110 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, 1, 1) n3 111 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (3, 1, 2) n3 112 S sur la voie : [0, 1, 0, 0]
+  essai K2 (1, 0, -2) K3 (5, -2, 2) n3 110 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 269
+  essai K2 (1, 0, -2) K3 (5, -1, 1) n3 111 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 270
+  essai K2 (1, 0, -2) K3 (5, 0, 0) n3 112 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 271
+  essai K2 (1, 0, -2) K3 (5, 1, -1) n3 113 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 272
+  essai K2 (1, 0, -2) K3 (5, 2, -2) n3 114 S sur la voie : [0, 1, 1, 0]
+TROUVÉ 273
+total 273

@@ -1,0 +1,7 @@
+626 table S,C juste ; suites justes 15 / 16
+630 table S,C juste ; suites justes 15 / 16
+725 table S,C juste ; suites justes 15 / 16
+729 table S,C juste ; suites justes 15 / 16
+819 table S,C juste ; suites justes 15 / 16
+823 table S,C juste ; suites justes 15 / 16
+demi-additionneurs : table juste 518 / 1025 ; réutilisables 16/16 : 0
