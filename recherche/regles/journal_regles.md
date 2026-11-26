@@ -305,3 +305,14 @@ hx.py) : états finaux identiques ; 0 case restante hors des vaisseaux. Germes :
 Ce qui avait raté en R-329 (débris aux virages) est évité en exigeant 0 case à CHAQUE choc et la superposition exacte.
 Statut : VÉRIFIÉ pour les usages simulés ; pour tout nombre d'usages, AFFIRMÉ (la superposition exacte de 2 usages pour toutes les suites
 le rend très plausible, mais le non-recouvrement de 3 usages ou plus n'est vérifié que sur 3 × 20 usages).
+
+## R-338 Le demi-additionneur R-337 marche pour TOUT nombre d'usages et TOUTE suite d'entrées — DÉMONTRÉ (certificat calculé + argument) (demi_add_certif.py)
+Idée : si deux usages ne se « voient » jamais, N usages = superposition exacte des usages seuls (chacun juste, R-337).
+Trajectoires exactes de chaque usage SEUL pour tout t ∈ Z (fenêtre simulée [0, 4 000] ; avant et après, chaque fourmi est un vaisseau sur
+du blanc : pos(t + 8) = pos(t) + d, contrôlé sur 64 pas à chaque bout). Pour 2 usages d'écart j (j·200 périodes) et les 16 couples
+d'entrées : distance minimale EXACTE entre fourmis des 2 usages sur toute la droite des temps = 90 + 100 (j − 1) pour j = 1 … 30
+(jamais ≤ 6 : les cases d'un vaisseau sont à ≤ 2 de sa fourmi, il faut ≤ 6 pour qu'un usage perçoive l'autre ; 0 case laissée).
+Au-delà de j = 30 : les fenêtres actives sont disjointes, deux routes rectilignes ne peuvent se rapprocher indéfiniment que si elles sont sur
+le même axe en sens opposés à ≤ 6 voies : AUCUNE paire (sortie, entrée) de ce type ; sinon leur distance croît avec j (constaté : +100 par usage).
+⇒ pour toute suite (a₁,b₁), (a₂,b₂), … espacée de 200 périodes, chaque usage donne S = a⊕b et C = a∧b. Hypothèses : convention
+« l'une après l'autre » (sans effet ici : les usages ne se touchent pas), grille infinie, entrées et constantes K2, K3 fournies à chaque usage.
