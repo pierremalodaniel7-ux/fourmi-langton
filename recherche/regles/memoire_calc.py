@@ -44,3 +44,32 @@ def etat(ants, cells, c, rho, t, rad=8):
         for A_, C_ in L:
             if sorted(rotp(a, rho, c) + ((a[2] + rho) % 6,) for a in A_) == na and sorted(rotp(q, rho, c) for q in C_) == nc: return val
     return '?'
+# ---------- version générale (n'importe quelle bascule de bascule_hexa.py) ----------
+from exp_osc import setup
+def kv(s): return dict(x.split('=') for x in s.split()[1:] if '=' in x)
+def place_gen(osc, f, Cship, Tref, tstar):
+    """expérience (osc, vaisseau f = dict r, l, ph, ord) tournée/translatée pour que le vaisseau de l'expérience soit le vaisseau Cship
+    au temps tstar ; renvoie (pièces de l'objet à t = 0 (une pièce par fourmi), ordre 'avant'/'après', centre, rho, orbite)"""
+    r0, l0, ph0, o0 = int(f['r']), int(f['l']), int(f['ph']), int(f['ord'])
+    E = setup(osc, r0, l0, ph0, o0)
+    rho = (Cship[0] - r0) % 6
+    n = (Tref - tstar) // 8; p = ship_pos(Cship); d = ship_dir(Cship[0]); pos_t = (p[0] - n * d[0], p[1] - n * d[1])
+    spr = rot(E['ship_start'], rho); c = (pos_t[0] - spr[0], pos_t[1] - spr[1])
+    P = len(E['states']); ph_t0 = (ph0 - tstar) % P
+    ants, cells = E['states'][ph_t0]
+    cells = list(cells)
+    pieces = [((*rotp(a, rho, c), (a[2] + rho) % 6), [rotp(q, rho, c) for q in (cells if i == 0 else [])]) for i, a in enumerate(ants)]
+    orb = [([(*rotp(a, rho, c), (a[2] + rho) % 6) for a in A_], [rotp(q, rho, c) for q in g_]) for A_, g_ in E['states']]
+    cen = rotp(E['center'], rho, c)
+    return pieces, ('apres' if o0 == 0 else 'avant'), cen, rho, orb
+def orbit_abs(osc_sit, rho, c):
+    """orbite (états) d'une situation, tournée de rho autour de 0 puis translatée de c"""
+    L = orbit_list(osc_sit)
+    return [([(*rotp(a, rho, c), (a[2] + rho) % 6) for a in A_], [rotp(q, rho, c) for q in g_]) for A_, g_ in L]
+def which_state(ants, cells, cen, orbs, rad=10):
+    na = sorted(tuple(a) for a in ants if hd(a[0] - cen[0], a[1] - cen[1]) <= rad)
+    nc = sorted(tuple(q[:2]) for q in cells if hd(q[0] - cen[0], q[1] - cen[1]) <= rad)
+    for val, L in orbs:
+        for A_, C_ in L:
+            if sorted(A_) == na and sorted(C_) == nc: return val
+    return '?'
