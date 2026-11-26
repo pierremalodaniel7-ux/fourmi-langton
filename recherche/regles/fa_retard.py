@@ -84,12 +84,14 @@ if sys.argv[1] == 'un':
     from fa_complet import cover
     t0 = time.time(); cand = []
     dirs = [int(x) for x in sys.argv[2].split(',')] if len(sys.argv) > 2 else [1, 2, 3, 4, 5]
-    for tm in range(248, 720, 8):
+    TM = range(248, 720, 8) if len(sys.argv) < 4 else range(int(sys.argv[3]), int(sys.argv[4]), 8)
+    OF = range(-3, 4) if len(sys.argv) < 6 else range(-int(sys.argv[5]), int(sys.argv[5]) + 1)
+    for tm in TM:
         Pm = SVpos(tm)
         for rK in dirs:
             dK = ship_dir(rK)
-            for i in range(-3, 4):
-                for j in range(-3, 4):
+            for i in OF:
+                for j in OF:
                     st = (Pm[0] - tm // 8 * dK[0] + i, Pm[1] - tm // 8 * dK[1] + j)
                     for tau in range(8):
                         K = kship(rK, st, tau)
@@ -104,9 +106,10 @@ if sys.argv[1] == 'un':
         O = {ab: [tuple(x) for x in d[ab]] for ab in CASES}
         PS = cover(O, lambda k: k[0] ^ k[1]); PC = cover(O, lambda k: k[0] & k[1])
         if PS is None or PC is None or PS == 'grand' or PC == 'grand': continue
+        if len(PS) > 1: continue
         good.append({'K': c[6], 'c': c[:6], 'PS': PS, 'PC': PC, 'n': len(PS) + len(PC), 'sorties': {str(ab): O[ab] for ab in CASES}})
     good.sort(key=lambda g: g['n'])
     import collections
     print('lisibles :', len(good), collections.Counter(g['n'] for g in good), ' temps', round(time.time() - t0), 's', flush=True)
-    json.dump(good, open('data/fa_un_%s.json' % ''.join(map(str, dirs)), 'w'))
+    json.dump(good, open('data/fa_un_%s_%s.json' % (''.join(map(str, dirs)), '_'.join(sys.argv[3:6])), 'w'))
     for g in good[:8]: print(g['c'], g['PS'], g['PC'])

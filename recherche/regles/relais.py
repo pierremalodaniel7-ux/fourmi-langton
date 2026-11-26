@@ -46,13 +46,13 @@ def fire(states, routes):
                     ants, cells = L[ph]
                     for o in (0, 1):
                         A = ([sa] if o else []) + list(ants) + ([] if o else [sa])
-                        jobs.append(fmt(A, list(cells) + [sc])); meta.append((nm, r, la, ph, o, c0))
+                        jobs.append(fmt(A, list(cells) + [sc])); meta.append((nm, r, la, ph, o, c0, len(ants)))
     out = []
     for m, res in zip(meta, lotdump(jobs, TT) if jobs else []):
         s = split(res[0], res[1], m[5])
         if s is None: continue
         obj, oc, sh = s
-        if len(sh) != 1 or len(obj) != 2: continue
+        if len(sh) != 1 or len(obj) != m[6]: continue
         out.append(m[:5] + (sh[0], (tuple(sorted(obj)), tuple(sorted(oc)))))
     return out
 if __name__ == '__main__':
@@ -107,6 +107,7 @@ if __name__ == '__main__':
             for p, q in prev:
                 if (p[1], p[2]) != (c[1], c[2]) or (p[5][0], p[5][1]) != (c[5][0], c[5][1]): continue
                 if k3 == K0[p[0]]: found.append({'R0': osc[p[0]], 'pas1': p[:6], 'pas2': q[:6], 'pas3': c[:6]})
+    print('contrôle T3 : déviés ±120° redevenus R0 :', sum(1 for c in dev if (lambda L: L and key(L) == K0[c[0]])(orbit(list(c[6][0]), list(c[6][1])))))
     print('RELAIS À 3 ÉTATS (R0 → R1 → R2 → R0, même route) :', len(found), ' temps', round(time.time() - t0), 's')
-    json.dump(found, open('data/relais3.json', 'w'), default=str)
+    json.dump(found, open('data/relais3_' + sys.argv[1].split('/')[-1] + '.json', 'w'), default=str)
     for f in found[:10]: print(f)
