@@ -1,0 +1,979 @@
+{
+ "h0": {
+  "parametres": {
+   "D": {
+    "h0p": 32
+   },
+   "G": {
+    "h0p": 14
+   },
+   "a": 0,
+   "essai": 0
+  },
+  "puissances": 1,
+  "litteraux": 1,
+  "cas": 2,
+  "justes": 2,
+  "deux_moteurs": 2,
+  "certificat": true,
+  "delta": 2008,
+  "fenetre": 69,
+  "rayon": 55,
+  "voies_opposees": 99,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 32
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 31
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 31
+   }
+  ],
+  "sortie": [
+   0,
+   -51,
+   51,
+   6
+  ],
+  "vaisseaux": [
+   [
+    "h0p",
+    "K",
+    [
+     0,
+     -51,
+     51,
+     6
+    ]
+   ],
+   [
+    "h0@h0p0",
+    "lit",
+    [
+     1,
+     -50,
+     -1,
+     2
+    ]
+   ]
+  ],
+  "tmax": 400,
+  "secondes": 0.4
+ },
+ "x": {
+  "parametres": {
+   "D": {
+    "xp": 33,
+    "xs1": 27,
+    "xs2": 38
+   },
+   "G": {
+    "xp": 13,
+    "xs1": 11,
+    "xs2": 16
+   },
+   "a": 0,
+   "essai": 1
+  },
+  "puissances": 3,
+  "litteraux": 4,
+  "cas": 4,
+  "justes": 4,
+  "deux_moteurs": 4,
+  "certificat": true,
+  "delta": 3864,
+  "fenetre": 485,
+  "rayon": 100,
+  "voies_opposees": 9,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 100
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 100
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 100
+   }
+  ],
+  "sortie": [
+   0,
+   -105,
+   105,
+   2
+  ],
+  "vaisseaux": [
+   [
+    "xp",
+    "K",
+    [
+     0,
+     -105,
+     105,
+     2
+    ]
+   ],
+   [
+    "xs1",
+    "K",
+    [
+     1,
+     -105,
+     12,
+     6
+    ]
+   ],
+   [
+    "~x@xs10",
+    "lit",
+    [
+     2,
+     -50,
+     -42,
+     2
+    ]
+   ],
+   [
+    "h0@xs11",
+    "lit",
+    [
+     0,
+     -105,
+     78,
+     2
+    ]
+   ],
+   [
+    "xs2",
+    "K",
+    [
+     5,
+     1,
+     106,
+     6
+    ]
+   ],
+   [
+    "x@xs20",
+    "lit",
+    [
+     0,
+     -50,
+     105,
+     2
+    ]
+   ],
+   [
+    "~h0@xs21",
+    "lit",
+    [
+     4,
+     69,
+     38,
+     2
+    ]
+   ]
+  ],
+  "tmax": 836,
+  "secondes": 2.5
+ },
+ "y": {
+  "parametres": {
+   "D": {
+    "yp": 33,
+    "ys1": 27,
+    "ys2": 38
+   },
+   "G": {
+    "yp": 13,
+    "ys1": 11,
+    "ys2": 16
+   },
+   "a": 0,
+   "essai": 1
+  },
+  "puissances": 3,
+  "litteraux": 4,
+  "cas": 4,
+  "justes": 4,
+  "deux_moteurs": 4,
+  "certificat": true,
+  "delta": 4472,
+  "fenetre": 485,
+  "rayon": 119,
+  "voies_opposees": 9,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 100
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 100
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 100
+   }
+  ],
+  "sortie": [
+   0,
+   -105,
+   105,
+   2
+  ],
+  "vaisseaux": [
+   [
+    "yp",
+    "K",
+    [
+     0,
+     -105,
+     105,
+     2
+    ]
+   ],
+   [
+    "ys1",
+    "K",
+    [
+     1,
+     -105,
+     12,
+     6
+    ]
+   ],
+   [
+    "~y@ys10",
+    "lit",
+    [
+     2,
+     -50,
+     -42,
+     2
+    ]
+   ],
+   [
+    "~h0@ys11",
+    "lit",
+    [
+     0,
+     -105,
+     78,
+     2
+    ]
+   ],
+   [
+    "ys2",
+    "K",
+    [
+     5,
+     1,
+     106,
+     6
+    ]
+   ],
+   [
+    "y@ys20",
+    "lit",
+    [
+     0,
+     -50,
+     105,
+     2
+    ]
+   ],
+   [
+    "h0@ys21",
+    "lit",
+    [
+     4,
+     69,
+     38,
+     2
+    ]
+   ]
+  ],
+  "tmax": 836,
+  "secondes": 2.9
+ },
+ "c00": {
+  "parametres": {
+   "D": {
+    "c00p": 38,
+    "c00t": 30,
+    "c00u": 21,
+    "c00m": 40
+   },
+   "G": {
+    "c00p": 10,
+    "c00t": 12,
+    "c00u": 10,
+    "c00m": 9
+   },
+   "a": 0,
+   "essai": 1
+  },
+  "puissances": 4,
+  "litteraux": 6,
+  "cas": 8,
+  "justes": 8,
+  "deux_moteurs": 8,
+  "certificat": true,
+  "delta": 5880,
+  "fenetre": 641,
+  "rayon": 158,
+  "voies_opposees": 7,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 134
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 146
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 132
+   }
+  ],
+  "sortie": [
+   0,
+   -122,
+   122,
+   6
+  ],
+  "vaisseaux": [
+   [
+    "c00p",
+    "K",
+    [
+     0,
+     -122,
+     122,
+     6
+    ]
+   ],
+   [
+    "c00t",
+    "K",
+    [
+     1,
+     -121,
+     9,
+     2
+    ]
+   ],
+   [
+    "~c00@c00t0",
+    "lit",
+    [
+     2,
+     -63,
+     -49,
+     6
+    ]
+   ],
+   [
+    "x@c00t1",
+    "lit",
+    [
+     0,
+     -122,
+     80,
+     6
+    ]
+   ],
+   [
+    "y@c00t2",
+    "lit",
+    [
+     2,
+     -39,
+     -73,
+     6
+    ]
+   ],
+   [
+    "c00u",
+    "K",
+    [
+     5,
+     1,
+     122,
+     2
+    ]
+   ],
+   [
+    "c00@c00u0",
+    "lit",
+    [
+     0,
+     -90,
+     122,
+     6
+    ]
+   ],
+   [
+    "c00m",
+    "K",
+    [
+     4,
+     103,
+     21,
+     6
+    ]
+   ],
+   [
+    "x@c00m0",
+    "lit",
+    [
+     5,
+     51,
+     72,
+     2
+    ]
+   ],
+   [
+    "y@c00m1",
+    "lit",
+    [
+     3,
+     103,
+     -40,
+     2
+    ]
+   ]
+  ],
+  "tmax": 968,
+  "secondes": 4.8
+ },
+ "c10": {
+  "parametres": {
+   "D": {
+    "c10p": 38,
+    "c10t": 30,
+    "c10u": 21,
+    "c10m": 40
+   },
+   "G": {
+    "c10p": 10,
+    "c10t": 12,
+    "c10u": 10,
+    "c10m": 9
+   },
+   "a": 0,
+   "essai": 1
+  },
+  "puissances": 4,
+  "litteraux": 6,
+  "cas": 8,
+  "justes": 8,
+  "deux_moteurs": 8,
+  "certificat": true,
+  "delta": 5368,
+  "fenetre": 641,
+  "rayon": 142,
+  "voies_opposees": 7,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 138
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 142
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 144
+   }
+  ],
+  "sortie": [
+   0,
+   -122,
+   122,
+   6
+  ],
+  "vaisseaux": [
+   [
+    "c10p",
+    "K",
+    [
+     0,
+     -122,
+     122,
+     6
+    ]
+   ],
+   [
+    "c10t",
+    "K",
+    [
+     1,
+     -121,
+     9,
+     2
+    ]
+   ],
+   [
+    "~c10@c10t0",
+    "lit",
+    [
+     2,
+     -63,
+     -49,
+     6
+    ]
+   ],
+   [
+    "~x@c10t1",
+    "lit",
+    [
+     0,
+     -122,
+     80,
+     6
+    ]
+   ],
+   [
+    "y@c10t2",
+    "lit",
+    [
+     2,
+     -39,
+     -73,
+     6
+    ]
+   ],
+   [
+    "c10u",
+    "K",
+    [
+     5,
+     1,
+     122,
+     2
+    ]
+   ],
+   [
+    "c10@c10u0",
+    "lit",
+    [
+     0,
+     -90,
+     122,
+     6
+    ]
+   ],
+   [
+    "c10m",
+    "K",
+    [
+     4,
+     103,
+     21,
+     6
+    ]
+   ],
+   [
+    "~x@c10m0",
+    "lit",
+    [
+     5,
+     51,
+     72,
+     2
+    ]
+   ],
+   [
+    "y@c10m1",
+    "lit",
+    [
+     3,
+     103,
+     -40,
+     2
+    ]
+   ]
+  ],
+  "tmax": 968,
+  "secondes": 4.7
+ },
+ "c01": {
+  "parametres": {
+   "D": {
+    "c01p": 38,
+    "c01t": 30,
+    "c01u": 21,
+    "c01m": 40
+   },
+   "G": {
+    "c01p": 10,
+    "c01t": 12,
+    "c01u": 10,
+    "c01m": 9
+   },
+   "a": 0,
+   "essai": 1
+  },
+  "puissances": 4,
+  "litteraux": 6,
+  "cas": 8,
+  "justes": 8,
+  "deux_moteurs": 8,
+  "certificat": true,
+  "delta": 5464,
+  "fenetre": 641,
+  "rayon": 145,
+  "voies_opposees": 7,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 142
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 138
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 136
+   }
+  ],
+  "sortie": [
+   0,
+   -122,
+   122,
+   6
+  ],
+  "vaisseaux": [
+   [
+    "c01p",
+    "K",
+    [
+     0,
+     -122,
+     122,
+     6
+    ]
+   ],
+   [
+    "c01t",
+    "K",
+    [
+     1,
+     -121,
+     9,
+     2
+    ]
+   ],
+   [
+    "~c01@c01t0",
+    "lit",
+    [
+     2,
+     -63,
+     -49,
+     6
+    ]
+   ],
+   [
+    "x@c01t1",
+    "lit",
+    [
+     0,
+     -122,
+     80,
+     6
+    ]
+   ],
+   [
+    "~y@c01t2",
+    "lit",
+    [
+     2,
+     -39,
+     -73,
+     6
+    ]
+   ],
+   [
+    "c01u",
+    "K",
+    [
+     5,
+     1,
+     122,
+     2
+    ]
+   ],
+   [
+    "c01@c01u0",
+    "lit",
+    [
+     0,
+     -90,
+     122,
+     6
+    ]
+   ],
+   [
+    "c01m",
+    "K",
+    [
+     4,
+     103,
+     21,
+     6
+    ]
+   ],
+   [
+    "x@c01m0",
+    "lit",
+    [
+     5,
+     51,
+     72,
+     2
+    ]
+   ],
+   [
+    "~y@c01m1",
+    "lit",
+    [
+     3,
+     103,
+     -40,
+     2
+    ]
+   ]
+  ],
+  "tmax": 968,
+  "secondes": 5.0
+ },
+ "c11": {
+  "parametres": {
+   "D": {
+    "c11p": 38,
+    "c11t": 30,
+    "c11u": 21,
+    "c11m": 40
+   },
+   "G": {
+    "c11p": 10,
+    "c11t": 12,
+    "c11u": 10,
+    "c11m": 9
+   },
+   "a": 0,
+   "essai": 1
+  },
+  "puissances": 4,
+  "litteraux": 6,
+  "cas": 8,
+  "justes": 8,
+  "deux_moteurs": 8,
+  "certificat": true,
+  "delta": 5368,
+  "fenetre": 641,
+  "rayon": 142,
+  "voies_opposees": 7,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 146
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 134
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 148
+   }
+  ],
+  "sortie": [
+   0,
+   -122,
+   122,
+   6
+  ],
+  "vaisseaux": [
+   [
+    "c11p",
+    "K",
+    [
+     0,
+     -122,
+     122,
+     6
+    ]
+   ],
+   [
+    "c11t",
+    "K",
+    [
+     1,
+     -121,
+     9,
+     2
+    ]
+   ],
+   [
+    "~c11@c11t0",
+    "lit",
+    [
+     2,
+     -63,
+     -49,
+     6
+    ]
+   ],
+   [
+    "~x@c11t1",
+    "lit",
+    [
+     0,
+     -122,
+     80,
+     6
+    ]
+   ],
+   [
+    "~y@c11t2",
+    "lit",
+    [
+     2,
+     -39,
+     -73,
+     6
+    ]
+   ],
+   [
+    "c11u",
+    "K",
+    [
+     5,
+     1,
+     122,
+     2
+    ]
+   ],
+   [
+    "c11@c11u0",
+    "lit",
+    [
+     0,
+     -90,
+     122,
+     6
+    ]
+   ],
+   [
+    "c11m",
+    "K",
+    [
+     4,
+     103,
+     21,
+     6
+    ]
+   ],
+   [
+    "~x@c11m0",
+    "lit",
+    [
+     5,
+     51,
+     72,
+     2
+    ]
+   ],
+   [
+    "~y@c11m1",
+    "lit",
+    [
+     3,
+     103,
+     -40,
+     2
+    ]
+   ]
+  ],
+  "tmax": 968,
+  "secondes": 5.0
+ }
+}

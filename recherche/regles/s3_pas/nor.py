@@ -44,20 +44,20 @@ class Layout:
         self.G, self.D, self.Dmap, self.Gmap = G, D, Dmap or {}, Gmap or {}
         P = (a, 0, 0, 0)
         self._place(root, P, 0)
-        tmin = min(t for *_, t in self.gates)
+        tmin = min(g[2] for g in self.gates)
         self.shift = 400 - tmin
         self.ships = [(nm, kind, tshift(w, self.shift)) for nm, kind, w in self.ships]
-        self.gates = [(g[0], g[1], g[2] + self.shift) for g in self.gates]
+        self.gates = [(g[0], g[1], g[2] + self.shift, tshift(g[3], self.shift), tshift(g[4], self.shift)) for g in self.gates]
         self.out = [w for nm, kind, w in self.ships if nm == root.name][0]
         self.vars = sorted({it.lstrip('~') for nm, kind, w in self.ships if kind == 'lit' for it in [nm.split('@')[0]]})
-        self.tmax = max(t for *_, t in self.gates)
+        self.tmax = max(g[2] for g in self.gates)
     def _place(self, node, P, tend):
         self.ships.append((node.name, 'K', P))
         G = self.Gmap.get(node.name, self.G); n = len(node.inputs)
         for i, (side, it) in enumerate(node.inputs):
             t = tend - 8 * G * (n - 1 - i)
             W, oA, oB, tg = gate(P, side, t)
-            self.gates.append((node.name, side, tg))
+            self.gates.append((node.name, side, tg, oA, oB))
             if isinstance(it, str):
                 self.ships.append((f'{it}@{node.name}{i}', 'lit', W))
             else:
@@ -78,3 +78,23 @@ class Layout:
                 pa, pc = run_py(s, T); same = sorted(pa) == sorted(a) and sorted(pc) == sorted(c)
             out.append((e, d is not None, got, self.root.value(e), same))
         return out
+    def possible_outputs(self):
+        """sur-ensemble des routes sortantes : toutes les entrées (tout droit) et toutes les sorties de portes"""
+        return [w for _, _, w in self.ships] + [g[3] for g in self.gates] + [g[4] for g in self.gates]
+    def opposed(self):
+        """plus petit écart de voie entre une route sortante possible et une route entrante opposée (critère (c) du lemme)"""
+        def lanes(w):
+            return [lane_of(antpos(w, t), w[0]) for t in range(8)]
+        worst, bad = 99, []
+        ins = [w for _, _, w in self.ships]
+        for o in set(self.possible_outputs()):
+            lo = [lane_of2(antpos(o, t), o[0]) for t in range(8)]
+            for i in ins:
+                if (o[0] - i[0]) % 6 == 3:
+                    li = [lane_of2(antpos(i, t), o[0]) for t in range(8)]
+                    m = min(abs(x - y) for x in lo for y in li)
+                    if m < worst: worst = m
+                    if m < 7: bad.append((o, i))
+        return worst, bad
+def lane_of2(p, r):
+    X, Y = rot(p, -r % 6); return X + Y
