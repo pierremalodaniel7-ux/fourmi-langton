@@ -343,3 +343,16 @@ TRAVERSE et continue tout droit ; mise à 0 : 1 vaisseau direction 2 (voie −2,
 la bonne phase (instant choisi au pas près ; germes avancés de 0 à 7 pas). 20 écritures alternées 1, 0, 1, 0… au même endroit, UNE
 simulation (22 fourmis posées à t = 0, t = 32 405) : 20/20 états justes entre deux écritures ; 2 moteurs identiques à la fin.
 C'est exactement « faire entrer le bit (1) et le faire sortir (0) avec un autre vaisseau » de la consigne 3a, sans miroir.
+
+## R-342 Pas de cycle de bascule « sans mémoire de l'histoire » — OBSERVÉ (bascule_cycle.py, résultat négatif)
+Cherché : « mise à 1 éventuelle puis remise à 0 » qui laisse l'objet EXACTEMENT comme si rien n'avait eu lieu, ET remise à 0 sans effet
+quand le bit vaut 0. Sur les 230 bascules RS (routes dans un demi-plan, vaisseaux joués après l'objet) × tous les instants possibles de
+remise à 0 : 0. La condition (A) est parfois remplie, jamais (B) : remettre à 0 un bit déjà à 0 détruit ou change M. ⇒ avec ces bascules
+il faut connaître l'état (alterner, ou utiliser la mémoire R-335 à lecture destructive).
+
+## R-343 La bascule R-341 supporte un nombre QUELCONQUE de cycles « 1 puis 0 » — DÉMONTRÉ (certificat, bascule_certif.py)
+Cycle de durée P = 3 075 pas : mise à 1 à t = 16 (M en phase 16), mise à 0 à t = 738 (R' en phase 2) ; à t = P l'objet est EXACTEMENT
+l'état de départ (contrôlé ; ce sont les mêmes fourmis, dans le même ordre : les vaisseaux d'écriture ressortent eux-mêmes). Le cycle j est
+la copie décalée de j·P. Distances exactes (toute la droite des temps) : vaisseaux de 2 cycles ≥ 145 + ≈ 193 (j − 1) pour j = 1 … 10 ;
+hors de son cycle, un vaisseau reste à ≥ 42 du centre (l'objet tient dans un rayon 3). ⇒ par récurrence, chaque cycle se déroule à
+l'identique : la bascule fonctionne pour toute suite 1, 0, 1, 0, … (au-delà de j = 10 : croissance linéaire, routes rectilignes divergentes).
