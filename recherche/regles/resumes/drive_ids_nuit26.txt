@@ -1,1 +1,2 @@
 Drive (26/11) : Bestiaire 26 id 1a6z2epqOO3XHr8o1xuWFlIOuAYS63fo_ ; catalogue_regles_bestiaire26.json id 1P5fOK6NQTgz7STvvGqn_FrVJZi3-exX7
+germes_2026-11-26_hexa.json (02_Resultats) id 1xCGuB0epbH2UZVSkSow_2rtRIPHUMXi2 ; rapport (05_Methode, Google Doc) id 1G9uTVZ5TAM_ZwRFEtFta3LcHtouVr82eMAyLp0Odp7E
