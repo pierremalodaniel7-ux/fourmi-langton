@@ -1,0 +1,17 @@
+sans route de face : 13 / 1529
+3 cas justes (T = 4000) : 13
+2 usages 9/9 (superposition exacte) : 13  temps 1 s
+(dir s1, dir s2, dir O) : [((4, 4, 0), 11), ((2, 2, 0), 1), ((2, 4, 0), 1)]
+fusion [2, 0] [2, -1] → (0, -1, 829, 7) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [2, -1] [4, -1] → (0, 1, 827, 6) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 2) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 2) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 829, 7) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 0) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 0) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 0) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 0) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 99 [99, 199, 299, 399] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 1) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 98 [98, 198, 298, 398] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 1) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 98 [98, 198, 298, 398] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 1) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 98 [98, 198, 298, 398] face 0
+fusion [4, -1] [4, 0] → (0, 1, 831, 1) : 20 usages [(True, 20, True), (True, 20, None), (True, 20, None)]  certificat min 98 [98, 198, 298, 398] face 0
