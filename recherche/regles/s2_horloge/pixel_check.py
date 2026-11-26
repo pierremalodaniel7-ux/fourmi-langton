@@ -20,7 +20,8 @@ def timeline(w, Bs, T=None):
     cx, cy = o[0] + b1['ants'][0][0], o[1] + b1['ants'][0][1]
     for t in range(P + 1):
         pa = frozenset(tuple(A[k]) for k in (pos, pos + 1))
-        pc = frozenset(q for q in G if hd(q[0] - cx, q[1] - cy) <= 7)
+        pc = frozenset(q for q in G if hd(q[0] - cx, q[1] - cy) <= 7 and
+                       not any(hd(q[0] - A[k][0], q[1] - A[k][1]) <= 2 for k in range(len(A)) if k not in (pos, pos + 1)))
         st = 'OFF' if (pa, pc) in O0 else ('ON' if (pa, pc) in O1 else '?')
         states.append(st)
         if t < P: step(A, G)

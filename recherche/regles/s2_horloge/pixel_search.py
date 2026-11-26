@@ -130,7 +130,7 @@ if __name__ == '__main__':
                 s = fmt(ants, list(cs0) + list(RG))
                 jobs.append(s); info.append({'horloge': fk, 'T': T, 'P_horloge': Pr, 'bascule': bi, 'rot': k, 't_tir': t, 'o': o, 'pos': pos, 'sit': s})
     print('machines à tester :', len(jobs), flush=True)
-    out = lot(jobs, 12 * max(i['P_horloge'] for i in info) + 10) if jobs else []
+    out = lot(jobs, max(i['P_horloge'] for i in info) + 10) if jobs else []   # période de la machine = période de l'horloge (constaté sur les 310 premières)
     cnt = collections.Counter(); win = []
     for i, l in zip(info, out):
         f = l.split('|'); cnt[f[3]] += 1
