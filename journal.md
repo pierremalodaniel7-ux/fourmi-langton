@@ -777,3 +777,86 @@ et 134 065 commençaient la recherche dans un trou de phases non certifiables). 
 (instants identiques) et ant_controle (début ≤ certificat), 25 records et 46 tranches box5 identiques.
 Estimation 6×5 : ≈ 765 h·cœur (non calculé). Commande : recherche/B5/lance.sh, agrege.py, controles.py. Détails :
 recherche/B5/README.md. Bestiaire 22, germes resultats/germes_2026-11-19_B5.json (dossier B5 du simulateur).
+
+## R-136 Gomme : (x, cap h) → (x − e_h, cap h + 2) fait refaire tout le chemin à l'envers en effaçant — VÉRIFIÉ (preuve + 2 moteurs) — CONNU — 25/11 nuit
+Preuve en 2 cas (blanc / noir) : ordinateur/bascule/GOMME.md §1. Règles : 2 couleurs avec t_0 + t_1 ≡ 0 (mod 4) → RL, LR, NN, UU
+(pas RR, LL ; pas LLR et plus : une fourmi ne fait que c → c+1). n fourmis : gommer toutes et jouer dans l'ordre INVERSE
+(sinon 892 / 488 cases fausses sur 2 exemples). `src/fourmi -gomme t -T 2t+10 "RL|0,0,H|"` → EFFACE au pas 2t (t = 10 … 10⁶ ;
+germe R-20 jusqu'à 1 040 000) ; 2e moteur ordinateur/bascule/moteur2.py. Connu : réversibilité (Tsukiji & Hagiwara 2011).
+Nouvelles options du moteur : -gomme t, -retour, -boite x0,y0,x1,y1, -dump f (19/19 tests).
+
+## R-137 Une fourmi seule ne repart JAMAIS en gomme sur sa propre trace (aucune pièce de cases ne peut la renvoyer ainsi) — DÉMONTRÉ — 25/11
+I = x + y + h (mod 2) est invariant (R-09) et R change I ⇒ l'état R(état passé) n'est jamais atteint. Contrôle : pièces de 1 et
+2 cases (22 + 2 574 placements, germe à 50 périodes) : 0 retour ; les 141 « demi-tours » longent la trace (elle double).
+
+## R-138 Gomme par échange : une fourmi de la pièce (classe opposée) repart en gomme exacte — OBSERVÉ (stats) / VÉRIFIÉ (10/10, 2 moteurs, temps fini) — 25/11
+Pièce = petit cycle (boîte ≤ 7×7) à 50 périodes du germe R-20 ; critère : fenêtre x∈[35,75], y∈[−75,−35] redevenue blanche (20 000 pas).
+2 fourmis : 501 370 essais (2 049 cycles, partiel), 8 152 gommes ; 4 fourmis : 903 776 essais (1 000 cycles sur 3 978), 15 825 gommes.
+Pièce : détruite dans 300/300 (2 f., échantillon) et 15 825/15 825 (4 f.). La gomme est souvent décalée (germe abîmé, 28 cases).
+Outils : ordinateur/bascule/flux.sh, gen_cycles.py, recherche.py, verif2.py. Fiche BA-2.
+
+## R-139 Loi d'équilibre (conjecture) : un cycle RL a autant de fourmis de chaque classe I — OBSERVÉ — 25/11
+0 cycle sur 2 213 888 départs 3+1 (4 fourmis dans [−3,3]², 20 000 pas) et sur 6 × 200 000 tirages déséquilibrés (3, 4, 5, 6 fourmis,
+avec/sans case) ; témoins équilibrés : 6 123, 292, 308 cycles / 200 000 ; catalogue : 47 cycles, tous équilibrés. Démontré seulement :
+≥ 1 de chaque classe (R-09 ; au coin du domaine visité les visites alternent entre classes). Pas trouvé dans la littérature (1 recherche).
+Conséquence (si vraie) : un échange déséquilibre la pièce ⇒ plus de cycle ⇒ elle ne reste pas bornée (R-44). Avec R-137 : aucune pièce
+bornée ne renvoie UNE autoroute en gomme en restant intacte (la bascule « par réflexion en gomme » est impossible en RL).
+
+## R-140 BASCULE T : une pièce de 2 fourmis + 1 case alterne S0 / S1 à chaque autoroute 104 qui arrive par la même ligne — VÉRIFIÉ (2 moteurs, temps fini) — 25/11
+Recherche : 19 936 déviations « pièce intacte » → 15 257 résidus changés, 393 petits cycles S1 ; 2e tir idéalisé sur chaque S1 (521 368
+essais) → 16 retours à S0 ; test honnête (2 germes dans la même simulation, voies voisines de la même ligne, le 2e plus loin) : 11/16,
+soit 3 bascules distinctes (pièces 185, 186, 572 de cycles2.json), S0 revenu EN PLACE. Chronologie 572 (moteur2.py) : S0 → S1 (6 100)
+→ S0 (8 400) → S0 jusqu'à la fin ; 3e germe : → S1 (21 700) [aussi 185 : 20 900 ; 186 : 56 800]. 4e impulsion : non trouvée
+(recul 40–100 périodes, voies ±8 ; recherche 100–220 : voir R-143). Lecture non destructive depuis le NE : pas trouvée (au contact
+la pièce est presque toujours détruite). Fichiers : ordinateur/bascule/chaine.py, honnete.py, chaine_*.json. Fiches BA-3 à BA-6.
+
+## R-141 La paire ON/OFF efface sa ligne : les 2 sondes (classes opposées) se gomment mutuellement — VÉRIFIÉ (2 moteurs, temps fini) — 25/11
+Bascule 572 : la sonde 2 est dans l'état R d'un état passé de la sonde 1 pendant 8 541 pas, la sonde 1 dans celui de la sonde 2 pendant
+5 851 pas ; fenêtre de la ligne : ≈ 309 cases noires au pas 6 000, 0 dès 14 000 (moteur2.py et src/fourmi -boite), mêmes résultats
+pour 185 et 186. Restent : des débris aux deux sources, d'où 2 autoroutes repartent vers le NO. C'est la « gomme » demandée, réalisée par
+une PAIRE — compatible avec R-137 et R-139 (l'échange se fait entre les deux sondes, la pièce reste équilibrée).
+
+## R-142 Écran de 2 pixels : ON, OFF, ON sur chaque pixel — VÉRIFIÉ (2 moteurs, temps fini) — 25/11
+Pixel A = bascule 572 (3 germes) en (0,0) ; pixel B = bascule 186 (3 germes) en (0,4000), retardé de 3 120 pas : son état initial est
+son état « 3 120 pas avant », calculé exactement par réversibilité (gomme, ordre inversé, gomme ; retour exact vérifié). Simplement reculer
+les germes NE marche pas (le germe d'origine devient un bout de trace, que la 2e autoroute voit). Chronologie : A ON 6 100, OFF 8 400,
+ON 21 700 ; B ON 8 900, OFF 15 900, ON 59 900 ; positions finales des 10 fourmis identiques (src/fourmi, moteur2.py). ordinateur/bascule/ecran2.py,
+resultats/bascule/4_ecran_2pixels.png. Fiche BA-7.
+
+## R-143 Compléments de la nuit (25/11) : 4e impulsion, flux nul sur chaque arête des cycles, sortie dépendant de l'état
+(a) Bascule 572 : 4e germe (recul 100–220 périodes) → S0 → S1 → S0 → S1 → S0 (pas 6 100 / 8 400 / 21 700 / 24 200), S0 reconnu
+exactement jusqu'à 84 184 — VÉRIFIÉ (src/fourmi pour la recherche, moteur2.py pour la chronologie). Mais la 2e paire n'efface pas sa
+ligne (débris autour de la pièce, ≈ 550 cases dans la fenêtre). chaine.py (REPRISE=1 J0=100 J1=220).
+(b) Dans TOUS les cycles testés, chaque arête est traversée autant de fois dans un sens que dans l'autre (sur une arête, les deux sens
+correspondent aux deux classes) : 2 049/2 049 (cycles2), 3 978/3 978 (cycles4), 46/46 (catalogue, période ≤ 400 000) — OBSERVÉ.
+Cela entraîne la loi d'équilibre R-139. Ce n'est PAS la symétrie par renversement du temps : R(état) est sur l'orbite pour 2 049/2 049
+cycles à 2 fourmis mais seulement 776/3 978 à 4 fourmis. Preuve : OUVERT. ordinateur/bascule/aretes.py.
+(c) Tirs idéalisés (autoroute neuve) : pièce 185 : S0 → S1 et l'autoroute part au NO (−2,−2) ; S1 → S0 et elle part au SE (2,2) ;
+pareil pour 186 ; 572 : SE dans les deux cas (voies x−y = 0 et 3). La sortie dépend donc de l'état (moitié « a » d'un RLEM 2 états) ;
+il manque une entrée de lecture « b » pour compléter un RLEM ; non trouvée (≈ 36 000 tirs, 4 directions) — OUVERT.
+(d) Piège : retirer la case « inerte » d'un cycle (jamais visitée par ses fourmis) change tout pour l'autoroute qui arrive : sur les
+422 cycles sans case inerte, 0 bascule (pipeline complet) ; les 3 bascules ont toutes une case isolée à côté du cycle.
+
+## R-144 Couverture complète des 2 049 pièces « cycle de 2 fourmis (+ 1 case) » : 4 pièces seulement font une bascule T — VÉRIFIÉ (2 moteurs, temps fini) / OBSERVÉ (exhaustivité dans ce montage) — 25/11
+`ordinateur/bascule/pipeline.sh c2 cycles2.json` : 1er tir 2,9 M essais → 107 481 déviations « pièce intacte » → 1 532 orbites S1 ;
+2e tir → 87 187 déviations → 10 013 résidus changés testés → 40 retours à S0 (idéalisé) → 33 honnêtes (même simulation, traces
+comprises) ; pièces : 185 (4), 186 (2), 572 (5), 1020 (22) ; toutes = cycle de 2 fourmis + UNE case isolée. Nouvelle : 1020
+(0,0,D ; −1,−1,B + case 3,1 ; cycle 28) : S0 → S1 (5 400) → S0 (10 000), ligne effacée (199 → 0 cases). Fiche BA-8.
+Les 422 cycles sans case isolée : 0 bascule. La 5e impulsion de 572 n'a pas pu être cherchée (redémarrage du conteneur).
+
+## R-145 T7-loin sur les 43 dernières bases (441–483) : 476 classes de triplets sur 946 démontrées « loin », 19 bases entièrement ; 28 bases échouent toutes à la 1re fenêtre (s₁) de la récurrence en k₁ — DÉMONTRÉ (sous réserve de relecture des lemmes T, T') / OBSERVÉ (diagnostic) — 25/11 S12
+Données data/t7 perdues (conteneur neuf) : (C) refait pour 441–483 (`t7_lance.sh`, 44 s par base), audit `ant deux` 946/946 couplages exacts,
+chaîne `t7_tout.sh` (sur une copie de data/t7 réduite à ces bases), `t7_mprime.py` (43 MP:ok), `t7_kprime.py` (154 KP:ok), `t7_theoreme.py`.
+Bilan 441–483 : K & M 306, K' & M 154, K & M' 16 → 476 DÉMONTRÉES ; non couvertes 470 (K non NS0 & M 432, K non NS0 & M' 22,
+K et M non NS0 11, K dir & M' 5). Récurrence k₁ « bloc » : tout ou rien par base — 15 bases 22/22, 28 bases 0/22 ; sur 40 échecs tirés au
+hasard, 40 échouent à la fenêtre s₁ (« L R ECHEC » : recopie de la fenêtre à s₁ + P), quel que soit p* (essayé jusqu'à 6 000, NS = 2 aussi) ;
+direction après c₁ : (−2,−2) dans tous les cas, succès comme échecs. Total T7-loin (S11 + S12) : 9 917 classes sur 10 648 (484 bases).
+Fichiers : resultats/relatif/t7_theoreme_S12_bases441-483.txt, t7_k1_S12_bases441-483.txt, t7_audit_c_S12_bases441-483.txt.
+
+## R-146 Pourquoi la récurrence en k₁ échoue sur les bases c₁ = (−119,100) : s₁ tombe dans le chaos de c₁ — OBSERVÉ (diagnostic) — 25/11 S12
+Les 43 dernières bases = les 2 dernières classes de c₁ : (−119,100) [21 bases, k₁ « bloc » 0/21] et (−118,100) [22 bases, 15 OK, 7 échecs].
+c₁ = (−119,100) seule : certificat au pas 79 678 (direction finale (−2,−2)). Dans `ant multi` (NS = 1), s₁ = 15 458 pour tout p* ≥ 50
+(déclenchement trop tôt, fenêtre non recopiée) ; p* = 40…10 : s₁ ≈ 70 600–71 400, fenêtre recopiée OK mais « lectures neuves » ECHEC
+dès s₁ + 104 ; p* ≤ 0 : s₁ ≈ 71 654–72 880 ou jamais. NS = 2 (8 couples) et la variante « c₃ fixe » : mêmes échecs. Aucun s₁ n'est donc
+placé après la fin du chaos de c₁ (79 678). Prochaine piste : déclencher s₁ au certificat de c₁ (ou au-delà) et revoir le lemme 3 pour ce cas.
+`ant multi -19 100 CE 1 40 -282 -518 -1617 800` (base 441).

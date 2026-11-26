@@ -61,6 +61,8 @@ def draw(e, fn):
     # option (nuit 26/11) : img[1] = "zoom x0,y0,x1,y1" → on ne dessine que ce rectangle (coordonnées de la grille), cases plus grosses
     zm = re.match(r"zoom\s*(-?\d+),(-?\d+),(-?\d+),(-?\d+)", str(e["img"][1]) if len(e["img"]) > 1 else "")
     box = tuple(map(int, zm.groups())) if zm else None
+    if box is None and e.get("zoom"):                   # champ facultatif "zoom": [x0, y0, x1, y1] (PR n°9, 25/11)
+        box = tuple(int(v) for v in e["zoom"])
     inb = (lambda x, y: box[0] <= x <= box[2] and box[1] <= y <= box[3]) if box else (lambda x, y: True)
     cols = {}
     for (x, y), c in g.items():
