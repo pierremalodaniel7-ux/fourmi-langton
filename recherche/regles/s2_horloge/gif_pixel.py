@@ -25,7 +25,7 @@ except Exception: font = fs = ImageFont.load_default()
 frames = []
 for t in range(P + 1):
     if t % every == 0:
-        im = Image.new('RGB', (Wd * 2 + 20, H + 60), 'white'); d = ImageDraw.Draw(im)
+        im = Image.new('RGB', (Wd * 2 + 20, H + 66), 'white'); d = ImageDraw.Draw(im)
         for q in G:
             X, Y = xy(q); u, v = (X - x0) * sc, (Y - y0) * sc; d.rectangle([u - 1, v - 1, u + 1, v + 1], fill='black')
         for k, an in enumerate(A):
@@ -50,8 +50,8 @@ for t in range(P + 1):
         s = st[t]; lab = {'ON': 'PIXEL = 1 (ON)', 'OFF': 'PIXEL = 0 (OFF)', '?': 'écriture en cours'}[s]
         d.rectangle([ox + 10, H + 8, ox + 330, H + 48], fill={'ON': '#ffd84d', 'OFF': '#dddddd', '?': '#ffffff'}[s])
         d.text((ox + 20, H + 14), lab, fill='black', font=font)
-        d.text((10, H + 8), f'R2L2 hexa — horloge à 6 fourmis + pixel (2 fourmis) — t = {t} / {P} (cycle exact)', fill='black', font=fs)
-        d.text((10, H + 30), 'bleu : vaisseaux horaires, rouge : anti-horaires, vert : pixel', fill='#444', font=fs)
+        d.text((10, H + 8), f'R2L2 hexa : horloge 6 fourmis + pixel 2 fourmis', fill='black', font=fs); d.text((10, H + 26), f't = {t} / {P} (cycle exact)', fill='black', font=fs)
+        d.text((10, H + 44), 'bleu : horaires, rouge : anti-horaires, vert : pixel', fill='#444', font=fs)
         frames.append(im)
     if t < P: step(A, G)
 frames[0].save(out, save_all=True, append_images=frames[1:], duration=60, loop=0, optimize=True)
