@@ -24,7 +24,7 @@ SRC = sys.argv[3] if len(sys.argv) > 3 else os.path.join(HERE, 'fusion2_1.json')
 G = json.load(open(SRC))
 seen = {}; RL = []
 for z in G:
-    k = (tuple(decode([tuple(z['Kp'][0])], [tuple(c) for c in z['Kp'][1]])[0]), z['c'][5])
+    k = (z.get('base'), tuple(decode([tuple(z['Kp'][0])], [tuple(c) for c in z['Kp'][1]])[0]), z['c'][5])
     if k in seen: continue
     seen[k] = 1; RL.append(z)
 a0, a1 = int(sys.argv[1]), int(sys.argv[2])
@@ -69,7 +69,7 @@ for zi in range(a0, min(a1, len(RL))):
             if cp[0] == 2 and abs(cp[1] - c0[1]) <= 8: stats['c0\' parallèle à c0 (essayé quand même)'] += 1
             rho2 = (cp[0] - 4) % 6
             for D2 in (0, 60, 200):
-                F1 = attach(FAc, 'c', rho2, cp, 4000)
+                F1 = attach(FAc, 'c', rho2, cp, T)
                 if F1 is None: stats['parité2'] += 1; continue
                 F1 = slide(F1, 'c', D2)
                 pcs2 = pcs + [(n + '1', p, {'a': 'a1', 'b': 'b1'}.get(v, v)) for n, p, v in F1.pieces if n != 'c']

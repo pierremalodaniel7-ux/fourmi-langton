@@ -41,3 +41,17 @@ Exemple retenu (fusion_verif.json, indice 0) : ordre de jeu Kp, s1, s2, K ;
  Certificat (circuit.certificat, j = 1 … 10) : distance minimale EXACTE entre fourmis de deux usages = 7 (> 6) pour tout écart, aucune paire de face
  (les 7 viennent de deux routes à contresens à 7 voies, qui se croisent toujours à 7) ⇒ N usages = superposition exacte pour tout N.
 Commande : python3 s1_fusion/fusion_final.py s1_fusion/fusion3_122_0_2.json 0 10
+
+## R-404 CROISEMENT : deux vaisseaux libres ne s'influencent que s'ils passent à distance ≤ 1 (≤ 2 s'ils sont parallèles) — DÉMONTRÉ (calcul exhaustif) (croisement.py, paralleles.py, croisement_demo.py)
+Toutes les géométries relatives proches de 2 vaisseaux de directions différentes (r = 1 … 5, tau, v modulo u, 2 ordres : 1 880, R-333) :
+distance minimale des trajectoires libres 0 : 232 / 240 interagissent ; 1 : 184 / 360 ; 2, 3, 4, 5, 6 : 0 / 256 chacune (croisement EXACT :
+chaque fourmi suit pas à pas sa trajectoire libre). Au-delà de 6 : transparent exact (R-333). Aucun « vrai choc » ne rend les deux trajectoires
+libres (0 échange). 416 géométries interdites en tout (64, 96, 96, 96, 64 pour r = 1 … 5). Parallèles (même direction, [−8, 8]², 8 phases,
+2 ordres) : distance 2 : 4 / 296 interagissent ; ≥ 3 : 0. Conséquence : à contresens, deux routes ne se gênent que si la somme de leurs voies
+est dans [−3, 1] (au lieu de « ≤ 6 voies » utilisé jusqu'ici, trop prudent).
+⇒ Un croisement n'a besoin d'AUCUN constant : il suffit que les deux signaux ne passent pas à ≤ 1 l'un de l'autre. Démonstration
+réutilisable (croisement_demo.py) : directions 0 et 1 (60°), puis 0 et 2 (120°), fourmis à distance 2 au plus près : 4 cas justes, 2 moteurs ;
+2 usages 16/16 ; 20 usages (3 graines + 20 × (1,1)) 20/20, superposition exacte, 2 moteurs ; certificat (distance entre usages 117 + 200 (j−1),
+resp. 17 + 100 (j−1)).
+Certificat fin (cert_fin.py) : condition « distance ≥ 7, ou les deux fourmis libres et ≥ 3 / ≥ 2 », sur toute la droite des temps, + argument de
+parité (couleur = parité des passages) ⇒ superposition exacte. Contrôle : la fusion R-403 passe (libres à 7, non libres ≥ 180).
