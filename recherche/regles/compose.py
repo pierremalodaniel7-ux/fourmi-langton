@@ -36,3 +36,9 @@ def attach(C2, name, rho, target, Tref):
     if fr is None: return None
     tau, v = fr
     return Circuit([(n, translate(advance(p, tau), v), var) for n, p, var in rp])
+def slide(C, name, D):
+    """glisse le circuit le long de la route de sa pièce `name` : chaque pièce reculée de D périodes sur SA route puis translatée de
+    D·d (d = direction de `name`) ; la pièce `name` garde exactement sa trajectoire, le reste du circuit agit D périodes plus loin."""
+    P = dict((n, p) for n, p, v in C.pieces)[name]
+    d0 = decode([P[0]], P[1])[0]; d = ship_dir(d0[0])
+    return Circuit([(n, translate(back(p, D), (D * d[0], D * d[1])), v) for n, p, v in C.pieces], C.outputs)

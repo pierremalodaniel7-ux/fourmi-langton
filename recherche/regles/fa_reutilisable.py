@@ -6,7 +6,7 @@ Usage : python3 fa_reutilisable.py [indice] [cert]"""
 import sys, json, random, itertools
 from fa_lib import *
 from circuit import *
-I = int(sys.argv[1]) if len(sys.argv) > 1 else 0
+I = int(sys.argv[1]) if __name__ == '__main__' and len(sys.argv) > 1 else 0
 g = json.load(open('data/fa_reuse_ok_024.json'))[I]
 K = (tuple(g['K'][0]), [tuple(x) for x in g['K'][1]])
 pieces = [('K3', K3, None), ('K2', K2, None), ('B', B, 'b'), ('A', A, 'a')]

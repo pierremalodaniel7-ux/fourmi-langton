@@ -412,3 +412,31 @@ déviées de ±120° ; 1 953 R1 distincts ; 262 chaînes R0 → R1 → R2 avec l
 3 fourmis (12 oscillateurs) : 38 762 conversions, 12 déviées, 0 chaîne. Contrôle de T3 : 0 objet dévié redevenu lui-même (comme prévu).
 Les phases d'arrivée ne sont même pas imposées (condition plus faible que dans un vrai circuit) : le résultat négatif n'en est que plus net.
 
+## R-349 ADDITIONNEUR COMPLET RÉUTILISABLE (a + b + retenue) — VÉRIFIÉ (2 moteurs, 20 usages) ; tout nombre d'usages DÉMONTRÉ (certificat)
+fa_reuse.py : demi-additionneur R-337 + retenue c = UN vaisseau de direction quelconque dont la route n'est l'axe d'aucune entrée à
+contresens, et dont aucune sortie n'est sur un axe d'entrée à contresens (412 000 placements : directions 1, 5 → 0 ; 0, 2, 4 → 8,
+toutes de direction 4, 2 géométries). Retenu (fa_reutilisable.py, resumes/additionneur_complet_reutilisable.json) : c = « 56,−28,2 » +
+case (57,−28), joué en 1er (il croise la sortie de la porte vers t = 224). Somme lue sur (0,0,1000,0), (2,−31,915,0), (4,28,914,2) ;
+retenue sur (0,1,999,0), (0,1,999,7), (2,−32,920,1) (au temps 4000 ; « un vaisseau sur l'une des positions »).
+8/8 justes, 2 moteurs ; 2 usages (k = 200 périodes) : 64/64 suites en superposition exacte ; 20 usages au hasard dans UNE simulation
+(graines 0, 1, 2) : 20/20, superposition exacte, 2 moteurs identiques. Certificat (circuit.certificat, même méthode que R-338) : distance
+minimale EXACTE entre fourmis de deux usages, sur toute la droite des temps, pour les 64 couples d'entrées : 90 + 100 (j − 1) pour
+j = 1 … 12 ; aucune paire (sortie, entrée) sur le même axe en sens opposés ⇒ N usages = superposition exacte pour tout N et toute suite.
+Remarque : la piste 1 (égaliser S) n'était pas nécessaire ; la retenue c agit sur S-V, S-U ou les vaisseaux décalés selon le cas.
+
+## R-349b HORLOGES SANS MIROIR à 6 fourmis — VÉRIFIÉ (CYCLE exact = périodique pour toujours ; 2 moteurs) ; famille infinie OUVERT
+horloge.py (3 vaisseaux, symétries 2, 3, 6, rayon 10, 46 056 essais) : 0 cycle. horloge2.py (2 générateurs : 4 vaisseaux symétrie 2 ou
+6 vaisseaux symétrie 3, 3 × 200 000 tirages, rayons 8, 12, 16) : 72 cycles à 4 vaisseaux (période ≤ 36), 1 362 à 6 vaisseaux (périodes
+jusqu'à 13 266). Famille : P = 2 322 + 2 736 n, boîte 35 + 48 n, rayon 22 + 32 n, pour n = 0, 1, 2, 3, 4 (resumes/horloges_6_fourmis.json) ;
+retour exact vérifié par fourmi_r (CYCLE) et hx.py. Vols libres jusqu'à 426 pas. C'est une « boucle » au sens de la consigne 3 : des
+signaux font le tour et reviennent, sans miroir et sans relais immobile (compatible avec T3 : les objets qui relancent un vaisseau
+sont eux-mêmes des vaisseaux en mouvement). Déjà connu ? McGinnis-Webb 2019 : orbites à 2 particules (synchrone) ; rien trouvé sur des
+orbites de 6 particules à longs vols.
+
+## R-350 Enchaînement réutilisable de R-349 derrière R-337 : ÉCHEC (OBSERVÉ, cause identifiée)
+add2_reutilisable.py, compose.py (attach : rotation + translation + avance exactes pour que la pièce c de l'étage 1 suive exactement c0 ;
+slide : glissement de l'étage 1 le long de la route de c) : 11/16 pour tout glissement D = 20 … 400 (6/16 sans glissement). Cause
+(trace des distances) : dans R-349, le constant K2 voyage parallèlement à c, 4 voies à côté ; tourné et posé sur c0, il traverse la porte
+de l'étage 0 au moment où c0 y naît (choc B/K2 à t = 233). Le glissement ne change pas sa trajectoire (pièce parallèle à c).
+Virage de c0 par UN constant pour l'éloigner (virage_c.py, 172 016 placements) : 0 virage nouveau propre et réutilisable.
+L'additionneur 2 bits réutilisable reste OUVERT ; celui à UN usage est R-345 (16/16).

@@ -48,3 +48,13 @@ Sans relais, un signal ne repasse jamais au même endroit sauf si on le « relan
 le calcul R2L2 est « en avant » (les entrées et les constantes viennent de l'infini et repartent à l'infini), comme un circuit
 combinatoire déplié dans le temps. La mémoire (R-335, R-341) existe parce qu'un objet peut CHANGER (T3 n'interdit que l'objet qui reste
 le même) ; une horloge interne exige un relais à 3 états.
+
+## Résultats de la recherche (26/11 jour, R-348, R-349b)
+- **Relais à 3 états : 0** (2 fourmis : 4 398 déviations ±120°, 262 chaînes à 2 pas, 0 retour ; 3 fourmis : 0). OBSERVÉ (négatif).
+- **Horloges sans miroir : OUI, avec 6 fourmis.** Six vaisseaux disposés avec une symétrie d'ordre 3 (2 « générateurs » tournés de
+  120° et 240°) qui partent loin, se relancent les uns les autres par chocs et reviennent EXACTEMENT à leur état de départ.
+  Famille observée : période P = 2 322 + 2 736 n, rayon 22 + 32 n, pour n = 0, 1, 2, 3, 4 (P = 2 322 … 13 266, l'orbite s'éloigne
+  jusqu'à 150 cases du centre) ; retour exact VÉRIFIÉ par 2 moteurs (CYCLE de fourmi_r = preuve par réversibilité que c'est périodique
+  pour toujours ; hx.py). Vols libres jusqu'à 426 pas (≈ 53 cases) entre deux chocs. 4 vaisseaux (symétrie 2) : au mieux P = 36 ;
+  3 vaisseaux (symétries 2, 3, 6, rayon 10) : 0 cycle. Ce n'est pas un circuit de relais fixes (T3 les rend très contraints) mais une
+  « boucle dynamique » : chaque vaisseau est relancé par un autre vaisseau qui revient lui aussi. Famille infinie : OUVERT (5 termes).
