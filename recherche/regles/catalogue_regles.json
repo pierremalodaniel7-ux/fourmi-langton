@@ -239,8 +239,8 @@
   "fourmis": "0,0,4",
   "points": "1,0;31,-38;31,-36;31,-33;31,-32;31,-31;32,-40;32,-39;32,-36;32,-32;33,-42;33,-41;33,-39;33,-37;33,-36;33,-33;34,-40;34,-39;34,-38;34,-36;34,-32;35,-43;35,-41;35,-40;35,-37;35,-34;35,-33;35,-32;35,-31;36,-45;36,-41;36,-36;36,-34;36,-31;37,-45;37,-43;37,-41;37,-32;38,-43;38,-42;38,-41;39,-45;39,-41;39,-39;39,-33;40,-40;40,-33;41,-43;41,-42;41,-39;41,-36;41,-34;41,-33;41,-32;42,-49;42,-48;42,-47;42,-42;42,-40;42,-38;42,-36;42,-33;43,-48;43,-40;44,-47;44,-42;44,-41;44,-35;45,-47;45,-45;45,-42;45,-39;45,-37;46,-49;46,-43;46,-41;46,-39;46,-38;47,-45;48,-46;48,-43;48,-39;49,-49;49,-44;49,-42",
   "img": [
-   700,
-   ""
+   500,
+   "zoom 0,-90,90,0"
   ],
   "situation": "Vaisseau R2L2 (fourmi 0,0 cap 4 + case 1,0) lancé vers un champ de 35 % de cases noires centré en (40,−40).",
   "deroulement": "Il traverse le champ, le dérange, puis ressort en vaisseau dans LA MÊME direction (1,−1), un peu décalé de voie.",
@@ -261,7 +261,7 @@
   "points": "1,0",
   "img": [
    30,
-   ""
+   "zoom -3,-3,3,3"
   ],
   "situation": "2 fourmis de classes opposées (caps 3 et 0) côte à côte, 1 case noire.",
   "deroulement": "Revient exactement à son état toutes les 3 étapes. C'est son propre film à l'envers.",
@@ -282,7 +282,7 @@
   "points": "-1,1",
   "img": [
    63,
-   ""
+   "zoom -3,-3,3,3"
   ],
   "situation": "2 fourmis (caps 1 et 0) et 1 case : une paire qui tourne en rond.",
   "deroulement": "Période 21 ; propre film à l'envers (à une phase près) ; ses destructions propres ne laissent AUCUNE case.",
@@ -302,8 +302,8 @@
   "fourmis": "46,1,2;49,-51,3;51,-1,2",
   "points": "47,1;48,-50;49,-51;51,-2",
   "img": [
-   720,
-   ""
+   640,
+   "zoom -15,-15,15,15"
   ],
   "situation": "Film à l'envers (gomme collective) d'une destruction propre de M : 3 vaisseaux qui convergent vers (0,0).",
   "deroulement": "Au pas 720, M est là exactement (phase 2) et un 4e vaisseau repart vers la gauche.",
@@ -323,8 +323,8 @@
   "fourmis": "0,-1,3;0,-1,4;2,-42,0",
   "points": "-1,1;1,-41",
   "img": [
-   720,
-   ""
+   420,
+   "zoom -25,-25,25,25"
   ],
   "situation": "M (phase 11) + 1 vaisseau-sonde de direction (0,1) joué après M.",
   "deroulement": "M part en 3 vaisseaux (directions 3, 2, 4) ; il ne reste RIEN. Sans M, la sonde passe seule.",
@@ -345,7 +345,7 @@
   "points": "1,-2245;1,-1841;1,-1445;1,-1045;1,-641;1,-245;47,1;48,-50;49,-51;51,-2;847,1;848,-850;849,-851;851,-2;1247,1;1248,-1250;1249,-1251;1251,-2;2047,1;2048,-2050;2049,-2051;2051,-2",
   "img": [
    1600,
-   ""
+   "zoom -25,-25,25,25"
   ],
   "situation": "18 fourmis, toutes en vaisseaux venus de loin à t = 0 ; aucune case fixe. Usage i : écriture (si 1) à 3 200·i, lecture vers 3 200·i + 1 600.",
   "deroulement": "Image au pas 1 600 : le bit 1 du 1er usage est écrit (M au centre) ; les vaisseaux des usages suivants approchent.",
@@ -366,7 +366,7 @@
   "points": "1,-245;41,-425;47,1;48,-50;49,-51;51,-2;287,21;288,-230;289,-231;291,18;447,1;448,-450;449,-451;451,-2",
   "img": [
    1600,
-   ""
+   "zoom -12,-12,52,32"
   ],
   "situation": "P1 en (0,0), P2 en (40,20) ; 11 fourmis posées à t = 0 (kits d'écriture et d'effacement).",
   "deroulement": "Lectures à t = 1 600, 3 200, 4 800 : (ON, OFF), (OFF, ON), (ON, OFF).",
@@ -386,8 +386,8 @@
   "fourmis": "-16,16,4;62,-24,4;30,-56,0",
   "points": "-15,16;62,-23;63,-23;29,-55",
   "img": [
-   1400,
-   ""
+   420,
+   "zoom -30,-70,80,30"
   ],
   "situation": "Porte R-327 (B en (0,0), A en (30,−56)) + K2 (62,−24) + K3 (−16,16) ; ici seul A est présent.",
   "deroulement": "K2 tourne U vers la gauche, puis U pousse K3 sur la voie de sortie de B : S = 1 sur la même voie que dans le cas b = 1. Aucune case ne reste.",
@@ -407,8 +407,8 @@
   "fourmis": "-16,16,4;62,-24,4;30,-56,0;-216,216,4;262,-24,4;-200,200,4;-416,416,4;462,-24,4;-400,400,4;30,-456,0;-616,616,4;662,-24,4;-816,816,4;862,-24,4;-1016,1016,4;1062,-24,4;-1216,1216,4;1262,-24,4;30,-1256,0;-1416,1416,4;1462,-24,4;-1616,1616,4;1662,-24,4;-1600,1600,4;-1816,1816,4;1862,-24,4;-2016,2016,4;2062,-24,4;-2216,2216,4;2262,-24,4;-2200,2200,4;30,-2256,0;-2416,2416,4;2462,-24,4;-2400,2400,4;30,-2456,0;-2616,2616,4;2662,-24,4;-2816,2816,4;2862,-24,4;-2800,2800,4;-3016,3016,4;3062,-24,4;-3216,3216,4;3262,-24,4;-3200,3200,4;30,-3256,0;-3416,3416,4;3462,-24,4;-3616,3616,4;3662,-24,4;-3816,3816,4;3862,-24,4;-3800,3800,4",
   "points": "-15,16;62,-23;63,-23;29,-55;-215,216;262,-23;263,-23;-199,200;-415,416;462,-23;463,-23;-399,400;29,-455;-615,616;662,-23;663,-23;-815,816;862,-23;863,-23;-1015,1016;1062,-23;1063,-23;-1215,1216;1262,-23;1263,-23;29,-1255;-1415,1416;1462,-23;1463,-23;-1615,1616;1662,-23;1663,-23;-1599,1600;-1815,1816;1862,-23;1863,-23;-2015,2016;2062,-23;2063,-23;-2215,2216;2262,-23;2263,-23;-2199,2200;29,-2255;-2415,2416;2462,-23;2463,-23;-2399,2400;29,-2455;-2615,2616;2662,-23;2663,-23;-2815,2816;2862,-23;2863,-23;-2799,2800;-3015,3016;3062,-23;3063,-23;-3215,3216;3262,-23;3263,-23;-3199,3200;29,-3255;-3415,3416;3462,-23;3463,-23;-3615,3616;3662,-23;3663,-23;-3815,3816;3862,-23;3863,-23;-3799,3800",
   "img": [
-   3200,
-   ""
+   1820,
+   "zoom -30,-70,80,30"
   ],
   "situation": "54 fourmis (entrées et constantes de 20 usages espacés de 200 périodes), toutes posées à t = 0.",
   "deroulement": "Chaque usage sort S = a⊕b (voie 0) et C = a∧b (voie (2,−28)) ; les usages ne se touchent jamais (distance ≥ 90).",
@@ -429,7 +429,7 @@
   "points": "-24,25;-1,-24",
   "img": [
    500,
-   ""
+   "zoom -49,-13,-25,11"
   ],
   "situation": "Choc de 2 vaisseaux (directions (1,−1) et (0,1)) dans l'une des 24 géométries « liées » de R-333.",
   "deroulement": "Après le choc, les 2 fourmis restent liées : un objet de période 8 qui avance comme un vaisseau.",
@@ -450,7 +450,7 @@
   "points": "1,-2",
   "img": [
    30,
-   ""
+   "zoom -3,-4,3,2"
   ],
   "situation": "3 fourmis + 1 case dans un carré 3×3.",
   "deroulement": "Cycle exact de période 6.",
@@ -460,5 +460,26 @@
   "deja": "Différent du cadre de 1908.06019 (convention)",
   "source": "journal_regles R-332",
   "commande": "./miroir enum 3 2 1 4096"
+ },
+ {
+  "id": "R-341",
+  "b": 26,
+  "classe": "Règles/Hexa R2L2 (nuit 26-11)",
+  "nom": "Bascule RS : 1 vaisseau met le bit à 1, 1 autre le remet à 0 (20 écritures)",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,1;1,-1,0;-41,42,4;2,-243,4;-441,443,2;2,-642,0;-839,840,4;1,-1042,2;-1241,1242,4;1,-1441,2;-1640,1641,2;2,-1842,0;-2042,2043,2;1,-2242,4;-2439,2441,0;2,-2643,0;-2840,2841,4;2,-3042,0;-3239,3240,4;1,-3442,2;-3641,3642,4;1,-3841,2",
+  "points": "-3642,3643;-3641,3642;-3641,3643;-3640,3642;-3240,3241;-3239,3240;-3239,3241;-3238,3240;-2839,2841;-2439,2441;-2438,2440;-2042,2043;-2041,2043;-2040,2042;-1640,1641;-1639,1641;-1638,1640;-1242,1243;-1241,1242;-1241,1243;-1240,1242;-840,841;-839,840;-839,841;-838,840;-442,443;-441,442;-440,442;-40,42;-1,1;1,-3442;1,-3441;1,-2643;1,-2642;1,-2241;1,-1841;1,-1042;1,-1041;1,-242;1,-241;2,-3843;2,-3842;2,-3043;2,-2644;2,-2643;2,-2243;2,-2242;2,-1443;2,-1442;2,-643;2,-243",
+  "img": [
+   1700,
+   "zoom -12,-12,12,12"
+  ],
+  "situation": "État 0 = M (période 21), état 1 = R' (2 fourmis + 5 cases, période 12), au même endroit ; 20 vaisseaux d'écriture posés à t = 0, alternés 1, 0, 1…",
+  "deroulement": "Chaque vaisseau traverse l'objet tout droit et le change : M → R' (mise à 1, direction (1,−1)) ou R' → M (mise à 0, direction (0,1)). Image : état 1 après la 1re écriture.",
+  "mesures": "20/20 états justes entre deux écritures ; 2 moteurs identiques (t = 32 405) ; 920 bascules RS de ce type trouvées, aucune « T », aucune idempotente.",
+  "statut": "VÉRIFIÉ (temps fini)",
+  "interet": "Faire entrer (1) et sortir (0) un bit avec UN vaisseau, sans miroir ni case fixe.",
+  "deja": "Pas trouvé",
+  "source": "journal_regles R-340, R-341",
+  "commande": "python3 bascule_demo.py 0 20"
  }
 ]

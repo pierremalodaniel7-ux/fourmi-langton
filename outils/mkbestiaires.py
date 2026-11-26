@@ -58,20 +58,27 @@ def xy(kind, x, y):
 def draw(e, fn):
     kind, g, starts, ants = simulate(e["regle"], e["fourmis"], e.get("points", ""), int(e["img"][0]))
     fig, ax = plt.subplots(figsize=(6, 4.6))
+    # option (nuit 26/11) : img[1] = "zoom x0,y0,x1,y1" → on ne dessine que ce rectangle (coordonnées de la grille), cases plus grosses
+    zm = re.match(r"zoom\s*(-?\d+),(-?\d+),(-?\d+),(-?\d+)", str(e["img"][1]) if len(e["img"]) > 1 else "")
+    box = tuple(map(int, zm.groups())) if zm else None
+    inb = (lambda x, y: box[0] <= x <= box[2] and box[1] <= y <= box[3]) if box else (lambda x, y: True)
     cols = {}
     for (x, y), c in g.items():
-        if c: cols.setdefault(c, []).append(xy(kind, x, y))
+        if c and inb(x, y): cols.setdefault(c, []).append(xy(kind, x, y))
     shades = ["#000000", "#555555", "#999999", "#bbbbbb"]
     for c, pts in sorted(cols.items()):
         xs, ys = zip(*pts)
-        ax.scatter(xs, ys, s=.4, c=shades[(c - 1) % 4], marker="s", lw=0)
-    init = [p for p in e.get("points", "").split(";") if p.strip()]
+        ax.scatter(xs, ys, s=(12 if box or len(g) < 400 else .4), c=shades[(c - 1) % 4], marker="s" if kind == "sq" else "h", lw=0)
+    init = [p for p in e.get("points", "").split(";") if p.strip() and inb(*map(int, p.split(",")[:2]))]
     if init and len(init) <= 60:
         P = [xy(kind, *map(int, p.split(",")[:2])) for p in init]
         ax.scatter(*zip(*P), s=40, facecolors="none", edgecolors="#d62728", lw=1.2, label="cases de départ")
-    ax.scatter(*zip(*[xy(kind, s[0], s[1]) for s in starts]), s=25, c="#2ca02c", label="départ des fourmis")
-    ax.scatter(*zip(*[xy(kind, a[0], a[1]) for a in ants]), s=45, c="#1f77b4", marker="^",
-               label=f"fourmis au pas {int(e['img'][0]):,}".replace(",", " "))
+    S0 = [xy(kind, s[0], s[1]) for s in starts if inb(s[0], s[1])]; A1 = [xy(kind, a[0], a[1]) for a in ants if inb(a[0], a[1])]
+    if S0: ax.scatter(*zip(*S0), s=25, c="#2ca02c", label="départ des fourmis")
+    if A1: ax.scatter(*zip(*A1), s=45, c="#1f77b4", marker="^", label=f"fourmis au pas {int(e['img'][0]):,}".replace(",", " "))
+    if box:
+        C = [xy(kind, a, b) for a in (box[0], box[2]) for b in (box[1], box[3])]
+        ax.set_xlim(min(c[0] for c in C) - 1, max(c[0] for c in C) + 1); ax.set_ylim(min(c[1] for c in C) - 1, max(c[1] for c in C) + 1)
     ax.invert_yaxis(); ax.set_aspect("equal"); ax.legend(loc="best", fontsize=7)
     ax.set_title(f"{e['id']} — état au pas {int(e['img'][0]):,}".replace(",", " "))
     fig.tight_layout(); fig.savefig(fn, dpi=160); plt.close(fig)

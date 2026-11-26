@@ -93,6 +93,27 @@ fiche('R-332-3', 'Oscillateur à 3 fourmis (nombre impair), période 6', '0,0,2;
       '3 fourmis + 1 case dans un carré 3×3.', 'Cycle exact de période 6.', '12 orbites distinctes à 3 fourmis trouvées ([−2,2]², ≤ 1 case) ; fourmi_r : CYCLE.',
       'VÉRIFIÉ (cycle exact)', 'McGinnis-Webb (2019) laissent ouvert « N impair périodique ? » dans leur modèle SYNCHRONE ; ici, ordre « l\'une après l\'autre » (les fourmis se croisent sur une même case).',
       'Différent du cadre de 1908.06019 (convention)', 'journal_regles R-332', './miroir enum 3 2 1 4096')
+# 11. bascule RS à un vaisseau
+Bq = json.load(open('resumes/bascule_rs.json'))
+_, fa, pts = Bq['situation'].split('|')
+fiche('R-341', 'Bascule RS : 1 vaisseau met le bit à 1, 1 autre le remet à 0 (20 écritures)', fa, pts, 1700,
+      'État 0 = M (période 21), état 1 = R\' (2 fourmis + 5 cases, période 12), au même endroit ; 20 vaisseaux d\'écriture posés à t = 0, alternés 1, 0, 1…',
+      'Chaque vaisseau traverse l\'objet tout droit et le change : M → R\' (mise à 1, direction (1,−1)) ou R\' → M (mise à 0, direction (0,1)). Image : état 1 après la 1re écriture.',
+      '20/20 états justes entre deux écritures ; 2 moteurs identiques (t = 32 405) ; 920 bascules RS de ce type trouvées, aucune « T », aucune idempotente.',
+      'VÉRIFIÉ (temps fini)', 'Faire entrer (1) et sortir (0) un bit avec UN vaisseau, sans miroir ni case fixe.', 'Pas trouvé',
+      'journal_regles R-340, R-341', 'python3 bascule_demo.py 0 20')
+# images : instant et cadrage (img[1] = « zoom x0,y0,x1,y1 », option ajoutée à outils/mkbestiaires.py)
+ZOOM = {'R-330': (500, 'zoom 0,-90,90,0'), 'R-334-O': (30, 'zoom -3,-3,3,3'), 'R-335-M': (63, 'zoom -3,-3,3,3'),
+        'R-335-E': (640, 'zoom -15,-15,15,15'), 'R-335-L': (420, 'zoom -25,-25,25,25'), 'R-335-6': (1600, 'zoom -25,-25,25,25'),
+        'R-335-X': (1600, 'zoom -12,-12,52,32'), 'R-337-10': (420, 'zoom -30,-70,80,30'), 'R-337-20': (1820, 'zoom -30,-70,80,30'),
+        'R-332-3': (30, 'zoom -3,-4,3,2'), 'R-341': (1700, 'zoom -12,-12,12,12')}
+for f in F:
+    if f['id'] in ZOOM: f['img'] = list(ZOOM[f['id']])
+# vaisseau double : cadrage autour des 2 fourmis à l'instant de l'image
+fd = [f for f in F if f['id'] == 'R-333-D'][0]
+A = [list(map(int, a.split(','))) for a in fd['fourmis'].split(';')]; g = {tuple(map(int, p.split(','))): 1 for p in fd['points'].split(';')}
+for _ in range(500): step(A, g)
+cx, cy = A[0][0], A[0][1]; fd['img'] = [500, f'zoom {cx - 12},{cy - 12},{cx + 12},{cy + 12}']
 cat = json.load(open('catalogue_regles.json'))
 cat = [c for c in cat if c.get('b') != B] + F
 json.dump(cat, open('catalogue_regles.json', 'w'), ensure_ascii=False, indent=1)
