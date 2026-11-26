@@ -200,3 +200,40 @@ En imposant des virages SANS débris (demi_add7.py), ce sont des suites de 2 usa
 0 demi-additionneur réutilisable sur les portes testées. OUVERT : réunir 2 voies sans débris (autre géométrie de zigzag, ou réunion par
 un choc à 3 vaisseaux). En attendant, le demi-additionneur « S sur 2 voies » (S = U ou V, C = A déviée) EST la porte d'interaction,
 réutilisable (R-318 : 42 portes 12/12) ; et le circuit à 2 étages R-321 est réutilisé 30/30.
+
+# Nuit du 26/11 (session hexa R2L2 : miroirs) — R-330 et suivants
+
+## R-330 AUCUN obstacle fixe ne peut tourner un vaisseau R2L2 — DÉMONTRÉ (calcul exact, preuve_obstacles.py) ; déjà connu (Grosfils et al. 1999, preuve esquissée)
+Énoncé : un vaisseau R2L2 qui a roulé 10 périodes sur du blanc, puis rencontre N'IMPORTE QUELLE configuration de cases (finie ou infinie,
+sur toutes les cases qu'il n'a pas encore visitées), ne recule jamais de plus de 3 crans le long de sa direction : a(t) ≥ max a − 3
+avec a = x − y pour la direction (1,−1). Les 2 autres directions de vaisseau de sa classe de caps, (0,1) et (−1,0), ont a = −1 : il ne
+peut donc JAMAIS être tourné (ni de ±120°, ni renvoyé), seulement décalé de voie. Après un obstacle fini il redevient un vaisseau de
+même direction (vérifié depuis chacun des états du certificat).
+Preuve : on branche sur la couleur de chaque case inconnue au moment où la fourmi y arrive ; état = (cap, recul, cases connues avec
+a ≥ max a − B, relatives à la fourmi). Pour B = 3 l'ensemble des états atteints est FINI et fermé : 14 états (2 branchements), aucun
+pas vers une case oubliée ; idem B = 4, 5, 6 (28, 56, 112 états). C'est un certificat valable pour tout temps (pas une simulation finie).
+Contre-vérification par force brute (test_preuve_obstacles.py) : 3 000 champs aléatoires (densité 5 % à 90 %, jusqu'à 41×41) :
+recul max = 3 exactement, 3 000/3 000 sorties dans la même direction. (Si l'obstacle touche le vaisseau AVANT qu'il soit formé, il peut
+partir ailleurs : 476/3 000 dans un 1er test mal cadré — ce n'est pas un miroir.)
+Conséquence : les « miroirs » de Fredkin-Toffoli ne peuvent pas être faits de cases. Un miroir R2L2 doit contenir des FOURMIS.
+Explique R-307 (2 625 obstacles + 144 murs : jamais tourné). Commande : `python3 preuve_obstacles.py 3`.
+
+## R-331 AUCUN MIROIR EXACT n'existe en R2L2, quel que soit l'objet (fourmis + cases) — DÉMONTRÉ (2 invariants, preuve ci-dessous) + VÉRIFIÉ (invariant.py)
+Deux quantités ne changent jamais (pour toute situation, tout ordre de jeu) :
+ (I1) le nombre de fourmis de chaque CLASSE de caps (pairs {0,2,4} / impairs {1,3,5}) : une fourmi tourne de ±120° = ±2 crans.
+ (I2) Q = (nombre de cases noires) − Σ_fourmis ⌊cap/2⌋  (mod 3). Preuve : sur une case blanche, cap + 2 (⌊cap/2⌋ + 1 mod 3) et la case
+      devient noire (+1) ; sur une noire, cap + 4 (⌊cap/2⌋ + 2 ≡ −1) et la case devient blanche (−1) : ΔQ = 0 à chaque pas.
+      Vérifié : 300/300 situations au hasard (1 à 6 fourmis, 500 tours, hx.py).
+Valeurs pour le vaisseau (constantes le long de sa période) : directions r = 0,1 → Q = 2 ; r = 2,3 → Q = 1 ; r = 4,5 → Q = 0 ;
+r pair = fourmi de cap pair. Théorème : si un objet M (n'importe quelles fourmis et cases) reçoit un vaisseau de direction r et
+redevient M (à n'importe quelle phase de son orbite, translaté de n'importe quel vecteur, fourmis dans n'importe quel ordre) en
+émettant un seul vaisseau propre de direction r', alors r' = r. En effet (I1) impose r' ≡ r (mod 2) (le vaisseau sortant a la classe du
+vaisseau entrant, même si ce n'est pas la même fourmi) et (I2) impose Q(r') = Q(r), donc r' ∈ {r, r ± 1 dans la même paire}, donc r' = r.
+⇒ un miroir (60°, 120°, 180°, 240° ou 300°) qui se retrouve EXACTEMENT lui-même est impossible. Seuls restent possibles : les objets qui
+changent (autre oscillateur, objet TOURNÉ — tourner de 120° un objet à n fourmis change Q de −n — ou qui gardent des cases en plus),
+et les chocs à plusieurs vaisseaux (Q total conservé).
+Accord avec les recherches (miroir.c, R-332) : 0 miroir exact sur 7 723 oscillateurs à 2, 3 et 4 fourmis × 6 directions × toutes voies
+× toutes phases × 2 ordres de jeu. Conséquence pour le billard : un vaisseau ne peut tourner qu'en rencontrant d'autres vaisseaux (constantes,
+comme R-314) ou un objet qu'il modifie ; une « boucle de miroirs » fixe est impossible (et R-330 exclut déjà les cases seules).
+Remarque : les chocs PROPRES de 2 vaisseaux (sans débris) doivent conserver Q(A) + Q(B) mod 3 et les classes ; ex. (60°, −120°, +120°)
+de R-314 : B −120° (Q + 1), A +120° (Q − 1) ✓ ; « B tout droit, A +120° » laisse forcément des cases (R-314 : 3 cases).
