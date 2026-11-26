@@ -288,3 +288,20 @@ identiques à chaque fois. Écran 2 pixels avec ce pixel : P1 = ON, OFF, ON et P
 Ce n'est PAS « un vaisseau qui tourne dans une boucle de miroirs » (impossible, R-331) mais son équivalent borné : une paire de fourmis
 qui tourne en rond (orbite de période 21). Une simulation finie ne prouve pas un fonctionnement infini ; mais l'état « 0 » est vide et
 l'état « 1 » est un cycle exact, donc chaque usage recommence dans le même état (ce qui est démontré pour les 20 usages simulés).
+
+## R-337 DEMI-ADDITIONNEUR R2L2 RÉUTILISABLE 20/20 (ferme R-329) — VÉRIFIÉ (2 moteurs, temps fini) (demi_add_z.py, demi_add_final.py)
+Porte R-327 « H:R2L2|0,0,4;30,-56,0|1,0,1;29,-55,1 » (B r 0 en (0,0) joué en 1er, A r 2 en (30,−56) ; ensemble ils se DÉCALENT).
+Géométrie (pourquoi un seul virage ne peut pas marcher, R-325 « les voies s'éloignent ») : la route de sortie de V (B seul) ne croise la
+route de U (A seul) qu'au point de porte (30,−30), où V passe au même instant ; donc il faut un zigzag : K2 tourne U vers la gauche
+(direction 4) en X1 = (30, −30 + s1), puis K3 remet un vaisseau en direction 0 sur la ROUTE D'ARRIVÉE de B, en amont de la porte.
+Recherche systématique (fourmi_r, 2 cœurs) : 99 732 placements de K2 → 6 674 virages propres (0 case) qui n'abîment ni V ni le cas (1,1) ;
+40 K2 distincts × 246 960 placements de K3 → 2 163 demi-additionneurs justes pour les 4 cas, 0 case restante ; réutilisation (usages
+espacés de k = 200 périodes) avec le critère le plus strict — l'état final de plusieurs usages est EXACTEMENT la superposition des usages
+faits seuls (aucune interaction entre usages) : 563 / 2 163 pour les 16 suites de 2 usages, puis 563 / 563 pour 3 suites de 20 usages au hasard.
+Exemple retenu : K2 = « 62,−24,4 » + cases (62,−23), (63,−23) (joué en 1er) ; K3 = vaisseau r 0 en (−16,16) (case (−15,16)) ; S = a⊕b
+sur la voie 0 de la direction 0 (celle de B seul), C = a∧b sur la voie (2,−28) (A décalé). Dans le cas (1,0), c'est K3 qui est poussé sur
+la voie de S. 20 usages au hasard dans UNE simulation (54 à 62 fourmis) : 20/20 additions justes pour 5 tirages ; 2 moteurs (fourmi_r et
+hx.py) : états finaux identiques ; 0 case restante hors des vaisseaux. Germes : resumes/demi_additionneur_reutilisable.json.
+Ce qui avait raté en R-329 (débris aux virages) est évité en exigeant 0 case à CHAQUE choc et la superposition exacte.
+Statut : VÉRIFIÉ pour les usages simulés ; pour tout nombre d'usages, AFFIRMÉ (la superposition exacte de 2 usages pour toutes les suites
+le rend très plausible, mais le non-recouvrement de 3 usages ou plus n'est vérifié que sur 3 × 20 usages).

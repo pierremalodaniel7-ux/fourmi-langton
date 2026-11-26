@@ -10,7 +10,7 @@ import sys, json, itertools, collections
 from hx import ship, ship_dir, rot, step, PHASES, run as hrun
 from outils_r import lot
 from exp_osc import hd
-T = int(sys.argv[1]) if len(sys.argv) > 1 else 2400
+T = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 2400
 OFFS = {}
 for r in range(6):
     a, c = ship(r); A = [list(a)]; g = {c: 1}
