@@ -55,7 +55,7 @@ def certificate(layout, envs=None, T=None, log=print):
         mb = min([ray_min(d[i], d[j], T, +1) for i in range(len(d)) for j in range(i)] or [99])
         assert ma >= 7 and mb >= 7, ('rayons trop proches', e, ma, mb)
         assert T1 < T - 64
-        ps = [p for t in range(T0, T1 + 1) for p in P[t]]
+        ps = [p for t in range(T0, T1 + 1) for p in P[t]] or [(0, 0)]
         cx = sum(p[0] for p in ps) // len(ps); cy = sum(p[1] for p in ps) // len(ps)
         R = max(hd(p[0] - cx, p[1] - cy) for p in ps)
         rep.append(dict(cas=e, T0=T0, T1=T1, R=R, centre=(cx, cy), min_entrants=ma, min_sortants=mb))

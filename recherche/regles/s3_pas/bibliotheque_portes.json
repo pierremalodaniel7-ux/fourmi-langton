@@ -1,0 +1,697 @@
+[
+ {
+  "nom": "NON",
+  "entrees": [
+   "x"
+  ],
+  "vaisseaux": [
+   [
+    "K",
+    "K",
+    [
+     0,
+     -51,
+     51,
+     6
+    ]
+   ],
+   [
+    "x@K0",
+    "x",
+    [
+     1,
+     -50,
+     -1,
+     2
+    ]
+   ]
+  ],
+  "sorties": {
+   "non_x": [
+    [
+     [
+      0,
+      -51,
+      51,
+      6
+     ]
+    ],
+    "1 - x"
+   ]
+  },
+  "horaire": [
+   400
+  ],
+  "constants": 1,
+  "cas_justes": "2/2",
+  "deux_moteurs": "2/2",
+  "certificat": true,
+  "delta": 2008,
+  "T": 1600,
+  "fenetre": 69,
+  "rayon": 55,
+  "voies_opposees": 99,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 32
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 31
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 31
+   }
+  ]
+ },
+ {
+  "nom": "COPIE",
+  "entrees": [
+   "x"
+  ],
+  "vaisseaux": [
+   [
+    "K",
+    "K",
+    [
+     0,
+     -51,
+     51,
+     6
+    ]
+   ],
+   [
+    "x@K0",
+    "x",
+    [
+     1,
+     -50,
+     -1,
+     2
+    ]
+   ]
+  ],
+  "sorties": {
+   "non_x": [
+    [
+     [
+      0,
+      -51,
+      51,
+      6
+     ]
+    ],
+    "1 - x"
+   ],
+   "x_1": [
+    [
+     [
+      5,
+      -1,
+      50,
+      0
+     ]
+    ],
+    "x"
+   ],
+   "x_2": [
+    [
+     [
+      2,
+      0,
+      -50,
+      4
+     ]
+    ],
+    "x"
+   ]
+  },
+  "horaire": [
+   400
+  ],
+  "constants": 1,
+  "cas_justes": "2/2",
+  "deux_moteurs": "2/2",
+  "certificat": true,
+  "delta": 2008,
+  "T": 1600,
+  "fenetre": 69,
+  "rayon": 55,
+  "voies_opposees": 99,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 32
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 31
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 31
+   }
+  ]
+ },
+ {
+  "nom": "ET",
+  "entrees": [
+   "x",
+   "y"
+  ],
+  "vaisseaux": [
+   [
+    "x",
+    "x",
+    [
+     0,
+     -51,
+     51,
+     6
+    ]
+   ],
+   [
+    "y",
+    "y",
+    [
+     1,
+     -50,
+     -38,
+     2
+    ]
+   ]
+  ],
+  "sorties": {
+   "x_et_y": [
+    [
+     [
+      2,
+      37,
+      -124,
+      4
+     ]
+    ],
+    "x * y"
+   ],
+   "x_et_y_bis": [
+    [
+     [
+      5,
+      36,
+      50,
+      0
+     ]
+    ],
+    "x * y"
+   ],
+   "x_sans_y": [
+    [
+     [
+      0,
+      -51,
+      51,
+      6
+     ]
+    ],
+    "x * (1 - y)"
+   ],
+   "y_sans_x": [
+    [
+     [
+      1,
+      -50,
+      -38,
+      2
+     ]
+    ],
+    "y * (1 - x)"
+   ]
+  },
+  "horaire": [
+   696
+  ],
+  "constants": 0,
+  "cas_justes": "4/4",
+  "deux_moteurs": "4/4",
+  "certificat": true,
+  "delta": 3032,
+  "T": 1896,
+  "fenetre": 69,
+  "rayon": 87,
+  "voies_opposees": 99,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 21
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 22
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 18
+   }
+  ]
+ },
+ {
+  "nom": "NOR",
+  "entrees": [
+   "x",
+   "y"
+  ],
+  "vaisseaux": [
+   [
+    "K",
+    "K",
+    [
+     0,
+     -61,
+     61,
+     6
+    ]
+   ],
+   [
+    "x@K0",
+    "x",
+    [
+     1,
+     -60,
+     9,
+     2
+    ]
+   ],
+   [
+    "y@K1",
+    "y",
+    [
+     5,
+     1,
+     61,
+     2
+    ]
+   ]
+  ],
+  "sorties": {
+   "S": [
+    [
+     [
+      0,
+      -61,
+      61,
+      6
+     ]
+    ],
+    "int(not (x or y))"
+   ]
+  },
+  "horaire": [
+   400,
+   480
+  ],
+  "constants": 1,
+  "cas_justes": "4/4",
+  "deux_moteurs": "4/4",
+  "certificat": true,
+  "delta": 2328,
+  "T": 1680,
+  "fenetre": 69,
+  "rayon": 65,
+  "voies_opposees": 8,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 41
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 42
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 38
+   }
+  ]
+ },
+ {
+  "nom": "OU",
+  "entrees": [
+   "x",
+   "y"
+  ],
+  "vaisseaux": [
+   [
+    "K2",
+    "K",
+    [
+     0,
+     -73,
+     73,
+     2
+    ]
+   ],
+   [
+    "K1",
+    "K",
+    [
+     1,
+     -73,
+     -1,
+     6
+    ]
+   ],
+   [
+    "x@K10",
+    "x",
+    [
+     2,
+     -21,
+     -52,
+     2
+    ]
+   ],
+   [
+    "y@K11",
+    "y",
+    [
+     0,
+     -73,
+     61,
+     2
+    ]
+   ]
+  ],
+  "sorties": {
+   "S": [
+    [
+     [
+      0,
+      -73,
+      73,
+      2
+     ]
+    ],
+    "int(x or y)"
+   ]
+  },
+  "horaire": [
+   400,
+   480,
+   580
+  ],
+  "constants": 2,
+  "cas_justes": "4/4",
+  "deux_moteurs": "4/4",
+  "certificat": true,
+  "delta": 1176,
+  "T": 1780,
+  "fenetre": 99,
+  "rayon": 28,
+  "voies_opposees": 8,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 61
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 62
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 58
+   }
+  ]
+ },
+ {
+  "nom": "ET_par_NOR",
+  "entrees": [
+   "x",
+   "y"
+  ],
+  "vaisseaux": [
+   [
+    "K3",
+    "K",
+    [
+     0,
+     -81,
+     81,
+     2
+    ]
+   ],
+   [
+    "K1",
+    "K",
+    [
+     1,
+     -81,
+     9,
+     6
+    ]
+   ],
+   [
+    "x@K10",
+    "x",
+    [
+     2,
+     -29,
+     -42,
+     2
+    ]
+   ],
+   [
+    "K2",
+    "K",
+    [
+     5,
+     1,
+     82,
+     6
+    ]
+   ],
+   [
+    "y@K20",
+    "y",
+    [
+     0,
+     -60,
+     81,
+     2
+    ]
+   ]
+  ],
+  "sorties": {
+   "S": [
+    [
+     [
+      0,
+      -81,
+      81,
+      2
+     ]
+    ],
+    "x * y"
+   ]
+  },
+  "horaire": [
+   400,
+   480,
+   564,
+   644
+  ],
+  "constants": 3,
+  "cas_justes": "4/4",
+  "deux_moteurs": "4/4",
+  "certificat": true,
+  "delta": 2320,
+  "T": 1844,
+  "fenetre": 317,
+  "rayon": 57,
+  "voies_opposees": 8,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 81
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 82
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 78
+   }
+  ]
+ },
+ {
+  "nom": "XOR_R337",
+  "entrees": [
+   "a",
+   "b"
+  ],
+  "vaisseaux": [
+   [
+    "K3",
+    "K",
+    [
+     0,
+     -16,
+     16,
+     0
+    ]
+   ],
+   [
+    "K2",
+    "K",
+    [
+     4,
+     63,
+     -23,
+     3
+    ]
+   ],
+   [
+    "B",
+    "b",
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   [
+    "A",
+    "a",
+    [
+     2,
+     30,
+     -56,
+     0
+    ]
+   ]
+  ],
+  "sorties": {
+   "S": [
+    [
+     [
+      0,
+      -16,
+      16,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    "(a + b) % 2"
+   ],
+   "C": [
+    [
+     [
+      0,
+      0,
+      1,
+      0
+     ]
+    ],
+    "a * b"
+   ]
+  },
+  "horaire": [
+   400
+  ],
+  "constants": 2,
+  "cas_justes": "4/4",
+  "deux_moteurs": "4/4",
+  "certificat": true,
+  "delta": 960,
+  "T": 4000,
+  "fenetre": 144,
+  "rayon": 20,
+  "voies_opposees": 99,
+  "usages20": [
+   {
+    "graine": 0,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": true,
+    "fourmis": 61
+   },
+   {
+    "graine": 1,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 62
+   },
+   {
+    "graine": 2,
+    "superposition": true,
+    "justes": 20,
+    "deux_moteurs": null,
+    "fourmis": 58
+   }
+  ]
+ }
+]

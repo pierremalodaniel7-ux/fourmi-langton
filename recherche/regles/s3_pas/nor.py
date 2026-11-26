@@ -47,7 +47,7 @@ class Layout:
         tmin = min(g[2] for g in self.gates)
         self.shift = 400 - tmin
         self.ships = [(nm, kind, tshift(w, self.shift)) for nm, kind, w in self.ships]
-        self.gates = [(g[0], g[1], g[2] + self.shift, tshift(g[3], self.shift), tshift(g[4], self.shift)) for g in self.gates]
+        self.gates = [(g[0], g[1], g[2] + self.shift, tshift(g[3], self.shift), tshift(g[4], self.shift), g[5]) for g in self.gates]
         self.out = [w for nm, kind, w in self.ships if nm == root.name][0]
         self.vars = sorted({it.lstrip('~') for nm, kind, w in self.ships if kind == 'lit' for it in [nm.split('@')[0]]})
         self.tmax = max(g[2] for g in self.gates)
@@ -57,9 +57,10 @@ class Layout:
         for i, (side, it) in enumerate(node.inputs):
             t = tend - 8 * G * (n - 1 - i)
             W, oA, oB, tg = gate(P, side, t)
-            self.gates.append((node.name, side, tg, oA, oB))
+            pname = f'{it}@{node.name}{i}' if isinstance(it, str) else it.name
+            self.gates.append((node.name, side, tg, oA, oB, pname))
             if isinstance(it, str):
-                self.ships.append((f'{it}@{node.name}{i}', 'lit', W))
+                self.ships.append((pname, 'lit', W))
             else:
                 self._place(it, W, tg - 8 * self.Dmap.get(it.name, self.D))
     def cases(self):
