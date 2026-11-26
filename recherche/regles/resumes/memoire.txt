@@ -1,0 +1,23 @@
+usage  1 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage  2 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage  3 : écrit 1, pixel avant lecture ON , vaisseaux nés de la lecture 3 → lu 1, après OFF OK
+usage  4 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage  5 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage  6 : écrit 1, pixel avant lecture ON , vaisseaux nés de la lecture 3 → lu 1, après OFF OK
+usage  7 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage  8 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage  9 : écrit 1, pixel avant lecture ON , vaisseaux nés de la lecture 3 → lu 1, après OFF OK
+usage 10 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage 11 : écrit 1, pixel avant lecture ON , vaisseaux nés de la lecture 3 → lu 1, après OFF OK
+usage 12 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage 13 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage 14 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage 15 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage 16 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage 17 : écrit 0, pixel avant lecture OFF, vaisseaux nés de la lecture 1 → lu 0, après OFF OK
+usage 18 : écrit 1, pixel avant lecture ON , vaisseaux nés de la lecture 3 → lu 1, après OFF OK
+usage 19 : écrit 1, pixel avant lecture ON , vaisseaux nés de la lecture 3 → lu 1, après OFF OK
+usage 20 : écrit 1, pixel avant lecture ON , vaisseaux nés de la lecture 3 → lu 1, après OFF OK
+20/20 usages justes ; 41 fourmis
+2 moteurs : 5/5 états identiques (hx.py et fourmi_r, jusqu'à t = 65600)
+écran 2 pixels (P1, P2) aux instants [1600, 3200, 4800] : [('ON', 'OFF'), ('OFF', 'ON'), ('ON', 'OFF')]

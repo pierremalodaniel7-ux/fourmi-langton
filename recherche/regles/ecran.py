@@ -12,7 +12,7 @@ from exp_osc import setup, hd
 O2 = "H:R2L2|0,0,3;1,0,0|1,0;-1,1"
 OPTS = sorted({tuple(int(kv.split('=')[1]) for kv in l.split()[3:7]) for l in open('data/des2b_0.txt') if O2 in l})  # (ord, r, l, ph)
 def film(o, r, l, ph):
-    E = setup(O2, r, l, ph, o); assert E['center'] == (0, 0)
+    E = setup(O2, r, l, ph, o); assert hd(*E['center']) <= 1
     A, g = [list(a) for a in E['ants']], dict(E['g'])
     sh = A[-1] if o == 0 else A[0]
     kit = ([list(sh)], {c: 1 for c in g if c not in E['states'][ph][1]})
@@ -55,8 +55,10 @@ class Pair:
         self.probe_dir = db[1]
     def t_erase(self, t_create, tmin):
         e = (tmin + 7) // 8 * 8
-        while (e - (t_create + self.TC) + self.ph_created) % 3 != self.PH_E: e += 8
-        return e
+        for _ in range(len(self.states)):
+            if (e - (t_create + self.TC) + self.ph_created) % len(self.states) == self.PH_E: return e
+            e += 8
+        raise ValueError('phase inaccessible avec des pas de 8')
     def lire(self, A, g, P):
         na = sorted((a[0] - P[0], a[1] - P[1], a[2]) for a in A if hd(a[0] - P[0], a[1] - P[1]) <= 6)
         nc = sorted((p[0] - P[0], p[1] - P[1]) for p in g if hd(p[0] - P[0], p[1] - P[1]) <= 6)

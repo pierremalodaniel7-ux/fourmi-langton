@@ -272,3 +272,19 @@ Toutes les routes vont dans les directions 2, 3, 4 : aucun choc frontal en vol. 
 case fixe à part la case « OFF » de chaque pixel) : P1 = ON, OFF, ON et P2 = OFF, ON, OFF à t = 1 600, 3 200, 4 800 : 3/3 justes ;
 2 moteurs (hx.py et fourmi_r -x -dump) : 4/4 états identiques. Limite : LIRE un pixel OFF déplace sa case (0,−1) → (2,−2) (le vaisseau
 la traverse, R-330 : il ne tourne pas mais la décale) ⇒ pas de mémoire lisible avec cette version ; voir R-335.
+
+## R-335 MÉMOIRE 1 bit R2L2 réutilisable 20/20 et écran 2 pixels, sans aucune case fixe — VÉRIFIÉ (2 moteurs, temps fini) (memoire_finale.py, ecran.py)
+Bit 1 = oscillateur M = « H:R2L2|0,0,1;1,-1,0|-1,1 » (2 fourmis + 1 case, période 21) ; bit 0 = RIEN (pas même une case).
+M est son propre film à l'envers (à une phase près). ÉCRIRE 1 = film à l'envers (gomme collective R-311) de la destruction propre
+Da = (vaisseau joué après M, direction 1, voie 0, phase 9) : 3 vaisseaux arrivent, M apparaît, 1 vaisseau repart.
+LIRE = sonde Db = (après M, direction 2, voie −2, M en phase 11) : si 1, M part en 3 vaisseaux propres (directions 3, 2, 4) et il ne reste
+RIEN ; si 0, la sonde traverse le vide. Lecture destructive, comme une mémoire à tores : bit lu = 3 vaisseaux qui sortent (1) ou 1 (0).
+Clé (trouvée en cherchant pourquoi O2 échouait 0/6 000) : toutes les routes d'écriture et de lecture vont dans 3 directions consécutives
+(2, 3, 4 : un demi-plan) ⇒ aucune sortie ne croise de face une entrée future. Sur 87 oscillateurs à destructions propres, 3 ont cette
+propriété (2 utilisables : périodes 21 ; le 3e, période 36, n'a pas la bonne phase avec des pas de 8).
+Résultats (UNE simulation, tous les vaisseaux posés à t = 0, jusqu'à 41-53 fourmis, t = 65 600) : 20 bits au hasard écrits puis relus au
+MÊME endroit : 20/20 justes (4 tirages : graines 26, 1, 2, 3) ; 20 « 1 » d'affilée : 20/20 ; 2 moteurs (hx.py, fourmi_r -x -dump) : 5/5 états
+identiques à chaque fois. Écran 2 pixels avec ce pixel : P1 = ON, OFF, ON et P2 = OFF, ON, OFF : 3/3.
+Ce n'est PAS « un vaisseau qui tourne dans une boucle de miroirs » (impossible, R-331) mais son équivalent borné : une paire de fourmis
+qui tourne en rond (orbite de période 21). Une simulation finie ne prouve pas un fonctionnement infini ; mais l'état « 0 » est vide et
+l'état « 1 » est un cycle exact, donc chaque usage recommence dans le même état (ce qui est démontré pour les 20 usages simulés).
