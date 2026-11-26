@@ -10,7 +10,7 @@ from moteur2 import charge, pas
 from bascule import G, E, situ_piece
 os.environ['CY']='cycles2.json'
 import recherche_lib as RL
-S1L=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'cyclesS1.json')))
+S1L=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),os.environ.get('S1F','cyclesS1.json'))))
 H=json.load(open(sys.argv[1])); i=int(sys.argv[2]); h=H[i]; NMAX=int(sys.argv[3])
 def etats(sit,p):
     turn,an,no=charge(sit); vis=set(); L=[]
@@ -37,7 +37,7 @@ sit=h['situation']; T=h['T']; m=2; jprev=h['k']
 r,a,c=sit.split('|'); g=tuple(map(int,a.split(';')[0].split(',')[:2]))
 hist=[{'impulsions':2,'situation':sit,'T':T}]
 if os.environ.get('REPRISE'):                       # reprendre une chaîne déjà construite
-    hist=json.load(open(f'../../data/bascule/chaine_{i}.json')); sit=hist[-1]['situation']; T=hist[-1]['T']; m=hist[-1]['impulsions']
+    hist=json.load(open(f'../../data/bascule/{os.environ.get("NOM","chaine")}_{i}.json')); sit=hist[-1]['situation']; T=hist[-1]['T']; m=hist[-1]['impulsions']
     g=tuple(map(int,sit.split('|')[1].split(';')[0].split(',')[:2]))
 J0,J1=int(os.environ.get('J0',40)),int(os.environ.get('J1',100))
 while m<NMAX:
@@ -50,11 +50,11 @@ while m<NMAX:
                 g3=[(x+gx,y+gy) for x,y in G]
                 lines.append(f'RL|{gx},{gy},2;'+a+'|'+c+';'+';'.join(f'{x},{y}' for x,y in g3)); meta.append((j,dp,sh,gx,gy))
     T2=T+104*(J1+40)
-    open(f'/tmp/claude-0/ch{i}.txt','w').write('\n'.join(lines)+'\n')
-    if os.path.exists(f'/tmp/claude-0/ch{i}.dump'): os.remove(f'/tmp/claude-0/ch{i}.dump')
-    subprocess.run(f"{E} -T {T2} -dump /tmp/claude-0/ch{i}.dump -lot < /tmp/claude-0/ch{i}.txt > /dev/null",shell=True)
+    open(f'/tmp/claude-0/ch{os.getpid()}.txt','w').write('\n'.join(lines)+'\n')
+    if os.path.exists(f'/tmp/claude-0/ch{os.getpid()}.dump'): os.remove(f'/tmp/claude-0/ch{os.getpid()}.dump')
+    subprocess.run(f"{E} -T {T2} -dump /tmp/claude-0/ch{os.getpid()}.dump -lot < /tmp/claude-0/ch{os.getpid()}.txt > /dev/null",shell=True)
     trouve=None
-    for (j,dp,sh,gx,gy),l,s2 in zip(meta,open(f'/tmp/claude-0/ch{i}.dump'),lines):
+    for (j,dp,sh,gx,gy),l,s2 in zip(meta,open(f'/tmp/claude-0/ch{os.getpid()}.dump'),lines):
         d=l.strip().split('|'); an=[tuple(map(int,x.split(','))) for x in d[-2].split(';')]
         ce={tuple(map(int,x.split(',')[:2])) for x in d[-1].split(';') if x}
         if etat(an,ce)!=want: continue
@@ -66,4 +66,4 @@ while m<NMAX:
     j,dp,sh,gx,gy,sit,log=trouve; g=(gx,gy); T=T2; m+=1
     print('impulsion',m,': germe',(gx,gy),'chronologie',log,flush=True)
     hist.append({'impulsions':m,'situation':sit,'T':T,'chronologie':log})
-    json.dump(hist,open(f'../../data/bascule/chaine_{i}.json','w'))
+    json.dump(hist,open(f'../../data/bascule/{os.environ.get("NOM","chaine")}_{i}.json','w'))

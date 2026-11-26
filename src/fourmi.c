@@ -20,6 +20,7 @@
 //   issue EFFACE si la grille redevient celle du départ, fourmis en R(départ).  -retour : pas d'arrêt anticipé, arrêt
 //   (issue RETOUR) quand une fourmi est en R(départ de la fourmi 0).  -boite x0,y0,x1,y1 : compte les cases ≠ départ dans / hors boîte.
 //   -dump f : ajoute l'état final (format situation, caps en chiffres, couleurs) au fichier f.
+//   -dumpbox x0,y0,x1,y1 (26/11) : avec -dump, n'écrit que les cases de cette boîte (fourmis : toutes).
 // Une simulation finie ne prouve pas un comportement infini (sauf CYCLE, EFFACE, RETOUR : calculs exacts).
 #include <stdio.h>
 #include <stdlib.h>
@@ -108,7 +109,8 @@ static void detect(long t, int i){                  // cherche une autoroute con
 // blanches (au-delà de la boîte « support initial ∪ cases visitées », tout est blanc).
 // Si tout est vrai : DÉMONTRÉ (lemme du certificat) que la fourmi refait ce motif pour toujours.
 static int certif = 0; static long cert0 = -1;
-static long gomme = -1; static int retour = 0; static const char *dumpf = NULL; static int hasbox = 0; static long Bx0, By0, Bx1, By1;   // -c0 T : chercher le certificat à partir de T
+static long gomme = -1; static int retour = 0; static const char *dumpf = NULL; static int hasbox = 0; static long Bx0, By0, Bx1, By1; static int hasdb = 0; static long Dx0, Dy0, Dx1, Dy1;   // -dumpbox (26/11)
+   // -c0 T : chercher le certificat à partir de T
  static long ib0, ib1, jb0, jb1;     // boîte du support initial (x : ib, y : jb)
 static int g_get(long x, long y){ uint64_t k = KEY(x, y), m = g.cap - 1, s = hsh(k) & m;
   while (g.k[s]) { if (g.k[s] == k) return g.cur[s]; s = (s + 1) & m; } return 0; }
@@ -201,6 +203,7 @@ static void run(char *line){
       fprintf(f, "%s|", buf); for (int i = 0; i < n; i++) fprintf(f, "%s%d,%d,%d", i ? ";" : "", ax[i], ay[i], ad[i]);
       fprintf(f, "|"); int first = 1;
       for (uint64_t k = 0; k < g.cap; k++) if (g.k[k] && g.cur[k]) { long x = (long)(g.k[k] >> 32) - 0x40000000, y = (long)(uint32_t)g.k[k] - 0x40000000;
+        if (hasdb && (x < Dx0 || x > Dx1 || y < Dy0 || y > Dy1)) continue;
         fprintf(f, "%s%ld,%ld,%d", first ? "" : ";", x, y, g.cur[k]); first = 0; }
       fprintf(f, "\n"); fclose(f); } }
   if (hasbox) { long in = 0, out = 0;                 // -boite : cases ≠ départ dans / hors de la boîte
@@ -256,6 +259,7 @@ int main(int argc, char **argv){
     else if (!strcmp(argv[i], "-gomme") && i + 1 < argc) gomme = atol(argv[++i]);
     else if (!strcmp(argv[i], "-retour")) retour = 1;
     else if (!strcmp(argv[i], "-dump") && i + 1 < argc) dumpf = argv[++i];
+    else if (!strcmp(argv[i], "-dumpbox") && i + 1 < argc) { hasdb = 1; sscanf(argv[++i], "%ld,%ld,%ld,%ld", &Dx0, &Dy0, &Dx1, &Dy1); }
     else if (!strcmp(argv[i], "-boite") && i + 1 < argc) { hasbox = 1; sscanf(argv[++i], "%ld,%ld,%ld,%ld", &Bx0, &By0, &Bx1, &By1); }
     else if (!strcmp(argv[i], "-lot")) lot = 1; else one = argv[i]; }
   setvbuf(stdout, NULL, _IOLBF, 0);
