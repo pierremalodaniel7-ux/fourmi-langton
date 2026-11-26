@@ -30,9 +30,9 @@ def orbite(sit,p):
     return {(tuple(a),frozenset(c for c in no if c in vis)) for a,no in L}, vis
 class Bascule:
     """bascule : S0 = cycles2[ic] phase s (repère du tir 1), S1 = cyclesS1_c2[i1] (même repère)"""
-    def __init__(s,h):
+    def __init__(s,h,S1L=None):
         ic,ph=h['hit']['S0'][:2]; s.ic=ic; A0,C0,p0=piece0(ic,ph); s.A0,s.C0,s.p0=A0,C0,p0
-        s.O0,s.V0=orbite(situ(A0,C0),p0); e=S1C[h['hit']['S1']]; s.O1,s.V1=orbite(e['situation'],e['periode']); s.npc=len(A0)
+        s.O0,s.V0=orbite(situ(A0,C0),p0); e=(S1L or S1C)[h['hit']['S1']]; s.O1,s.V1=orbite(e['situation'],e['periode']); s.npc=len(A0)
         s.situation=h['situation']; s.T=h['T']
     def etat(s,an,ce):
         P=tuple(tuple(a) for a in an[-s.npc:])
