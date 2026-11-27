@@ -67,7 +67,9 @@ class Design:
     def candidates(self, v, j, port, tgt, maxn=40):
         key = (port[1], port[2], port[3], tgt[2], tgt[3], tgt[4])
         if key not in self.routes:
-            sols = route(port[1], port[2], tgt[2], tgt[3], pol=port[3] ^ tgt[4], kr=40, maxsol=300, early=int(os.environ.get('EARLY', 200)))
+            sols = route(port[1], port[2], tgt[2], tgt[3], pol=port[3] ^ tgt[4], kr=int(os.environ.get('KR', 40)), maxsol=int(os.environ.get('MAXSOL', 300)), early=int(os.environ.get('EARLY', 200)),
+                         rnd=random.Random(hash(key)) if os.environ.get('RANDR') else None)
+            if os.environ.get('RANDR'): random.Random(hash(key) + 1).shuffle(sols)
             self.routes[key] = sols[:maxn] if len(sols) <= maxn else [sols[int(i * (len(sols) - 1) / (maxn - 1))] for i in range(maxn)]
         return self.routes[key]
     def circuit(self, N, choice=None):
@@ -133,14 +135,16 @@ def random_design(sub, rnd, box=None):
         dt = 0 if k == 0 else rnd.randint(-200, 200); dt += (cls(mod_layout(v).out) - c0 - dt) % 8
         off[v] = (0, 0, 0) if k == 0 else (rnd.randint(-box, box), rnd.randint(-box, box), dt)
     ang = rnd.random() * 2 * math.pi; R = rnd.randint(int(600 * SC), int(1400 * SC)); V = (int(R * math.cos(ang)), int(R * math.sin(ang)))
-    Dt = int(8 * (abs(V[0]) + abs(V[1]) + abs(V[0] + V[1])) / 2 * rnd.uniform(1.3, 2.0)) + 3000; Dt += (4 - Dt) % 8   # Δ ≡ 4 (mod 8)
+    Dt = int(8 * (abs(V[0]) + abs(V[1]) + abs(V[0] + V[1])) / 2 * rnd.uniform(*map(float, os.environ.get('FDT', '1.3,2.0').split(',')))) + 3000; Dt += (4 - Dt) % 8   # Δ ≡ 4 (mod 8)
     D0 = Design(sub, off, V, Dt, {}, {})
-    fan = {v: [(rnd.choice('+-H'), rnd.randint(0, 40)) for _ in range(nfan(len(D0.lits[v])))] for v in sub}
+    fan = {v: [(rnd.choice(os.environ.get('SIDES', '+-H')), rnd.randint(*map(int, os.environ.get('FANK', '0,40').split(',')))) for _ in range(nfan(len(D0.lits[v])))] for v in sub}
     return Design(sub, off, V, Dt, fan, {})
 def score(D, N=int(os.environ.get("NS", 4))):
     C = D.circuit(N)
     if C is None: return 10 ** 6, None
-    return len(C.conflicts()), C
+    cf = C.conflicts()
+    if os.environ.get('REAL'): cf = C.real(cf)
+    C.cf = cf; return len(cf), C
 def greedy(D, N=int(os.environ.get("NS", 4)), rnd=None):
     """choix des routes une par une : pour chaque demande, l'indice qui minimise les conflits (les autres à leur valeur courante)"""
     best, C = score(D, N)
@@ -150,7 +154,7 @@ def greedy(D, N=int(os.environ.get("NS", 4)), rnd=None):
         for c in range(0, 40, 3):
             ch = dict(D.choice); ch[key] = c; C2 = D.circuit(N, ch)
             if C2 is None: continue
-            s = len(C2.conflicts())
+            s = score(D, N, ch)[0] if False else len(C2.real(C2.conflicts()) if os.environ.get('REAL') else C2.conflicts())
             if s < best: best, D.choice, C = s, ch, C2
         if best == 0: break
     return best, C
@@ -163,21 +167,21 @@ def mutate(D, rnd):
         vs = [v for v in D.sub if fan[v]]
         if vs:
             v = rnd.choice(vs); j = rnd.randrange(len(fan[v])); s, k = fan[v][j]
-            fan[v][j] = (rnd.choice('+-H'), k) if rnd.random() < 0.3 else (s, max(0, k + rnd.randint(-30, 30)))
+            fan[v][j] = (rnd.choice(os.environ.get('SIDES', '+-H')), k) if rnd.random() < 0.3 else (s, max(0, k + rnd.randint(-30, 30)))
     elif r < 0.88 and len(D.sub) > 1:
         v = rnd.choice(D.sub[1:]); dx, dy, dt = off[v]; big = rnd.random() < 0.3; a = 150 if big else 25
         off[v] = (dx + rnd.randint(-a, a), dy + rnd.randint(-a, a), dt + 8 * rnd.randint(-3, 3))
     elif r < 0.93: V = (V[0] + rnd.randint(-60, 60), V[1] + rnd.randint(-60, 60))
     else: Dt = Dt + 8 * rnd.randint(-80, 80)
     D2 = Design(D.sub, off, V, Dt, fan, ch); D2.routes = D.routes; return D2
-def descend(D, secs, rnd, N, log, best=None):
+def descend(D, secs, rnd, N, log, best=None, save=None):
     s, C = score(D, N) if best is None else best
     t0 = time.time(); it = 0
     import re
     while time.time() - t0 < secs and s > 0:
         it += 1
         if rnd.random() < 0.5 and C is not None:   # coup ciblé : une route en conflit, on essaie tous ses choix
-            cf = C.conflicts(); ids = [i for c in cf for i in c[:2] if re.match(r'u\d+:R', i)]
+            cf = C.cf; ids = [i for c in cf for i in c[:2] if re.match(r'u\d+:R', i)]
             if ids:
                 m = re.match(r'u\d+:R(.+?)(\d+)_\d+$', rnd.choice(ids)); key = (m.group(1), int(m.group(2)))
                 bestc = None
@@ -186,12 +190,16 @@ def descend(D, secs, rnd, N, log, best=None):
                     s3, C3 = score(D3, N)
                     if bestc is None or s3 < bestc[0] or (s3 == bestc[0] and rnd.random() < 0.3): bestc = (s3, D3, C3)
                 if bestc[0] <= s:
-                    if bestc[0] < s: print(f'   ciblé {it} {time.time()-t0:.0f}s conflits {bestc[0]}', file=log, flush=True)
+                    if bestc[0] < s:
+                        print(f'   ciblé {it} {time.time()-t0:.0f}s conflits {bestc[0]}', file=log, flush=True)
+                        if save: json.dump(dict(conflits=bestc[0], design=bestc[1].to_json()), open(save, 'w'))
                     s, D, C = bestc
                 continue
         D2 = mutate(D, rnd); s2, C2 = score(D2, N)
         if s2 <= s:
-            if s2 < s: print(f'   descente {it} {time.time()-t0:.0f}s conflits {s2}', file=log, flush=True)
+            if s2 < s:
+                print(f'   descente {it} {time.time()-t0:.0f}s conflits {s2}', file=log, flush=True)
+                if save: json.dump(dict(conflits=s2, design=D2.to_json()), open(save, 'w'))
             D, s, C = D2, s2, C2
     return s, C, D
 
@@ -237,7 +245,7 @@ if __name__ == '__main__':
     sub = SUBS[sys.argv[1]]
     if len(sys.argv) > 4 and sys.argv[2] != 'verif':   # reprise : descente depuis un dessin enregistré
         D = from_json(json.load(open(sys.argv[4]))['design']); rnd = random.Random(int(sys.argv[2])); log = open(f'data/chainN_{sys.argv[1]}_{sys.argv[2]}.log', 'a')
-        s, C, D = descend(D, float(sys.argv[3]), rnd, int(os.environ.get('NS', 4)), log)
+        s, C, D = descend(D, float(sys.argv[3]), rnd, int(os.environ.get('NS', 4)), log, save=f'data/chainN_{sys.argv[1]}_{sys.argv[2]}.json')
         json.dump(dict(conflits=s, design=D.to_json()), open(f'data/chainN_{sys.argv[1]}_{sys.argv[2]}.json', 'w'))
         if s == 0:
             r = C.check(); ok = sum(x[1] for x in r); print(f'   N={C.N} simulation : {ok}/{len(r)} = modèle ; logique fausse {D.logic_ok(C)}', file=log, flush=True)
@@ -255,7 +263,7 @@ if __name__ == '__main__':
         D = random_design(sub, rnd); s, C = greedy(D)
         print(f'{time.time()-t0:.0f}s essai : conflits {s} (V {D.V}, Δ {D.Dt})', file=log, flush=True)
         if C is None: continue
-        if s > 0: s, C, D = descend(D, float(os.environ.get('DESC', 400)), rnd, int(os.environ.get('NS', 4)), log, (s, C))
+        if s > 0: s, C, D = descend(D, float(os.environ.get('DESC', 400)), rnd, int(os.environ.get('NS', 4)), log, (s, C), save=f'data/chainN_{sys.argv[1]}_{seed}_cur.json')
         if best is None or s < best[0]:
             best = (s, D); json.dump(dict(conflits=s, design=D.to_json()), open(f'data/chainN_{sys.argv[1]}_{seed}.json', 'w'))
         if s == 0:

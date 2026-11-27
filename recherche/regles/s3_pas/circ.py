@@ -11,6 +11,7 @@ import numpy as np
 from s3lib import *
 from diag import pmin, INF
 from nor import BASE, TC
+_PAIR = {}
 _PM = {}   # mémo des distances minimales entre segments (même couple de segments -> même résultat)
 class Circ:
     def __init__(self, vars_):
@@ -80,8 +81,24 @@ class Circ:
                 if m < thr:
                     tg = gt.get(frozenset((a[0], b[0])))
                     if tg is not None and any(abs(t - z) <= guard for z in tg): continue
-                    out.append((a[0], b[0], m, t))
+                    out.append((a[0], b[0], m, t, a[1], b[1]))
         return out
+    def real(self, cf, pre=240, dur=480):
+        """filtre les conflits : chaque couple simulé SEUL autour de l'instant de rapprochement (moteur C) ; garde ceux qui dévient"""
+        todo = []; keys = []
+        for c in cf:
+            a, b, t = c[4], c[5], c[3]; tau = t - pre
+            A, B = at(a, tau), at(b, tau)
+            key = (A, B)
+            if key in _PAIR: continue
+            try: s = sit_wls([A, B])
+            except AssertionError: _PAIR[key] = True; continue
+            todo.append(s); keys.append(key)
+        if todo:
+            R = run_c(todo, dur)
+            for key, (an, ce) in zip(keys, R):
+                d = decode(an, ce, dur); _PAIR[key] = not (d is not None and sorted(d) == sorted(key))
+        return [c for c in cf if _PAIR[(at(c[4], c[3] - pre), at(c[5], c[3] - pre))]]
     def situation(self, b):
         """situation fourmi_r du cas b (ordre de jeu = ordre d'ajout)"""
         return sit_wls([w for i, w, m in self.ships if m >> b & 1])
@@ -112,7 +129,8 @@ def turn(A, side, k):
 def first_k(A, side, tmin):
     """plus petit k tel que le choc ait lieu après tmin"""
     _, _, _, t0 = turn(A, side, 0); return max(0, -((t0 - tmin) // 8))
-TYPES = [(s, o) for s in '+-H' for o in (0, 1, 2)]   # o = 1 : suivre oA (le signal dévié) ; 2 : oB (la puissance déviée) ; 0 : K tout droit (= NON)
+import os as _os
+TYPES = [(s, o) for s in _os.environ.get('SIDES', '+-H') for o in (0, 1, 2)]   # SIDES='+-' : sans virage de face (sa puissance remonte la route)   # o = 1 : suivre oA (le signal dévié) ; 2 : oB (la puissance déviée) ; 0 : K tout droit (= NON)
 def follow(A, seq, ks):
     w = A; out = []
     for (side, o), k in zip(seq, ks):
@@ -145,14 +163,16 @@ def seqs(A, W, pol, n):
     for seq in itertools.product(TYPES, repeat=n):
         a = sum(SH[t][0] for t in seq) % 6; c = sum(SH[t][1] for t in seq) % 8; p = sum(SH[t][2] for t in seq) % 2
         if a == dd and c == dc and p == pol: yield seq
-def route(A, tA, W, tW, pol=0, gap=120, early=200, kr=60, ntur=(2, 3, 4), maxsol=200, step=None):
+def route(A, tA, W, tW, pol=0, gap=120, early=200, kr=60, ntur=(2, 3, 4), maxsol=200, step=None, rnd=None):
     """suites de virages de A (disponible dès tA) jusqu'à W (rejointe avant tW − early), chocs espacés d'au moins gap ;
     pol = 1 : le signal arrive inversé. Les virages libres (tous sauf les 2 derniers) sont pris aux instants tA + gap + 8·j·step
     (j < kr) après le choc précédent ; les 2 derniers sont résolus exactement. Renvoie les solutions (durée, types, ks, détails)."""
     sols = []
     for n in ntur:
         st = step or (6 if n == 3 else 10)
-        for seq in seqs(A, W, pol, n):
+        SQ = list(seqs(A, W, pol, n))
+        if rnd: rnd.shuffle(SQ)
+        for seq in SQ:
             def rec(kf, w, tprev):
                 if len(kf) == n - 2:
                     r = solve2(A, seq, W, tuple(kf))
@@ -161,10 +181,12 @@ def route(A, tA, W, tW, pol=0, gap=120, early=200, kr=60, ntur=(2, 3, 4), maxsol
                     if ts[0] < tA + gap or ts[-1] > tW - early or any(ts[q + 1] - ts[q] < gap for q in range(len(ts) - 1)): return
                     sols.append((ts[-1] - ts[0], seq, ks, out)); return
                 side, o = seq[len(kf)]; k0 = first_k(w, side, tprev + gap)
-                for jj in range(kr):
+                JJ = list(range(kr))
+                if rnd: rnd.shuffle(JJ); JJ = JJ[:max(3, kr // 4)]
+                for jj in JJ:
                     if len(sols) >= maxsol: return
                     k = k0 + jj * st; K, oA, oB, t = turn(w, side, k)
-                    if t > tW: return
+                    if t > tW: continue
                     rec(kf + [k], (oA, oB, K)[o - 1] if o else K, t)
             rec([], A, tA)
             if len(sols) >= maxsol: break

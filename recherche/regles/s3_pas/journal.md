@@ -187,3 +187,11 @@ Sous-système h0 (h0' = ¬h0) : V = (632, −179), Δ = 9 900 ; germe = 5N − 3
 | 2 moteurs identiques | 2/2 | 2/2 | 2/2 |
 Valeur de h0 à chaque pas = la vraie (modèle, logique fausse 0) ; état final simulé = modèle, donc chaque porte a eu l'issue prévue.
 Commande : python3 chainN.py h0 verif chainN_h0.json 8 2  (recherche : NS=8 python3 chainN.py h0 2 300)
+- 11:20–12:00 (R-620) descentes chain_h1b graines 12 → 13 → 14 (reprises) : 141 → 71 → 24 → 12 → 10 conflits (≈ 50 min de calcul).
+  Contrôle par simulation (h1pp_check.py, 4 cas, moteur C) du placement à 10 conflits : 4/4 sales — les 10 conflits sont réels. OUVERT.
+- 11:20–12:00 (R-623) sous-système x, y, h0 : la recherche bloque à 17–35 conflits. Diagnostic : (i) virage « de face » (H) : sa
+  puissance remonte la route du signal (et donc le module cible) → SIDES=+- ; (ii) porte de diffusion trop près du module : sa puissance
+  croise les débris parallèles à la sortie → FANK (100–400 cases) ; (iii) entre usages : un débris de l'usage u' ne peut croiser une
+  puissance entrante de l'usage u > u' que si 8·V/Δ est sur une corde entre deux directions ; pour |8V/Δ| < 1/2 (norme hexagonale),
+  seules les cordes opposées passent, donc il faut V parallèle à un axe → Δ ≥ 2,4 × 8|V| (FDT). DÉMONTRÉ (géométrie, vitesses 1/8).
+  Filtre des conflits (circ.Circ.real) : chaque couple simulé seul autour du rapprochement ; ≈ 2/3 des conflits du modèle sont réels.
