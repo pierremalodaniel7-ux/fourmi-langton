@@ -58,6 +58,9 @@ def pretest(nm, cand, tri):
     """pixel seul (OFF = M, ON = R'), sonde + 3 horloges, hx.py jusqu'à e + 720 + 300 : OFF -> M à la phase « sans lecture », reste
     propre, la sonde n'est PAS sur sa droite d'origine ; ON -> R' à la phase « sans lecture », la sonde EST sur sa droite d'origine"""
     p = PL[nm]; a1 = p['arrivee']; toks = order(cand, tri); T = cand['e'] + 720 + 300; out = {}
+    prev = [('P', tuple(t[1])) for f in os.environ.get('PREV', '').split(',') if f for t in json.load(open(os.path.join(T4, f)))['toks']]
+    prevS = [tuple(json.load(open(os.path.join(T4, f)))['sonde']) for f in os.environ.get('PREV', '').split(',') if f]
+    toks = prev + toks
     for st in (0, 1):
         ph0 = (kit('SET0a')['ph'] - a1) % 21 if st == 0 else 0
         s = pixel_sit(nm, st, ph0, [t[1] for t in toks]); a, c = run_py(s, T)
@@ -65,7 +68,7 @@ def pretest(nm, cand, tri):
         ra = [x for x in a if hd(x[0] - p['c'][0], x[1] - p['c'][1]) > 6]; rc = [q for q in c if hd(q[0] - p['c'][0], q[1] - p['c'][1]) > 6]
         dp, bd, orph = decode_partiel(ra, rc, T); on_line = S3L.norm(*([0] * 5)) if False else None
         labs = [TR.of_label(TR.lab_piece(render3(w, T), T)) for w in dp] if dp else []
-        lu = any(TR.same(TR.movT(cand['Son'], (0, 0), 0), L) for L in labs)
+        lu = any(TR.same(TR.movT(cand['Son'], (0, 0), 0), L) for L in labs) and all(any(TR.same(S, L) for L in labs) == bool(st) for S in prevS)
         out[st] = dict(pixel=got == want, propre=not bd and not orph, lu=int(lu))
     return out
 if __name__ == '__main__':
