@@ -55,3 +55,32 @@ réutilisable (croisement_demo.py) : directions 0 et 1 (60°), puis 0 et 2 (120�
 resp. 17 + 100 (j−1)).
 Certificat fin (cert_fin.py) : condition « distance ≥ 7, ou les deux fourmis libres et ≥ 3 / ≥ 2 », sur toute la droite des temps, + argument de
 parité (couleur = parité des passages) ⇒ superposition exacte. Contrôle : la fusion R-403 passe (libres à 7, non libres ≥ 180).
+
+## (vague 2, 27/11, début 00:41 UTC) Piste « relais » de la vague 1 (add2_fusion.py) : 0 réussite — OBSERVÉ ; cause trouvée : ORDRE DE JEU
+Vague 1 : 1 010 relais (fusions R-402) × placements → « 16 cas : sale » à chaque fois. Vague 2 : même chose avec les fusions R-403 et
+l'entrée de l'étage 1 par A, B ou c (add2_relais.py, relais 0 … 400 : 10 800 essais sales). Diagnostic (diverge.py) : les fourmis sont
+jouées l'une après l'autre, et dans R-349 la pièce A joue APRÈS K3, K2, B ; en posant HA0 avant l'étage 1, la fourmi qui porte c0 joue
+avant les pièces qu'elle rencontre ⇒ autre dynamique au contact. (Pour la piste relais, les 16 cas sales venaient aussi de relais qui
+ne font que décaler c0 de quelques voies : l'étage 1 retombe alors presque sur HA0.)
+
+## R-405 ADDITIONNEUR 2 BITS RÉUTILISABLE (a1a0 + b1b0 → c1 s1 s0) — VÉRIFIÉ (2 moteurs, 20 usages) (add2_perm.py, add2_final.py)
+Idée : a + b + c est symétrique ⇒ la retenue c0 du demi-additionneur R-337 entre dans l'additionneur complet R-349 par sa pièce A
+(même direction 2 que c0 : rotation 0), pas par c (R-350 : K2 parallèle à c traverse la porte de HA0). compose.attach (étage 1 posé pour
+que A suive EXACTEMENT c0), glissé de D périodes ; le bloc HA0 joue À LA PLACE de la pièce A dans l'ordre de R-349 (sinon 15/16).
+Balayage D = 0 … 400 (pas 10) : pièce A → 16/16 pour TOUT D ≥ 10 (39/39) ; pièce B (rotation 2) → 12/16 au mieux.
+Retenu D = 20 : 8 pièces seulement, ordre de jeu : c(étage 1, entrée b1) « 74,−8,2 », K3' « −38,56,4 », K2' « 80,−4,4 », B' (entrée a1)
+« −22,40,4 », puis HA0 : K3 « −16,16,4 », K2 « 62,−24,4 », B (b0) « 0,0,4 », A (a0) « 30,−56,0 » (cases : add2_final.json).
+Sorties au temps 9 000 : s0 sur (0,0,2218,0) ou (0,0,2250,0) ; s1 sur (0,18,2188,0), (2,−29,2163,0), (4,8,2108,2) ; c1 sur
+(0,19,2187,0), (0,19,2187,7), (2,−30,2168,1) (« un vaisseau sur l'une des positions »).
+16/16 justes, propres (0 case hors vaisseaux), 2 moteurs identiques ; 2 usages (k = 200) : 256/256 couples en superposition exacte ;
+20 usages dans UNE simulation : graines 0, 1, 2, 20 × (1,1,1,1), alterné : 20/20 chaque fois, superposition exacte, 2 moteurs identiques.
+PIÈGE : fourmi_r a MAXA = 128 et IGNORE sans message les fourmis suivantes (20 × 1111 = 160 fourmis → faux échec « 0/20, 2 moteurs
+différents »). s1_fusion/fourmi_r512 (même source, MAXA = 512) + big.py ; à signaler dans le dépôt commun.
+La fusion R-403 n'a pas été nécessaire pour 2 bits (elle servira à rendre c1 « une seule route » pour enchaîner un 3e bit).
+Commande : python3 s1_fusion/add2_final.py 20 5   (depuis recherche/regles/)
+
+## R-406 CROISEMENTS dans un vrai circuit (l'additionneur R-405) — OBSERVÉ (16 cas) + R-404 (croisement_add2 : croise_add2.py)
+Dans R-405, 50 paires (fourmi de l'étage 0, fourmi de l'étage 1) ont des CHEMINS qui se coupent (même case, instants différents) sans
+jamais être à moins de 2 au même instant : ex. B' (entrée a1) coupe le chemin de B (étage 0) à 467 pas d'écart (distance min 40) ;
+K3' coupe K3, K2 et B. Par R-404 ce sont des croisements transparents ; le circuit est juste 16/16 et 20/20 avec eux.
+Commande : python3 s1_fusion/croise_add2.py 20

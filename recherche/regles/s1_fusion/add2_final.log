@@ -1,0 +1,8 @@
+16 cas : 16 /16 ; 2 moteurs identiques True 0 s
+2 usages : 256 / 256 2 s
+20 usages (graine 0) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 3 s
+20 usages (graine 1) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 4 s
+20 usages (graine 2) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 5 s
+20 usages (20 x 1111) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 7 s
+20 usages (alterné) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 8 s
+écart 1 : condition fine True, distance min (non libres) 156, (libres) 62
