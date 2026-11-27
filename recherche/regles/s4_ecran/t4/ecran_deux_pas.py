@@ -25,11 +25,11 @@ def predict(e0, D):
         p = PL[nm]; a1 = p['arrivee']; ph1 = kit(p['kit'])['ph']; L = LOOP[nm]; e = L['e']; a2 = a1 + D
         def at(t, nm=nm, a1=a1, ph1=ph1, e=e, a2=a2, p=p):
             if spec(nm, e0) == 0:                 # jamais allumé au pas 1
-                if t < a2 + KT or e1[nm] == 0: return (0, (ph1 + t - a1) % 21) if t < a2 + KT or e1[nm] == 0 else None
+                if t < a2 + KT or spec(nm, e1) == 0: return (0, (ph1 + t - a1) % 21)
             else:
                 if t < e: return (1, (kit(p['kit'])['fin'] + t - a1 - KT) % 12)
                 rph = (kit(p['kit'])['fin'] + e - a1 - KT) % 12; mfin = {10: 8, 11: 9}[rph]
-                if t < a2 + KT or e1[nm] == 0: return (0, (mfin + t - e - KT) % 21)
+                if t < a2 + KT or spec(nm, e1) == 0: return (0, (mfin + t - e - KT) % 21)
             # allumé au pas 2 : phase de M à a2 -> kit SET0a (16, R' 0) ou SET0b (17, R' 1)
             mph = at(a2 - 1, nm, a1, ph1, e, a2, p)[1]; mph = (mph + 1) % 21; fin = {16: 0, 17: 1}[mph]
             return (1, (fin + t - a2 - KT) % 12)

@@ -43,9 +43,37 @@ def search(nm, tri, D):
             v = val((d1, d2, q)); e, tA, tB, tC = v[1:]
             if a1 + 240 < tA < tB - 240 and tB < tC - 240 and tC < e - 240: return dict(d=(d1, d2, q), u=e - a1 - KT, e=e)
     return None
+def test2(nm, cand, D, envs):
+    """2 usages (usage 2 = R-61(s0)), pixel nm seul + sa boucle, hx.py sur 2 cœurs, lecture après le 2e SET : pixel = c'' (état + phase),
+    les 8 sorties de l'usage 2 justes, reste propre"""
+    from multiprocessing import Pool
+    import ecran_deux_pas as E2
+    p = PL[nm]; a1 = p['arrivee']; a2 = a1 + D; T = a2 + 720 + 100; jobs = []
+    for e0 in envs:
+        e1 = E2.rl(e0); A, G = [], []
+        a, g = place_ordered(0, p['phase0'], p['rho'], tuple(p['c'])); A += a; G += g
+        for tok in cand['toks']:
+            if tok == 'GERM':
+                for u, ee in ((0, e0), (D, e1)):
+                    for w in STEP.present(ee): pa, cs = render3(S3L.tshift(w, u), 0); A.append(pa); G += cs
+            else: (x, y, h), cs = TR.piece_at(tok[1], 0); A.append((x, y, h)); G += cs
+        jobs.append((S3L.sit(A, G), T))
+    with Pool(2) as pool: R = pool.starmap(run_py, jobs)
+    good = 0
+    for e0, (a, c) in zip(envs, R):
+        e1 = E2.rl(e0); st = pixel.read_state(a, c, p['rho'], tuple(p['c']))
+        ra = [x for x in a if hd(x[0] - p['c'][0], x[1] - p['c'][1]) > 6]; rc = [q for q in c if hd(q[0] - p['c'][0], q[1] - p['c'][1]) > 6]
+        d = decode3(ra, rc, T); outs_ok = d is not None and all(int(S3L.tshift(STEP.out[k], D) in d) == spec(k, e1) for k in STEP.names if k != nm)
+        ok = outs_ok and isinstance(st, tuple) and st[0] == spec(nm, e1); good += ok
+        if os.environ.get('DIAG'): print('   ', (spec(nm, e0), spec(nm, e1)), 'pixel', st, 'propre', d is not None, 'sorties', {k: int(S3L.tshift(STEP.out[k], D) in (d or [])) for k in STEP.names}, 'attendu', {k: spec(k, e1) for k in STEP.names}, flush=True)
+    return good
 if __name__ == '__main__':
     nm = sys.argv[1]; D = int(sys.argv[2]) if len(sys.argv) > 2 else 384888; rnd = random.Random(int(os.environ.get('GRAINE', 1)))
-    envs = STEP.cases(); test = [e for e in envs if e['x'] == e['y'] == e['h0'] == e['h1'] == 0]; t0 = time.time(); tried = 0
+    import ecran_deux_pas as E2
+    envs = STEP.cases(); t0 = time.time(); tried = 0
+    test = []
+    for want in ((1, 1), (1, 0), (0, 1), (0, 0)):
+        test += [e for e in envs if (spec(nm, e), spec(nm, E2.rl(e))) == want][:1]
     BC.PL = PL
     while time.time() - t0 < float(os.environ.get('TMAX', 900)):
         tri = [rnd.choice(s) for s in B3.SEQ]
@@ -56,10 +84,14 @@ if __name__ == '__main__':
         ns, g0, co, Kr, O = affine(nm, tri); X, chocs = B3.chain(O, tri, [b + x for b, x in zip(ns, s['d'])]); e = B3.V(Kr) - B3.V(X)
         assert TR.same(TR.movT(Kr, (0, 0), e), X) and e == s['e']
         cand = dict(chocs=chocs, e=e, u=s['u'], toks=BC.order(chocs, tri))
-        BC_want = lambda: None
-        g, _, _ = BC.check(nm, cand, test, rst=RK)
-        print(nm, 'u', s['u'], 'd', s['d'], 'test 16 :', g, f'{time.time()-t0:.0f} s', flush=True)
-        if g == 16:
+        # signal absent : les 3 horloges filent tout droit ; elles ne doivent pas se croiser (distance >= 12 sur [0, D + 13 000])
+        from lib4 import closest
+        KL = [TR.to_label(C.ins[1 - i]) for C, (k, i, o) in zip(chocs, tri)]
+        dmin = min(closest(KL[x], KL[y], 0, D + 13000, 8)[0] for x in range(3) for y in range(x + 1, 3))
+        if dmin < 12: print('  horloges trop proches (signal absent) :', dmin, flush=True); continue
+        g = test2(nm, cand, D, test)
+        print(nm, 'u', s['u'], 'd', s['d'], 'test 2 usages (4 états, hx.py) :', g, f'{time.time()-t0:.0f} s', flush=True)
+        if g == 4:
             json.dump(dict(pixel=nm, D=D, tri=tri, d=s['d'], u=s['u'], e=e, rst=RK, toks=[t if t == 'GERM' else [t[0], list(t[1])] for t in cand['toks']],
                            chocs=[dict(ins=C.ins, outs=C.outs, first=C.first, te=C.te) for C in chocs], essais=tried, s=round(time.time() - t0)),
                       open(os.path.join(T4, f'boucle_long_{nm}.json'), 'w'), indent=1)
