@@ -125,3 +125,5 @@ Brancher les sorties du pas 1 sur les littéraux du pas 2 demande UNE copie de m
 dans le pas 2, en comptant les négations) et, d'après S1, un littéral calculé doit être le DERNIER de son côté dans un train : les
 feuilles actuelles (trains de 2 à 5 littéraux) ne le permettent pas. Piste : feuilles à 1 littéral calculé par côté + chocs de face,
 ou un module « COPIE » (R-609) pour dupliquer.
+- 02:21 Dépôts Drive : bestiaire 30 (5 fiches) + catalogue_s3.json → Bestiaires ; germes → 02_Resultats ; rapport (Google Doc) → 05_Methode ;
+  versions de 01:25 déplacées dans 99_Archives. PR #15 (vers main) à jour.
