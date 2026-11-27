@@ -88,3 +88,23 @@ Contrôle : sans sonde, SET0 au bon retard donne bien R'. ⇒ une lecture « OFF
 lisibles mais destructives) ; translation v entière quelconque ; sortie en aval du démux. Pour les 20 meilleurs placements de R-706
 (dont celui de R-707) : 0 solution (les 4 équations de voie ne sont jamais compatibles). Contrôle du solveur : retrouve le port
 d'écriture A (v = 0). ⇒ il faut choisir l'écran ET le port de lecture ensemble (OUVERT, à suivre).
+
+(Session T4 « écran de la fourmi », 27/11 à partir de 10:55 UTC, branche claude/t4-ecran-fourmi ; fichiers dans t4/.)
+
+## R-714 Écran + port de lecture choisis ensemble (lecture_joint.py) — AFFIRMÉ (d'après rapports/S4_ECRAN_2026-11-26.md, non relancé)
+Session S4 précédente (06:10) : 42 configurations à démux A = B, 0 solution ; recherche non terminée (entrée écrite par T4).
+
+## R-715 L'ÉCRAN BRANCHÉ SUR LE PAS : 4 pixels sur les 4 sorties c00' c10' c01' c11' du pas complet R-617 — VÉRIFIÉ (2 moteurs, 256/256) (t4/ecran_un_pas.py, 27/11 11:00)
+Les 4 sorties de cases du germe R-617 vont toutes en direction 0 (routes parallèles). Sur chacune, un pixel M (OFF) posé à t = 0,
+kit de mise à 1 SET0 (R-705) aligné exactement sur la sortie (t4lib.kit_on), à 20 à 57 cases après la position de la sortie à
+TDEC = 11 404, à ≥ 20 (distance hex) de toutes les autres routes (t4/rayons.py : 333 segments = entrées des 256 états + rayons décodés).
+Le vaisseau c_ij' (présent ssi c_ij' = 1) allume le pixel en passant. 256/256 états : écran lu (état ET phase exacts) = (c00', c10',
+c01', c11') de R-61, reste = vaisseaux libres décodés ; moteur C 256/256 ; hx.py identique sur 64 états (les 16 états de cases avec
+x = y = h = 0 + 48 au hasard). T = 12 686. Placement : t4/placement.json. Pas de démultiplexeur : un pixel par sortie (choix noté :
+l'adressage R-707 servirait à écrire un pixel choisi, ici chaque case a déjà son propre vaisseau).
+Limite (comme R-707) : la mise à 1 suppose le pixel éteint ; une 2e écriture demande de connaître l'état (voir R-716).
+
+## R-716 Pas d'effacement ni de remplissage « aveugle » à 1 vaisseau — VÉRIFIÉ (hx.py, balayage) (t4/effacer_scan.py, t4/remplir_scan.py)
+Les 2 droites de mise à 0 (dir 2 voie −2, dir 3 voie −2) jouées sur M à ses 21 phases : M est TOUJOURS détruit (aucun « M reste M »).
+Les 2 droites de mise à 1 (dir 0 voie 1, dir 5 voie 1) sur R' à ses 12 phases : R' toujours détruit. Avec R-705 (seules droites qui
+écrivent), aucune écriture à 1 vaisseau n'est idempotente ⇒ pour réafficher, il faut un vaisseau qui dépend de l'état affiché.
