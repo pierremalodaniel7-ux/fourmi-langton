@@ -1,0 +1,2 @@
+r = 1 : 4 cas 4/4 (2 moteurs True) ; 2 usages 16/16 ; 20 usages [(True, 20, True), (True, 20, True), (True, 20, True), (True, 20, True)] ; certificat min 117 [117, 317, 517, 717, 917, 1117] ; face []
+r = 2 : 4 cas 4/4 (2 moteurs True) ; 2 usages 16/16 ; 20 usages [(True, 20, True), (True, 20, True), (True, 20, True), (True, 20, True)] ; certificat min 17 [17, 117, 217, 317, 417, 517] ; face []
