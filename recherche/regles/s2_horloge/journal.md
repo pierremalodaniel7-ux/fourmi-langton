@@ -221,3 +221,28 @@ horloge ; pour que trois horloges concentriques 3-symétriques de même T aient 
 (chaque ρ ≥ ~ 6) ; il faudrait mélanger des horloges tournées de 60° avec un rapport de tailles ≈ 2 à même période (observé au plus 1,76 :
 P = 507, côtés 25 à 44). De plus il faut la porte compensatrice (R-337 tourné de 60°) sur les vaisseaux impairs. Objectif 1 avec R-337 : OUVERT,
 avec ces obstacles. (Objectif 1 avec une porte R-314 : déjà fait par R-512 et, sans symétrie commune, par R-516.)
+
+## R-520 Le bit M de R-341 DÉPHASÉ par un vaisseau qui passe EXACTEMENT ; deux vaisseaux identiques de suite : rien ne casse — VÉRIFIÉ (fourmi_r + hx.py 256/256, temps fini) (tbascule.py, tb_filtre.py, tb_hx.py)
+Relâche de R-503 (bascule T par des vaisseaux identiques, sortie exacte exigée) : 508 objets à 2 fourmis (cycles exacts, boîte ≤ 5, p ≤ 200),
+1er vaisseau direction 0 sur les voies −7…7, toutes les phases relatives : 813 600 tirs ; 54 936 ont un effet (tb_filtre.py) : 48 560 « objet
+changé + vaisseau retardé », 6 112 « objet changé + vaisseau décalé de voie », 232 « objet changé + vaisseau exact », 32 « objet seulement
+DÉPHASÉ + vaisseau exact ». 2e vaisseau identique Δ ∈ [200, 200 + 8 p1) derrière (10 463 conversions distinctes, 1 227 096 flux) : 256 flux où
+les deux vaisseaux ressortent exacts et l'objet est dans l'orbite de X0 au même endroit ; ce sont 4 objets seulement, tous du type « déphasé » :
+M de R-341 tourné de 2 et de 5 crans (période 21, Δ ≡ 18 mod 21) et un objet de période 30 (Δ ≡ 18 mod 30). Attention : « revenu dans
+l'orbite » ne veut pas dire « revenu à la même phase » ; c'est un DÉPHASEUR (le vaisseau ne voit rien, l'objet avance ou recule de phase),
+pas encore une bascule T. Aucun objet n'est changé en un AUTRE objet puis remis par un vaisseau identique (0 / 1 227 096) : R-503 confirmé
+pour ces 508 objets, même en acceptant des vaisseaux retardés.
+
+## R-521 DOUBLEMENT DE PÉRIODE par la mémoire de phase : horloge (P = 1 131) + bit M → machine de période 2 262 = 2 P — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 2 262)
+t2_tb_horloge.py : on pose les 4 objets de R-520 (puis les 30 « vaisseau exact » de tb_filtre) relativement aux vaisseaux de toutes les horloges
+de tri_cycles_rB5.json (P ≤ 1 200) : 468 000 + 78 867 machines ; CYCLE de période P (pixel synchronisé, comme R-502), 5P ou 7P (objet non touché,
+ppcm des périodes) et 72 + 3 de période 2P. Les 3 de P = 414 (objet de période 12) sont triviales (ppcm(414, 12) = 828 : la phase avance comme
+sans vaisseau). Les 72 de P = 1 131 (8 écritures de la même horloge × 9 poses, objet = M tourné) sont VRAIES : à chaque tiers l'horaire fait
+passer M dans un autre état (période 21 aussi) et l'anti-horaire le remet ; les vaisseaux ressortent exacts (12 pas sur 2 262 où une fourmi
+de l'horloge s'écarte, pendant un passage) ; la phase de M au début de chaque tour vaut 0, 18, 0, 18… alors que sans interaction elle ferait
+0, 18, 15, 12… (ppcm(1 131, 21) = 7 917). Le « bit » (phase 0 ou 18) change à CHAQUE tour : s ← s ⊕ 1, causé par l'horloge, et la machine
+ne revient qu'après 2 tours. Machine (8 fourmis) :
+  H:R2L2|-21,24,4;-23,25,3;2,14,0;-14,50,2;-34,34,4;-13,14,1;1,35,3;-34,49,5|2,13;-13,50;-35,35;-12,13;1,36;-35,49;-22,24;-23,25;-21,24;-22,26;-23,26
+Limite honnête : la bascule n'ÉMET rien (les vaisseaux ressortent exacts) ; elle ne peut donc pas piloter une 2e bascule : le compteur
+causal à 2 étages reste OUVERT. Commandes : python3 s2_horloge/t2_tb_horloge.py 1200 ; python3 s2_horloge/t2_tb_check.py
+s2_horloge/t2_tb_horloge.json 0 ; python3 s2_horloge/t2_classes.py s2_horloge/t2_tb_horloge.json 0 0 30 60 90 120
