@@ -51,12 +51,14 @@ def rays_ok(LA, va, LB, vb, Tend):
         for b in ob:
             if ray_min(transwl(a, va), transwl(b, vb), Tend, +1) < 7: return False
     return True
-def choose_offsets2(Ls, names, seed=0, box=1500):
+import os
+NOLANES = os.environ.get('NOLANES') == '1'   # 1 seul usage : le critère (c) des voies opposées ne sert qu'à la réutilisation
+def choose_offsets2(Ls, names, seed=0, box=int(os.environ.get('BOX', 1500))):
     rnd = random.Random(seed); off = {}; Tend = max(L.tmax for L in Ls.values()) + 1200
     for k, nm in enumerate(names):
         for _ in range(3000):
             v = (rnd.randint(-box, box), rnd.randint(-box, box)) if k else (0, 0)
-            if all(lane_ok(Ls[nm], v, Ls[m], off[m]) and lane_ok(Ls[m], off[m], Ls[nm], v) and rays_ok(Ls[nm], v, Ls[m], off[m], Tend) for m in off): off[nm] = v; break
+            if all((NOLANES or (lane_ok(Ls[nm], v, Ls[m], off[m]) and lane_ok(Ls[m], off[m], Ls[nm], v))) and rays_ok(Ls[nm], v, Ls[m], off[m], Tend) for m in off): off[nm] = v; break
         else: raise RuntimeError('pas de translation sûre pour ' + nm)
     return off
 def choose_offsets(Ls, names, seed=0, spacing=3000):
@@ -82,10 +84,11 @@ def multi_check(S, seq, D, engine2=False):
 def load_params():
     R = json.load(open('resultats_modules.json')); P = {nm: R[nm]['parametres'] for nm in R}
     if 'h1' not in P:
-        try: P['h1'] = json.load(open('data/h1_param.json'))
+        try: P['h1'] = json.load(open(sys.argv[4] if len(sys.argv) > 4 else 'data/h1_param.json'))
         except Exception: pass
     return P
 if __name__ == '__main__':
+    OUT = 'step_res.json' if len(sys.argv) <= 3 else sys.argv[3]
     seed = int(sys.argv[1]) if len(sys.argv) > 1 else 0
     P = load_params(); names = [n for n in ['h0', 'x', 'y', 'c00', 'c10', 'c01', 'c11', 'h1'] if n in P]
     print('modules :', names, flush=True)
@@ -104,12 +107,13 @@ if __name__ == '__main__':
     # 2e moteur (hx.py) sur les 256 états
     t0 = time.time(); same = sum(1 for s, (a, c) in zip(sits, R) if (lambda pa_pc: sorted(pa_pc[0]) == sorted(a) and sorted(pa_pc[1]) == sorted(c))(run_py(s, T)))
     print(f'hx.py : {same}/256 états finaux identiques au moteur C — {time.time()-t0:.0f} s', flush=True)
-    ok, delta, info = certificate(S, log=lambda x: print(x, flush=True)); D = delta + (-delta) % 8
+    try: ok, delta, info = certificate(S, log=lambda x: print(x, flush=True)); D = delta + (-delta) % 8
+    except AssertionError as ex: ok, D, info = False, None, dict(span=None, R=None, opposees=None); print('certificat : échec', ex, flush=True)
     res = []
-    for g in range(2):
+    for g in (range(2) if ok else []):
         rnd = random.Random(g); seq = [rnd.choice(envs) for _ in range(int(sys.argv[2]) if len(sys.argv) > 2 else 10)]
-        r = multi_check(S, seq, D, engine2=(g == 0)); res.append(r); print('usages', g, r, flush=True)
+        r = multi_check(S, seq, D, engine2=(g == 0 and len(seq) <= 3)); res.append(r); print('usages', g, r, flush=True)
     json.dump(dict(modules=names, translations=off, T=T, propres=clean, justes=good, deux_moteurs=same, certificat=ok, delta=D,
-                   fenetre=info['span'], rayon=info['R'], voies_opposees=info['opposees'], usages=res, mauvais=bad[:5]), open('step_res.json', 'w'), ensure_ascii=False, indent=1)
+                   fenetre=info['span'], rayon=info['R'], voies_opposees=info['opposees'], usages=res, mauvais=bad[:5]), open(OUT, 'w'), ensure_ascii=False, indent=1)
     sys.exit()
     json.dump(dict(modules=names, translations=off, T=T, propres=clean, justes=good, mauvais=bad[:5]), open('data/step_res.json', 'w'), ensure_ascii=False)

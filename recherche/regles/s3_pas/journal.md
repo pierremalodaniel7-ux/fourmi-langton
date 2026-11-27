@@ -80,3 +80,17 @@ lâche de débris dans la direction a+3 (côtés : a±1, a±2 ; face : a+1, a+2)
 après « − » : −, H ; après H ou à la racine : +, −, H ; H = 1re entrée ; un sous-nœud par ligne. Avec H on peut BRANCHER : la limite
 R-613 ne s'applique plus. Arbre h1' (27 puissances, 32 littéraux), formule juste sur les 256 états ; conflits à distance 0 : 7, 5, 3
 pour 3 tirages de (D, G), tous différents → aucun conflit structurel commun. Descente opt7.py lancée (2 graines).
+- 01:12 opt7 (graine 1, 213 s) : placement à 6 conflits géométriques (seuil 7, inoffensifs) → simulation : 256/256 JUSTES ET PROPRES.
+  01:17 2e moteur : 256/256 identiques (hx.py), 49 s. → MODULE h1' (1 usage) VÉRIFIÉ : 27 puissances, 32 littéraux, 59 vaisseaux,
+  tmax 12 356 pas. Paramètres : h1_param_simple.json (arbre htree.h1_tree()).
+- Réutilisation de h1' : NON (critère (c) faux, 0 voie d'écart). Raison DÉMONTRÉE : une porte de face met l'enfant H sur la voie même de
+  la puissance parent ; si le parent ressort tout droit (parent = 1 et sa puissance-parent déjà déviée), il file vers l'infini sur cette
+  voie et percutera de face l'enfant H (vaisseau constant) de l'usage suivant. Dans l'arbre : Nc (2e entrée de A) et Pc (2e entrée de B)
+  ont un enfant H ; B aussi mais A et B ne valent jamais 1 ensemble. Remède envisagé : n'avoir d'enfant H que pour des 1res entrées,
+  ou un « balai » (puissance qui dévie la sortie qui s'échappe).
+## R-615 LE PAS COMPLET EN UN GERME (1 usage) — VÉRIFIÉ (01:21)
+step.py (NOLANES=1 BOX=6000, graine 1) : les 8 modules h0', x', y', c00'..c11', h1' translatés dans un seul germe R2L2 :
+256/256 états propres et justes (les 8 sorties = R-61), moteur C (11 s) ; hx.py 256/256 états finaux identiques (54 s).
+Commande : NOLANES=1 BOX=6000 python3 step.py 1 3 step8_simple.json h1_param_simple.json
+Sans h1' (7 modules, BOX 1500) : certificat OK (Δ = 74 072 pas), 10 usages de suite au même endroit : superposition exacte,
+10/10 justes, 2 moteurs identiques (01:15).
