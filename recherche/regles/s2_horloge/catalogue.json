@@ -1,0 +1,212 @@
+[
+ {
+  "id": "R-500a",
+  "b": 29,
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "nom": "Horloge triangle à 6 fourmis, plus petit terme (j = 0, période 363)",
+  "regle": "H:R2L2",
+  "fourmis": "1,6,5;-6,19,1;-12,12,3;-5,5,4;1,13,0;-13,19,2",
+  "points": "1,5;1,6;-6,19;-5,19;-13,13;-12,12;-4,5;0,14;-13,18",
+  "img": [
+   180,
+   ""
+  ],
+  "situation": "3 vaisseaux horaires (caps pairs) + 3 anti-horaires (caps impairs) aux 3 coins d'un triangle ; symétrie d'ordre 3.",
+  "deroulement": "À chaque coin, un choc (porte d'interaction, 60°) tourne l'horaire de +120° et l'anti-horaire de −120° ; au milieu de chaque arête les deux sens se croisent. Image : mi-période.",
+  "mesures": "CYCLE exact P = 363 (fourmi_r) ; hx.py : premier retour exact 363.",
+  "statut": "VÉRIFIÉ (2 moteurs ; périodique pour toujours)",
+  "interet": "Horloge sans miroir construite à la main (calcul de vaisseaux virtuels), pas trouvée au hasard.",
+  "deja": "Analogue : orbites périodiques à 2 particules de McGinnis-Webb 2019 (modèle synchrone) ; cette famille : pas trouvée.",
+  "source": "recherche/regles/s2_horloge/journal.md (session S2 du 26/11 soir)",
+  "commande": "python3 recherche/regles/s2_horloge/formule.py"
+ },
+ {
+  "id": "R-500b",
+  "b": 29,
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "nom": "Famille INFINIE d'horloges triangle : terme j = 40 (période 1 323) ; P = 363 + 24 j (j pair), 381 + 24 j (j impair)",
+  "regle": "H:R2L2",
+  "fourmis": "1,6,5;-6,59,1;-52,52,3;-5,5,4;1,53,0;-53,59,2",
+  "points": "1,5;1,6;-6,59;-5,59;-53,53;-52,52;-4,5;0,54;-53,58",
+  "img": [
+   660,
+   ""
+  ],
+  "situation": "Terme j : fourmis (1,6,5) (−6,j+19,1) (−(j+12),j+12,3) (−5,5,4) (1,j+13,0) (−(j+13),j+19,2) + 9 cases (formule.py).",
+  "deroulement": "Même mécanisme que R-500a, triangle de côté ≈ j + 19 cases ; chaque tiers de période la figure a tourné de 120°.",
+  "mesures": "CYCLE exact pour j = 0…300 et 18 termes jusqu'à j = 1 949 (P = 47 181) ; hx.py j = 0…41, 60, 61 ; certificat (convexité) pour tout j ≥ 33.",
+  "statut": "DÉMONTRÉ (famille infinie : certificat exact + argument de convexité ; petits j par CYCLE)",
+  "interet": "Répond à « la famille d'horloges est-elle infinie ? » : oui, avec une famille construite directement (pas celle de R-349b).",
+  "deja": "Pas trouvé (deja_connu_regles.md).",
+  "source": "recherche/regles/s2_horloge/journal.md (session S2 du 26/11 soir)",
+  "commande": "python3 recherche/regles/s2_horloge/certif_tri.py 0 20 ; python3 recherche/regles/s2_horloge/certif_tri.py 1 16"
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "4,124,0;2,126,3;6,6,5;-6,174,1;-162,162,3;-5,5,4;6,163,0;-163,174,2",
+  "points": "6,5;6,6;-6,174;-5,174;-163,163;-162,162;-4,5;5,164;-163,173;4,126;3,124;3,126",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2 du 26/11 soir)",
+  "commande": "python3 recherche/regles/s2_horloge/pixel_hx.py recherche/regles/s2_horloge/pixel_cycles_150_150_tri.json 0",
+  "deja": "Pas trouvé ; bascule R-341 (M ↔ R') réutilisée, remise à 0 par un vaisseau de direction opposée (nouveau).",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py : périodique pour toujours)",
+  "id": "R-502a",
+  "nom": "PIXEL QUI CLIGNOTE TOUT SEUL : horloge triangle (6 fourmis) + bascule R-341 (2 fourmis), période 4 203",
+  "img": [
+   780,
+   ""
+  ],
+  "situation": "Les 2 premières fourmis = le pixel (objet M de R-335/R-341, en vert sur le GIF) posé sur une arête de l'horloge ; les 6 autres = horloge triangle.",
+  "deroulement": "Un vaisseau anti-horaire traverse le pixel : M → R' (pixel = 1) ; l'horaire du tiers suivant le traverse : R' → M (pixel = 0). Les deux ressortent EXACTEMENT comme s'il n'y avait rien : l'horloge n'est pas perturbée.",
+  "mesures": "P = 4 203 (= horloge seule) ; par tiers (1 401 pas) : OFF ≈ 730 pas, écriture ≈ 35, ON ≈ 575, écriture ≈ 30 ; 6 changements par période.",
+  "interet": "Le « clignotant » du jeu de la vie, en fourmis de Langton : une mémoire que l'horloge met à 1 puis à 0, pour toujours."
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "4,124,0;2,126,3;6,6,5;-6,174,1;-162,162,3;-5,5,4;6,163,0;-163,174,2",
+  "points": "6,5;6,6;-6,174;-5,174;-163,163;-162,162;-4,5;5,164;-163,173;4,126;3,124;3,126",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2 du 26/11 soir)",
+  "commande": "python3 recherche/regles/s2_horloge/pixel_hx.py recherche/regles/s2_horloge/pixel_cycles_150_150_tri.json 0",
+  "deja": "Pas trouvé ; bascule R-341 (M ↔ R') réutilisée, remise à 0 par un vaisseau de direction opposée (nouveau).",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py : périodique pour toujours)",
+  "id": "R-502b",
+  "nom": "Pixel qui clignote : zoom, état 1 (ON = oscillateur R' de R-341, période 12)",
+  "img": [
+   780,
+   "zoom 0,121,8,129"
+  ],
+  "situation": "Même machine que R-502a ; zoom sur le pixel.",
+  "deroulement": "Pixel à 1 : objet R' de R-341 (2 fourmis, période 12 ; le nombre de cases varie avec la phase).",
+  "mesures": "Voir R-502a.",
+  "interet": "État ON du pixel."
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "4,124,0;2,126,3;6,6,5;-6,174,1;-162,162,3;-5,5,4;6,163,0;-163,174,2",
+  "points": "6,5;6,6;-6,174;-5,174;-163,163;-162,162;-4,5;5,164;-163,173;4,126;3,124;3,126",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2 du 26/11 soir)",
+  "commande": "python3 recherche/regles/s2_horloge/pixel_hx.py recherche/regles/s2_horloge/pixel_cycles_150_150_tri.json 0",
+  "deja": "Pas trouvé ; bascule R-341 (M ↔ R') réutilisée, remise à 0 par un vaisseau de direction opposée (nouveau).",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py : périodique pour toujours)",
+  "id": "R-502c",
+  "nom": "Pixel qui clignote : zoom, état 0 (OFF = oscillateur M de R-335, période 21)",
+  "img": [
+   1500,
+   "zoom 0,121,8,129"
+  ],
+  "situation": "Même machine que R-502a ; zoom sur le pixel.",
+  "deroulement": "Pixel à 0 : objet M de R-335 (2 fourmis, période 21 ; le nombre de cases varie avec la phase).",
+  "mesures": "Voir R-502a.",
+  "interet": "État OFF du pixel."
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "4,55,0;2,57,3;6,6,5;-6,84,1;-72,72,3;-5,5,4;6,73,0;-73,84,2",
+  "points": "6,5;6,6;-6,84;-5,84;-73,73;-72,72;-4,5;5,74;-73,83;4,57;3,55;3,57",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2 du 26/11 soir)",
+  "commande": "python3 recherche/regles/s2_horloge/pixel_hx.py recherche/regles/s2_horloge/pixel_cycles_60_60_tri.json 6",
+  "deja": "Pas trouvé ; bascule R-341 (M ↔ R') réutilisée, remise à 0 par un vaisseau de direction opposée (nouveau).",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py : périodique pour toujours)",
+  "id": "R-502d",
+  "nom": "Pixel qui clignote, version plus petite (période 2 043)",
+  "img": [
+   400,
+   ""
+  ],
+  "situation": "Horloge triangle T = 693 + bascule R-341 sur l'arête C0C1.",
+  "deroulement": "Comme R-502a ; ON ≈ 200 pas, OFF ≈ 400 pas par tiers (681 pas).",
+  "mesures": "CYCLE exact 2 043 (fourmi_r) ; hx.py premier retour 2 043.",
+  "interet": "Plus petite machine clignotante retenue (8 fourmis, 12 cases)."
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "-41,40,1;-41,40,2;4,125,4;5,125,1;-83,84,1;5,85,3;-84,173,5;5,85,2;-84,173,4;-83,84,0",
+  "points": "3,125;6,83;-83,174;-85,85;-82,83;5,86;-85,173;6,84;-84,174;-84,84;-41,40;-39,38;-40,38;-39,39;-40,40",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2, vague 2, 27/11 nuit)",
+  "commande": "python3 recherche/regles/s2_horloge/anti_hx.py recherche/regles/s2_horloge/anti2_m1.json 0",
+  "deja": "Pas trouvé (même famille que R-502 ; idée : bascule tournée de 180° posée sur l'arête suivante grâce à la symétrie de l'horloge).",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 4 203)",
+  "id": "R-506",
+  "nom": "Deux pixels qui clignotent en alternance (10 fourmis)",
+  "img": [
+   900,
+   ""
+  ],
+  "situation": "Horloge triangle R-502 (6 fourmis) + pixel A (bascule R-341, fourmis 2,3) + pixel B (même bascule tournée de 180°+120°, fourmis 0,1) sur l'arête suivante.",
+  "deroulement": "Chaque tiers de période, A s'allume quand B s'éteint et inversement : jamais dans le même état (0 pas sur 4 203), opposés 3 676 pas, le reste = écritures.",
+  "mesures": "CYCLE exact 4 203 (fourmi_r) ; hx.py premier retour 4 203 ; GIF img/pixels_opposes_R506.gif.",
+  "interet": "Clignotant à deux voyants opposés, pour toujours (cycle exact) : le « blinker » à 2 états visibles."
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "-34,37,2;-32,35,5;-10,11,1;1,67,3;-66,78,5;2,8,4;-8,79,0;-69,69,2;249,53,0;249,52,3;287,79,2;235,144,4;222,92,0;236,77,3;288,93,5;220,145,1",
+  "points": "2,8;-8,79;-69,69;1,10;-9,78;-67,68;-9,10;1,68;-67,78;1,9;-8,78;-68,69;-32,34;249,54;236,77;288,93;220,145;287,78;236,144;221,93;248,52;250,53;237,78;286,94;221,143;249,52;249,53;236,78;287,93;221,144",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2, vague 2, 27/11 nuit)",
+  "commande": "python3 recherche/regles/s2_horloge/compteur_check.py recherche/regles/s2_horloge/compteur5.json 0",
+  "deja": "Pas trouvé ; compteur « par construction » (périodes 1 et 2), pas causal.",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 1 884)",
+  "id": "R-507",
+  "nom": "Compteur 2 bits 00 → 01 → 10 → 11 (16 fourmis)",
+  "img": [
+   861,
+   ""
+  ],
+  "situation": "Horloge P1 = 942 + pixel (bit 0, fourmis 0,1) ; horloge P2 = 1 884 + pixel (bit 1, fourmis 8,9), 300 cases plus loin, déphasée de 510 pas.",
+  "deroulement": "Lu toutes les 471 pas à partir de t = 861 : 00, 01, 10, 11, 00, … ; chaque lecture est à ≥ 103 pas d'un changement d'état.",
+  "mesures": "CYCLE exact 1 884 (fourmi_r) ; hx.py premier retour 1 884 ; lectures hx sur 3 périodes justes.",
+  "interet": "Premier compteur qui tourne pour toujours ; reste à faire un diviseur par 2 causal (retenue)."
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "-5,5,4;1,38,0;-38,44,2;1,6,1;-6,44,3;-37,37,5;-6,32,5;-25,37,1;-11,18,3;-6,17,2;-10,37,4;-26,33,0",
+  "points": "-4,5;0,39;-38,43;0,6;0,7;1,5;-6,43;-5,43;-5,44;-38,38;-37,38;-36,37;-6,18;-11,37;-25,32;-7,34;-26,36;-9,17;-6,17;-10,37;-26,33;-7,33;-25,36;-10,18",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2, vague 3, 27/11 matin)",
+  "commande": "python3 recherche/regles/s2_horloge/hexa_check.py ; python3 recherche/regles/s2_horloge/hexa_portes.py 2592",
+  "deja": "Porte d'interaction = Fredkin-Toffoli 1982 (connu) ; deux horloges de fourmis couplées en étoile : pas trouvé (non cherché sur le web).",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 2592)",
+  "id": "R-512",
+  "nom": "Hexagramme : 2 horloges couplées par 6 portes d'interaction à entrées variables (12 fourmis, CYCLE 2 592)",
+  "img": [
+   428,
+   ""
+  ],
+  "situation": "Horloge triangle A (522 pas seule) + B = A avancée de 253 pas et tournée de 60° autour du centre [-14, 29] ; fourmis 0-5 = A, 6-11 = B.",
+  "deroulement": "Les 2 triangles (horloges de 522 pas) se croisent en 6 points ; là, un vaisseau de A et un de B (à 60°) se tournent l'un l'autre de 120° (porte de billard) ; sur une même droite d'entrée, un vaisseau arrive tantôt seul (tout droit), tantôt avec un partenaire (il tourne). Retour exact après 2 592 pas.",
+  "mesures": "CYCLE exact 2592 (fourmi_r) ; hx.py premier retour 2592 ; seuls chocs : coins, croisements, chocs A-B à 2 vaisseaux.",
+  "interet": "Consigne 3 : des horloges alimentent des portes de calcul et récupèrent tous leurs vaisseaux, pour toujours. Reste : le demi-additionneur dans la boucle."
+ },
+ {
+  "regle": "H:R2L2",
+  "fourmis": "2,4,1;-4,43,3;-37,37,5;-5,5,4;2,36,0;-36,43,2;-6,15,2;-7,35,4;-26,34,0;-5,33,3;-26,36,5;-8,15,1",
+  "points": "1,4;1,5;2,3;-4,42;-3,42;-3,43;-38,38;-37,38;-36,37;-4,5;1,37;-36,42;-6,15;-7,35;-26,34;-5,34;-27,36;-7,14;-5,33;-26,36;-8,15;-4,32;-26,37;-9,15;-5,14;-7,36;-27,34;-4,33;-27,37;-8,14",
+  "classe": "Règles/Hexa R2L2/s2_horloge",
+  "b": 29,
+  "source": "recherche/regles/s2_horloge/journal.md (session S2, vague 3, 27/11 matin)",
+  "commande": "python3 recherche/regles/s2_horloge/hexa_check.py ; python3 recherche/regles/s2_horloge/hexa_portes.py 978",
+  "deja": "Porte d'interaction = Fredkin-Toffoli 1982 (connu) ; deux horloges de fourmis couplées en étoile : pas trouvé (non cherché sur le web).",
+  "statut": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 978)",
+  "id": "R-512b",
+  "nom": "Hexagramme 978 : 2 horloges de 510 pas qui échangent leurs vaisseaux (12 fourmis)",
+  "img": [
+   419,
+   ""
+  ],
+  "situation": "Horloge triangle A (510 pas seule) + B = A avancée de 218 pas et tournée de 60° autour du centre [-13, 28] ; fourmis 0-5 = A, 6-11 = B.",
+  "deroulement": "Mêmes portes d'interaction aux 6 croisements ; les vaisseaux changent de triangle et parcourent l'étoile et l'hexagone intérieur (img/hexagramme_978.png). Retour exact après 978 pas.",
+  "mesures": "CYCLE exact 978 (fourmi_r) ; hx.py premier retour 978 ; seuls chocs : coins, croisements, chocs A-B à 2 vaisseaux.",
+  "interet": "Consigne 3 : des horloges alimentent des portes de calcul et récupèrent tous leurs vaisseaux, pour toujours. Reste : le demi-additionneur dans la boucle."
+ }
+]
