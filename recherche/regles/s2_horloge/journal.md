@@ -250,3 +250,19 @@ Complément R-521 (12:12) : mêmes poses avec 300 objets « changés + vaisseau 
 une horloge par période P ≤ 700 : 215 910 machines, 246 CYCLE (P, 2P, 4P, 5P) ; TOUS s'expliquent par ppcm(P, période de l'objet non touché)
 (P ≡ 6 mod 12 ⇒ 2P ; P ≡ 3, 9 mod 12 ⇒ 4P ; 30 ⇒ 5P). Aucune horloge « ralentie » (retard compensé h/a) : OBSERVÉ (négatif).
 Commande : python3 s2_horloge/t2_tb_horloge.py 700 retard300
+
+## R-522 HORLOGE QUI RALENTIT ET VAISSEAUX QUI PORTENT UN BIT : 3 objets 3-symétriques qui retardent l'horaire ET l'anti-horaire — VÉRIFIÉ (CYCLE exact fourmi_r ; hx.py sur les exemples)
+t2_sym.py : un objet (conversions de tb_filtre) posé devant un vaisseau d'horloge + ses 2 images par R (rotation 120° + c de l'horloge, objet
+reculé de T, 2T) : la règle de compensation R-514 dit qu'un retard est absorbé s'il touche les 3 côtés et l'horaire comme l'anti-horaire.
+- 30 objets « vaisseau exact », une horloge par P ≤ 1 200 : 60 000 machines, 141 CYCLE ; 60 de période 2P (P = 504).
+- 300 objets « vaisseau retardé », P ≤ 900 : 264 177 machines, 37 770 CYCLE dont 35 985 de période qui N'EST PAS un multiple de P :
+  l'horloge tourne avec un tiers de T + d pas (d = −12 … 36) pendant n tours (classes (n, d) : (1, 33) 1 557, (1, 21) 1 143, (1, 3) 927,
+  (2, 33) 2 232, (2, 3) 1 611, (4, −7) 4 941 …). C'est R-514 vu en vrai : les objets retardent les 6 vaisseaux du même nombre de pas,
+  l'horloge ralentit et tourne pour toujours.
+- Machine t2_sym_doublement504.json n° 0 (12 fourmis : 3 objets de période 12 + horloge 504) : période 1 008 = 2 tours ; hx.py premier retour
+  1 008 ; les 6 vaisseaux s'écartent ensemble de l'horloge seule (675 pas / 1 008) : retard 0, puis +4, puis −4, puis 0 ; au début des tours :
+  0, −4, 0, −4 … (t2_retard.py, t2_porteur.py) alors que les 3 objets sont à la même phase (0) au début de chaque tour. Le bit « tour pair /
+  impair » est donc porté par les VAISSEAUX (leur horaire) : c'est la sortie qui manquait à R-521 (une 2e bascule peut le lire).
+  H:R2L2|3,20,0;2,20,3;-22,44,2;-21,43,5;-21,19,4;-21,20,1;-10,10,3;1,31,5;-31,42,1;1,11,0;-11,42,2;-30,30,4|-8,9;0,33;-32,41;1,10;-10,42;-31,31;-9,10;0,32;-31,41;2,19;4,19;1,21;-20,43;-22,45;-21,42;-22,21;-22,19;-20,20
+Commandes : python3 s2_horloge/t2_sym.py 1200 exact ; python3 s2_horloge/t2_sym.py 900 retard 300 ; python3 s2_horloge/t2_sym_check.py
+s2_horloge/t2_sym_doublement504.json 0 ; python3 s2_horloge/t2_retard.py s2_horloge/t2_sym_doublement504.json 0 3
