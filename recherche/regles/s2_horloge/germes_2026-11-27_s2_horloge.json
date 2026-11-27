@@ -62,5 +62,21 @@
   "fourmis": "-34,37,2;-32,35,5;-10,11,1;1,67,3;-66,78,5;2,8,4;-8,79,0;-69,69,2;249,53,0;249,52,3;287,79,2;235,144,4;222,92,0;236,77,3;288,93,5;220,145,1",
   "points": "2,8;-8,79;-69,69;1,10;-9,78;-67,68;-9,10;1,68;-67,78;1,9;-8,78;-68,69;-32,34;249,54;236,77;288,93;220,145;287,78;236,144;221,93;248,52;250,53;237,78;286,94;221,143;249,52;249,53;236,78;287,93;221,144",
   "note": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 1 884) — CYCLE exact 1 884 (fourmi_r) ; hx.py premier retour 1 884 ; lectures hx sur 3 périodes justes."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/s2_horloge",
+  "nom": "R-512 Hexagramme : 2 horloges couplées par 6 portes d'interaction à entrées variables (12 fourmis, CYCLE 2 592)",
+  "regle": "H:R2L2",
+  "fourmis": "-5,5,4;1,38,0;-38,44,2;1,6,1;-6,44,3;-37,37,5;-6,32,5;-25,37,1;-11,18,3;-6,17,2;-10,37,4;-26,33,0",
+  "points": "-4,5;0,39;-38,43;0,6;0,7;1,5;-6,43;-5,43;-5,44;-38,38;-37,38;-36,37;-6,18;-11,37;-25,32;-7,34;-26,36;-9,17;-6,17;-10,37;-26,33;-7,33;-25,36;-10,18",
+  "note": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 2592) ; Horloge triangle A (522 pas seule) + B = A avancée de 253 pas et tournée de 60° autour du centre [-14, 29] ; fourmis 0-5 = A, 6-11 = B."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/s2_horloge",
+  "nom": "R-512b Hexagramme 978 : 2 horloges de 510 pas qui échangent leurs vaisseaux (12 fourmis)",
+  "regle": "H:R2L2",
+  "fourmis": "2,4,1;-4,43,3;-37,37,5;-5,5,4;2,36,0;-36,43,2;-6,15,2;-7,35,4;-26,34,0;-5,33,3;-26,36,5;-8,15,1",
+  "points": "1,4;1,5;2,3;-4,42;-3,42;-3,43;-38,38;-37,38;-36,37;-4,5;1,37;-36,42;-6,15;-7,35;-26,34;-5,34;-27,36;-7,14;-5,33;-26,36;-8,15;-4,32;-26,37;-9,15;-5,14;-7,36;-27,34;-4,33;-27,37;-8,14",
+  "note": "VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 978) ; Horloge triangle A (510 pas seule) + B = A avancée de 218 pas et tournée de 60° autour du centre [-13, 28] ; fourmis 0-5 = A, 6-11 = B."
  }
 ]
