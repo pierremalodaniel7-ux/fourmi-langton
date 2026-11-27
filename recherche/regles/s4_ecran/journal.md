@@ -22,3 +22,18 @@ compatibles du 2e port : 2 (même adresse) ou 5 (adresses permutées 00↔11, 01
 translation |v| ≤ 500 : aucun v où les 4 centres (croisements des voies, toujours entiers) sont EN AVAL des deux ports (après le
 dernier choc + 12). Raison : le centre j doit être dans un cône de 60° (u_j, −R u_j) ; les sorties vont par paires opposées ⇒ 2
 parallélogrammes bornés qui ne se coupent pas. (Avec ±40 : 0 sur 6 561, marge max 1.) → prendre un 2e démultiplexeur différent.
+
+## R-704 Écran 2×2 avec 2 démultiplexeurs DIFFÉRENTS et le seul kit R-341 : aucun placement — VÉRIFIÉ (calcul exact) (ecran2_geo.py, ecran2_bande.py)
+Recalcul (00:50) du catalogue (2 316 chocs, 224 propres, 2 moteurs 60/60) et du démux (8 graines × 20 000 tirages : 654 justes 4/4,
+49 après tri). 49 × 49 démux × 6 rotations × 2 rôles × 24 permutations, |v| ≤ 150 (et ≤ 300, bande lointaine) : 0. Raison : avec un
+écart fixe de +120° entre mise à 1 et mise à 0, le cône de faisabilité du pixel j est (θ_j − 60°, θ_j) ; deux sorties de directions
+différentes ne laissent au mieux qu'un rayon commun.
+
+## R-705 Toutes les écritures à 1 vaisseau entre M et R' — VÉRIFIÉ (hx.py ; kits recontrôlés plus loin) (kits_scan.py → kits.json)
+6 directions × voies −8..8 × toutes les phases, vaisseau joué après (et avant : même résultat) : mise à 1 : (dir 0, voie 1, ph 16 ou 17),
+(dir 5, voie 1, ph 4) ; mise à 0 : (dir 2, voie −2, ph 2), (dir 3, voie −2, ph 10 ou 11). Nouveau couple utile : SET5/RST3 (écart −120°).
+
+## R-706 Écran 2×2 : placements trouvés en choisissant le kit pixel par pixel — OBSERVÉ (géométrie exacte ; simulation à suivre) (ecran3_geo.py)
+Démux A à 2 directions voisines {θ, θ+60°} : kit −120° (SET5/RST3) sur les sorties θ, kit +120° (SET0/RST2) sur θ+60° ⇒ même cône
+pour les 4 pixels. Premier placement : A = B = démux n° 6 du tri (sorties dir 0, 1, 1, 0), port 0 tourné de 180°, v = (237, −141),
+marge 16 (≥ 11) de chaque pixel à tous les rayons étrangers, aucune paire de face.
