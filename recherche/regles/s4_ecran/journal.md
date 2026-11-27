@@ -37,3 +37,13 @@ différentes ne laissent au mieux qu'un rayon commun.
 Démux A à 2 directions voisines {θ, θ+60°} : kit −120° (SET5/RST3) sur les sorties θ, kit +120° (SET0/RST2) sur θ+60° ⇒ même cône
 pour les 4 pixels. Premier placement : A = B = démux n° 6 du tri (sorties dir 0, 1, 1, 0), port 0 tourné de 180°, v = (237, −141),
 marge 16 (≥ 11) de chaque pixel à tous les rayons étrangers, aucune paire de face.
+
+## R-707 ÉCRAN 2×2 ADRESSABLE R2L2 : 3 motifs puis tout éteint, 4/4 lectures justes — VÉRIFIÉ (2 moteurs, temps fini) (ecran_demo.py → ecran_demo.json, ecran_motif_1..4.png)
+Placement R-706 rang 0 : port « 1 » = démux n° 8 (sorties dir 0, 5, 5, 0), port « 0 » = le même tourné de 180°, v = (138, −228) ;
+pixels (M = OFF / R' = ON) en (113,−114), (59,−151), (22,−77), (76,−114) pour les adresses 00, 01, 10, 11 du port 1 (port 0 : adresses
+permutées 10, 00, 11, 01). 10 opérations (1 vaisseau W + adresses + K chacune), retards 0, 1 600, 3 210, … , 14 436 (chaque retard
+ajusté au pas près pour la phase du pixel). UNE simulation, 39 fourmis posées à t = 0 : motif 1 {00, 11} ; motif 2 {01, 10} ;
+motif 3 {01, 10, 11} ; tout éteint : lectures exactes (état + phase de chaque pixel) 4/4 justes, fourmi_r = hx.py aux 4 instants.
+À la fin : 8 fourmis des pixels (4 × M) + 31 fourmis = vaisseaux libres qui s'éloignent (décodés), à ≥ 106 du centre.
+Piège trouvé : pixel.ORB TRIE les fourmis ; quand les 2 fourmis de M sont sur la même case, l'ordre de jeu compte ⇒ orbite ordonnée.
+Limite : comme R-341/R-342, on n'écrit 1 que sur un 0 et 0 que sur un 1 (il faut connaître l'état). Simulation finie (t = 18 036).
