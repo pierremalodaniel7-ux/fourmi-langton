@@ -115,3 +115,29 @@ au milieu de constants parallèles ((0,19,2657) même voie que c1, 15 périodes 
 tout constant qui touche c1 touche aussi s1 ou un de ces voisins dans un autre cas. ⇒ On ne peut pas trier la retenue de R-349 à la sortie.
 Conséquence : pour enchaîner, il faut un additionneur complet dont la retenue sort SEULE sur UNE route : HA + HA + fusion (piste suivante).
 Commandes : python3 s1_fusion/match3.py ; python3 s1_fusion/add3_k1.py 11000
+
+## R-410 Les 66 fusions V0/V7 à 1 constant (R-408) dans le VRAI circuit : 246 montages propres 16/16, mais 2 usages ≈ 2/30 — OBSERVÉ (add3_k07.py, k07_reuse.py, sup2.py)
+Les 66 K de R-408 (38 distincts) insérés à chacun des 9 rangs de jeu de R-405 (594 montages, T = 11 000) : 246 sont propres dans les 16 cas,
+et les cas V0 et V7 émettent les MÊMES vaisseaux (2 sorties communes, absentes des autres cas) : la fusion marche pour UN usage.
+2 usages (1 rang par K, 30 couples au hasard, superposition exacte) : 2/30 pour les 36 montages testés.
+Cause : les 66 K sont tous de direction 3, c'est-à-dire qu'ils remontent l'axe de c1 à contresens (voie −20 contre 19) ; le K de l'usage j + 1
+croise de face tout ce que l'usage j envoie sur cet axe (le constant de la voie 19, déjà dévié par K_j, et les restes) : argument tête-bêche de R-345.
+⇒ Il faut frapper V0/V7 DE CÔTÉ : R-411.
+Commandes : python3 s1_fusion/add3_k07.py 11000 ; python3 s1_fusion/k07_reuse.py 11000 30 1
+
+## R-411 Fusion V0/V7 à 2 constants DE CÔTÉ dans le vrai circuit : 2 160 montages justes (1 usage, 2 moteurs) mais « 2 rails » et 2 usages 192/256 — VÉRIFIÉ (1 usage) / OBSERVÉ (k1full.py, k2full.py, matchlib.py, k2verif.py, k2reuse.py)
+Étape A (k1full.py, 26 208 montages : K1 de direction 1, 2, 4, 5, disque de rayon 5 autour de V0, 8 phases, 9 rangs, 6 cas témoins, T = 9 600, 83 s) :
+54 K1 propres, transparents hors V0/V7, qui touchent V0 et V7 ; chacun donne 3 vaisseaux nouveaux (tous différents entre V0 et V7) car le choc
+emporte aussi le constant de la voie 19 (15 périodes devant c1). (Le même travail en isolé, k1side/k12iso, donnait 102 fusions, toutes ratées
+dans le circuit : les cas V7 portent un vaisseau de plus, (4,7,·,5), et le constant de la voie 19 — il faut chercher DANS le circuit.)
+Étape B (matchlib.py : appariement EXACT d'une fusion du catalogue R-400 sur une paire (p0, p7)) : 2 745 appariements ; K2 inséré à 10 rangs :
+27 450 montages × 16 cas (T = 12 000, 362 s) : 2 160 propres 16/16 où les cas V0 ET V7 (0011, 0111, 1011, 1110) émettent le MÊME vaisseau
+O = (0, 19, 2903, 4) au temps 12 000, absent des 12 autres cas, et V2 intact. Exemple (k2full.json indice 0) : K2 = « 1091,58,5 » joué 1er,
+K1 = « 1099,42,1 » (cases dans le fichier) ; 16 cas, 2 moteurs identiques (k2verif.py 0 12000).
+DÉFAUTS : (1) « 2 rails » : dans les cas c1 ≠ V0/V7, le constant de la voie 19 passe en (0, 19, 2907, 0), 2 abscisses devant O : O ≈ ce
+constant retardé (même défaut que l'« ombre » de R-401) ; (2) 2 usages : 216 montages distincts, 8/12 couples au hasard ; pour l'exemple,
+192/256 : les 64 ratés sont EXACTEMENT les couples dont le 1er usage est un cas V0/V7 (un déchet de la fusion gêne l'usage suivant, comme
+en R-401 ; remède connu : intercepteur R-403).
+Bilan 3 bits : la retenue de R-349 est entremêlée avec le constant de la voie 19 et la somme s1 ; chaque fusion « réussie » se paie d'un
+défaut (face, 2 rails, déchet). 3 bits : OUVERT.
+Commandes : python3 s1_fusion/k1full.py 5 9600 ; python3 s1_fusion/k2full.py 12000 ; python3 s1_fusion/k2verif.py 0 12000
