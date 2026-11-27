@@ -100,3 +100,6 @@ deviennent NON(NOR(feuilles))). B garde un enfant de face en 2e entrée de la ra
 opt9.py : 2 placements 256/256 justes et propres trouvés (graine 4 vers 01:31, graine 3 vers 01:34) ; certificat (Python) en cours.
 - 01:41 Certificat de reuse.py trop lent pour 60 vaisseaux (double boucle Python sur 14 000 pas) → cert2.py (numpy, même lemme ; contrôlé identique sur x'). struct.py renommé structurels.py (il masquait le module standard struct).
 - 01:43 h1R_param_3 et h1R_param_4 : 256/256 justes et propres, 2 moteurs 256/256 (tmax 10 540 et 9 804). Certificat en cours.
+- 01:45 certificat (cert2) des 2 candidats : voies opposées des sorties RÉELLES à 0 (ÉCHEC) ; opp_real.py : 15 couples, tous
+  « génériques » (débris ↔ littéraux ou puissances d'autres branches), aucun de la forme structurelle → réglables par D, G.
+  opt10.py : descente sur conflits + 5 × couples opposés logiquement possibles (segments infinis de diag2 avec masques), lancée 01:47.
