@@ -1305,7 +1305,7 @@ de l'étage 0 au moment où c0 y naît (choc B/K2 à t = 233). Le glissement ne 
 Virage de c0 par UN constant pour l'éloigner (virage_c.py, 172 016 placements) : 0 virage nouveau propre et réutilisable.
 L'additionneur 2 bits réutilisable reste OUVERT ; celui à UN usage est R-345 (16/16).
 
-# ===== Journaux des sessions parallèles du 26-27/11 (R2L2), rassemblés le 27/11 09:15 UTC par T1 (copie, les originaux restent dans recherche/regles/s*/journal.md) =====
+# ===== Journaux des sessions parallèles du 26-27/11 (R2L2), rassemblés le 27/11 09:09 UTC par T1 (copie, les originaux restent dans recherche/regles/s*/journal.md) =====
 
 # ----- recherche/regles/s1_fusion/journal.md -----
 # S1 fusion — journal (R-400+)
