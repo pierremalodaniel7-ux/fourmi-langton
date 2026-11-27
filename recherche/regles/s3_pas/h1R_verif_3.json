@@ -1,0 +1,11 @@
+{
+ "fichier": "h1R_param_3.json",
+ "cas": 256,
+ "justes": 256,
+ "deux_moteurs": 256,
+ "certificat": false,
+ "delta": 66645,
+ "fenetre": 10213,
+ "rayon": 1758,
+ "voies_opposees": 0
+}

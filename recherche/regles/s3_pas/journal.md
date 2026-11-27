@@ -127,3 +127,6 @@ feuilles actuelles (trains de 2 à 5 littéraux) ne le permettent pas. Piste : f
 ou un module « COPIE » (R-609) pour dupliquer.
 - 02:21 Dépôts Drive : bestiaire 30 (5 fiches) + catalogue_s3.json → Bestiaires ; germes → 02_Resultats ; rapport (Google Doc) → 05_Methode ;
   versions de 01:25 déplacées dans 99_Archives. PR #15 (vers main) à jour.
+- Fichiers de résultats ajoutés : step_res.json (germe 7 modules réutilisable, R-611/R-615), h1R_verif_3.json et h1R_verif_4.json
+  (candidats h1' 256/256 dont le certificat a échoué, voies opposées 0, R-616), step8_simple.json (ESSAI RATÉ : 8 modules avec BOX 1500,
+  128/256 propres — h1' trop près des autres ; la version juste est celle de R-615, BOX 6000).
