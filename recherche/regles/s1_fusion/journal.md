@@ -101,3 +101,17 @@ V0 = (0,19,2187,0), V7 = (0,19,2187,7). K : 6 directions × disque de rayon 5 au
 direction 3 à 1 voie et ~1 abscisse de la route de K seul (l'« ombre » de R-401 : quand c1 = 0, K passe presque au même endroit au même
 instant) ⇒ inutilisable pour enchaîner. Il faudra 2 constants (méthode R-403 adaptée). 3 bits : OUVERT.
 Commande : python3 s1_fusion/fus07.py 5
+
+## (vague 3, 27/11, début 05:46 UTC) Dernier commit 01:02 → plus de 30 min, je reprends (3 bits).
+
+## R-409 Regrouper 2 routes de c1 avec une fusion du catalogue R-400 posée EXACTEMENT : 4 appariements, tous inutilisables — DÉMONTRÉ (calcul exact sur le catalogue) / OBSERVÉ (simulation) (match3.py, add3_k1.py)
+Calcul exact (sans simulation) : on tourne chaque fusion à 1 constant (1 529, R-400) pour que s1 suive EXACTEMENT une route de c1, puis on cherche
+un glissement k tel que s2 suive exactement une autre route (condition : même direction, même phase, gY − g(s2) = k (d1 − d2)).
+Résultat : 4 appariements seulement, tous (s1 = V2, s2 = V0), type (1,5,3), rotation 1, k = −34 ; aucun avec V7 (la géométrie relative de deux routes
+est fixée par R-349 : un seul entier libre, que le catalogue ne couvre presque pas).
+Simulation (étage 0+1 de R-405 + ce K, 9 rangs de jeu, 16 cas, T = 11 000) : 5 à 13 cas sales sur 16 pour chacun des 36 montages.
+Cause (lue dans les sorties de R-405) : les sorties s1 et c1 de R-349 roulent côte à côte, à UNE voie l'une de l'autre ((0,18)/(0,19), (2,−29)/(2,−30)),
+au milieu de constants parallèles ((0,19,2657) même voie que c1, 15 périodes devant ; (2,−31), (4,7), (4,8)…). Par R-404 (interaction ⇔ distance ≤ 1),
+tout constant qui touche c1 touche aussi s1 ou un de ces voisins dans un autre cas. ⇒ On ne peut pas trier la retenue de R-349 à la sortie.
+Conséquence : pour enchaîner, il faut un additionneur complet dont la retenue sort SEULE sur UNE route : HA + HA + fusion (piste suivante).
+Commandes : python3 s1_fusion/match3.py ; python3 s1_fusion/add3_k1.py 11000
