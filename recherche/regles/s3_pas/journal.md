@@ -130,3 +130,19 @@ ou un module « COPIE » (R-609) pour dupliquer.
 - Fichiers de résultats ajoutés : step_res.json (germe 7 modules réutilisable, R-611/R-615), h1R_verif_3.json et h1R_verif_4.json
   (candidats h1' 256/256 dont le certificat a échoué, voies opposées 0, R-616), step8_simple.json (ESSAI RATÉ : 8 modules avec BOX 1500,
   128/256 propres — h1' trop près des autres ; la version juste est celle de R-615, BOX 6000).
+## R-619 DEUX PAS ENCHAÎNÉS, 7 bits sur 8 (h0'', x'', y'', c00''..c11'') EN UN GERME — VÉRIFIÉ (27/11, 05:46–06:06, vague 3)
+Choix (noté, Pierre-Malo dort) : chaîner par GREFFE (R-612) : chaque littéral v' / ¬v' d'un arbre du pas 2 est un module du pas 1
+(double rail : ¬v' par le même arbre aux littéraux inversés) ; la puissance racine de ce module sort tout droit ssi v' = 1 et entre
+dans la porte du pas 2. Diffusion = une copie de module du pas 1 par usage (pas de dédoublement de vaisseau). Les arbres du pas 2 ont
+au plus 2 sous-nœuds par nœud, donc la règle de côtés de htree.py (portes de face) s'applique toujours (1 usage).
+Sous-système fermé : (x, y, h0, cij) ne dépend pas de h1 (sur le tore 2×2, avancer de +1 ou −1 change la même coordonnée) ; F∘F donne
+h0'' = h0, x'' = ¬x, y'' = ¬y — mais le germe les calcule EN PASSANT par les vaisseaux x', y', h0' (pas de raccourci).
+| module | puissances | littéraux | cas | justes (= F∘F) | 2 moteurs |
+| h0'' | 2 | 1 | 2 | 2 | 2 |
+| x'', y'' | 11 | 10 | 4 | 4 | 4 |
+| cij'' (×4) | 26 | 28 | 16 | 16 | 16 |
+Longueurs : descente optc.py (comme opt7), 0 à 280 s par module (c11 : graine 1 ratée en 280 s, graines 2 et 3 OK en 61–102 s).
+Germe : les 7 modules translatés (step.choose_offsets2, NOLANES=1, BOX=8000 ; BOX=3000 : pas de place pour c11) : 256/256 états
+propres et justes (moteur C, 13 s) ; hx.py 256/256 identiques (108 s). 128 puissances, 143 littéraux.
+Commande : python3 chain2.py (formules sur les 256 états) ; python3 optc.py c00 1 280 ; NOLANES=1 BOX=8000 python3 chain_germ.py 1
+Résultats : chain_res.json, chain_params.json. Reste : h1'' (le cap) et la réutilisation.
