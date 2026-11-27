@@ -6,3 +6,4 @@
 20 usages (20 x 1111) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 7 s
 20 usages (alterné) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 8 s
 écart 1 : condition fine True, distance min (non libres) 156, (libres) 62
+écart 2 : condition fine True, distance min (non libres) 356, (libres) 162
