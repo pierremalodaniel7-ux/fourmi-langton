@@ -62,3 +62,15 @@ step.py : h0', x', y', c00'..c11' translatés (voies opposées ≥ 7 entre modul
   REMÈDE choisi : COMPOSER des petits modules. La sortie d'un module (vaisseau tout droit) est posée EXACTEMENT sur la ligne d'univers
   d'un littéral du module suivant (rotation k, translation v, retard s ≡ phase mod 8), loin en amont. Un littéral n'a pas de porte
   à lui, donc pas de débris sur ℓ. → compose.py (R-612).
+## R-612 Composition de modules (compose.py) — OUTIL VÉRIFIÉ sur g = h1⊕h0 ; ÉCHEC pour h1' (01:15)
+Sous-circuit G (2 feuilles) : 256/256 justes et propres (3 tirages de Dlink). Circuit h1' en 13 modules (8 cubes, c, ¬c, g, ¬g, XOR) :
+logique 256/256 mais au mieux 98/256 physiquement (24 tirages de Dlink 40–400) ; sous-circuits c et ¬c (4 cubes → train de 4) : 80–192/256.
+Raison (même argument que R-610) : le module amont roule SUR la ligne du littéral, ses portes sont donc des événements sur ℓ± ;
+ses débris immobiles (repère de P) bloquent les littéraux suivants du même côté (S1). Composer = greffer un sous-arbre : rien de neuf.
+## R-613 Limite du compilateur NOR à chocs déviants — DÉMONTRÉ (sous les règles S1, S2)
+Avec S1 et S2, un module = racine NOR de deux chaînes de même côté, chaque nœud de chaîne = NOR(train de littéraux, nœud suivant).
+Une chaîne calcule une fonction « canalisante emboîtée » (NCF : f = l ∨ f' ou f = ¬l ∧ f', récursivement) ; la racine = ET de 2 NCF.
+Parité de 3 variables : toute NCF qui contient ses 4 points vrais est une seule clause (preuve : la 1re variable canalisante doit être
+disjonctive, puis la fonction restante sur 2 variables contient 2 points opposés → b∨c ou b∨¬c) ; 2 clauses ne peuvent exclure les 4
+points faux. Donc h1' = h1 ⊕ h0 ⊕ c n'est PAS calculable par un module (ni par composition, qui est géométriquement la même chose).
+Statut : DÉMONTRÉ pour ce jeu de portes (côtés + et −). Issue possible : portes « de face » (H), autre mécanisme (XOR R-337, fusion S1).
