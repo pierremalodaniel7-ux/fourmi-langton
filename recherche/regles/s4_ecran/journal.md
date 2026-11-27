@@ -62,3 +62,18 @@ presque le film à l'envers de la déviation) ; avec tout posé à t = 0 ils se 
 transparent (60 décalages d'une période de X, toutes les phases relatives, 3 options) ⇒ pas de « lecture + réécriture » réutilisable
 avec ces sondes (OBSERVÉ). Par adresse : il faudrait en plus 2 ports (sonde, retour) dont les sorties passent par des points DÉJÀ fixés
 (4 équations, 2 inconnues) ⇒ à choisir en même temps que l'écran. OUVERT.
+
+## R-710 Écran 4×4 = 4 blocs 2×2 (R-707) translatés de b·400·(D0 + D1), retards fixes (GAP 1 600) : ÉCHEC — OBSERVÉ (2 moteurs) (ecran4_demo.py, 27/11 05:55)
+Blocs alignés en direction 30° (bissectrice de 2 directions de vol) : chaque route d'un bloc passe à ≥ 309 (distance hex exacte) des
+pixels des autres blocs. Chaque bloc seul et chaque paire de blocs : justes. Tout ensemble : pixels du bloc 2 cassés (« ? ») dès le
+dessin 1. Cause isolée : les vaisseaux d'ENTRÉE des opérations FUTURES du bloc 0 (posés à t = 0 loin en amont) croisent des débris
+des opérations passées ; le choc produit un vaisseau qui atteint le bloc 2. ⇒ les retards ne peuvent pas être choisis « à l'aveugle ».
+
+## R-711 ÉCRAN 4×4 R2L2 : « visage » puis « anneau » puis tout éteint, 16/16 pixels justes aux 3 lectures — VÉRIFIÉ (2 moteurs + contrôle exact des étiquettes, temps fini) (ecran4_glouton.py → ecran4_glouton.json, ecran4_dessin_1..3.png, 27/11 06:00)
+Même géométrie que R-710 ; retards choisis par un glouton : pour l'opération k, premier retard (compatible avec la phase du pixel)
+tel que la simulation des opérations 0..k à d + 2 000 donne (a) les 16 pixels dans l'état voulu, (b) un reste qui se décode en
+vaisseaux libres dont les étiquettes sont EXACTEMENT celles prévues par le calcul de trajectoires (aucune interaction imprévue).
+20 opérations (6 + 6 + 8), 90 fourmis posées à t = 0 ; 18 opérations au 1er essai, op 8 : 8 essais, op 11 : 43 essais (retards refusés
+= collisions de vaisseaux en vol). Lectures t = 9 606, 19 261, 34 117 : lu = attendu, fourmi_r = hx.py ; contrôle final des étiquettes
+à t = 34 117 : exact. Durée 4 s. Adressage : 2 bits (a1 a0) décodés par le démux du bloc ; le BLOC (2 bits de poids fort) est choisi
+par la ligne d'entrée (où l'on tire), pas encore par un démux devant (OUVERT). Simulation finie : aucune affirmation au-delà de t = 34 117.
