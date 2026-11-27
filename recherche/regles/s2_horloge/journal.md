@@ -149,3 +149,28 @@ Complément R-512 (06:15) : mêmes essais sur les 248 horloges à centre entier 
 machines, 58 675 CYCLE dont 1 196 avec interaction, 49 PROPRES (33 horloges ; périodes 978 (2 × 501), 996 (2 × 507), 2 475 (2 × 501)) ;
 hx.py 49/49 (hexa_check.py s2_horloge/hexagramme_propres_3.json). Dans la machine 2 475, mêmes portes à entrées variables (zone 0, droite (0,0) :
 6 fois « tourne », 6 fois « droit »). Total : 96 hexagrammes propres, 2 moteurs.
+
+## Session T2 (27-11, « calcul dans la boucle ») — entrées R-513 et suivantes
+
+## R-513 Une horloge triangle n'absorbe PAS le décalage d'UN seul vaisseau — OBSERVÉ (négatif) (t2_tolere.py)
+20 horloges de tri_cycles_rB5.json (P ≥ 800, 819 et 825) ; chaque fourmi (6), prise à un instant où elle est vaisseau libre (≥ 9 cases des
+autres), décalée de δ (case, distance ≤ 2) et/ou de dt ∈ [−7, 7] pas : 20 × 6 × 284 = 34 080 machines, fourmi_r T = 20 P :
+34 080 AUTOROUTES, 0 CYCLE. Le décalage d'une voie que fait le demi-additionneur R-337 (R-509) casse donc toute horloge où on le met tel quel.
+Commande : python3 s2_horloge/t2_tolere.py 20 800
+
+## R-514 RÈGLE DE COMPENSATION de l'horloge triangle : δh + rot120(δa) = 0, et la taille reste libre — DÉMONTRÉ (calcul exact) + VÉRIFIÉ (596/596)
+Cadre : fermeture 3-symétrique de tri.py (R-500) : un coin (A dir 0, B dir 5) → (A' dir 2, B' dir 3), puis A'(T) = R(A), R(B'(T)) = B,
+R = rotation 120° + translation c. On ajoute, à chaque tiers, un décalage d'espace-temps continu δh sur l'horaire et δa sur l'anti-horaire
+(δ = case + retard : un retard de dt pas = dt/8 de case le long de la direction). Avec x = position continue du vaisseau virtuel :
+  (A) x(A') + δh + T·d₂/8 = rot(x(A)) + c   ⇒ c est fixé ;
+  (B) rot(x(B') + δa + T·d₃/8) + c = x(B)   ⇒ T·(rot(d₃) + d₂)/8 + δh + rot(δa) = [constante du choc, = 0 pour un vrai choc d'horloge].
+Or rot120(d₃) = d₅ = −d₂ : T disparaît (c'est la dégénérescence « d₂ + d₅ = 0 » de R-500, qui donne les familles de toutes tailles).
+Il reste : l'horloge referme ⇔ δh + rot120(δa) = 0 (+ intégralité). Conséquences :
+ · un décalage sur UN seul vaisseau n'est jamais absorbé (t2_absorbe.py : 596 chocs × 284 décalages × {h, a}, T ≤ 1 500 : seul δ = 0 referme) ;
+ · un retard ÉGAL des deux (croisement de face) est toujours absorbé (d'où P = 3T − 18 / − 36) ;
+ · toute paire compensée referme (t2_compense.py : 7 décalages δh dont ceux de R-509, δa = −rot120⁻¹(δh) : 596/596 chocs).
+⇒ pour mettre une porte dans une horloge 3-symétrique, il faut qu'elle décale l'anti-horaire de −rot120⁻¹ du décalage de l'horaire.
+Le demi-additionneur R-337 ne touche que des vaisseaux PAIRS (R-509) : seul, il ne peut pas être mis dans une horloge (cohérent avec R-508,
+R-513) ; il faut une 2e porte qui décale le vaisseau impair (par ex. R-337 tourné de 60°, qui agit sur des impairs).
+Statut : DÉMONTRÉ pour le modèle « vaisseaux virtuels + coin » de tri.py (calcul affine exact en fractions) ; vérifié numériquement.
+Commandes : python3 s2_horloge/t2_absorbe.py 1500 ; python3 s2_horloge/t2_compense.py
