@@ -74,3 +74,9 @@ Parité de 3 variables : toute NCF qui contient ses 4 points vrais est une seule
 disjonctive, puis la fonction restante sur 2 variables contient 2 points opposés → b∨c ou b∨¬c) ; 2 clauses ne peuvent exclure les 4
 points faux. Donc h1' = h1 ⊕ h0 ⊕ c n'est PAS calculable par un module (ni par composition, qui est géométriquement la même chose).
 Statut : DÉMONTRÉ pour ce jeu de portes (côtés + et −). Issue possible : portes « de face » (H), autre mécanisme (XOR R-337, fusion S1).
+## R-614 Issue : portes « de face » (H) — EN COURS (01:12)
+S2 n'a lieu que pour deux arêtes consécutives (+,−) ou (−,+). Le chemin (H,H) redonne la direction du grand-parent, mais aucun nœud ne
+lâche de débris dans la direction a+3 (côtés : a±1, a±2 ; face : a+1, a+2) → pas de S2. Règle (htree.py) : après « + » : +, H ;
+après « − » : −, H ; après H ou à la racine : +, −, H ; H = 1re entrée ; un sous-nœud par ligne. Avec H on peut BRANCHER : la limite
+R-613 ne s'applique plus. Arbre h1' (27 puissances, 32 littéraux), formule juste sur les 256 états ; conflits à distance 0 : 7, 5, 3
+pour 3 tirages de (D, G), tous différents → aucun conflit structurel commun. Descente opt7.py lancée (2 graines).
