@@ -138,22 +138,28 @@ def seqs(A, W, pol, n):
     for seq in itertools.product(TYPES, repeat=n):
         a = sum(SH[t][0] for t in seq) % 6; c = sum(SH[t][1] for t in seq) % 8; p = sum(SH[t][2] for t in seq) % 2
         if a == dd and c == dc and p == pol: yield seq
-def route(A, tA, W, tW, pol=0, gap=120, early=200, kr=60, ntur=(2, 3, 4), maxsol=200):
+def route(A, tA, W, tW, pol=0, gap=120, early=200, kr=60, ntur=(2, 3, 4), maxsol=200, step=None):
     """suites de virages de A (disponible dès tA) jusqu'à W (rejointe avant tW − early), chocs espacés d'au moins gap ;
-    pol = 1 : le signal arrive inversé. Renvoie les solutions (durée, types, ks, détails) triées par durée."""
+    pol = 1 : le signal arrive inversé. Les virages libres (tous sauf les 2 derniers) sont pris aux instants tA + gap + 8·j·step
+    (j < kr) après le choc précédent ; les 2 derniers sont résolus exactement. Renvoie les solutions (durée, types, ks, détails)."""
     sols = []
     for n in ntur:
+        st = step or (6 if n == 3 else 10)
         for seq in seqs(A, W, pol, n):
-            if n == 2: tries = [()]
-            else:
-                k0 = first_k(A, seq[0][0], tA + gap)
-                tries = [(k0 + j,) for j in range(kr)] if n == 3 else [(k0 + j, k1) for j in range(0, kr, 3) for k1 in range(-kr, kr, 3)]
-            for kf in tries:
-                r = solve2(A, seq, W, kf)
-                if r is None: continue
-                ks, out = r; ts = [o[3] for o in out]
-                if ts[0] < tA + gap or ts[-1] > tW - early or any(ts[i + 1] - ts[i] < gap for i in range(len(ts) - 1)): continue
-                sols.append((ts[-1] - ts[0], seq, ks, out))
-                if len(sols) >= maxsol: break
+            def rec(kf, w, tprev):
+                if len(kf) == n - 2:
+                    r = solve2(A, seq, W, tuple(kf))
+                    if r is None: return
+                    ks, out = r; ts = [o[3] for o in out]
+                    if ts[0] < tA + gap or ts[-1] > tW - early or any(ts[q + 1] - ts[q] < gap for q in range(len(ts) - 1)): return
+                    sols.append((ts[-1] - ts[0], seq, ks, out)); return
+                side, o = seq[len(kf)]; k0 = first_k(w, side, tprev + gap)
+                for jj in range(kr):
+                    if len(sols) >= maxsol: return
+                    k = k0 + jj * st; K, oA, oB, t = turn(w, side, k)
+                    if t > tW: return
+                    rec(kf + [k], (oA, oB, K)[o - 1] if o else K, t)
+            rec([], A, tA)
+            if len(sols) >= maxsol: break
     sols.sort(key=lambda z: z[0])
     return sols

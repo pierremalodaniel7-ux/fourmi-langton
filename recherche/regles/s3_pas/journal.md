@@ -172,3 +172,18 @@ virages : on la résout exactement (2×2 entier, déterminant souvent ±1). Cont
 Modèle général circ.py (graphe de portes, masques par cas comme diag2 ; un débris peut resservir). Vérification : l'état final simulé
 doit être EXACTEMENT l'ensemble des lignes prévues par le modèle. test_route.py : 4 routes (2 à 4 virages, signal direct ou inversé) :
 2/2 cas = modèle, 2 moteurs identiques, signal juste sur la ligne cible. Commande : python3 test_route.py
+## R-623 N pas enchaînés à taille LINÉAIRE : diffusion + routage, germe périodique (chainN.py) — sous-système h0 VÉRIFIÉ N = 4, 8, 16 (11:19)
+Architecture : le pas (modules R-607 vérifiés) est répété N fois, l'usage u translaté de u·V et retardé de u·Δ. Usage 0 : littéraux de
+l'état initial dans le germe. Usage u ≥ 1 : AUCUN littéral dans le germe ; chaque littéral est la sortie du module de l'usage u−1,
+diffusée (chaîne de portes COPIE : 2 copies + 1 négation par porte) puis amenée sur sa ligne par 2 à 4 virages (R-622).
+Contraintes trouvées : (i) classe de phase (ph − 4·dir mod 8) : un virage dévié la change de −2, un NON de 0 → on aligne les modules
+(cls − dt identique) et Δ ≡ 4 (mod 8) ; (ii) cône : la cible doit être atteignable (vitesse 1/8) ; (iii) avec 2 virages la solution est
+unique et souvent hors délai → virages libres (3 ou 4) pour absorber le temps.
+Sous-système h0 (h0' = ¬h0) : V = (632, −179), Δ = 9 900 ; germe = 5N − 3 vaisseaux (1 puissance + 4 virages par pas, + 1 littéral).
+| N | 4 | 8 | 16 |
+| vaisseaux du germe | 17 | 37 | 77 |
+| conflits du modèle | 0 | 0 | 0 |
+| états finaux = modèle (2 cas) | 2/2 | 2/2 | 2/2 |
+| 2 moteurs identiques | 2/2 | 2/2 | 2/2 |
+Valeur de h0 à chaque pas = la vraie (modèle, logique fausse 0) ; état final simulé = modèle, donc chaque porte a eu l'issue prévue.
+Commande : python3 chainN.py h0 verif chainN_h0.json 8 2  (recherche : NS=8 python3 chainN.py h0 2 300)
