@@ -94,3 +94,10 @@ c1 = (0,19,2187,0) si c0∧a1∧¬b1 ; (0,19,2187,7) si ¬c0∧a1∧b1 (même vo
 Il faut d'abord regrouper les 3 routes en une. Piste : fusion1.json contient 938 fusions à 1 constant entre DEUX signaux de MÊME
 direction (dont des paires sur la même voie) : chercher celle qui regroupe (0,19,·,0) et (0,19,·,7), puis une fusion R-403 avec la route
 de direction 2 ; rendre le tout réutilisable (R-401 : il faudra un 2e constant). OUVERT.
+
+## R-408 Regrouper les deux routes de c1 qui ne diffèrent que d'UN pas, avec UN constant : 66 fusions, toutes « à ombre » — OBSERVÉ (fus07.py)
+V0 = (0,19,2187,0), V7 = (0,19,2187,7). K : 6 directions × disque de rayon 5 autour de V0 × 8 phases × 2 ordres (4 368 K, 21 840 simulations,
+1 s) : 66 K donnent V0 + K et V7 + K propres avec une sortie O commune absente du cas « K seul ». Toutes : K de face (direction 3), O de
+direction 3 à 1 voie et ~1 abscisse de la route de K seul (l'« ombre » de R-401 : quand c1 = 0, K passe presque au même endroit au même
+instant) ⇒ inutilisable pour enchaîner. Il faudra 2 constants (méthode R-403 adaptée). 3 bits : OUVERT.
+Commande : python3 s1_fusion/fus07.py 5
