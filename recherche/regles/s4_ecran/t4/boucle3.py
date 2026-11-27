@@ -18,6 +18,10 @@ def reps(tu):
     return list(seen.values())
 TURNS = [int(x) for x in os.environ.get('SEQ', '4,4,1').split(',')]
 SEQ = [reps(t) for t in TURNS]
+if os.environ.get('K0'):     # direction relative de l'horloge du 1er choc (ex. '2,4' : elle traverse le front des sorties parallèles)
+    _ok = [int(x) for x in os.environ['K0'].split(',')]
+    SEQ[0] = [(k, i, o) for (k, i, o) in SEQ[0] if (CAT[k].ins[1 - i][0] - CAT[k].ins[i][0]) % 6 in _ok]
+if os.environ.get('OI'): SEQ[0] = [(k, i, o) for (k, i, o) in SEQ[0] if o == i]
 print('virages :', [len(s) for s in SEQ], flush=True)
 def lane(T): return TR.to_label(T)[1]
 def V(T): return TR.to_label(T)[2]

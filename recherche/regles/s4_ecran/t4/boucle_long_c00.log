@@ -1,6 +1,1 @@
 virages : [126, 28, 28]
-  horloges trop proches (signal absent) : 2
-c00 u 380450 d (15934, 31797, 31829) test 2 usages (4 états, hx.py) : 2 28 s
-c00 u 380534 d (15937, 31803, 31836) test 2 usages (4 états, hx.py) : 2 54 s
-c00 u 380450 d (15937, 31797, 31830) test 2 usages (4 états, hx.py) : 2 81 s
-c00 u 380450 d (15935, 31796, 31827) test 2 usages (4 états, hx.py) : 2 107 s

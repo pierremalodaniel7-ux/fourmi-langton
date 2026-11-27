@@ -108,3 +108,25 @@ Limite (comme R-707) : la mise à 1 suppose le pixel éteint ; une 2e écriture 
 Les 2 droites de mise à 0 (dir 2 voie −2, dir 3 voie −2) jouées sur M à ses 21 phases : M est TOUJOURS détruit (aucun « M reste M »).
 Les 2 droites de mise à 1 (dir 0 voie 1, dir 5 voie 1) sur R' à ses 12 phases : R' toujours détruit. Avec R-705 (seules droites qui
 écrivent), aucune écriture à 1 vaisseau n'est idempotente ⇒ pour réafficher, il faut un vaisseau qui dépend de l'état affiché.
+
+## R-717 Boucle d'effacement à 2 chocs (0 -> 4 -> 2, vers RST2) : impossible par les phases — OBSERVÉ (calcul exact, t4/boucle_geo.py, 27/11 11:08)
+Idée : le vaisseau c_ij' qui a allumé le pixel continue tout droit ; 2 chocs du catalogue R-700 (chacun avec 1 vaisseau horloge posé
+à t = 0) le ramènent sur la droite de mise à 0 du MÊME pixel ⇒ le pixel s'éteint ssi il était allumé (effacement « qui dépend de l'état »).
+Géométrie : triangle 0, 4, 2 (côtés égaux) ; voie de sortie affine en (n1, n2) ; délai u = arrivée du retour − (a1 + 720).
+Catalogue filtré (48 chocs) : u ≡ 0 (mod 12) pour 2 304 familles ; catalogue complet (224, 126 virages distincts) : u ≡ 0, 3, 6, 9 (mod 12),
+15 876 familles. R' doit être en phase 2 (u ≡ 2) ou, avec SET0b, 1 : jamais ≡ 0 mod 3 ⇒ aucun. Idem kit SET5/RST3 (pixel tourné).
+
+## R-718 Boucle d'effacement à 3 chocs (0 -> 4 -> 2 -> 3, vers RST3) — OBSERVÉ (moteur C, 256/256 pour chacun des 4 pixels, 1 usage) (t4/boucle3.py, t4/boucle_choix.py)
+Avec un virage de +60° en plus, u prend toutes les valeurs mod 12. Phases (SET0a, RST3a/b, D ≡ 0 mod 21) ⇒ u ≡ 22 ou 23 (mod 84).
+Retenu (même forme pour les 4 pixels) : chocs [158, 217, 22] du catalogue complet, u = 1 282, vaisseaux horloges posés à t = 0
+(ordre de jeu imposé par chaque choc, t4/boucle_choix.order). Pixel + germe + boucle, 256 états : allumé ssi c' = 1 puis éteint
+(M, phase prévue au pas près), reste propre. Fichiers t4/boucle_c00.json … boucle_c11.json.
+
+## R-719 Deux pas de suite avec les boucles COURTES de R-718 : pas 1 juste, effacement juste, pas 2 FAUX (cause trouvée) — OBSERVÉ (2 moteurs sur l'exemple) (t4/ecran_deux_pas.py, t4/dbg_deux.py, dbg2.py, dbg3.py, 27/11 11:12–11:35)
+UNE simulation par état (189 fourmis, usage 2 retardé de D = 384 888, entrées = R-61(s0)) : lecture t_A = 12 666 (écran = c') 256/256,
+t_B = 14 638 (tout éteint) 256/256 (moteur C) ; t_C = 397 574 : faux (ex. s0 = 0 : c00'' absent). Sans pixels ni boucles, l'usage 2
+donne bien c00'' (hx.py). Cause : après la mise à 0 RST3, le vaisseau de retour repart en direction 3, sur une voie voisine (écart 1-2)
+de la route d'ENTRÉE de la puissance du module c00 à l'usage 2 ⇒ choc de face vers 24 000 cases (ce que la condition « voies opposées »
+de R-617 interdit pour les débris du germe). D plus grand (420 000) : même échec (les deux s'éloignent/approchent à la même vitesse).
+Défaut secondaire : avec une boucle courte, l'écran montre c' seulement ≈ 1 300 pas, puis s'éteint jusqu'au pas 2.
+⇒ boucle LONGUE (u ≈ D − 1 440 − δ, l'écran garde c' presque tout l'intervalle) finissant sur RST2 (retour en direction 2) : R-720.

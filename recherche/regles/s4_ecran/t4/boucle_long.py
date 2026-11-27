@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from t4lib import *
 import boucle3 as B3
 import boucle_choix as BC
-NOM = os.environ.get('NOM', 'placement'); PL = json.load(open(os.path.join(T4, NOM + '.json'))); RK = 'RST2'
+NOM = os.environ.get('NOM', 'placement'); PL = json.load(open(os.path.join(T4, NOM + '.json'))); RK = os.environ.get('RST', 'RST2')
 DMIN, DMAX = int(os.environ.get('DMIN', 300)), int(os.environ.get('DMAX', 3000))
 def affine(nm, tri):
     p = PL[nm]; O = wl_to_T(STEP.out[nm]); c = tuple(p['c']); a1 = p['arrivee']
@@ -30,16 +30,20 @@ def search(nm, tri, D):
     p = PL[nm]; a1 = p['arrivee']; KT = kit(p['kit'])['T']; ns, g0, co, Kr, O = affine(nm, tri)
     al, be, ga = co[0]; lo, hi = D - 1440 - DMAX, D - 1440 - DMIN; tg = B3.lane(Kr)
     val = lambda d: [g0[j] + sum(co[j][k] * d[k] for k in range(3)) for j in range(len(g0))]
-    # ici (mesuré) : la voie ne dépend pas de d2 (be = 0) -> d3 fixé par d1 ; u = base + c1[1]·d2 : on vise u = 14 + 84 m directement
-    if be != 0 or co[1][1] == 0: return None
-    c1 = co[1]; best = None
-    for d1 in range(100, 60000):
-        q, r = divmod(tg - g0[0] - al * d1, ga)
-        if r or q < 30: continue
-        base = g0[1] - a1 - KT + c1[0] * d1 + c1[2] * q
-        for m in range((lo - 14) // 84, (hi - 14) // 84 + 1):
-            u = 14 + 84 * m; d2, r2 = divmod(u - base, c1[1])
-            if r2 or d2 < 30 or not lo <= u <= hi: continue
+    # cas général : d3 = (tg − g0 − al·d1 − be·d2) / ga ; u affine en (d1, d2) une fois d3 éliminé (réel) ; on balaie d1, on encadre d2
+    c1 = co[1]; K0u = g0[1] - a1 - KT
+    def u_of(d1, d2, d3): return K0u + c1[0] * d1 + c1[1] * d2 + c1[2] * d3
+    # pentes réelles de u en d1 et d2 (d3 éliminé)
+    s1 = c1[0] - c1[2] * al / ga; s2 = c1[1] - c1[2] * be / ga; s0 = K0u + c1[2] * (tg - g0[0]) / ga
+    RES = [int(x) for x in os.environ.get('RES', '14').split(',')]
+    for d1 in range(30, 60000):
+        if s2 == 0: break
+        x1, x2 = sorted(((lo - s0 - s1 * d1) / s2, (hi - s0 - s1 * d1) / s2))
+        for d2 in range(max(30, int(x1) - 1), int(x2) + 2):
+            q, r = divmod(tg - g0[0] - al * d1 - be * d2, ga)
+            if r or q < 30: continue
+            u = u_of(d1, d2, q)
+            if not (lo <= u <= hi and u % 84 in RES): continue
             v = val((d1, d2, q)); e, tA, tB, tC = v[1:]
             if a1 + 240 < tA < tB - 240 and tB < tC - 240 and tC < e - 240: return dict(d=(d1, d2, q), u=e - a1 - KT, e=e)
     return None
@@ -75,6 +79,7 @@ if __name__ == '__main__':
     for want in ((1, 1), (1, 0), (0, 1), (0, 0)):
         test += [e for e in envs if (spec(nm, e), spec(nm, E2.rl(e))) == want][:1]
     BC.PL = PL
+    import conflits as CF; GSEG = CF.germ_segments(D)
     while time.time() - t0 < float(os.environ.get('TMAX', 900)):
         tri = [rnd.choice(s) for s in B3.SEQ]
         try: s = search(nm, tri, D)
@@ -84,11 +89,11 @@ if __name__ == '__main__':
         ns, g0, co, Kr, O = affine(nm, tri); X, chocs = B3.chain(O, tri, [b + x for b, x in zip(ns, s['d'])]); e = B3.V(Kr) - B3.V(X)
         assert TR.same(TR.movT(Kr, (0, 0), e), X) and e == s['e']
         cand = dict(chocs=chocs, e=e, u=s['u'], toks=BC.order(chocs, tri))
+        okg, wst = CF.loop_ok(nm, PL, tri, chocs, e, D, GSEG)
+        if not okg: print('  conflit géométrique :', wst[0], flush=True); continue
         # signal absent : les 3 horloges filent tout droit ; elles ne doivent pas se croiser (distance >= 12 sur [0, D + 13 000])
         from lib4 import closest
         KL = [TR.to_label(C.ins[1 - i]) for C, (k, i, o) in zip(chocs, tri)]
-        dmin = min(closest(KL[x], KL[y], 0, D + 13000, 8)[0] for x in range(3) for y in range(x + 1, 3))
-        if dmin < 12: print('  horloges trop proches (signal absent) :', dmin, flush=True); continue
         g = test2(nm, cand, D, test)
         print(nm, 'u', s['u'], 'd', s['d'], 'test 2 usages (4 états, hx.py) :', g, f'{time.time()-t0:.0f} s', flush=True)
         if g == 4:
