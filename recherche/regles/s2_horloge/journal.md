@@ -85,10 +85,10 @@ compteur4.py : les familles d'horloges triangle (tri_cycles_rB5.json) se prolong
 (P ≥ 900, prolongées, contrôlées par CYCLE). Pose du pixel R-341 « relative au vaisseau » : on copie (vaisseau qui allume + pixel), 160 pas
 avant l'allumage, depuis R-502 ; contrôle : 45 CYCLE sur l'horloge de référence. Paires où les deux horloges acceptent un pixel :
 924/1 848, 942/1 884, 972/1 944. Sur ces petites horloges (famille P ≈ 1,5 T) le pixel clignote UNE fois par période.
-compteur5.py : bit 0 = pixel de l'horloge P1 = 942 (6 fourmis + 2), bit 1 = pixel de l'horloge P2 = 1 884 (posée 3 000 cases plus loin,
+compteur5.py : bit 0 = pixel de l'horloge P1 = 942 (6 fourmis + 2), bit 1 = pixel de l'horloge P2 = 1 884 (posée 300 cases plus loin,
 déphasée de 510 pas) ; lectures toutes les P1/2 = 471 pas à partir de t = 861 ; marge = 103 pas (chaque lecture est à ≥ 103 pas de tout
 changement d'état). Machine (16 fourmis ; bit 0 = fourmis 0,1 ; bit 1 = fourmis 8,9) :
-  H:R2L2|-34,37,2;-32,35,5;-10,11,1;1,67,3;-66,78,5;2,8,4;-8,79,0;-69,69,2;2949,53,0;2949,52,3;2987,79,2;2935,144,4;2922,92,0;2936,77,3;2988,93,5;2920,145,1|2,8;-8,79;-69,69;1,10;-9,78;-67,68;-9,10;1,68;-67,78;1,9;-8,78;-68,69;-32,34;2949,54;2936,77;2988,93;2920,145;2987,78;2936,144;2921,93;2948,52;2950,53;2937,78;2986,94;2921,143;2949,52;2949,53;2936,78;2987,93;2921,144
+  H:R2L2|-34,37,2;-32,35,5;-10,11,1;1,67,3;-66,78,5;2,8,4;-8,79,0;-69,69,2;249,53,0;249,52,3;287,79,2;235,144,4;222,92,0;236,77,3;288,93,5;220,145,1|2,8;-8,79;-69,69;1,10;-9,78;-67,68;-9,10;1,68;-67,78;1,9;-8,78;-68,69;-32,34;249,54;236,77;288,93;220,145;287,78;236,144;221,93;248,52;250,53;237,78;286,94;221,143;249,52;249,53;236,78;287,93;221,144
 2 moteurs : fourmi_r CYCLE 1 884 ; hx.py premier retour exact 1 884 ; lectures hx sur 3 périodes : 00 01 10 11 00 01 10 11 00 01 10 (11).
 Limite (honnête) : c'est un compteur « par construction » (deux horloges indépendantes de périodes 1 et 2), pas un compteur causal avec
 retenue (le bit 1 ne « voit » pas le bit 0) ; le diviseur par 2 causal reste OUVERT (R-503, R-505 négatifs).

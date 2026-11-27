@@ -62,7 +62,7 @@ if __name__ == '__main__':
     for mg, P1, P2, w1, w2, s0, sh, b in best[:5]:
         a2, c2 = parts_of(w2['sit']); A2 = [list(t) for t in a2]; G2 = {tuple(t): 1 for t in c2}
         for _ in range(sh): step(A2, G2)
-        D = 3000
+        D = 300
         a1, c1 = parts_of(w1['sit'])
         sit = fmt([tuple(q) for q in a1] + [(x + D, y, h) for x, y, h in A2], list(c1) + [(x + D, y) for x, y in G2])
         out.append({'marge': mg, 'P1': P1, 'P2': P2, 's0': s0, 'decal': sh, 'clignotements_par_periode': b, 'lectures': [s0 + (n * P1) // (2 * b) for n in range(4 * b)],
