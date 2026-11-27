@@ -47,6 +47,28 @@ def search(nm, tri, D):
             v = val((d1, d2, q)); e, tA, tB, tC = v[1:]
             if a1 + 240 < tA < tB - 240 and tB < tC - 240 and tC < e - 240: return dict(d=(d1, d2, q), u=e - a1 - KT, e=e)
     return None
+def pretest(nm, cand, D, O):
+    """la boucle seule (sans germe ni pixel), hx.py : (1) signal absent : les 3 horloges seules jusqu'à D + 13 000 -> que des vaisseaux,
+    0 case orpheline ; (2) signal présent : le vaisseau c_nm' (libre, après le pixel) + les horloges, de a1 + 800 à e + 200 -> le retour
+    est EXACTEMENT sur la droite RST, le reste = vaisseaux propres"""
+    p = PL[nm]; toks = cand['toks']
+    def pieces(t, with_sig):
+        A, G = [], []
+        for tok in toks:
+            if tok == 'GERM':
+                if not with_sig: continue
+                (x, y, h), cs = TR.piece_at(O, t)
+            else: (x, y, h), cs = TR.piece_at(tok[1], t)
+            A.append((x, y, h)); G += cs
+        return S3L.sit(A, G)
+    T1 = D + 13000; a, c = run_py(pieces(0, False), T1); dp, bd, orph = decode_partiel(a, c, T1)
+    if bd or orph: return 'absent sale'
+    t0 = p['arrivee'] + 800; T2 = cand['e'] + 200; a, c = run_py(pieces(t0, True), T2 - t0)
+    from lib4 import labels_at
+    L = labels_at(a, c, T2)
+    if L is None: return 'présent sale'
+    want = TR.to_label(cand['X'])
+    return 'ok' if want in L else 'présent : retour absent'
 def test2(nm, cand, D, envs):
     """2 usages (usage 2 = R-61(s0)), pixel nm seul + sa boucle, hx.py sur 2 cœurs, lecture après le 2e SET : pixel = c'' (état + phase),
     les 8 sorties de l'usage 2 justes, reste propre"""
@@ -69,7 +91,9 @@ def test2(nm, cand, D, envs):
         ra = [x for x in a if hd(x[0] - p['c'][0], x[1] - p['c'][1]) > 6]; rc = [q for q in c if hd(q[0] - p['c'][0], q[1] - p['c'][1]) > 6]
         d = decode3(ra, rc, T); outs_ok = d is not None and all(int(S3L.tshift(STEP.out[k], D) in d) == spec(k, e1) for k in STEP.names if k != nm)
         ok = outs_ok and isinstance(st, tuple) and st[0] == spec(nm, e1); good += ok
-        if os.environ.get('DIAG'): print('   ', (spec(nm, e0), spec(nm, e1)), 'pixel', st, 'propre', d is not None, 'sorties', {k: int(S3L.tshift(STEP.out[k], D) in (d or [])) for k in STEP.names}, 'attendu', {k: spec(k, e1) for k in STEP.names}, flush=True)
+        if os.environ.get('DIAG'):
+            dp, bd, orph = decode_partiel(ra, rc, T); print('    non-vaisseaux', bd[:6], 'orphelines', len(orph), 'sorties (partiel)', {k: int(S3L.tshift(STEP.out[k], D) in dp) for k in STEP.names}, flush=True)
+            print('   ', (spec(nm, e0), spec(nm, e1)), 'pixel', st, 'propre', d is not None, 'sorties', {k: int(S3L.tshift(STEP.out[k], D) in (d or [])) for k in STEP.names}, 'attendu', {k: spec(k, e1) for k in STEP.names}, flush=True)
     return good
 if __name__ == '__main__':
     nm = sys.argv[1]; D = int(sys.argv[2]) if len(sys.argv) > 2 else 384888; rnd = random.Random(int(os.environ.get('GRAINE', 1)))
@@ -88,7 +112,9 @@ if __name__ == '__main__':
         tried += 1
         ns, g0, co, Kr, O = affine(nm, tri); X, chocs = B3.chain(O, tri, [b + x for b, x in zip(ns, s['d'])]); e = B3.V(Kr) - B3.V(X)
         assert TR.same(TR.movT(Kr, (0, 0), e), X) and e == s['e']
-        cand = dict(chocs=chocs, e=e, u=s['u'], toks=BC.order(chocs, tri))
+        cand = dict(chocs=chocs, e=e, u=s['u'], toks=BC.order(chocs, tri), X=X)
+        pt = pretest(nm, cand, D, O)
+        if pt != 'ok': print('  pré-test :', pt, flush=True); continue
         okg, wst = CF.loop_ok(nm, PL, tri, chocs, e, D, GSEG)
         if not okg: print('  conflit géométrique :', wst[0], flush=True); continue
         # signal absent : les 3 horloges filent tout droit ; elles ne doivent pas se croiser (distance >= 12 sur [0, D + 13 000])

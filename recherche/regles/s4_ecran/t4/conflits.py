@@ -52,7 +52,7 @@ def loop_segments(nm, PL, tri, chocs, e, a1):
     pres.append(('retour', seg_T(X, t, INF), {len(chocs) - 1}))
     absn = [('K%d' % j, seg_T(C.ins[1 - i], 0, INF), set()) for j, (C, (k, i, o)) in enumerate(zip(chocs, tri))]
     return pres, absn
-def loop_ok(nm, PL, tri, chocs, e, D, G, marge=6, log=None, cases=('présent',), paires=False):
+def loop_ok(nm, PL, tri, chocs, e, D, G, marge=6, log=None, cases=('présent', 'absent'), paires=False):
     a1 = PL[nm]['arrivee']; pres, absn = loop_segments(nm, PL, tri, chocs, e, a1)
     O = wl_to_T(STEP.out[nm]); own = np.array(seg_T(O, 0, 0)[:4])
     Gm = G[~((np.abs(G[:, :4] - own).max(axis=1) < 3) & (G[:, 4] < D))]       # sans la sortie c_nm de l'usage 1 (c'est le signal)

@@ -75,3 +75,13 @@ def read_screen(ants, cells, PL):
     scr = {nm: pixel.read_state(ants, cells, PL[nm]['rho'], tuple(PL[nm]['c'])) for nm in CASES}
     near = lambda q: any(hd(q[0] - PL[nm]['c'][0], q[1] - PL[nm]['c'][1]) <= 6 for nm in CASES)
     return scr, [a for a in ants if not near(a)], [q for q in cells if not near(q)]
+def decode_partiel(ants, cells, t):
+    """comme s3lib.decode mais garde ce qui se décode : (lignes d'univers des vaisseaux propres, fourmis non-vaisseaux, cases orphelines)"""
+    cs = set(cells); used = set(); out = []; bad = []
+    for x, y, h in ants:
+        near = frozenset((p[0] - x, p[1] - y) for p in cs if hd(p[0] - x, p[1] - y) <= 2)
+        k = S3L.REC.get((h, near))
+        if k is None: bad.append((x, y, h)); continue
+        r, ph = k; (dx, dy, _), _ = S3L.STATE[(r, ph)]
+        out.append(S3L.norm(r, x - dx, y - dy, ph, t)); used |= {(x + a, y + b) for a, b in near}
+    return sorted(out), bad, sorted(cs - used)
