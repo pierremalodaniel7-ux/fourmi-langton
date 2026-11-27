@@ -147,3 +147,15 @@ Pièges rencontrés : une horloge à 60° du front des sorties parallèles heurt
 « fantôme » du signal et croise l'horloge suivante (souvent proprement : à tester par simulation, pas par distance).
 Retenu (mêmes chocs pour les 4 pixels, catalogue complet n° 68, 115, 196) : u = 380 534, D = 384 888. Fichiers t4/boucle_long_*.json.
 Vérification complète (4 pixels, 12 horloges, 256 états, 2 moteurs) : t4/deux_pas_long.py (en cours).
+
+## R-722 PORT DE LECTURE DÉDIÉ PAR PIXEL, réutilisable et sans effet sur l'écran — OBSERVÉ (hx.py, pixel seul, ON et OFF, 2 lectures de suite) (t4/lect.py, t4/lecture_port.py, t4/lecture_reuse.py, 27/11 12:10)
+Sonde R-708 option 2 (dir 4, voie 2 ; M en phase 15 -> X période 9 ; R' : traverse aux 12 phases) : choisie car ni la sonde ni le
+retour ne sont antiparallèles à < 9 voies d'une entrée du germe (options 0 et 1 : oui, risque de R-719). OFF : la sonde ressort 2 voies
+à côté -> 3 chocs (Q, B, C ; horloges posées à t = 0 ; virages −120°, −120°, +60°) la ramènent sur la droite de réécriture X -> M (dir 1)
+avec X en phase 5 ; le délai w ≡ 9 (mod 63) rend la lecture NEUTRE : M reprend exactement la phase qu'il aurait eue sans lecture
+(calcul : 15 + w + 1 440 ≡ 15 mod 21 et 5 + w ≡ 5 mod 9). ON : la sonde traverse R' (phase inchangée) et passe à côté de Q.
+Lu = présence de la sonde sur sa droite d'origine après le pixel (1 = ON, 0 = OFF). 4 pixels × 2 lectures (t ≈ 40 000 et 80 000) :
+pré-test pixel seul OFF et ON : pixel à la phase prévue au pas près, lu juste, reste = vaisseaux propres. La 2e lecture est cherchée
+AVEC la 1re présente (sans cela : cas ON sale, une horloge inutilisée de la 1re croise la 2e). Le 4e choc prévu pour écarter le retour
+(lecture_reuse.py) s'est révélé inutile : le retour (dir 1) et la sonde suivante (dir 4) se croisent proprement ici.
+Adresse = la droite sur laquelle on tire (un port par pixel), pas un démultiplexeur (R-712/R-713 négatifs restent valables).
