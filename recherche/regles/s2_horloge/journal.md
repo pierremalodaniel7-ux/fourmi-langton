@@ -181,3 +181,43 @@ k = 1) ou non (k = 0), tous les décalages s ∈ [0, P) : k = 1 : 128 paires, 76
 k = 0 : 211 paires, 114 534 machines, 2 616 CYCLE, 0 avec interaction. Lecture (R-514) : une porte d'interaction fait CHANGER de triangle
 les deux vaisseaux ; si les deux triangles ne sont pas images l'un de l'autre (hexagramme R-512 : A et rot60(A)), le vaisseau échangé
 n'est pas « le bon » pour l'autre horloge et tout casse. Commandes : python3 s2_horloge/bihorloge.py 400 1000 1 ; … 400 1000 0
+
+## R-516 ÉTOILE DÉCALÉE : horloge + son image par une rotation de 180° autour d'un point O ≠ centre — 316 machines propres — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py 316/316)
+etoile180.py : horloges de tri_cycles_rB5.json (600 ≤ P ≤ 1 000, une par (P, boîte) : 42), B = rot180_O(A avancée de s), s ∈ {0, P/2}
+(les deux valeurs où la superposition a la symétrie d'ordre 2 « état(t + s) = rot180_O(état(t)) »), 2O entier à distance ≤ 30 demi-cases du
+double du centre (sinon c'est l'hexagramme R-512) : 115 618 machines, 71 880 CYCLE, 775 avec interaction réelle ; e180_anal.py : 316 PROPRES
+(événements mixtes = chocs de 2 vaisseaux, un de A, un de B), 16 horloges, toujours P = P(A) (627 … 981). 2e moteur : hx.py premier retour
+= P, 316/316 (hexa_check.py). C'est une 2e famille (après R-512) de machines où deux horloges s'échangent des vaisseaux par des portes
+d'interaction et récupèrent tout ; mais sans la symétrie d'ordre 3 commune : les deux triangles sont décalés (nœud papillon / étoile décentrée).
+Exemple (P = 627, 12 fourmis) : H:R2L2|0,7,5;-7,28,1;-21,21,3;-5,5,4;0,23,0;-23,28,2;-41,34,2;-34,13,4;-20,20,0;-36,36,1;-41,18,3;-18,13,5|0,6;0,7;-7,28;-6,28;-22,22;-21,21;-4,5;-1,24;-23,27;-41,35;-41,34;-34,13;-35,13;-19,19;-20,20;-37,36;-40,17;-18,14
+Sa porte (−11, 12), droite (3, 1) : 12 passages par période, issues D T D T … STRICTEMENT alternées ; chaque fourmi y passe deux fois de suite
+(elle y tourne, fait une petite boucle de 59 à 80 pas, repasse tout droit). Écarts irréguliers (39, 59, 31, 80 par tiers) : ce n'est pas une
+horloge régulière divisée par 2 (voir R-518). Commandes : python3 s2_horloge/etoile180.py 600 1000 30 ; python3 s2_horloge/e180_anal.py
+s2_horloge/etoile180_600_1000.json ; python3 s2_horloge/hexa_check.py s2_horloge/etoile180_600_1000_propres.json
+
+## R-517 Hexagramme + 3e train (même horloge, même centre) : rien — OBSERVÉ (négatif) (hexa3.py)
+96 hexagrammes propres (R-512) + C = A avancée de s2 (k3 = 0) ou rot60(A avancée de s2) (k3 = 1), tous les s2 : 89 691 machines (18 fourmis),
+1 seul CYCLE (P = 1 020 = 2 × 510) : faux positif, A (P 510) + un petit oscillateur de période 60 formé par B et C collés (ppcm = 1 020).
+
+## R-518 Diviseur par 2 dans une machine à symétrie « tiers » : ce qu'il faudrait — AFFIRMÉ (argument) + recherche (t2_portes.py, t2_regulier.py)
+Critère cherché : une droite d'entrée de porte à passages RÉGULIERS (écarts égaux) dont l'issue alterne T, D, T, D (le vaisseau horloge tourne
+quand le bit est là, passe sinon). Résultat : 0 sur les 96 hexagrammes (R-512) et les 775 étoiles décalées (R-516) (écarts tolérés jusqu'à
+60 pas : seulement des motifs « T D T » répétés par tiers, ou « D T D T » irréguliers).
+Argument : si état(T) = R(état(0)), la suite vue par une porte X sur une période est la concaténation de ce que voient X, R⁻¹X, R⁻²X pendant
+un tiers ; une alternance régulière demande un nombre PAIR de passages par tiers sur la même droite, donc ≥ 2 vaisseaux par tiers sur un même
+côté (deux trains : R-511, toujours cassé) ; deux horloges de périodes T et 2T n'ont aucune symétrie commune (2 ≢ 1 mod 3) et deux horloges
+concentriques de rapport 4 (le premier rapport compatible, 4 ≡ 1 mod 3, diviseur par 4) ne se croisent pas (côté ∝ T). OUVERT.
+
+## R-519 Pourquoi le demi-additionneur R-337 n'entre pas dans une horloge : une porte sur UN seul côté n'est jamais absorbée — DÉMONTRÉ (sous hypothèse) ; R-337 dans des horloges concentriques — AFFIRMÉ
+Horloge « déformée » : on cherche une machine où chaque coin est le MÊME choc qu'avant, seulement translaté d'un vecteur d'espace-temps u_k
+(k = 1, 2, 3), et chaque croisement de face du même type. Sur un côté sans porte, l'horaire impose u_{k+1} − u_k ∈ Z·(d_h, 8) et
+l'anti-horaire u_{k+1} − u_k ∈ Z·(d_a, 8) : deux droites distinctes de Z³ ⇒ u_{k+1} = u_k. Avec une porte sur un seul côté, les deux autres
+côtés donnent u_1 = u_2 = u_3, puis les coins du côté à porte imposent δh ∈ Z·(d_h, 8), δa ∈ Z·(d_a, 8) : décalage NUL (le vaisseau
+avancé le long de sa propre route). Donc une porte qui décale doit être répétée sur les trois côtés (cas 3-symétrique, R-514, avec la
+compensation δh + rot120 δa = 0), ou changer le type d'un coin (non couvert par l'argument). Cohérent avec R-513 (0 / 34 080).
+R-337 : ses 3 droites d'entrée (B et K3 : x + y = 0 ; A : x = 30 ; K2 : y = −24) forment un PETIT triangle (côté ≈ 6) orienté comme une
+horloge ; pour que trois horloges concentriques 3-symétriques de même T aient chacune un côté sur l'une de ces droites, il faudrait
+ρ₁ + ρ₂ + ρ₃ ≈ 3 × (rayon du petit triangle) ≈ 5 cases (ρ = distance du centre au côté) : impossible si les trois sont « horaires »
+(chaque ρ ≥ ~ 6) ; il faudrait mélanger des horloges tournées de 60° avec un rapport de tailles ≈ 2 à même période (observé au plus 1,76 :
+P = 507, côtés 25 à 44). De plus il faut la porte compensatrice (R-337 tourné de 60°) sur les vaisseaux impairs. Objectif 1 avec R-337 : OUVERT,
+avec ces obstacles. (Objectif 1 avec une porte R-314 : déjà fait par R-512 et, sans symétrie commune, par R-516.)
