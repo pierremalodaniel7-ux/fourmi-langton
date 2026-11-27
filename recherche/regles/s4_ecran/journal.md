@@ -47,3 +47,18 @@ motif 3 {01, 10, 11} ; tout éteint : lectures exactes (état + phase de chaque 
 À la fin : 8 fourmis des pixels (4 × M) + 31 fourmis = vaisseaux libres qui s'éloignent (décodés), à ≥ 106 du centre.
 Piège trouvé : pixel.ORB TRIE les fourmis ; quand les 2 fourmis de M sont sur la même case, l'ordre de jeu compte ⇒ orbite ordonnée.
 Limite : comme R-341/R-342, on n'écrit 1 que sur un 0 et 0 que sur un 1 (il faut connaître l'état). Simulation finie (t = 18 036).
+
+## R-708 Sondes de lecture du pixel M/R' à 1 vaisseau — VÉRIFIÉ (hx.py, balayage complet) (sonde_scan.py, sonde_retour.py → sondes.json, sondes_retour.json)
+6 directions × voies −8..8 × toutes les phases, sur M (21) et R' (12) : M reste M 1 560 fois, R' reste R' 912 fois (toujours sortie = entrée,
+comme R-346) ; M → X périodique 71, R' → X 56 ; M → rien + 3 vaisseaux 17 (lecture R-335). Sondes UTILES = transparentes sur R' pour
+les 12 phases ET M → X avec sortie différente : (dir 0, voie −3, M ph 6 → X période 21, retour X → M par 1 vaisseau dir 3 voie 1),
+(dir 3, voie 2, ph 8 → X 15, retour dir 0 voie −3), (dir 4, voie 2, ph 15 → X 9, retour dir 1 voie 1). Lecture = TEMPS DE VOL :
+la sonde ressort sur sa route, à l'heure si ON, 3 pas en avance si OFF (option 0).
+
+## R-709 Lecture d'un pixel : une lecture VÉRIFIÉE ; lecture + réécriture répétée : ÉCHEC (cause identifiée) (lecture_simple.py, lecture_demo.py)
+Une lecture (2 moteurs) : ON → sonde à l'heure, R' intact ; OFF → sonde 3 pas en avance, le pixel devient X. Réécriture X → M : le
+vaisseau de retour arrive DE FACE sur la route de sortie de la sonde (écart de voie 1 ; même chose pour les 3 options : le retour est
+presque le film à l'envers de la déviation) ; avec tout posé à t = 0 ils se croisent forcément, et le croisement n'est jamais
+transparent (60 décalages d'une période de X, toutes les phases relatives, 3 options) ⇒ pas de « lecture + réécriture » réutilisable
+avec ces sondes (OBSERVÉ). Par adresse : il faudrait en plus 2 ports (sonde, retour) dont les sorties passent par des points DÉJÀ fixés
+(4 équations, 2 inconnues) ⇒ à choisir en même temps que l'écran. OUVERT.
