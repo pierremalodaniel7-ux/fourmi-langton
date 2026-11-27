@@ -9,12 +9,16 @@ P = load_params(); P['h1'] = json.load(open('h1R_param_OK.json'))
 off = {'h0': (0, 0), 'x': (-3799, 3325), 'y': (-4967, -1821), 'c00': (-4069, 2117), 'c10': (1364, 1737), 'c01': (4675, 219),
        'c11': (-2561, -4463), 'h1': (3116, 4523)}
 S = Step(P, off); t0 = time.time(); out = dict(translations=off)
-ok, delta, info = certificate3(S, log=lambda s: print(s, flush=True)); D = delta + (-delta) % 8
-out.update(certificat=ok, delta=D, fenetre=info['span'], rayon=info['R'], voies_opposees=info['opposees']); print(f'({time.time()-t0:.0f} s)', flush=True)
+if len(sys.argv) > 1 and sys.argv[1] == 'usages':      # certificat déjà fait : on relit Δ
+    out = json.load(open('step_reuse_res.json')); ok, D = out['certificat'], out['delta']; out['usages'] = out.get('usages', [])[:1]
+else:
+    ok, delta, info = certificate3(S, log=lambda s: print(s, flush=True)); D = delta + (-delta) % 8
+    out.update(certificat=ok, delta=D, fenetre=info['span'], rayon=info['R'], voies_opposees=info['opposees']); print(f'({time.time()-t0:.0f} s)', flush=True)
 json.dump(out, open('step_reuse_res.json', 'w'), ensure_ascii=False, indent=1)
 if ok:
-    envs = S.cases(); out['usages'] = []
-    for g, (n, e2) in enumerate(((3, True), (10, False), (10, False))):
+    envs = S.cases(); done = len(out.get('usages', [])); out['usages'] = out.get('usages', [])
+    # 10 usages : la mémoire du moteur C (un octet par fourmi et par pas) dépasse 8 Go → 5 usages
+    for g, (n, e2) in list(enumerate(((3, True), (5, False), (5, False))))[done:]:
         rnd = random.Random(g); seq = [rnd.choice(envs) for _ in range(n)]
         r = multi_check(S, seq, D, engine2=e2); r['graine'] = g; out['usages'].append(r); print('usages', r, flush=True)
         json.dump(out, open('step_reuse_res.json', 'w'), ensure_ascii=False, indent=1)

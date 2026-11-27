@@ -39,6 +39,22 @@ fiches.append(fiche('R-611', "7 bits sur 8 du pas en un germe RÉUTILISABLE : ce
        mesures="256/256 (2 moteurs) ; certificat OK ; 10 usages au hasard : superposition exacte, 10/10 justes, 2 moteurs identiques.",
        statut="VÉRIFIÉ (10 usages) ; tout nombre d'usages DÉMONTRÉ (certificat)", interet="Réutilisation indéfinie du calcul de 7 bits.",
        deja="Pas trouvé.", source='recherche/regles/s3_pas/journal.md (R-615)', commande='python3 recherche/regles/s3_pas/step.py 0 10 (sans h1)'))
+P2 = dict(P); P2['h1'] = json.load(open('h1R_param_OK.json'))
+offR = dict(off8); offR['h1'] = (3116, 4523)
+SR = Step(P2, offR); LR = SR.L['h1']
+fiches.insert(0, fiche('R-617', "Le pas complet RÉUTILISABLE en un germe R2L2 : 256/256, certificat, usages répétés au même endroit", SR.sit(E), 0, 'zoom -6600,-6000,7600,7600',
+       situation="8 modules (h1' version réutilisable R-616) translatés ; voies opposées ≥ 7 et rayons ≥ 7 entre modules.",
+       deroulement="Usage u = le même germe (état e_u) retardé de u·Δ, Δ = 384 744 pas ; chaque usage calcule les 8 bits du pas suivant.",
+       mesures="256/256 propres et justes (C) ; hx.py 256/256 ; certificat OK (fenêtre 9 877 pas, rayon 11 709) ; 3 usages : superposition exacte, 3/3, 2 moteurs identiques ; 10 usages ×2 (C) : voir journal R-617.",
+       statut="VÉRIFIÉ (2 moteurs, tous les états, usages répétés) ; tout nombre d'usages DÉMONTRÉ (certificat R-606)",
+       interet="Le pas d'une fourmi calculé par des chocs d'une autre fourmi, indéfiniment au même endroit.",
+       deja="Pas trouvé.", source='recherche/regles/s3_pas/journal.md (R-617)', commande='python3 recherche/regles/s3_pas/step_reuse.py'))
+fiches.insert(2, fiche('R-616', "Module h1' RÉUTILISABLE : chocs de face seulement sous des 1res entrées, 256/256, certificat, 20 usages", LR.sit(E), 0, None,
+       situation="29 puissances ; un nœud qui a un enfant de face est toujours la 1re entrée de son parent ; voies opposées réglées (opt10).",
+       deroulement="Sinon le parent ressort tout droit sur la voie de son enfant de face et percute celui de l'usage suivant.",
+       mesures="256/256 justes et propres, 2 moteurs ; certificat OK (Δ ≥ 65 733 pas) ; 20 usages ×3 : 20/20, superposition exacte ; 3 usages 2 moteurs.",
+       statut="VÉRIFIÉ ; tout nombre d'usages DÉMONTRÉ (certificat)", interet="Rend réutilisable le seul bit qui demandait des chocs de face.",
+       deja="Pas trouvé.", source='recherche/regles/s3_pas/journal.md (R-616)', commande='python3 recherche/regles/s3_pas/h1R_check.py h1R_param_OK.json'))
 for f in fiches:
     if f['img'][1] is None: f['img'] = [0]
 json.dump(fiches, open('catalogue_s3.json', 'w'), ensure_ascii=False, indent=1)
