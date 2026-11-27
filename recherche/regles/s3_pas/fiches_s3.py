@@ -55,6 +55,20 @@ fiches.insert(2, fiche('R-616', "Module h1' RÉUTILISABLE : chocs de face seulem
        mesures="256/256 justes et propres, 2 moteurs ; certificat OK (Δ ≥ 65 733 pas) ; 20 usages ×3 : 20/20, superposition exacte ; 3 usages 2 moteurs.",
        statut="VÉRIFIÉ ; tout nombre d'usages DÉMONTRÉ (certificat)", interet="Rend réutilisable le seul bit qui demandait des chocs de face.",
        deja="Pas trouvé.", source='recherche/regles/s3_pas/journal.md (R-616)', commande='python3 recherche/regles/s3_pas/h1R_check.py h1R_param_OK.json'))
+# R-619 (vague 3, 27/11 matin) : deux pas enchaînés, 7 bits sur 8, en un germe
+import chain2
+from s3lib import sit_wls, transwl
+_CR = json.load(open('chain_res.json')); _CP = json.load(open('chain_params.json'))
+_CL = {nm: Layout(chain2.root(nm), Dmap=_CP[nm]['D'], Gmap=_CP[nm]['G']) for nm in chain2.NAMES}
+_W = []
+for nm in chain2.NAMES: _W += [transwl(w, tuple(_CR['translations'][nm])) for w in _CL[nm].present(E)]
+fiches.append(fiche('R-619', "DEUX PAS ENCHAÎNÉS (7 bits sur 8) en un germe : le pas 2 lit les vaisseaux sortis du pas 1, 256/256", sit_wls(_W), 0, 'zoom -9000,-8500,9000,8500',
+       situation="7 modules h0'', x'', y'', c00''..c11'' ; chaque littéral du pas 2 est un module du pas 1 (double rail) dont la sortie entre dans la porte du pas 2 ; 128 puissances, 143 littéraux.",
+       deroulement="Le sous-système (x, y, h0, cases) ne dépend pas du cap h1 ; le germe calcule F(F(e)) en passant par les vaisseaux x', y', h0', cij'.",
+       mesures="Chaque module : tous ses cas, 2 moteurs ; germe : 256/256 états propres et justes (moteur C, 13 s), hx.py 256/256 identiques (108 s).",
+       statut="VÉRIFIÉ (2 moteurs, tous les états, 1 usage) ; h1'' et réutilisation : OUVERT",
+       interet="Premier enchaînement de deux pas : la sortie d'un calcul de fourmi sert d'entrée au suivant.",
+       deja="Pas trouvé.", source='recherche/regles/s3_pas/journal.md (R-619)', commande='NOLANES=1 BOX=8000 python3 recherche/regles/s3_pas/chain_germ.py 1'))
 for f in fiches:
     if f['img'][1] is None: f['img'] = [0]
 json.dump(fiches, open('catalogue_s3.json', 'w'), ensure_ascii=False, indent=1)
