@@ -1,0 +1,44 @@
+[
+ {
+  "id": "R-707",
+  "b": 31,
+  "classe": "Règles/Hexa R2L2/s4_ecran",
+  "nom": "Écran 2×2 adressable : 2 démultiplexeurs + 4 bascules, 3 motifs puis tout éteint",
+  "regle": "H:R2L2",
+  "fourmis": "112,-114,3;113,-114,2;59,-153,3;60,-153,0;22,-78,3;22,-78,0;76,-114,3;75,-114,2;42,-129,0;-25,25,4;42,-329,0;311,-329,5;-225,225,4;-224,-25,5;96,303,1;565,-655,5;564,-203,2;97,502,1;-573,501,4;764,-855,5;41,-930,4;911,-929,1;-826,827,2;41,-1130,4;-1026,1027,2;-1027,-25,3;42,-1331,0;1313,-1331,5;-1227,1227,4;-1226,-25,5;97,1303,5;1565,-1656,3;97,1503,5;-1575,1504,0;1765,-1856,3;1766,-203,2;97,1705,1;-1776,1704,4;1967,-2058,5",
+  "points": "112,-113;113,-114;114,-115;58,-152;58,-151;58,-150;59,-153;60,-152;21,-78;21,-77;21,-76;23,-79;23,-78;75,-114;75,-113;77,-115;41,-128;-24,25;41,-328;309,-328;310,-329;311,-329;-224,225;-225,-25;96,303;97,301;97,302;563,-654;564,-655;565,-655;564,-204;96,502;96,503;97,501;-574,502;763,-854;764,-854;765,-855;41,-929;42,-931;42,-930;912,-930;-827,827;-826,826;-825,826;41,-1129;42,-1131;42,-1130;-1027,1027;-1026,1026;-1025,1026;-1027,-25;-1027,-24;-1026,-24;41,-1330;1311,-1330;1312,-1331;1313,-1331;-1226,1227;-1227,-25;96,1304;97,1303;1565,-1656;1566,-1656;96,1504;96,1505;-1576,1504;-1575,1504;1766,-1856;1767,-1857;1766,-204;1766,-203;1767,-204;1767,-203;96,1705;96,1706;97,1704;-1777,1705;1966,-2057;1967,-2057;1968,-2058",
+  "img": [
+   9616,
+   "zoom 0,-170,135,-60"
+  ],
+  "situation": "39 fourmis posées à t = 0 : 4 pixels (oscillateur M = OFF, 2 fourmis) et 10 opérations (vaisseau W + vaisseaux d'adresse + K) sur 2 ports (démux n° 8 et sa copie tournée de 180°, translatée de (138, −228)).",
+  "deroulement": "Motif 1 {00, 11} ; motif 2 {01, 10} (image, zoom sur les pixels) ; motif 3 {01, 10, 11} ; tout éteint. Chaque vaisseau traverse le pixel visé et s'éloigne.",
+  "mesures": "motif 1 (diagonale) t = 3210 : lu [1, 0, 0, 1]; motif 2 (anti-diagonale) t = 9616 : lu [0, 1, 1, 0]; motif 3 (« L ») t = 11223 : lu [0, 1, 1, 1]; tout éteint t = 18036 : lu [0, 0, 0, 0] ; fourmi_r = hx.py aux 4 instants ; fin : 31 vaisseaux libres + 4 × M.",
+  "statut": "VÉRIFIÉ (2 moteurs, temps fini t = 18 036)",
+  "interet": "Premier écran adressable : on choisit le pixel avec 2 bits d'adresse, on allume ou on éteint.",
+  "deja": "Pas trouvé (écrans en jeu de la vie : oui ; en fourmis de Langton hexagonales R2L2 : non).",
+  "source": "recherche/regles/s4_ecran/journal.md (27/11)",
+  "commande": "cd recherche/regles/s4_ecran && cp sauve/demux_tries.json data/ && cp sauve/ecran3_geo_top20.json data/ecran3_geo.json && python3 ecran_demo.py 0"
+ },
+ {
+  "id": "R-705",
+  "b": 31,
+  "classe": "Règles/Hexa R2L2/s4_ecran",
+  "nom": "Nouvelle mise à 1 du pixel M → R' : vaisseau direction 5 (−60°)",
+  "regle": "H:R2L2",
+  "fourmis": "-1,0,3;0,0,4;1,39,3",
+  "points": "-1,0;-1,1;0,-1;0,0;0,1;1,-1;1,0;2,38",
+  "img": [
+   720,
+   "zoom -12,-12,12,12"
+  ],
+  "situation": "M (2 fourmis, période 21, en phase 4) + 1 vaisseau direction 5, voie 1, joué après.",
+  "deroulement": "Le vaisseau traverse : M devient R' (2 fourmis + 5 cases, période 12) et le vaisseau ressort sur sa route, sans retard.",
+  "mesures": "Recherche complète (6 directions, voies −8..8, toutes phases) : mises à 1 = (dir 0, voie 1, ph 16/17), (dir 5, voie 1, ph 4) ; mises à 0 = (dir 2, voie −2, ph 2), (dir 3, voie −2, ph 10/11).",
+  "statut": "VÉRIFIÉ (hx.py ; utilisé dans R-707, 2 moteurs)",
+  "interet": "Avec ce 2e couple (écart −120° au lieu de +120°) l'écran 2×2 devient constructible (R-704 / R-706).",
+  "deja": "Interne au projet (prolonge R-341).",
+  "source": "recherche/regles/s4_ecran/journal.md (27/11)",
+  "commande": "python3 recherche/regles/s4_ecran/kits_scan.py"
+ }
+]
