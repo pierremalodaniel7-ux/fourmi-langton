@@ -130,3 +130,20 @@ de la route d'ENTRÉE de la puissance du module c00 à l'usage 2 ⇒ choc de fac
 de R-617 interdit pour les débris du germe). D plus grand (420 000) : même échec (les deux s'éloignent/approchent à la même vitesse).
 Défaut secondaire : avec une boucle courte, l'écran montre c' seulement ≈ 1 300 pas, puis s'éteint jusqu'au pas 2.
 ⇒ boucle LONGUE (u ≈ D − 1 440 − δ, l'écran garde c' presque tout l'intervalle) finissant sur RST2 (retour en direction 2) : R-720.
+
+## R-721 Chocs SÉLECTIFS EN TEMPS : 16 des 224 chocs propres deviennent transparents si le signal arrive 3 pas plus tard — VÉRIFIÉ (2 moteurs, 16/16) (t4/choc_selectif.py → t4/choc_selectif.json, 27/11 12:00)
+Pour lire un pixel (la sonde R-708 option 0 ressort 3 pas en avance si OFF) : un tel choc dévie la sonde « OFF » et laisse passer
+la sonde « ON ». Types trouvés : virage du signal −120° (horloge à 60°) ×8, +120° ×8. (Finalement non utilisé : l'option 2 sépare
+déjà ON et OFF de 2 voies, R-722.)
+
+## R-720 Boucles d'effacement LONGUES (0 -> 4 -> 3 -> 2, vers RST2) — OBSERVÉ (hx.py, 2 usages, 4 états par pixel) (t4/boucle_long.py, t4/conflits.py, 27/11 11:40–12:05)
+u ≈ D − 1 440 − δ (δ ∈ [300, 3 000]) : l'écran garde c' presque tout l'intervalle, s'éteint juste avant le pas 2. Retour en direction 2
+(jamais de face avec une entrée de l'usage 2). Phases (SET0a, RST2, D ≡ 0 mod 168) : u ≡ 14 (mod 84). Recherche affine exacte
+(entiers) puis 3 filtres : (1) géométrie (t4/conflits.py : distances min. exactes à ±2 entre trajectoires rectilignes, vectorisé)
+contre le germe (2 usages) et les 4 pixels ; (2) pré-test hx.py de la boucle seule (horloges seules jusqu'à D + 13 000 : propre ;
+signal + horloges : le retour est exactement sur RST2) ; (3) 2 usages + pixel, 4 états (c', c'') = (1,1), (1,0), (0,1), (0,0).
+Pièges rencontrés : une horloge à 60° du front des sorties parallèles heurte TOUJOURS un débris voisin du module (décalages (−32, 32) et
+(23, 23) en (latéral, abscisse), sur les diagonales à 60°) ; horloge parallèle au signal dévié (rel. 4) : sans signal elle file avec le
+« fantôme » du signal et croise l'horloge suivante (souvent proprement : à tester par simulation, pas par distance).
+Retenu (mêmes chocs pour les 4 pixels, catalogue complet n° 68, 115, 196) : u = 380 534, D = 384 888. Fichiers t4/boucle_long_*.json.
+Vérification complète (4 pixels, 12 horloges, 256 états, 2 moteurs) : t4/deux_pas_long.py (en cours).
