@@ -1,0 +1,1 @@
+Copies versionnées de data/ (ignoré par git) : demux_tries.json (49 démux triés, R-704) et les 20 premiers placements de ecran3_geo.py (R-706). Pour rejouer : cp sauve/demux_tries.json data/ ; cp sauve/ecran3_geo_top20.json data/ecran3_geo.json
