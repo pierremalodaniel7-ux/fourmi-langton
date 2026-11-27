@@ -14,6 +14,7 @@ from diag import pmin
 from s3lib import antpos
 THR, GUARD = 7, 80
 DMAX = int(os.environ.get('DMAX', 600)); SIM = int(os.environ.get('SIM', 6)); TFIX = int(os.environ.get('TFIX', 36000))
+GMAX = int(os.environ.get('GMAX', 60)); MULT = int(os.environ.get('MULT', 0))
 SUB = {}
 for n in nodes(R): SUB[n.name] = {m.name for m in nodes(n)}
 def build_state(Dm, Gm):
@@ -73,7 +74,10 @@ if __name__ == '__main__':
             while n in PARENT and rnd.random() < 0.3: n = PARENT[n]
         else: n = rnd.choice(names)
         big = rnd.random() < 0.3
-        if rnd.random() < 0.6: D2[n] = max(8, min(DMAX, D2[n] + (rnd.randint(-80, 80) if big else rnd.randint(-8, 8))))
+        if MULT:   # R-620 (27/11 T1) : pas proportionnels à la valeur (départ « arbre en H » à grandes longueurs, init_h1.py)
+            if rnd.random() < 0.6: v = D2[n]; D2[n] = max(8, min(DMAX, v + rnd.randint(-1, 1) * rnd.randint(1, max(1, int(v * (0.3 if big else 0.04))))))
+            else: v = G2[n]; G2[n] = max(8, min(GMAX, v + rnd.randint(-1, 1) * rnd.randint(1, max(1, int(v * (0.3 if big else 0.06))))))
+        elif rnd.random() < 0.6: D2[n] = max(8, min(DMAX, D2[n] + (rnd.randint(-80, 80) if big else rnd.randint(-8, 8))))
         else: G2[n] = max(8, min(60, G2[n] + (rnd.randint(-15, 15) if big else rnd.randint(-3, 3))))
         moved = SUB[n]
         if n in PARENT and Dm[n] != D2[n]: pass   # D de n : n garde sa ligne d'univers, ses portes et ses descendants bougent

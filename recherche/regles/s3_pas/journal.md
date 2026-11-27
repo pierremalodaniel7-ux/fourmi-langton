@@ -146,3 +146,21 @@ Germe : les 7 modules translatés (step.choose_offsets2, NOLANES=1, BOX=8000 ; B
 propres et justes (moteur C, 13 s) ; hx.py 256/256 identiques (108 s). 128 puissances, 143 littéraux.
 Commande : python3 chain2.py (formules sur les 256 états) ; python3 optc.py c00 1 280 ; NOLANES=1 BOX=8000 python3 chain_germ.py 1
 Résultats : chain_res.json, chain_params.json. Reste : h1'' (le cap) et la réutilisation.
+## R-620 h1'' enchaîné — reprise T1 (27/11, 10:55 UTC →) — EN COURS
+Session T1 reprise (la session de 09:09 n'avait fait que le rassemblement des journaux). data/ perdu (nouveau conteneur) : départ de zéro.
+- 10:58 chain_h1b (départ au hasard, D ≤ 600) : 1 183 et 1 444 conflits au départ, 865 et 1 044 après 220 s : trop lent.
+  Analyse (ancêtre commun des couples en conflit) : la plupart entre grosses branches (niveau 0–1) → problème d'encombrement.
+- 11:00 init_h1.py : départ « arbre en H », D[n] = a + b·taille(n), G[n] = g0 + g1·taille(plus gros enfant) :
+  (30, 20, 1, 10, 8) 680 conflits ; (30, 80, 1, 12, 30) 184 (tmax 188 532) ; (30, 160, 1, 12, 60) 141 (tmax 363 092). OBSERVÉ.
+  chain_h1b.py : option MULT=1 (pas proportionnels à la valeur), DMAX / GMAX réglables. Descentes lancées 11:02 (graines 11, 12).
+## R-621 Croissance de l'enchaînement par greffe — DÉMONTRÉ (comptage exact sur les arbres, grow.py)
+Module à N pas de v = arbre du pas 1 de v dont chaque littéral est le module à N−1 pas (h1 : h1_tree2 réutilisable, 29 puissances).
+| N | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+| puissances (8 bits) | 52 | 349 | 1 766 | 7 943 | 33 720 | 139 017 | 564 634 | 2 276 011 |
+| littéraux (8 bits) | 65 | 377 | 1 793 | 7 793 | 32 465 | 132 497 | 535 313 | 2 151 953 |
+Matrice des usages M (M[v][w] = nombre de littéraux w/¬w dans l'arbre de v) : rayon spectral 4 (h1 s'utilise 4 fois) ; sans h1
+(sous-système fermé x, y, h0, cij) : 2 (x utilise x deux fois). Donc taille ≈ C·4^N : EXPONENTIELLE, pas linéaire.
+(Les arbres de R-619 pour cij'' (26) et chain_h1 pour h1'' (207) sont un peu différents de ceux comptés ici (24, 229).)
+Raison : un arbre ne partage rien ; chaque usage d'un bit du pas N−1 recopie tout son module. Pour une croissance linéaire, il faut
+DIFFUSER un vaisseau (porte COPIE R-609 : un choc K × x donne ¬x tout droit et deux copies de x) et l'AMENER sur la ligne voulue.
+Commande : python3 grow.py 8
