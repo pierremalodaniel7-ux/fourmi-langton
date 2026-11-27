@@ -1,0 +1,176 @@
+{
+ "modules": {
+  "h0": {
+   "cas": 2,
+   "justes": 2,
+   "deux_moteurs": 2,
+   "puissances": 2,
+   "litteraux": 1,
+   "tmax": 2796,
+   "vars": [
+    "h0"
+   ]
+  },
+  "x": {
+   "cas": 4,
+   "justes": 4,
+   "deux_moteurs": 4,
+   "puissances": 11,
+   "litteraux": 10,
+   "tmax": 6860,
+   "vars": [
+    "h0",
+    "x"
+   ]
+  },
+  "y": {
+   "cas": 4,
+   "justes": 4,
+   "deux_moteurs": 4,
+   "puissances": 11,
+   "litteraux": 10,
+   "tmax": 6860,
+   "vars": [
+    "h0",
+    "y"
+   ]
+  },
+  "c00": {
+   "cas": 16,
+   "justes": 16,
+   "deux_moteurs": 16,
+   "puissances": 26,
+   "litteraux": 28,
+   "tmax": 10008,
+   "vars": [
+    "c00",
+    "h0",
+    "x",
+    "y"
+   ]
+  },
+  "c10": {
+   "cas": 16,
+   "justes": 16,
+   "deux_moteurs": 16,
+   "puissances": 26,
+   "litteraux": 28,
+   "tmax": 9184,
+   "vars": [
+    "c10",
+    "h0",
+    "x",
+    "y"
+   ]
+  },
+  "c01": {
+   "cas": 16,
+   "justes": 16,
+   "deux_moteurs": 16,
+   "puissances": 26,
+   "litteraux": 28,
+   "tmax": 9032,
+   "vars": [
+    "c01",
+    "h0",
+    "x",
+    "y"
+   ]
+  },
+  "c11": {
+   "cas": 16,
+   "justes": 16,
+   "deux_moteurs": 16,
+   "puissances": 26,
+   "litteraux": 28,
+   "tmax": 8336,
+   "vars": [
+    "c11",
+    "h0",
+    "x",
+    "y"
+   ]
+  }
+ },
+ "translations": {
+  "h0": [
+   0,
+   0
+  ],
+  "x": [
+   -5799,
+   1325
+  ],
+  "y": [
+   5884,
+   5144
+  ],
+  "c00": [
+   4513,
+   -6967
+  ],
+  "c10": [
+   6768,
+   -2800
+  ],
+  "c01": [
+   -7525,
+   644
+  ],
+  "c11": [
+   181,
+   5864
+  ]
+ },
+ "T": 11208,
+ "etats": 256,
+ "propres": 256,
+ "justes": 256,
+ "deux_moteurs": 256,
+ "mauvais": [],
+ "vaisseaux_max": 195,
+ "sorties": {
+  "h0": [
+   0,
+   -350,
+   350,
+   2
+  ],
+  "x": [
+   0,
+   -6657,
+   2183,
+   2
+  ],
+  "y": [
+   0,
+   5026,
+   6002,
+   2
+  ],
+  "c00": [
+   0,
+   3261,
+   -5715,
+   6
+  ],
+  "c10": [
+   0,
+   5619,
+   -1651,
+   6
+  ],
+  "c01": [
+   0,
+   -8655,
+   1774,
+   6
+  ],
+  "c11": [
+   0,
+   -862,
+   6907,
+   6
+  ]
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "translations": {
+  "h0": [
+   0,
+   0
+  ],
+  "x": [
+   -3799,
+   3325
+  ],
+  "y": [
+   -4967,
+   -1821
+  ],
+  "c00": [
+   -4069,
+   2117
+  ],
+  "c10": [
+   1364,
+   1737
+  ],
+  "c01": [
+   4675,
+   219
+  ],
+  "c11": [
+   -2561,
+   -4463
+  ],
+  "h1": [
+   3116,
+   4523
+  ]
+ },
+ "certificat": true,
+ "delta": 384744,
+ "fenetre": 9877,
+ "rayon": 11709,
+ "voies_opposees": 7,
+ "usages": [
+  {
+   "usages": 3,
+   "superposition": true,
+   "justes": 3,
+   "deux_moteurs": true,
+   "fourmis": 254,
+   "graine": 0
+  },
+  {
+   "usages": 5,
+   "superposition": true,
+   "justes": 5,
+   "deux_moteurs": null,
+   "fourmis": 421,
+   "graine": 1
+  },
+  {
+   "usages": 5,
+   "superposition": true,
+   "justes": 5,
+   "deux_moteurs": null,
+   "fourmis": 421,
+   "graine": 2
+  }
+ ]
+}
