@@ -50,3 +50,15 @@ Nouvelle idée : GRANDES échelles (D ≤ 300, G ≤ 60) et descente sur le nomb
   h1s (NOR des 16 cubes de ¬h1', profondeur 2, 17 puissances mais 80 littéraux).
 ## R-611 Pas complet en un germe : 7 modules sur 8 côte à côte — VÉRIFIÉ (moteur C) 00:52
 step.py : h0', x', y', c00'..c11' translatés (voies opposées ≥ 7 entre modules), 256/256 états propres et justes (moteur C).
+- 01:05 Analyse des conflits structurels (repère de la puissance P, où tous les partenaires d'un même côté suivent la MÊME droite
+  relative ℓ± vers P) — DÉMONTRÉ (raisonnement) + OBSERVÉ (conflicts2, distance 0 pour tout D, G) :
+  (S1) deux sous-nœuds du même côté : les débris immobiles (dans le repère de P) laissés sur ℓ par le 1er sont heurtés par le 2e
+       (c'est la règle R-606 « un seul sous-nœud par côté » ; tout-« + » : 21 à 43 conflits à distance 0) ;
+  (S2) un nœud N du côté opposé à celui de son parent M a la direction de son grand-parent P : immobile dans le repère de P, ses
+       débris de direction M suivent ℓ et heurtent P. Sauf si N = NON d'une seule entrée… mais alors son enfant retombe dans S2.
+  Conséquence : dans UN arbre, tout chemin garde le même côté ⇒ chaque nœud (hors racine) a au plus un sous-nœud ⇒ chaînes
+  « liste de décision à clauses », qui ne savent pas faire un XOR (preuve : le 1er test devrait être une clause incluse dans {00, 11}).
+  C'est pourquoi h0', x', y', cij' passent (profondeur ≤ 2 ou chaîne même côté) et pas h1'.
+  REMÈDE choisi : COMPOSER des petits modules. La sortie d'un module (vaisseau tout droit) est posée EXACTEMENT sur la ligne d'univers
+  d'un littéral du module suivant (rotation k, translation v, retard s ≡ phase mod 8), loin en amont. Un littéral n'a pas de porte
+  à lui, donc pas de débris sur ℓ. → compose.py (R-612).
