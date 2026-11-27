@@ -164,3 +164,11 @@ Matrice des usages M (M[v][w] = nombre de littéraux w/¬w dans l'arbre de v) : 
 Raison : un arbre ne partage rien ; chaque usage d'un bit du pas N−1 recopie tout son module. Pour une croissance linéaire, il faut
 DIFFUSER un vaisseau (porte COPIE R-609 : un choc K × x donne ¬x tout droit et deux copies de x) et l'AMENER sur la ligne voulue.
 Commande : python3 grow.py 8
+## R-622 ROUTAGE d'un vaisseau-signal par virages — VÉRIFIÉ (4 routes, 2 cas chacune, 2 moteurs) (11:12)
+Virage = porte NOR à UNE entrée posée sur le signal (géométrie nor.BASE retournée : le partenaire est donné, on calcule la puissance K).
+Le signal peut suivre oA (lui-même dévié), oB (K dévié) ou K tout droit (= NON s). Chaque virage change la direction (±1, ±2, +3) et
+la « classe de phase » (ph − 4·dir mod 8 : −2 si dévié, 0 si NON). La ligne finale est AFFINE (entière) en les instants k des 2 derniers
+virages : on la résout exactement (2×2 entier, déterminant souvent ±1). Contrainte de cône : la cible doit être dans le futur du signal.
+Modèle général circ.py (graphe de portes, masques par cas comme diag2 ; un débris peut resservir). Vérification : l'état final simulé
+doit être EXACTEMENT l'ensemble des lignes prévues par le modèle. test_route.py : 4 routes (2 à 4 virages, signal direct ou inversé) :
+2/2 cas = modèle, 2 moteurs identiques, signal juste sur la ligne cible. Commande : python3 test_route.py
