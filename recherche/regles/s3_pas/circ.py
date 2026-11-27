@@ -11,6 +11,7 @@ import numpy as np
 from s3lib import *
 from diag import pmin, INF
 from nor import BASE, TC
+_PM = {}   # mémo des distances minimales entre segments (même couple de segments -> même résultat)
 class Circ:
     def __init__(self, vars_):
         self.vars = list(vars_); self.cases = [dict(zip(self.vars, b)) for b in itertools.product((0, 1), repeat=len(self.vars))]
@@ -69,7 +70,13 @@ class Circ:
                 if y <= x and (only is None or y in only): continue
                 a, b = S[x], S[y]
                 if a[0] == b[0] or not (a[4] & b[4]): continue
-                m, t = pmin(a[1], a[2], a[3], b[1], b[2], b[3], thr)
+                key = (a[1], a[2], a[3], b[1], b[2], b[3])
+                r = _PM.get(key)
+                if r is None:
+                    r = pmin(a[1], a[2], a[3], b[1], b[2], b[3], thr)
+                    if len(_PM) > 2_000_000: _PM.clear()
+                    _PM[key] = r
+                m, t = r
                 if m < thr:
                     tg = gt.get(frozenset((a[0], b[0])))
                     if tg is not None and any(abs(t - z) <= guard for z in tg): continue

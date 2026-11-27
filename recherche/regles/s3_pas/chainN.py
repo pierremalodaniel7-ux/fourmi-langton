@@ -67,7 +67,7 @@ class Design:
     def candidates(self, v, j, port, tgt, maxn=40):
         key = (port[1], port[2], port[3], tgt[2], tgt[3], tgt[4])
         if key not in self.routes:
-            sols = route(port[1], port[2], tgt[2], tgt[3], pol=port[3] ^ tgt[4], kr=40, maxsol=300)
+            sols = route(port[1], port[2], tgt[2], tgt[3], pol=port[3] ^ tgt[4], kr=40, maxsol=300, early=int(os.environ.get('EARLY', 200)))
             self.routes[key] = sols[:maxn] if len(sols) <= maxn else [sols[int(i * (len(sols) - 1) / (maxn - 1))] for i in range(maxn)]
         return self.routes[key]
     def circuit(self, N, choice=None):
@@ -126,12 +126,13 @@ def from_json(d):
     return Design(d['sub'], {k: tuple(v) for k, v in d['off'].items()}, tuple(d['V']), d['Dt'], {k: [tuple(x) for x in v] for k, v in d['fan'].items()},
                   {(k.split('|')[0], int(k.split('|')[1])): c for k, c in d['choice'].items()})
 def nfan(d): return max(0, math.ceil((d - 1) / 2))
-def random_design(sub, rnd, box=400):
+def random_design(sub, rnd, box=None):
+    SC = float(os.environ.get('SCALE', 1)); box = box or int(400 * SC)
     off = {}; c0 = cls(mod_layout(sub[0]).out)
     for k, v in enumerate(sub):   # classes de phase alignées (cls − dt identique pour tous les modules) : routes à déviations paires
         dt = 0 if k == 0 else rnd.randint(-200, 200); dt += (cls(mod_layout(v).out) - c0 - dt) % 8
         off[v] = (0, 0, 0) if k == 0 else (rnd.randint(-box, box), rnd.randint(-box, box), dt)
-    ang = rnd.random() * 2 * math.pi; R = rnd.randint(600, 1400); V = (int(R * math.cos(ang)), int(R * math.sin(ang)))
+    ang = rnd.random() * 2 * math.pi; R = rnd.randint(int(600 * SC), int(1400 * SC)); V = (int(R * math.cos(ang)), int(R * math.sin(ang)))
     Dt = int(8 * (abs(V[0]) + abs(V[1]) + abs(V[0] + V[1])) / 2 * rnd.uniform(1.3, 2.0)) + 3000; Dt += (4 - Dt) % 8   # Δ ≡ 4 (mod 8)
     D0 = Design(sub, off, V, Dt, {}, {})
     fan = {v: [(rnd.choice('+-H'), rnd.randint(0, 40)) for _ in range(nfan(len(D0.lits[v])))] for v in sub}
@@ -153,14 +154,100 @@ def greedy(D, N=int(os.environ.get("NS", 4)), rnd=None):
             if s < best: best, D.choice, C = s, ch, C2
         if best == 0: break
     return best, C
+def mutate(D, rnd):
+    """copie modifiée du dessin : un choix de route, une porte de diffusion, un module, V ou Δ"""
+    off = dict(D.off); fan = {v: list(f) for v, f in D.fan.items()}; ch = dict(D.choice); V, Dt = D.V, D.Dt
+    r = rnd.random(); keys = [(v, j) for v in D.sub for j in range(len(D.lits[v]))]
+    if r < 0.6: k = rnd.choice(keys); ch[k] = rnd.randrange(40)
+    elif r < 0.75:
+        vs = [v for v in D.sub if fan[v]]
+        if vs:
+            v = rnd.choice(vs); j = rnd.randrange(len(fan[v])); s, k = fan[v][j]
+            fan[v][j] = (rnd.choice('+-H'), k) if rnd.random() < 0.3 else (s, max(0, k + rnd.randint(-30, 30)))
+    elif r < 0.88 and len(D.sub) > 1:
+        v = rnd.choice(D.sub[1:]); dx, dy, dt = off[v]; big = rnd.random() < 0.3; a = 150 if big else 25
+        off[v] = (dx + rnd.randint(-a, a), dy + rnd.randint(-a, a), dt + 8 * rnd.randint(-3, 3))
+    elif r < 0.93: V = (V[0] + rnd.randint(-60, 60), V[1] + rnd.randint(-60, 60))
+    else: Dt = Dt + 8 * rnd.randint(-80, 80)
+    D2 = Design(D.sub, off, V, Dt, fan, ch); D2.routes = D.routes; return D2
+def descend(D, secs, rnd, N, log, best=None):
+    s, C = score(D, N) if best is None else best
+    t0 = time.time(); it = 0
+    import re
+    while time.time() - t0 < secs and s > 0:
+        it += 1
+        if rnd.random() < 0.5 and C is not None:   # coup ciblé : une route en conflit, on essaie tous ses choix
+            cf = C.conflicts(); ids = [i for c in cf for i in c[:2] if re.match(r'u\d+:R', i)]
+            if ids:
+                m = re.match(r'u\d+:R(.+?)(\d+)_\d+$', rnd.choice(ids)); key = (m.group(1), int(m.group(2)))
+                bestc = None
+                for c in range(40):
+                    ch = dict(D.choice); ch[key] = c; D3 = Design(D.sub, D.off, D.V, D.Dt, D.fan, ch); D3.routes = D.routes
+                    s3, C3 = score(D3, N)
+                    if bestc is None or s3 < bestc[0] or (s3 == bestc[0] and rnd.random() < 0.3): bestc = (s3, D3, C3)
+                if bestc[0] <= s:
+                    if bestc[0] < s: print(f'   ciblé {it} {time.time()-t0:.0f}s conflits {bestc[0]}', file=log, flush=True)
+                    s, D, C = bestc
+                continue
+        D2 = mutate(D, rnd); s2, C2 = score(D2, N)
+        if s2 <= s:
+            if s2 < s: print(f'   descente {it} {time.time()-t0:.0f}s conflits {s2}', file=log, flush=True)
+            D, s, C = D2, s2, C2
+    return s, C, D
+
+def witnesses(D):
+    """pour chaque bit v : un littéral de v qui est la 1re entrée de sa porte -> (module, ligne oA à l'usage 0, polarité).
+    Son partenaire dévié (oA) n'existe que si le littéral est vrai et ne resert plus : on le lit dans l'état FINAL simulé."""
+    W = {}
+    for m in D.sub:
+        L = D.L[m]; first = {}
+        for node, side, tg, oA, oB, pn in L.gates:
+            if node not in first or tg < first[node][0]: first[node] = (tg, pn, oA)
+        for node, (tg, pn, oA) in first.items():
+            if '@' in pn:
+                lit = pn.split('@')[0]; v = lit.lstrip('~')
+                if v not in W: W[v] = (m, oA, 1 if lit[0] == '~' else 0)
+    return W
+def readout(D, N, dfin):
+    """valeurs lues dans l'état final : état après u pas (u = 0..N−1 : témoins de l'usage u ; u = N : sorties de l'usage N−1)"""
+    W = witnesses(D); S = set(dfin); traj = []
+    for u in range(N):
+        st = {}
+        for v in D.sub:
+            m, oA, pol = W[v]; p = int(xf(oA, D.off[m], u, D.V, D.Dt) in S); st[v] = p ^ pol
+        traj.append(st)
+    traj.append({v: int(xf(D.L[v].out, D.off[v], N - 1, D.V, D.Dt) in S) for v in D.sub})
+    return traj
+def verif(D, N, engine2=False, out=None):
+    from vraie_fourmi import trajectoire
+    t0 = time.time(); C = D.circuit(N); cf = C.conflicts(); lb = D.logic_ok(C)
+    S = [C.situation(b) for b in range(len(C.cases))]; R = run_c(S, C.T); res = []
+    for b, (s, (a, c)) in enumerate(zip(S, R)):
+        d = decode(a, c, C.T); ok = d is not None and sorted(d) == C.expected(b); same = None
+        if engine2: pa, pc = run_py(s, C.T); same = sorted(pa) == sorted(a) and sorted(pc) == sorted(c)
+        e = {v: 0 for v in VARS}; e.update(C.cases[b]); vt = trajectoire(e, N)
+        tr = readout(D, N, d or []); ptp = sum(1 for u in range(N + 1) if all(tr[u][v] == vt[u][v] for v in D.sub))
+        res.append(dict(cas=b, modele=ok, deux_moteurs=same, pas_justes=ptp))
+    r = dict(N=N, vaisseaux=len(C.ships), portes=len(C.gates), T=C.T, conflits_modele=len(cf), logique_fausse=lb,
+             etats_modele=sum(x['modele'] for x in res), cas=len(res), deux_moteurs=sum(1 for x in res if x['deux_moteurs']) if engine2 else None,
+             trajectoires_justes=sum(1 for x in res if x['pas_justes'] == N + 1), secondes=round(time.time() - t0))
+    return r
+
 if __name__ == '__main__':
     sub = SUBS[sys.argv[1]]
+    if len(sys.argv) > 4 and sys.argv[2] != 'verif':   # reprise : descente depuis un dessin enregistré
+        D = from_json(json.load(open(sys.argv[4]))['design']); rnd = random.Random(int(sys.argv[2])); log = open(f'data/chainN_{sys.argv[1]}_{sys.argv[2]}.log', 'a')
+        s, C, D = descend(D, float(sys.argv[3]), rnd, int(os.environ.get('NS', 4)), log)
+        json.dump(dict(conflits=s, design=D.to_json()), open(f'data/chainN_{sys.argv[1]}_{sys.argv[2]}.json', 'w'))
+        if s == 0:
+            r = C.check(); ok = sum(x[1] for x in r); print(f'   N={C.N} simulation : {ok}/{len(r)} = modèle ; logique fausse {D.logic_ok(C)}', file=log, flush=True)
+            if ok == len(r): json.dump(dict(conflits=s, design=D.to_json()), open(f'data/chainN_{sys.argv[1]}_{sys.argv[2]}_OK.json', 'w'))
+        sys.exit()
     if sys.argv[2] == 'verif':
         d = json.load(open(sys.argv[3])); D = from_json(d['design']); N = int(sys.argv[4]); e2 = len(sys.argv) > 5
-        t0 = time.time(); C = D.circuit(N); cf = C.conflicts()
-        print(f'N={N} : {len(C.ships)} vaisseaux dans le germe, {len(C.gates)} portes, T={C.T}, conflits du modèle {len(cf)}, logique fausse {D.logic_ok(C)}', flush=True)
-        r = C.check(engine2=e2)
-        print(f'   simulation : {sum(x[1] for x in r)}/{len(r)} états finaux = modèle ; 2 moteurs : {sum(1 for x in r if x[2])}/{len(r) if e2 else 0} — {time.time()-t0:.0f} s', flush=True)
+        r = verif(D, N, e2); print(json.dumps(r, ensure_ascii=False), flush=True)
+        if len(sys.argv) > 6:
+            P = sys.argv[6]; old = json.load(open(P)) if os.path.exists(P) else []; old.append(dict(fichier=sys.argv[3], **r)); json.dump(old, open(P, 'w'), ensure_ascii=False, indent=1)
         sys.exit()
     seed, secs = int(sys.argv[2]), float(sys.argv[3]); rnd = random.Random(seed); t0 = time.time(); best = None
     log = open(f'data/chainN_{sys.argv[1]}_{seed}.log', 'a')
@@ -168,6 +255,7 @@ if __name__ == '__main__':
         D = random_design(sub, rnd); s, C = greedy(D)
         print(f'{time.time()-t0:.0f}s essai : conflits {s} (V {D.V}, Δ {D.Dt})', file=log, flush=True)
         if C is None: continue
+        if s > 0: s, C, D = descend(D, float(os.environ.get('DESC', 400)), rnd, int(os.environ.get('NS', 4)), log, (s, C))
         if best is None or s < best[0]:
             best = (s, D); json.dump(dict(conflits=s, design=D.to_json()), open(f'data/chainN_{sys.argv[1]}_{seed}.json', 'w'))
         if s == 0:
