@@ -174,3 +174,10 @@ Le demi-additionneur R-337 ne touche que des vaisseaux PAIRS (R-509) : seul, il 
 R-513) ; il faut une 2e porte qui décale le vaisseau impair (par ex. R-337 tourné de 60°, qui agit sur des impairs).
 Statut : DÉMONTRÉ pour le modèle « vaisseaux virtuels + coin » de tri.py (calcul affine exact en fractions) ; vérifié numériquement.
 Commandes : python3 s2_horloge/t2_absorbe.py 1500 ; python3 s2_horloge/t2_compense.py
+
+## R-515 Deux horloges DIFFÉRENTES de même période, même centre (« bi-horloge ») : aucune interaction qui referme — OBSERVÉ (négatif) (bihorloge.py)
+Toutes les paires d'horloges distinctes de tri_cycles_rB5.json de même P (400 ≤ P ≤ 1 000, centres compatibles), B tournée de 60° (étoile,
+k = 1) ou non (k = 0), tous les décalages s ∈ [0, P) : k = 1 : 128 paires, 76 728 machines, 31 308 CYCLE, 0 avec interaction ;
+k = 0 : 211 paires, 114 534 machines, 2 616 CYCLE, 0 avec interaction. Lecture (R-514) : une porte d'interaction fait CHANGER de triangle
+les deux vaisseaux ; si les deux triangles ne sont pas images l'un de l'autre (hexagramme R-512 : A et rot60(A)), le vaisseau échangé
+n'est pas « le bon » pour l'autre horloge et tout casse. Commandes : python3 s2_horloge/bihorloge.py 400 1000 1 ; … 400 1000 0
