@@ -39,13 +39,15 @@ if __name__ == '__main__':
         s = E1.situation([e0]); TA = json.load(open(os.path.join(T4, 'ecran_un_pas.json')))['T']
         shots = [(0, e0, 'avant (t = 0)'), (TA, E2.rl(e0), f'après 1 pas (t = {TA})')]
     else:
-        L = json.load(open(os.path.join(T4, 'deux_pas_long.json'))); D = L['D']; E2.LOOP = L['boucles']
-        s = build_sit([e0, E2.rl(e0)], [0, D], PL, clocks=E2.tokens())
-        e1 = E2.rl(e0); shots = [(0, e0, 'avant (t = 0)'), (L['lectures']['tA'], e1, f"pas 1 (t = {L['lectures']['tA']})"),
-                                 (L['lectures']['tA2'], e1, f"pas 1, plus tard (t = {L['lectures']['tA2']})"), (L['lectures']['tC'], E2.rl(e1), f"pas 2 (t = {L['lectures']['tC']})")]
+        os.environ['LECT'] = '1'; import deux_pas_long as DL
+        s = DL.sit_of(e0); e1 = E2.rl(e0)
+        shots = [(0, e0, 'avant (t = 0)'), (DL.TA, e1, f'pas 1 (t = {DL.TA})'), (DL.TA2, e1, f'pas 1, avant effacement\n(t = {DL.TA2}, 2 lectures faites)'),
+                 (DL.TB, e1, f'effacé (t = {DL.TB})'), (DL.TC, E2.rl(e1), f'pas 2 (t = {DL.TC})')]
     n = len(shots); fig, axs = plt.subplots(2, n, figsize=(3.2 * n, 6.2))
+    a_, c_ = S3L.parse(s); A = [list(x) for x in a_]; G = {tuple(q): 1 for q in c_}; tcur = 0
     for k, (t, e, ttl) in enumerate(shots):
-        a, c = run_py(s, t) if t else S3L.parse(s)
-        draw_torus(axs[0][k], e, 'vraie fourmi RL (tore 2×2)\n' + ttl); draw_screen(axs[1][k], a, c, PL, 'écran simulé (R2L2)\n' + ttl)
+        for _ in range(t - tcur): TR.step(A, G)
+        tcur = t; a, c = [tuple(x) for x in A], sorted(G)
+        draw_torus(axs[0][k], e, 'vraie fourmi RL (tore 2×2)\n' + ttl.split('\n')[0]); draw_screen(axs[1][k], a, c, PL, 'écran simulé (R2L2)\n' + ttl)
     fig.suptitle(f'Écran de la fourmi — état initial n° {i} (cases noires = 1, rond = fourmi, chiffres = cap h1h0)', fontsize=10)
     fn = os.path.join(T4, f'ecran_{mode}_pas_{i}.png'); fig.savefig(fn, dpi=110, bbox_inches='tight'); print(fn)
