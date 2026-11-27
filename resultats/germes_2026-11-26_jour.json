@@ -1,0 +1,274 @@
+[
+ {
+  "dossier": "Règles/Hexa R2L2",
+  "nom": "R-349 — Additionneur complet réutilisable : a + b + retenue avec 6 vaisseaux, 20 additions au même endroit",
+  "regle": "H:R2L2",
+  "fourmis": "56,-28,2;-16,16,4;62,-24,4;0,0,4;30,-56,0",
+  "points": "57,-28;-15,16;62,-23;63,-23;1,0;29,-55",
+  "note": "8/8 justes (2 moteurs) ; 2 usages : 64/64 suites (superposition exacte) ; 20 usages au hasard, 3 graines : 20/20, superposition exacte, 2 moteurs identiques. Certificat : distance min entre usages 90."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2",
+  "nom": "R-344 — Demi-additionneur « HA* » : un seul vaisseau constant égalise les deux horaires de la somme",
+  "regle": "H:R2L2",
+  "fourmis": "31,1,3;-16,16,4;62,-24,4;0,0,4",
+  "points": "31,2;-15,16;62,-23;63,-23;1,0",
+  "note": "4/4 justes, 2 moteurs ; 52 réussites (6 placements distincts) sur ≈ 1,1 million d'essais ; tous remontent un axe d'entrée à contresens ⇒ 2 usages : 8/16."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2",
+  "nom": "R-345 — Additionneur 2 bits par enchaînement : la retenue passe d'un étage à l'autre (un usage)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;30,-56,0;28,105,3;66,27,3;28,89,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;1,0;29,-55;29,104;67,27;68,26;29,88;2,60",
+  "note": "16/16 additions justes (somme lue sur 2, 3 et 3 positions), 2 moteurs identiques. Réutilisation impossible pour cette version tête-bêche (démontré : la retenue remonte la route de sortie de S)."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2",
+  "nom": "R-346 — Le calcul écrit dans la mémoire : a ET b → bascule → lecture → remise à 0, 20 fois",
+  "regle": "H:R2L2",
+  "fourmis": "23,189,3;25,188,0;-16,16,4;62,-24,4;0,0,4;30,-56,0;-250,250,4;296,-24,4;-234,234,4;-451,451,4;497,-24,4;-435,435,4;30,-491,0;-685,685,4;731,-24,4;-669,669,4;30,-725,0;-919,919,4;965,-24,4;30,-959,0;-1120,1120,4;1166,-24,4;-1104,1104,4;-1321,1321,4;1367,-24,4;-1522,1522,4;1568,-24,4;30,-1562,0;-1723,1723,4;1769,-24,4;30,-1763,0;-1924,1924,4;1970,-24,4;-1908,1908,4;-2125,2125,4;2171,-24,4;30,-2165,0;-2326,2326,4;2372,-24,4;-2310,2310,4;30,-2366,0;-2560,2560,4;2606,-24,4;30,-2600,0;-2761,2761,4;2807,-24,4;-2745,2745,4;30,-2801,0;-2995,2995,4;3041,-24,4;30,-3035,0;-3196,3196,4;3242,-24,4;-3397,3397,4;3443,-24,4;30,-3437,0;-3598,3598,4;3644,-24,4;-3582,3582,4;30,-3638,0;-3832,3832,4;3878,-24,4;-3816,3816,4;-4033,4033,4;4079,-24,4;357,186,2;792,186,2;1026,186,2;2667,186,2;3102,186,2;3939,186,2",
+  "points": "28,186;25,189;23,188;24,189;24,188;-15,16;62,-23;63,-23;1,0;29,-55;-249,250;296,-23;297,-23;-233,234;-450,451;497,-23;498,-23;-434,435;29,-490;-684,685;731,-23;732,-23;-668,669;29,-724;-918,919;965,-23;966,-23;29,-958;-1119,1120;1166,-23;1167,-23;-1103,1104;-1320,1321;1367,-23;1368,-23;-1521,1522;1568,-23;1569,-23;29,-1561;-1722,1723;1769,-23;1770,-23;29,-1762;-1923,1924;1970,-23;1971,-23;-1907,1908;-2124,2125;2171,-23;2172,-23;29,-2164;-2325,2326;2372,-23;2373,-23;-2309,2310;29,-2365;-2559,2560;2606,-23;2607,-23;29,-2599;-2760,2761;2807,-23;2808,-23;-2744,2745;29,-2800;-2994,2995;3041,-23;3042,-23;29,-3034;-3195,3196;3242,-23;3243,-23;-3396,3397;3443,-23;3444,-23;29,-3436;-3597,3598;3644,-23;3645,-23;-3581,3582;29,-3637;-3831,3832;3878,-23;3879,-23;-3815,3816;-4032,4033;4079,-23;4080,-23;357,185;792,185;1026,185;2667,185;3102,185;3939,185",
+  "note": "20/20 lectures justes pour 3 suites au hasard, 20 × (1,1) : 20/20, alterné : 20/20 ; propre ; 2 moteurs identiques (t = 36 936)."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2",
+  "nom": "R-349b — Horloge sans miroir : 6 vaisseaux qui partent à 86 cases et reviennent exactement (période 7 794)",
+  "regle": "H:R2L2",
+  "fourmis": "1,6,0;-7,1,2;6,-7,4;7,1,1;-8,7,3;1,-8,5",
+  "points": "0,6;0,7;1,7;-6,0;-7,0;-8,1;6,-6;7,-7;7,-8;7,1;8,-1;8,0;-8,7;-7,8;-8,8;1,-8;-1,-7;0,-8",
+  "note": "CYCLE exact (fourmi_r, preuve par réversibilité) et retour exact vérifié par hx.py ; famille P = 2 322 + 2 736 n (n = 0…4), rayon 22 + 32 n."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (0, 0, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4",
+  "points": "-15,16;62,-23;63,-23",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (0, 0, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "56,-28,2;-16,16,4;62,-24,4",
+  "points": "57,-28;-15,16;62,-23;63,-23",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (0, 1, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4",
+  "points": "-15,16;62,-23;63,-23;1,0",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (0, 1, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "56,-28,2;-16,16,4;62,-24,4;0,0,4",
+  "points": "57,-28;-15,16;62,-23;63,-23;1,0",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (1, 0, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;30,-56,0",
+  "points": "-15,16;62,-23;63,-23;29,-55",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (1, 0, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "56,-28,2;-16,16,4;62,-24,4;30,-56,0",
+  "points": "57,-28;-15,16;62,-23;63,-23;29,-55",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (1, 1, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;30,-56,0",
+  "points": "-15,16;62,-23;63,-23;1,0;29,-55",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur complet réutilisable",
+  "nom": "R-349 (a,b,c) = (1, 1, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "56,-28,2;-16,16,4;62,-24,4;0,0,4;30,-56,0",
+  "points": "57,-28;-15,16;62,-23;63,-23;1,0;29,-55",
+  "note": "somme et retenue : voir fiche R-349"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 0, 0, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;28,105,3;66,27,3",
+  "points": "-15,16;62,-23;63,-23;29,104;67,27;68,26",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 0, 0, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;28,105,3;66,27,3;28,89,3",
+  "points": "-15,16;62,-23;63,-23;29,104;67,27;68,26;29,88",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 0, 1, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;28,105,3;66,27,3",
+  "points": "-15,16;62,-23;63,-23;1,0;29,104;67,27;68,26",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 0, 1, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;28,105,3;66,27,3;28,89,3",
+  "points": "-15,16;62,-23;63,-23;1,0;29,104;67,27;68,26;29,88",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 1, 0, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;28,105,3;66,27,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;29,104;67,27;68,26;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 1, 0, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;28,105,3;66,27,3;28,89,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;29,104;67,27;68,26;29,88;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 1, 1, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;28,105,3;66,27,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;1,0;29,104;67,27;68,26;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (0, 1, 1, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;28,105,3;66,27,3;28,89,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;1,0;29,104;67,27;68,26;29,88;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 0, 0, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;30,-56,0;28,105,3;66,27,3",
+  "points": "-15,16;62,-23;63,-23;29,-55;29,104;67,27;68,26",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 0, 0, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;30,-56,0;28,105,3;66,27,3;28,89,3",
+  "points": "-15,16;62,-23;63,-23;29,-55;29,104;67,27;68,26;29,88",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 0, 1, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;30,-56,0;28,105,3;66,27,3",
+  "points": "-15,16;62,-23;63,-23;1,0;29,-55;29,104;67,27;68,26",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 0, 1, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;30,-56,0;28,105,3;66,27,3;28,89,3",
+  "points": "-15,16;62,-23;63,-23;1,0;29,-55;29,104;67,27;68,26;29,88",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 1, 0, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;30,-56,0;28,105,3;66,27,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;29,-55;29,104;67,27;68,26;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 1, 0, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;30,-56,0;28,105,3;66,27,3;28,89,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;29,-55;29,104;67,27;68,26;29,88;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 1, 1, 0)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;30,-56,0;28,105,3;66,27,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;1,0;29,-55;29,104;67,27;68,26;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Additionneur 2 bits",
+  "nom": "R-345 (a0,a1,b0,b1) = (1, 1, 1, 1)",
+  "regle": "H:R2L2",
+  "fourmis": "-16,16,4;62,-24,4;0,0,4;30,-56,0;28,105,3;66,27,3;28,89,3;2,59,5",
+  "points": "-15,16;62,-23;63,-23;1,0;29,-55;29,104;67,27;68,26;29,88;2,60",
+  "note": "un usage"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Horloges 6 fourmis",
+  "nom": "R-349b horloge n = 0 (P = 2322)",
+  "regle": "H:R2L2",
+  "fourmis": "4,-4,4;0,4,0;-4,0,2;-3,4,3;-1,-3,5;4,-1,1",
+  "points": "4,-4;4,-3;0,4;-1,4;-4,0;-3,-1;-2,3;-1,-2;3,-1",
+  "note": "période 2322, rayon 22"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Horloges 6 fourmis",
+  "nom": "R-349b horloge n = 1 (P = 5058)",
+  "regle": "H:R2L2",
+  "fourmis": "-2,11,1;-9,-2,3;11,-9,5;-3,-9,0;12,-3,2;-9,12,4",
+  "points": "-3,11;-2,10;-2,11;-1,10;-8,-3;-8,-2;-9,-2;-9,-1;11,-8;10,-8;11,-9;10,-9;-4,-9;-4,-8;-3,-8;13,-4;12,-4;11,-3;-9,13;-8,12;-8,11",
+  "note": "période 5058, rayon 54"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Horloges 6 fourmis",
+  "nom": "R-349b horloge n = 2 (P = 7794)",
+  "regle": "H:R2L2",
+  "fourmis": "1,6,0;-7,1,2;6,-7,4;7,1,1;-8,7,3;1,-8,5",
+  "points": "0,6;0,7;1,7;-6,0;-7,0;-8,1;6,-6;7,-7;7,-8;7,1;8,-1;8,0;-8,7;-7,8;-8,8;1,-8;-1,-7;0,-8",
+  "note": "période 7794, rayon 86"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Horloges 6 fourmis",
+  "nom": "R-349b horloge n = 3 (P = 10530)",
+  "regle": "H:R2L2",
+  "fourmis": "10,-4,5;-6,10,1;-4,-6,3;-6,-3,4;9,-6,0;-3,9,2",
+  "points": "9,-3;9,-2;-6,9;-7,9;-3,-6;-2,-7;-7,-2;9,-7;-2,9",
+  "note": "période 10530, rayon 118"
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/Horloges 6 fourmis",
+  "nom": "R-349b horloge n = 4 (P = 13266)",
+  "regle": "H:R2L2",
+  "fourmis": "4,7,3;-11,4,5;7,-11,1;6,4,4;-10,6,0;4,-10,2",
+  "points": "5,7;6,6;-12,5;-12,6;7,-12;6,-12;5,5;6,4;6,5;7,4;-10,5;-10,6;-11,6;-11,7;5,-10;4,-10;5,-11;4,-11",
+  "note": "période 13266, rayon 150"
+ }
+]

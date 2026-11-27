@@ -356,3 +356,87 @@ l'état de départ (contrôlé ; ce sont les mêmes fourmis, dans le même ordre
 la copie décalée de j·P. Distances exactes (toute la droite des temps) : vaisseaux de 2 cycles ≥ 145 + ≈ 193 (j − 1) pour j = 1 … 10 ;
 hors de son cycle, un vaisseau reste à ≥ 42 du centre (l'objet tient dans un rayon 3). ⇒ par récurrence, chaque cycle se déroule à
 l'identique : la bascule fonctionne pour toute suite 1, 0, 1, 0, … (au-delà de j = 10 : croissance linéaire, routes rectilignes divergentes).
+
+## Session du 26/11 (jour) — additionneur complet, calcul → mémoire, boucle (R-344 à R-350)
+
+## R-344 Égaliser les deux horaires de S avec UN vaisseau constant : « HA* » — VÉRIFIÉ 4/4 (2 moteurs, temps fini) ; NON réutilisable (OBSERVÉ)
+Rappel : dans R-337, S sort sur la voie 0 à l'abscisse 1000 (cas (0,1), S-V) ou 968 (cas (1,0), S-U = K3 « libre ») : 16 périodes d'écart.
+Le retard géométrique demandé (piste 1) bute sur un fait : dans les cas (0,0), (0,1), (1,1), K2 décale K3 sur la voie 1, à 1 abscisse de
+la place de S-U ; tout virage qui ramène S-V à cet endroit touche aussi K3' (fa_retard.py etape1 : 5 068 premiers virages propres, mais
+la 2e étape revient toujours à cette case occupée). Égaliseur tête-bêche (direction 3, un seul constant) : 0 / 220 320 (gêné par K3').
+Recherche d'UN constant de direction quelconque (fa_retard.py un : 225 200 + 896 130 placements, directions 1-5, voies ±5, 8 phases,
+2 ordres) : 52 réussites, 6 placements distincts, où S sort sur UNE seule position (voie 0, abscisse 968) dans (1,0) ET (0,1) et C sur
+une seule position. Exemple (ha_etoile.py, variante 0) : K5 = « 31,1,3 » + case (31,2), joué en 1er ; C = (1, −29, 973, 0) (direction 1).
+Mécanisme : dans le cas (0,1), le choc K5 + S-V renvoie de quoi repousser K3' sur la voie 0 à la place de S-U.
+4 cas justes, 2 moteurs identiques. MAIS les 6 placements remontent tous un axe d'entrée à contresens (26 sur l'axe de A, 6 sur celui de K2) :
+les déchets de l'usage j qui partent le long de cet axe percutent le K5 de l'usage j + 1 ⇒ 2 usages : 8/16 (variante 0), 12/16 (variante 1),
+pas mieux avec k = 300, 400. Statut : égaliseur VÉRIFIÉ (1 usage) ; « aucun égaliseur à un constant n'est réutilisable » OBSERVÉ (sur ces 1,1 M).
+
+## R-345 Additionneur complet « tête-bêche » 8/8 et additionneur 2 bits 16/16 (UN usage) — VÉRIFIÉ (2 moteurs) ; non réutilisable DÉMONTRÉ
+Idée (argument de translation) : un vaisseau c de direction 3 qui remonte la voie de S rencontre S-V au point P1 ou S-U au point P2,
+8 périodes plus tard et 8 cases plus près de la porte ; les deux rencontres sont la même à une translation près ⇒ même issue pour c,
+sans égaliser les horaires. Recherche (fa_complet.py, 340 080 placements de c) : 9 428 additionneurs complets propres 8/8, sommes et
+retenues lisibles sur 3 positions chacune (jamais moins). Exemple retenu (resumes/additionneur_tete_beche.json) : c = « 145,−145,1 » +
+case (144,−145), joué en 1er : 8/8, 2 moteurs identiques. Enchaînement (add2_tete.py, compose.py) : la sortie C du demi-additionneur R-337
+(1 vaisseau, direction 2) devient la retenue c d'un additionneur complet tourné de −60° et posé exactement sur sa route (calcul exact) :
+ADDITIONNEUR 2 BITS 16/16, 2 moteurs identiques (resumes/additionneur2_tete_beche.json). Réutilisation : impossible — la route d'entrée de c
+est la route de sortie de S parcourue à contresens, donc le c de l'usage j + 1 croise de face les sorties S de l'usage j (constaté : 24/64
+suites de 2 usages). DÉMONTRÉ pour toute construction tête-bêche au même endroit (argument : même axe, sens opposés, voies ≤ 6).
+Ce qui manque pour un additionneur complet réutilisable : une « fusion » réutilisable de deux signaux exclusifs (même route, même instant).
+
+## R-346 Le calcul écrit dans la mémoire : a∧b → bascule → lecture → remise à 0, 20/20 au même endroit — VÉRIFIÉ (2 moteurs, temps fini)
+memoire_cherche.py : les 19 313 mises à 1 distinctes des bascules R → R' → R (bascule_hexa.py, 438 496 cycles avec doublons) sont tournées et
+posées sur la route de la sortie C = a∧b du demi-additionneur R-337 (réutilisable, R-338) ; 11 147 sont écrites correctement dans les 4 cas
+(R' si a∧b, R sinon ; les déchets des autres cas ne les abîment pas). memoire_demo.py : on ajoute la remise à 0 (vaisseau R' → R, envoyé quand
+le pixel lu vaut 1, car aucune bascule n'est idempotente, R-340/R-342) et on enchaîne 20 usages ; les instants des usages sont choisis
+(≥ 200 périodes d'écart) pour que l'objet soit à la bonne phase. 8 bascules sur les 8 essayées (après tri des remises à 0 qui arrivaient de
+face sur la sortie C) : 20/20 lectures justes pour 3 suites au hasard (graines 0, 1, 2), 20 × (1,1) : 20/20, alterné : 20/20 ; propre ;
+2 moteurs identiques. Retenue (resumes/memoire_calcul.json) : R = osc. 9 (p 12), mise à 1 r 0 voie −4 (traverse), remise à 0 r 2 voie 2
+(traverse), tournées de 2 crans. Lecture = état de l'objet dans la grille (écran). Tout nombre d'usages : AFFIRMÉ (pas de certificat :
+écarts d'usages variables).
+Lecture par un vaisseau (lecture_bascule.py) : pour M et R' de R-341, toute sonde qui laisse l'objet intact ressort EXACTEMENT comme si
+l'objet n'existait pas (2 112 et 1 248 tirs) ⇒ pas de lecture non destructive à 1 vaisseau pour cette bascule (OBSERVÉ).
+
+## R-347 Boucle : ce que les théorèmes interdisent — DÉMONTRÉ (voir BOUCLE.md)
+T0 pas de canon (chaque vaisseau est une fourmi, nombre conservé) ; T1 borné ⇒ périodique ⇒ borné aussi dans le passé (réversibilité) ;
+T2 = McGinnis-Webb Thm 3 / R-340 (pas de capture) ; T3 (généralise R-331) : un relais qui reçoit à chaque passage un vaisseau de direction r,
+en émet un de direction r' et redevient lui-même après k passages vérifie classe(r') = classe(r) et k·(Q(r) − Q(r')) ≡ 0 (mod 3) ⇒ déviations
+de 60°, 180°, 300° impossibles ; ±120° seulement si 3 | k ; k = 1 (relais qui reste lui-même) et k = 2 impossibles. T4 : un circuit fermé de
+relais a toutes ses directions dans une même classe, des virages de ±120°, chaque relais à 3k états ; le plus petit est un triangle.
+Remarque : deux vaisseaux libres qui se sont croisés ne se rencontrent plus jamais (même vitesse, droites) : une orbite bornée à longs vols
+libres demande au moins 3 vaisseaux qui se relancent.
+
+## R-348 Relais à 3 états : 0 trouvé — OBSERVÉ (relais.py)
+2 fourmis (95 oscillateurs, toutes directions, voies ±8, phases, 2 ordres) : 198 884 conversions propres à 1 vaisseau sortant, dont 4 398
+déviées de ±120° ; 1 953 R1 distincts ; 262 chaînes R0 → R1 → R2 avec la même route d'entrée et de sortie ; 0 retour à R0.
+3 fourmis (12 oscillateurs) : 38 762 conversions, 12 déviées, 0 chaîne. Contrôle de T3 : 0 objet dévié redevenu lui-même (comme prévu).
+Les phases d'arrivée ne sont même pas imposées (condition plus faible que dans un vrai circuit) : le résultat négatif n'en est que plus net.
+
+## R-349 ADDITIONNEUR COMPLET RÉUTILISABLE (a + b + retenue) — VÉRIFIÉ (2 moteurs, 20 usages) ; tout nombre d'usages DÉMONTRÉ (certificat)
+fa_reuse.py : demi-additionneur R-337 + retenue c = UN vaisseau de direction quelconque dont la route n'est l'axe d'aucune entrée à
+contresens, et dont aucune sortie n'est sur un axe d'entrée à contresens (412 000 placements : directions 1, 5 → 0 ; 0, 2, 4 → 8,
+toutes de direction 4, 2 géométries). Retenu (fa_reutilisable.py, resumes/additionneur_complet_reutilisable.json) : c = « 56,−28,2 » +
+case (57,−28), joué en 1er (il croise la sortie de la porte vers t = 224). Somme lue sur (0,0,1000,0), (2,−31,915,0), (4,28,914,2) ;
+retenue sur (0,1,999,0), (0,1,999,7), (2,−32,920,1) (au temps 4000 ; « un vaisseau sur l'une des positions »).
+8/8 justes, 2 moteurs ; 2 usages (k = 200 périodes) : 64/64 suites en superposition exacte ; 20 usages au hasard dans UNE simulation
+(graines 0, 1, 2) : 20/20, superposition exacte, 2 moteurs identiques. Certificat (circuit.certificat, même méthode que R-338) : distance
+minimale EXACTE entre fourmis de deux usages, sur toute la droite des temps, pour les 64 couples d'entrées : 90 + 100 (j − 1) pour
+j = 1 … 12 ; aucune paire (sortie, entrée) sur le même axe en sens opposés ⇒ N usages = superposition exacte pour tout N et toute suite.
+Remarque : la piste 1 (égaliser S) n'était pas nécessaire ; la retenue c agit sur S-V, S-U ou les vaisseaux décalés selon le cas.
+
+## R-349b HORLOGES SANS MIROIR à 6 fourmis — VÉRIFIÉ (CYCLE exact = périodique pour toujours ; 2 moteurs) ; famille infinie OUVERT
+horloge.py (3 vaisseaux, symétries 2, 3, 6, rayon 10, 46 056 essais) : 0 cycle. horloge2.py (2 générateurs : 4 vaisseaux symétrie 2 ou
+6 vaisseaux symétrie 3, 3 × 200 000 tirages, rayons 8, 12, 16) : 72 cycles à 4 vaisseaux (période ≤ 36), 1 362 à 6 vaisseaux (périodes
+jusqu'à 13 266). Famille : P = 2 322 + 2 736 n, boîte 35 + 48 n, rayon 22 + 32 n, pour n = 0, 1, 2, 3, 4 (resumes/horloges_6_fourmis.json) ;
+retour exact vérifié par fourmi_r (CYCLE) et hx.py. Vols libres jusqu'à 426 pas. C'est une « boucle » au sens de la consigne 3 : des
+signaux font le tour et reviennent, sans miroir et sans relais immobile (compatible avec T3 : les objets qui relancent un vaisseau
+sont eux-mêmes des vaisseaux en mouvement). Déjà connu ? McGinnis-Webb 2019 : orbites à 2 particules (synchrone) ; rien trouvé sur des
+orbites de 6 particules à longs vols.
+
+## R-350 Enchaînement réutilisable de R-349 derrière R-337 : ÉCHEC (OBSERVÉ, cause identifiée)
+add2_reutilisable.py, compose.py (attach : rotation + translation + avance exactes pour que la pièce c de l'étage 1 suive exactement c0 ;
+slide : glissement de l'étage 1 le long de la route de c) : 11/16 pour tout glissement D = 20 … 400 (6/16 sans glissement). Cause
+(trace des distances) : dans R-349, le constant K2 voyage parallèlement à c, 4 voies à côté ; tourné et posé sur c0, il traverse la porte
+de l'étage 0 au moment où c0 y naît (choc B/K2 à t = 233). Le glissement ne change pas sa trajectoire (pièce parallèle à c).
+Virage de c0 par UN constant pour l'éloigner (virage_c.py, 172 016 placements) : 0 virage nouveau propre et réutilisable.
+L'additionneur 2 bits réutilisable reste OUVERT ; celui à UN usage est R-345 (16/16).

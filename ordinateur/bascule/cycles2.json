@@ -1,0 +1,10247 @@
+[
+{
+"situation": "RL|0,0,H;1,1,D|1,1",
+"periode": 4,
+"boite": "2x2"
+},
+{
+"situation": "RL|0,0,H;0,2,D|0,2",
+"periode": 8,
+"boite": "3x3"
+},
+{
+"situation": "RL|0,0,H;1,1,G|0,1",
+"periode": 8,
+"boite": "3x3"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-1,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-1,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|0,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-3,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-3,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-3,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-3,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-3,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-3,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-2,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-2,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-2,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-2,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-1,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-1,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-1,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|0,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|0,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|0,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|0,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|1,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|1,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|1,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|1,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|2,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|2,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|2,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|2,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|2,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|2,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|3,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|3,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|3,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|3,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|3,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|3,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|0,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-1,0",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-1,1",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;0,1,B|0,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;0,1,B|0,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;0,1,B|1,0",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;0,1,B|1,1",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-3,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-3,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-3,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-3,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-3,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-2,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-2,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-2,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-2,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-2,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-2,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-1,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-1,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-1,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-1,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-1,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-1,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|-1,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|0,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|0,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|0,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|1,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|1,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|1,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|2,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|2,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|2,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|2,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|2,2",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|3,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|3,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|3,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|3,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|3,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-3,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-3,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-3,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-3,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-3,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-3,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-2,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|-1,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|0,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|1,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|2,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,H;1,2,B|3,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-3,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-3,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-3,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-3,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-3,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-2,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-2,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-2,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-1,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-1,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-1,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|0,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|0,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|0,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|0,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|1,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|1,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|1,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|1,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|1,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|1,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|1,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|2,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|2,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|2,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|2,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|2,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|2,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|3,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|3,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|3,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|3,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|3,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-1,-1",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-1,1",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|0,-1",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|0,1",
+"periode": 16,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-3,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-3,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-3,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-3,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-2,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-2,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-2,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-1,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-1,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-1,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|0,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|0,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|0,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|0,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|0,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|1,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|1,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|1,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|1,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|1,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|1,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|2,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|2,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|2,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|2,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|2,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|2,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|3,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|3,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|3,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|3,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|3,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|3,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-3,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-3,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-3,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-3,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-3,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|-1,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|0,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|1,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,G|3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-2,H|-3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;-1,-2,H|-2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;-1,-2,H|-1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;-1,-2,H|0,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;-1,-2,H|1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;-1,-2,H|2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;-1,-2,H|3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-3,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-3,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-3,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-3,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-3,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-1,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|0,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|1,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|2,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-1,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,B;1,0,H|-3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;0,1,D|-3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-3,-3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-3,-2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-3,-1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-3,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-3,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-3,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-2,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-2,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-2,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-1,0",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-1,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-1,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|-1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|0,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|0,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|1,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|1,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|1,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|2,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|2,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|2,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|3,1",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|3,2",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|3,3",
+"periode": 16,
+"boite": "4x3"
+},
+{
+"situation": "RL|0,0,G;2,-1,D|-3,-3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,G;2,-1,D|-3,-2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,G;2,-1,D|-3,-1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,G;2,-1,D|-3,0",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,G;2,-1,D|-3,1",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,G;2,-1,D|-3,2",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,G;2,-1,D|-3,3",
+"periode": 16,
+"boite": "3x4"
+},
+{
+"situation": "RL|0,0,H;-2,2,G|-1,1",
+"periode": 20,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;-1,-1,D|-1,0",
+"periode": 20,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-2,0",
+"periode": 20,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|1,0",
+"periode": 20,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-1,1",
+"periode": 20,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,H;0,1,B|0,-1",
+"periode": 20,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,1,B|0,2",
+"periode": 20,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,1,D|0,2",
+"periode": 20,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,1,D|1,2",
+"periode": 20,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,-2,H|-1,-1",
+"periode": 20,
+"boite": "4x4"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-1,-1",
+"periode": 20,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-1,2",
+"periode": 20,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-2,0",
+"periode": 20,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|1,0",
+"periode": 20,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-2,0",
+"periode": 20,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-2,1",
+"periode": 20,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,-1,H|2,0",
+"periode": 20,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-1,0",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|0,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,H|-1,1",
+"periode": 24,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-1,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|0,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|0,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|0,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|0,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|1,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|1,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|1,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,2,G|-1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,D|0,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-1,0",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-3,-3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-3,-2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-3,-1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-3,0",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-3,1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-3,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-3,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-2,-3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-2,-2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-2,-1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-2,0",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-2,1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-2,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-2,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-1,-3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-1,-2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-1,-1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-1,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|0,-3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|0,-2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|1,-3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|1,-2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|1,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|2,-3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|2,-2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|2,-1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|2,0",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|2,1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|2,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|2,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|3,-3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|3,-2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|3,-1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|3,0",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|3,1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|3,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|3,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-2,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-2,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|0,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|0,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|0,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|1,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|2,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|2,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|2,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|0,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|0,0",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-2,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|0,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|0,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|1,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|2,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|2,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|2,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|-1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|0,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,0,B|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,1,G|",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-1,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-1,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-1,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|-1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|0,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|0,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|0,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|0,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|0,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|1,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|1,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,1,B|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-1,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|0,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|0,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|0,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|0,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|1,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|1,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|1,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|-1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|0,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,B|3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,D|-1,-1",
+"periode": 24,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-2,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-2,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|0,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|0,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|1,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|2,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|2,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|2,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-3,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-3,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-3,1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-3,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-3,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-2,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-2,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-2,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-2,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-1,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-1,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-1,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-1,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|0,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|0,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|0,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|0,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|0,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|1,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|1,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|1,-1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|1,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|1,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|2,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|2,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|2,-1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|2,0",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|2,1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|2,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|2,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|3,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|3,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|3,-1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|3,0",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|3,1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|3,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|3,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-2,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-2,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|0,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|0,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|1,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|1,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|1,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|2,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|2,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|2,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-1,1",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|-2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|-2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|-1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|-1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|0,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|0,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|1,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|2,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|2,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,G|3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|-1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|0,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,1,G|3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,-1,H|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,-1,H|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,-1,H|-1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,-1,H|0,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,-1,H|1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,-1,H|2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,-1,H|3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-1,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-1,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|0,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|0,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|0,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|1,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|1,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|1,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-1,0,H|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|-1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|0,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|0,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|1,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|2,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,G|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-2,H|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-2,H|-2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-2,H|-1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-2,H|0,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-2,H|1,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-2,H|2,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-2,H|3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|-3,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|-3,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|-2,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|-2,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|-1,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|-1,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|0,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|0,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|1,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|1,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|2,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|2,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|3,2",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,D|3,3",
+"periode": 24,
+"boite": "3x5"
+},
+{
+"situation": "RL|0,0,B;2,-2,D|1,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;2,-1,H|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;2,-1,H|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;0,-1,D|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,-2,D|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,D|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,D|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,D|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,D|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,D|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,D|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-1,B|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-1,B|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-1,B|-3,-1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-1,B|-3,0",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-1,B|-3,1",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-1,B|-3,2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,-1,B|-3,3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-3,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-3,-2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-3,-1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-3,0",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-3,1",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-3,2",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-3,3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,1,B|-2,-3",
+"periode": 24,
+"boite": "5x3"
+},
+{
+"situation": "RL|0,0,G;1,2,D|-3,-3",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;1,2,D|-3,-2",
+"periode": 24,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-2,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-2,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-2,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-2,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-2,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-2,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-2,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,H|-1,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,1,D|-3,-3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,1,D|-3,-2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,1,D|-3,-1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,1,D|-3,0",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,1,D|-3,1",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,1,D|-3,2",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,1,D|-3,3",
+"periode": 24,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-3,1",
+"periode": 28,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-2,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|0,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|1,0",
+"periode": 28,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-1,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|0,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|0,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-3,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-3,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-3,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-3,2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-3,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-2,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-2,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-2,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-2,2",
+"periode": 28,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-2,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-1,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-1,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-1,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-1,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|0,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|0,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|0,2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|0,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|1,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|1,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|1,-1",
+"periode": 28,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|1,2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|1,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|2,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|2,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|2,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|2,2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|2,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|3,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|3,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|3,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|3,0",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|3,1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|3,2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|3,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-3,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-3,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-3,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-3,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-3,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-3,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-3,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-2,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-2,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-2,-1",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-2,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-1,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-1,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|0,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|0,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|0,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|1,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|1,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|1,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|1,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|1,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|2,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|2,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|2,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|2,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|2,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|2,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|2,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|3,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|3,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|3,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|3,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|3,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|3,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|3,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-1,2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|0,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|1,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,2,H|-1,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,H|0,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-1,0",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|0,2",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|-1,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|1,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-1,-1",
+"periode": 28,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;0,2,D|0,-1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;0,2,G|",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-3,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-3,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-3,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-3,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-3,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-3,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-3,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-2,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-2,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-2,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-2,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-2,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-2,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-2,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-1,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-1,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-1,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-1,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-1,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|0,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|0,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|0,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|1,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|1,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|1,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|2,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|2,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|2,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|2,0",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;0,2,G|2,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|3,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|3,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|3,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|3,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|3,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;1,-1,G|1,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,0,H|-3,-3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,0,H|-3,-2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,0,H|-3,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,0,H|-3,0",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,0,H|-3,1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,0,H|-3,2",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,0,H|-3,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,1,D|1,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;1,1,G|3,0",
+"periode": 28,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;1,1,G|3,1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|1,0",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;2,2,D|1,1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,D|-2,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,D|-1,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-2,0",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|0,-1",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-3,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-3,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-3,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-3,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-3,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-2,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-2,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-2,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-1,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-1,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|0,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|0,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|0,2",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|0,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|1,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|1,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|1,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|1,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|1,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|1,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|1,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|2,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|2,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|2,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|2,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|2,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|2,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|2,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|3,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|3,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|3,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|3,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|3,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|3,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|3,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-1,-3",
+"periode": 28,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|0,1",
+"periode": 28,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-2,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-2,0",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|0,1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|-3,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|-3,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|-2,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|-2,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|-1,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|-1,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|0,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|0,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|1,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|1,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|2,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|2,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|3,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|3,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|3,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|3,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|3,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|3,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,B|3,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|-1,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|-1,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-1,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|0,3",
+"periode": 28,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;-1,1,B|-3,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-3,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-3,-2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-3,-1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-3,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-3,1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-3,2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-3,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-2,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-2,-2",
+"periode": 28,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-2,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-2,1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-2,2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-2,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-1,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|0,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|1,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|1,-2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|1,-1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|1,1",
+"periode": 28,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|1,2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|1,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|2,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|2,-2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|2,-1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|2,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|2,1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|2,2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|2,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|3,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|3,-2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|3,-1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|3,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|3,1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|3,2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|3,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,1,D|-3,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,1,D|-2,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,1,D|-1,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,1,D|0,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,1,D|1,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,1,D|2,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,1,D|3,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;1,1,H|0,1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-3,-1",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-3,0",
+"periode": 28,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,B;-1,-1,G|-1,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;-1,0,B|-3,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,0,B|-2,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,0,B|-1,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,0,B|0,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,0,B|1,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,0,B|2,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;-1,0,B|3,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-3,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-3,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-3,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-3,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-3,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-2,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-2,0",
+"periode": 28,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-2,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-2,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-2,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-1,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-1,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-1,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|0,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|1,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|2,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|3,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-3,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-3,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-3,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-3,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-3,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-3,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-3,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-2,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-2,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-2,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-2,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-2,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-2,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-2,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|-1,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|0,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|1,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|2,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,-1,G|3,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,0,B|-3,3",
+"periode": 28,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,G;0,-1,G|-3,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,-1,G|-3,-2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,-1,G|-3,-1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,-1,G|-3,0",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,-1,G|-3,1",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,-1,G|-3,2",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,-1,G|-3,3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,1,G|-3,-3",
+"periode": 28,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-3,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-3,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-3,-1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-3,0",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-3,1",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-3,2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-3,3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-2,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-2,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-1,-3",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|-1,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;1,1,H|2,-2",
+"periode": 28,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-3,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-3,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-3,-1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-3,0",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-3,1",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-3,2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-3,3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-2,-3",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,G;2,0,B|-2,-2",
+"periode": 28,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-2,-2,G|-1,-1",
+"periode": 32,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-2,1",
+"periode": 32,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-3,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-3,-2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-3,-1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-3,0",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-3,1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-3,2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-3,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-2,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-2,-2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-2,1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-2,2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-2,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-1,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-1,2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-1,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|0,2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|0,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|1,2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|1,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|2,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|2,-2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|2,-1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|2,0",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|2,1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|2,2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|2,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|3,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|3,-2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|3,-1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|3,0",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|3,1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|3,2",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|3,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-2,0",
+"periode": 32,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-2,1",
+"periode": 32,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|1,1",
+"periode": 32,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-1,-1",
+"periode": 32,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|0,-1",
+"periode": 32,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|1,0",
+"periode": 32,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|1,1",
+"periode": 32,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-1,1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|0,1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|0,-1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|0,1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;0,2,G|0,3",
+"periode": 32,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;0,2,G|1,3",
+"periode": 32,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;0,2,G|2,1",
+"periode": 32,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;0,2,G|2,2",
+"periode": 32,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|1,1",
+"periode": 32,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;2,0,D|",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-3,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-3,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-3,-1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-3,0",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-3,1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-3,2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-3,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-2,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-2,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-2,1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-2,2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-2,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-1,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-1,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-1,2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-1,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|0,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|0,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|0,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|1,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|1,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|1,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|2,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|2,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|2,2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|2,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|3,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|3,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|3,-1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|3,0",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|3,1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|3,2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|3,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;3,-1,D|1,0",
+"periode": 32,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-3,0",
+"periode": 32,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-3,1",
+"periode": 32,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-2,2",
+"periode": 32,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-1,-2",
+"periode": 32,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-1,-2",
+"periode": 32,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-1,1",
+"periode": 32,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|0,-2",
+"periode": 32,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,D;0,2,B|-3,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;0,2,B|-2,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;0,2,B|-1,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;0,2,B|0,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;0,2,B|1,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;0,2,B|2,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;0,2,B|3,-3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-3,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-3,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-3,-1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-3,0",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-3,1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-3,2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-3,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-2,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-2,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-2,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-1,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-1,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|-1,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|0,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|0,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|1,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|1,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|2,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|2,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|2,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|3,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|3,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|3,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,0,G|3,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,0,G|3,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;-2,0,G|3,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-2,-2",
+"periode": 32,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-2,-1",
+"periode": 32,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,B;1,1,D|-3,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;1,1,D|3,1",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,B;2,2,D|1,1",
+"periode": 32,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,G;-1,1,B|3,-3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;-1,1,B|3,-2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;-1,1,B|3,-1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;-1,1,B|3,0",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;-1,1,B|3,1",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;-1,1,B|3,2",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;-1,1,B|3,3",
+"periode": 32,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,G;0,-2,H|-3,3",
+"periode": 32,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-1,-1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-1,-2",
+"periode": 36,
+"boite": "4x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-1,-1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|1,-2",
+"periode": 36,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|1,-1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|-2,-1",
+"periode": 36,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,B|1,1",
+"periode": 36,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-1,0",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|0,-1",
+"periode": 36,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|0,3",
+"periode": 36,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,G|0,-1",
+"periode": 36,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-1,2",
+"periode": 36,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;0,1,B|1,-1",
+"periode": 36,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-2,0",
+"periode": 36,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;0,2,D|0,1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;0,2,G|1,1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-1,0",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;1,1,G|2,-1",
+"periode": 36,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;1,3,D|1,2",
+"periode": 36,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,3,D|1,3",
+"periode": 36,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-1,-1",
+"periode": 36,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-1,1",
+"periode": 36,
+"boite": "5x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|0,-1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,0,G|1,1",
+"periode": 36,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;3,1,D|1,1",
+"periode": 36,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-1,1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|-2,2",
+"periode": 36,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,D;-2,1,G|0,-1",
+"periode": 36,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-3,0",
+"periode": 36,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|1,0",
+"periode": 36,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-2,-1",
+"periode": 36,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|1,1",
+"periode": 36,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-1,1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|1,2",
+"periode": 36,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;2,0,H|1,0",
+"periode": 36,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-2,1",
+"periode": 36,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-1,-1",
+"periode": 36,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;0,2,D|0,1",
+"periode": 36,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-2,-3,H|-1,-1",
+"periode": 40,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-3,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-3,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-2,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-2,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-1,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-1,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-1,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-1,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|0,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|0,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|0,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|1,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|1,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|1,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|1,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|2,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|2,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|2,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|2,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|2,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|2,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|3,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|3,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|3,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|3,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|3,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-1,-1",
+"periode": 40,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-1,2",
+"periode": 40,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-2,2,G|0,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,-1,D|-2,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-3,1",
+"periode": 40,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|2,0",
+"periode": 40,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-1,-2",
+"periode": 40,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,D|-1,2",
+"periode": 40,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-2,1",
+"periode": 40,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|1,1",
+"periode": 40,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;0,-3,H|0,-1",
+"periode": 40,
+"boite": "3x7"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-2,0",
+"periode": 40,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-1,-1",
+"periode": 40,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,1,B|1,2",
+"periode": 40,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,1,B|2,1",
+"periode": 40,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;0,2,D|1,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;0,2,G|-1,1",
+"periode": 40,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;0,2,G|3,1",
+"periode": 40,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;1,1,G|1,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-3,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-3,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-3,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-3,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-3,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-2,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-2,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-2,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-2,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-2,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-2,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|-1,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|0,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|1,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|2,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;2,1,H|3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;3,1,D|2,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-3,0,D|-2,0",
+"periode": 40,
+"boite": "7x3"
+},
+{
+"situation": "RL|0,0,D;-3,2,D|-2,1",
+"periode": 40,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-1,-2",
+"periode": 40,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-1,1",
+"periode": 40,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-1,-1",
+"periode": 40,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;-2,0,H|-1,3",
+"periode": 40,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-2,-1",
+"periode": 40,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|1,-1",
+"periode": 40,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-2,1",
+"periode": 40,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-1,2",
+"periode": 40,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|0,-2",
+"periode": 40,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|1,-1",
+"periode": 40,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-2,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-3,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-3,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-3,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-3,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-2,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-2,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-2,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-1,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-1,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|0,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|0,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|0,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|1,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|1,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|1,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|1,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|1,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|2,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|2,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|2,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|2,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|2,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|2,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|3,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|3,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|3,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|3,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|3,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|-1,-3",
+"periode": 40,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,D;0,-1,D|0,2",
+"periode": 40,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-3,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-3,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-3,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-3,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-3,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-2,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-1,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|-1,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|0,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|0,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|1,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|1,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|2,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|3,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,D;1,-2,D|3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-2,-1,B|-3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-2,-1,B|-2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-2,-1,B|-1,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-2,-1,B|0,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-2,-1,B|1,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-2,-1,B|2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-2,-1,B|3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-1,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;0,-2,D|-3,-1",
+"periode": 40,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;2,1,B|-3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,B;2,1,B|-2,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;-1,2,G|-3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;-1,2,G|-3,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,G|-3,-3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,G|-3,-2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,G|-3,-1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,G|-3,0",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,G|-3,1",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,G|-3,2",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,G;1,-2,G|-3,3",
+"periode": 40,
+"boite": "5x5"
+},
+{
+"situation": "RL|0,0,H;-3,-1,G|-1,-1",
+"periode": 44,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-1,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|0,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|-3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,-1,H|1,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-3,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-3,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-3,-1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-3,2",
+"periode": 44,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-3,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-2,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-2,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-2,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-1,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-1,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-1,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|0,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|0,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|0,2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|0,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|1,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|1,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|1,-1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|1,2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|1,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|2,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|2,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|2,-1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|2,0",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|2,1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|2,2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|2,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|3,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|3,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|3,-1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|3,0",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|3,1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|3,2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|3,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-2,2,D|-1,1",
+"periode": 44,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-3,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-3,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-3,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-3,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-2,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-2,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-2,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-1,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|0,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|0,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|1,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|1,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|1,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|2,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|2,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|2,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|2,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|3,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|3,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|3,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|3,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|0,-3",
+"periode": 44,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|-1,0",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-1,0,H|0,1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-1,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-1,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|-1,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|1,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-1,B|0,-1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;0,-1,B|0,0",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;0,1,B|0,-2",
+"periode": 44,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;0,1,B|0,3",
+"periode": 44,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-3,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-3,-2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-3,-1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-3,0",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-3,1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-3,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-3,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-2,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-2,-2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-2,-1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-2,0",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-2,1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-2,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-2,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-1,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-1,-2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-1,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-1,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|0,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|1,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|2,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|2,-2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|2,-1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|2,2",
+"periode": 44,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|2,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|3,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|3,-2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|3,-1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|3,0",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|3,1",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|3,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|3,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;1,-1,G|0,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-3,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-3,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-3,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-3,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-2,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-2,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-1,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|-1,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|0,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|0,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|1,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|1,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|2,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|2,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,2,H|3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,3,G|1,2",
+"periode": 44,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;2,-2,D|0,-1",
+"periode": 44,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-2,0",
+"periode": 44,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;2,2,D|1,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-3,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-2,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-2,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-2,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-1,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-1,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-1,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|0,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|0,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|0,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|1,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|1,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|1,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|2,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|2,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|2,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|2,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|2,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|2,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|3,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|3,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|3,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|3,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|0,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|-2,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|0,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-3,0",
+"periode": 44,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|2,0",
+"periode": 44,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|-3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,2,D|1,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-3,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-3,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-2,-3",
+"periode": 44,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-2,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-2,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-1,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|-1,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|0,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|0,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|1,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|1,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|2,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|2,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|3,2",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;0,-2,H|3,3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,D;1,-3,H|1,-1",
+"periode": 44,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,D;1,1,B|-3,-3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;1,1,B|-3,-2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;1,1,B|-3,-1",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;1,1,B|-3,2",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;1,1,B|-3,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-3,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-3,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-3,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-3,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-2,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-2,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-2,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|0,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-2,B|-3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-2,B|-2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-2,B|-1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-2,B|0,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-2,B|1,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-2,B|2,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-2,B|3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;1,2,B|-3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;2,0,D|-3,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;2,0,D|-2,3",
+"periode": 44,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,B;2,0,D|3,-2",
+"periode": 44,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,B;3,1,D|1,1",
+"periode": 44,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,G;-2,1,G|-3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;0,2,B|-3,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,2,B|-2,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,2,B|-1,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,2,B|0,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,2,B|1,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,2,B|2,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;0,2,B|3,-3",
+"periode": 44,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,G;2,-1,G|-3,-3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;2,-1,G|-3,-2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;2,-1,G|-3,-1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;2,-1,G|-3,0",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;2,-1,G|-3,1",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;2,-1,G|-3,2",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;2,-1,G|-3,3",
+"periode": 44,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,-1,G|-2,0",
+"periode": 48,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;-3,1,D|-1,0",
+"periode": 48,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,H;-2,0,D|-2,0",
+"periode": 48,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|0,-1",
+"periode": 48,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-2,2,D|-2,1",
+"periode": 48,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-2,-3",
+"periode": 48,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-1,-3",
+"periode": 48,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|0,2",
+"periode": 48,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|1,2",
+"periode": 48,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;-1,3,G|0,1",
+"periode": 48,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;0,2,D|1,0",
+"periode": 48,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-1,-1",
+"periode": 48,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;1,1,G|2,2",
+"periode": 48,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;1,3,G|1,1",
+"periode": 48,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;2,-2,D|1,0",
+"periode": 48,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,D;-3,1,H|-1,1",
+"periode": 48,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|1,-1",
+"periode": 48,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|1,0",
+"periode": 48,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,B|0,-1",
+"periode": 48,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|-2,2",
+"periode": 48,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,D;1,-3,H|0,-2",
+"periode": 48,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-2,0",
+"periode": 48,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;2,-1,D|-2,1",
+"periode": 48,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-2,-2",
+"periode": 48,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,B;3,-1,G|1,0",
+"periode": 48,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,B;3,1,D|2,0",
+"periode": 48,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,G;1,3,H|0,1",
+"periode": 48,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-1,1",
+"periode": 52,
+"boite": "4x6"
+},
+{
+"situation": "RL|0,0,H;2,2,D|0,1",
+"periode": 52,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-1,-1",
+"periode": 52,
+"boite": "6x4"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-2,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-1,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|0,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|0,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|0,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|1,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|1,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|2,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|2,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|2,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,0,D|-1,0",
+"periode": 56,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;-2,1,H|-2,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,1,H|0,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|-3,-2",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;-1,-2,H|2,1",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;-1,-2,B|-1,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-2,B|0,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-2,0",
+"periode": 56,
+"boite": "5x6"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|0,-2",
+"periode": 56,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,H;-1,3,G|0,2",
+"periode": 56,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-2,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-2,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-1,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|-1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|0,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|2,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-2,2",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;0,1,B|2,-1",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|1,3",
+"periode": 56,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,H;2,0,D|-1,0",
+"periode": 56,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,H;2,0,D|1,2",
+"periode": 56,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|-3,3",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-2,1,D|0,-2",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-1,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|0,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|0,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|1,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|1,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|1,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|2,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|2,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|2,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-2,-2",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|1,2",
+"periode": 56,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;1,-1,H|0,-2",
+"periode": 56,
+"boite": "6x5"
+},
+{
+"situation": "RL|0,0,D;1,1,B|-3,1",
+"periode": 56,
+"boite": "7x4"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-2,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;2,0,B|3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,1,G|-1,-3",
+"periode": 56,
+"boite": "4x7"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|0,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|1,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;0,2,G|3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-2,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-2,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-2,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-1,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-1,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|0,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|0,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|0,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|1,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|1,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|2,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|-3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|-2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|-1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|2,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|2,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|2,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-3,-1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-3,0",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-3,1",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-3,2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-3,3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|-1,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|0,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|0,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|1,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|1,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|2,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|2,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|3,-3",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,G;1,3,B|3,-2",
+"periode": 56,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-3,3",
+"periode": 60,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|-2,3",
+"periode": 60,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|1,2",
+"periode": 60,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,H;-2,-2,G|-1,0",
+"periode": 60,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|1,-3",
+"periode": 60,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|1,2",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|2,0",
+"periode": 60,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|2,1",
+"periode": 60,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-2,-1",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;0,1,B|2,2",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;3,-1,D|2,0",
+"periode": 60,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-3,-3",
+"periode": 60,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-3,-2",
+"periode": 60,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,-3,H|-2,1",
+"periode": 60,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-2,2",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|1,-2",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;2,0,B|-2,1",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-1,-2",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|-1,-2",
+"periode": 60,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|2,-3",
+"periode": 60,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,B;3,-1,D|3,-3",
+"periode": 60,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|2,-1",
+"periode": 60,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|0,-2",
+"periode": 64,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|0,2",
+"periode": 64,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;0,1,B|-2,1",
+"periode": 64,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,1,B|2,0",
+"periode": 64,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|-3,0",
+"periode": 64,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|1,0",
+"periode": 64,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|-1,-2",
+"periode": 64,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,G|0,2",
+"periode": 64,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,3,B|-2,1",
+"periode": 68,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,3,B|0,2",
+"periode": 68,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|-1,0",
+"periode": 68,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|-2,2",
+"periode": 68,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;-1,2,B|1,0",
+"periode": 68,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|3,0",
+"periode": 68,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,H;1,3,D|-1,3",
+"periode": 68,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;2,0,D|1,1",
+"periode": 68,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,H;2,0,G|0,-1",
+"periode": 68,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-3,-2,G|-2,0",
+"periode": 68,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-3,-2,G|-1,-2",
+"periode": 68,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|-2,-2",
+"periode": 68,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,D;-2,-1,G|0,1",
+"periode": 68,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,D;2,0,B|0,3",
+"periode": 68,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,B;0,2,G|-3,0",
+"periode": 68,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,G;-2,0,H|0,-3",
+"periode": 68,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;-2,3,B|-1,1",
+"periode": 72,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;-2,3,B|-1,2",
+"periode": 72,
+"boite": "5x7"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|-1,1",
+"periode": 72,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|1,-1",
+"periode": 72,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-1,0",
+"periode": 72,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,1,G|2,0",
+"periode": 72,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-3,-2,G|-2,-1",
+"periode": 72,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,D;-3,-2,G|-1,-1",
+"periode": 72,
+"boite": "7x5"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|-2,-1",
+"periode": 72,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|0,1",
+"periode": 72,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|0,2",
+"periode": 72,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-3,1,G|0,2",
+"periode": 76,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-1,0",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-2,1,B|-1,1",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,-1,G|1,0",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|-1,3",
+"periode": 76,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;-1,1,G|1,-1",
+"periode": 76,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;0,-2,D|1,-2",
+"periode": 76,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;0,2,D|-1,1",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;1,1,G|1,0",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;2,0,D|1,-1",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|-1,-1",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-2,G|0,-1",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|-3,-1",
+"periode": 76,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-1,-1,H|1,1",
+"periode": 76,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-1,1,H|0,1",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,B;-1,-1,D|-1,0",
+"periode": 76,
+"boite": "6x6"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|-1,-2",
+"periode": 80,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;0,-1,H|1,2",
+"periode": 80,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|-3,1",
+"periode": 80,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;-1,0,D|1,-1",
+"periode": 80,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;-2,0,G|-2,-1",
+"periode": 92,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;1,-1,D|-1,1",
+"periode": 92,
+"boite": "7x6"
+},
+{
+"situation": "RL|0,0,B;2,0,D|2,1",
+"periode": 92,
+"boite": "6x7"
+},
+{
+"situation": "RL|0,0,H;1,-2,B|0,-1",
+"periode": 104,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,H;1,-2,B|1,-1",
+"periode": 104,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;2,1,G|1,0",
+"periode": 104,
+"boite": "7x7"
+},
+{
+"situation": "RL|0,0,D;2,1,G|1,1",
+"periode": 104,
+"boite": "7x7"
+}
+]
