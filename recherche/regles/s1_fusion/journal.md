@@ -84,3 +84,13 @@ Dans R-405, 50 paires (fourmi de l'étage 0, fourmi de l'étage 1) ont des CHEMI
 jamais être à moins de 2 au même instant : ex. B' (entrée a1) coupe le chemin de B (étage 0) à 467 pas d'écart (distance min 40) ;
 K3' coupe K3, K2 et B. Par R-404 ce sont des croisements transparents ; le circuit est juste 16/16 et 20/20 avec eux.
 Commande : python3 s1_fusion/croise_add2.py 20
+Certificat fin de R-405 (cert_fin.py, W = 5 000, écarts j = 1 … 5) : condition fine vraie pour les 256 couples à chaque écart ; distance
+minimale EXACTE entre fourmis de deux usages = 156 + 200 (j − 1) (non libres) et 62 + 100 (j − 1) (libres), croissance linéaire ; aucune
+paire (sortie, entrée) de face ⇒ N usages = superposition exacte pour tout N et toute suite : DÉMONTRÉ (même argument que R-349, R-403).
+
+## R-407 Additionneur 3 bits, essai direct : ÉCHEC (OBSERVÉ) — la retenue c1 de R-405 sort sur 3 routes (add3_try.py)
+c1 = (0,19,2187,0) si c0∧a1∧¬b1 ; (0,19,2187,7) si ¬c0∧a1∧b1 (même voie, UN pas d'écart) ; (2,−30,2168,1) si c0∧b1.
+3e étage R-349 posé sur l'une des 3 routes (pièces A, B, c ; D = 20, 60, 150) : au mieux 49/64 cas propres (route de direction 2, pièce A).
+Il faut d'abord regrouper les 3 routes en une. Piste : fusion1.json contient 938 fusions à 1 constant entre DEUX signaux de MÊME
+direction (dont des paires sur la même voie) : chercher celle qui regroupe (0,19,·,0) et (0,19,·,7), puis une fusion R-403 avec la route
+de direction 2 ; rendre le tout réutilisable (R-401 : il faudra un 2e constant). OUVERT.

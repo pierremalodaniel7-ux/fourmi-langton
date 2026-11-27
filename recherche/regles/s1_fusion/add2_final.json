@@ -250,5 +250,36 @@
    "justes": 20,
    "deux_moteurs": true
   }
+ },
+ "certificat": {
+  "ok": true,
+  "par_ecart": [
+   [
+    true,
+    156,
+    62
+   ],
+   [
+    true,
+    356,
+    162
+   ],
+   [
+    true,
+    556,
+    262
+   ],
+   [
+    true,
+    756,
+    362
+   ],
+   [
+    true,
+    956,
+    462
+   ]
+  ],
+  "fronts": []
  }
 }

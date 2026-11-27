@@ -13,7 +13,7 @@
   "regle": "H:R2L2",
   "fourmis": "74,-8,2;-38,56,4;80,-4,4;-22,40,4;-16,16,4;62,-24,4;0,0,4;30,-56,0",
   "points": "75,-8;-37,56;80,-3;81,-3;-21,40;-15,16;62,-23;63,-23;1,0;29,-55",
-  "note": "VÉRIFIÉ (2 moteurs, 20 usages); tout nombre d'usages OUVERT ; python3 s1_fusion/add2_final.py 20 5"
+  "note": "VÉRIFIÉ (2 moteurs, 20 usages); tout nombre d'usages DÉMONTRÉ (certificat fin) ; python3 s1_fusion/add2_final.py 20 5"
  },
  {
   "dossier": "Règles/Hexa R2L2/s1_fusion",
@@ -21,7 +21,7 @@
   "regle": "H:R2L2",
   "fourmis": "74,-8,2;-38,56,4;80,-4,4;-22,40,4;-16,16,4;62,-24,4;0,0,4",
   "points": "75,-8;-37,56;80,-3;81,-3;-21,40;-15,16;62,-23;63,-23;1,0",
-  "note": "VÉRIFIÉ (2 moteurs, 20 usages); tout nombre d'usages OUVERT ; python3 s1_fusion/add2_final.py 20 5"
+  "note": "VÉRIFIÉ (2 moteurs, 20 usages); tout nombre d'usages DÉMONTRÉ (certificat fin) ; python3 s1_fusion/add2_final.py 20 5"
  },
  {
   "dossier": "Règles/Hexa R2L2/s1_fusion",

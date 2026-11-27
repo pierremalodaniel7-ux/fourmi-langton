@@ -7,3 +7,7 @@
 20 usages (alterné) : superposition exacte True, 20/20 justes, 2 moteurs identiques True 8 s
 écart 1 : condition fine True, distance min (non libres) 156, (libres) 62
 écart 2 : condition fine True, distance min (non libres) 356, (libres) 162
+écart 3 : condition fine True, distance min (non libres) 556, (libres) 262
+écart 4 : condition fine True, distance min (non libres) 756, (libres) 362
+écart 5 : condition fine True, distance min (non libres) 956, (libres) 462
+certificat fin : True ; paires de face [] 285 s
