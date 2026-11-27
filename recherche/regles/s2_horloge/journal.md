@@ -124,3 +124,24 @@ Idée : si le 2e train est le 1er avancé de T/2 (T = P/3), la symétrie « rota
 tri_cycles_rB5.json avec P ≡ 0 mod 6 et P ≤ 800, tous les décalages s ∈ [1, P) : 183 875 machines de 12 fourmis, fourmi_r T = 6P :
 126 665 AUTOROUTES, 57 210 MIXTE, 189 INDECIS, 0 CYCLE. Les premières divergences arrivent par 3 (positions 3-symétriques), au milieu des
 arêtes : c'est le croisement de face avec l'autre train, qui n'est jamais propre. Commande : python3 s2_horloge/double2.py 0 800
+
+## R-512 HEXAGRAMME : deux horloges couplées par 6 PORTES D'INTERACTION, tous les vaisseaux récupérés — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py, 47/47)
+hexagramme.py : horloge triangle A (tri_cycles_rB5.json, centre de rotation = point du réseau, P ≡ 0 mod 6, P ≤ 900 : 150 horloges) +
+B = A avancée de s pas puis tournée de 60° autour du centre (étoile à 6 branches), s ∈ [0, P) : 62 706 machines de 12 fourmis ; 38 175 CYCLE
+dont 810 avec interaction réelle (trajectoire ≠ superposition) ; hexa_anal.py : 47 sont PROPRES (seuls événements : coins d'une horloge,
+croisements, et chocs de DEUX vaisseaux, un de A et un de B ; aucun amas) : 32 horloges distinctes, 3 périodes : 978 (2 horloges de 510),
+996 (2 × 522), 2 592 (2 × 522). 2e moteur : hx.py premier retour exact = période, 47/47 (hexa_check.py).
+Ce qui se passe (hexa_detail.py, hexa_portes.py) : aux 6 croisements des deux triangles, un vaisseau de A et un de B (un pair, un impair, à 60°)
+se tournent l'un l'autre de 120° (porte d'interaction de R-314 : c'est la porte de billard de Fredkin-Toffoli) ; les vaisseaux changent de
+triangle et parcourent l'étoile + l'hexagone intérieur (img/hexagramme_978.png). Dans la machine 2 592, une même porte voit des ENTRÉES
+VARIABLES d'un passage à l'autre : sur une même droite d'entrée, le vaisseau tantôt arrive seul et passe tout droit, tantôt arrive avec un
+partenaire et tourne (zone 0 : droite (0,0) 3 fois « tourne », 6 fois « droit » ; droite (1,−14) 9 / 3 …) ; périodicité 3-symétrique, pas
+6-symétrique (zones 0-2 : 9 chocs tournants, zones 3-5 : 3). C'est la consigne 3 sous la forme « horloges qui alimentent des portes de calcul
+(ET de billard : a∧b tourne, a∧¬b tout droit) et récupèrent tous leurs vaisseaux », le cycle exact prouvant que ça tourne pour toujours.
+Limite honnête : les entrées des portes sont fixées par les horloges elles-mêmes (pas d'entrée extérieure) ; la porte calcule, mais sur
+un motif périodique imposé. Le demi-additionneur R-337 n'y est pas (R-509 : il faudrait l'adapter).
+Machine 2 592 (12 fourmis) : H:R2L2|-5,5,4;1,38,0;-38,44,2;1,6,1;-6,44,3;-37,37,5;-6,32,5;-25,37,1;-11,18,3;-6,17,2;-10,37,4;-26,33,0|-4,5;0,39;-38,43;0,6;0,7;1,5;-6,43;-5,43;-5,44;-38,38;-37,38;-36,37;-6,18;-11,37;-25,32;-7,34;-26,36;-9,17;-6,17;-10,37;-26,33;-7,33;-25,36;-10,18
+Machine 978 : H:R2L2|2,4,1;-4,43,3;-37,37,5;-5,5,4;2,36,0;-36,43,2;-6,15,2;-7,35,4;-26,34,0;-5,33,3;-26,36,5;-8,15,1|1,4;1,5;2,3;-4,42;-3,42;-3,43;-38,38;-37,38;-36,37;-4,5;1,37;-36,42;-6,15;-7,35;-26,34;-5,34;-27,36;-7,14;-5,33;-26,36;-8,15;-4,32;-26,37;-9,15;-5,14;-7,36;-27,34;-4,33;-27,37;-8,14
+Commandes : python3 s2_horloge/hexagramme.py 0 900 ; python3 s2_horloge/hexa_anal.py ; python3 s2_horloge/hexa_check.py ;
+python3 s2_horloge/hexa_portes.py 2592 ; python3 s2_horloge/img_hexa.py 2592
+Déjà connu ? Porte d'interaction = Fredkin-Toffoli 1982 (connu) ; deux horloges de fourmis couplées en étoile : pas trouvé (non cherché sur le web, quota).
