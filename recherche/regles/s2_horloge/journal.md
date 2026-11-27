@@ -93,3 +93,26 @@ changement d'état). Machine (16 fourmis ; bit 0 = fourmis 0,1 ; bit 1 = fourmis
 Limite (honnête) : c'est un compteur « par construction » (deux horloges indépendantes de périodes 1 et 2), pas un compteur causal avec
 retenue (le bit 1 ne « voit » pas le bit 0) ; le diviseur par 2 causal reste OUVERT (R-503, R-505 négatifs).
 Commandes : python3 s2_horloge/compteur4.py 900 2200 8 ; python3 s2_horloge/compteur5.py ; python3 s2_horloge/compteur_check.py s2_horloge/compteur5.json 0
+
+## R-508 Deux horloges triangle qui se croisent : aucune machine cyclique avec interaction — OBSERVÉ (négatif) (deux_horloges.py)
+Objectif 3, version la plus simple : la « porte » = le choc d'un vaisseau de l'horloge A avec un vaisseau de l'horloge B (R-500, j = 20, P = 843
+chacune ; B tournée de k crans, translatée, déphasée ; rencontre tirée au hasard, distance minimale 1 à 3 entre fourmis, recouvrement < P/4).
+1 642 machines (12 fourmis), fourmi_r T = 4P : 1 529 CYCLE, 111 AUTOROUTES, 2 MIXTE. Les 1 529 CYCLE n'ont AUCUNE interaction (trajectoire
+jointe = superposition exacte des deux horloges seules, contrôle hx.py) : les fourmis passent près sans toucher les cases de l'autre.
+Toutes les machines où il y a vraiment eu choc se sont cassées. Explication (raisonnement) : un choc décale le vaisseau (voie ou temps) ;
+au coin suivant son partenaire, lui, n'est pas décalé, et le coin (choc exact de 2 vaisseaux) rate. Commande : python3 s2_horloge/deux_horloges.py 20 20 3000 2
+
+## R-509 Bilan des vaisseaux du demi-additionneur R-337 : 4 vaisseaux PAIRS, directions conservées, calcul par petits décalages — VÉRIFIÉ (hx.py, calcul exact)
+porte_sorties.py. Entrées : K2 (dir 4, ouest), K3 (dir 0, nord-est), B = b (dir 0), A = a (dir 2, sud) : uniquement des caps pairs (classe {0,2,4},
+celle des vaisseaux horaires de l'horloge triangle). Dans les 4 cas, le multiensemble des directions sortantes = celui des entrantes ; chaque
+vaisseau sortant est, à ≤ 2 cases près, la trajectoire libre d'un vaisseau entrant de même direction (« ils se traversent ») :
+  (0,0) K3 (1,0), K2 (1,2) ; (0,1) idem + B (0,0) exact ; (1,0) A (1,−2), K3 et K2 exacts ; (1,1) K3 (1,0), K2 (1,2), A (−2,0), B (0,1).
+Donc la porte ne tourne aucun vaisseau : elle calcule par des DÉCALAGES de voie de 1 ou 2 (S et C se lisent sur des voies). Analogie : calcul
+par collisions de solitons à déphasage (Jakubowski-Steiglitz-Squier, AFFIRMÉ, non revérifié). Conséquence pour la consigne 3 : récupérer les
+vaisseaux = les tourner de ±120° (seul virage possible, T4 de R-347) par des coins d'horloge, et ces coins doivent absorber les décalages.
+
+## R-510 La bascule R-341 frappée dans le mauvais état est détruite — OBSERVÉ (hx.py, toutes les phases) (mauvais_etat.py)
+Vaisseau « mise à 1 » de R-502 envoyé sur R' (déjà à 1), 12 phases de R' : 11 fois les 2 fourmis du pixel partent en vaisseaux, 1 fois autre débris.
+Vaisseau « remise à 0 » envoyé sur M (déjà à 0), 21 phases : 15 fois le pixel part ; 1 fois (phase 1) le vaisseau est DÉVIÉ de 60° (dir 3 → 2)
+et M devient un objet immobile X de période 24 (≠ M, ≠ R'), conforme à T3 (une déviation de 60° interdit de redevenir soi-même).
+Cohérent avec R-340/R-342 (aucune bascule idempotente, déjà su) : une horloge doit écrire le pixel en stricte alternance 1, 0, 1, 0.
