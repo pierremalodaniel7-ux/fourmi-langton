@@ -103,3 +103,6 @@ opt9.py : 2 placements 256/256 justes et propres trouvés (graine 4 vers 01:31, 
 - 01:45 certificat (cert2) des 2 candidats : voies opposées des sorties RÉELLES à 0 (ÉCHEC) ; opp_real.py : 15 couples, tous
   « génériques » (débris ↔ littéraux ou puissances d'autres branches), aucun de la forme structurelle → réglables par D, G.
   opt10.py : descente sur conflits + 5 × couples opposés logiquement possibles (segments infinis de diag2 avec masques), lancée 01:47.
+- 01:59 opt10 (graine 8, poids 1 sur les voies opposées, départ = meilleur de la graine 6) : placement à 0 couple opposé, 256/256 justes
+  et propres, CERTIFICAT OK (fenêtre 9 877 pas, rayon 1 740, voies opposées ≥ 7 ⇒ tout nombre d'usages pour Δ ≥ 65 733 pas).
+  Paramètres : h1R_param_OK.json. Vérification complète (2 moteurs, 20 usages ×3) : h1R_check.py, en cours.

@@ -10,6 +10,8 @@ from diag2 import conflicts2, segments2, INF
 from s3lib import antpos
 from reuse import lane_of
 from cert2 import certificate2
+import os
+W_OPP = int(os.environ.get('W_OPP', 5))
 seed, secs = int(sys.argv[1]), float(sys.argv[2]); p = json.load(open(sys.argv[3])); Dm, Gm = p['D'], p['G']
 root = build(h1_tree2()); names = [n.name for n in nodes(root)]; rnd = random.Random(seed)
 def opp(L):
@@ -22,7 +24,7 @@ def opp(L):
                 if min(abs(x - y) for x in lo for y in li) < 7: n += 1
     return n
 def evaluate(Dm, Gm):
-    L = Layout(root, Dmap=Dm, Gmap=Gm); c = len(conflicts2(L)); o = opp(L); return c + 5 * o, c, o
+    L = Layout(root, Dmap=Dm, Gmap=Gm); c = len(conflicts2(L)); o = opp(L); return c + W_OPP * o, c, o
 s, c, o = evaluate(Dm, Gm); t0 = time.time(); it = 0; tested = set()
 log = open(f'data/opt10_{seed}.log', 'a'); print('départ', s, c, o, file=log, flush=True)
 while time.time() - t0 < secs:

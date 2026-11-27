@@ -9,6 +9,13 @@ from modules import module, spec, VARS, nodes
 from nor import Layout, lane_of2
 from s3lib import *
 from reuse import certificate
+from cert2 import certificate2
+from diag2 import segments2, INF
+_OUTS = {}
+def louts(L):
+    """sorties logiquement possibles (segments infinis de diag2, masques non vides) : plus fin que possible_outputs()"""
+    if id(L) not in _OUTS: _OUTS[id(L)] = {s[1] for s in segments2(L) if s[3] == INF}
+    return _OUTS[id(L)]
 def build(nm, F, htree=False):
     if htree:
         from htree import build as hb, h1_tree, h1_tree2
@@ -33,7 +40,7 @@ class Step:
 def lanes(w): return [lane_of2(antpos(w, t), w[0]) for t in range(8)]
 def lane_ok(LA, va, LB, vb):
     """routes sortantes possibles de A contre routes entrantes de B (translatés) : écart de voie ≥ 7 si directions opposées"""
-    for o in set(LA.possible_outputs()):
+    for o in louts(LA):
         o2 = transwl(o, va); lo = [lane_of2(antpos(o2, t), o[0]) for t in range(8)]
         for i, w in [(0, w) for _, _, w in LB.ships]:
             if (o[0] - w[0]) % 6 == 3:
@@ -46,7 +53,7 @@ def rays_ok(LA, va, LB, vb, Tend):
     for _, _, a in LA.ships:
         for _, _, b in LB.ships:
             if ray_min(transwl(a, va), transwl(b, vb), 300, -1) < 7: return False
-    oa = set(LA.possible_outputs()); ob = set(LB.possible_outputs())
+    oa = louts(LA); ob = louts(LB)
     for a in oa:
         for b in ob:
             if ray_min(transwl(a, va), transwl(b, vb), Tend, +1) < 7: return False
@@ -107,7 +114,7 @@ if __name__ == '__main__':
     # 2e moteur (hx.py) sur les 256 états
     t0 = time.time(); same = sum(1 for s, (a, c) in zip(sits, R) if (lambda pa_pc: sorted(pa_pc[0]) == sorted(a) and sorted(pa_pc[1]) == sorted(c))(run_py(s, T)))
     print(f'hx.py : {same}/256 états finaux identiques au moteur C — {time.time()-t0:.0f} s', flush=True)
-    try: ok, delta, info = certificate(S, log=lambda x: print(x, flush=True)); D = delta + (-delta) % 8
+    try: ok, delta, info = certificate2(S, log=lambda x: print(x, flush=True)); D = delta + (-delta) % 8
     except AssertionError as ex: ok, D, info = False, None, dict(span=None, R=None, opposees=None); print('certificat : échec', ex, flush=True)
     res = []
     for g in (range(2) if ok else []):

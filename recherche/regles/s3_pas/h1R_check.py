@@ -18,7 +18,10 @@ if okc:
     D = delta + (-delta) % 8; res['usages20'] = []
     for seed in range(3):
         rnd = random.Random(seed); seq = [rnd.choice(L.cases()) for _ in range(20)]
-        sup, good, same, nf = check_multi(L, seq, D, engine2=(seed == 0))
+        sup, good, same, nf = check_multi(L, seq, D, engine2=False)
         res['usages20'].append(dict(graine=seed, superposition=sup, justes=good, deux_moteurs=same, fourmis=nf))
         print(f'20 usages (graine {seed}, Δ = {D}) : superposition {sup}, {good}/20 justes, 2 moteurs {same}, {nf} fourmis', flush=True)
+    sup, good, same, nf = check_multi(L, seq[:3], D, engine2=True)
+    res['usages3_deux_moteurs'] = dict(superposition=sup, justes=good, deux_moteurs=same, fourmis=nf)
+    print(f'3 usages, 2 moteurs : superposition {sup}, {good}/3 justes, 2 moteurs {same}', flush=True)
 json.dump(res, open(sys.argv[1].replace('param', 'verif'), 'w'), ensure_ascii=False, indent=1)
