@@ -11,8 +11,8 @@ from s3lib import *
 from reuse import certificate
 def build(nm, F, htree=False):
     if htree:
-        from htree import build as hb, h1_tree
-        return hb(h1_tree())
+        from htree import build as hb, h1_tree, h1_tree2
+        return hb(h1_tree2() if htree == 2 else h1_tree())
     r = module(nm)
     for n in nodes(r):
         if F and F.get(n.name): n.inputs = [('-' if sd == '+' else '+', it) for sd, it in n.inputs]
