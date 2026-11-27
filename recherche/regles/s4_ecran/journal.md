@@ -77,3 +77,14 @@ vaisseaux libres dont les étiquettes sont EXACTEMENT celles prévues par le cal
 = collisions de vaisseaux en vol). Lectures t = 9 606, 19 261, 34 117 : lu = attendu, fourmi_r = hx.py ; contrôle final des étiquettes
 à t = 34 117 : exact. Durée 4 s. Adressage : 2 bits (a1 a0) décodés par le démux du bloc ; le BLOC (2 bits de poids fort) est choisi
 par la ligne d'entrée (où l'on tire), pas encore par un démux devant (OUVERT). Simulation finie : aucune affirmation au-delà de t = 34 117.
+
+## R-712 Après une lecture « OFF » (M → X), remise en état par les PORTS D'ÉCRITURE : impossible avec 1 vaisseau — OBSERVÉ (hx.py, balayage) (lecture_kits.py → lecture_kits.json, 27/11 06:05)
+3 sondes utiles (R-708) × 4 voies de kit (SET0, SET5, RST2, RST3 = les seules droites que les démux de l'écran savent viser) × retards
+Δ = 20..149 (toutes les phases de X, plusieurs fois) : 0 issue propre en M ou R' (X reste un autre objet, ou disparaît en vaisseaux).
+Contrôle : sans sonde, SET0 au bon retard donne bien R'. ⇒ une lecture « OFF » abîme le pixel tant qu'on n'a pas un port de retour en plus.
+
+## R-713 Port de LECTURE par adresse (3e démux dont les 4 sorties suivent des droites de sonde) pour les écrans 2×2 trouvés : aucun — VÉRIFIÉ (calcul exact) (lecture_geo.py, 27/11 06:10)
+49 démux × 6 rotations × 24 permutations × 6 droites de sonde par pixel (les 3 utiles de R-708 + (1,−3) sur M, (0,2) et (3,−3) sur R',
+lisibles mais destructives) ; translation v entière quelconque ; sortie en aval du démux. Pour les 20 meilleurs placements de R-706
+(dont celui de R-707) : 0 solution (les 4 équations de voie ne sont jamais compatibles). Contrôle du solveur : retrouve le port
+d'écriture A (v = 0). ⇒ il faut choisir l'écran ET le port de lecture ensemble (OUVERT, à suivre).
