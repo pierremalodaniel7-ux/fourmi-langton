@@ -1,0 +1,34 @@
+[
+ {
+  "dossier": "Règles/Hexa R2L2/boucle de calcul",
+  "nom": "R-514 — Règle de compensation d'une horloge triangle : δh + rot120(δa) = 0",
+  "regle": "H:R2L2",
+  "fourmis": "1,6,5;-6,19,1;-12,12,3;-5,5,4;1,13,0;-13,19,2",
+  "points": "1,5;1,6;-6,19;-5,19;-13,13;-12,12;-4,5;0,14;-13,18",
+  "note": "DÉMONTRÉ (calcul affine exact, modèle vaisseaux virtuels + coin) ; VÉRIFIÉ numériquement ; 596 chocs de coin × 284 décalages d'un seul vaisseau : seul δ = 0 referme ; 7 paires compensées : 596/596 referment (calcul exact). 34 080 horloges réelles avec un seul vaisseau décalé : 0 CYCLE (R-513)."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/boucle de calcul",
+  "nom": "R-516 — Étoile décalée : une horloge et son image par une rotation de 180° autour d'un autre point (12 fourmis, P = 627)",
+  "regle": "H:R2L2",
+  "fourmis": "0,7,5;-7,28,1;-21,21,3;-5,5,4;0,23,0;-23,28,2;-41,34,2;-34,13,4;-20,20,0;-36,36,1;-41,18,3;-18,13,5",
+  "points": "0,6;0,7;-7,28;-6,28;-22,22;-21,21;-4,5;-1,24;-23,27;-41,35;-41,34;-34,13;-35,13;-19,19;-20,20;-37,36;-40,17;-18,14",
+  "note": "VÉRIFIÉ (CYCLE exact, 2 moteurs) ; CYCLE exact 627 (fourmi_r) ; hx.py premier retour 627. Famille : 115 618 machines, 775 cycles avec interaction, 316 propres (16 horloges, P = 627 … 981), hx.py 316/316."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/boucle de calcul",
+  "nom": "R-520 — Le bit M (R-341) déphasé par un vaisseau qui passe exactement ; deux vaisseaux identiques de suite",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,1;0,-2,4;-39,40,0;-75,76,2",
+  "points": "-1,-2;-39,40;-38,39;-76,76;-75,75;-74,75",
+  "note": "VÉRIFIÉ (fourmi_r + hx.py, temps fini) ; « pas de vraie bascule T » : OBSERVÉ ; 813 600 tirs sur 508 objets à 2 fourmis, 1 227 096 flux de 2 vaisseaux : 256 flux propres, tous des déphaseurs (M tourné ×2, un objet de période 30 ×2) ; hx.py 256/256. Aucun objet changé en un autre puis remis par un vaisseau identique."
+ },
+ {
+  "dossier": "Règles/Hexa R2L2/boucle de calcul",
+  "nom": "R-521 — Doublement de période : horloge (1 131 pas) + bit M → la machine revient après 2 262 = 2 × 1 131 pas (8 fourmis)",
+  "regle": "H:R2L2",
+  "fourmis": "-21,24,4;-23,25,3;2,14,0;-14,50,2;-34,34,4;-13,14,1;1,35,3;-34,49,5",
+  "points": "2,13;-13,50;-35,35;-12,13;1,36;-35,49;-22,24;-23,25;-21,24;-22,26;-23,26",
+  "note": "VÉRIFIÉ (CYCLE exact, 2 moteurs) ; interprétation (mémoire de phase) : OBSERVÉ ; CYCLE exact 2 262 (fourmi_r) ; hx.py premier retour 2 262 ; horloge identique à l'horloge seule sauf 12 pas sur 2 262 ; 72 poses équivalentes. Les autres doublements trouvés (P = 414, 402, 426, 450, 462 : 189 + 3) s'expliquent par ppcm(P, 12) : triviaux."
+ }
+]

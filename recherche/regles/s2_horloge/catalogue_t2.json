@@ -1,0 +1,86 @@
+[
+ {
+  "classe": "Règles/Hexa R2L2/boucle de calcul",
+  "b": 33,
+  "source": "recherche/regles/s2_horloge/journal.md (session T2, 27/11)",
+  "id": "R-514",
+  "nom": "Règle de compensation d'une horloge triangle : δh + rot120(δa) = 0",
+  "regle": "H:R2L2",
+  "fourmis": "1,6,5;-6,19,1;-12,12,3;-5,5,4;1,13,0;-13,19,2",
+  "points": "1,5;1,6;-6,19;-5,19;-13,13;-12,12;-4,5;0,14;-13,18",
+  "img": [
+   120,
+   ""
+  ],
+  "situation": "Horloge triangle R-500 (j = 0, P = 363) : 3 vaisseaux horaires (classe paire) + 3 anti-horaires ; illustration du théorème.",
+  "deroulement": "Si, à chaque tiers, une porte décale l'horaire de δh et l'anti-horaire de δa (décalages d'espace-temps), l'horloge referme si et seulement si δh + rot120(δa) = 0 ; le temps T disparaît des équations (d₂ + d₅ = 0), d'où des horloges de toutes tailles.",
+  "mesures": "596 chocs de coin × 284 décalages d'un seul vaisseau : seul δ = 0 referme ; 7 paires compensées : 596/596 referment (calcul exact). 34 080 horloges réelles avec un seul vaisseau décalé : 0 CYCLE (R-513).",
+  "statut": "DÉMONTRÉ (calcul affine exact, modèle vaisseaux virtuels + coin) ; VÉRIFIÉ numériquement",
+  "interet": "Explique pourquoi le demi-additionneur R-337 (qui ne décale que des vaisseaux pairs) casse toute horloge : il faut une porte compensatrice sur les vaisseaux impairs, et sur les 3 côtés (R-519).",
+  "deja": "Non cherché sur le web (quota). Analogue : conditions de phase des collisions de solitons (AFFIRMÉ).",
+  "commande": "python3 recherche/regles/s2_horloge/t2_absorbe.py 1500 ; python3 recherche/regles/s2_horloge/t2_compense.py ; python3 recherche/regles/s2_horloge/t2_tolere.py 20 800"
+ },
+ {
+  "classe": "Règles/Hexa R2L2/boucle de calcul",
+  "b": 33,
+  "source": "recherche/regles/s2_horloge/journal.md (session T2, 27/11)",
+  "id": "R-516",
+  "nom": "Étoile décalée : une horloge et son image par une rotation de 180° autour d'un autre point (12 fourmis, P = 627)",
+  "regle": "H:R2L2",
+  "fourmis": "0,7,5;-7,28,1;-21,21,3;-5,5,4;0,23,0;-23,28,2;-41,34,2;-34,13,4;-20,20,0;-36,36,1;-41,18,3;-18,13,5",
+  "points": "0,6;0,7;-7,28;-6,28;-22,22;-21,21;-4,5;-1,24;-23,27;-41,35;-41,34;-34,13;-35,13;-19,19;-20,20;-37,36;-40,17;-18,14",
+  "img": [
+   200,
+   ""
+  ],
+  "situation": "Horloge A (P = 627) + B = rotation 180° de A autour du point O = (−41/2, 41/2) (pas le centre de A), même instant (s = 0) ; fourmis 0-5 = A, 6-11 = B.",
+  "deroulement": "Les deux triangles décalés se croisent ; en 6 ou 7 chocs par période, un vaisseau de A et un de B se tournent l'un l'autre (porte d'interaction) et changent de triangle ; une porte voit ses passages alterner « tout droit / tourne ».",
+  "mesures": "CYCLE exact 627 (fourmi_r) ; hx.py premier retour 627. Famille : 115 618 machines, 775 cycles avec interaction, 316 propres (16 horloges, P = 627 … 981), hx.py 316/316.",
+  "statut": "VÉRIFIÉ (CYCLE exact, 2 moteurs)",
+  "interet": "2e famille (après l'hexagramme R-512) de machines où deux horloges s'échangent des vaisseaux par des portes de calcul et récupèrent tout, sans symétrie d'ordre 3 commune.",
+  "deja": "Porte d'interaction = Fredkin-Toffoli 1982 (connu). Étoile décalée de fourmis : non cherché sur le web.",
+  "commande": "python3 recherche/regles/s2_horloge/etoile180.py 600 1000 30 ; python3 recherche/regles/s2_horloge/e180_anal.py recherche/regles/s2_horloge/etoile180_600_1000.json"
+ },
+ {
+  "classe": "Règles/Hexa R2L2/boucle de calcul",
+  "b": 33,
+  "source": "recherche/regles/s2_horloge/journal.md (session T2, 27/11)",
+  "id": "R-520",
+  "nom": "Le bit M (R-341) déphasé par un vaisseau qui passe exactement ; deux vaisseaux identiques de suite",
+  "regle": "H:R2L2",
+  "fourmis": "0,0,1;0,-2,4;-39,40,0;-75,76,2",
+  "points": "-1,-2;-39,40;-38,39;-76,76;-75,75;-74,75",
+  "img": [
+   330,
+   ""
+  ],
+  "situation": "Bit M (2 fourmis, période 21, tourné de 2 crans) + deux vaisseaux identiques sur la même route, Δ = 291 pas d'écart (Δ ≡ 18 mod 21).",
+  "deroulement": "Chaque vaisseau traverse M et ressort EXACTEMENT ; M n'est pas détruit mais sa PHASE change. Avec Δ ≡ 18 (mod 21) les deux vaisseaux passent exactement et M reste M (au même endroit).",
+  "mesures": "813 600 tirs sur 508 objets à 2 fourmis, 1 227 096 flux de 2 vaisseaux : 256 flux propres, tous des déphaseurs (M tourné ×2, un objet de période 30 ×2) ; hx.py 256/256. Aucun objet changé en un autre puis remis par un vaisseau identique.",
+  "statut": "VÉRIFIÉ (fourmi_r + hx.py, temps fini) ; « pas de vraie bascule T » : OBSERVÉ",
+  "interet": "Une mémoire cachée dans la PHASE d'un objet, écrite sans abîmer le signal : c'est ce qui fait marcher R-521.",
+  "deja": "R-503 (négatif, vaisseaux exacts) confirmé et étendu.",
+  "commande": "python3 recherche/regles/s2_horloge/tbascule.py 1 ; … 2 ; python3 recherche/regles/s2_horloge/tb_filtre.py ; python3 recherche/regles/s2_horloge/tbascule.py 3 200 ; python3 recherche/regles/s2_horloge/tb_hx.py"
+ },
+ {
+  "classe": "Règles/Hexa R2L2/boucle de calcul",
+  "b": 33,
+  "source": "recherche/regles/s2_horloge/journal.md (session T2, 27/11)",
+  "id": "R-521",
+  "nom": "Doublement de période : horloge (1 131 pas) + bit M → la machine revient après 2 262 = 2 × 1 131 pas (8 fourmis)",
+  "regle": "H:R2L2",
+  "fourmis": "-21,24,4;-23,25,3;2,14,0;-14,50,2;-34,34,4;-13,14,1;1,35,3;-34,49,5",
+  "points": "2,13;-13,50;-35,35;-12,13;1,36;-35,49;-22,24;-23,25;-21,24;-22,26;-23,26",
+  "img": [
+   60,
+   ""
+  ],
+  "situation": "Horloge triangle de période 1 131 (fourmis 2-7) + bit M de R-341 tourné (fourmis 0-1) posé sur un côté.",
+  "deroulement": "À chaque tiers l'horaire fait passer M dans un autre état et l'anti-horaire le remet ; les vaisseaux ressortent exacts. Mais la phase de M au début de chaque tour vaut 0, 18, 0, 18… (sans interaction : 0, 18, 15, 12…) : le bit « phase » change à chaque tour (s ← s ⊕ 1).",
+  "mesures": "CYCLE exact 2 262 (fourmi_r) ; hx.py premier retour 2 262 ; horloge identique à l'horloge seule sauf 12 pas sur 2 262 ; 72 poses équivalentes. Les autres doublements trouvés (P = 414, 402, 426, 450, 462 : 189 + 3) s'expliquent par ppcm(P, 12) : triviaux.",
+  "statut": "VÉRIFIÉ (CYCLE exact, 2 moteurs) ; interprétation (mémoire de phase) : OBSERVÉ",
+  "interet": "Premier diviseur par 2 causé par l'horloge elle-même (pas 2 horloges indépendantes) ; limite : la bascule n'émet rien, elle ne peut pas piloter une 2e bascule (compteur à 2 étages OUVERT). GIF : img/doublement_R521.gif.",
+  "deja": "Non cherché sur le web (quota) ; doublement de période par verrouillage de phase : phénomène classique des oscillateurs forcés (AFFIRMÉ).",
+  "commande": "python3 recherche/regles/s2_horloge/t2_tb_horloge.py 1200 ; python3 recherche/regles/s2_horloge/t2_tb_check.py recherche/regles/s2_horloge/t2_doublement.json 0 ; python3 recherche/regles/s2_horloge/gif_t2.py recherche/regles/s2_horloge/t2_doublement.json 0 recherche/regles/s2_horloge/img/doublement_R521.gif 12 1131"
+ }
+]

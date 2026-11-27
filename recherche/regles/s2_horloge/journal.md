@@ -245,4 +245,8 @@ ne revient qu'après 2 tours. Machine (8 fourmis) :
   H:R2L2|-21,24,4;-23,25,3;2,14,0;-14,50,2;-34,34,4;-13,14,1;1,35,3;-34,49,5|2,13;-13,50;-35,35;-12,13;1,36;-35,49;-22,24;-23,25;-21,24;-22,26;-23,26
 Limite honnête : la bascule n'ÉMET rien (les vaisseaux ressortent exacts) ; elle ne peut donc pas piloter une 2e bascule : le compteur
 causal à 2 étages reste OUVERT. Commandes : python3 s2_horloge/t2_tb_horloge.py 1200 ; python3 s2_horloge/t2_tb_check.py
-s2_horloge/t2_tb_horloge.json 0 ; python3 s2_horloge/t2_classes.py s2_horloge/t2_tb_horloge.json 0 0 30 60 90 120
+s2_horloge/t2_doublement.json 0 ; python3 s2_horloge/t2_classes.py s2_horloge/t2_doublement.json 0 0 30 60 90 120
+Complément R-521 (12:12) : mêmes poses avec 300 objets « changés + vaisseau retardé » (tb_filtre, |dt| ≤ 9, une conversion par (objet, voie)),
+une horloge par période P ≤ 700 : 215 910 machines, 246 CYCLE (P, 2P, 4P, 5P) ; TOUS s'expliquent par ppcm(P, période de l'objet non touché)
+(P ≡ 6 mod 12 ⇒ 2P ; P ≡ 3, 9 mod 12 ⇒ 4P ; 30 ⇒ 5P). Aucune horloge « ralentie » (retard compensé h/a) : OBSERVÉ (négatif).
+Commande : python3 s2_horloge/t2_tb_horloge.py 700 retard300

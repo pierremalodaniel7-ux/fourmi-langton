@@ -15,8 +15,14 @@ from exp_osc import hd
 Pmax = int(sys.argv[1]); mode = sys.argv[2] if len(sys.argv) > 2 else 'tb'
 O = json.load(open('../../data/t2/objets.json'))
 if mode == 'tb': W = json.load(open('../../data/t2/tbw.json'))      # les bascules T de tbascule.py (étape 3)
-else:                                                                   # toutes les conversions où le vaisseau ressort EXACT
+elif mode == 'exact':                                                   # toutes les conversions où le vaisseau ressort EXACT
     W = [dict(c, Delta=0) for c in json.load(open('../../data/t2/conversions_effet.json')) if c['kind'].endswith('/ exact')]
+else:                                                                   # vaisseau RETARDÉ (même voie), objet changé : 1 par (objet, voie)
+    import random; random.seed(1)
+    U = {}
+    for c in json.load(open('../../data/t2/conversions_effet.json')):
+        if c['kind'] == 'X1 ≠ X0 / retard' and abs(c['dt']) <= 9 and c['p1'] <= 30: U.setdefault((c['o'], c['k']), dict(c, Delta=0))
+    W = random.sample(sorted(U.values(), key=lambda c: (c['o'], c['k'])), min(int(mode[6:] or 300), len(U)))
 MAXPOSE = 3 if mode != 'tb' else 10**9
 refs = []; seen = set()
 for w in W:
@@ -35,7 +41,7 @@ for w in W:
     refs.append({'o': w['o'], 'k': w['k'], 'p0': O[w['o']]['p'], 'ship': ship, 'obj': obj, 'Deltas': sorted({x['Delta'] for x in W if x['o'] == w['o'] and x['k'] == w['k']})})
 print('bascules de référence :', [(r['o'], r['k'], r['p0']) for r in refs], flush=True)
 clocks = [w for w in json.load(open('s2_horloge/tri_cycles_rB5.json')) if w['P'] <= Pmax]
-if mode != 'tb':
+if mode != 'tb':  # une horloge par période
     one = {}
     for w in clocks: one.setdefault(w['P'], w)
     clocks = list(one.values())
