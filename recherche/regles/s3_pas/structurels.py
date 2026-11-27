@@ -4,7 +4,7 @@ Exemple trouvé (h1', 00:58) : si un nœud N a la même direction que son grand-
 puissance de P les vaisseaux de N sont immobiles et ceux du parent avancent selon une direction fixe vers P ; un débris de N qui part
 dans la direction du parent suit EXACTEMENT le trajet du parent et heurte P. Aucun réglage de D, G ne l'évite : il faut changer les côtés.
 Ici : pour des côtés F (miroir par nœud), conflits présents à distance 0 pour 3 tirages aléatoires de (D, G) ; descente sur F.
-Usage : python3 struct.py module graine secondes"""
+Usage : python3 structurels.py module graine secondes"""
 import sys, json, random, time
 from modules import nodes
 from step import build

@@ -98,3 +98,5 @@ Sans h1' (7 modules, BOX 1500) : certificat OK (Δ = 74 072 pas), 10 usages de s
 Règle ajoutée : un nœud qui a un enfant de face doit être la 1re entrée de son parent (Nc, Pc passent en face sous A, B ; ¬g et g
 deviennent NON(NOR(feuilles))). B garde un enfant de face en 2e entrée de la racine, mais A et B ne valent jamais 1 ensemble.
 opt9.py : 2 placements 256/256 justes et propres trouvés (graine 4 vers 01:31, graine 3 vers 01:34) ; certificat (Python) en cours.
+- 01:41 Certificat de reuse.py trop lent pour 60 vaisseaux (double boucle Python sur 14 000 pas) → cert2.py (numpy, même lemme ; contrôlé identique sur x'). struct.py renommé structurels.py (il masquait le module standard struct).
+- 01:43 h1R_param_3 et h1R_param_4 : 256/256 justes et propres, 2 moteurs 256/256 (tmax 10 540 et 9 804). Certificat en cours.
