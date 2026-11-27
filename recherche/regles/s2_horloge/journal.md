@@ -145,3 +145,7 @@ Machine 978 : H:R2L2|2,4,1;-4,43,3;-37,37,5;-5,5,4;2,36,0;-36,43,2;-6,15,2;-7,35
 Commandes : python3 s2_horloge/hexagramme.py 0 900 ; python3 s2_horloge/hexa_anal.py ; python3 s2_horloge/hexa_check.py ;
 python3 s2_horloge/hexa_portes.py 2592 ; python3 s2_horloge/img_hexa.py 2592
 Déjà connu ? Porte d'interaction = Fredkin-Toffoli 1982 (connu) ; deux horloges de fourmis couplées en étoile : pas trouvé (non cherché sur le web, quota).
+Complément R-512 (06:15) : mêmes essais sur les 248 horloges à centre entier avec P ≡ 3 mod 6, P ≤ 700 (hexagramme.py 3 700) : 113 769
+machines, 58 675 CYCLE dont 1 196 avec interaction, 49 PROPRES (33 horloges ; périodes 978 (2 × 501), 996 (2 × 507), 2 475 (2 × 501)) ;
+hx.py 49/49 (hexa_check.py s2_horloge/hexagramme_propres_3.json). Dans la machine 2 475, mêmes portes à entrées variables (zone 0, droite (0,0) :
+6 fois « tourne », 6 fois « droit »). Total : 96 hexagrammes propres, 2 moteurs.

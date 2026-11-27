@@ -1,5 +1,5 @@
 """S2 R-512 — analyse des hexagrammes cycliques avec interaction : événements (fourmis non libres groupées), mélange A/B, directions.
-Usage : python3 s2_horloge/hexa_anal.py [n]"""
+Usage : python3 s2_horloge/hexa_anal.py [n] [mod]   (lit hexagramme_<mod>.json, défaut 0)"""
 import sys, json, collections
 sys.path.insert(0, '.'); sys.path.insert(0, 's2_horloge')
 from hx import step
@@ -30,7 +30,8 @@ def events(sit, P):
     return kinds, (max(xs) - min(xs), max(ys) - min(ys))
 if __name__ == '__main__':
     n = int(sys.argv[1]) if len(sys.argv) > 1 else 30
-    H = [h for h in json.load(open('s2_horloge/hexagramme_0.json')) if h['diff'] > 0]
+    mod = sys.argv[2] if len(sys.argv) > 2 else '0'
+    H = [h for h in json.load(open('s2_horloge/hexagramme_%s.json' % mod)) if h['diff'] > 0]
     seen = {}; 
     for h in H: seen.setdefault((h['horloge'], h['P']), h)
     U = sorted(seen.values(), key=lambda h: (h['P0'], h['P']))
@@ -45,4 +46,4 @@ if __name__ == '__main__':
     print('(étendu, chocs A-B) :', dict(stats))
     keep.sort(key=lambda h: h['P'])
     for h in keep[:n]: print(h['P0'], '->', h['P'], 's', h['s'], 'boite', h['boite'], h['evenements'])
-    json.dump(keep, open('s2_horloge/hexagramme_retenus.json', 'w'))
+    json.dump(keep, open('s2_horloge/hexagramme_retenus%s.json' % ('' if mod == '0' else '_' + mod), 'w'))
