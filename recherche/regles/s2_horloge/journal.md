@@ -66,3 +66,16 @@ Scripts écrits en vague 1 (alignement par rotation × relabellisation × temps)
 ## R-505 Bascule T « en deux temps » (objet frappé alternativement par deux routes opposées, vaisseaux exacts) — 0 trouvé (OBSERVÉ, négatif)
 compteur2.py / compteur3.py : chaînes de conversions EXACTES X0 →a→ X1 →b→ X2 … ; aucun retour à l'orbite de X0 après 2 tours avec X2 ≠ X0
 (bascules_T.json = [], compteur3_K4.json = []). Avec ces objets (oscillateurs à 2 fourmis de data/osc2.txt), pas de diviseur par 2.
+
+## R-506 DEUX PIXELS QUI CLIGNOTENT EN ALTERNANCE (10 fourmis) — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 4 203)
+Idée : sur une arête, le pixel A (bascule R-341) est allumé par le 1er vaisseau du tiers, éteint par le 2e : fenêtre ON centrée sur le
+croisement. La même bascule tournée de 180° est allumée par le 2e et éteinte par le 1er du tiers suivant : fenêtre ON décalée de P/6.
+Sur la même arête les places compatibles sont mal centrées (anti_pixel.py, k = 0…5 : 4 + 2 + 2 cycles, au mieux 73 % du temps opposés) ;
+on la pose donc sur l'arête suivante (l'horloge est symétrique : état(t + P/3) = R(état(t)), R = rotation 120° + translation (−168, 174),
+calculée exactement) : anti_pixel2.py m = 1, 58 611 machines, 6 CYCLE (P = 4 203). Machine retenue (anti2_m1.json n° 0) :
+  H:R2L2|-41,40,1;-41,40,2;4,125,4;5,125,1;-83,84,1;5,85,3;-84,173,5;5,85,2;-84,173,4;-83,84,0|3,125;6,83;-83,174;-85,85;-82,83;5,86;-85,173;6,84;-84,174;-84,84;-41,40;-39,38;-40,38;-39,39;-40,40
+(fourmis 0,1 = pixel B ; 2,3 = pixel A ; 4–9 = horloge R-502). Sur une période : A et B dans des états OPPOSÉS pendant 3 676 pas,
+JAMAIS dans le même état (0 pas) ; les 527 autres pas = écritures (ni M ni R'). A ON 1 714, B ON 1 962 ; 3 alternances par période.
+2 moteurs : fourmi_r CYCLE 4 203 ; hx.py premier retour exact 4 203. GIF : img/pixels_opposes_R506.gif (image fixe _img.png).
+Commandes : python3 s2_horloge/anti_pixel2.py 1 30 ; python3 s2_horloge/anti_hx.py s2_horloge/anti2_m1.json 0 ;
+python3 s2_horloge/gif_anti.py s2_horloge/anti2_m1.json 0 s2_horloge/img/pixels_opposes_R506.gif 15
