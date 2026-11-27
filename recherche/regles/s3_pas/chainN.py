@@ -175,7 +175,7 @@ def mutate(D, rnd):
     else: Dt = Dt + 8 * rnd.randint(-80, 80)
     D2 = Design(D.sub, off, V, Dt, fan, ch); D2.routes = D.routes; return D2
 def descend(D, secs, rnd, N, log, best=None, save=None):
-    s, C = score(D, N) if best is None else best
+    s, C = score(D, N)
     t0 = time.time(); it = 0
     import re
     while time.time() - t0 < secs and s > 0:

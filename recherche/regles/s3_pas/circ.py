@@ -114,6 +114,19 @@ class Circ:
                 pa, pc = run_py(s, self.T); same = sorted(pa) == sorted(a) and sorted(pc) == sorted(c)
             out.append((b, ok, same))
         return out
+def real_pairs(P, pre=240, dur=480):
+    """P : liste de (ligne a, ligne b, instant) ; renvoie la liste des booléens « le couple seul dévie » (moteur C, mémo _PAIR)"""
+    todo, keys = [], []
+    for a, b, t in P:
+        key = (at(a, t - pre), at(b, t - pre))
+        if key in _PAIR or key in keys: continue
+        try: s = sit_wls(list(key))
+        except AssertionError: _PAIR[key] = True; continue
+        todo.append(s); keys.append(key)
+    if todo:
+        for key, (an, ce) in zip(keys, run_c(todo, dur)):
+            d = decode(an, ce, dur); _PAIR[key] = not (d is not None and sorted(d) == sorted(key))
+    return [_PAIR[(at(a, t - pre), at(b, t - pre))] for a, b, t in P]
 def gate_geom(Kl, side, t):
     """comme nor.gate : la puissance K donnée, le partenaire heurte K vers l'instant t -> (P ligne, oA, oB, instant)"""
     from nor import gate

@@ -195,3 +195,9 @@ Commande : python3 chainN.py h0 verif chainN_h0.json 8 2  (recherche : NS=8 pyth
   puissance entrante de l'usage u > u' que si 8·V/Δ est sur une corde entre deux directions ; pour |8V/Δ| < 1/2 (norme hexagonale),
   seules les cordes opposées passent, donc il faut V parallèle à un axe → Δ ≥ 2,4 × 8|V| (FDT). DÉMONTRÉ (géométrie, vitesses 1/8).
   Filtre des conflits (circ.Circ.real) : chaque couple simulé seul autour du rapprochement ; ≈ 2/3 des conflits du modèle sont réels.
+- 12:01–12:05 (R-620) descente sur les conflits RÉELS (chain_h1b.py REALOBJ=1 : chaque couple du modèle simulé seul, moteur C, on ne
+  compte que ceux qui dévient) depuis le placement à 10 conflits (5 réels : 3 fois le même motif parent ↔ Pcy dans le module h1' de
+  face) : 5 → 0 réel en 330 s (graine 15). Paramètres : h1pp_param.json (207 puissances, 228 littéraux, 435 vaisseaux, tmax 335 380).
+  Contrôle moteur C (h1pp_check.py) : 4 cas au hasard + 32 cas (tranches 0/16, 1/16) : 36/36 propres et justes (= h1 après 2 pas).
+  Germe complet 2 pas, 8 bits (germ2.py) : 7 modules R-619 + h1'' translaté de (200 000, 0) ; séparation > 2·T/8 (vitesse 1/8) donc
+  aucune interaction possible entre les deux groupes. Vérification 256 états (C) puis hx.py lancées 12:09 (tâche de fond).
