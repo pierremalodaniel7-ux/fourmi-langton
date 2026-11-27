@@ -55,3 +55,23 @@ def kit_on(name, O, t_near):
         Kc = TR.movT(Ka, c, 0); dl = TR.to_label(Kc)[2] - TR.to_label(O)[2]
         if TR.same(TR.movT(Kc, (0, 0), dl), O): return rho, c, dl
     return None
+def build_sit(e_list, delays, PL, phases=None, clocks=None):
+    """situation complète : pixels (M, phases) puis jetons ordonnés : 'GERM' = vaisseaux des usages du pas (usage u retardé de
+    delays[u]) et des vaisseaux horloges (trajectoires traj) insérés avant/après selon l'ordre de jeu exigé par leur choc.
+    clocks = liste ordonnée de jetons [(nom, T)] déjà placés autour de 'GERM' : ordre = liste de noms (voir boucle_choix.order)"""
+    A, G = [], []
+    for nm in CASES:
+        p = PL[nm]; a, g = place_ordered(0, p['phase0'] if phases is None else phases[nm], p['rho'], tuple(p['c'])); A += a; G += g
+    for tok in (clocks or ['GERM']):
+        if tok == 'GERM':
+            for u, e in enumerate(e_list):
+                for w in STEP.present(e):
+                    a, cs = render3(S3L.tshift(w, delays[u]), 0); A.append(a); G += cs
+        else:
+            (x, y, h), cs = TR.piece_at(tok[1], 0); A.append((x, y, h)); G += cs
+    assert len(set(G)) == len(G), 'chevauchement à t = 0'
+    return S3L.sit(A, G)
+def read_screen(ants, cells, PL):
+    scr = {nm: pixel.read_state(ants, cells, PL[nm]['rho'], tuple(PL[nm]['c'])) for nm in CASES}
+    near = lambda q: any(hd(q[0] - PL[nm]['c'][0], q[1] - PL[nm]['c'][1]) <= 6 for nm in CASES)
+    return scr, [a for a in ants if not near(a)], [q for q in cells if not near(q)]

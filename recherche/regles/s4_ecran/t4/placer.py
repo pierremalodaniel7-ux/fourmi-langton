@@ -4,7 +4,7 @@ après le germe qui est à ≥ MARGE (distance hex) de toutes les autres routes 
 import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from t4lib import *
-MARGE = int(os.environ.get('MARGE', 20)); SEG = json.load(open(os.path.join(T4, 'rayons.json')))
+MARGE = int(os.environ.get('MARGE', 20)); KIT = os.environ.get('KIT', 'SET0a'); NOM = os.environ.get('NOM', 'placement'); SEG = json.load(open(os.path.join(T4, 'rayons.json')))
 def libre(c, own):
     for r, l, a0, a1 in SEG:
         if (r, l) == own: continue
@@ -17,10 +17,10 @@ for nm in CASES:
     others = [s for s in SEG if (s[0], s[1]) == own]
     t = TDEC + 8 * MARGE
     while True:
-        rho, c, dl = kit_on('SET0a', O, t)
+        rho, c, dl = kit_on(KIT, O, t)
         if libre(c, own): break
         t += 8
-    PL[nm] = dict(kit='SET0a', rho=rho, c=list(c), arrivee=dl, phase0=(kit('SET0a')['ph'] - dl) % PER[0], distance_germe=(t - TDEC) // 8,
+    PL[nm] = dict(kit=KIT, rho=rho, c=list(c), arrivee=dl, phase0=(kit(KIT)['ph'] - dl) % PER[0], distance_germe=(t - TDEC) // 8,
                   meme_route=others)
     print(nm, PL[nm])
-json.dump(PL, open(os.path.join(T4, 'placement.json'), 'w'), indent=1)
+json.dump(PL, open(os.path.join(T4, NOM + '.json'), 'w'), indent=1)
