@@ -34,3 +34,13 @@ def h1_tree():
     Ng = ('Ng', [('g1', ['~h1', 'h0']), ('g2', ['h1', '~h0'])])      # ¬g
     Pg = ('Pg', [('k1', ['~h1', '~h0']), ('k2', ['h1', 'h0'])])      # g
     return ('h1p', [('A', [Ng, Nc]), ('B', [Pg, Pc])])
+def h1_tree2():
+    """R-616 variante RÉUTILISABLE : un nœud qui a un enfant de face doit être la 1re entrée de son parent (sinon, s'il ressort tout
+    droit, il file sur la voie de cet enfant et percute celui de l'usage suivant). Le sous-arbre qui branche passe donc en 1re entrée
+    (en face), et l'autre entrée devient NON(NOR(...)) : un seul sous-nœud, pas d'enfant de face."""
+    n = lambda i, j, pos: (f'{"p" if pos else "n"}{i}{j}', [ne('x', i), ne('y', j), (f'c{i}{j}' if pos else f'~c{i}{j}')])
+    Nc = ('Nc', [('Ncx', [('NcX', [n(0, 0, 0), n(1, 0, 0)])]), ('Ncy', [('NcY', [n(0, 1, 0), n(1, 1, 0)])])])   # ¬c
+    Pc = ('Pc', [('Pcx', [('PcX', [n(0, 0, 1), n(1, 0, 1)])]), ('Pcy', [('PcY', [n(0, 1, 1), n(1, 1, 1)])])])   # c
+    Ng = ('Ng', [('W', [('k1', ['~h1', '~h0']), ('k2', ['h1', 'h0'])])])       # W = g, Ng = ¬g
+    Pg = ('Pg', [('W2', [('g1', ['~h1', 'h0']), ('g2', ['h1', '~h0'])])])     # W2 = ¬g, Pg = g
+    return ('h1p', [('A', [Nc, Ng]), ('B', [Pc, Pg])])
