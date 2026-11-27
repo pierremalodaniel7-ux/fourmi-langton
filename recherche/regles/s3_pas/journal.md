@@ -114,3 +114,14 @@ h1R_param_OK.json (arbre htree.h1_tree2, 29 puissances) : 256/256 justes et prop
 Germe 8 modules avec ce h1' (step.py graine 1, BOX 6000, voies opposées entre modules vérifiées) : 256/256 propres et justes (C, 8 s),
 hx.py 256/256 identiques (47 s). Le certificat cert2 a manqué de mémoire (positions stockées : 130 fourmis × 14 000 pas × 256 cas)
 → cert3.py (sans mémoire, contrôlé identique sur x' et c00') ; step_reuse.py lancé 02:12.
+- 02:14 cert3 sur le germe complet (8 modules, h1' réutilisable) : CERTIFICAT OK — fenêtre active max 9 877 pas, rayon 11 709,
+  voies opposées ≥ 7 ⇒ tout nombre d'usages pour Δ ≥ 384 741 pas (Δ pris = 384 744). 115 s.
+- 02:15 3 usages au même endroit (états au hasard) : superposition exacte, 3/3 (les 8 bits justes à chaque usage), 2 moteurs identiques.
+- 02:18–02:20 5 usages ×2 graines (moteur C ; 10 usages : mémoire du moteur C dépassée) : superposition exacte, 5/5 et 5/5.
+  STATUT R-617 : VÉRIFIÉ (2 moteurs, 256/256, usages répétés) ; tout nombre d'usages DÉMONTRÉ (certificat R-606, lemme relu en vague 1).
+  Résultats : step_reuse_res.json. Commande : python3 step_reuse.py
+## R-618 2 pas enchaînés — OUVERT (non tenté, 02:20)
+Brancher les sorties du pas 1 sur les littéraux du pas 2 demande UNE copie de module par littéral utilisé (65 vaisseaux-littéraux
+dans le pas 2, en comptant les négations) et, d'après S1, un littéral calculé doit être le DERNIER de son côté dans un train : les
+feuilles actuelles (trains de 2 à 5 littéraux) ne le permettent pas. Piste : feuilles à 1 littéral calculé par côté + chocs de face,
+ou un module « COPIE » (R-609) pour dupliquer.

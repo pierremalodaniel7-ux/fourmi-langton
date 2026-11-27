@@ -45,7 +45,7 @@ SR = Step(P2, offR); LR = SR.L['h1']
 fiches.insert(0, fiche('R-617', "Le pas complet RÉUTILISABLE en un germe R2L2 : 256/256, certificat, usages répétés au même endroit", SR.sit(E), 0, 'zoom -6600,-6000,7600,7600',
        situation="8 modules (h1' version réutilisable R-616) translatés ; voies opposées ≥ 7 et rayons ≥ 7 entre modules.",
        deroulement="Usage u = le même germe (état e_u) retardé de u·Δ, Δ = 384 744 pas ; chaque usage calcule les 8 bits du pas suivant.",
-       mesures="256/256 propres et justes (C) ; hx.py 256/256 ; certificat OK (fenêtre 9 877 pas, rayon 11 709) ; 3 usages : superposition exacte, 3/3, 2 moteurs identiques ; 10 usages ×2 (C) : voir journal R-617.",
+       mesures="256/256 propres et justes (C) ; hx.py 256/256 ; certificat OK (fenêtre 9 877 pas, rayon 11 709) ; 3 usages : superposition exacte, 3/3, 2 moteurs identiques ; 5 usages ×2 graines (C, 421 fourmis) : superposition exacte, 5/5.",
        statut="VÉRIFIÉ (2 moteurs, tous les états, usages répétés) ; tout nombre d'usages DÉMONTRÉ (certificat R-606)",
        interet="Le pas d'une fourmi calculé par des chocs d'une autre fourmi, indéfiniment au même endroit.",
        deja="Pas trouvé.", source='recherche/regles/s3_pas/journal.md (R-617)', commande='python3 recherche/regles/s3_pas/step_reuse.py'))

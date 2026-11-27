@@ -46,6 +46,22 @@
    "deux_moteurs": true,
    "fourmis": 254,
    "graine": 0
+  },
+  {
+   "usages": 5,
+   "superposition": true,
+   "justes": 5,
+   "deux_moteurs": null,
+   "fourmis": 421,
+   "graine": 1
+  },
+  {
+   "usages": 5,
+   "superposition": true,
+   "justes": 5,
+   "deux_moteurs": null,
+   "fourmis": 421,
+   "graine": 2
   }
  ]
 }
