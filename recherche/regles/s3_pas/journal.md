@@ -106,3 +106,11 @@ opt9.py : 2 placements 256/256 justes et propres trouvés (graine 4 vers 01:31, 
 - 01:59 opt10 (graine 8, poids 1 sur les voies opposées, départ = meilleur de la graine 6) : placement à 0 couple opposé, 256/256 justes
   et propres, CERTIFICAT OK (fenêtre 9 877 pas, rayon 1 740, voies opposées ≥ 7 ⇒ tout nombre d'usages pour Δ ≥ 65 733 pas).
   Paramètres : h1R_param_OK.json. Vérification complète (2 moteurs, 20 usages ×3) : h1R_check.py, en cours.
+## R-616 MODULE h1' RÉUTILISABLE — VÉRIFIÉ (02:12)
+h1R_param_OK.json (arbre htree.h1_tree2, 29 puissances) : 256/256 justes et propres, 2 moteurs 256/256 ; certificat OK
+(Δ ≥ 65 733 pas) ; 20 usages ×3 graines au même endroit : superposition exacte, 20/20 justes (moteur C, 900 fourmis) ;
+3 usages avec les 2 moteurs : identiques, 3/3. Commande : python3 h1R_check.py h1R_param_OK.json → h1R_verif_OK.json.
+## R-617 Pas complet réutilisable (02:05 →)
+Germe 8 modules avec ce h1' (step.py graine 1, BOX 6000, voies opposées entre modules vérifiées) : 256/256 propres et justes (C, 8 s),
+hx.py 256/256 identiques (47 s). Le certificat cert2 a manqué de mémoire (positions stockées : 130 fourmis × 14 000 pas × 256 cas)
+→ cert3.py (sans mémoire, contrôlé identique sur x' et c00') ; step_reuse.py lancé 02:12.

@@ -1,0 +1,40 @@
+{
+ "fichier": "h1R_param_OK.json",
+ "cas": 256,
+ "justes": 256,
+ "deux_moteurs": 256,
+ "certificat": true,
+ "delta": 65733,
+ "fenetre": 9877,
+ "rayon": 1740,
+ "voies_opposees": 7,
+ "usages20": [
+  {
+   "graine": 0,
+   "superposition": true,
+   "justes": 20,
+   "deux_moteurs": null,
+   "fourmis": 900
+  },
+  {
+   "graine": 1,
+   "superposition": true,
+   "justes": 20,
+   "deux_moteurs": null,
+   "fourmis": 900
+  },
+  {
+   "graine": 2,
+   "superposition": true,
+   "justes": 20,
+   "deux_moteurs": null,
+   "fourmis": 900
+  }
+ ],
+ "usages3_deux_moteurs": {
+  "superposition": true,
+  "justes": 3,
+  "deux_moteurs": true,
+  "fourmis": 135
+ }
+}
