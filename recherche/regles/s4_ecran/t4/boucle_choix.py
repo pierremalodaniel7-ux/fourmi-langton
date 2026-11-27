@@ -20,7 +20,7 @@ def make(nm, tri, d):
     X, chocs = B3.chain(O, tri, [b + x for b, x in zip(ns, d)]); e = B3.V(Kr) - B3.V(X)
     assert TR.same(TR.movT(Kr, (0, 0), e), X)
     return dict(chocs=chocs, e=e, u=e - p['arrivee'] - kit(p['kit'])['T'], toks=order(chocs, tri))
-def check(nm, cand, envs, T=None):
+def check(nm, cand, envs, T=None, rst='RST3a'):
     p = PL[nm]; PL1 = {k: (PL[k] if k == nm else None) for k in CASES}
     T = T or cand['e'] + 720 + 200
     sits = []
@@ -36,7 +36,9 @@ def check(nm, cand, envs, T=None):
     for e, (a, c) in zip(envs, R):
         st = pixel.read_state(a, c, p['rho'], tuple(p['c']))
         ra = [x for x in a if hd(x[0] - p['c'][0], x[1] - p['c'][1]) > 6]; rc = [q for q in c if hd(q[0] - p['c'][0], q[1] - p['c'][1]) > 6]
-        if spec(nm, e) == 1: want = (0, (8 + (cand['u'] % 12 == 11) + T - cand['e'] - 720) % 21)
+        if spec(nm, e) == 1:
+            rph = (kit(p['kit'])['fin'] + cand['u']) % 12; mfin = {('RST3a', 10): 8, ('RST3a', 11): 9, ('RST2', 2): 0}[(rst, rph)]
+            want = (0, (mfin + T - cand['e'] - 720) % 21)
         else: want = (0, (kit(p['kit'])['ph'] + T - p['arrivee']) % 21)
         good += st == want and decode3(ra, rc, T) is not None
     return good, sits, R

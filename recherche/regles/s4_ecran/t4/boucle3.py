@@ -16,7 +16,8 @@ def reps(tu):
                 if (c.outs[o][0] - c.ins[i][0]) % 6 != tu: continue
                 C = c.align(i, O0, 0); seen.setdefault((C.outs[o], C.te, tuple(sorted(C.ins))), (k, i, o))
     return list(seen.values())
-SEQ = [reps(4), reps(4), reps(1)]
+TURNS = [int(x) for x in os.environ.get('SEQ', '4,4,1').split(',')]
+SEQ = [reps(t) for t in TURNS]
 print('virages :', [len(s) for s in SEQ], flush=True)
 def lane(T): return TR.to_label(T)[1]
 def V(T): return TR.to_label(T)[2]

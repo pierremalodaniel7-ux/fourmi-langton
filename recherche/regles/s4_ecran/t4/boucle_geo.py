@@ -45,4 +45,4 @@ for nm in CASES:
     sols.sort(key=lambda s: s['u']); res[nm] = sols
     from collections import Counter
     print(nm, len(sols), 'familles ; u mod 12 :', sorted(Counter(s['u'] % 12 for s in sols).items()), '; u min', sols[0]['u'] if sols else None, flush=True)
-json.dump(res, open(os.path.join(T4, 'boucle_geo_' + NOM + '_' + RK + '.json'), 'w'))
+json.dump(res, open(os.path.join(S4, 'data', 'boucle_geo_' + NOM + '_' + RK + '.json'), 'w'))
