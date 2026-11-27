@@ -4,7 +4,7 @@
 Chaque module : arbre de NOR -> recherche de longueurs (D, G par nœud) telles que (1) aucun couple de routes opposées à < 7 voies (lemme R-606),
 (2) tous les cas justes et propres ; puis 2 moteurs sur tous les cas, certificat, 20 usages au même endroit (2 moteurs).
 Usage : python3 modules.py [nom …]   (noms : h0 x y c00 c10 c01 c11 h1)"""
-import sys, json, random, time
+import sys, json, random, time, itertools
 from nor import *
 from reuse import certificate, check_multi
 def ne(v, i): return v if i == 0 else '~' + v          # littéral « v ≠ i »
@@ -34,6 +34,19 @@ def module(nm):
         Pc = OR4('Pc', [leaf(f'p{i}{j}', [ne('x', i), ne('y', j), f'c{i}{j}']) for i, j in ((0, 0), (1, 0), (0, 1), (1, 1))])    # c
         A = NOR2('A', Ng, Nc); B = NOR2('B', Pg, Pc)
         return NOR2('h1p', A, B)
+    if nm == 'h1f':   # R-610 variante : ¬c et c en UN nœud à 4 sous-nœuds (2 par côté) au lieu de OR4
+        Ng = NOR2('Ng', leaf('g1', ['~h1', 'h0']), leaf('g2', ['h1', '~h0']))
+        Pg = NOR2('Pg', leaf('k1', ['~h1', '~h0']), leaf('k2', ['h1', 'h0']))
+        Nc = Node('Nc', [('+' if k % 2 == 0 else '-', leaf(f'n{i}{j}', [ne('x', i), ne('y', j), f'~c{i}{j}'])) for k, (i, j) in enumerate(((0, 0), (1, 0), (0, 1), (1, 1)))])
+        Pc = Node('Pc', [('+' if k % 2 == 0 else '-', leaf(f'p{i}{j}', [ne('x', i), ne('y', j), f'c{i}{j}'])) for k, (i, j) in enumerate(((0, 0), (1, 0), (0, 1), (1, 1)))])
+        return NOR2('h1p', NOR2('A', Ng, Nc), NOR2('B', Pg, Pc))
+    if nm == 'h1s':   # R-610 variante plate : h1' = NOR des 16 cubes de ¬h1' (5 littéraux chacun), profondeur 2
+        cubes = []
+        for i, j in ((0, 0), (1, 0), (0, 1), (1, 1)):
+            for a, b, c in itertools.product((0, 1), repeat=3):
+                if (a ^ b ^ c) == 0:
+                    cubes.append(leaf(f'q{i}{j}{a}{b}{c}', [ne('x', i), ne('y', j), ne('h1', a), ne('h0', b), ne(f'c{i}{j}', c)]))
+        return Node('h1p', [('+' if k % 2 == 0 else '-', q) for k, q in enumerate(cubes)])
 def spec(nm, e):
     """valeur attendue (R-61) à partir de l'état complet e"""
     if nm == 'h0': return 1 - e['h0']
@@ -41,7 +54,7 @@ def spec(nm, e):
     if nm == 'y': return e['y'] ^ e['h0']
     if nm[0] == 'c':
         i, j = int(nm[1]), int(nm[2]); return e[f'c{i}{j}'] ^ int(e['x'] == i and e['y'] == j)
-    if nm == 'h1': return e['h1'] ^ e['h0'] ^ e[f"c{e['x']}{e['y']}"]
+    if nm.startswith('h1'): return e['h1'] ^ e['h0'] ^ e[f"c{e['x']}{e['y']}"]
 def nodes(n):
     yield n
     for _, it in n.inputs:
