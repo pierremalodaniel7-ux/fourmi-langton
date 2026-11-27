@@ -116,3 +116,11 @@ Vaisseau « mise à 1 » de R-502 envoyé sur R' (déjà à 1), 12 phases de R' 
 Vaisseau « remise à 0 » envoyé sur M (déjà à 0), 21 phases : 15 fois le pixel part ; 1 fois (phase 1) le vaisseau est DÉVIÉ de 60° (dir 3 → 2)
 et M devient un objet immobile X de période 24 (≠ M, ≠ R'), conforme à T3 (une déviation de 60° interdit de redevenir soi-même).
 Cohérent avec R-340/R-342 (aucune bascule idempotente, déjà su) : une horloge doit écrire le pixel en stricte alternance 1, 0, 1, 0.
+
+## R-511 Horloge DOUBLE (deux trains de 6 vaisseaux sur le même triangle) : 0 cycle sur 184 000 — OBSERVÉ (négatif) (double_horloge.py, double2.py)
+Idée : si le 2e train est le 1er avancé de T/2 (T = P/3), la symétrie « rotation + demi-tiers » fait subir à chaque vaisseau les mêmes chocs
+(2 croisements de face par arête au lieu d'1) ; la machine devrait refermer avec une période un peu plus courte. Essai : famille R-500
+(j = 0, 1, 2, 3, 10, 11, 20, 40, 41 ; toutes les périodes y sont IMPAIRES, donc T/2 n'est jamais entier), puis les 461 horloges de
+tri_cycles_rB5.json avec P ≡ 0 mod 6 et P ≤ 800, tous les décalages s ∈ [1, P) : 183 875 machines de 12 fourmis, fourmi_r T = 6P :
+126 665 AUTOROUTES, 57 210 MIXTE, 189 INDECIS, 0 CYCLE. Les premières divergences arrivent par 3 (positions 3-symétriques), au milieu des
+arêtes : c'est le croisement de face avec l'autre train, qui n'est jamais propre. Commande : python3 s2_horloge/double2.py 0 800
