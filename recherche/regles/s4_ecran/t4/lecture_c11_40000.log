@@ -1,0 +1,10 @@
+virages : [126, 126, 28]
+c11 w 891 d (40, 65, 91) {0: {'pixel': False, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': False, 'lu': 1}}
+c11 w 954 d (44, 71, 100) {0: {'pixel': False, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': True, 'lu': 1}}
+c11 w 1017 d (43, 74, 106) {0: {'pixel': False, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': True, 'lu': 0}}
+c11 w 828 d (37, 59, 83) {0: {'pixel': False, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': True, 'lu': 1}}
+c11 w 828 d (37, 61, 84) {0: {'pixel': True, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': False, 'lu': 0}}
+c11 w 1206 d (53, 92, 130) {0: {'pixel': False, 'propre': False, 'lu': 0}, 1: {'pixel': True, 'propre': True, 'lu': 0}}
+c11 w 891 d (40, 66, 92) {0: {'pixel': True, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': False, 'lu': 0}}
+c11 w 828 d (35, 61, 83) {0: {'pixel': True, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': True, 'lu': 1}}
+RETENU

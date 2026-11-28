@@ -1,0 +1,78 @@
+{
+ "c00": {
+  "kit": "SET5",
+  "rho": 1,
+  "c": [
+   -2705,
+   752
+  ],
+  "arrivee": 11570,
+  "phase0": 5,
+  "distance_germe": 20,
+  "meme_route": [
+   [
+    0,
+    -1952,
+    -6430,
+    null
+   ]
+  ]
+ },
+ "c10": {
+  "kit": "SET5",
+  "rho": 1,
+  "c": [
+   2765,
+   335
+  ],
+  "arrivee": 11866,
+  "phase0": 3,
+  "distance_germe": 57,
+  "meme_route": [
+   [
+    0,
+    3101,
+    -617,
+    null
+   ]
+  ]
+ },
+ "c01": {
+  "kit": "SET5",
+  "rho": 1,
+  "c": [
+   6039,
+   -1146
+  ],
+  "arrivee": 11570,
+  "phase0": 5,
+  "distance_germe": 20,
+  "meme_route": [
+   [
+    0,
+    4894,
+    4212,
+    null
+   ]
+  ]
+ },
+ "c11": {
+  "kit": "SET5",
+  "rho": 1,
+  "c": [
+   -1197,
+   -5828
+  ],
+  "arrivee": 11570,
+  "phase0": 5,
+  "distance_germe": 20,
+  "meme_route": [
+   [
+    0,
+    -7024,
+    1658,
+    null
+   ]
+  ]
+ }
+}

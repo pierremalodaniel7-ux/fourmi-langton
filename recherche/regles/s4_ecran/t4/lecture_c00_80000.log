@@ -1,0 +1,6 @@
+virages : [126, 126, 28]
+c00 w 891 d (40, 65, 91) {0: {'pixel': True, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': False, 'lu': 1}}
+c00 w 954 d (44, 71, 100) {0: {'pixel': True, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': False, 'lu': 1}}
+c00 w 1017 d (43, 74, 106) {0: {'pixel': True, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': True, 'lu': 0}}
+c00 w 828 d (37, 59, 83) {0: {'pixel': True, 'propre': True, 'lu': 0}, 1: {'pixel': True, 'propre': True, 'lu': 1}}
+RETENU

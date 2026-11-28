@@ -1,0 +1,11 @@
+virages : [126, 28, 28]
+    non-vaisseaux [] orphelines 0 sorties (partiel) {'h0': 0, 'x': 1, 'y': 1, 'c00': 1, 'c10': 1, 'c01': 0, 'c11': 0, 'h1': 1}
+    (1, 1) pixel (1, 4) propre True sorties {'h0': 0, 'x': 1, 'y': 1, 'c00': 1, 'c10': 1, 'c01': 0, 'c11': 0, 'h1': 1} attendu {'h0': 0, 'x': 1, 'y': 1, 'c00': 1, 'c10': 1, 'c01': 0, 'c11': 0, 'h1': 1}
+    non-vaisseaux [] orphelines 0 sorties (partiel) {'h0': 1, 'x': 1, 'y': 0, 'c00': 0, 'c10': 0, 'c01': 1, 'c11': 0, 'h1': 0}
+    (1, 0) pixel (0, 17) propre True sorties {'h0': 1, 'x': 1, 'y': 0, 'c00': 0, 'c10': 0, 'c01': 1, 'c11': 0, 'h1': 0} attendu {'h0': 1, 'x': 1, 'y': 0, 'c00': 0, 'c10': 0, 'c01': 1, 'c11': 0, 'h1': 0}
+    non-vaisseaux [] orphelines 8 sorties (partiel) {'h0': 1, 'x': 1, 'y': 0, 'c00': 1, 'c10': 0, 'c01': 1, 'c11': 0, 'h1': 1}
+    (0, 1) pixel (1, 4) propre False sorties {'h0': 0, 'x': 0, 'y': 0, 'c00': 0, 'c10': 0, 'c01': 0, 'c11': 0, 'h1': 0} attendu {'h0': 1, 'x': 1, 'y': 0, 'c00': 1, 'c10': 0, 'c01': 1, 'c11': 0, 'h1': 1}
+    non-vaisseaux [] orphelines 8 sorties (partiel) {'h0': 0, 'x': 1, 'y': 0, 'c00': 0, 'c10': 0, 'c01': 1, 'c11': 1, 'h1': 1}
+    (0, 0) pixel (0, 17) propre False sorties {'h0': 0, 'x': 0, 'y': 0, 'c00': 0, 'c10': 0, 'c01': 0, 'c11': 0, 'h1': 0} attendu {'h0': 0, 'x': 1, 'y': 0, 'c00': 0, 'c10': 0, 'c01': 1, 'c11': 1, 'h1': 1}
+c00 u 380450 d (15935, 31797, 31829) test 2 usages (4 états, hx.py) : 2 51 s
+rien trouvé c00 1

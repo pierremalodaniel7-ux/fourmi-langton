@@ -88,3 +88,74 @@ Contrôle : sans sonde, SET0 au bon retard donne bien R'. ⇒ une lecture « OFF
 lisibles mais destructives) ; translation v entière quelconque ; sortie en aval du démux. Pour les 20 meilleurs placements de R-706
 (dont celui de R-707) : 0 solution (les 4 équations de voie ne sont jamais compatibles). Contrôle du solveur : retrouve le port
 d'écriture A (v = 0). ⇒ il faut choisir l'écran ET le port de lecture ensemble (OUVERT, à suivre).
+
+(Session T4 « écran de la fourmi », 27/11 à partir de 10:55 UTC, branche claude/t4-ecran-fourmi ; fichiers dans t4/.)
+
+## R-714 Écran + port de lecture choisis ensemble (lecture_joint.py) — AFFIRMÉ (d'après rapports/S4_ECRAN_2026-11-26.md, non relancé)
+Session S4 précédente (06:10) : 42 configurations à démux A = B, 0 solution ; recherche non terminée (entrée écrite par T4).
+
+## R-715 L'ÉCRAN BRANCHÉ SUR LE PAS : 4 pixels sur les 4 sorties c00' c10' c01' c11' du pas complet R-617 — VÉRIFIÉ (2 moteurs, 256/256) (t4/ecran_un_pas.py, 27/11 11:00)
+Les 4 sorties de cases du germe R-617 vont toutes en direction 0 (routes parallèles). Sur chacune, un pixel M (OFF) posé à t = 0,
+kit de mise à 1 SET0 (R-705) aligné exactement sur la sortie (t4lib.kit_on), à 20 à 57 cases après la position de la sortie à
+TDEC = 11 404, à ≥ 20 (distance hex) de toutes les autres routes (t4/rayons.py : 333 segments = entrées des 256 états + rayons décodés).
+Le vaisseau c_ij' (présent ssi c_ij' = 1) allume le pixel en passant. 256/256 états : écran lu (état ET phase exacts) = (c00', c10',
+c01', c11') de R-61, reste = vaisseaux libres décodés ; moteur C 256/256 ; hx.py identique sur 64 états (les 16 états de cases avec
+x = y = h = 0 + 48 au hasard). T = 12 686. Placement : t4/placement.json. Pas de démultiplexeur : un pixel par sortie (choix noté :
+l'adressage R-707 servirait à écrire un pixel choisi, ici chaque case a déjà son propre vaisseau).
+Limite (comme R-707) : la mise à 1 suppose le pixel éteint ; une 2e écriture demande de connaître l'état (voir R-716).
+
+## R-716 Pas d'effacement ni de remplissage « aveugle » à 1 vaisseau — VÉRIFIÉ (hx.py, balayage) (t4/effacer_scan.py, t4/remplir_scan.py)
+Les 2 droites de mise à 0 (dir 2 voie −2, dir 3 voie −2) jouées sur M à ses 21 phases : M est TOUJOURS détruit (aucun « M reste M »).
+Les 2 droites de mise à 1 (dir 0 voie 1, dir 5 voie 1) sur R' à ses 12 phases : R' toujours détruit. Avec R-705 (seules droites qui
+écrivent), aucune écriture à 1 vaisseau n'est idempotente ⇒ pour réafficher, il faut un vaisseau qui dépend de l'état affiché.
+
+## R-717 Boucle d'effacement à 2 chocs (0 -> 4 -> 2, vers RST2) : impossible par les phases — OBSERVÉ (calcul exact, t4/boucle_geo.py, 27/11 11:08)
+Idée : le vaisseau c_ij' qui a allumé le pixel continue tout droit ; 2 chocs du catalogue R-700 (chacun avec 1 vaisseau horloge posé
+à t = 0) le ramènent sur la droite de mise à 0 du MÊME pixel ⇒ le pixel s'éteint ssi il était allumé (effacement « qui dépend de l'état »).
+Géométrie : triangle 0, 4, 2 (côtés égaux) ; voie de sortie affine en (n1, n2) ; délai u = arrivée du retour − (a1 + 720).
+Catalogue filtré (48 chocs) : u ≡ 0 (mod 12) pour 2 304 familles ; catalogue complet (224, 126 virages distincts) : u ≡ 0, 3, 6, 9 (mod 12),
+15 876 familles. R' doit être en phase 2 (u ≡ 2) ou, avec SET0b, 1 : jamais ≡ 0 mod 3 ⇒ aucun. Idem kit SET5/RST3 (pixel tourné).
+
+## R-718 Boucle d'effacement à 3 chocs (0 -> 4 -> 2 -> 3, vers RST3) — OBSERVÉ (moteur C, 256/256 pour chacun des 4 pixels, 1 usage) (t4/boucle3.py, t4/boucle_choix.py)
+Avec un virage de +60° en plus, u prend toutes les valeurs mod 12. Phases (SET0a, RST3a/b, D ≡ 0 mod 21) ⇒ u ≡ 22 ou 23 (mod 84).
+Retenu (même forme pour les 4 pixels) : chocs [158, 217, 22] du catalogue complet, u = 1 282, vaisseaux horloges posés à t = 0
+(ordre de jeu imposé par chaque choc, t4/boucle_choix.order). Pixel + germe + boucle, 256 états : allumé ssi c' = 1 puis éteint
+(M, phase prévue au pas près), reste propre. Fichiers t4/boucle_c00.json … boucle_c11.json.
+
+## R-719 Deux pas de suite avec les boucles COURTES de R-718 : pas 1 juste, effacement juste, pas 2 FAUX (cause trouvée) — OBSERVÉ (2 moteurs sur l'exemple) (t4/ecran_deux_pas.py, t4/dbg_deux.py, dbg2.py, dbg3.py, 27/11 11:12–11:35)
+UNE simulation par état (189 fourmis, usage 2 retardé de D = 384 888, entrées = R-61(s0)) : lecture t_A = 12 666 (écran = c') 256/256,
+t_B = 14 638 (tout éteint) 256/256 (moteur C) ; t_C = 397 574 : faux (ex. s0 = 0 : c00'' absent). Sans pixels ni boucles, l'usage 2
+donne bien c00'' (hx.py). Cause : après la mise à 0 RST3, le vaisseau de retour repart en direction 3, sur une voie voisine (écart 1-2)
+de la route d'ENTRÉE de la puissance du module c00 à l'usage 2 ⇒ choc de face vers 24 000 cases (ce que la condition « voies opposées »
+de R-617 interdit pour les débris du germe). D plus grand (420 000) : même échec (les deux s'éloignent/approchent à la même vitesse).
+Défaut secondaire : avec une boucle courte, l'écran montre c' seulement ≈ 1 300 pas, puis s'éteint jusqu'au pas 2.
+⇒ boucle LONGUE (u ≈ D − 1 440 − δ, l'écran garde c' presque tout l'intervalle) finissant sur RST2 (retour en direction 2) : R-720.
+
+## R-721 Chocs SÉLECTIFS EN TEMPS : 16 des 224 chocs propres deviennent transparents si le signal arrive 3 pas plus tard — VÉRIFIÉ (2 moteurs, 16/16) (t4/choc_selectif.py → t4/choc_selectif.json, 27/11 12:00)
+Pour lire un pixel (la sonde R-708 option 0 ressort 3 pas en avance si OFF) : un tel choc dévie la sonde « OFF » et laisse passer
+la sonde « ON ». Types trouvés : virage du signal −120° (horloge à 60°) ×8, +120° ×8. (Finalement non utilisé : l'option 2 sépare
+déjà ON et OFF de 2 voies, R-722.)
+
+## R-720 Boucles d'effacement LONGUES (0 -> 4 -> 3 -> 2, vers RST2) — OBSERVÉ (hx.py, 2 usages, 4 états par pixel) (t4/boucle_long.py, t4/conflits.py, 27/11 11:40–12:05)
+u ≈ D − 1 440 − δ (δ ∈ [300, 3 000]) : l'écran garde c' presque tout l'intervalle, s'éteint juste avant le pas 2. Retour en direction 2
+(jamais de face avec une entrée de l'usage 2). Phases (SET0a, RST2, D ≡ 0 mod 168) : u ≡ 14 (mod 84). Recherche affine exacte
+(entiers) puis 3 filtres : (1) géométrie (t4/conflits.py : distances min. exactes à ±2 entre trajectoires rectilignes, vectorisé)
+contre le germe (2 usages) et les 4 pixels ; (2) pré-test hx.py de la boucle seule (horloges seules jusqu'à D + 13 000 : propre ;
+signal + horloges : le retour est exactement sur RST2) ; (3) 2 usages + pixel, 4 états (c', c'') = (1,1), (1,0), (0,1), (0,0).
+Pièges rencontrés : une horloge à 60° du front des sorties parallèles heurte TOUJOURS un débris voisin du module (décalages (−32, 32) et
+(23, 23) en (latéral, abscisse), sur les diagonales à 60°) ; horloge parallèle au signal dévié (rel. 4) : sans signal elle file avec le
+« fantôme » du signal et croise l'horloge suivante (souvent proprement : à tester par simulation, pas par distance).
+Retenu (mêmes chocs pour les 4 pixels, catalogue complet n° 68, 115, 196) : u = 380 534, D = 384 888. Fichiers t4/boucle_long_*.json.
+Vérification complète (4 pixels, 12 horloges, 256 états, 2 moteurs) : t4/deux_pas_long.py (en cours).
+
+## R-722 PORT DE LECTURE DÉDIÉ PAR PIXEL, réutilisable et sans effet sur l'écran — OBSERVÉ (hx.py, pixel seul, ON et OFF, 2 lectures de suite) (t4/lect.py, t4/lecture_port.py, t4/lecture_reuse.py, 27/11 12:10)
+Sonde R-708 option 2 (dir 4, voie 2 ; M en phase 15 -> X période 9 ; R' : traverse aux 12 phases) : choisie car ni la sonde ni le
+retour ne sont antiparallèles à < 9 voies d'une entrée du germe (options 0 et 1 : oui, risque de R-719). OFF : la sonde ressort 2 voies
+à côté -> 3 chocs (Q, B, C ; horloges posées à t = 0 ; virages −120°, −120°, +60°) la ramènent sur la droite de réécriture X -> M (dir 1)
+avec X en phase 5 ; le délai w ≡ 9 (mod 63) rend la lecture NEUTRE : M reprend exactement la phase qu'il aurait eue sans lecture
+(calcul : 15 + w + 1 440 ≡ 15 mod 21 et 5 + w ≡ 5 mod 9). ON : la sonde traverse R' (phase inchangée) et passe à côté de Q.
+Lu = présence de la sonde sur sa droite d'origine après le pixel (1 = ON, 0 = OFF). 4 pixels × 2 lectures (t ≈ 40 000 et 80 000) :
+pré-test pixel seul OFF et ON : pixel à la phase prévue au pas près, lu juste, reste = vaisseaux propres. La 2e lecture est cherchée
+AVEC la 1re présente (sans cela : cas ON sale, une horloge inutilisée de la 1re croise la 2e). Le 4e choc prévu pour écarter le retour
+(lecture_reuse.py) s'est révélé inutile : le retour (dir 1) et la sonde suivante (dir 4) se croisent proprement ici.
+Adresse = la droite sur laquelle on tire (un port par pixel), pas un démultiplexeur (R-712/R-713 négatifs restent valables).
