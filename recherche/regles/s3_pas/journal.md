@@ -201,3 +201,9 @@ Commande : python3 chainN.py h0 verif chainN_h0.json 8 2  (recherche : NS=8 pyth
   Contrôle moteur C (h1pp_check.py) : 4 cas au hasard + 32 cas (tranches 0/16, 1/16) : 36/36 propres et justes (= h1 après 2 pas).
   Germe complet 2 pas, 8 bits (germ2.py) : 7 modules R-619 + h1'' translaté de (200 000, 0) ; séparation > 2·T/8 (vitesse 1/8) donc
   aucune interaction possible entre les deux groupes. Vérification 256 états (C) puis hx.py lancées 12:09 (tâche de fond).
+
+## R-624 h1'' (2 pas enchaînés, 8 bits) : 256/256 justes et propres — VÉRIFIÉ (moteur C, 256 états ; hx.py 16 cas identiques) (calcul GitHub 28/11)
+Placement h1pp_param.json (R-620 : 207 puissances, 435 vaisseaux, tmax 335 380). Moteur C, T = tmax + 1 200 : 256 cas, 0 sale, 0 faux
+(sortie = h1 après 2 pas, spec2). hx.py sur 16 cas (n° 0, 16, …, 240) : 16/16 propres, justes, même état que le moteur C. Descente non lancée
+(inutile). Temps fini : vérifie le calcul de 2 pas, rien sur un comportement infini.
+Commande : calculs/a_lancer/r624_h1pp.sh (= python3 h1pp_check.py h1pp_param.json k/16, puis i/256 py) ; résultats calculs/resultats/r624_h1pp/ (1 041 s, 4 cœurs).

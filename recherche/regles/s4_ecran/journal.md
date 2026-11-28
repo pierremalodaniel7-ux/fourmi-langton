@@ -159,3 +159,8 @@ pré-test pixel seul OFF et ON : pixel à la phase prévue au pas près, lu just
 AVEC la 1re présente (sans cela : cas ON sale, une horloge inutilisée de la 1re croise la 2e). Le 4e choc prévu pour écarter le retour
 (lecture_reuse.py) s'est révélé inutile : le retour (dir 1) et la sonde suivante (dir 4) se croisent proprement ici.
 Adresse = la droite sur laquelle on tire (un port par pixel), pas un démultiplexeur (R-712/R-713 négatifs restent valables).
+
+## R-723 Démo intégrée 2 pas à l'écran (2 pas + effacements + 8 ports de lecture), 256 états — OUVERT (calcul de nuit 28/11 raté)
+Le calcul GitHub r723_ecran2 s'est arrêté au départ (0 s) : numpy absent sur la machine GitHub (import s3_pas/cert2.py), aucun état calculé.
+Rien n'est donc acquis au-delà des états déjà vus (n° 5, 77, 78 justes et propres aux 4 lectures, hx.py). Relancé le 29/11 avec numpy :
+calculs/a_lancer/r723_ecran2b.sh (branche claude/matin-29-11-t4). Commande : LECT=1 python3 t4/deux_pas_long.py C | hx i0 i1.
