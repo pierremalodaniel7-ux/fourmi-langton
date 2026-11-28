@@ -35,13 +35,19 @@ Réutilisables au même endroit, certifiés pour tout nombre d'usages : mémoire
 Calcul → mémoire : a∧b écrit dans une bascule, lu, remis à 0, 20/20 (R-346). Additionneur 2 bits par enchaînement 16/16 mais UN usage (R-345) ;
 version réutilisable : échec expliqué (R-350). Boucle : relais immobile qui dévie = 3k états (T3, R-347), 0 trouvé (R-348) ;
 HORLOGES à 6 fourmis (triangle de vaisseaux qui se relancent, P = 2 322 + 2 736 n, n ≤ 4, R-349b).
+Sessions du 26-27/11 (journaux dans recherche/regles/s1_fusion, s2_horloge, s3_pas, s4_ecran, copiés en fin de journal.md) :
+fusion propre et réutilisable de 2 signaux exclusifs à 2 constants (R-403, certificat) ; **additionneur 2 bits RÉUTILISABLE (R-405, 2 moteurs, 20 usages)** ;
+famille infinie d'horloges triangle (R-500, démontré) ; **pixel qui clignote pour toujours (R-502, CYCLE exact)** ; **compteur 2 bits (R-507, CYCLE exact)** ;
+**hexagramme : 2 horloges couplées par 6 portes, tous les vaisseaux récupérés (R-512, CYCLE exact)** ;
+**pas complet de la petite fourmi (tore 2×2) en UN germe, réutilisable (R-616/R-617, 256/256, 2 moteurs, certificat)** ; 2 pas enchaînés 7 bits sur 8 (R-619) ;
+**écran 2×2 adressable (R-707) puis écran 4×4 (R-711)**, 2 moteurs, temps fini.
 
 ## Simulateur v7 (17/11 soir)
 docs/ (GitHub Pages après fusion de la PR n°1) : bibliothèque fusionnée (747 éléments), 37 circuits avec interrupteurs, pas complet de la petite fourmi VÉRIFIÉ 256/256 (R-68, moteur JS + Python).
 
 ## Ouvert
 R-04 (≤ 2 états blancs par cycle) ; R-14/R-27 conjecture des phases (0 contre-exemple sur ≈ 2,7 M) ;
-RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? ; ordinateur : horloge (R-39 ; en R2L2 : horloges à 6 fourmis R-349b, famille infinie ?) ; fusion réutilisable de 2 signaux exclusifs (R2L2, R-350) ; mémoire : bascule T trouvée (R-140), RLEM à 2 entrées ouvert ; 13 à 100 fourmis : aucun cycle ni autoroute nouvelle (R-36, 3 069 situations) ; portée arbitraire des navettes.
+RL à plusieurs fourmis : seulement les pentes 0, 1, 5/3 ? ; ordinateur R2L2 : additionneur 3 bits réutilisable (R-407 à R-411), lecture non destructive d'un pixel (R-709, R-713), N pas enchaînés de la petite fourmi (T1, R-620+) ; mémoire : bascule T trouvée (R-140), RLEM à 2 entrées ouvert ; 13 à 100 fourmis : aucun cycle ni autoroute nouvelle (R-36, 3 069 situations) ; portée arbitraire des navettes.
 
 ## À revérifier
 Rail 0,0,H ; 2,6,H ; 8,6,D (R-13 vs R-18) ; LLRRRL autoroute 896 (bord de grille ?).

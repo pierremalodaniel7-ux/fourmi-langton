@@ -1304,3 +1304,545 @@ slide : glissement de l'étage 1 le long de la route de c) : 11/16 pour tout gli
 de l'étage 0 au moment où c0 y naît (choc B/K2 à t = 233). Le glissement ne change pas sa trajectoire (pièce parallèle à c).
 Virage de c0 par UN constant pour l'éloigner (virage_c.py, 172 016 placements) : 0 virage nouveau propre et réutilisable.
 L'additionneur 2 bits réutilisable reste OUVERT ; celui à UN usage est R-345 (16/16).
+
+# ===== Journaux des sessions parallèles du 26-27/11 (R2L2), rassemblés le 27/11 09:09 UTC par T1 (copie, les originaux restent dans recherche/regles/s*/journal.md) =====
+
+# ----- recherche/regles/s1_fusion/journal.md -----
+# S1 fusion — journal (R-400+)
+Début session S1 : 19:30 UTC
+
+Session S1 (fusion / enchaînement), 26/11 soir, automatique (Pierre-Malo absent). Branche claude/s1-fusion (depuis claude/r2l2-additionneur-boucle).
+Règle H:R2L2 (hexa, blanc → +120°, noir → −120°), fourmis jouées l'une après l'autre, positions entières. Moteurs : fourmi_r (C) et hx.py (Python).
+Commandes à lancer depuis recherche/regles/.
+
+## R-400 Fusion de deux signaux exclusifs avec UN constant : 1 529 fusions (UN usage) — VÉRIFIÉ (2 moteurs, temps fini) (fusion1.py, fusion1v.py)
+Fusion = deux routes s1, s2 (au plus un vaisseau à la fois) → UN vaisseau sur UNE trajectoire O (même direction, voie, instant, phase),
+O absente quand il n'y a aucun signal, 0 case restante. Recherche EXHAUSTIVE à 1 constant K (vaisseau direction 0) : tous les chocs
+propres de R-333 (1 688), rangés modulo la symétrie σ (décaler s de 8 pas et de −d_K laisse K invariant) ; deux chocs qui émettent la
+même trajectoire = fusion. 2 360 paires, 1 529 à routes distinctes, toutes revérifiées par simulation directe des 3 cas (fourmi_r)
+et par hx.py (0 désaccord). Complément (fusion1b.py) : un signal qui ne touche pas K ne peut pas servir (les 1 904 sorties prolongées
+en arrière passent toutes à ≤ 6 de K) ⇒ la liste est complète.
+
+## R-401 À 1 constant, toute fusion RÉUTILISABLE est une « fusion à ombre » — DÉMONTRÉ (calcul exhaustif R-400) (fusion_reuse.py)
+Sur les 1 529 : 1 516 ont une sortie qui repart à contresens sur l'axe d'une entrée (≤ 6 voies) ⇒ percutée par l'usage suivant.
+Les 13 restantes sont réutilisables (2 usages 9/9, 20 usages × 3 graines 20/20, 2 moteurs, certificat : distance 99 + 100 (j − 1))
+MAIS O = K décalé d'UNE voie : dans le cas « aucun signal », K passe sur la voie voisine au même instant (l'« ombre »). C'est un
+codage « 2 rails » (O = x∨y, ombre = ¬(x∨y)), pas une sortie seule sur sa route.
+Pourquoi (argument géométrique + invariants R-331) : la ligne de O passe par les deux points de choc P1 (s1+K) et P2 (s2+K), qui sont sur la
+ligne de K ; donc O est sur l'axe de K (ombre si même sens, route de face si sens opposé) ou P1 ≈ P2 ; dans ce 2e cas toutes les lignes
+passent par le même point et (I1)+(I2) forcent les directions des déchets ; ex. type (s1, s2, O) = (1, 2, 2) : le déchet de s1 + K a
+forcément la direction 5, à contresens de s2, et part du point de choc, donc sur l'axe de s2.
+
+## R-402 Ombre + 2e constant « séparateur » : 5 640 fusions… toutes encore à ombre — OBSERVÉ (fusion2.py, bases 0 et 1)
+K' placé sur la route de O (17 instants, 5 directions, 81 décalages, 8 phases, 2 ordres : 2 × 74 912 placements) : 5 640 réussites à 2 usages
+9/9, mais O' est toujours K' retardé de quelques pas (même voie) : l'ombre a seulement changé de constant. Critère corrigé ensuite :
+« aucune sortie du cas vide parallèle à O à ≤ 6 voies ».
+
+## R-403 FUSION PROPRE ET RÉUTILISABLE à 2 constants — VÉRIFIÉ (2 moteurs, 20 usages) ; tout nombre d'usages DÉMONTRÉ (certificat) (fusion3.py, fusion_final.py)
+Idée : partir d'une fusion à 1 constant non réutilisable dont le SEUL défaut est le déchet forcé de R-401 (type (1, 2, 2)) et ajouter un
+constant K' qui percute ce déchet δ périodes après sa naissance, là où s2 est déjà passé. Recherche : 17 432 placements par base,
+642 réussites par base (2 usages 9/9, sans ombre, sans route de face).
+Exemple retenu (fusion_verif.json, indice 0) : ordre de jeu Kp, s1, s2, K ;
+ K = « −85,85,4 » + case (−84,85) (direction 0) ; Kp = « 91,−7,2 » + case (91,−8) (direction 4) ;
+ s1 = « −85,1,1 » + cases (−85,0), (−85,1) (direction 1) ; s2 = « −1,−83,2 » + cases (−1,−83), (0,−84) (direction 2) ;
+ O = vaisseau direction 2, voie 1, abscisse 833, phase 6 au temps 4 000 (même trajectoire exacte pour s1 et pour s2).
+ Cas vide : K et Kp continuent (directions 0 et 4, rien de parallèle à O). 3 cas justes, 2 moteurs ; 2 usages 9/9 ; 20 usages dans UNE simulation :
+ 3 suites au hasard + 20 × s1 + 20 × s2 + alterné : 20/20, superposition exacte, 2 moteurs identiques à chaque fois.
+ Certificat (circuit.certificat, j = 1 … 10) : distance minimale EXACTE entre fourmis de deux usages = 7 (> 6) pour tout écart, aucune paire de face
+ (les 7 viennent de deux routes à contresens à 7 voies, qui se croisent toujours à 7) ⇒ N usages = superposition exacte pour tout N.
+Commande : python3 s1_fusion/fusion_final.py s1_fusion/fusion3_122_0_2.json 0 10
+
+## R-404 CROISEMENT : deux vaisseaux libres ne s'influencent que s'ils passent à distance ≤ 1 (≤ 2 s'ils sont parallèles) — DÉMONTRÉ (calcul exhaustif) (croisement.py, paralleles.py, croisement_demo.py)
+Toutes les géométries relatives proches de 2 vaisseaux de directions différentes (r = 1 … 5, tau, v modulo u, 2 ordres : 1 880, R-333) :
+distance minimale des trajectoires libres 0 : 232 / 240 interagissent ; 1 : 184 / 360 ; 2, 3, 4, 5, 6 : 0 / 256 chacune (croisement EXACT :
+chaque fourmi suit pas à pas sa trajectoire libre). Au-delà de 6 : transparent exact (R-333). Aucun « vrai choc » ne rend les deux trajectoires
+libres (0 échange). 416 géométries interdites en tout (64, 96, 96, 96, 64 pour r = 1 … 5). Parallèles (même direction, [−8, 8]², 8 phases,
+2 ordres) : distance 2 : 4 / 296 interagissent ; ≥ 3 : 0. Conséquence : à contresens, deux routes ne se gênent que si la somme de leurs voies
+est dans [−3, 1] (au lieu de « ≤ 6 voies » utilisé jusqu'ici, trop prudent).
+⇒ Un croisement n'a besoin d'AUCUN constant : il suffit que les deux signaux ne passent pas à ≤ 1 l'un de l'autre. Démonstration
+réutilisable (croisement_demo.py) : directions 0 et 1 (60°), puis 0 et 2 (120°), fourmis à distance 2 au plus près : 4 cas justes, 2 moteurs ;
+2 usages 16/16 ; 20 usages (3 graines + 20 × (1,1)) 20/20, superposition exacte, 2 moteurs ; certificat (distance entre usages 117 + 200 (j−1),
+resp. 17 + 100 (j−1)).
+Certificat fin (cert_fin.py) : condition « distance ≥ 7, ou les deux fourmis libres et ≥ 3 / ≥ 2 », sur toute la droite des temps, + argument de
+parité (couleur = parité des passages) ⇒ superposition exacte. Contrôle : la fusion R-403 passe (libres à 7, non libres ≥ 180).
+
+## (vague 2, 27/11, début 00:41 UTC) Piste « relais » de la vague 1 (add2_fusion.py) : 0 réussite — OBSERVÉ ; cause trouvée : ORDRE DE JEU
+Vague 1 : 1 010 relais (fusions R-402) × placements → « 16 cas : sale » à chaque fois. Vague 2 : même chose avec les fusions R-403 et
+l'entrée de l'étage 1 par A, B ou c (add2_relais.py, relais 0 … 400 : 10 800 essais sales). Diagnostic (diverge.py) : les fourmis sont
+jouées l'une après l'autre, et dans R-349 la pièce A joue APRÈS K3, K2, B ; en posant HA0 avant l'étage 1, la fourmi qui porte c0 joue
+avant les pièces qu'elle rencontre ⇒ autre dynamique au contact. (Pour la piste relais, les 16 cas sales venaient aussi de relais qui
+ne font que décaler c0 de quelques voies : l'étage 1 retombe alors presque sur HA0.)
+
+## R-405 ADDITIONNEUR 2 BITS RÉUTILISABLE (a1a0 + b1b0 → c1 s1 s0) — VÉRIFIÉ (2 moteurs, 20 usages) (add2_perm.py, add2_final.py)
+Idée : a + b + c est symétrique ⇒ la retenue c0 du demi-additionneur R-337 entre dans l'additionneur complet R-349 par sa pièce A
+(même direction 2 que c0 : rotation 0), pas par c (R-350 : K2 parallèle à c traverse la porte de HA0). compose.attach (étage 1 posé pour
+que A suive EXACTEMENT c0), glissé de D périodes ; le bloc HA0 joue À LA PLACE de la pièce A dans l'ordre de R-349 (sinon 15/16).
+Balayage D = 0 … 400 (pas 10) : pièce A → 16/16 pour TOUT D ≥ 10 (39/39) ; pièce B (rotation 2) → 12/16 au mieux.
+Retenu D = 20 : 8 pièces seulement, ordre de jeu : c(étage 1, entrée b1) « 74,−8,2 », K3' « −38,56,4 », K2' « 80,−4,4 », B' (entrée a1)
+« −22,40,4 », puis HA0 : K3 « −16,16,4 », K2 « 62,−24,4 », B (b0) « 0,0,4 », A (a0) « 30,−56,0 » (cases : add2_final.json).
+Sorties au temps 9 000 : s0 sur (0,0,2218,0) ou (0,0,2250,0) ; s1 sur (0,18,2188,0), (2,−29,2163,0), (4,8,2108,2) ; c1 sur
+(0,19,2187,0), (0,19,2187,7), (2,−30,2168,1) (« un vaisseau sur l'une des positions »).
+16/16 justes, propres (0 case hors vaisseaux), 2 moteurs identiques ; 2 usages (k = 200) : 256/256 couples en superposition exacte ;
+20 usages dans UNE simulation : graines 0, 1, 2, 20 × (1,1,1,1), alterné : 20/20 chaque fois, superposition exacte, 2 moteurs identiques.
+PIÈGE : fourmi_r a MAXA = 128 et IGNORE sans message les fourmis suivantes (20 × 1111 = 160 fourmis → faux échec « 0/20, 2 moteurs
+différents »). s1_fusion/fourmi_r512 (même source, MAXA = 512) + big.py ; à signaler dans le dépôt commun.
+La fusion R-403 n'a pas été nécessaire pour 2 bits (elle servira à rendre c1 « une seule route » pour enchaîner un 3e bit).
+Commande : python3 s1_fusion/add2_final.py 20 5   (depuis recherche/regles/)
+
+## R-406 CROISEMENTS dans un vrai circuit (l'additionneur R-405) — OBSERVÉ (16 cas) + R-404 (croisement_add2 : croise_add2.py)
+Dans R-405, 50 paires (fourmi de l'étage 0, fourmi de l'étage 1) ont des CHEMINS qui se coupent (même case, instants différents) sans
+jamais être à moins de 2 au même instant : ex. B' (entrée a1) coupe le chemin de B (étage 0) à 467 pas d'écart (distance min 40) ;
+K3' coupe K3, K2 et B. Par R-404 ce sont des croisements transparents ; le circuit est juste 16/16 et 20/20 avec eux.
+Commande : python3 s1_fusion/croise_add2.py 20
+Certificat fin de R-405 (cert_fin.py, W = 5 000, écarts j = 1 … 5) : condition fine vraie pour les 256 couples à chaque écart ; distance
+minimale EXACTE entre fourmis de deux usages = 156 + 200 (j − 1) (non libres) et 62 + 100 (j − 1) (libres), croissance linéaire ; aucune
+paire (sortie, entrée) de face ⇒ N usages = superposition exacte pour tout N et toute suite : DÉMONTRÉ (même argument que R-349, R-403).
+
+## R-407 Additionneur 3 bits, essai direct : ÉCHEC (OBSERVÉ) — la retenue c1 de R-405 sort sur 3 routes (add3_try.py)
+c1 = (0,19,2187,0) si c0∧a1∧¬b1 ; (0,19,2187,7) si ¬c0∧a1∧b1 (même voie, UN pas d'écart) ; (2,−30,2168,1) si c0∧b1.
+3e étage R-349 posé sur l'une des 3 routes (pièces A, B, c ; D = 20, 60, 150) : au mieux 49/64 cas propres (route de direction 2, pièce A).
+Il faut d'abord regrouper les 3 routes en une. Piste : fusion1.json contient 938 fusions à 1 constant entre DEUX signaux de MÊME
+direction (dont des paires sur la même voie) : chercher celle qui regroupe (0,19,·,0) et (0,19,·,7), puis une fusion R-403 avec la route
+de direction 2 ; rendre le tout réutilisable (R-401 : il faudra un 2e constant). OUVERT.
+
+## R-408 Regrouper les deux routes de c1 qui ne diffèrent que d'UN pas, avec UN constant : 66 fusions, toutes « à ombre » — OBSERVÉ (fus07.py)
+V0 = (0,19,2187,0), V7 = (0,19,2187,7). K : 6 directions × disque de rayon 5 autour de V0 × 8 phases × 2 ordres (4 368 K, 21 840 simulations,
+1 s) : 66 K donnent V0 + K et V7 + K propres avec une sortie O commune absente du cas « K seul ». Toutes : K de face (direction 3), O de
+direction 3 à 1 voie et ~1 abscisse de la route de K seul (l'« ombre » de R-401 : quand c1 = 0, K passe presque au même endroit au même
+instant) ⇒ inutilisable pour enchaîner. Il faudra 2 constants (méthode R-403 adaptée). 3 bits : OUVERT.
+Commande : python3 s1_fusion/fus07.py 5
+
+## (vague 3, 27/11, début 05:46 UTC) Dernier commit 01:02 → plus de 30 min, je reprends (3 bits).
+
+## R-409 Regrouper 2 routes de c1 avec une fusion du catalogue R-400 posée EXACTEMENT : 4 appariements, tous inutilisables — DÉMONTRÉ (calcul exact sur le catalogue) / OBSERVÉ (simulation) (match3.py, add3_k1.py)
+Calcul exact (sans simulation) : on tourne chaque fusion à 1 constant (1 529, R-400) pour que s1 suive EXACTEMENT une route de c1, puis on cherche
+un glissement k tel que s2 suive exactement une autre route (condition : même direction, même phase, gY − g(s2) = k (d1 − d2)).
+Résultat : 4 appariements seulement, tous (s1 = V2, s2 = V0), type (1,5,3), rotation 1, k = −34 ; aucun avec V7 (la géométrie relative de deux routes
+est fixée par R-349 : un seul entier libre, que le catalogue ne couvre presque pas).
+Simulation (étage 0+1 de R-405 + ce K, 9 rangs de jeu, 16 cas, T = 11 000) : 5 à 13 cas sales sur 16 pour chacun des 36 montages.
+Cause (lue dans les sorties de R-405) : les sorties s1 et c1 de R-349 roulent côte à côte, à UNE voie l'une de l'autre ((0,18)/(0,19), (2,−29)/(2,−30)),
+au milieu de constants parallèles ((0,19,2657) même voie que c1, 15 périodes devant ; (2,−31), (4,7), (4,8)…). Par R-404 (interaction ⇔ distance ≤ 1),
+tout constant qui touche c1 touche aussi s1 ou un de ces voisins dans un autre cas. ⇒ On ne peut pas trier la retenue de R-349 à la sortie.
+Conséquence : pour enchaîner, il faut un additionneur complet dont la retenue sort SEULE sur UNE route : HA + HA + fusion (piste suivante).
+Commandes : python3 s1_fusion/match3.py ; python3 s1_fusion/add3_k1.py 11000
+
+## R-410 Les 66 fusions V0/V7 à 1 constant (R-408) dans le VRAI circuit : 246 montages propres 16/16, mais 2 usages ≈ 2/30 — OBSERVÉ (add3_k07.py, k07_reuse.py, sup2.py)
+Les 66 K de R-408 (38 distincts) insérés à chacun des 9 rangs de jeu de R-405 (594 montages, T = 11 000) : 246 sont propres dans les 16 cas,
+et les cas V0 et V7 émettent les MÊMES vaisseaux (2 sorties communes, absentes des autres cas) : la fusion marche pour UN usage.
+2 usages (1 rang par K, 30 couples au hasard, superposition exacte) : 2/30 pour les 36 montages testés.
+Cause : les 66 K sont tous de direction 3, c'est-à-dire qu'ils remontent l'axe de c1 à contresens (voie −20 contre 19) ; le K de l'usage j + 1
+croise de face tout ce que l'usage j envoie sur cet axe (le constant de la voie 19, déjà dévié par K_j, et les restes) : argument tête-bêche de R-345.
+⇒ Il faut frapper V0/V7 DE CÔTÉ : R-411.
+Commandes : python3 s1_fusion/add3_k07.py 11000 ; python3 s1_fusion/k07_reuse.py 11000 30 1
+
+## R-411 Fusion V0/V7 à 2 constants DE CÔTÉ dans le vrai circuit : 2 160 montages justes (1 usage, 2 moteurs) mais « 2 rails » et 2 usages 192/256 — VÉRIFIÉ (1 usage) / OBSERVÉ (k1full.py, k2full.py, matchlib.py, k2verif.py, k2reuse.py)
+Étape A (k1full.py, 26 208 montages : K1 de direction 1, 2, 4, 5, disque de rayon 5 autour de V0, 8 phases, 9 rangs, 6 cas témoins, T = 9 600, 83 s) :
+54 K1 propres, transparents hors V0/V7, qui touchent V0 et V7 ; chacun donne 3 vaisseaux nouveaux (tous différents entre V0 et V7) car le choc
+emporte aussi le constant de la voie 19 (15 périodes devant c1). (Le même travail en isolé, k1side/k12iso, donnait 102 fusions, toutes ratées
+dans le circuit : les cas V7 portent un vaisseau de plus, (4,7,·,5), et le constant de la voie 19 — il faut chercher DANS le circuit.)
+Étape B (matchlib.py : appariement EXACT d'une fusion du catalogue R-400 sur une paire (p0, p7)) : 2 745 appariements ; K2 inséré à 10 rangs :
+27 450 montages × 16 cas (T = 12 000, 362 s) : 2 160 propres 16/16 où les cas V0 ET V7 (0011, 0111, 1011, 1110) émettent le MÊME vaisseau
+O = (0, 19, 2903, 4) au temps 12 000, absent des 12 autres cas, et V2 intact. Exemple (k2full.json indice 0) : K2 = « 1091,58,5 » joué 1er,
+K1 = « 1099,42,1 » (cases dans le fichier) ; 16 cas, 2 moteurs identiques (k2verif.py 0 12000).
+DÉFAUTS : (1) « 2 rails » : dans les cas c1 ≠ V0/V7, le constant de la voie 19 passe en (0, 19, 2907, 0), 2 abscisses devant O : O ≈ ce
+constant retardé (même défaut que l'« ombre » de R-401) ; (2) 2 usages : 216 montages distincts, 8/12 couples au hasard ; pour l'exemple,
+192/256 : les 64 ratés sont EXACTEMENT les couples dont le 1er usage est un cas V0/V7 (un déchet de la fusion gêne l'usage suivant, comme
+en R-401 ; remède connu : intercepteur R-403).
+Bilan 3 bits : la retenue de R-349 est entremêlée avec le constant de la voie 19 et la somme s1 ; chaque fusion « réussie » se paie d'un
+défaut (face, 2 rails, déchet). 3 bits : OUVERT.
+Commandes : python3 s1_fusion/k1full.py 5 9600 ; python3 s1_fusion/k2full.py 12000 ; python3 s1_fusion/k2verif.py 0 12000
+
+# ----- recherche/regles/s2_horloge/journal.md -----
+# Journal S2 — horloge, boucle, pixel qui clignote (session parallèle du 26/11 soir, entrées R-500 et suivantes)
+
+Cadre : hexa R2L2 (blanc → +120°, noir → −120°), fourmis jouées l'une après l'autre, grille infinie, positions entières.
+Moteurs : `../fourmi_r` (C, CYCLE = retour exact de l'état complet = périodique pour toujours, R-01) et `../hx.py` (Python, indépendant).
+Tous les scripts se lancent depuis `recherche/regles/` : `python3 s2_horloge/<script>.py …`.
+
+## R-500 FAMILLE INFINIE D'HORLOGES « TRIANGLE » à 6 fourmis — DÉMONTRÉ (certificat exact + convexité) ; terme j construit directement
+Idée (calcul « vaisseaux virtuels », tri.py) : 3 vaisseaux horaires (caps pairs, directions 0 → 2 → 4) et 3 anti-horaires (caps impairs,
+5 → 3 → 1) ; à chaque coin d'un grand triangle un choc de 2 vaisseaux (60°) tourne l'horaire de +120° et l'anti-horaire de −120° (c'est la
+porte d'interaction de R-314). Si R(x) = rot120(x) + c et état(T) = R(état(0)), l'état revient exactement après 3T. Les équations de fermeture
+sont dégénérées pour ce type de choc (d₂ + d₅ = 0) : chaque choc propre (596 trouvés) donne une PROGRESSION ARITHMÉTIQUE de tailles possibles.
+Sur chaque arête l'horaire et l'anti-horaire se croisent de face au milieu (événement fixe selon la parité de j), ce qui avance chaque vaisseau
+de 6 ou 12 pas : P = 3T − 18 ou 3T − 36.
+Terme j (formule.py, rien d'autre que des entiers) :
+  fourmis (1,6,5) ; (−6, j+19, 1) ; (−(j+12), j+12, 3) ; (−5,5,4) ; (1, j+13, 0) ; (−(j+13), j+19, 2)
+  cases (1,5) (1,6) (−6,j+19) (−5,j+19) (−(j+13),j+13) (−(j+12),j+12) (−4,5) (0,j+14) (−(j+13),j+18)
+  période P(j) = 363 + 24 j (j pair), 381 + 24 j (j impair) ; triangle de côté ≈ j + 19 cases.
+VÉRIFIÉ : CYCLE exact fourmi_r pour j = 0 … 300 (301/301, période exacte) et 18 termes jusqu'à j = 1 949 (P = 47 181) ;
+hx.py : premier retour exact = P pour j = 0 … 41 (42/42) et j = 60, 61.
+DÉMONTRÉ pour tout j (certif_tri.py) : sur une période, chaque fourmi est soit un vaisseau libre (à > 14, hystérésis 10, de toute autre
+fourmi), soit dans un « événement » (21 événements : 3 coins au départ, 3 coins + 3 croisements par tiers, coupés au bord). Pour j = p + 2(i0 + i),
+i = 0, 1, 2 : même structure, paramètres (vaisseaux virtuels, temps, centres) AFFINES en i, chaque événement = translaté espace-temps exact
+du précédent ; séparations (vaisseau–vaisseau, vaisseau–événement, événement–événement) contrôlées en fractions exactes sur les centres continus
+(écart fourmi–centre ≤ 13/8) : la distance hexagonale est une norme ⇒ le minimum sur t est CONVEXE en i ⇒ m(0) ≥ seuil et m(1) ≥ m(0) donnent
+m(i) ≥ seuil pour tout i ≥ 0 ; fermeture (état à P = état à 0) affine en i, vraie en i = 0, 1, 2 ⇒ vraie partout ; aucune case orpheline.
+Certificat OK pour j pair ≥ 40 (`certif_tri.py 0 20`) et j impair ≥ 33 (`certif_tri.py 1 16`) ; j < 40 : CYCLE direct (2 moteurs).
+⇒ pour TOUT j ≥ 0, la configuration revient exactement à elle-même : horloge qui tourne pour toujours, aussi grande qu'on veut.
+Commandes : `python3 s2_horloge/formule.py` ; `python3 s2_horloge/famille.py 0 200` ; `python3 s2_horloge/famille_hx.py 0 1 60 61` ;
+`python3 s2_horloge/certif_tri.py 0 20` ; `python3 s2_horloge/certif_tri.py 1 16`.
+Autres chocs : 48 familles du même type (P = 3T − 18/36), 172 chocs donnant au moins un cycle (tri_test.py ; T ≤ 400).
+La famille R-349b (P = 2 322 + 2 736 n, trouvée au hasard) n'est PAS celle-ci : voir R-504.
+Déjà connu ? Analogue : McGinnis-Webb 2019 (modèle synchrone) ont une famille d'orbites périodiques à 2 particules (période 4d) ;
+une famille de 6 vaisseaux R2L2 en triangle : pas trouvée (deja_connu_regles.md).
+
+## R-501 Horloge branchée sur la bascule R-341 : le vaisseau de l'horloge écrit le bit et revient — VÉRIFIÉ (CYCLE exact, 2 moteurs)
+Bascules « traversantes exactes » (bascule_shift.py) : sur les 438 496 bascules R → R' → R de bascule_hexa.py (R-340, regénérées),
+294 150 ont deux vaisseaux de directions OPPOSÉES qui passent tout droit ; on mesure le décalage espace-temps du vaisseau sortant :
+120 sont EXACTES pour les deux écritures (le vaisseau ressort exactement là où il serait passé sans objet). Parmi elles la bascule R-341
+elle-même : M = « 0,0,1;1,−1,0|−1,1 » ↔ R' = « −1,0,3;1,1,0|−1,0;−1,1;0,−1;1,0;1,1 », mise à 1 par le même vaisseau que R-341 (dir 0,
+voie 1, M en phase 16) et — nouveau — remise à 0 par un vaisseau de direction OPPOSÉE (dir 3, voie −2, R' en phase 10 ou 11).
+Une telle bascule posée sur une arête de l'horloge triangle (le vaisseau anti-horaire écrit 1, l'horaire du tiers suivant écrit 0) ne change
+rien à l'horloge : toute la machine est un cycle exact. C'est la consigne 2 (un vaisseau de l'horloge sert d'entrée à la bascule puis revient).
+
+## R-502 PIXEL QUI CLIGNOTE TOUT SEUL POUR TOUJOURS (8 fourmis) — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py : périodique pour toujours)
+pixel_search.py : horloge triangle (48 familles) + UNE bascule exacte sur l'arête C0C1 ; on balaie la position du pixel le long de l'arête ;
+critère = CYCLE exact de toute la machine. j ≈ 60 : 123 148 machines, 310 cycles (toutes les bascules utilisées clignotent : 6 changements par
+période) ; avec la bascule R-341 et j ≈ 150 : 81 258 machines, 148 cycles.
+Machine retenue (pixel_cycles_150_150_tri.json n° 0, 8 fourmis, 12 cases) :
+  H:R2L2|4,124,0;2,126,3;6,6,5;-6,174,1;-162,162,3;-5,5,4;6,163,0;-163,174,2|6,5;6,6;-6,174;-5,174;-163,163;-162,162;-4,5;5,164;-163,173;4,126;3,124;3,126
+(les 2 premières fourmis = le pixel, objet M de R-335/R-341 ; les 6 autres = horloge triangle). Période 4 203 (= horloge seule) ; le pixel
+vaut 1 (R') pendant 1 752 pas, 0 (M) pendant 2 203 pas, en écriture 249 pas ; il passe 0 → 1 → 0 trois fois par période (une fois par tiers,
+période de clignotement 1 401). 2 moteurs : fourmi_r CYCLE 4 203, hx.py premier retour exact 4 203. GIF : img/pixel_clignotant_R341.gif
+(images fixes _ON.png, _OFF.png). Exemple plus petit (bascule R-341, P = 2 043) : pixel_cycles_60_60_tri.json n° 6.
+C'est l'équivalent du clignotant du jeu de la vie, mais fait d'une horloge (6 fourmis) + une mémoire (2 fourmis) ; T0/T1 respectés :
+aucune fourmi ne part, tout est borné, et le cycle exact prouve « pour toujours ».
+
+## R-503 Bascule T / compteur par un flux de vaisseaux identiques (même route), vaisseaux exacts — 0 trouvé (OBSERVÉ, négatif)
+compteur.py : 15 299 conversions traversantes (angle 0) des 95 oscillateurs à 2 fourmis ; 52 laissent le vaisseau exact ; flux de 2, 3, 4
+vaisseaux sur la même route espacés de Δ = 200 … 1 399 pas (62 400 flux chacun) : le 2e vaisseau est TOUJOURS perturbé (0 / 62 400).
+⇒ avec ces objets, un objet qui change d'état à chaque passage d'un même signal sans abîmer le signal n'existe pas ; un compteur
+« causal » (retenue) demanderait un objet qui DÉVIE le signal selon son état, ce qui casse l'horloge (piste ouverte).
+
+## R-504 Famille R-349b (P = 2 322 + 2 736 n) : alignement de deux termes (vieille_famille*.py) — OUVERT
+Scripts écrits en vague 1 (alignement par rotation × relabellisation × temps), coupés avant conclusion : aucun résultat à retenir.
+
+## R-505 Bascule T « en deux temps » (objet frappé alternativement par deux routes opposées, vaisseaux exacts) — 0 trouvé (OBSERVÉ, négatif)
+compteur2.py / compteur3.py : chaînes de conversions EXACTES X0 →a→ X1 →b→ X2 … ; aucun retour à l'orbite de X0 après 2 tours avec X2 ≠ X0
+(bascules_T.json = [], compteur3_K4.json = []). Avec ces objets (oscillateurs à 2 fourmis de data/osc2.txt), pas de diviseur par 2.
+
+## R-506 DEUX PIXELS QUI CLIGNOTENT EN ALTERNANCE (10 fourmis) — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 4 203)
+Idée : sur une arête, le pixel A (bascule R-341) est allumé par le 1er vaisseau du tiers, éteint par le 2e : fenêtre ON centrée sur le
+croisement. La même bascule tournée de 180° est allumée par le 2e et éteinte par le 1er du tiers suivant : fenêtre ON décalée de P/6.
+Sur la même arête les places compatibles sont mal centrées (anti_pixel.py, k = 0…5 : 4 + 2 + 2 cycles, au mieux 73 % du temps opposés) ;
+on la pose donc sur l'arête suivante (l'horloge est symétrique : état(t + P/3) = R(état(t)), R = rotation 120° + translation (−168, 174),
+calculée exactement) : anti_pixel2.py m = 1, 58 611 machines, 6 CYCLE (P = 4 203). Machine retenue (anti2_m1.json n° 0) :
+  H:R2L2|-41,40,1;-41,40,2;4,125,4;5,125,1;-83,84,1;5,85,3;-84,173,5;5,85,2;-84,173,4;-83,84,0|3,125;6,83;-83,174;-85,85;-82,83;5,86;-85,173;6,84;-84,174;-84,84;-41,40;-39,38;-40,38;-39,39;-40,40
+(fourmis 0,1 = pixel B ; 2,3 = pixel A ; 4–9 = horloge R-502). Sur une période : A et B dans des états OPPOSÉS pendant 3 676 pas,
+JAMAIS dans le même état (0 pas) ; les 527 autres pas = écritures (ni M ni R'). A ON 1 714, B ON 1 962 ; 3 alternances par période.
+2 moteurs : fourmi_r CYCLE 4 203 ; hx.py premier retour exact 4 203. GIF : img/pixels_opposes_R506.gif (image fixe _img.png).
+Commandes : python3 s2_horloge/anti_pixel2.py 1 30 ; python3 s2_horloge/anti_hx.py s2_horloge/anti2_m1.json 0 ;
+python3 s2_horloge/gif_anti.py s2_horloge/anti2_m1.json 0 s2_horloge/img/pixels_opposes_R506.gif 15
+
+## R-507 COMPTEUR 2 BITS (00, 01, 10, 11, 00, …) par deux horloges P et 2P — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 1 884)
+compteur4.py : les familles d'horloges triangle (tri_cycles_rB5.json) se prolongent linéairement (T, centre, P) ; 375 paires P / 2P
+(P ≥ 900, prolongées, contrôlées par CYCLE). Pose du pixel R-341 « relative au vaisseau » : on copie (vaisseau qui allume + pixel), 160 pas
+avant l'allumage, depuis R-502 ; contrôle : 45 CYCLE sur l'horloge de référence. Paires où les deux horloges acceptent un pixel :
+924/1 848, 942/1 884, 972/1 944. Sur ces petites horloges (famille P ≈ 1,5 T) le pixel clignote UNE fois par période.
+compteur5.py : bit 0 = pixel de l'horloge P1 = 942 (6 fourmis + 2), bit 1 = pixel de l'horloge P2 = 1 884 (posée 300 cases plus loin,
+déphasée de 510 pas) ; lectures toutes les P1/2 = 471 pas à partir de t = 861 ; marge = 103 pas (chaque lecture est à ≥ 103 pas de tout
+changement d'état). Machine (16 fourmis ; bit 0 = fourmis 0,1 ; bit 1 = fourmis 8,9) :
+  H:R2L2|-34,37,2;-32,35,5;-10,11,1;1,67,3;-66,78,5;2,8,4;-8,79,0;-69,69,2;249,53,0;249,52,3;287,79,2;235,144,4;222,92,0;236,77,3;288,93,5;220,145,1|2,8;-8,79;-69,69;1,10;-9,78;-67,68;-9,10;1,68;-67,78;1,9;-8,78;-68,69;-32,34;249,54;236,77;288,93;220,145;287,78;236,144;221,93;248,52;250,53;237,78;286,94;221,143;249,52;249,53;236,78;287,93;221,144
+2 moteurs : fourmi_r CYCLE 1 884 ; hx.py premier retour exact 1 884 ; lectures hx sur 3 périodes : 00 01 10 11 00 01 10 11 00 01 10 (11).
+Limite (honnête) : c'est un compteur « par construction » (deux horloges indépendantes de périodes 1 et 2), pas un compteur causal avec
+retenue (le bit 1 ne « voit » pas le bit 0) ; le diviseur par 2 causal reste OUVERT (R-503, R-505 négatifs).
+Commandes : python3 s2_horloge/compteur4.py 900 2200 8 ; python3 s2_horloge/compteur5.py ; python3 s2_horloge/compteur_check.py s2_horloge/compteur5.json 0
+
+## R-508 Deux horloges triangle qui se croisent : aucune machine cyclique avec interaction — OBSERVÉ (négatif) (deux_horloges.py)
+Objectif 3, version la plus simple : la « porte » = le choc d'un vaisseau de l'horloge A avec un vaisseau de l'horloge B (R-500, j = 20, P = 843
+chacune ; B tournée de k crans, translatée, déphasée ; rencontre tirée au hasard, distance minimale 1 à 3 entre fourmis, recouvrement < P/4).
+1 642 machines (12 fourmis), fourmi_r T = 4P : 1 529 CYCLE, 111 AUTOROUTES, 2 MIXTE. Les 1 529 CYCLE n'ont AUCUNE interaction (trajectoire
+jointe = superposition exacte des deux horloges seules, contrôle hx.py) : les fourmis passent près sans toucher les cases de l'autre.
+Toutes les machines où il y a vraiment eu choc se sont cassées. Explication (raisonnement) : un choc décale le vaisseau (voie ou temps) ;
+au coin suivant son partenaire, lui, n'est pas décalé, et le coin (choc exact de 2 vaisseaux) rate. Commande : python3 s2_horloge/deux_horloges.py 20 20 3000 2
+
+## R-509 Bilan des vaisseaux du demi-additionneur R-337 : 4 vaisseaux PAIRS, directions conservées, calcul par petits décalages — VÉRIFIÉ (hx.py, calcul exact)
+porte_sorties.py. Entrées : K2 (dir 4, ouest), K3 (dir 0, nord-est), B = b (dir 0), A = a (dir 2, sud) : uniquement des caps pairs (classe {0,2,4},
+celle des vaisseaux horaires de l'horloge triangle). Dans les 4 cas, le multiensemble des directions sortantes = celui des entrantes ; chaque
+vaisseau sortant est, à ≤ 2 cases près, la trajectoire libre d'un vaisseau entrant de même direction (« ils se traversent ») :
+  (0,0) K3 (1,0), K2 (1,2) ; (0,1) idem + B (0,0) exact ; (1,0) A (1,−2), K3 et K2 exacts ; (1,1) K3 (1,0), K2 (1,2), A (−2,0), B (0,1).
+Donc la porte ne tourne aucun vaisseau : elle calcule par des DÉCALAGES de voie de 1 ou 2 (S et C se lisent sur des voies). Analogie : calcul
+par collisions de solitons à déphasage (Jakubowski-Steiglitz-Squier, AFFIRMÉ, non revérifié). Conséquence pour la consigne 3 : récupérer les
+vaisseaux = les tourner de ±120° (seul virage possible, T4 de R-347) par des coins d'horloge, et ces coins doivent absorber les décalages.
+
+## R-510 La bascule R-341 frappée dans le mauvais état est détruite — OBSERVÉ (hx.py, toutes les phases) (mauvais_etat.py)
+Vaisseau « mise à 1 » de R-502 envoyé sur R' (déjà à 1), 12 phases de R' : 11 fois les 2 fourmis du pixel partent en vaisseaux, 1 fois autre débris.
+Vaisseau « remise à 0 » envoyé sur M (déjà à 0), 21 phases : 15 fois le pixel part ; 1 fois (phase 1) le vaisseau est DÉVIÉ de 60° (dir 3 → 2)
+et M devient un objet immobile X de période 24 (≠ M, ≠ R'), conforme à T3 (une déviation de 60° interdit de redevenir soi-même).
+Cohérent avec R-340/R-342 (aucune bascule idempotente, déjà su) : une horloge doit écrire le pixel en stricte alternance 1, 0, 1, 0.
+
+## R-511 Horloge DOUBLE (deux trains de 6 vaisseaux sur le même triangle) : 0 cycle sur 184 000 — OBSERVÉ (négatif) (double_horloge.py, double2.py)
+Idée : si le 2e train est le 1er avancé de T/2 (T = P/3), la symétrie « rotation + demi-tiers » fait subir à chaque vaisseau les mêmes chocs
+(2 croisements de face par arête au lieu d'1) ; la machine devrait refermer avec une période un peu plus courte. Essai : famille R-500
+(j = 0, 1, 2, 3, 10, 11, 20, 40, 41 ; toutes les périodes y sont IMPAIRES, donc T/2 n'est jamais entier), puis les 461 horloges de
+tri_cycles_rB5.json avec P ≡ 0 mod 6 et P ≤ 800, tous les décalages s ∈ [1, P) : 183 875 machines de 12 fourmis, fourmi_r T = 6P :
+126 665 AUTOROUTES, 57 210 MIXTE, 189 INDECIS, 0 CYCLE. Les premières divergences arrivent par 3 (positions 3-symétriques), au milieu des
+arêtes : c'est le croisement de face avec l'autre train, qui n'est jamais propre. Commande : python3 s2_horloge/double2.py 0 800
+
+## R-512 HEXAGRAMME : deux horloges couplées par 6 PORTES D'INTERACTION, tous les vaisseaux récupérés — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py, 47/47)
+hexagramme.py : horloge triangle A (tri_cycles_rB5.json, centre de rotation = point du réseau, P ≡ 0 mod 6, P ≤ 900 : 150 horloges) +
+B = A avancée de s pas puis tournée de 60° autour du centre (étoile à 6 branches), s ∈ [0, P) : 62 706 machines de 12 fourmis ; 38 175 CYCLE
+dont 810 avec interaction réelle (trajectoire ≠ superposition) ; hexa_anal.py : 47 sont PROPRES (seuls événements : coins d'une horloge,
+croisements, et chocs de DEUX vaisseaux, un de A et un de B ; aucun amas) : 32 horloges distinctes, 3 périodes : 978 (2 horloges de 510),
+996 (2 × 522), 2 592 (2 × 522). 2e moteur : hx.py premier retour exact = période, 47/47 (hexa_check.py).
+Ce qui se passe (hexa_detail.py, hexa_portes.py) : aux 6 croisements des deux triangles, un vaisseau de A et un de B (un pair, un impair, à 60°)
+se tournent l'un l'autre de 120° (porte d'interaction de R-314 : c'est la porte de billard de Fredkin-Toffoli) ; les vaisseaux changent de
+triangle et parcourent l'étoile + l'hexagone intérieur (img/hexagramme_978.png). Dans la machine 2 592, une même porte voit des ENTRÉES
+VARIABLES d'un passage à l'autre : sur une même droite d'entrée, le vaisseau tantôt arrive seul et passe tout droit, tantôt arrive avec un
+partenaire et tourne (zone 0 : droite (0,0) 3 fois « tourne », 6 fois « droit » ; droite (1,−14) 9 / 3 …) ; périodicité 3-symétrique, pas
+6-symétrique (zones 0-2 : 9 chocs tournants, zones 3-5 : 3). C'est la consigne 3 sous la forme « horloges qui alimentent des portes de calcul
+(ET de billard : a∧b tourne, a∧¬b tout droit) et récupèrent tous leurs vaisseaux », le cycle exact prouvant que ça tourne pour toujours.
+Limite honnête : les entrées des portes sont fixées par les horloges elles-mêmes (pas d'entrée extérieure) ; la porte calcule, mais sur
+un motif périodique imposé. Le demi-additionneur R-337 n'y est pas (R-509 : il faudrait l'adapter).
+Machine 2 592 (12 fourmis) : H:R2L2|-5,5,4;1,38,0;-38,44,2;1,6,1;-6,44,3;-37,37,5;-6,32,5;-25,37,1;-11,18,3;-6,17,2;-10,37,4;-26,33,0|-4,5;0,39;-38,43;0,6;0,7;1,5;-6,43;-5,43;-5,44;-38,38;-37,38;-36,37;-6,18;-11,37;-25,32;-7,34;-26,36;-9,17;-6,17;-10,37;-26,33;-7,33;-25,36;-10,18
+Machine 978 : H:R2L2|2,4,1;-4,43,3;-37,37,5;-5,5,4;2,36,0;-36,43,2;-6,15,2;-7,35,4;-26,34,0;-5,33,3;-26,36,5;-8,15,1|1,4;1,5;2,3;-4,42;-3,42;-3,43;-38,38;-37,38;-36,37;-4,5;1,37;-36,42;-6,15;-7,35;-26,34;-5,34;-27,36;-7,14;-5,33;-26,36;-8,15;-4,32;-26,37;-9,15;-5,14;-7,36;-27,34;-4,33;-27,37;-8,14
+Commandes : python3 s2_horloge/hexagramme.py 0 900 ; python3 s2_horloge/hexa_anal.py ; python3 s2_horloge/hexa_check.py ;
+python3 s2_horloge/hexa_portes.py 2592 ; python3 s2_horloge/img_hexa.py 2592
+Déjà connu ? Porte d'interaction = Fredkin-Toffoli 1982 (connu) ; deux horloges de fourmis couplées en étoile : pas trouvé (non cherché sur le web, quota).
+Complément R-512 (06:15) : mêmes essais sur les 248 horloges à centre entier avec P ≡ 3 mod 6, P ≤ 700 (hexagramme.py 3 700) : 113 769
+machines, 58 675 CYCLE dont 1 196 avec interaction, 49 PROPRES (33 horloges ; périodes 978 (2 × 501), 996 (2 × 507), 2 475 (2 × 501)) ;
+hx.py 49/49 (hexa_check.py s2_horloge/hexagramme_propres_3.json). Dans la machine 2 475, mêmes portes à entrées variables (zone 0, droite (0,0) :
+6 fois « tourne », 6 fois « droit »). Total : 96 hexagrammes propres, 2 moteurs.
+
+# ----- recherche/regles/s3_pas/journal.md -----
+# S3 — pas de la petite fourmi en R2L2 (journal propre, R-600+)
+
+Entrées R-600 à R-609 écrites après coup (27/11, 00:45 UTC) à partir des commits du 26/11 soir (19:33–20:09) et des fichiers ;
+chiffres repris de resultats_modules.json et bibliotheque_portes.json (rien de recalculé à cette heure, sauf mention).
+
+## R-600 Catalogue des chocs de 2 vaisseaux de classe paire — VÉRIFIÉ (2 ordres de jeu, hx.py)
+Dir 0 × dir 2 ou 4, toutes positions relatives : en classe paire, seulement des échanges / transparences (pas de déviation utile).
+Code : chocs_pairs.py → data/chocs_pairs.json (non versionné).
+
+## R-601 à R-604 Échanges, portes sélectives, couples (g, h), chaînes NOR en classe paire — OBSERVÉ
+Pistes « logique de voie » ; abandonnées au profit des chocs DÉVIANTS à 60° (R-605). Code : swaps.py, selectifs.py, combos.py, chaines.py.
+
+## R-605 Compilateur « arbre de NOR » R2L2 — VÉRIFIÉ (par module, tous les cas, 2 moteurs)
+Nœud = une puissance K ; ses entrées la croisent l'une après l'autre (choc déviant à 60°, même issue dans les 2 ordres, τ = 2…6) ;
+K continue tout droit ssi aucune entrée → K = NOR(entrées). Un vaisseau par littéral vrai et par usage. Code : nor.py.
+
+## R-606 Réutilisation au même endroit + certificat — DÉMONTRÉ (lemme) / VÉRIFIÉ (20 usages, 2 moteurs)
+Usage u = même circuit retardé de u·Δ. Lemme : fenêtre d'interaction bornée, rayons libres avant/après qui ne s'approchent plus à < 7,
+routes opposées à ≥ 7 voies → tout nombre d'usages est juste. Code : reuse.py (certificate, check_multi).
+
+## R-607 Pas de la petite fourmi RL sur le tore 2×2 (R-61), module par module — VÉRIFIÉ pour h0', x', y', c00'..c11'
+État 8 bits c00 c10 c01 c11 x y h1 h0. h0' = ¬h0 ; x' = x ⊕ ¬h0 ; y' = y ⊕ h0 ; cij' = cij ⊕ [x=i ∧ y=j] ; h1' = h1 ⊕ h0 ⊕ c.
+| module | puissances | littéraux | cas | justes | 2 moteurs | certificat | Δ (pas) | 20 usages ×3 |
+| h0' | 1 | 1 | 2 | 2 | 2 | oui | 2008 | 20/20 ×3 |
+| x'  | 3 | 4 | 4 | 4 | 4 | oui | 3864 | 20/20 ×3 |
+| y'  | 3 | 4 | 4 | 4 | 4 | oui | 4472 | 20/20 ×3 |
+| cij' (×4) | 4 | 6 | 8 | 8 | 8 | oui | 5368–5880 | 20/20 ×3 |
+(cas = 2^(variables utilisées) ; les 256 états s'y ramènent.) Commande : python3 modules.py h0 x y c00 c10 c01 c11 → resultats_modules.json.
+
+## R-608 Diagnostic géométrique et recherche des longueurs — OUTIL
+diag.py : segments de lignes d'univers à < seuil hors chocs voulus (sans simulation). opt.py / opt2.py : descente (petites échelles).
+
+## R-609 Bibliothèque de portes R2L2 réutilisables — VÉRIFIÉ
+NON, COPIE, ET, NOR, OU, ET par NOR, XOR (R-337) : tous les cas justes, 2 moteurs, certificat, 20 usages. Format : bibliotheque_portes.json,
+code : portes_lib.py.
+
+## R-610 Module h1' = h1 ⊕ h0 ⊕ c (27/11, 00:41 →) — EN COURS
+Arbre de NOR de modules.py (27 puissances, 32 littéraux, 59 vaisseaux, 256 cas). Recherche aléatoire petites échelles (D 8–40, G 8–16,
+400 essais) : aucun placement (00:41). Un placement au hasard : 216/256 faux, 0 voie opposée sûre, 195 conflits (diag, seuil 4).
+Nouvelle idée : GRANDES échelles (D ≤ 300, G ≤ 60) et descente sur le nombre de conflits géométriques au seuil 7 (opt3.py).
+- 00:47 diag2.py : conflits EXACTS par cas (chaque segment porte le masque des cas où il existe ; x et ~x ne coexistent jamais).
+  Contrôle : modules x' → 0 conflit ; c00' → 2 couples à distance 4–5 (inoffensifs : le seuil 7 est prudent).
+- 00:48–00:57 descentes opt4/opt5/opt6 (D ≤ 300, G ≤ 60, côtés) : plateau à 17 conflits (h1), 27 (h1f), 362 (h1s). OBSERVÉ.
+- 00:58 CONFLITS STRUCTURELS — DÉMONTRÉ (argument ci-dessous, contrôlé sur n00/Nc : distance 520 → 2 en t = 3700–3756) :
+  les 17 conflits restants sont TOUS à distance 0 et entre directions à 60°. Raison : si un nœud N a la même direction que son
+  grand-parent P (côté + puis côté −), dans le repère qui suit la puissance de P, N est immobile et la sortie du parent avance en ligne
+  droite vers P ; un débris de N qui part dans la direction du parent suit EXACTEMENT ce trajet et heurte P, quels que soient D et G.
+  Remède : changer les côtés (miroirs) → struct.py (descente sur les côtés, conflits présents à distance 0 pour 3 tirages de D, G).
+- Variantes de formule (modules.py, vérifiées sur les 256 états) : h1f (c et ¬c en un nœud à 4 sous-nœuds, 19 puissances),
+  h1s (NOR des 16 cubes de ¬h1', profondeur 2, 17 puissances mais 80 littéraux).
+## R-611 Pas complet en un germe : 7 modules sur 8 côte à côte — VÉRIFIÉ (moteur C) 00:52
+step.py : h0', x', y', c00'..c11' translatés (voies opposées ≥ 7 entre modules), 256/256 états propres et justes (moteur C).
+- 01:05 Analyse des conflits structurels (repère de la puissance P, où tous les partenaires d'un même côté suivent la MÊME droite
+  relative ℓ± vers P) — DÉMONTRÉ (raisonnement) + OBSERVÉ (conflicts2, distance 0 pour tout D, G) :
+  (S1) deux sous-nœuds du même côté : les débris immobiles (dans le repère de P) laissés sur ℓ par le 1er sont heurtés par le 2e
+       (c'est la règle R-606 « un seul sous-nœud par côté » ; tout-« + » : 21 à 43 conflits à distance 0) ;
+  (S2) un nœud N du côté opposé à celui de son parent M a la direction de son grand-parent P : immobile dans le repère de P, ses
+       débris de direction M suivent ℓ et heurtent P. Sauf si N = NON d'une seule entrée… mais alors son enfant retombe dans S2.
+  Conséquence : dans UN arbre, tout chemin garde le même côté ⇒ chaque nœud (hors racine) a au plus un sous-nœud ⇒ chaînes
+  « liste de décision à clauses », qui ne savent pas faire un XOR (preuve : le 1er test devrait être une clause incluse dans {00, 11}).
+  C'est pourquoi h0', x', y', cij' passent (profondeur ≤ 2 ou chaîne même côté) et pas h1'.
+  REMÈDE choisi : COMPOSER des petits modules. La sortie d'un module (vaisseau tout droit) est posée EXACTEMENT sur la ligne d'univers
+  d'un littéral du module suivant (rotation k, translation v, retard s ≡ phase mod 8), loin en amont. Un littéral n'a pas de porte
+  à lui, donc pas de débris sur ℓ. → compose.py (R-612).
+## R-612 Composition de modules (compose.py) — OUTIL VÉRIFIÉ sur g = h1⊕h0 ; ÉCHEC pour h1' (01:15)
+Sous-circuit G (2 feuilles) : 256/256 justes et propres (3 tirages de Dlink). Circuit h1' en 13 modules (8 cubes, c, ¬c, g, ¬g, XOR) :
+logique 256/256 mais au mieux 98/256 physiquement (24 tirages de Dlink 40–400) ; sous-circuits c et ¬c (4 cubes → train de 4) : 80–192/256.
+Raison (même argument que R-610) : le module amont roule SUR la ligne du littéral, ses portes sont donc des événements sur ℓ± ;
+ses débris immobiles (repère de P) bloquent les littéraux suivants du même côté (S1). Composer = greffer un sous-arbre : rien de neuf.
+## R-613 Limite du compilateur NOR à chocs déviants — DÉMONTRÉ (sous les règles S1, S2)
+Avec S1 et S2, un module = racine NOR de deux chaînes de même côté, chaque nœud de chaîne = NOR(train de littéraux, nœud suivant).
+Une chaîne calcule une fonction « canalisante emboîtée » (NCF : f = l ∨ f' ou f = ¬l ∧ f', récursivement) ; la racine = ET de 2 NCF.
+Parité de 3 variables : toute NCF qui contient ses 4 points vrais est une seule clause (preuve : la 1re variable canalisante doit être
+disjonctive, puis la fonction restante sur 2 variables contient 2 points opposés → b∨c ou b∨¬c) ; 2 clauses ne peuvent exclure les 4
+points faux. Donc h1' = h1 ⊕ h0 ⊕ c n'est PAS calculable par un module (ni par composition, qui est géométriquement la même chose).
+Statut : DÉMONTRÉ pour ce jeu de portes (côtés + et −). Issue possible : portes « de face » (H), autre mécanisme (XOR R-337, fusion S1).
+## R-614 Issue : portes « de face » (H) — EN COURS (01:12)
+S2 n'a lieu que pour deux arêtes consécutives (+,−) ou (−,+). Le chemin (H,H) redonne la direction du grand-parent, mais aucun nœud ne
+lâche de débris dans la direction a+3 (côtés : a±1, a±2 ; face : a+1, a+2) → pas de S2. Règle (htree.py) : après « + » : +, H ;
+après « − » : −, H ; après H ou à la racine : +, −, H ; H = 1re entrée ; un sous-nœud par ligne. Avec H on peut BRANCHER : la limite
+R-613 ne s'applique plus. Arbre h1' (27 puissances, 32 littéraux), formule juste sur les 256 états ; conflits à distance 0 : 7, 5, 3
+pour 3 tirages de (D, G), tous différents → aucun conflit structurel commun. Descente opt7.py lancée (2 graines).
+- 01:12 opt7 (graine 1, 213 s) : placement à 6 conflits géométriques (seuil 7, inoffensifs) → simulation : 256/256 JUSTES ET PROPRES.
+  01:17 2e moteur : 256/256 identiques (hx.py), 49 s. → MODULE h1' (1 usage) VÉRIFIÉ : 27 puissances, 32 littéraux, 59 vaisseaux,
+  tmax 12 356 pas. Paramètres : h1_param_simple.json (arbre htree.h1_tree()).
+- Réutilisation de h1' : NON (critère (c) faux, 0 voie d'écart). Raison DÉMONTRÉE : une porte de face met l'enfant H sur la voie même de
+  la puissance parent ; si le parent ressort tout droit (parent = 1 et sa puissance-parent déjà déviée), il file vers l'infini sur cette
+  voie et percutera de face l'enfant H (vaisseau constant) de l'usage suivant. Dans l'arbre : Nc (2e entrée de A) et Pc (2e entrée de B)
+  ont un enfant H ; B aussi mais A et B ne valent jamais 1 ensemble. Remède envisagé : n'avoir d'enfant H que pour des 1res entrées,
+  ou un « balai » (puissance qui dévie la sortie qui s'échappe).
+## R-615 LE PAS COMPLET EN UN GERME (1 usage) — VÉRIFIÉ (01:21)
+step.py (NOLANES=1 BOX=6000, graine 1) : les 8 modules h0', x', y', c00'..c11', h1' translatés dans un seul germe R2L2 :
+256/256 états propres et justes (les 8 sorties = R-61), moteur C (11 s) ; hx.py 256/256 états finaux identiques (54 s).
+Commande : NOLANES=1 BOX=6000 python3 step.py 1 3 step8_simple.json h1_param_simple.json
+Sans h1' (7 modules, BOX 1500) : certificat OK (Δ = 74 072 pas), 10 usages de suite au même endroit : superposition exacte,
+10/10 justes, 2 moteurs identiques (01:15).
+## R-616 h1' réutilisable : arbre htree.h1_tree2 (29 puissances) — EN COURS (01:27 →)
+Règle ajoutée : un nœud qui a un enfant de face doit être la 1re entrée de son parent (Nc, Pc passent en face sous A, B ; ¬g et g
+deviennent NON(NOR(feuilles))). B garde un enfant de face en 2e entrée de la racine, mais A et B ne valent jamais 1 ensemble.
+opt9.py : 2 placements 256/256 justes et propres trouvés (graine 4 vers 01:31, graine 3 vers 01:34) ; certificat (Python) en cours.
+- 01:41 Certificat de reuse.py trop lent pour 60 vaisseaux (double boucle Python sur 14 000 pas) → cert2.py (numpy, même lemme ; contrôlé identique sur x'). struct.py renommé structurels.py (il masquait le module standard struct).
+- 01:43 h1R_param_3 et h1R_param_4 : 256/256 justes et propres, 2 moteurs 256/256 (tmax 10 540 et 9 804). Certificat en cours.
+- 01:45 certificat (cert2) des 2 candidats : voies opposées des sorties RÉELLES à 0 (ÉCHEC) ; opp_real.py : 15 couples, tous
+  « génériques » (débris ↔ littéraux ou puissances d'autres branches), aucun de la forme structurelle → réglables par D, G.
+  opt10.py : descente sur conflits + 5 × couples opposés logiquement possibles (segments infinis de diag2 avec masques), lancée 01:47.
+- 01:59 opt10 (graine 8, poids 1 sur les voies opposées, départ = meilleur de la graine 6) : placement à 0 couple opposé, 256/256 justes
+  et propres, CERTIFICAT OK (fenêtre 9 877 pas, rayon 1 740, voies opposées ≥ 7 ⇒ tout nombre d'usages pour Δ ≥ 65 733 pas).
+  Paramètres : h1R_param_OK.json. Vérification complète (2 moteurs, 20 usages ×3) : h1R_check.py, en cours.
+## R-616 MODULE h1' RÉUTILISABLE — VÉRIFIÉ (02:12)
+h1R_param_OK.json (arbre htree.h1_tree2, 29 puissances) : 256/256 justes et propres, 2 moteurs 256/256 ; certificat OK
+(Δ ≥ 65 733 pas) ; 20 usages ×3 graines au même endroit : superposition exacte, 20/20 justes (moteur C, 900 fourmis) ;
+3 usages avec les 2 moteurs : identiques, 3/3. Commande : python3 h1R_check.py h1R_param_OK.json → h1R_verif_OK.json.
+## R-617 Pas complet réutilisable (02:05 →)
+Germe 8 modules avec ce h1' (step.py graine 1, BOX 6000, voies opposées entre modules vérifiées) : 256/256 propres et justes (C, 8 s),
+hx.py 256/256 identiques (47 s). Le certificat cert2 a manqué de mémoire (positions stockées : 130 fourmis × 14 000 pas × 256 cas)
+→ cert3.py (sans mémoire, contrôlé identique sur x' et c00') ; step_reuse.py lancé 02:12.
+- 02:14 cert3 sur le germe complet (8 modules, h1' réutilisable) : CERTIFICAT OK — fenêtre active max 9 877 pas, rayon 11 709,
+  voies opposées ≥ 7 ⇒ tout nombre d'usages pour Δ ≥ 384 741 pas (Δ pris = 384 744). 115 s.
+- 02:15 3 usages au même endroit (états au hasard) : superposition exacte, 3/3 (les 8 bits justes à chaque usage), 2 moteurs identiques.
+- 02:18–02:20 5 usages ×2 graines (moteur C ; 10 usages : mémoire du moteur C dépassée) : superposition exacte, 5/5 et 5/5.
+  STATUT R-617 : VÉRIFIÉ (2 moteurs, 256/256, usages répétés) ; tout nombre d'usages DÉMONTRÉ (certificat R-606, lemme relu en vague 1).
+  Résultats : step_reuse_res.json. Commande : python3 step_reuse.py
+## R-618 2 pas enchaînés — OUVERT (non tenté, 02:20)
+Brancher les sorties du pas 1 sur les littéraux du pas 2 demande UNE copie de module par littéral utilisé (65 vaisseaux-littéraux
+dans le pas 2, en comptant les négations) et, d'après S1, un littéral calculé doit être le DERNIER de son côté dans un train : les
+feuilles actuelles (trains de 2 à 5 littéraux) ne le permettent pas. Piste : feuilles à 1 littéral calculé par côté + chocs de face,
+ou un module « COPIE » (R-609) pour dupliquer.
+- 02:21 Dépôts Drive : bestiaire 30 (5 fiches) + catalogue_s3.json → Bestiaires ; germes → 02_Resultats ; rapport (Google Doc) → 05_Methode ;
+  versions de 01:25 déplacées dans 99_Archives. PR #15 (vers main) à jour.
+- Fichiers de résultats ajoutés : step_res.json (germe 7 modules réutilisable, R-611/R-615), h1R_verif_3.json et h1R_verif_4.json
+  (candidats h1' 256/256 dont le certificat a échoué, voies opposées 0, R-616), step8_simple.json (ESSAI RATÉ : 8 modules avec BOX 1500,
+  128/256 propres — h1' trop près des autres ; la version juste est celle de R-615, BOX 6000).
+## R-619 DEUX PAS ENCHAÎNÉS, 7 bits sur 8 (h0'', x'', y'', c00''..c11'') EN UN GERME — VÉRIFIÉ (27/11, 05:46–06:06, vague 3)
+Choix (noté, Pierre-Malo dort) : chaîner par GREFFE (R-612) : chaque littéral v' / ¬v' d'un arbre du pas 2 est un module du pas 1
+(double rail : ¬v' par le même arbre aux littéraux inversés) ; la puissance racine de ce module sort tout droit ssi v' = 1 et entre
+dans la porte du pas 2. Diffusion = une copie de module du pas 1 par usage (pas de dédoublement de vaisseau). Les arbres du pas 2 ont
+au plus 2 sous-nœuds par nœud, donc la règle de côtés de htree.py (portes de face) s'applique toujours (1 usage).
+Sous-système fermé : (x, y, h0, cij) ne dépend pas de h1 (sur le tore 2×2, avancer de +1 ou −1 change la même coordonnée) ; F∘F donne
+h0'' = h0, x'' = ¬x, y'' = ¬y — mais le germe les calcule EN PASSANT par les vaisseaux x', y', h0' (pas de raccourci).
+| module | puissances | littéraux | cas | justes (= F∘F) | 2 moteurs |
+| h0'' | 2 | 1 | 2 | 2 | 2 |
+| x'', y'' | 11 | 10 | 4 | 4 | 4 |
+| cij'' (×4) | 26 | 28 | 16 | 16 | 16 |
+Longueurs : descente optc.py (comme opt7), 0 à 280 s par module (c11 : graine 1 ratée en 280 s, graines 2 et 3 OK en 61–102 s).
+Germe : les 7 modules translatés (step.choose_offsets2, NOLANES=1, BOX=8000 ; BOX=3000 : pas de place pour c11) : 256/256 états
+propres et justes (moteur C, 13 s) ; hx.py 256/256 identiques (108 s). 128 puissances, 143 littéraux.
+Commande : python3 chain2.py (formules sur les 256 états) ; python3 optc.py c00 1 280 ; NOLANES=1 BOX=8000 python3 chain_germ.py 1
+Résultats : chain_res.json, chain_params.json. Reste : h1'' (le cap) et la réutilisation.
+
+# ----- recherche/regles/s4_ecran/journal.md -----
+# S4 écran — journal (R-700+)
+
+(Entrées R-700 à R-702 écrites a posteriori le 27/11 00:45 d'après les commits c036ad1, 8a61478 du 26/11 soir.)
+
+## R-700 Catalogue des chocs propres de 2 vaisseaux R2L2 en trajectoires — VÉRIFIÉ (fourmi_r, échantillon hx.py) (catalogue_chocs.py)
+Même ensemble fini que R-333 (B dir. 0, A dir. 1..5, avance 0..7, position relative mod d_A − d_B, 2 ordres) ; chaque choc propre
+(0 case, 2 vaisseaux sortants) noté par étiquettes (r, voie, V) : on le tourne, translate, retarde en bloc. → data/chocs.json (non versionné).
+
+## R-701 Démultiplexeur 2→4 : recherche exacte sur les trajectoires — OBSERVÉ (demux_cherche.py, demux_filtre.py)
+W (écrire) × a1 → W0/W1 ; F : a0 × K → 2 copies ; G2, G3 : copies × W0/W1. Équation exacte en glissements (k2, k3, n), puis 4 cas
+simulés (fourmi_r) : 540 démultiplexeurs justes 4/4 ; tri : aucune paire de face (R-338) et place libre ≥ 16 sur chaque sortie.
+
+## R-702 Démultiplexeur 2→4 RÉUTILISABLE — VÉRIFIÉ (2 moteurs, temps fini) + certificat (demux_verif.py → demux_retenu.json)
+Rang 0 du tri : 4/4 cas justes (2 moteurs 4/4) ; 20 usages au MÊME endroit, UNE simulation (58-62 fourmis, t = 31 701), 3 tirages +
+« tous dans l'ordre » : superposition exacte, 20/20 adresses justes, 2 moteurs identiques. Certificat (méthode R-338) : distance min
+entre fourmis de 2 usages = 15 pour les écarts 1..12, 0 paire de face ⇒ tout nombre d'usages (même argument que R-339).
+Kits du pixel (pixel.py) : bascule R-341 en trajectoires (mise à 1 = SET, mise à 0 = RST), placée tournée de rho et centrée en c.
+
+## R-703 Écran 2×2 avec 2 COPIES du même démultiplexeur (port 0 = port 1 tourné + translaté) : impossible — VÉRIFIÉ (calcul exact) (ecran_geo.py, 27/11 00:45-00:55)
+La bascule R-341 veut mise à 1 en direction ρ et mise à 0 en ρ+2. Sorties du démux R-702 : directions {0, 2, 5, 3} ; rotations
+compatibles du 2e port : 2 (même adresse) ou 5 (adresses permutées 00↔11, 01↔10) ; rôles inversés : 4 ou 1. Pour chacune et toute
+translation |v| ≤ 500 : aucun v où les 4 centres (croisements des voies, toujours entiers) sont EN AVAL des deux ports (après le
+dernier choc + 12). Raison : le centre j doit être dans un cône de 60° (u_j, −R u_j) ; les sorties vont par paires opposées ⇒ 2
+parallélogrammes bornés qui ne se coupent pas. (Avec ±40 : 0 sur 6 561, marge max 1.) → prendre un 2e démultiplexeur différent.
+
+## R-704 Écran 2×2 avec 2 démultiplexeurs DIFFÉRENTS et le seul kit R-341 : aucun placement — VÉRIFIÉ (calcul exact) (ecran2_geo.py, ecran2_bande.py)
+Recalcul (00:50) du catalogue (2 316 chocs, 224 propres, 2 moteurs 60/60) et du démux (8 graines × 20 000 tirages : 654 justes 4/4,
+49 après tri). 49 × 49 démux × 6 rotations × 2 rôles × 24 permutations, |v| ≤ 150 (et ≤ 300, bande lointaine) : 0. Raison : avec un
+écart fixe de +120° entre mise à 1 et mise à 0, le cône de faisabilité du pixel j est (θ_j − 60°, θ_j) ; deux sorties de directions
+différentes ne laissent au mieux qu'un rayon commun.
+
+## R-705 Toutes les écritures à 1 vaisseau entre M et R' — VÉRIFIÉ (hx.py ; kits recontrôlés plus loin) (kits_scan.py → kits.json)
+6 directions × voies −8..8 × toutes les phases, vaisseau joué après (et avant : même résultat) : mise à 1 : (dir 0, voie 1, ph 16 ou 17),
+(dir 5, voie 1, ph 4) ; mise à 0 : (dir 2, voie −2, ph 2), (dir 3, voie −2, ph 10 ou 11). Nouveau couple utile : SET5/RST3 (écart −120°).
+
+## R-706 Écran 2×2 : placements trouvés en choisissant le kit pixel par pixel — OBSERVÉ (géométrie exacte ; simulation à suivre) (ecran3_geo.py)
+Démux A à 2 directions voisines {θ, θ+60°} : kit −120° (SET5/RST3) sur les sorties θ, kit +120° (SET0/RST2) sur θ+60° ⇒ même cône
+pour les 4 pixels. Premier placement : A = B = démux n° 6 du tri (sorties dir 0, 1, 1, 0), port 0 tourné de 180°, v = (237, −141),
+marge 16 (≥ 11) de chaque pixel à tous les rayons étrangers, aucune paire de face.
+
+## R-707 ÉCRAN 2×2 ADRESSABLE R2L2 : 3 motifs puis tout éteint, 4/4 lectures justes — VÉRIFIÉ (2 moteurs, temps fini) (ecran_demo.py → ecran_demo.json, ecran_motif_1..4.png)
+Placement R-706 rang 0 : port « 1 » = démux n° 8 (sorties dir 0, 5, 5, 0), port « 0 » = le même tourné de 180°, v = (138, −228) ;
+pixels (M = OFF / R' = ON) en (113,−114), (59,−151), (22,−77), (76,−114) pour les adresses 00, 01, 10, 11 du port 1 (port 0 : adresses
+permutées 10, 00, 11, 01). 10 opérations (1 vaisseau W + adresses + K chacune), retards 0, 1 600, 3 210, … , 14 436 (chaque retard
+ajusté au pas près pour la phase du pixel). UNE simulation, 39 fourmis posées à t = 0 : motif 1 {00, 11} ; motif 2 {01, 10} ;
+motif 3 {01, 10, 11} ; tout éteint : lectures exactes (état + phase de chaque pixel) 4/4 justes, fourmi_r = hx.py aux 4 instants.
+À la fin : 8 fourmis des pixels (4 × M) + 31 fourmis = vaisseaux libres qui s'éloignent (décodés), à ≥ 106 du centre.
+Piège trouvé : pixel.ORB TRIE les fourmis ; quand les 2 fourmis de M sont sur la même case, l'ordre de jeu compte ⇒ orbite ordonnée.
+Limite : comme R-341/R-342, on n'écrit 1 que sur un 0 et 0 que sur un 1 (il faut connaître l'état). Simulation finie (t = 18 036).
+
+## R-708 Sondes de lecture du pixel M/R' à 1 vaisseau — VÉRIFIÉ (hx.py, balayage complet) (sonde_scan.py, sonde_retour.py → sondes.json, sondes_retour.json)
+6 directions × voies −8..8 × toutes les phases, sur M (21) et R' (12) : M reste M 1 560 fois, R' reste R' 912 fois (toujours sortie = entrée,
+comme R-346) ; M → X périodique 71, R' → X 56 ; M → rien + 3 vaisseaux 17 (lecture R-335). Sondes UTILES = transparentes sur R' pour
+les 12 phases ET M → X avec sortie différente : (dir 0, voie −3, M ph 6 → X période 21, retour X → M par 1 vaisseau dir 3 voie 1),
+(dir 3, voie 2, ph 8 → X 15, retour dir 0 voie −3), (dir 4, voie 2, ph 15 → X 9, retour dir 1 voie 1). Lecture = TEMPS DE VOL :
+la sonde ressort sur sa route, à l'heure si ON, 3 pas en avance si OFF (option 0).
+
+## R-709 Lecture d'un pixel : une lecture VÉRIFIÉE ; lecture + réécriture répétée : ÉCHEC (cause identifiée) (lecture_simple.py, lecture_demo.py)
+Une lecture (2 moteurs) : ON → sonde à l'heure, R' intact ; OFF → sonde 3 pas en avance, le pixel devient X. Réécriture X → M : le
+vaisseau de retour arrive DE FACE sur la route de sortie de la sonde (écart de voie 1 ; même chose pour les 3 options : le retour est
+presque le film à l'envers de la déviation) ; avec tout posé à t = 0 ils se croisent forcément, et le croisement n'est jamais
+transparent (60 décalages d'une période de X, toutes les phases relatives, 3 options) ⇒ pas de « lecture + réécriture » réutilisable
+avec ces sondes (OBSERVÉ). Par adresse : il faudrait en plus 2 ports (sonde, retour) dont les sorties passent par des points DÉJÀ fixés
+(4 équations, 2 inconnues) ⇒ à choisir en même temps que l'écran. OUVERT.
+
+## R-710 Écran 4×4 = 4 blocs 2×2 (R-707) translatés de b·400·(D0 + D1), retards fixes (GAP 1 600) : ÉCHEC — OBSERVÉ (2 moteurs) (ecran4_demo.py, 27/11 05:55)
+Blocs alignés en direction 30° (bissectrice de 2 directions de vol) : chaque route d'un bloc passe à ≥ 309 (distance hex exacte) des
+pixels des autres blocs. Chaque bloc seul et chaque paire de blocs : justes. Tout ensemble : pixels du bloc 2 cassés (« ? ») dès le
+dessin 1. Cause isolée : les vaisseaux d'ENTRÉE des opérations FUTURES du bloc 0 (posés à t = 0 loin en amont) croisent des débris
+des opérations passées ; le choc produit un vaisseau qui atteint le bloc 2. ⇒ les retards ne peuvent pas être choisis « à l'aveugle ».
+
+## R-711 ÉCRAN 4×4 R2L2 : « visage » puis « anneau » puis tout éteint, 16/16 pixels justes aux 3 lectures — VÉRIFIÉ (2 moteurs + contrôle exact des étiquettes, temps fini) (ecran4_glouton.py → ecran4_glouton.json, ecran4_dessin_1..3.png, 27/11 06:00)
+Même géométrie que R-710 ; retards choisis par un glouton : pour l'opération k, premier retard (compatible avec la phase du pixel)
+tel que la simulation des opérations 0..k à d + 2 000 donne (a) les 16 pixels dans l'état voulu, (b) un reste qui se décode en
+vaisseaux libres dont les étiquettes sont EXACTEMENT celles prévues par le calcul de trajectoires (aucune interaction imprévue).
+20 opérations (6 + 6 + 8), 90 fourmis posées à t = 0 ; 18 opérations au 1er essai, op 8 : 8 essais, op 11 : 43 essais (retards refusés
+= collisions de vaisseaux en vol). Lectures t = 9 606, 19 261, 34 117 : lu = attendu, fourmi_r = hx.py ; contrôle final des étiquettes
+à t = 34 117 : exact. Durée 4 s. Adressage : 2 bits (a1 a0) décodés par le démux du bloc ; le BLOC (2 bits de poids fort) est choisi
+par la ligne d'entrée (où l'on tire), pas encore par un démux devant (OUVERT). Simulation finie : aucune affirmation au-delà de t = 34 117.
+
+## R-712 Après une lecture « OFF » (M → X), remise en état par les PORTS D'ÉCRITURE : impossible avec 1 vaisseau — OBSERVÉ (hx.py, balayage) (lecture_kits.py → lecture_kits.json, 27/11 06:05)
+3 sondes utiles (R-708) × 4 voies de kit (SET0, SET5, RST2, RST3 = les seules droites que les démux de l'écran savent viser) × retards
+Δ = 20..149 (toutes les phases de X, plusieurs fois) : 0 issue propre en M ou R' (X reste un autre objet, ou disparaît en vaisseaux).
+Contrôle : sans sonde, SET0 au bon retard donne bien R'. ⇒ une lecture « OFF » abîme le pixel tant qu'on n'a pas un port de retour en plus.
+
+## R-713 Port de LECTURE par adresse (3e démux dont les 4 sorties suivent des droites de sonde) pour les écrans 2×2 trouvés : aucun — VÉRIFIÉ (calcul exact) (lecture_geo.py, 27/11 06:10)
+49 démux × 6 rotations × 24 permutations × 6 droites de sonde par pixel (les 3 utiles de R-708 + (1,−3) sur M, (0,2) et (3,−3) sur R',
+lisibles mais destructives) ; translation v entière quelconque ; sortie en aval du démux. Pour les 20 meilleurs placements de R-706
+(dont celui de R-707) : 0 solution (les 4 équations de voie ne sont jamais compatibles). Contrôle du solveur : retrouve le port
+d'écriture A (v = 0). ⇒ il faut choisir l'écran ET le port de lecture ensemble (OUVERT, à suivre).

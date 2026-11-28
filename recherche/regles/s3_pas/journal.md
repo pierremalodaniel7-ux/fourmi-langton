@@ -146,3 +146,58 @@ Germe : les 7 modules translatés (step.choose_offsets2, NOLANES=1, BOX=8000 ; B
 propres et justes (moteur C, 13 s) ; hx.py 256/256 identiques (108 s). 128 puissances, 143 littéraux.
 Commande : python3 chain2.py (formules sur les 256 états) ; python3 optc.py c00 1 280 ; NOLANES=1 BOX=8000 python3 chain_germ.py 1
 Résultats : chain_res.json, chain_params.json. Reste : h1'' (le cap) et la réutilisation.
+## R-620 h1'' enchaîné — reprise T1 (27/11, 10:55 UTC →) — EN COURS
+Session T1 reprise (la session de 09:09 n'avait fait que le rassemblement des journaux). data/ perdu (nouveau conteneur) : départ de zéro.
+- 10:58 chain_h1b (départ au hasard, D ≤ 600) : 1 183 et 1 444 conflits au départ, 865 et 1 044 après 220 s : trop lent.
+  Analyse (ancêtre commun des couples en conflit) : la plupart entre grosses branches (niveau 0–1) → problème d'encombrement.
+- 11:00 init_h1.py : départ « arbre en H », D[n] = a + b·taille(n), G[n] = g0 + g1·taille(plus gros enfant) :
+  (30, 20, 1, 10, 8) 680 conflits ; (30, 80, 1, 12, 30) 184 (tmax 188 532) ; (30, 160, 1, 12, 60) 141 (tmax 363 092). OBSERVÉ.
+  chain_h1b.py : option MULT=1 (pas proportionnels à la valeur), DMAX / GMAX réglables. Descentes lancées 11:02 (graines 11, 12).
+## R-621 Croissance de l'enchaînement par greffe — DÉMONTRÉ (comptage exact sur les arbres, grow.py)
+Module à N pas de v = arbre du pas 1 de v dont chaque littéral est le module à N−1 pas (h1 : h1_tree2 réutilisable, 29 puissances).
+| N | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+| puissances (8 bits) | 52 | 349 | 1 766 | 7 943 | 33 720 | 139 017 | 564 634 | 2 276 011 |
+| littéraux (8 bits) | 65 | 377 | 1 793 | 7 793 | 32 465 | 132 497 | 535 313 | 2 151 953 |
+Matrice des usages M (M[v][w] = nombre de littéraux w/¬w dans l'arbre de v) : rayon spectral 4 (h1 s'utilise 4 fois) ; sans h1
+(sous-système fermé x, y, h0, cij) : 2 (x utilise x deux fois). Donc taille ≈ C·4^N : EXPONENTIELLE, pas linéaire.
+(Les arbres de R-619 pour cij'' (26) et chain_h1 pour h1'' (207) sont un peu différents de ceux comptés ici (24, 229).)
+Raison : un arbre ne partage rien ; chaque usage d'un bit du pas N−1 recopie tout son module. Pour une croissance linéaire, il faut
+DIFFUSER un vaisseau (porte COPIE R-609 : un choc K × x donne ¬x tout droit et deux copies de x) et l'AMENER sur la ligne voulue.
+Commande : python3 grow.py 8
+## R-622 ROUTAGE d'un vaisseau-signal par virages — VÉRIFIÉ (4 routes, 2 cas chacune, 2 moteurs) (11:12)
+Virage = porte NOR à UNE entrée posée sur le signal (géométrie nor.BASE retournée : le partenaire est donné, on calcule la puissance K).
+Le signal peut suivre oA (lui-même dévié), oB (K dévié) ou K tout droit (= NON s). Chaque virage change la direction (±1, ±2, +3) et
+la « classe de phase » (ph − 4·dir mod 8 : −2 si dévié, 0 si NON). La ligne finale est AFFINE (entière) en les instants k des 2 derniers
+virages : on la résout exactement (2×2 entier, déterminant souvent ±1). Contrainte de cône : la cible doit être dans le futur du signal.
+Modèle général circ.py (graphe de portes, masques par cas comme diag2 ; un débris peut resservir). Vérification : l'état final simulé
+doit être EXACTEMENT l'ensemble des lignes prévues par le modèle. test_route.py : 4 routes (2 à 4 virages, signal direct ou inversé) :
+2/2 cas = modèle, 2 moteurs identiques, signal juste sur la ligne cible. Commande : python3 test_route.py
+## R-623 N pas enchaînés à taille LINÉAIRE : diffusion + routage, germe périodique (chainN.py) — sous-système h0 VÉRIFIÉ N = 4, 8, 16 (11:19)
+Architecture : le pas (modules R-607 vérifiés) est répété N fois, l'usage u translaté de u·V et retardé de u·Δ. Usage 0 : littéraux de
+l'état initial dans le germe. Usage u ≥ 1 : AUCUN littéral dans le germe ; chaque littéral est la sortie du module de l'usage u−1,
+diffusée (chaîne de portes COPIE : 2 copies + 1 négation par porte) puis amenée sur sa ligne par 2 à 4 virages (R-622).
+Contraintes trouvées : (i) classe de phase (ph − 4·dir mod 8) : un virage dévié la change de −2, un NON de 0 → on aligne les modules
+(cls − dt identique) et Δ ≡ 4 (mod 8) ; (ii) cône : la cible doit être atteignable (vitesse 1/8) ; (iii) avec 2 virages la solution est
+unique et souvent hors délai → virages libres (3 ou 4) pour absorber le temps.
+Sous-système h0 (h0' = ¬h0) : V = (632, −179), Δ = 9 900 ; germe = 5N − 3 vaisseaux (1 puissance + 4 virages par pas, + 1 littéral).
+| N | 4 | 8 | 16 |
+| vaisseaux du germe | 17 | 37 | 77 |
+| conflits du modèle | 0 | 0 | 0 |
+| états finaux = modèle (2 cas) | 2/2 | 2/2 | 2/2 |
+| 2 moteurs identiques | 2/2 | 2/2 | 2/2 |
+Valeur de h0 à chaque pas = la vraie (modèle, logique fausse 0) ; état final simulé = modèle, donc chaque porte a eu l'issue prévue.
+Commande : python3 chainN.py h0 verif chainN_h0.json 8 2  (recherche : NS=8 python3 chainN.py h0 2 300)
+- 11:20–12:00 (R-620) descentes chain_h1b graines 12 → 13 → 14 (reprises) : 141 → 71 → 24 → 12 → 10 conflits (≈ 50 min de calcul).
+  Contrôle par simulation (h1pp_check.py, 4 cas, moteur C) du placement à 10 conflits : 4/4 sales — les 10 conflits sont réels. OUVERT.
+- 11:20–12:00 (R-623) sous-système x, y, h0 : la recherche bloque à 17–35 conflits. Diagnostic : (i) virage « de face » (H) : sa
+  puissance remonte la route du signal (et donc le module cible) → SIDES=+- ; (ii) porte de diffusion trop près du module : sa puissance
+  croise les débris parallèles à la sortie → FANK (100–400 cases) ; (iii) entre usages : un débris de l'usage u' ne peut croiser une
+  puissance entrante de l'usage u > u' que si 8·V/Δ est sur une corde entre deux directions ; pour |8V/Δ| < 1/2 (norme hexagonale),
+  seules les cordes opposées passent, donc il faut V parallèle à un axe → Δ ≥ 2,4 × 8|V| (FDT). DÉMONTRÉ (géométrie, vitesses 1/8).
+  Filtre des conflits (circ.Circ.real) : chaque couple simulé seul autour du rapprochement ; ≈ 2/3 des conflits du modèle sont réels.
+- 12:01–12:05 (R-620) descente sur les conflits RÉELS (chain_h1b.py REALOBJ=1 : chaque couple du modèle simulé seul, moteur C, on ne
+  compte que ceux qui dévient) depuis le placement à 10 conflits (5 réels : 3 fois le même motif parent ↔ Pcy dans le module h1' de
+  face) : 5 → 0 réel en 330 s (graine 15). Paramètres : h1pp_param.json (207 puissances, 228 littéraux, 435 vaisseaux, tmax 335 380).
+  Contrôle moteur C (h1pp_check.py) : 4 cas au hasard + 32 cas (tranches 0/16, 1/16) : 36/36 propres et justes (= h1 après 2 pas).
+  Germe complet 2 pas, 8 bits (germ2.py) : 7 modules R-619 + h1'' translaté de (200 000, 0) ; séparation > 2·T/8 (vitesse 1/8) donc
+  aucune interaction possible entre les deux groupes. Vérification 256 états (C) puis hx.py lancées 12:09 (tâche de fond).
