@@ -1,0 +1,51 @@
+# Calculs longs sur les machines de GitHub (gratuit pour un dépôt public, jusqu'à 6 h par calcul).
+# Pour lancer : ajouter un script calculs/a_lancer/NOM.sh, commit, push (n'importe quelle branche).
+# Le script tourne ici, sans consommer le forfait Claude ; ses résultats sont commités dans
+# calculs/resultats/NOM/ sur la même branche (sortie.txt = 300 dernières lignes, FINI = code de sortie + durée).
+name: calcul
+on:
+  push:
+    paths: ['calculs/a_lancer/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: calcul-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  calcul:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compiler les moteurs
+        run: |
+          make -C src
+          gcc -O2 -w -o recherche/regles/fourmi_r recherche/regles/fourmi_r.c
+          make -C src test | tail -3
+      - name: Lancer les scripts pas encore faits
+        run: |
+          echo "coeurs : $(nproc)"
+          for f in calculs/a_lancer/*.sh; do
+            [ -e "$f" ] || continue
+            n=$(basename "$f" .sh); out="calculs/resultats/$n"
+            [ -e "$out/FINI" ] && { echo "déjà fait : $n"; continue; }
+            mkdir -p "$out"; echo "=== $n"; t0=$(date +%s)
+            set +e
+            OUT="$out" NPROC=$(nproc) timeout 20400 bash "$f" > "$out/sortie_complete.txt" 2>&1
+            code=$?
+            set -e
+            tail -n 300 "$out/sortie_complete.txt" > "$out/sortie.txt"
+            [ $(stat -c%s "$out/sortie_complete.txt") -gt 900000 ] && rm "$out/sortie_complete.txt"
+            echo "code=$code duree_s=$(( $(date +%s) - t0 )) fin=$(date -u +%FT%TZ)" > "$out/FINI"
+            cat "$out/FINI"
+          done
+      - name: Enregistrer les résultats dans la branche
+        run: |
+          git config user.name "calcul-github"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calculs/resultats
+          git diff --cached --quiet && exit 0
+          git commit -m "calcul : résultats ($(ls calculs/resultats | wc -l) dossiers)"
+          for i in 1 2 3; do git pull --rebase -q origin "$GITHUB_REF_NAME" && git push -q origin HEAD:"$GITHUB_REF_NAME" && exit 0; sleep 5; done
+          exit 1
