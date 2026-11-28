@@ -1,0 +1,3 @@
+VERDICT : OK — poses qui lisent le bit (2 CYCLE ≠ ou 1 seul) : 62868 ; passes 2/2 ; 4 min
+passe 0 exact : LECTURE poses 57408 deux CYCLE de périodes différentes 3 un seul CYCLE 183
+passe 1 retard : LECTURE poses 263946 deux CYCLE de périodes différentes 1016 un seul CYCLE 61666

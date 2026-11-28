@@ -1,0 +1,29 @@
+{'AUTOROUTES': 44156, 'CYCLE': 772} objets distincts (p ≤ 200, boîte ≤ 5) : 508
+tirs : 813600
+40000 {'propre': 31533, 'pas 1 vaisseau': 5823, 'vaisseau mauvais': 2644}
+80000 {'propre': 60700, 'pas 1 vaisseau': 12394, 'vaisseau mauvais': 6906}
+120000 {'propre': 90353, 'pas 1 vaisseau': 19186, 'vaisseau mauvais': 10461}
+160000 {'propre': 119487, 'pas 1 vaisseau': 26571, 'vaisseau mauvais': 13942}
+200000 {'propre': 147962, 'pas 1 vaisseau': 33868, 'vaisseau mauvais': 18170}
+240000 {'propre': 177944, 'pas 1 vaisseau': 39972, 'vaisseau mauvais': 22084}
+280000 {'propre': 208399, 'pas 1 vaisseau': 46586, 'vaisseau mauvais': 25015}
+320000 {'propre': 237107, 'pas 1 vaisseau': 54462, 'vaisseau mauvais': 28431}
+360000 {'propre': 266130, 'pas 1 vaisseau': 61638, 'vaisseau mauvais': 32232}
+400000 {'propre': 294083, 'pas 1 vaisseau': 69925, 'vaisseau mauvais': 35992}
+440000 {'propre': 321770, 'pas 1 vaisseau': 77151, 'vaisseau mauvais': 41079}
+480000 {'propre': 349202, 'pas 1 vaisseau': 85346, 'vaisseau mauvais': 45452}
+520000 {'propre': 380786, 'pas 1 vaisseau': 90897, 'vaisseau mauvais': 48317}
+560000 {'propre': 411057, 'pas 1 vaisseau': 96442, 'vaisseau mauvais': 52501}
+600000 {'propre': 441393, 'pas 1 vaisseau': 102773, 'vaisseau mauvais': 55834}
+640000 {'propre': 471762, 'pas 1 vaisseau': 108853, 'vaisseau mauvais': 59385}
+680000 {'propre': 503502, 'pas 1 vaisseau': 115148, 'vaisseau mauvais': 61350}
+720000 {'propre': 532849, 'pas 1 vaisseau': 122322, 'vaisseau mauvais': 64829}
+760000 {'propre': 560813, 'pas 1 vaisseau': 130421, 'vaisseau mauvais': 68766}
+800000 {'propre': 589869, 'pas 1 vaisseau': 136650, 'vaisseau mauvais': 73481}
+840000 {'propre': 599832, 'pas 1 vaisseau': 139041, 'vaisseau mauvais': 74727}
+conversions propres : 599832 dont X1 oscillateur : 599832
+{'sans effet': 544896, 'X1 ≠ X0 / retard': 48560, 'X1 ≠ X0 / voie': 6112, 'X0 déphasé / exact': 32, 'X1 ≠ X0 / exact': 232}
+VERDICT : OK — poses qui lisent le bit (2 CYCLE ≠ ou 1 seul) : 62868 ; passes 2/2 ; 4 min
+passe 0 exact : LECTURE poses 57408 deux CYCLE de périodes différentes 3 un seul CYCLE 183
+passe 1 retard : LECTURE poses 263946 deux CYCLE de périodes différentes 1016 un seul CYCLE 61666
+
