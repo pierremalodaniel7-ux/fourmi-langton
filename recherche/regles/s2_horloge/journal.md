@@ -149,3 +149,120 @@ Complément R-512 (06:15) : mêmes essais sur les 248 horloges à centre entier 
 machines, 58 675 CYCLE dont 1 196 avec interaction, 49 PROPRES (33 horloges ; périodes 978 (2 × 501), 996 (2 × 507), 2 475 (2 × 501)) ;
 hx.py 49/49 (hexa_check.py s2_horloge/hexagramme_propres_3.json). Dans la machine 2 475, mêmes portes à entrées variables (zone 0, droite (0,0) :
 6 fois « tourne », 6 fois « droit »). Total : 96 hexagrammes propres, 2 moteurs.
+
+## Session T2 (27-11, « calcul dans la boucle ») — entrées R-513 et suivantes
+
+## R-513 Une horloge triangle n'absorbe PAS le décalage d'UN seul vaisseau — OBSERVÉ (négatif) (t2_tolere.py)
+20 horloges de tri_cycles_rB5.json (P ≥ 800, 819 et 825) ; chaque fourmi (6), prise à un instant où elle est vaisseau libre (≥ 9 cases des
+autres), décalée de δ (case, distance ≤ 2) et/ou de dt ∈ [−7, 7] pas : 20 × 6 × 284 = 34 080 machines, fourmi_r T = 20 P :
+34 080 AUTOROUTES, 0 CYCLE. Le décalage d'une voie que fait le demi-additionneur R-337 (R-509) casse donc toute horloge où on le met tel quel.
+Commande : python3 s2_horloge/t2_tolere.py 20 800
+
+## R-514 RÈGLE DE COMPENSATION de l'horloge triangle : δh + rot120(δa) = 0, et la taille reste libre — DÉMONTRÉ (calcul exact) + VÉRIFIÉ (596/596)
+Cadre : fermeture 3-symétrique de tri.py (R-500) : un coin (A dir 0, B dir 5) → (A' dir 2, B' dir 3), puis A'(T) = R(A), R(B'(T)) = B,
+R = rotation 120° + translation c. On ajoute, à chaque tiers, un décalage d'espace-temps continu δh sur l'horaire et δa sur l'anti-horaire
+(δ = case + retard : un retard de dt pas = dt/8 de case le long de la direction). Avec x = position continue du vaisseau virtuel :
+  (A) x(A') + δh + T·d₂/8 = rot(x(A)) + c   ⇒ c est fixé ;
+  (B) rot(x(B') + δa + T·d₃/8) + c = x(B)   ⇒ T·(rot(d₃) + d₂)/8 + δh + rot(δa) = [constante du choc, = 0 pour un vrai choc d'horloge].
+Or rot120(d₃) = d₅ = −d₂ : T disparaît (c'est la dégénérescence « d₂ + d₅ = 0 » de R-500, qui donne les familles de toutes tailles).
+Il reste : l'horloge referme ⇔ δh + rot120(δa) = 0 (+ intégralité). Conséquences :
+ · un décalage sur UN seul vaisseau n'est jamais absorbé (t2_absorbe.py : 596 chocs × 284 décalages × {h, a}, T ≤ 1 500 : seul δ = 0 referme) ;
+ · un retard ÉGAL des deux (croisement de face) est toujours absorbé (d'où P = 3T − 18 / − 36) ;
+ · toute paire compensée referme (t2_compense.py : 7 décalages δh dont ceux de R-509, δa = −rot120⁻¹(δh) : 596/596 chocs).
+⇒ pour mettre une porte dans une horloge 3-symétrique, il faut qu'elle décale l'anti-horaire de −rot120⁻¹ du décalage de l'horaire.
+Le demi-additionneur R-337 ne touche que des vaisseaux PAIRS (R-509) : seul, il ne peut pas être mis dans une horloge (cohérent avec R-508,
+R-513) ; il faut une 2e porte qui décale le vaisseau impair (par ex. R-337 tourné de 60°, qui agit sur des impairs).
+Statut : DÉMONTRÉ pour le modèle « vaisseaux virtuels + coin » de tri.py (calcul affine exact en fractions) ; vérifié numériquement.
+Commandes : python3 s2_horloge/t2_absorbe.py 1500 ; python3 s2_horloge/t2_compense.py
+
+## R-515 Deux horloges DIFFÉRENTES de même période, même centre (« bi-horloge ») : aucune interaction qui referme — OBSERVÉ (négatif) (bihorloge.py)
+Toutes les paires d'horloges distinctes de tri_cycles_rB5.json de même P (400 ≤ P ≤ 1 000, centres compatibles), B tournée de 60° (étoile,
+k = 1) ou non (k = 0), tous les décalages s ∈ [0, P) : k = 1 : 128 paires, 76 728 machines, 31 308 CYCLE, 0 avec interaction ;
+k = 0 : 211 paires, 114 534 machines, 2 616 CYCLE, 0 avec interaction. Lecture (R-514) : une porte d'interaction fait CHANGER de triangle
+les deux vaisseaux ; si les deux triangles ne sont pas images l'un de l'autre (hexagramme R-512 : A et rot60(A)), le vaisseau échangé
+n'est pas « le bon » pour l'autre horloge et tout casse. Commandes : python3 s2_horloge/bihorloge.py 400 1000 1 ; … 400 1000 0
+
+## R-516 ÉTOILE DÉCALÉE : horloge + son image par une rotation de 180° autour d'un point O ≠ centre — 316 machines propres — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py 316/316)
+etoile180.py : horloges de tri_cycles_rB5.json (600 ≤ P ≤ 1 000, une par (P, boîte) : 42), B = rot180_O(A avancée de s), s ∈ {0, P/2}
+(les deux valeurs où la superposition a la symétrie d'ordre 2 « état(t + s) = rot180_O(état(t)) »), 2O entier à distance ≤ 30 demi-cases du
+double du centre (sinon c'est l'hexagramme R-512) : 115 618 machines, 71 880 CYCLE, 775 avec interaction réelle ; e180_anal.py : 316 PROPRES
+(événements mixtes = chocs de 2 vaisseaux, un de A, un de B), 16 horloges, toujours P = P(A) (627 … 981). 2e moteur : hx.py premier retour
+= P, 316/316 (hexa_check.py). C'est une 2e famille (après R-512) de machines où deux horloges s'échangent des vaisseaux par des portes
+d'interaction et récupèrent tout ; mais sans la symétrie d'ordre 3 commune : les deux triangles sont décalés (nœud papillon / étoile décentrée).
+Exemple (P = 627, 12 fourmis) : H:R2L2|0,7,5;-7,28,1;-21,21,3;-5,5,4;0,23,0;-23,28,2;-41,34,2;-34,13,4;-20,20,0;-36,36,1;-41,18,3;-18,13,5|0,6;0,7;-7,28;-6,28;-22,22;-21,21;-4,5;-1,24;-23,27;-41,35;-41,34;-34,13;-35,13;-19,19;-20,20;-37,36;-40,17;-18,14
+Sa porte (−11, 12), droite (3, 1) : 12 passages par période, issues D T D T … STRICTEMENT alternées ; chaque fourmi y passe deux fois de suite
+(elle y tourne, fait une petite boucle de 59 à 80 pas, repasse tout droit). Écarts irréguliers (39, 59, 31, 80 par tiers) : ce n'est pas une
+horloge régulière divisée par 2 (voir R-518). Commandes : python3 s2_horloge/etoile180.py 600 1000 30 ; python3 s2_horloge/e180_anal.py
+s2_horloge/etoile180_600_1000.json ; python3 s2_horloge/hexa_check.py s2_horloge/etoile180_600_1000_propres.json
+
+## R-517 Hexagramme + 3e train (même horloge, même centre) : rien — OBSERVÉ (négatif) (hexa3.py)
+96 hexagrammes propres (R-512) + C = A avancée de s2 (k3 = 0) ou rot60(A avancée de s2) (k3 = 1), tous les s2 : 89 691 machines (18 fourmis),
+1 seul CYCLE (P = 1 020 = 2 × 510) : faux positif, A (P 510) + un petit oscillateur de période 60 formé par B et C collés (ppcm = 1 020).
+
+## R-518 Diviseur par 2 dans une machine à symétrie « tiers » : ce qu'il faudrait — AFFIRMÉ (argument) + recherche (t2_portes.py, t2_regulier.py)
+Critère cherché : une droite d'entrée de porte à passages RÉGULIERS (écarts égaux) dont l'issue alterne T, D, T, D (le vaisseau horloge tourne
+quand le bit est là, passe sinon). Résultat : 0 sur les 96 hexagrammes (R-512) et les 775 étoiles décalées (R-516) (écarts tolérés jusqu'à
+60 pas : seulement des motifs « T D T » répétés par tiers, ou « D T D T » irréguliers).
+Argument : si état(T) = R(état(0)), la suite vue par une porte X sur une période est la concaténation de ce que voient X, R⁻¹X, R⁻²X pendant
+un tiers ; une alternance régulière demande un nombre PAIR de passages par tiers sur la même droite, donc ≥ 2 vaisseaux par tiers sur un même
+côté (deux trains : R-511, toujours cassé) ; deux horloges de périodes T et 2T n'ont aucune symétrie commune (2 ≢ 1 mod 3) et deux horloges
+concentriques de rapport 4 (le premier rapport compatible, 4 ≡ 1 mod 3, diviseur par 4) ne se croisent pas (côté ∝ T). OUVERT.
+
+## R-519 Pourquoi le demi-additionneur R-337 n'entre pas dans une horloge : une porte sur UN seul côté n'est jamais absorbée — DÉMONTRÉ (sous hypothèse) ; R-337 dans des horloges concentriques — AFFIRMÉ
+Horloge « déformée » : on cherche une machine où chaque coin est le MÊME choc qu'avant, seulement translaté d'un vecteur d'espace-temps u_k
+(k = 1, 2, 3), et chaque croisement de face du même type. Sur un côté sans porte, l'horaire impose u_{k+1} − u_k ∈ Z·(d_h, 8) et
+l'anti-horaire u_{k+1} − u_k ∈ Z·(d_a, 8) : deux droites distinctes de Z³ ⇒ u_{k+1} = u_k. Avec une porte sur un seul côté, les deux autres
+côtés donnent u_1 = u_2 = u_3, puis les coins du côté à porte imposent δh ∈ Z·(d_h, 8), δa ∈ Z·(d_a, 8) : décalage NUL (le vaisseau
+avancé le long de sa propre route). Donc une porte qui décale doit être répétée sur les trois côtés (cas 3-symétrique, R-514, avec la
+compensation δh + rot120 δa = 0), ou changer le type d'un coin (non couvert par l'argument). Cohérent avec R-513 (0 / 34 080).
+R-337 : ses 3 droites d'entrée (B et K3 : x + y = 0 ; A : x = 30 ; K2 : y = −24) forment un PETIT triangle (côté ≈ 6) orienté comme une
+horloge ; pour que trois horloges concentriques 3-symétriques de même T aient chacune un côté sur l'une de ces droites, il faudrait
+ρ₁ + ρ₂ + ρ₃ ≈ 3 × (rayon du petit triangle) ≈ 5 cases (ρ = distance du centre au côté) : impossible si les trois sont « horaires »
+(chaque ρ ≥ ~ 6) ; il faudrait mélanger des horloges tournées de 60° avec un rapport de tailles ≈ 2 à même période (observé au plus 1,76 :
+P = 507, côtés 25 à 44). De plus il faut la porte compensatrice (R-337 tourné de 60°) sur les vaisseaux impairs. Objectif 1 avec R-337 : OUVERT,
+avec ces obstacles. (Objectif 1 avec une porte R-314 : déjà fait par R-512 et, sans symétrie commune, par R-516.)
+
+## R-520 Le bit M de R-341 DÉPHASÉ par un vaisseau qui passe EXACTEMENT ; deux vaisseaux identiques de suite : rien ne casse — VÉRIFIÉ (fourmi_r + hx.py 256/256, temps fini) (tbascule.py, tb_filtre.py, tb_hx.py)
+Relâche de R-503 (bascule T par des vaisseaux identiques, sortie exacte exigée) : 508 objets à 2 fourmis (cycles exacts, boîte ≤ 5, p ≤ 200),
+1er vaisseau direction 0 sur les voies −7…7, toutes les phases relatives : 813 600 tirs ; 54 936 ont un effet (tb_filtre.py) : 48 560 « objet
+changé + vaisseau retardé », 6 112 « objet changé + vaisseau décalé de voie », 232 « objet changé + vaisseau exact », 32 « objet seulement
+DÉPHASÉ + vaisseau exact ». 2e vaisseau identique Δ ∈ [200, 200 + 8 p1) derrière (10 463 conversions distinctes, 1 227 096 flux) : 256 flux où
+les deux vaisseaux ressortent exacts et l'objet est dans l'orbite de X0 au même endroit ; ce sont 4 objets seulement, tous du type « déphasé » :
+M de R-341 tourné de 2 et de 5 crans (période 21, Δ ≡ 18 mod 21) et un objet de période 30 (Δ ≡ 18 mod 30). Attention : « revenu dans
+l'orbite » ne veut pas dire « revenu à la même phase » ; c'est un DÉPHASEUR (le vaisseau ne voit rien, l'objet avance ou recule de phase),
+pas encore une bascule T. Aucun objet n'est changé en un AUTRE objet puis remis par un vaisseau identique (0 / 1 227 096) : R-503 confirmé
+pour ces 508 objets, même en acceptant des vaisseaux retardés.
+
+## R-521 DOUBLEMENT DE PÉRIODE par la mémoire de phase : horloge (P = 1 131) + bit M → machine de période 2 262 = 2 P — VÉRIFIÉ (CYCLE exact fourmi_r + hx.py premier retour 2 262)
+t2_tb_horloge.py : on pose les 4 objets de R-520 (puis les 30 « vaisseau exact » de tb_filtre) relativement aux vaisseaux de toutes les horloges
+de tri_cycles_rB5.json (P ≤ 1 200) : 468 000 + 78 867 machines ; CYCLE de période P (pixel synchronisé, comme R-502), 5P ou 7P (objet non touché,
+ppcm des périodes) et 72 + 3 de période 2P. Les 3 de P = 414 (objet de période 12) sont triviales (ppcm(414, 12) = 828 : la phase avance comme
+sans vaisseau). Les 72 de P = 1 131 (8 écritures de la même horloge × 9 poses, objet = M tourné) sont VRAIES : à chaque tiers l'horaire fait
+passer M dans un autre état (période 21 aussi) et l'anti-horaire le remet ; les vaisseaux ressortent exacts (12 pas sur 2 262 où une fourmi
+de l'horloge s'écarte, pendant un passage) ; la phase de M au début de chaque tour vaut 0, 18, 0, 18… alors que sans interaction elle ferait
+0, 18, 15, 12… (ppcm(1 131, 21) = 7 917). Le « bit » (phase 0 ou 18) change à CHAQUE tour : s ← s ⊕ 1, causé par l'horloge, et la machine
+ne revient qu'après 2 tours. Machine (8 fourmis) :
+  H:R2L2|-21,24,4;-23,25,3;2,14,0;-14,50,2;-34,34,4;-13,14,1;1,35,3;-34,49,5|2,13;-13,50;-35,35;-12,13;1,36;-35,49;-22,24;-23,25;-21,24;-22,26;-23,26
+Limite honnête : la bascule n'ÉMET rien (les vaisseaux ressortent exacts) ; elle ne peut donc pas piloter une 2e bascule : le compteur
+causal à 2 étages reste OUVERT. Commandes : python3 s2_horloge/t2_tb_horloge.py 1200 ; python3 s2_horloge/t2_tb_check.py
+s2_horloge/t2_doublement.json 0 ; python3 s2_horloge/t2_classes.py s2_horloge/t2_doublement.json 0 0 30 60 90 120
+Complément R-521 (12:12) : mêmes poses avec 300 objets « changés + vaisseau retardé » (tb_filtre, |dt| ≤ 9, une conversion par (objet, voie)),
+une horloge par période P ≤ 700 : 215 910 machines, 246 CYCLE (P, 2P, 4P, 5P) ; TOUS s'expliquent par ppcm(P, période de l'objet non touché)
+(P ≡ 6 mod 12 ⇒ 2P ; P ≡ 3, 9 mod 12 ⇒ 4P ; 30 ⇒ 5P). Aucune horloge « ralentie » (retard compensé h/a) : OBSERVÉ (négatif).
+Commande : python3 s2_horloge/t2_tb_horloge.py 700 retard300
+
+## R-522 HORLOGE QUI RALENTIT ET VAISSEAUX QUI PORTENT UN BIT : 3 objets 3-symétriques qui retardent l'horaire ET l'anti-horaire — VÉRIFIÉ (CYCLE exact fourmi_r ; hx.py sur les exemples)
+t2_sym.py : un objet (conversions de tb_filtre) posé devant un vaisseau d'horloge + ses 2 images par R (rotation 120° + c de l'horloge, objet
+reculé de T, 2T) : la règle de compensation R-514 dit qu'un retard est absorbé s'il touche les 3 côtés et l'horaire comme l'anti-horaire.
+- 30 objets « vaisseau exact », une horloge par P ≤ 1 200 : 60 000 machines, 141 CYCLE ; 60 de période 2P (P = 504).
+- 300 objets « vaisseau retardé », P ≤ 900 : 264 177 machines, 37 770 CYCLE dont 35 985 de période qui N'EST PAS un multiple de P :
+  l'horloge tourne avec un tiers de T + d pas (d = −12 … 36) pendant n tours (classes (n, d) : (1, 33) 1 557, (1, 21) 1 143, (1, 3) 927,
+  (2, 33) 2 232, (2, 3) 1 611, (4, −7) 4 941 …). C'est R-514 vu en vrai : les objets retardent les 6 vaisseaux du même nombre de pas,
+  l'horloge ralentit et tourne pour toujours.
+- Machine t2_sym_doublement504.json n° 0 (12 fourmis : 3 objets de période 12 + horloge 504) : période 1 008 = 2 tours ; hx.py premier retour
+  1 008 ; les 6 vaisseaux s'écartent ensemble de l'horloge seule (675 pas / 1 008) : retard 0, puis +4, puis −4, puis 0 ; au début des tours :
+  0, −4, 0, −4 … (t2_retard.py, t2_porteur.py) alors que les 3 objets sont à la même phase (0) au début de chaque tour. Le bit « tour pair /
+  impair » est donc porté par les VAISSEAUX (leur horaire) : c'est la sortie qui manquait à R-521 (une 2e bascule peut le lire).
+  H:R2L2|3,20,0;2,20,3;-22,44,2;-21,43,5;-21,19,4;-21,20,1;-10,10,3;1,31,5;-31,42,1;1,11,0;-11,42,2;-30,30,4|-8,9;0,33;-32,41;1,10;-10,42;-31,31;-9,10;0,32;-31,41;2,19;4,19;1,21;-20,43;-22,45;-21,42;-22,21;-22,19;-20,20
+Commandes : python3 s2_horloge/t2_sym.py 1200 exact ; python3 s2_horloge/t2_sym.py 900 retard 300 ; python3 s2_horloge/t2_sym_check.py
+s2_horloge/t2_sym_doublement504.json 0 ; python3 s2_horloge/t2_retard.py s2_horloge/t2_sym_doublement504.json 0 3
