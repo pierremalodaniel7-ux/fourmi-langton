@@ -1,7 +1,7 @@
 """Outils communs du banc (recherche/regles) : lancer fourmi_r en lot sur 2 cœurs, lire la sortie."""
-import subprocess, threading
+import subprocess, threading, os
 EXE = './fourmi_r'
-def lot(lines, T, opts=(), ncpu=2):
+def lot(lines, T, opts=(), ncpu=int(os.environ.get('NPROC', 2))):
     """renvoie la liste des lignes de sortie (dans l'ordre des entrées) ; une ligne de sortie par situation (+ DUMP éventuel)."""
     lines = list(lines)
     parts = [lines[i::ncpu] for i in range(ncpu)]
