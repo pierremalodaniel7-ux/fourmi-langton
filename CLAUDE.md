@@ -30,6 +30,16 @@ Les déposer dans le Drive « Fourmi de Langton — recherche (Pierre-Malo) » :
 Aussi dans le dépôt : `resultats/` + journal.md + etat.md + connus.txt, puis commit et push. S'il n'y a aucune
 trouvaille, faire quand même le rapport (et le dire) ; bestiaire et germes vides ne sont pas déposés.
 
+## Calculs longs : sur GitHub, pas dans la session (27/11)
+Le forfait Claude se paie en texte, pas en temps de calcul. Tout balayage de plus de ~10 min se lance sur
+GitHub Actions : écrire `calculs/a_lancer/NOM.sh` (résumé court dans `$OUT/resume.txt`), commit, push ;
+il tourne seul (4 cœurs, ≤ 6 h) et ses résultats reviennent dans `calculs/resultats/NOM/`. Mode d'emploi :
+`calculs/LISEZMOI.md`. Ne pas attendre activement : avancer sur autre chose ou finir la session.
+
+## Reprise rapide (27/11)
+`REPRISE.md` = une page : objectifs ouverts, où ça en est, prochaine action, fichiers utiles.
+Le lire au démarrage À LA PLACE des longs rapports ; le mettre à jour à la fin de chaque session.
+
 ## Démarrage d'une session (dans cet ordre, rien de plus)
 1. Lire `etat.md` (une page). Ne lire `journal.md` que par recherche ciblée : `grep -n "R-14" journal.md`.
 2. `make -C src` puis `make -C src test` (oracle : 19 tests, quelques secondes) avant toute campagne.
