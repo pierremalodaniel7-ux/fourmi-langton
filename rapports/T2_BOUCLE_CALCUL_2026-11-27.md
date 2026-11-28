@@ -13,13 +13,17 @@ recherche/regles/s2_horloge/journal.md, entrées R-513 à R-521. Heures en UTC. 
 - R-519 DÉMONTRÉ (sous hypothèse) : une porte sur un seul côté d'une horloge n'est jamais absorbée ; obstacles pour R-337.
 - R-520 VÉRIFIÉ (2 moteurs, temps fini) : le bit M est DÉPHASÉ par un vaisseau qui passe exactement ; pas de vraie bascule T (0 / 1 227 096 flux).
 - R-521 VÉRIFIÉ (2 moteurs, CYCLE exact) : horloge 1 131 + bit M → période 2 262 = 2 × 1 131 ; la phase de M change à chaque tour (s ← s ⊕ 1).
+- R-522 VÉRIFIÉ (CYCLE exact fourmi_r ; hx.py sur l'exemple) : 3 objets posés 3-symétriquement RALENTISSENT l'horloge (35 985 machines
+  dont la période n'est pas un multiple de P : R-514 vu en vrai). Exemple 504 → 1 008 : les 6 vaisseaux sont décalés ensemble de 0, −4, 0, −4
+  au début des tours : le bit est porté par les VAISSEAUX (la sortie qui manquait à R-521).
 
 ## Objectifs de la mission
 1. R-337 dans une horloge, tous vaisseaux récupérés : NON atteint. Raisons démontrées (R-513, R-514, R-519) : une porte qui décale doit être
    présente sur les 3 côtés ET compensée sur l'anti-horaire ; R-337 ne touche que des pairs ; ses 3 droites d'entrée forment un triangle trop
    petit pour 3 horloges concentriques. (Avec une porte R-314 : déjà fait par R-512, et maintenant aussi sans symétrie commune, R-516.)
 2. Diviseur par 2 causal : PARTIEL. R-521 = diviseur par 2 causé par l'horloge (pas 2 horloges indépendantes), CYCLE exact, 2 moteurs ;
-   mais le « bit » est la phase de M et la bascule n'émet rien : elle ne pilote pas de 2e bascule (OUVERT).
+   R-522 : un diviseur par 2 dont la sortie est l'horaire des vaisseaux (0, −4, 0, −4). Le 2e étage (une bascule qui lit ce retard) :
+   1 038 essais sur la machine 504 (t2_cascade.py), 0 cycle → OUVERT.
 3. Accumulateur 1 bit : PARTIEL, même machine R-521 (s ← s ⊕ 1 à chaque tour, GIF img/doublement_R521.gif) ; calculé par l'interaction
    vaisseau–bit, pas par le demi-additionneur.
 
@@ -33,8 +37,12 @@ recherche/regles/s2_horloge/journal.md, entrées R-513 à R-521. Heures en UTC. 
   la porte « variable » ne fait que retarder les vaisseaux, tous finissent par écrire le pixel) ; ≈ 3 min.
 - 11:45-11:55 tbascule.py étapes 1-3 (508 objets, 813 600 tirs, 1 227 096 flux), ≈ 6 min ; tb_filtre, tb_hx (R-520).
 - 11:56-12:07 t2_tb_horloge.py (468 000 + 78 867 poses, R-521), ≈ 5 min ; t2_tb_check, t2_classes.
-- 12:08-12:13 poses « retardées » (215 910 machines, négatif) ; GIF ; bestiaire 33 (4 fiches), germes, rapport.
-Calcul total ≈ 40 min sur 2 cœurs ; ≈ 3 300 000 simulations.
+- 12:08-12:13 poses « retardées » (215 910 machines, négatif) ; GIF ; bestiaire 33 (4 fiches), germes, rapport ; dépôt Drive ; PR n° 16.
+- 12:14-12:22 t2_sym.py (60 000 + 264 177 machines, R-522), ≈ 7 min ; t2_retard, t2_tours, t2_porteur ; t2_cascade (1 038, 0 cycle).
+- Session interrompue vers 12:25 (quota) ; reprise 28-11 00:46 : PR n° 16 déjà fusionnée (avec R-522) ; ce rapport complété sur la branche.
+- t2_porteur.py sur les 11 000 machines « 2 tours » de R-522 : les 360 « porteurs » annoncés sont des artefacts (erreur de signe : écart = 6d
+  exactement, donc ralentissement régulier ; ou d énorme = mauvaise lecture du nombre de tours) ; seul porteur sûr : la machine 504.
+Calcul total ≈ 50 min sur 2 cœurs ; ≈ 3 600 000 simulations.
 
 ## Ce qui a raté
 - Aucune porte d'hexagramme / d'étoile ne divise par 2 une horloge RÉGULIÈRE (R-518).
@@ -60,4 +68,7 @@ mais ils changent sa phase (son « heure interne ») : 0 au tour 1, 18 au tour 2
 Donc la machine ne revient qu'après 2 tours : c'est un diviseur par 2 provoqué par l'horloge elle-même (prouvé : retour exact, 2 moteurs).
 Il manque encore qu'une bascule « parle » à une autre (un compteur à 2 chiffres).
 
-avancement : 40 % de l'objectif (1 : non ; 2 et 3 : partiels)
+Dernier résultat : avec 3 petits objets posés pareil sur les 3 côtés, l'horloge ralentit sans casser ; et dans un cas (504 pas),
+les vaisseaux arrivent 4 pas en avance un tour sur deux : le « bit » voyage avec eux.
+
+avancement : 45 % de l'objectif (1 : non ; 2 : diviseur par 2 dont les vaisseaux portent le bit ; 3 : partiel)
