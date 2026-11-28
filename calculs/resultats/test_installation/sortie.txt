@@ -1,0 +1,4 @@
+test d'installation du 2026-11-28
+coeurs : 4
+RL|0,0,H||AUTOROUTES|A104(2,2)x1|16384|104,-2,2,9977 boite 171x142 fin -140,118
+-h|ERREUR|format|0|
