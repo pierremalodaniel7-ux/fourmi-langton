@@ -1,0 +1,51 @@
+01:16:58 moteur C à tC, 256 états
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/deux_pas_long.py", line 11, in <module>
+    from t4lib import *
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/t4lib.py", line 13, in <module>
+    from step import Step, load_params
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/step.py", line 12, in <module>
+    from cert2 import certificate2
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/cert2.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/cert2.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+01:16:58 hx.py sur 256 états, 4 tranches
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/deux_pas_long.py", line 11, in <module>
+    from t4lib import *
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/t4lib.py", line 13, in <module>
+    from step import Step, load_params
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/step.py", line 12, in <module>
+    from cert2 import certificate2
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/cert2.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+01:16:58 fin
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/deux_pas_long.py", line 11, in <module>
+    from t4lib import *
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/t4lib.py", line 13, in <module>
+    from step import Step, load_params
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/step.py", line 12, in <module>
+    from cert2 import certificate2
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/cert2.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/deux_pas_long.py", line 11, in <module>
+    from t4lib import *
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s4_ecran/t4/t4lib.py", line 13, in <module>
+    from step import Step, load_params
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/step.py", line 12, in <module>
+    from cert2 import certificate2
+  File "/home/runner/work/fourmi-langton/fourmi-langton/recherche/regles/s3_pas/cert2.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+cat: /home/runner/work/fourmi-langton/fourmi-langton/calculs/resultats/r723_ecran2/resume.txt: No such file or directory

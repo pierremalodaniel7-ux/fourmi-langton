@@ -1,0 +1,30 @@
+VERDICT : OK — 256/256 justes et propres (moteur C), py 16/16 identiques et justes
+durée 1041 s ; étape : fin|VERDICT : OK — 256/256 justes et propres (moteur C), py 16/16 identiques et justes
+moteur C, placement h1pp_param.json : 256 cas, 0 sales, 0 faux
+hx.py (py) : 16 cas, 0 sales, 0 faux, 2 moteurs identiques 16/16
+détail des tranches C :
+  h1'' [0/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 107 s
+  h1'' [1/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [10/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [11/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [12/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [13/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 105 s
+  h1'' [14/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [15/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [2/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 107 s
+  h1'' [3/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [4/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [5/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [6/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [7/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 105 s
+  h1'' [8/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 106 s
+  h1'' [9/16] : 16 cas, 0 sales, 0 faux, 2 moteurs 0/0, tmax 335380, 435 vaisseaux — 107 s
+détail py :
+  h1'' [0/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 48 s
+  h1'' [16/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 48 s
+  h1'' [160/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 48 s
+  h1'' [176/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 47 s
+  h1'' [192/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 47 s
+  h1'' [208/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 47 s
+  h1'' [224/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 47 s
+  h1'' [240/256] : 1 cas, 0 sales, 0 faux, 2 moteurs 1/1, tmax 335380, 435 vaisseaux — 47 s
