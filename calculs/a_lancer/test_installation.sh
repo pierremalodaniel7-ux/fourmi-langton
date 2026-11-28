@@ -6,3 +6,4 @@ echo "coeurs : $NPROC"
 ./recherche/regles/fourmi_r -h 2>&1 | head -2
 } > "$OUT/resume.txt"
 cat "$OUT/resume.txt"
+# relance du test
