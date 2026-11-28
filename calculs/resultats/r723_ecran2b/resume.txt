@@ -1,0 +1,10 @@
+VERDICT : OK — 256/256 justes et propres (hx, 4 lectures + 8 ports), C 256/256 justes
+durée 2076 s ; étape : fin
+moteur C à tC = 397574 : 256/256 justes, 256/256 propres ; empreintes distinctes 256
+hx tA : justes 256/256, propres 256/256
+hx tA2 : justes 256/256, propres 256/256
+hx tB : justes 256/256, propres 256/256
+hx tC : justes 256/256, propres 256/256
+hx sorties du pas 2 (usage 2) justes : 256/256
+C et hx même état final (empreinte) : 256/256
+aucun pixel faux dans les états hx calculés
